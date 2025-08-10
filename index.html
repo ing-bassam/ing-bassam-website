@@ -6,6 +6,11 @@
   <title>Bassam Ingenieurbüro für Bauwesen GmbH – Ausschreibung, Vergabe, Gutachten</title>
   <meta name="description" content="Ingenieurbüro in Berlin für Leistungsphase 6 und 7 nach HOAI, professionelle Ausschreibung und Vergabe von Bauleistungen, Gutachten für Bauschäden sowie Immobilienwertermittlung." />
   <meta name="theme-color" content="#0b1220" />
+  <link rel="canonical" href="https://ing-bassam.de/" />
+  <meta property="og:title" content="Bassam Ingenieurbüro für Bauwesen GmbH" />
+  <meta property="og:description" content="Ausschreibung (HOAI LP 6/7), Vergabe, Baugutachten, Immobilienbewertung – Berlin." />
+  <meta property="og:url" content="https://ing-bassam.de/" />
+  <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='48' fill='%231e2a78'/%3E%3Cpath d='M64 176l64-96 64 96' stroke='%23fff' stroke-width='16' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='128' cy='112' r='10' fill='%23fff'/%3E%3C/svg%3E" />
   <style>
     :root{ --bg:#0b1220; --box:#11182c; --ink:#e9ecf3; --muted:#a7b0c6; --brand:#4776ff; --brand-2:#6ad2ff; --line:#223057; }
@@ -92,7 +97,7 @@
     "@type": "LocalBusiness",
     "name": "Bassam Ingenieurbüro für Bauwesen GmbH",
     "description": "Ausschreibung und Vergabe nach HOAI LP 6 und 7, Baugutachten, Immobilienbewertung.",
-    "url": "https://rococo-jelly-e39618.netlify.app/",
+    "url": "https://ing-bassam.de/",
     "telephone": "+49 176 23581339",
     "address": {
       "@type": "PostalAddress",
@@ -148,12 +153,8 @@
         <div class="card" aria-label="Schnellkontakt">
           <h2 style="margin:0 0 10px">Kurzcheck für Ihr Projekt</h2>
           <p class="sub" style="margin:0 0 14px">Antwort innerhalb eines Werktags</p>
-          <!-- Netlify Form: Quickcheck -->
-          <form id="quickform" class="grid-2" name="quickcheck" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="quickcheck" />
-            <p hidden>
-              <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-            </p>
+          <!-- Formular: Quickcheck (Formspree oder Mailto-Fallback) -->
+          <form id="quickform" class="grid-2" name="quickcheck">
             <div class="field"><label for="qname">Name</label><input id="qname" name="name" required placeholder="Vor- und Nachname"/></div>
             <div class="field"><label for="qmail">E-Mail</label><input id="qmail" name="email" type="email" required placeholder="name@firma.de"/></div>
             <div class="field"><label for="qtyp">Leistungsart</label>
@@ -166,6 +167,7 @@
             </div>
             <div class="field"><label for="qtel">Telefon</label><input id="qtel" name="tel" placeholder="+49"/></div>
             <div class="field" style="grid-column:1/-1"><label for="qmsg">Kurzbeschreibung</label><textarea id="qmsg" name="msg" placeholder="Projekt, Termin, Ort"></textarea></div>
+            <p aria-hidden="true" style="display:none"><label>Feld leer lassen<input name="_gotcha" /></label></p>
             <div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;justify-content:space-between">
               <button class="btn" type="submit">Absenden</button>
               <small class="sub">Durch Absenden stimmen Sie der Verarbeitung zum Zweck der Kontaktaufnahme zu.</small>
@@ -291,12 +293,8 @@
         <div>
           <h2 id="h-kontakt">Kontakt</h2>
           <p class="sub">Wir melden uns schnell zurück.</p>
-          <!-- Netlify Form: Kontakt -->
-          <form id="contact" class="grid-2" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="kontakt" />
-            <p hidden>
-              <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
-            </p>
+          <!-- Formular: Kontakt (Formspree oder Mailto-Fallback) -->
+          <form id="contact" class="grid-2" name="kontakt">
             <div class="field"><label for="name">Name</label><input id="name" name="name" required placeholder="Vor- und Nachname" /></div>
             <div class="field"><label for="email">E-Mail</label><input id="email" name="email" type="email" required placeholder="name@firma.de" /></div>
             <div class="field"><label for="tel">Telefon</label><input id="tel" name="tel" placeholder="+49" /></div>
@@ -310,6 +308,7 @@
               </select>
             </div>
             <div class="field" style="grid-column:1/-1"><label for="msg">Nachricht</label><textarea id="msg" name="msg" required placeholder="Ihre Anfrage"></textarea></div>
+            <p aria-hidden="true" style="display:none"><label>Feld leer lassen<input name="_gotcha" /></label></p>
             <div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;justify-content:space-between">
               <button class="btn" type="submit">Senden</button>
               <small class="sub">Mit dem Senden stimmen Sie der Verarbeitung Ihrer Angaben zur Bearbeitung zu.</small>
@@ -375,18 +374,52 @@
       });
     }
 
-    // Optional: JS‑Erfolgsmeldung bei statischem Submit (wird mit Netlify nicht benötigt)
-    function handleForm(id, okId){
-      const f = document.getElementById(id);
+    // === Formulare: Formspree-Endpoint ODER Mailto-Fallback ===
+    // 1) Ersetze die X mit deinem Formspree-Code (z. B. https://formspree.io/f/abcdwxyz)
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/XXXXXXXX';
+    const MAILTO = 'k.abuelkheir@ing-bassam.de';
+
+    function handleFormAjax(formId, okId){
+      const f = document.getElementById(formId);
       const ok = document.getElementById(okId);
       if(!f) return;
-      f.addEventListener('submit', (e) => {
-        // Bei Netlify übernimmt der Server – diese Meldung dient nur als Fallback
-        if(ok){ ok.style.display = 'block'; }
+      f.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if(!f.checkValidity()){ f.reportValidity(); return; }
+
+        // Wenn Formspree noch nicht konfiguriert ist → Mailto-Fallback
+        const noEndpoint = FORMSPREE_ENDPOINT.includes('XXXXXXXX');
+        if(noEndpoint){
+          const subject = encodeURIComponent('Anfrage über ing-bassam.de: ' + (f.name?.value || 'Kontakt'));
+          const body = [];
+          new FormData(f).forEach((v,k)=> body.push(`${k}: ${v}`));
+          window.location.href = `mailto:${MAILTO}?subject=${subject}&body=${encodeURIComponent(body.join('
+'))}`;
+          if(ok){ ok.style.display='block'; }
+          f.reset();
+          return;
+        }
+
+        try{
+          const res = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(f)
+          });
+          if(res.ok){
+            if(ok){ ok.style.display='block'; }
+            f.reset();
+          }else{
+            alert('Senden fehlgeschlagen. Bitte direkt per E-Mail kontaktieren: ' + MAILTO);
+          }
+        }catch(err){
+          alert('Netzwerkfehler. Bitte per E-Mail kontaktieren: ' + MAILTO);
+        }
       });
     }
-    handleForm('contact','ok');
-    handleForm('quickform','qok');
+
+    handleFormAjax('contact','ok');
+    handleFormAjax('quickform','qok');
 
     // Modale Helfer
     function openModal(id){
