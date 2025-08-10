@@ -153,8 +153,11 @@
         <div class="card" aria-label="Schnellkontakt">
           <h2 style="margin:0 0 10px">Kurzcheck für Ihr Projekt</h2>
           <p class="sub" style="margin:0 0 14px">Antwort innerhalb eines Werktags</p>
-          <!-- Formular: Quickcheck (Formspree oder Mailto-Fallback) -->
+          <!-- Formular: Quickcheck (Formspree) -->
           <form id="quickform" class="grid-2" name="quickcheck">
+            <input type="hidden" name="_subject" value="Quickcheck – Anfrage über ing-bassam.de">
+            <input type="hidden" name="formular" value="quickcheck">
+
             <div class="field"><label for="qname">Name</label><input id="qname" name="name" required placeholder="Vor- und Nachname"/></div>
             <div class="field"><label for="qmail">E-Mail</label><input id="qmail" name="email" type="email" required placeholder="name@firma.de"/></div>
             <div class="field"><label for="qtyp">Leistungsart</label>
@@ -167,6 +170,7 @@
             </div>
             <div class="field"><label for="qtel">Telefon</label><input id="qtel" name="tel" placeholder="+49"/></div>
             <div class="field" style="grid-column:1/-1"><label for="qmsg">Kurzbeschreibung</label><textarea id="qmsg" name="msg" placeholder="Projekt, Termin, Ort"></textarea></div>
+
             <p aria-hidden="true" style="display:none"><label>Feld leer lassen<input name="_gotcha" /></label></p>
             <div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;justify-content:space-between">
               <button class="btn" type="submit">Absenden</button>
@@ -293,8 +297,11 @@
         <div>
           <h2 id="h-kontakt">Kontakt</h2>
           <p class="sub">Wir melden uns schnell zurück.</p>
-          <!-- Formular: Kontakt (Formspree oder Mailto-Fallback) -->
+          <!-- Formular: Kontakt (Formspree) -->
           <form id="contact" class="grid-2" name="kontakt">
+            <input type="hidden" name="_subject" value="Kontakt – Anfrage über ing-bassam.de">
+            <input type="hidden" name="formular" value="kontakt">
+
             <div class="field"><label for="name">Name</label><input id="name" name="name" required placeholder="Vor- und Nachname" /></div>
             <div class="field"><label for="email">E-Mail</label><input id="email" name="email" type="email" required placeholder="name@firma.de" /></div>
             <div class="field"><label for="tel">Telefon</label><input id="tel" name="tel" placeholder="+49" /></div>
@@ -308,6 +315,7 @@
               </select>
             </div>
             <div class="field" style="grid-column:1/-1"><label for="msg">Nachricht</label><textarea id="msg" name="msg" required placeholder="Ihre Anfrage"></textarea></div>
+
             <p aria-hidden="true" style="display:none"><label>Feld leer lassen<input name="_gotcha" /></label></p>
             <div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;justify-content:space-between">
               <button class="btn" type="submit">Senden</button>
@@ -374,9 +382,8 @@
       });
     }
 
-    // === Formulare: Formspree-Endpoint ODER Mailto-Fallback ===
-    // 1) Ersetze die X mit deinem Formspree-Code (z. B. https://formspree.io/f/abcdwxyz)
-    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/XXXXXXXX';
+    // === Formulare über Formspree einsenden (mit Mailto-Fallback) ===
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrblrldq';
     const MAILTO = 'k.abuelkheir@ing-bassam.de';
 
     function handleFormAjax(formId, okId){
@@ -387,14 +394,12 @@
         e.preventDefault();
         if(!f.checkValidity()){ f.reportValidity(); return; }
 
-        // Wenn Formspree noch nicht konfiguriert ist → Mailto-Fallback
-        const noEndpoint = FORMSPREE_ENDPOINT.includes('XXXXXXXX');
+        const noEndpoint = !FORMSPREE_ENDPOINT || FORMSPREE_ENDPOINT.includes('XXXXXXXX');
         if(noEndpoint){
           const subject = encodeURIComponent('Anfrage über ing-bassam.de: ' + (f.name?.value || 'Kontakt'));
-          const body = [];
-          new FormData(f).forEach((v,k)=> body.push(`${k}: ${v}`));
-          window.location.href = `mailto:${MAILTO}?subject=${subject}&body=${encodeURIComponent(body.join('
-'))}`;
+          const lines = [];
+          new FormData(f).forEach((v,k)=> lines.push(`${k}: ${v}`));
+          window.location.href = `mailto:${MAILTO}?subject=${subject}&body=${encodeURIComponent(lines.join('\n'))}`;
           if(ok){ ok.style.display='block'; }
           f.reset();
           return;
