@@ -2,93 +2,10 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bassam Ingenieurbüro für Bauwesen GmbH – Ausschreibung, Vergabe, Gutachten</title>
-  <meta name="description" content="Ingenieurbüro in Berlin für Leistungsphase 6 und 7 nach HOAI, professionelle Ausschreibung und Vergabe von Bauleistungen, Gutachten für Bauschäden sowie Immobilienwertermittlung." />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="canonical" href="https://ing-bassam.de/" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='48' fill='%23ffffff'/%3E%3Cpath d='M64 176l64-96 64 96' stroke='%232457ff' stroke-width='16' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='128' cy='112' r='10' fill='%232457ff'/%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-
-  <!-- Plausible Analytics -->
-  <script defer data-domain="ing-bassam.de" src="https://plausible.io/js/script.outbound-links.js"></script>
-  <script>
-    window.plausible = window.plausible || function() {
-      (window.plausible.q = window.plausible.q || []).push(arguments)
-    }
-  </script>
-  <style>
-    body { font-family: 'Inter', Arial, sans-serif; margin:0; padding:0; background:#f8fafd;}
-    .container {max-width:900px;margin:0 auto;padding:2em;}
-    .grid-2 {display:grid;grid-template-columns:1fr 1fr;gap:2em;}
-    .card {background:#fff;border-radius:12px;box-shadow:0 2px 16px #0002;padding:2em;}
-    label {font-weight:600;}
-    input, textarea, button {font-family:inherit;font-size:1em;}
-    input, textarea {width:100%;margin-bottom:1em;padding:.7em;border:1px solid #bbb;border-radius:4px;box-sizing:border-box;}
-    button {background:#2457ff;color:#fff;font-weight:600;padding:0.75em 1.5em;border:none;border-radius:6px;cursor:pointer;transition:background .2s;}
-    .field-honey {position:absolute !important; left:-9999px; width:1px; height:1px; overflow:hidden;}
-    .ok, .err {display:none; padding:1em; margin-bottom:1em; border-radius:5px;}
-    .ok {background:#d4f7e5;color:#10643c;}
-    .err {background:#ffe1e1;color:#b30000;}
-    .footer {background:#f4f4f7;padding:2em 1em;text-align:center;font-size:1em;color:#333;}
-    .footer a {color:#2457ff;text-decoration:none;margin:0 0.7em;}
-  </style>
+  <title>Test funktioniert!</title>
 </head>
 <body>
-  <main class="container">
-    <h1>Bassam Ingenieurbüro für Bauwesen GmbH</h1>
-    <div class="grid-2">
-      <!-- Kontaktformular -->
-      <div class="card">
-        <h2>Kontakt</h2>
-        <form id="contact" name="kontakt" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off">
-          <input type="hidden" name="_subject" value="Kontakt – Anfrage über ing-bassam.de">
-          <input type="hidden" name="formular" value="kontakt">
-          <input type="hidden" name="ts_start" id="contact_ts_start" />
-          <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
-          <label>Ihr Name:<input type="text" name="name" required /></label>
-          <label>E-Mail:<input type="email" name="email" required /></label>
-          <label>Nachricht:<textarea name="message" required rows="4"></textarea></label>
-          <button type="submit">Absenden</button>
-          <div id="ok" class="ok">Vielen Dank! Ihre Nachricht wurde versendet.</div>
-          <div id="err" class="err">Fehler beim Senden. Bitte versuchen Sie es erneut.</div>
-        </form>
-      </div>
-      <!-- Quickcheck-Formular -->
-      <div class="card">
-        <h2>Quickcheck</h2>
-        <form id="quickform" name="quickcheck" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off">
-          <input type="hidden" name="_subject" value="Quickcheck – Anfrage über ing-bassam.de">
-          <input type="hidden" name="formular" value="quickcheck">
-          <input type="hidden" name="ts_start" id="quick_ts_start" />
-          <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
-          <label>Ihr Name:<input type="text" name="name" required /></label>
-          <label>E-Mail:<input type="email" name="email" required /></label>
-          <label>Kurze Beschreibung:<textarea name="beschreibung" required rows="3"></textarea></label>
-          <button type="submit">Absenden</button>
-          <div id="qok" class="ok">Vielen Dank für Ihre Anfrage!</div>
-          <div id="qerr" class="err">Fehler beim Senden. Bitte versuchen Sie es erneut.</div>
-        </form>
-      </div>
-    </div>
-  </main>
-  <footer class="footer" role="contentinfo">
-    © <span id="y"></span> Bassam Ingenieurbüro für Bauwesen GmbH –
-    <a href="#">Impressum</a> · <a href="#">Datenschutz</a>
-  </footer>
-  <script>
-    // Jahr im Footer aktualisieren
-    document.addEventListener("DOMContentLoaded", function() {
-      var y = document.getElementById("y");
-      if (y) y.textContent = new Date().getFullYear();
-      // Zeitfalle initialisieren
-      var ts1 = document.getElementById("quick_ts_start");
-      if (ts1) ts1.value = Date.now();
-      var ts2 = document.getElementById("contact_ts_start");
-      if (ts2) ts2.value = Date.now();
-    });
-  </script>
+  <h1>Testseite: HTML funktioniert</h1>
+  <p>Wenn du DAS siehst, wird deine HTML-Datei richtig ausgeliefert.</p>
 </body>
 </html>
