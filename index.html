@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Bassam Ingenieurbüro für Bauwesen GmbH – Ausschreibung, Vergabe, Gutachten</title>
   <meta name="description" content="Ingenieurbüro in Berlin für Leistungsphase 6 und 7 nach HOAI, professionelle Ausschreibung und Vergabe von Bauleistungen, Gutachten für Bauschäden sowie Immobilienwertermittlung. Berlin Bauingenieur Ausschreibung Vergabe Gutachten." />
   <meta name="theme-color" content="#ffffff" />
@@ -18,22 +18,54 @@
       --brand:#2457ff; --brand-2:#65a3ff; --line:rgba(15,23,42,.12);
       --glass:rgba(255,255,255,.65); --glass-strong:rgba(255,255,255,.82);
       --ok:#14b885; --warn:#e4644e; --navh:72px;
+      --gutter: clamp(14px, 4vw, 20px); /* neuer mobiler Seitenabstand */
     }
     @media (prefers-color-scheme: dark){
       :root{ --bg:#0b1220; --ink:#e9ecf3; --muted:#a7b0c6; --line:rgba(255,255,255,.12);
         --glass:rgba(17,24,44,.6); --glass-strong:rgba(17,24,44,.8); }
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial;color:var(--ink);background:linear-gradient(180deg,#ffffff,var(--bg) 60%)}
+    html,body{
+      margin:0;height:100%;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Helvetica,Arial;
+      color:var(--ink);
+      background:linear-gradient(180deg,#ffffff,var(--bg) 60%);
+      overflow-x:hidden; /* keine horizontale Scrollbar */
+    }
     html{scroll-behavior:smooth}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
-    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+    /* Container mit flexiblen Innenabständen (mobil zentriert, keine "linke Einrückung") */
+    .container{
+      max-width:1200px;
+      margin-inline:auto;
+      padding-inline:var(--gutter);
+    }
+
+    /* iOS Safe-Area berücksichtigen (Notch) */
+    @supports (padding: max(0px)){
+      .container{
+        padding-left:max(var(--gutter), env(safe-area-inset-left));
+        padding-right:max(var(--gutter), env(safe-area-inset-right));
+      }
+      .wrap{
+        padding-left:max(0px, env(safe-area-inset-left));
+        padding-right:max(0px, env(safe-area-inset-right));
+      }
+      body{
+        padding-left:max(0px, env(safe-area-inset-left));
+        padding-right:max(0px, env(safe-area-inset-right));
+      }
+    }
+
     .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border:0;font-weight:600;box-shadow:0 10px 28px rgba(36,87,255,.25);cursor:pointer;transition:transform .15s ease,box-shadow .2s ease}
     .btn:hover{transform:translateY(-1px);box-shadow:0 16px 34px rgba(36,87,255,.28)}
     .btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none;color:var(--ink)}
     .btn[disabled]{opacity:.6;cursor:wait}
     .glass{background:var(--glass);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);border:1px solid var(--line);box-shadow:0 12px 40px rgba(14,21,37,.08)}
+
     .nav{position:fixed;top:0;left:0;right:0;z-index:1000}
     .nav .inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .wrap{border-bottom:1px solid var(--line)}
@@ -43,48 +75,64 @@
     .nav a{opacity:.9}
     .navlinks{display:flex;gap:18px;align-items:center}
     .hamb{display:none}
+
     .hero{position:relative;padding:90px 0 50px;overflow:hidden}
     .bgfx{position:absolute;inset:0;pointer-events:none;background:
       radial-gradient(900px 500px at 15% -10%, rgba(36,87,255,.14), transparent 60%),
       radial-gradient(700px 400px at 90% 0%, rgba(101,163,255,.12), transparent 60%)}
     .hero .grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:32px;align-items:center}
+
     .card{border-radius:18px;padding:18px}
     .card.glass{background:var(--glass-strong)}
+
     h1{font-size:40px;line-height:1.12;margin:0 0 12px}
     p.lead{font-size:18px;color:var(--muted);margin:0 0 18px;max-width:65ch}
     .badges{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
     .badge{font-size:12px;color:#2457ff;border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(36,87,255,.08)}
+
     .section{padding:64px 0}
     .section h2{font-size:28px;margin:0 0 8px}
     .section p.sub{color:var(--muted);margin:0 0 24px}
+
     .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
     .feature{display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:16px;border:1px solid var(--line)}
     .feature h3{margin:0;font-size:18px}
     .feature p{color:var(--muted);margin:0}
+
     .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
     .step{padding:16px;border:1px solid var(--line);border-radius:14px}
     .step b{display:inline-block;font-size:12px;opacity:.8;margin-bottom:6px}
+
     .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
     .stat{padding:16px;border:1px dashed var(--line);border-radius:14px;text-align:center;background:rgba(255,255,255,.6)}
     .stat .n{font-weight:800;font-size:28px}
     .stat .k{color:var(--muted)}
+
     .logos{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;opacity:.85}
     .logos div{height:42px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,#ffffff,#f3f6fb)}
+
     .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
     .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
     .field{display:flex;flex-direction:column;gap:6px}
     .field label{font-size:13px;color:#475167}
     .field input,.field textarea,.field select{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--ink)}
     .field textarea{min-height:120px}
+
     .footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:14px}
     .imprint{font-size:14px;color:var(--muted)}
+
     .topbtn{position:fixed;right:18px;bottom:18px;border-radius:999px;border:1px solid var(--line);padding:10px 14px;background:var(--glass);backdrop-filter:blur(10px);cursor:pointer;display:none}
+
     /* Fixierte Navbar: Platz schaffen und Anker-Offset */
     body{padding-top:var(--navh)}
     .section,.hero,[id]{scroll-margin-top:calc(var(--navh) + 12px)}
+
     .alert{display:none;margin-top:10px;padding:12px 14px;border-radius:12px;border:1px solid var(--line)}
     .alert.ok{display:block;background:rgba(20,184,133,.08);color:#0a7f5e}
     .alert.err{display:block;background:rgba(228,100,78,.08);color:#8a3a2d}
+
     /* Animationen und Feedback */
     @keyframes spin{to{transform:rotate(360deg)}}
     @keyframes fadeInUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
@@ -101,14 +149,23 @@
     .checkmark svg{width:18px;height:18px}
     .checkmark path{stroke-dasharray:48;stroke-dashoffset:48;animation:dash .9s ease forwards}
     @keyframes dash{to{stroke-dashoffset:0}}
+
     /* Toasts */
     #toasts{position:fixed;top:16px;right:16px;display:flex;flex-direction:column;gap:10px;z-index:9999}
     .toast{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--glass-strong);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(0,0,0,.08);opacity:0;transform:translateY(-6px);animation:slideDown .25s ease forwards}
     .toast.ok{border-color:rgba(20,184,133,.35)}
     .toast.err{border-color:rgba(228,100,78,.35)}
+
     /* Konfetti */
     .confetti{position:absolute;pointer-events:none;width:8px;height:8px;top:0;left:0;opacity:.9;animation:confettiFall .9s ease-out forwards}
     .shake{animation:shake .5s ease both}
+
+    /* Kleinere Typo-Anpassungen auf sehr kleinen Screens */
+    @media (max-width: 420px){
+      h1 { font-size:30px; }
+      .badge { font-size:11px; }
+    }
+
     @media (max-width: 1000px){
       .hero .grid{grid-template-columns:1fr}
       .features{grid-template-columns:1fr 1fr}
@@ -183,7 +240,7 @@
           </div>
         </div>
 
-        <!-- Schnellkontakt-Formular: korrekt eingebunden -->
+        <!-- Schnellkontakt-Formular -->
         <div class="card glass" aria-label="Schnellkontakt">
           <h2 style="margin:0 0 10px">Kurzcheck für Ihr Projekt</h2>
           <p class="sub" style="margin:0 0 14px">Antwort innerhalb eines Werktags</p>
@@ -217,7 +274,7 @@
             Vielen Dank, Ihre Nachricht ist eingegangen. Wir melden uns in Kürze.
           </div>
           <div id="qerr" class="alert err" role="status" aria-live="polite" style="display:none">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 8v4m0 4h.01M12 5a7 7 0 100 14 7 7 0 000-14z" stroke="#e4644e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 8v4m0 4h.01M12 5a 7 7 0 100 14 7 7 0 000-14z" stroke="#e4644e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span>Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt per E-Mail.</span>
           </div>
         </div>
@@ -371,7 +428,7 @@
             Vielen Dank. Wir melden uns kurzfristig.
           </div>
           <div id="err" class="alert err" role="status" aria-live="polite" style="display:none">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 8v4m0 4h.01M12 5a7 7 0 100 14 7 7 0 000-14z" stroke="#e4644e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 8v4m0 4h.01M12 5a 7 7 0 100 14 7 7 0 000-14z" stroke="#e4644e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span>Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt per E-Mail.</span>
           </div>
         </div>
@@ -419,7 +476,7 @@
   <button id="topbtn" class="topbtn" aria-label="Nach oben">▲</button>
 
   <script>
-    // Jahr anzeigen
+    // Jahr
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // Nav-Höhe dynamisch ermitteln
@@ -463,7 +520,7 @@
     });
     topbtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-    // Formspree AJAX Konfiguration
+    // Formspree AJAX
     const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrblrldq';
     const MAILTO = 'k.abuelkheir@ing-bassam.de';
 
@@ -513,7 +570,6 @@
         ev.preventDefault();
         if(!form.checkValidity()){ form.reportValidity(); return; }
         if(!FORMSPREE_ENDPOINT){
-          // Fallback per mailto, bleibt auf Seite
           const subject = encodeURIComponent('Anfrage über ing-bassam.de: ' + (form.getAttribute('name') || 'Kontakt'));
           const lines = [];
           new FormData(form).forEach((v,k)=> lines.push(`${k}: ${v}`));
@@ -529,14 +585,14 @@
     enableAjax('contact','ok','err');
     enableAjax('quickform','qok','qerr');
 
-    // Modale Helfer
+    // Modale
     function openModal(id){
       const el = document.getElementById(id);
       if(el && el.showModal) el.showModal();
     }
     window.openModal = openModal;
 
-    // Animations-Helfer
+    // Animationen
     function popCard(el){
       el.closest('.card')?.animate(
         [{transform:'scale(.98)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],
@@ -552,7 +608,7 @@
       t.setAttribute('role','status');
       t.innerHTML = (type==='ok'
         ? '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#14b885" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-        : '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 8v4m0 4h.01M12 5a7 7 0 100 14 7 7 0 000-14z" stroke="#e4644e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+        : '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 8v4m0 4h.01M12 5a 7 7 0 100 14 7 7 0 000-14z" stroke="#e4644e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
       ) + '<span>'+ msg +'</span>';
       wrap.appendChild(t);
       setTimeout(()=>{
