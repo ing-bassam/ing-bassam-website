@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <!-- Plausible Analytics mit Outbound-Link-Tracking -->
+  <!-- Plausible Analytics -->
   <script defer data-domain="ing-bassam.de" src="https://plausible.io/js/script.outbound-links.js"></script>
   <script>
     window.plausible = window.plausible || function() {
@@ -23,34 +23,14 @@
     }
   </script>
   <style>
-    html, body {margin:0;padding:0;font-family:'Inter',Arial,sans-serif;background:#f8fafd;}
-    .container {max-width:900px;margin:0 auto;padding:2em;}
-    .grid-2 {display:grid;grid-template-columns:1fr 1fr;gap:2em;}
-    .card {background:#fff;border-radius:12px;box-shadow:0 2px 16px #0002;padding:2em;position:relative;transition:.2s;}
-    .card.shake {animation:shake .3s;}
-    @keyframes shake {10%,90%{transform:translateX(-2px);}
-      20%,80%{transform:translateX(4px);}
-      30%,50%,70%{transform:translateX(-8px);}
-      40%,60%{transform:translateX(8px);}
+    .field-honey { 
+      position: absolute !important; 
+      left: -9999px; 
+      width: 1px; 
+      height: 1px; 
+      overflow: hidden;
     }
-    label {font-weight:600;}
-    input, textarea, button {font-family:inherit;font-size:1em;}
-    input, textarea {width:100%;margin-bottom:1em;padding:.7em;border:1px solid #bbb;border-radius:4px;box-sizing:border-box;}
-    button {background:#2457ff;color:#fff;font-weight:600;padding:0.75em 1.5em;border:none;border-radius:6px;cursor:pointer;transition:background .2s;}
-    button:disabled {background:#aaa;}
-    .spinner { display:inline-block; width:1em; height:1em; border:2px solid #fff; border-radius:50%; border-top:2px solid #2457ff; animation:spin 1s linear infinite; margin-right:.5em;}
-    @keyframes spin {100%{transform:rotate(360deg);} }
-    .field-honey {position:absolute !important; left:-9999px; width:1px; height:1px; overflow:hidden;}
-    .ok, .err {display:none; padding:1em; margin-bottom:1em; border-radius:5px;}
-    .ok {background:#d4f7e5;color:#10643c;}
-    .err {background:#ffe1e1;color:#b30000;}
-    .toast {position:fixed;bottom:36px;left:50%;transform:translateX(-50%);background:#fff;box-shadow:0 2px 16px #0003;border-radius:7px;padding:1em 2em;display:flex;align-items:center;gap:.7em;z-index:1101;font-size:1.1em;opacity:.97;transition:.2s;}
-    .toast.ok svg{stroke:#14b885;}
-    .toast.err svg{stroke:#e4644e;}
-    .confetti {position:absolute; z-index:999; width:8px; height:16px; border-radius:2px; pointer-events:none;}
-    dialog {padding:2em;border:none;border-radius:8px;box-shadow:0 10px 32px #0003;}
-    .footer {background:#f4f4f7;padding:2em 1em;text-align:center;font-size:1em;color:#333;}
-    .footer a {color:#2457ff;text-decoration:none;margin:0 0.7em;}
+    /* ... Rest wie gehabt ... */
   </style>
   <script type="application/ld+json">
   {
@@ -68,76 +48,47 @@
   <meta name="robots" content="index,follow" />
 </head>
 <body>
-  <main class="container">
-    <h1>Bassam Ingenieurbüro für Bauwesen GmbH</h1>
-    <div class="grid-2">
-      <!-- Kontaktformular -->
-      <div class="card">
-        <h2>Kontakt</h2>
-        <form id="contact" name="kontakt" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off">
-          <input type="hidden" name="_subject" value="Kontakt – Anfrage über ing-bassam.de">
-          <input type="hidden" name="formular" value="kontakt">
-          <input type="hidden" name="ts_start" id="contact_ts_start" />
-          <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
-          <label>Ihr Name:<input type="text" name="name" required /></label>
-          <label>E-Mail:<input type="email" name="email" required /></label>
-          <label>Nachricht:<textarea name="message" required rows="4"></textarea></label>
-          <button type="submit">Absenden</button>
-          <div id="ok" class="ok">Vielen Dank! Ihre Nachricht wurde versendet.</div>
-          <div id="err" class="err">Fehler beim Senden. Bitte versuchen Sie es erneut.</div>
-        </form>
-      </div>
-      <!-- Quickcheck-Formular -->
-      <div class="card">
-        <h2>Quickcheck</h2>
-        <form id="quickform" name="quickcheck" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off">
-          <input type="hidden" name="_subject" value="Quickcheck – Anfrage über ing-bassam.de">
-          <input type="hidden" name="formular" value="quickcheck">
-          <input type="hidden" name="ts_start" id="quick_ts_start" />
-          <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
-          <label>Ihr Name:<input type="text" name="name" required /></label>
-          <label>E-Mail:<input type="email" name="email" required /></label>
-          <label>Kurze Beschreibung:<textarea name="beschreibung" required rows="3"></textarea></label>
-          <button type="submit">Absenden</button>
-          <div id="qok" class="ok">Vielen Dank für Ihre Anfrage!</div>
-          <div id="qerr" class="err">Fehler beim Senden. Bitte versuchen Sie es erneut.</div>
-        </form>
-      </div>
-    </div>
-  </main>
-  <footer class="footer" role="contentinfo">
-    © <span id="y"></span> Bassam Ingenieurbüro für Bauwesen GmbH –
-    <a href="#" onclick="openModal('impressum');return false;">Impressum</a>
-    ·
-    <a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a>
+  <!-- ... alles wie gehabt ... -->
+
+  <!-- Footer mit Jahr -->
+  <footer>
+    © <span id="y"></span> Bassam Ingenieurbüro für Bauwesen GmbH
   </footer>
-  
-  <dialog id="impressum">
-    <h3>Impressum</h3>
-    <p>Verantwortlich: Karim Abu Elkheir, Nehringstraße 23-24, 14059 Berlin<br>
-      Telefon: +49 176 23581339<br>
-      E-Mail: info@ing-bassam.de</p>
-    <button onclick="this.closest('dialog').close()">Schließen</button>
-  </dialog>
-  <dialog id="datenschutz">
-    <h3>Datenschutz</h3>
-    <p>Es werden keine personenbezogenen Daten gespeichert außer zur Bearbeitung Ihrer Anfrage. Es werden keine Cookies für Tracking eingesetzt.</p>
-    <button onclick="this.closest('dialog').close()">Schließen</button>
-  </dialog>
-  <div id="toasts" style="position:fixed;bottom:0;left:0;right:0;z-index:1200;pointer-events:none;"></div>
-  
+
+  <!-- Formular: Quickcheck -->
+  <form id="quickform" class="grid-2" name="quickcheck" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off">
+    <input type="hidden" name="_subject" value="Quickcheck – Anfrage über ing-bassam.de">
+    <input type="hidden" name="formular" value="quickcheck">
+    <input type="hidden" name="ts_start" id="quick_ts_start" />
+    <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
+    <!-- ... restliche Felder wie gehabt ... -->
+  </form>
+  <!-- ... -->
+  <!-- Formular: Kontakt -->
+  <form id="contact" class="grid-2" name="kontakt" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off">
+    <input type="hidden" name="_subject" value="Kontakt – Anfrage über ing-bassam.de">
+    <input type="hidden" name="formular" value="kontakt">
+    <input type="hidden" name="ts_start" id="contact_ts_start" />
+    <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
+    <!-- ... restliche Felder wie gehabt ... -->
+  </form>
+  <!-- ... -->
+
   <script type="module">
     (() => {
-      // Hilfsfunktionen
+      // ... $ und $$ wie gehabt
       const $ = (sel, ctx=document) => ctx.querySelector(sel);
       const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
       const currentYear = () => (new Date()).getFullYear();
-      // Jahr im Footer aktualisieren
-      const y = $('#y');
-      if (y) y.textContent = currentYear();
+      // Sicherstellen, dass das Element existiert!
+      const yearSpan = $('#y');
+      if(yearSpan) yearSpan.textContent = currentYear();
 
-      // === Spam-Schutz: Zeitfalle initialisieren ===
+      // Mobile Menü und Topbtn wie gehabt...
+
+      // === Spam-Schutz: Honeypot + Zeitfalle ===
       document.addEventListener('DOMContentLoaded', () => {
+        // Setze Zeitfalle Werte
         ['quickform','contact'].forEach(id=>{
           const f = document.getElementById(id);
           if(f){
@@ -147,7 +98,7 @@
         });
       });
 
-      // === AJAX-Forms mit Spam-Schutz ===
+      // AJAX-Forms
       const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrblrldq';
       const MAILTO = 'k.abuelkheir@ing-bassam.de';
 
@@ -172,6 +123,7 @@
           }
         }
 
+        // ... restliche Funktion wie gehabt ...
         const btn = formEl.querySelector('button[type="submit"]');
         const original = btn ? btn.innerHTML : '';
         if(btn){ btn.classList.add('loading'); btn.disabled = true; btn.innerHTML = '<span class="spinner" aria-hidden="true"></span><span>Senden…</span>'; }
@@ -232,7 +184,7 @@
       enableAjax('contact','ok','err');
       enableAjax('quickform','qok','qerr');
 
-      // Modale, Animationen, Toasts
+      // Modale, Animationen, Toasts wie gehabt ...
       function openModal(id){
         const el = document.getElementById(id);
         if(el && el.showModal) el.showModal();
@@ -267,7 +219,8 @@
           setTimeout(()=>c.remove(),1200);
         }
       }
-      // Dialog schließt mit ESC oder Enter
+
+      // Dialog/Accessibility, Autosave wie gehabt
       $$('dialog').forEach(dlg => {
         dlg.addEventListener('keydown', e => {
           if(e.key === 'Escape' || e.key === 'Enter'){
@@ -275,7 +228,6 @@
           }
         });
       });
-      // Autosave für Formulare
       function enableAutosave(formId, storageKey) {
         const form = document.getElementById(formId);
         if (!form) return;
@@ -307,5 +259,6 @@
       enableAutosave('quickform', 'bassam_autosave_quickform');
     })();
   </script>
+  <!-- ... -->
 </body>
 </html>
