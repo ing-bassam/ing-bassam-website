@@ -47,7 +47,7 @@
 
     .glass{background:var(--glass);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);border:1px solid var(--line);box-shadow:0 12px 40px rgba(14,21,37,.08)}
 
-    .nav{position:sticky;top:0;z-index:50}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:1000}
     .nav .inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .wrap{border-bottom:1px solid var(--line)}
 
@@ -106,6 +106,11 @@
     .imprint{font-size:14px;color:var(--muted)}
 
     .topbtn{position:fixed;right:18px;bottom:18px;border-radius:999px;border:1px solid var(--line);padding:10px 14px;background:var(--glass);backdrop-filter:blur(10px);cursor:pointer;display:none}
+
+/* ===== Fixierte Navbar: Platz schaffen & Anker-Offset ===== */
+:root{ --navh: 72px; }
+body{ padding-top: var(--navh); }
+.section, .hero, [id]{ scroll-margin-top: calc(var(--navh) + 12px); }
 
     .alert{display:none;margin-top:10px;padding:12px 14px;border-radius:12px;border:1px solid var(--line)}
     .alert.ok{display:block;background:rgba(20,184,133,.08);color:#0a7f5e}
@@ -432,7 +437,16 @@
 
   <script>
     // Jahr
-    document.getElementById('y').textContent = new Date().getFullYear();
+document.getElementById('y').textContent = new Date().getFullYear();
+
+// Nav‑Höhe berechnen (für body padding & Anchor-Offset)
+function setNavHeight(){
+  const n = document.querySelector('header.nav');
+  const h = n?.offsetHeight || 72;
+  document.documentElement.style.setProperty('--navh', h + 'px');
+}
+window.addEventListener('load', setNavHeight);
+window.addEventListener('resize', setNavHeight);
 
     // Mobile Menü
     const hamb = document.getElementById('hamb');
@@ -473,11 +487,13 @@
       try{
         const res = await fetch(FORMSPREE_ENDPOINT, {
           method: 'POST',
+          mode: 'cors',
           headers: { 'Accept': 'application/json' },
           body: new FormData(formEl),
-          redirect: 'manual' // verhindert Weiterleitung auf Formspree-"Danke"-Seite
+          redirect: 'manual', // keine Weiterleitung auf Formspree-Danke-Seite
+          referrerPolicy: 'no-referrer'
         });
-        if(res.ok){
+        if(res.ok || res.status === 200 || res.status === 201){
           okEl && (okEl.style.display = 'block');
           popCard(formEl);
           fireConfetti(formEl);
