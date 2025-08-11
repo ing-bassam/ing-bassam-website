@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de" class="scroll-smooth">
+<html lang="de">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,494 +7,88 @@
   <meta name="description" content="Ingenieurbüro in Berlin für Leistungsphase 6 und 7 nach HOAI, professionelle Ausschreibung und Vergabe von Bauleistungen, Gutachten für Bauschäden sowie Immobilienwertermittlung." />
   <meta name="theme-color" content="#ffffff" />
   <link rel="canonical" href="https://ing-bassam.de/" />
-  <meta property="og:title" content="Bassam Ingenieurbüro für Bauwesen GmbH" />
-  <meta property="og:description" content="Ausschreibung (HOAI LP 6/7), Vergabe, Baugutachten, Immobilienbewertung – Berlin." />
-  <meta property="og:url" content="https://ing-bassam.de/" />
-  <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='48' fill='%23ffffff'/%3E%3Cpath d='M64 176l64-96 64 96' stroke='%232457ff' stroke-width='16' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='128' cy='112' r='10' fill='%232457ff'/%3E%3C/svg%3E" />
-  
-  <!-- Tailwind CSS for modern styling -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  
-  <!-- Plausible Analytics (as in original) -->
+
+  <!-- Plausible Analytics -->
   <script defer data-domain="ing-bassam.de" src="https://plausible.io/js/script.outbound-links.js"></script>
   <script>
     window.plausible = window.plausible || function() {
       (window.plausible.q = window.plausible.q || []).push(arguments)
     }
   </script>
-  
-  <!-- Custom Styles for animations, toasts, etc. -->
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    /* Honeypot field for spam protection */
-    .field-honey {
-      position: absolute !important;
-      left: -9999px;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-    /* Loading spinner for buttons */
-    .spinner {
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      border: 2px solid currentColor;
-      border-right-color: transparent;
-      border-radius: 50%;
-      animation: spin .75s linear infinite;
-      margin-right: 0.5em;
-      vertical-align: -0.125em;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    /* Shake animation for form error */
-    @keyframes shake {
-      10%, 90% { transform: translate3d(-1px, 0, 0); }
-      20%, 80% { transform: translate3d(2px, 0, 0); }
-      30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-      40%, 60% { transform: translate3d(4px, 0, 0); }
-    }
-    .shake {
-      animation: shake 0.6s cubic-bezier(.36,.07,.19,.97) both;
-    }
-    /* Toast notifications */
-    .toast {
-      display: flex;
-      align-items: center;
-      padding: 0.75rem 1rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-      margin-bottom: 0.75rem;
-      transition: all 0.25s ease-in-out;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .toast.ok { background-color: #dcfce7; color: #166534; }
-    .toast.err { background-color: #fee2e2; color: #991b1b; }
-    .toast svg { margin-right: 0.5rem; }
-    /* Confetti animation */
-    .confetti {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 2px;
-      pointer-events: none;
-      opacity: 0;
-      animation: fall linear forwards;
-    }
-    @keyframes fall {
-      to {
-        transform: translateY(200px) rotate(360deg);
-        opacity: 0;
-      }
-    }
-    /* Modal / Dialog styling */
-    dialog {
-      border-radius: 0.75rem;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-      padding: 1.5rem;
-      max-width: 52rem; /* 832px */
-      width: 90%;
-    }
-    dialog::backdrop {
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-    }
+    body { font-family: 'Inter', Arial, sans-serif; margin:0; padding:0; background:#f8fafd;}
+    .container {max-width:900px;margin:0 auto;padding:2em;}
+    .grid-2 {display:grid;grid-template-columns:1fr 1fr;gap:2em;}
+    .card {background:#fff;border-radius:12px;box-shadow:0 2px 16px #0002;padding:2em;}
+    label {font-weight:600;}
+    input, textarea, button {font-family:inherit;font-size:1em;}
+    input, textarea {width:100%;margin-bottom:1em;padding:.7em;border:1px solid #bbb;border-radius:4px;box-sizing:border-box;}
+    button {background:#2457ff;color:#fff;font-weight:600;padding:0.75em 1.5em;border:none;border-radius:6px;cursor:pointer;transition:background .2s;}
+    .field-honey {position:absolute !important; left:-9999px; width:1px; height:1px; overflow:hidden;}
+    .ok, .err {display:none; padding:1em; margin-bottom:1em; border-radius:5px;}
+    .ok {background:#d4f7e5;color:#10643c;}
+    .err {background:#ffe1e1;color:#b30000;}
+    .footer {background:#f4f4f7;padding:2em 1em;text-align:center;font-size:1em;color:#333;}
+    .footer a {color:#2457ff;text-decoration:none;margin:0 0.7em;}
   </style>
-  
-  <!-- JSON-LD Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Bassam Ingenieurbüro für Bauwesen GmbH",
-    "description": "Ausschreibung und Vergabe nach HOAI LP 6 und 7, Baugutachten, Immobilienbewertung.",
-    "url": "https://ing-bassam.de/",
-    "telephone": "+49 176 23581339",
-    "address": {"@type": "PostalAddress","streetAddress": "Nehringstraße 23-24","addressLocality": "Berlin","postalCode": "14059","addressCountry": "DE"},
-    "areaServed": "Deutschland",
-    "founder": "Karim Abu Elkheir"
-  }
-  </script>
-  <meta name="robots" content="index,follow" />
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased">
-
-  <!-- Toast Container -->
-  <div id="toasts" class="fixed top-4 right-4 z-50"></div>
-
-  <!-- Main Content -->
-  <div class="container mx-auto px-4 py-12 md:py-20">
-    <header class="text-center mb-12 md:mb-20">
-      <h1 class="text-4xl md:text-6xl font-extrabold text-blue-700 mb-2">Bassam Ingenieurbüro</h1>
-      <p class="text-xl md:text-2xl text-gray-600">Ihr Partner für Ausschreibung, Vergabe & Gutachten</p>
-    </header>
-
-    <main class="space-y-16">
-      <!-- Contact Form Section -->
-      <section id="kontakt-sektion">
-        <div class="card relative max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg">
-          <h2 class="text-2xl font-bold mb-6 text-center">Kontakt aufnehmen</h2>
-          
-          <!-- Formspree Success Message -->
-          <div id="ok" style="display: none;" class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-md mb-6" role="alert">
-            <p class="font-bold">Nachricht gesendet!</p>
-            <p>Vielen Dank für Ihre Anfrage. Wir werden uns in Kürze bei Ihnen melden.</p>
-          </div>
-          
-          <!-- Formspree Error Message -->
-          <div id="err" style="display: none;" class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md mb-6" role="alert">
-            <p class="font-bold">Fehler</p>
-            <p>Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.</p>
-          </div>
-
-          <form id="contact" name="kontakt" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off" class="space-y-4">
-            <input type="hidden" name="_subject" value="Kontakt – Anfrage über ing-bassam.de">
-            <input type="hidden" name="formular" value="kontakt">
-            <input type="hidden" name="ts_start" id="contact_ts_start" />
-            <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
-            
-            <div>
-              <label for="contact-name" class="block text-sm font-medium text-gray-700">Name</label>
-              <input type="text" id="contact-name" name="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-            </div>
-            <div>
-              <label for="contact-email" class="block text-sm font-medium text-gray-700">E-Mail</label>
-              <input type="email" id="contact-email" name="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-            </div>
-            <div>
-              <label for="contact-message" class="block text-sm font-medium text-gray-700">Nachricht</label>
-              <textarea id="contact-message" name="message" rows="4" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
-            </div>
-            <div class="flex justify-end">
-              <button type="submit" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors disabled:bg-blue-300">
-                <span>Anfrage senden</span>
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
-
-      <!-- Quickcheck Form Section (Example) -->
-      <section id="quickcheck-sektion">
-        <div class="card relative max-w-2xl mx-auto bg-gray-100 p-8 rounded-xl border border-gray-200">
-          <h2 class="text-2xl font-bold mb-6 text-center">Quick-Check</h2>
-          
-          <div id="qok" style="display: none;" class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-md mb-6" role="alert">
-            <p>Quick-Check Anfrage gesendet!</p>
-          </div>
-          <div id="qerr" style="display: none;" class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md mb-6" role="alert">
-            <p>Fehler beim Senden des Quick-Checks.</p>
-          </div>
-
-          <form id="quickform" name="quickcheck" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off" class="space-y-4">
-            <input type="hidden" name="_subject" value="Quickcheck – Anfrage über ing-bassam.de">
-            <input type="hidden" name="formular" value="quickcheck">
-            <input type="hidden" name="ts_start" id="quick_ts_start" />
-            <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
-            
-            <div>
-              <label for="quick-service" class="block text-sm font-medium text-gray-700">Gewünschte Leistung</label>
-              <select id="quick-service" name="service" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-                <option>Ausschreibung (LP 6)</option>
-                <option>Vergabe (LP 7)</option>
-                <option>Baugutachten</option>
-                <option>Immobilienbewertung</option>
-              </select>
-            </div>
-             <div>
-              <label for="quick-email" class="block text-sm font-medium text-gray-700">Ihre E-Mail für die Antwort</label>
-              <input type="email" id="quick-email" name="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-            </div>
-            <div class="flex justify-end">
-              <button type="submit" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-700 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors disabled:bg-gray-400">
-                <span>Quick-Check starten</span>
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <!-- Footer -->
-  <footer class="bg-white border-t border-gray-200 mt-16">
-    <div class="container mx-auto px-4 py-6 flex flex-wrap justify-between items-center gap-4 text-sm text-gray-600">
-      <div>© <span id="y"></span> Bassam Ingenieurbüro für Bauwesen GmbH</div>
-      <div class="flex gap-4">
-        <a href="#" onclick="openModal('impressum'); return false;" class="hover:text-blue-600">Impressum</a>
-        <a href="#" onclick="openModal('datenschutz'); return false;" class="hover:text-blue-600">Datenschutz</a>
+<body>
+  <main class="container">
+    <h1>Bassam Ingenieurbüro für Bauwesen GmbH</h1>
+    <div class="grid-2">
+      <!-- Kontaktformular -->
+      <div class="card">
+        <h2>Kontakt</h2>
+        <form id="contact" name="kontakt" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off">
+          <input type="hidden" name="_subject" value="Kontakt – Anfrage über ing-bassam.de">
+          <input type="hidden" name="formular" value="kontakt">
+          <input type="hidden" name="ts_start" id="contact_ts_start" />
+          <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
+          <label>Ihr Name:<input type="text" name="name" required /></label>
+          <label>E-Mail:<input type="email" name="email" required /></label>
+          <label>Nachricht:<textarea name="message" required rows="4"></textarea></label>
+          <button type="submit">Absenden</button>
+          <div id="ok" class="ok">Vielen Dank! Ihre Nachricht wurde versendet.</div>
+          <div id="err" class="err">Fehler beim Senden. Bitte versuchen Sie es erneut.</div>
+        </form>
+      </div>
+      <!-- Quickcheck-Formular -->
+      <div class="card">
+        <h2>Quickcheck</h2>
+        <form id="quickform" name="quickcheck" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off">
+          <input type="hidden" name="_subject" value="Quickcheck – Anfrage über ing-bassam.de">
+          <input type="hidden" name="formular" value="quickcheck">
+          <input type="hidden" name="ts_start" id="quick_ts_start" />
+          <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
+          <label>Ihr Name:<input type="text" name="name" required /></label>
+          <label>E-Mail:<input type="email" name="email" required /></label>
+          <label>Kurze Beschreibung:<textarea name="beschreibung" required rows="3"></textarea></label>
+          <button type="submit">Absenden</button>
+          <div id="qok" class="ok">Vielen Dank für Ihre Anfrage!</div>
+          <div id="qerr" class="err">Fehler beim Senden. Bitte versuchen Sie es erneut.</div>
+        </form>
       </div>
     </div>
+  </main>
+  <footer class="footer" role="contentinfo">
+    © <span id="y"></span> Bassam Ingenieurbüro für Bauwesen GmbH –
+    <a href="#">Impressum</a> · <a href="#">Datenschutz</a>
   </footer>
-
-  <!-- Modal Dialog for Impressum -->
-  <dialog id="impressum">
-      <h3 class="text-xl font-bold mb-4">Impressum</h3>
-      <p>Bassam Ingenieurbüro für Bauwesen GmbH<br>
-      Nehringstraße 23-24<br>
-      14059 Berlin</p>
-      <p class="mt-2">Vertreten durch: Karim Abu Elkheir</p>
-      <p class="mt-2">Kontakt: <a href="tel:+4917623581339" class="text-blue-600 hover:underline">+49 176 23581339</a></p>
-      <div class="text-right mt-6">
-          <button onclick="this.closest('dialog').close()" class="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300">Schließen</button>
-      </div>
-  </dialog>
-
-  <!-- Modal Dialog for Datenschutz -->
-  <dialog id="datenschutz">
-      <h3 class="text-xl font-bold mb-4">Datenschutz</h3>
-      <p>Hier steht Ihre Datenschutzerklärung. Sie können den Inhalt hier einfügen...</p>
-      <div class="text-right mt-6">
-          <button onclick="this.closest('dialog').close()" class="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300">Schließen</button>
-      </div>
-  </dialog>
-
-  <!-- The JavaScript Logic -->
-  <script type="module">
-    (() => {
-      // Helper functions
-      const $ = (sel, ctx = document) => ctx.querySelector(sel);
-      const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
-      const currentYear = () => (new Date()).getFullYear();
-      
-      // Update year in footer
-      const y = $('#y');
-      if (y) y.textContent = currentYear();
-
-      // Initialize time trap for spam protection on both forms
-      // No DOMContentLoaded needed for module scripts, as they are deferred by default.
-      ['quickform', 'contact'].forEach(id => {
-        const f = document.getElementById(id);
-        if (f) {
-          const ts = f.querySelector('[name=ts_start]');
-          if (ts) ts.value = Date.now();
-        }
-      });
-
-      // AJAX Form Submission Logic
-      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrblrldq'; // Your Formspree endpoint
-      const MAILTO = 'k.abuelkheir@ing-bassam.de'; // Fallback email
-
-      async function submitViaAjax(formEl, okEl, errEl) {
-        // Spam Protection: Honeypot
-        const honey = formEl.querySelector('[name=_gotcha]');
-        if (honey && honey.value.trim() !== "") {
-          if (errEl) errEl.style.display = 'block';
-          showToast('err', 'Spamverdacht – bitte Formular korrekt ausfüllen.');
-          return;
-        }
-        
-        // Spam Protection: Time trap
-        const t = formEl.querySelector('[name=ts_start]');
-        if (t) {
-          const now = Date.now();
-          const then = Number(t.value);
-          // 3 seconds minimum time
-          if (then && (now - then < 3000)) {
-            if (errEl) errEl.style.display = 'block';
-            showToast('err', 'Bitte nicht so schnell absenden.');
-            return;
-          }
-        }
-
-        const btn = formEl.querySelector('button[type="submit"]');
-        const original = btn ? btn.innerHTML : '';
-        if (btn) {
-          btn.classList.add('loading');
-          btn.disabled = true;
-          btn.innerHTML = '<span class="spinner" aria-hidden="true"></span><span>Senden…</span>';
-        }
-        okEl && (okEl.style.display = 'none');
-        errEl && (errEl.style.display = 'none');
-
-        try {
-          const res = await fetch(FORMSPREE_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Accept': 'application/json' },
-            body: new FormData(formEl),
-            redirect: 'manual'
-          });
-          
-          if (res.ok) {
-            okEl && (okEl.style.display = 'block');
-            popCard(formEl);
-            fireConfetti(formEl);
-            showToast('ok', 'Nachricht gesendet. Vielen Dank!');
-            formEl.reset();
-            // Reset time trap after successful submission
-            const ts = formEl.querySelector('[name=ts_start]');
-            if (ts) ts.value = Date.now();
-          } else {
-            errEl && (errEl.style.display = 'block');
-            formEl.closest('.card')?.classList.add('shake');
-            showToast('err', 'Senden fehlgeschlagen. Bitte später erneut versuchen.');
-            setTimeout(() => formEl.closest('.card')?.classList.remove('shake'), 600);
-          }
-        } catch (e) {
-          errEl && (errEl.style.display = 'block');
-          showToast('err', 'Netzwerkfehler. Prüfen Sie Ihre Verbindung.');
-        } finally {
-          if (btn) {
-            btn.classList.remove('loading');
-            btn.disabled = false;
-            btn.innerHTML = original;
-          }
-        }
-      }
-
-      function enableAjax(formId, okId, errId) {
-        const form = document.getElementById(formId);
-        if (!form) return;
-        const ok = document.getElementById(okId);
-        const err = document.getElementById(errId);
-        
-        form.addEventListener('submit', (ev) => {
-          ev.preventDefault();
-          if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-          }
-          // Fallback to mailto if Formspree endpoint is not set
-          if (!FORMSPREE_ENDPOINT) {
-            const subject = encodeURIComponent('Anfrage über ing-bassam.de: ' + (form.name?.value || 'Kontakt'));
-            const lines = [];
-            new FormData(form).forEach((v, k) => lines.push(`${k}: ${v}`));
-            window.location.href = `mailto:${MAILTO}?subject=${subject}&body=${encodeURIComponent(lines.join('\n'))}`;
-            ok && (ok.style.display = 'block');
-            form.reset();
-            return;
-          }
-          submitViaAjax(form, ok, err);
-        });
-      }
-
-      // Enable AJAX for both forms
-      enableAjax('contact', 'ok', 'err');
-      enableAjax('quickform', 'qok', 'qerr');
-
-      // Modal, Animations, Toasts etc.
-      function openModal(id) {
-        const el = document.getElementById(id);
-        if (el && typeof el.showModal === 'function') {
-           el.showModal();
-        }
-      }
-      // Make openModal globally accessible for the onclick attributes
-      window.openModal = openModal; 
-
-      function popCard(el) {
-        const card = el.closest('.card');
-        if (card && typeof card.animate === 'function') {
-            card.animate([
-                { transform: 'scale(.98)' },
-                { transform: 'scale(1.02)' },
-                { transform: 'scale(1)' }
-            ], { duration: 320, easing: 'cubic-bezier(.2,.9,.2,1)' });
-        }
-      }
-
-      function showToast(type, msg) {
-        const wrap = document.getElementById('toasts');
-        if (!wrap) return;
-        const t = document.createElement('div');
-        t.className = 'toast ' + (type === 'ok' ? 'ok' : 'err');
-        t.setAttribute('role', 'status');
-        t.innerHTML = (type === 'ok' ?
-          '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' :
-          '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>') +
-          `<span>${msg}</span>`;
-        wrap.appendChild(t);
-        setTimeout(() => {
-          t.style.opacity = '0';
-          t.style.transform = 'translateY(-6px)';
-          setTimeout(() => t.remove(), 250);
-        }, 4200);
-      }
-
-      function fireConfetti(refEl) {
-        const host = refEl.closest('.card') || document.body;
-        for (let i = 0; i < 24; i++) {
-          const c = document.createElement('i');
-          c.className = 'confetti';
-          c.style.left = (refEl.offsetLeft + refEl.offsetWidth * 0.5 + (Math.random() * 120 - 60)) + 'px';
-          c.style.top = (refEl.offsetTop + 10) + 'px';
-          c.style.background = `hsl(${Math.random() * 360}, 85%, 60%)`;
-          c.style.transform = `translateY(-60px) rotate(${Math.random() * 180}deg)`;
-          c.style.animationDuration = (600 + Math.random() * 600) + 'ms';
-          c.style.opacity = '.9';
-          host.appendChild(c);
-          setTimeout(() => c.remove(), 1200);
-        }
-      }
-
-      // Dialog Accessibility
-      $$('dialog').forEach(dlg => {
-        // Close on Escape or Enter (can be customized)
-        dlg.addEventListener('keydown', e => {
-          if (e.key === 'Escape') {
-            e.preventDefault();
-            dlg.close();
-          }
-        });
-        // Close when clicking the backdrop
-        dlg.addEventListener('click', e => {
-            if (e.target === dlg) {
-                dlg.close();
-            }
-        });
-      });
-
-      // Autosave form inputs to localStorage
-      function enableAutosave(formId, storageKey) {
-        const form = document.getElementById(formId);
-        if (!form || !window.localStorage) return;
-
-        // Load saved data on page load
-        const saved = window.localStorage.getItem(storageKey);
-        if (saved) {
-          try {
-            const data = JSON.parse(saved);
-            Object.entries(data).forEach(([k, v]) => {
-              if (form.elements[k]) form.elements[k].value = v;
-            });
-          } catch (e) {
-            console.error("Could not parse autosaved data:", e);
-            window.localStorage.removeItem(storageKey);
-          }
-        }
-
-        // Save data on input
-        form.addEventListener('input', () => {
-          const data = {};
-          Array.from(form.elements).forEach(el => {
-            if (el.name && el.type !== 'hidden' && el.type !== 'submit') {
-              data[el.name] = el.value;
-            }
-          });
-          window.localStorage.setItem(storageKey, JSON.stringify(data));
-        });
-
-        // Clear data on form reset
-        form.addEventListener('reset', () => {
-          window.localStorage.removeItem(storageKey);
-        });
-      }
-      enableAutosave('contact', 'bassam_autosave_contact');
-      enableAutosave('quickform', 'bassam_autosave_quickform');
-      
-    })();
+  <script>
+    // Jahr im Footer aktualisieren
+    document.addEventListener("DOMContentLoaded", function() {
+      var y = document.getElementById("y");
+      if (y) y.textContent = new Date().getFullYear();
+      // Zeitfalle initialisieren
+      var ts1 = document.getElementById("quick_ts_start");
+      if (ts1) ts1.value = Date.now();
+      var ts2 = document.getElementById("contact_ts_start");
+      if (ts2) ts2.value = Date.now();
+    });
   </script>
 </body>
 </html>
