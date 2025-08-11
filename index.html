@@ -5,74 +5,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bassam Ingenieurbüro für Bauwesen GmbH – Ausschreibung, Vergabe, Gutachten</title>
   <meta name="description" content="Ingenieurbüro in Berlin für Leistungsphase 6 und 7 nach HOAI, professionelle Ausschreibung und Vergabe von Bauleistungen, Gutachten für Bauschäden sowie Immobilienwertermittlung." />
-  <meta name="theme-color" content="#0b1220" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="canonical" href="https://ing-bassam.de/" />
   <meta property="og:title" content="Bassam Ingenieurbüro für Bauwesen GmbH" />
   <meta property="og:description" content="Ausschreibung (HOAI LP 6/7), Vergabe, Baugutachten, Immobilienbewertung – Berlin." />
   <meta property="og:url" content="https://ing-bassam.de/" />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='48' fill='%231e2a78'/%3E%3Cpath d='M64 176l64-96 64 96' stroke='%23fff' stroke-width='16' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='128' cy='112' r='10' fill='%23fff'/%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='48' fill='%23ffffff'/%3E%3Cpath d='M64 176l64-96 64 96' stroke='%232457ff' stroke-width='16' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='128' cy='112' r='10' fill='%232457ff'/%3E%3C/svg%3E" />
   <style>
-    :root{ --bg:#0b1220; --box:#11182c; --ink:#e9ecf3; --muted:#a7b0c6; --brand:#4776ff; --brand-2:#6ad2ff; --line:#223057; }
+    /* ===== Light, glasiges UI (Apple-like) ===== */
+    :root{
+      --bg: #f6f8fb;            /* Seitenhintergrund */
+      --ink: #0b1220;          /* Haupttext */
+      --muted: #5a667f;        /* Sekundärtext */
+      --brand: #2457ff;        /* Primärfarbe */
+      --brand-2: #65a3ff;      /* Verlauf */
+      --line: rgba(15,23,42,.12);
+      --glass: rgba(255,255,255,.65);
+      --glass-strong: rgba(255,255,255,.8);
+    }
+
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b1220; --ink:#e9ecf3; --muted:#a7b0c6; --line:rgba(255,255,255,.12);
+        --glass: rgba(17,24,44,.6); --glass-strong: rgba(17,24,44,.8);
+      }
+    }
+
     *{box-sizing:border-box}
-    html,body{margin:0;height:100%;color:var(--ink);background:var(--bg);font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial}
+    html,body{margin:0;height:100%;font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;color:var(--ink);background:linear-gradient(180deg,#ffffff, var(--bg) 60%)}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border:0;font-weight:600;box-shadow:0 8px 24px rgba(71,118,255,.35);cursor:pointer}
-    .btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none}
-    .nav{position:sticky;top:0;backdrop-filter:saturate(140%) blur(6px);background:rgba(11,18,32,.7);border-bottom:1px solid var(--line);z-index:50}
+
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border:0;font-weight:600;box-shadow:0 10px 28px rgba(36,87,255,.25);cursor:pointer;transition:transform .15s ease, box-shadow .2s ease}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 16px 34px rgba(36,87,255,.28)}
+    .btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none;color:var(--ink)}
+
+    .glass{background:var(--glass);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);border:1px solid var(--line);box-shadow:0 12px 40px rgba(14,21,37,.08)}
+
+    .nav{position:sticky;top:0;z-index:50}
     .nav .inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .nav .bar{position:sticky;top:0}
+    .nav .wrap{border-bottom:1px solid var(--line)}
+
     .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
-    .brand .logo{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+    .brand .logo{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
     .brand .logo svg{width:18px;height:18px;opacity:.95}
     .nav a{opacity:.9}
     .navlinks{display:flex;gap:18px;align-items:center}
     .hamb{display:none}
 
-    .hero{position:relative;padding:80px 0 40px;overflow:hidden}
-    .bgfx{position:absolute;inset:0;background:
-      radial-gradient(1200px 600px at 10% -10%, rgba(71,118,255,.18), transparent 60%),
-      radial-gradient(800px 500px at 90% 10%, rgba(106,210,255,.14), transparent 60%)}
+    .hero{position:relative;padding:90px 0 50px;overflow:hidden}
+    .bgfx{position:absolute;inset:0;pointer-events:none;background:
+      radial-gradient(900px 500px at 15% -10%, rgba(36,87,255,.14), transparent 60%),
+      radial-gradient(700px 400px at 90% 0%, rgba(101,163,255,.12), transparent 60%)}
     .hero .grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:32px;align-items:center}
-    .card{background:var(--box);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 16px 48px rgba(0,0,0,.4)}
+
+    .card{border-radius:18px;padding:18px}
+    .card.glass{background:var(--glass-strong)}
+
     h1{font-size:40px;line-height:1.12;margin:0 0 12px}
     p.lead{font-size:18px;color:var(--muted);margin:0 0 18px;max-width:65ch}
     .badges{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
-    .badge{font-size:12px;color:#cfe0ff;border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(17,24,44,.6)}
+    .badge{font-size:12px;color:#2457ff;border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(36,87,255,.08)}
 
     .section{padding:64px 0}
     .section h2{font-size:28px;margin:0 0 8px}
     .section p.sub{color:var(--muted);margin:0 0 24px}
 
     .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .feature{display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(180deg,rgba(17,24,44,.95),rgba(11,18,32,.95));box-shadow:0 10px 28px rgba(0,0,0,.35)}
+    .feature{display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:16px;border:1px solid var(--line)}
     .feature h3{margin:0;font-size:18px}
     .feature p{color:var(--muted);margin:0}
 
     .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .step{padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--box)}
+    .step{padding:16px;border:1px solid var(--line);border-radius:14px}
     .step b{display:inline-block;font-size:12px;opacity:.8;margin-bottom:6px}
 
     .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .stat{padding:16px;border:1px dashed var(--line);border-radius:14px;background:rgba(17,24,44,.6);text-align:center}
+    .stat{padding:16px;border:1px dashed var(--line);border-radius:14px;text-align:center;background:rgba(255,255,255,.6)}
     .stat .n{font-weight:800;font-size:28px}
     .stat .k{color:var(--muted)}
 
     .logos{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;opacity:.85}
-    .logos div{height:42px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,#0f1730,#0b1220)}
+    .logos div{height:42px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,#ffffff,#f3f6fb)}
 
     .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 
     .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     .field{display:flex;flex-direction:column;gap:6px}
-    .field label{font-size:13px;color:#d0d6e6}
-    .field input,.field textarea, .field select{background:#0c1428;border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--ink)}
+    .field label{font-size:13px;color:#475167}
+    .field input,.field textarea, .field select{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--ink)}
     .field textarea{min-height:120px}
 
     .footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:14px}
 
     .imprint{font-size:14px;color:var(--muted)}
+
+    .topbtn{position:fixed;right:18px;bottom:18px;border-radius:999px;border:1px solid var(--line);padding:10px 14px;background:var(--glass);backdrop-filter:blur(10px);cursor:pointer;display:none}
 
     @media (max-width: 1000px){
       .hero .grid{grid-template-columns:1fr}
@@ -86,7 +117,7 @@
     @media (max-width: 720px){
       .navlinks{display:none}
       .hamb{display:flex;align-items:center;gap:8px;border:1px solid var(--line);padding:8px 12px;border-radius:10px;cursor:pointer}
-      #mnav{display:none;position:absolute;top:57px;left:0;right:0;background:rgba(11,18,32,.98);border-bottom:1px solid var(--line)}
+      #mnav{display:none;position:absolute;top:57px;left:0;right:0;background:var(--glass-strong);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
       #mnav a{display:block;padding:14px 20px;border-top:1px solid var(--line)}
       h1{font-size:34px}
     }
@@ -114,22 +145,24 @@
 </head>
 <body>
   <header class="nav" aria-label="Hauptnavigation">
-    <div class="container inner">
-      <a class="brand" href="#top">
-        <span class="logo" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 17L12 5L20 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <span>Bassam Ingenieurbüro für Bauwesen GmbH</span>
-      </a>
-      <nav class="navlinks" aria-label="Menü">
-        <a href="#leistungen">Leistungen</a>
-        <a href="#prozess">Ablauf</a>
-        <a href="#referenzen">Referenzen</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-      <button id="hamb" class="hamb" aria-controls="mnav" aria-expanded="false">Menü ▾</button>
+    <div class="wrap glass">
+      <div class="container inner">
+        <a class="brand" href="#top">
+          <span class="logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 17L12 5L20 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span>Bassam Ingenieurbüro für Bauwesen GmbH</span>
+        </a>
+        <nav class="navlinks" aria-label="Menü">
+          <a href="#leistungen">Leistungen</a>
+          <a href="#prozess">Ablauf</a>
+          <a href="#referenzen">Referenzen</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+        <button id="hamb" class="hamb" aria-controls="mnav" aria-expanded="false">Menü ▾</button>
+      </div>
     </div>
-    <div id="mnav" class="container"></div>
+    <div id="mnav" class="container glass"></div>
   </header>
 
   <main id="top">
@@ -150,11 +183,11 @@
             <a class="btn ghost" href="#leistungen">Leistungen ansehen</a>
           </div>
         </div>
-        <div class="card" aria-label="Schnellkontakt">
+        <div class="card glass" aria-label="Schnellkontakt">
           <h2 style="margin:0 0 10px">Kurzcheck für Ihr Projekt</h2>
           <p class="sub" style="margin:0 0 14px">Antwort innerhalb eines Werktags</p>
           <!-- Formular: Quickcheck (Formspree) -->
-          <form id="quickform" class="grid-2" name="quickcheck">
+          <form id="quickform" class="grid-2" name="quickcheck" action="https://formspree.io/f/xrblrldq" method="POST">
             <input type="hidden" name="_subject" value="Quickcheck – Anfrage über ing-bassam.de">
             <input type="hidden" name="formular" value="quickcheck">
 
@@ -177,7 +210,7 @@
               <small class="sub">Durch Absenden stimmen Sie der Verarbeitung zum Zweck der Kontaktaufnahme zu.</small>
             </div>
           </form>
-          <div id="qok" class="card" style="display:none;margin-top:10px;background:rgba(34,48,87,.35)">Vielen Dank, Ihre Nachricht ist eingegangen. Wir melden uns in Kürze.</div>
+          <div id="qok" class="card glass" style="display:none;margin-top:10px">Vielen Dank, Ihre Nachricht ist eingegangen. Wir melden uns in Kürze.</div>
         </div>
       </div>
     </section>
@@ -187,7 +220,7 @@
         <h2 id="h-leist">Leistungen</h2>
         <p class="sub">Ganzheitliche Unterstützung von der Mengen- und Leistungsbeschreibung über die Bieterkommunikation bis zur Vergabe sowie unabhängige Sachverständigenleistungen.</p>
         <div class="features">
-          <article class="feature" aria-labelledby="l1">
+          <article class="feature glass" aria-labelledby="l1">
             <h3 id="l1">Leistungsphase 6 Ausschreibung</h3>
             <p>Erstellung vollständiger und prüffähiger Leistungsverzeichnisse, Leistungsbeschreibungen und Mengenansätze. Konsistenz- und Plausibilitätsprüfung, Schnittstellenkoordination, Eignungskriterien, Nebenangebote.</p>
             <ul style="margin:8px 0 0 18px;color:var(--muted)">
@@ -196,7 +229,7 @@
               <li>Fristenmanagement und Bieterfragen</li>
             </ul>
           </article>
-          <article class="feature" aria-labelledby="l2">
+          <article class="feature glass" aria-labelledby="l2">
             <h3 id="l2">Leistungsphase 7 Vergabe</h3>
             <p>Einholen und Prüfen der Angebote, Preisspiegel, Wertung nach formalen und wirtschaftlichen Kriterien, Vergabeempfehlung sowie Mitwirkung bei Vertragsgestaltung und Aufklärungsgesprächen.</p>
             <ul style="margin:8px 0 0 18px;color:var(--muted)">
@@ -205,7 +238,7 @@
               <li>Vergabevorschlag und Dokumentation</li>
             </ul>
           </article>
-          <article class="feature" aria-labelledby="l3">
+          <article class="feature glass" aria-labelledby="l3">
             <h3 id="l3">Baugutachten Bauschäden</h3>
             <p>Ursachenanalyse und Beweissicherung bei Schäden an Gebäuden. Zustandsbewertung, Sanierungsempfehlungen und Kostenschätzung als Entscheidungsgrundlage für Eigentümer, Versicherer oder Gerichte.</p>
             <ul style="margin:8px 0 0 18px;color:var(--muted)">
@@ -214,7 +247,7 @@
               <li>Gutachten mit Maßnahmenplan</li>
             </ul>
           </article>
-          <article class="feature" aria-labelledby="l4">
+          <article class="feature glass" aria-labelledby="l4">
             <h3 id="l4">Immobilienwertermittlung</h3>
             <p>Bewertungen nach ImmoWertV und Wertermittlungsrichtlinien. Verkehrswert, Marktwertindikation, bei Bedarf Miet- und Beleihungswert, nachvollziehbar und gerichtsfest aufbereitet.</p>
             <ul style="margin:8px 0 0 18px;color:var(--muted)">
@@ -223,11 +256,11 @@
               <li>Transparente Gutachtenerstellung</li>
             </ul>
           </article>
-          <article class="feature" aria-labelledby="l5">
+          <article class="feature glass" aria-labelledby="l5">
             <h3 id="l5">Ausschreibung Spezial</h3>
             <p>Funktionale Leistungsbeschreibungen, Nachtragsprävention durch klare Anforderungen, BIM- und GAEB-Schnittstellen, Eignungs- und Zuschlagskriterien mit Scorecards.</p>
           </article>
-          <article class="feature" aria-labelledby="l6">
+          <article class="feature glass" aria-labelledby="l6">
             <h3 id="l6">Beratung und Second Opinion</h3>
             <p>Prüfung bestehender LVs, Vergabeakten oder Gutachten, Risikoanalyse, wirtschaftliche Optimierung, Schulungen für Auftraggeber und Projektteams.</p>
           </article>
@@ -240,10 +273,10 @@
         <h2 id="h-proz">Ablauf</h2>
         <p class="sub">Strukturiert, dokumentiert, fristgerecht.</p>
         <div class="steps">
-          <div class="step"><b>1 Anfrage</b><div>Kurzer Projektcheck mit Ziel, Termin, Budgetrahmen.</div></div>
-          <div class="step"><b>2 Angebot</b><div>Transparenter Leistungs- und Honorarvorschlag.</div></div>
-          <div class="step"><b>3 Umsetzung</b><div>Erstellung der Unterlagen und Bieterkommunikation.</div></div>
-          <div class="step"><b>4 Vergabe</b><div>Wertung, Verhandlung, Zuschlag, Dokumentation.</div></div>
+          <div class="step glass"><b>1 Anfrage</b><div>Kurzer Projektcheck mit Ziel, Termin, Budgetrahmen.</div></div>
+          <div class="step glass"><b>2 Angebot</b><div>Transparenter Leistungs- und Honorarvorschlag.</div></div>
+          <div class="step glass"><b>3 Umsetzung</b><div>Erstellung der Unterlagen und Bieterkommunikation.</div></div>
+          <div class="step glass"><b>4 Vergabe</b><div>Wertung, Verhandlung, Zuschlag, Dokumentation.</div></div>
         </div>
       </div>
     </section>
@@ -253,10 +286,10 @@
         <h2 id="h-vorteile">Vorteile</h2>
         <p class="sub">Planbare Termine und belastbare Ergebnisse.</p>
         <div class="stats">
-          <div class="stat"><div class="n">100+</div><div class="k">erstellte LVs</div></div>
-          <div class="stat"><div class="n">50 Mio €</div><div class="k">verhandelte Volumina</div></div>
-          <div class="stat"><div class="n">48 h</div><div class="k">Reaktionszeit</div></div>
-          <div class="stat"><div class="n">95 %</div><div class="k">Termintreue</div></div>
+          <div class="stat glass"><div class="n">100+</div><div class="k">erstellte LVs</div></div>
+          <div class="stat glass"><div class="n">50 Mio €</div><div class="k">verhandelte Volumina</div></div>
+          <div class="stat glass"><div class="n">48 h</div><div class="k">Reaktionszeit</div></div>
+          <div class="stat glass"><div class="n">95 %</div><div class="k">Termintreue</div></div>
         </div>
       </div>
     </section>
@@ -266,14 +299,14 @@
         <h2 id="h-ref">Referenzen</h2>
         <p class="sub">Aus Datenschutzgründen stellen wir Projektdetails im Gespräch vor. Beispielhafte Auftraggeber.</p>
         <div class="logos" aria-label="Logos Platzhalter">
-          <div></div><div></div><div></div><div></div><div></div><div></div>
+          <div class="glass"></div><div class="glass"></div><div class="glass"></div><div class="glass"></div><div class="glass"></div><div class="glass"></div>
         </div>
       </div>
     </section>
 
     <section class="section" aria-labelledby="h-ueber">
       <div class="container grid-2">
-        <div class="card">
+        <div class="card glass">
           <h2 id="h-ueber">Über uns</h2>
           <p class="sub">Ingenieurkompetenz aus Berlin. Unabhängig, lösungsorientiert, wirtschaftlich.</p>
           <p>Wir verbinden technische Präzision mit kaufmännischer Klarheit. Damit Ausschreibungen und Vergaben reibungslos laufen und Entscheidungen auf belastbaren Unterlagen beruhen. Für Gutachten arbeiten wir methodisch sauber und verständlich.</p>
@@ -283,7 +316,7 @@
             <li>Digitale Workflows, GAEB, BIM, AVA</li>
           </ul>
         </div>
-        <div class="card imprint">
+        <div class="card glass imprint">
           <h3 style="margin-top:0">Firmendaten</h3>
           <p><b>Bassam Ingenieurbüro für Bauwesen GmbH</b><br>Nehringstraße 23-24, 14059 Berlin<br>Telefon +49 176 23581339<br>E-Mail k.abuelkheir@ing-bassam.de</p>
           <p>Geschäftsführung Karim Abu Elkheir, Sitz Berlin, HRB folgt</p>
@@ -298,7 +331,7 @@
           <h2 id="h-kontakt">Kontakt</h2>
           <p class="sub">Wir melden uns schnell zurück.</p>
           <!-- Formular: Kontakt (Formspree) -->
-          <form id="contact" class="grid-2" name="kontakt">
+          <form id="contact" class="grid-2" name="kontakt" action="https://formspree.io/f/xrblrldq" method="POST">
             <input type="hidden" name="_subject" value="Kontakt – Anfrage über ing-bassam.de">
             <input type="hidden" name="formular" value="kontakt">
 
@@ -322,12 +355,12 @@
               <small class="sub">Mit dem Senden stimmen Sie der Verarbeitung Ihrer Angaben zur Bearbeitung zu.</small>
             </div>
           </form>
-          <div id="ok" class="card" style="display:none;margin-top:10px;background:rgba(34,48,87,.35)">Vielen Dank. Wir melden uns kurzfristig.</div>
+          <div id="ok" class="card glass" style="display:none;margin-top:10px">Vielen Dank. Wir melden uns kurzfristig.</div>
         </div>
-        <div class="card">
+        <div class="card glass">
           <h3 style="margin:0 0 8px">Büro</h3>
           <p class="sub" style="margin:0 0 10px">Nehringstraße 23-24, 14059 Berlin</p>
-          <div style="aspect-ratio:16/9;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,#0f1730,#0b1220);display:grid;place-items:center;color:#9fb0d0">Karte hier einbinden</div>
+          <div style="aspect-ratio:16/9;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,#ffffff,#f1f4fa);display:grid;place-items:center;color:#667599">Karte hier einbinden</div>
           <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
             <a class="btn ghost" href="tel:+4917623581339">Anrufen</a>
             <a class="btn ghost" href="mailto:k.abuelkheir@ing-bassam.de">E-Mail</a>
@@ -349,16 +382,18 @@
   </footer>
 
   <!-- Modale Platzhalter -->
-  <dialog id="impressum" class="card" style="max-width:900px;width:90%">
+  <dialog id="impressum" class="card glass" style="max-width:900px;width:90%">
     <h3 style="margin-top:0">Impressum</h3>
     <p>Bassam Ingenieurbüro für Bauwesen GmbH, Nehringstraße 23-24, 14059 Berlin. Vertretungsberechtigt Karim Abu Elkheir. Kontakt wie oben. Registergericht und Nummer folgen. Umsatzsteuer-ID folgt.</p>
     <form method="dialog"><button class="btn ghost">Schließen</button></form>
   </dialog>
-  <dialog id="datenschutz" class="card" style="max-width:900px;width:90%">
+  <dialog id="datenschutz" class="card glass" style="max-width:900px;width:90%">
     <h3 style="margin-top:0">Datenschutzhinweise</h3>
     <p>Wir verarbeiten Ihre Angaben zur Bearbeitung der Anfrage. Rechtsgrundlage Art. 6 Abs. 1 lit. b DSGVO. Weitere Informationen stellen wir nach Projektstart bereit.</p>
     <form method="dialog"><button class="btn ghost">Schließen</button></form>
   </dialog>
+
+  <button id="topbtn" class="topbtn">▲</button>
 
   <script>
     // Jahr
@@ -382,6 +417,13 @@
       });
     }
 
+    // Back-to-top Button
+    const topbtn = document.getElementById('topbtn');
+    window.addEventListener('scroll', () => {
+      topbtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+    });
+    topbtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
     // === Formulare über Formspree einsenden (mit Mailto-Fallback) ===
     const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrblrldq';
     const MAILTO = 'k.abuelkheir@ing-bassam.de';
@@ -399,7 +441,488 @@
           const subject = encodeURIComponent('Anfrage über ing-bassam.de: ' + (f.name?.value || 'Kontakt'));
           const lines = [];
           new FormData(f).forEach((v,k)=> lines.push(`${k}: ${v}`));
-          window.location.href = `mailto:${MAILTO}?subject=${subject}&body=${encodeURIComponent(lines.join('\n'))}`;
+          window.location.href = `mailto:${MAILTO}?subject=${subject}&body=${encodeURIComponent(lines.join('
+'))}`;
+          if(ok){ ok.style.display='block'; }
+          f.reset();
+          return;
+        }
+
+        try{
+          const res = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(f)
+          });
+          if(res.ok){
+            if(ok){ ok.style.display='block'; }
+            f.reset();
+          }else{
+            alert('Senden fehlgeschlagen. Bitte direkt per E-Mail kontaktieren: ' + MAILTO);
+          }
+        }catch(err){
+          alert('Netzwerkfehler. Bitte per E-Mail kontaktieren: ' + MAILTO);
+        }
+      });
+    }
+
+    handleFormAjax('contact','ok');
+    handleFormAjax('quickform','qok');
+
+    // Modale Helfer
+    function openModal(id){
+      const el = document.getElementById(id);
+      if(el && el.showModal) el.showModal();
+    }
+    window.openModal = openModal;
+  </script>
+</body>
+</html>
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bassam Ingenieurbüro für Bauwesen GmbH – Ausschreibung, Vergabe, Gutachten</title>
+  <meta name="description" content="Ingenieurbüro in Berlin für Leistungsphase 6 und 7 nach HOAI, professionelle Ausschreibung und Vergabe von Bauleistungen, Gutachten für Bauschäden sowie Immobilienwertermittlung." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="canonical" href="https://ing-bassam.de/" />
+  <meta property="og:title" content="Bassam Ingenieurbüro für Bauwesen GmbH" />
+  <meta property="og:description" content="Ausschreibung (HOAI LP 6/7), Vergabe, Baugutachten, Immobilienbewertung – Berlin." />
+  <meta property="og:url" content="https://ing-bassam.de/" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='48' fill='%23ffffff'/%3E%3Cpath d='M64 176l64-96 64 96' stroke='%232457ff' stroke-width='16' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='128' cy='112' r='10' fill='%232457ff'/%3E%3C/svg%3E" />
+  <style>
+    /* ===== Light, glasiges UI (Apple-like) ===== */
+    :root{
+      --bg: #f6f8fb;            /* Seitenhintergrund */
+      --ink: #0b1220;          /* Haupttext */
+      --muted: #5a667f;        /* Sekundärtext */
+      --brand: #2457ff;        /* Primärfarbe */
+      --brand-2: #65a3ff;      /* Verlauf */
+      --line: rgba(15,23,42,.12);
+      --glass: rgba(255,255,255,.65);
+      --glass-strong: rgba(255,255,255,.8);
+    }
+
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0b1220; --ink:#e9ecf3; --muted:#a7b0c6; --line:rgba(255,255,255,.12);
+        --glass: rgba(17,24,44,.6); --glass-strong: rgba(17,24,44,.8);
+      }
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial;color:var(--ink);background:linear-gradient(180deg,#ffffff, var(--bg) 60%)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border:0;font-weight:600;box-shadow:0 10px 28px rgba(36,87,255,.25);cursor:pointer;transition:transform .15s ease, box-shadow .2s ease}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 16px 34px rgba(36,87,255,.28)}
+    .btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none;color:var(--ink)}
+
+    .glass{background:var(--glass);backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);border:1px solid var(--line);box-shadow:0 12px 40px rgba(14,21,37,.08)}
+
+    .nav{position:sticky;top:0;z-index:50}
+    .nav .inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .nav .bar{position:sticky;top:0}
+    .nav .wrap{border-bottom:1px solid var(--line)}
+
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
+    .brand .logo{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+    .brand .logo svg{width:18px;height:18px;opacity:.95}
+    .nav a{opacity:.9}
+    .navlinks{display:flex;gap:18px;align-items:center}
+    .hamb{display:none}
+
+    .hero{position:relative;padding:90px 0 50px;overflow:hidden}
+    .bgfx{position:absolute;inset:0;pointer-events:none;background:
+      radial-gradient(900px 500px at 15% -10%, rgba(36,87,255,.14), transparent 60%),
+      radial-gradient(700px 400px at 90% 0%, rgba(101,163,255,.12), transparent 60%)}
+    .hero .grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:32px;align-items:center}
+
+    .card{border-radius:18px;padding:18px}
+    .card.glass{background:var(--glass-strong)}
+
+    h1{font-size:40px;line-height:1.12;margin:0 0 12px}
+    p.lead{font-size:18px;color:var(--muted);margin:0 0 18px;max-width:65ch}
+    .badges{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+    .badge{font-size:12px;color:#2457ff;border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(36,87,255,.08)}
+
+    .section{padding:64px 0}
+    .section h2{font-size:28px;margin:0 0 8px}
+    .section p.sub{color:var(--muted);margin:0 0 24px}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:16px;border:1px solid var(--line)}
+    .feature h3{margin:0;font-size:18px}
+    .feature p{color:var(--muted);margin:0}
+
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{padding:16px;border:1px solid var(--line);border-radius:14px}
+    .step b{display:inline-block;font-size:12px;opacity:.8;margin-bottom:6px}
+
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .stat{padding:16px;border:1px dashed var(--line);border-radius:14px;text-align:center;background:rgba(255,255,255,.6)}
+    .stat .n{font-weight:800;font-size:28px}
+    .stat .k{color:var(--muted)}
+
+    .logos{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;opacity:.85}
+    .logos div{height:42px;border:1px solid var(--line);border-radius:10px;background:linear-gradient(180deg,#ffffff,#f3f6fb)}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field label{font-size:13px;color:#475167}
+    .field input,.field textarea, .field select{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--ink)}
+    .field textarea{min-height:120px}
+
+    .footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:14px}
+
+    .imprint{font-size:14px;color:var(--muted)}
+
+    .topbtn{position:fixed;right:18px;bottom:18px;border-radius:999px;border:1px solid var(--line);padding:10px 14px;background:var(--glass);backdrop-filter:blur(10px);cursor:pointer;display:none}
+
+    @media (max-width: 1000px){
+      .hero .grid{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:1fr 1fr}
+      .stats{grid-template-columns:1fr 1fr}
+      .logos{grid-template-columns:repeat(3,1fr)}
+      .grid-2{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+    }
+    @media (max-width: 720px){
+      .navlinks{display:none}
+      .hamb{display:flex;align-items:center;gap:8px;border:1px solid var(--line);padding:8px 12px;border-radius:10px;cursor:pointer}
+      #mnav{display:none;position:absolute;top:57px;left:0;right:0;background:var(--glass-strong);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+      #mnav a{display:block;padding:14px 20px;border-top:1px solid var(--line)}
+      h1{font-size:34px}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Bassam Ingenieurbüro für Bauwesen GmbH",
+    "description": "Ausschreibung und Vergabe nach HOAI LP 6 und 7, Baugutachten, Immobilienbewertung.",
+    "url": "https://ing-bassam.de/",
+    "telephone": "+49 176 23581339",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Nehringstraße 23-24",
+      "addressLocality": "Berlin",
+      "postalCode": "14059",
+      "addressCountry": "DE"
+    },
+    "areaServed": "Deutschland",
+    "founder": "Karim Abu Elkheir"
+  }
+  </script>
+  <meta name="robots" content="index,follow" />
+</head>
+<body>
+  <header class="nav" aria-label="Hauptnavigation">
+    <div class="wrap glass">
+      <div class="container inner">
+        <a class="brand" href="#top">
+          <span class="logo" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 17L12 5L20 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <span>Bassam Ingenieurbüro für Bauwesen GmbH</span>
+        </a>
+        <nav class="navlinks" aria-label="Menü">
+          <a href="#leistungen">Leistungen</a>
+          <a href="#prozess">Ablauf</a>
+          <a href="#referenzen">Referenzen</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+        <button id="hamb" class="hamb" aria-controls="mnav" aria-expanded="false">Menü ▾</button>
+      </div>
+    </div>
+    <div id="mnav" class="container glass"></div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Hero">
+      <div class="bgfx" aria-hidden="true"></div>
+      <div class="container grid">
+        <div>
+          <h1>Vergabe und Ausschreibung auf höchstem Niveau sowie belastbare Gutachten</h1>
+          <p class="lead">Wir übernehmen Leistungsphase 6 und 7 nach HOAI, schreiben fachgerecht aus, führen die Vergabe durch und erstellen unabhängige Gutachten für Bauschäden und Immobilienwertermittlungen. Transparent, normkonform, termin- und kostensicher.</p>
+          <div class="badges">
+            <span class="badge">HOAI LP 6 und 7</span>
+            <span class="badge">VOB/A konform</span>
+            <span class="badge">Bauschadenanalyse</span>
+            <span class="badge">Markt- und Beleihungswerte</span>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+            <a class="btn" href="#kontakt">Projekt anfragen</a>
+            <a class="btn ghost" href="#leistungen">Leistungen ansehen</a>
+          </div>
+        </div>
+        <div class="card glass" aria-label="Schnellkontakt">
+          <h2 style="margin:0 0 10px">Kurzcheck für Ihr Projekt</h2>
+          <p class="sub" style="margin:0 0 14px">Antwort innerhalb eines Werktags</p>
+          <!-- Formular: Quickcheck (Formspree) -->
+          <form id="quickform" class="grid-2" name="quickcheck" action="https://formspree.io/f/xrblrldq" method="POST">
+            <input type="hidden" name="_subject" value="Quickcheck – Anfrage über ing-bassam.de">
+            <input type="hidden" name="formular" value="quickcheck">
+
+            <div class="field"><label for="qname">Name</label><input id="qname" name="name" required placeholder="Vor- und Nachname"/></div>
+            <div class="field"><label for="qmail">E-Mail</label><input id="qmail" name="email" type="email" required placeholder="name@firma.de"/></div>
+            <div class="field"><label for="qtyp">Leistungsart</label>
+              <select id="qtyp" name="typ" required>
+                <option value="" selected>Bitte wählen</option>
+                <option>Ausschreibung und Vergabe LP 6 und 7</option>
+                <option>Baugutachten Bauschäden</option>
+                <option>Immobilienwertermittlung</option>
+              </select>
+            </div>
+            <div class="field"><label for="qtel">Telefon</label><input id="qtel" name="tel" placeholder="+49"/></div>
+            <div class="field" style="grid-column:1/-1"><label for="qmsg">Kurzbeschreibung</label><textarea id="qmsg" name="msg" placeholder="Projekt, Termin, Ort"></textarea></div>
+
+            <p aria-hidden="true" style="display:none"><label>Feld leer lassen<input name="_gotcha" /></label></p>
+            <div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;justify-content:space-between">
+              <button class="btn" type="submit">Absenden</button>
+              <small class="sub">Durch Absenden stimmen Sie der Verarbeitung zum Zweck der Kontaktaufnahme zu.</small>
+            </div>
+          </form>
+          <div id="qok" class="card glass" style="display:none;margin-top:10px">Vielen Dank, Ihre Nachricht ist eingegangen. Wir melden uns in Kürze.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="leistungen" class="section" aria-labelledby="h-leist">
+      <div class="container">
+        <h2 id="h-leist">Leistungen</h2>
+        <p class="sub">Ganzheitliche Unterstützung von der Mengen- und Leistungsbeschreibung über die Bieterkommunikation bis zur Vergabe sowie unabhängige Sachverständigenleistungen.</p>
+        <div class="features">
+          <article class="feature glass" aria-labelledby="l1">
+            <h3 id="l1">Leistungsphase 6 Ausschreibung</h3>
+            <p>Erstellung vollständiger und prüffähiger Leistungsverzeichnisse, Leistungsbeschreibungen und Mengenansätze. Konsistenz- und Plausibilitätsprüfung, Schnittstellenkoordination, Eignungskriterien, Nebenangebote.</p>
+            <ul style="margin:8px 0 0 18px;color:var(--muted)">
+              <li>AVA mit VOB-konformen LVs</li>
+              <li>Wahl der Vergabeart und Verfahrensdokumentation</li>
+              <li>Fristenmanagement und Bieterfragen</li>
+            </ul>
+          </article>
+          <article class="feature glass" aria-labelledby="l2">
+            <h3 id="l2">Leistungsphase 7 Vergabe</h3>
+            <p>Einholen und Prüfen der Angebote, Preisspiegel, Wertung nach formalen und wirtschaftlichen Kriterien, Vergabeempfehlung sowie Mitwirkung bei Vertragsgestaltung und Aufklärungsgesprächen.</p>
+            <ul style="margin:8px 0 0 18px;color:var(--muted)">
+              <li>Formelle und rechnerische Prüfung</li>
+              <li>Aufklärung, Nachverhandlung, Zuschlagsreife</li>
+              <li>Vergabevorschlag und Dokumentation</li>
+            </ul>
+          </article>
+          <article class="feature glass" aria-labelledby="l3">
+            <h3 id="l3">Baugutachten Bauschäden</h3>
+            <p>Ursachenanalyse und Beweissicherung bei Schäden an Gebäuden. Zustandsbewertung, Sanierungsempfehlungen und Kostenschätzung als Entscheidungsgrundlage für Eigentümer, Versicherer oder Gerichte.</p>
+            <ul style="margin:8px 0 0 18px;color:var(--muted)">
+              <li>Ortstermin mit Fotodokumentation</li>
+              <li>Labor- und Bauwerksdiagnostik falls erforderlich</li>
+              <li>Gutachten mit Maßnahmenplan</li>
+            </ul>
+          </article>
+          <article class="feature glass" aria-labelledby="l4">
+            <h3 id="l4">Immobilienwertermittlung</h3>
+            <p>Bewertungen nach ImmoWertV und Wertermittlungsrichtlinien. Verkehrswert, Marktwertindikation, bei Bedarf Miet- und Beleihungswert, nachvollziehbar und gerichtsfest aufbereitet.</p>
+            <ul style="margin:8px 0 0 18px;color:var(--muted)">
+              <li>Vergleichs-, Ertrags- und Sachwert</li>
+              <li>Objekt- und Marktanalyse</li>
+              <li>Transparente Gutachtenerstellung</li>
+            </ul>
+          </article>
+          <article class="feature glass" aria-labelledby="l5">
+            <h3 id="l5">Ausschreibung Spezial</h3>
+            <p>Funktionale Leistungsbeschreibungen, Nachtragsprävention durch klare Anforderungen, BIM- und GAEB-Schnittstellen, Eignungs- und Zuschlagskriterien mit Scorecards.</p>
+          </article>
+          <article class="feature glass" aria-labelledby="l6">
+            <h3 id="l6">Beratung und Second Opinion</h3>
+            <p>Prüfung bestehender LVs, Vergabeakten oder Gutachten, Risikoanalyse, wirtschaftliche Optimierung, Schulungen für Auftraggeber und Projektteams.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="prozess" class="section" aria-labelledby="h-proz">
+      <div class="container">
+        <h2 id="h-proz">Ablauf</h2>
+        <p class="sub">Strukturiert, dokumentiert, fristgerecht.</p>
+        <div class="steps">
+          <div class="step glass"><b>1 Anfrage</b><div>Kurzer Projektcheck mit Ziel, Termin, Budgetrahmen.</div></div>
+          <div class="step glass"><b>2 Angebot</b><div>Transparenter Leistungs- und Honorarvorschlag.</div></div>
+          <div class="step glass"><b>3 Umsetzung</b><div>Erstellung der Unterlagen und Bieterkommunikation.</div></div>
+          <div class="step glass"><b>4 Vergabe</b><div>Wertung, Verhandlung, Zuschlag, Dokumentation.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="h-vorteile">
+      <div class="container">
+        <h2 id="h-vorteile">Vorteile</h2>
+        <p class="sub">Planbare Termine und belastbare Ergebnisse.</p>
+        <div class="stats">
+          <div class="stat glass"><div class="n">100+</div><div class="k">erstellte LVs</div></div>
+          <div class="stat glass"><div class="n">50 Mio €</div><div class="k">verhandelte Volumina</div></div>
+          <div class="stat glass"><div class="n">48 h</div><div class="k">Reaktionszeit</div></div>
+          <div class="stat glass"><div class="n">95 %</div><div class="k">Termintreue</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="referenzen" class="section" aria-labelledby="h-ref">
+      <div class="container">
+        <h2 id="h-ref">Referenzen</h2>
+        <p class="sub">Aus Datenschutzgründen stellen wir Projektdetails im Gespräch vor. Beispielhafte Auftraggeber.</p>
+        <div class="logos" aria-label="Logos Platzhalter">
+          <div class="glass"></div><div class="glass"></div><div class="glass"></div><div class="glass"></div><div class="glass"></div><div class="glass"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="h-ueber">
+      <div class="container grid-2">
+        <div class="card glass">
+          <h2 id="h-ueber">Über uns</h2>
+          <p class="sub">Ingenieurkompetenz aus Berlin. Unabhängig, lösungsorientiert, wirtschaftlich.</p>
+          <p>Wir verbinden technische Präzision mit kaufmännischer Klarheit. Damit Ausschreibungen und Vergaben reibungslos laufen und Entscheidungen auf belastbaren Unterlagen beruhen. Für Gutachten arbeiten wir methodisch sauber und verständlich.</p>
+          <ul style="margin:10px 0 0 18px;color:var(--muted)">
+            <li>Mitgliedschaften und Zertifizierungen auf Anfrage</li>
+            <li>Versicherungsschutz Berufshaftpflicht</li>
+            <li>Digitale Workflows, GAEB, BIM, AVA</li>
+          </ul>
+        </div>
+        <div class="card glass imprint">
+          <h3 style="margin-top:0">Firmendaten</h3>
+          <p><b>Bassam Ingenieurbüro für Bauwesen GmbH</b><br>Nehringstraße 23-24, 14059 Berlin<br>Telefon +49 176 23581339<br>E-Mail k.abuelkheir@ing-bassam.de</p>
+          <p>Geschäftsführung Karim Abu Elkheir, Sitz Berlin, HRB folgt</p>
+          <p>USt-IdNr. folgt</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt" class="section" aria-labelledby="h-kontakt">
+      <div class="container contact">
+        <div>
+          <h2 id="h-kontakt">Kontakt</h2>
+          <p class="sub">Wir melden uns schnell zurück.</p>
+          <!-- Formular: Kontakt (Formspree) -->
+          <form id="contact" class="grid-2" name="kontakt" action="https://formspree.io/f/xrblrldq" method="POST">
+            <input type="hidden" name="_subject" value="Kontakt – Anfrage über ing-bassam.de">
+            <input type="hidden" name="formular" value="kontakt">
+
+            <div class="field"><label for="name">Name</label><input id="name" name="name" required placeholder="Vor- und Nachname" /></div>
+            <div class="field"><label for="email">E-Mail</label><input id="email" name="email" type="email" required placeholder="name@firma.de" /></div>
+            <div class="field"><label for="tel">Telefon</label><input id="tel" name="tel" placeholder="+49" /></div>
+            <div class="field"><label for="topic">Thema</label>
+              <select id="topic" name="topic" required>
+                <option value="" selected>Bitte wählen</option>
+                <option>Ausschreibung und Vergabe</option>
+                <option>Baugutachten</option>
+                <option>Immobilienbewertung</option>
+                <option>Beratung</option>
+              </select>
+            </div>
+            <div class="field" style="grid-column:1/-1"><label for="msg">Nachricht</label><textarea id="msg" name="msg" required placeholder="Ihre Anfrage"></textarea></div>
+
+            <p aria-hidden="true" style="display:none"><label>Feld leer lassen<input name="_gotcha" /></label></p>
+            <div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;justify-content:space-between">
+              <button class="btn" type="submit">Senden</button>
+              <small class="sub">Mit dem Senden stimmen Sie der Verarbeitung Ihrer Angaben zur Bearbeitung zu.</small>
+            </div>
+          </form>
+          <div id="ok" class="card glass" style="display:none;margin-top:10px">Vielen Dank. Wir melden uns kurzfristig.</div>
+        </div>
+        <div class="card glass">
+          <h3 style="margin:0 0 8px">Büro</h3>
+          <p class="sub" style="margin:0 0 10px">Nehringstraße 23-24, 14059 Berlin</p>
+          <div style="aspect-ratio:16/9;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,#ffffff,#f1f4fa);display:grid;place-items:center;color:#667599">Karte hier einbinden</div>
+          <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn ghost" href="tel:+4917623581339">Anrufen</a>
+            <a class="btn ghost" href="mailto:k.abuelkheir@ing-bassam.de">E-Mail</a>
+            <a class="btn" href="#quickform">Projekt prüfen lassen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container" style="display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap">
+      <div>© <span id="y"></span> Bassam Ingenieurbüro für Bauwesen GmbH</div>
+      <div style="display:flex;gap:16px">
+        <a href="#" onclick="openModal('impressum');return false;">Impressum</a>
+        <a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modale Platzhalter -->
+  <dialog id="impressum" class="card glass" style="max-width:900px;width:90%">
+    <h3 style="margin-top:0">Impressum</h3>
+    <p>Bassam Ingenieurbüro für Bauwesen GmbH, Nehringstraße 23-24, 14059 Berlin. Vertretungsberechtigt Karim Abu Elkheir. Kontakt wie oben. Registergericht und Nummer folgen. Umsatzsteuer-ID folgt.</p>
+    <form method="dialog"><button class="btn ghost">Schließen</button></form>
+  </dialog>
+  <dialog id="datenschutz" class="card glass" style="max-width:900px;width:90%">
+    <h3 style="margin-top:0">Datenschutzhinweise</h3>
+    <p>Wir verarbeiten Ihre Angaben zur Bearbeitung der Anfrage. Rechtsgrundlage Art. 6 Abs. 1 lit. b DSGVO. Weitere Informationen stellen wir nach Projektstart bereit.</p>
+    <form method="dialog"><button class="btn ghost">Schließen</button></form>
+  </dialog>
+
+  <button id="topbtn" class="topbtn">▲</button>
+
+  <script>
+    // Jahr
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Mobile Menü
+    const hamb = document.getElementById('hamb');
+    const mnav = document.getElementById('mnav');
+    if(hamb){
+      hamb.addEventListener('click', () => {
+        const open = mnav.style.display === 'block';
+        mnav.style.display = open ? 'none' : 'block';
+        hamb.setAttribute('aria-expanded', String(!open));
+        if(!open){
+          mnav.innerHTML = `
+            <a href="#leistungen">Leistungen</a>
+            <a href="#prozess">Ablauf</a>
+            <a href="#referenzen">Referenzen</a>
+            <a href="#kontakt">Kontakt</a>`;
+        }
+      });
+    }
+
+    // Back-to-top Button
+    const topbtn = document.getElementById('topbtn');
+    window.addEventListener('scroll', () => {
+      topbtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+    });
+    topbtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    // === Formulare über Formspree einsenden (mit Mailto-Fallback) ===
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrblrldq';
+    const MAILTO = 'k.abuelkheir@ing-bassam.de';
+
+    function handleFormAjax(formId, okId){
+      const f = document.getElementById(formId);
+      const ok = document.getElementById(okId);
+      if(!f) return;
+      f.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if(!f.checkValidity()){ f.reportValidity(); return; }
+
+        const noEndpoint = !FORMSPREE_ENDPOINT || FORMSPREE_ENDPOINT.includes('XXXXXXXX');
+        if(noEndpoint){
+          const subject = encodeURIComponent('Anfrage über ing-bassam.de: ' + (f.name?.value || 'Kontakt'));
+          const lines = [];
+          new FormData(f).forEach((v,k)=> lines.push(`${k}: ${v}`));
+          window.location.href = `mailto:${MAILTO}?subject=${subject}&body=${encodeURIComponent(lines.join('
+'))}`;
           if(ok){ ok.style.display='block'; }
           f.reset();
           return;
