@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://ing-bassam.de/sitemap.xml
+
+# Optional: Crawler-Hinweise
+Host: ing-bassam.de
