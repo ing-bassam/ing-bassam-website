@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <!-- Plausible Analytics -->
+  <!-- Plausible Analytics mit Outbound-Link-Tracking -->
   <script defer data-domain="ing-bassam.de" src="https://plausible.io/js/script.outbound-links.js"></script>
   <script>
     window.plausible = window.plausible || function() {
@@ -23,7 +23,7 @@
     }
   </script>
   <style>
-    /* ... (Dein restliches CSS bleibt unverändert) ... */
+    /* Beispielhaft nur ein Teil, ergänze hier dein komplettes CSS */
     .field-honey { 
       position: absolute !important; 
       left: -9999px; 
@@ -31,7 +31,7 @@
       height: 1px; 
       overflow: hidden;
     }
-    /* ... Rest wie gehabt ... */
+    /* ... Dein restliches CSS wie gehabt ... */
   </style>
   <script type="application/ld+json">
   {
@@ -49,8 +49,20 @@
   <meta name="robots" content="index,follow" />
 </head>
 <body>
-  <!-- ... alles wie gehabt ... -->
-  <!-- Formular: Quickcheck -->
+  <!-- ... Dein Seiteninhalt wie gehabt ... -->
+
+  <!-- Beispielhafter Footer mit Jahr -->
+  <footer class="footer" role="contentinfo">
+    <div class="container" style="display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap">
+      <div>© <span id="y"></span> Bassam Ingenieurbüro für Bauwesen GmbH</div>
+      <div style="display:flex;gap:16px">
+        <a href="#" onclick="openModal('impressum');return false;">Impressum</a>
+        <a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Beispielhafte Formulare mit Spam-Schutz -->
   <form id="quickform" class="grid-2" name="quickcheck" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off">
     <input type="hidden" name="_subject" value="Quickcheck – Anfrage über ing-bassam.de">
     <input type="hidden" name="formular" value="quickcheck">
@@ -58,8 +70,7 @@
     <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
     <!-- ... restliche Felder wie gehabt ... -->
   </form>
-  <!-- ... -->
-  <!-- Formular: Kontakt -->
+
   <form id="contact" class="grid-2" name="kontakt" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off">
     <input type="hidden" name="_subject" value="Kontakt – Anfrage über ing-bassam.de">
     <input type="hidden" name="formular" value="kontakt">
@@ -67,21 +78,19 @@
     <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
     <!-- ... restliche Felder wie gehabt ... -->
   </form>
-  <!-- ... -->
 
   <script type="module">
     (() => {
-      // ... $ und $$ wie gehabt
+      // Hilfsfunktionen
       const $ = (sel, ctx=document) => ctx.querySelector(sel);
       const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
       const currentYear = () => (new Date()).getFullYear();
-      $('#y').textContent = currentYear();
+      // Jahr im Footer aktualisieren (Fehlerfrei!)
+      const y = $('#y');
+      if (y) y.textContent = currentYear();
 
-      // Mobile Menü und Topbtn wie gehabt...
-
-      // === Spam-Schutz: Honeypot + Zeitfalle ===
+      // Spam-Schutz: Zeitfalle initialisieren
       document.addEventListener('DOMContentLoaded', () => {
-        // Setze Zeitfalle Werte
         ['quickform','contact'].forEach(id=>{
           const f = document.getElementById(id);
           if(f){
@@ -96,15 +105,14 @@
       const MAILTO = 'k.abuelkheir@ing-bassam.de';
 
       async function submitViaAjax(formEl, okEl, errEl){
-        // --- SPAM-SCHUTZ PRÜFEN ---
-        // Honeypot
+        // Spam-Schutz: Honeypot
         const honey = formEl.querySelector('[name=_gotcha]');
         if(honey && honey.value.trim() !== ""){
           if(errEl) errEl.style.display = 'block';
           showToast('err', 'Spamverdacht – bitte Formular korrekt ausfüllen.');
           return;
         }
-        // Zeitfalle
+        // Spam-Schutz: Zeitfalle
         const t = formEl.querySelector('[name=ts_start]');
         if (t) {
           const now = Date.now();
@@ -116,7 +124,6 @@
           }
         }
 
-        // ... restliche Funktion wie gehabt ...
         const btn = formEl.querySelector('button[type="submit"]');
         const original = btn ? btn.innerHTML : '';
         if(btn){ btn.classList.add('loading'); btn.disabled = true; btn.innerHTML = '<span class="spinner" aria-hidden="true"></span><span>Senden…</span>'; }
