@@ -2,10 +2,310 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <title>Test funktioniert!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bassam Ingenieurbüro für Bauwesen GmbH – Ausschreibung, Vergabe, Gutachten</title>
+  <meta name="description" content="Ingenieurbüro in Berlin für Leistungsphase 6 und 7 nach HOAI, professionelle Ausschreibung und Vergabe von Bauleistungen, Gutachten für Bauschäden sowie Immobilienwertermittlung." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="canonical" href="https://ing-bassam.de/" />
+  <meta property="og:title" content="Bassam Ingenieurbüro für Bauwesen GmbH" />
+  <meta property="og:description" content="Ausschreibung (HOAI LP 6/7), Vergabe, Baugutachten, Immobilienbewertung – Berlin." />
+  <meta property="og:url" content="https://ing-bassam.de/" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='48' fill='%23ffffff'/%3E%3Cpath d='M64 176l64-96 64 96' stroke='%232457ff' stroke-width='16' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='128' cy='112' r='10' fill='%232457ff'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <!-- Plausible Analytics mit Outbound-Link-Tracking -->
+  <script defer data-domain="ing-bassam.de" src="https://plausible.io/js/script.outbound-links.js"></script>
+  <script>
+    window.plausible = window.plausible || function() {
+      (window.plausible.q = window.plausible.q || []).push(arguments)
+    }
+  </script>
+  <style>
+    html, body {margin:0;padding:0;font-family:'Inter',Arial,sans-serif;background:#f8fafd;}
+    .container {max-width:900px;margin:0 auto;padding:2em;}
+    .grid-2 {display:grid;grid-template-columns:1fr 1fr;gap:2em;}
+    .card {background:#fff;border-radius:12px;box-shadow:0 2px 16px #0002;padding:2em;position:relative;transition:.2s;}
+    .card.shake {animation:shake .3s;}
+    @keyframes shake {10%,90%{transform:translateX(-2px);}
+      20%,80%{transform:translateX(4px);}
+      30%,50%,70%{transform:translateX(-8px);}
+      40%,60%{transform:translateX(8px);}
+    }
+    label {font-weight:600;}
+    input, textarea, button {font-family:inherit;font-size:1em;}
+    input, textarea {width:100%;margin-bottom:1em;padding:.7em;border:1px solid #bbb;border-radius:4px;box-sizing:border-box;}
+    button {background:#2457ff;color:#fff;font-weight:600;padding:0.75em 1.5em;border:none;border-radius:6px;cursor:pointer;transition:background .2s;}
+    button:disabled {background:#aaa;}
+    .spinner { display:inline-block; width:1em; height:1em; border:2px solid #fff; border-radius:50%; border-top:2px solid #2457ff; animation:spin 1s linear infinite; margin-right:.5em;}
+    @keyframes spin {100%{transform:rotate(360deg);} }
+    .field-honey {position:absolute !important; left:-9999px; width:1px; height:1px; overflow:hidden;}
+    .ok, .err {display:none; padding:1em; margin-bottom:1em; border-radius:5px;}
+    .ok {background:#d4f7e5;color:#10643c;}
+    .err {background:#ffe1e1;color:#b30000;}
+    .toast {position:fixed;bottom:36px;left:50%;transform:translateX(-50%);background:#fff;box-shadow:0 2px 16px #0003;border-radius:7px;padding:1em 2em;display:flex;align-items:center;gap:.7em;z-index:1101;font-size:1.1em;opacity:.97;transition:.2s;}
+    .toast.ok svg{stroke:#14b885;}
+    .toast.err svg{stroke:#e4644e;}
+    .confetti {position:absolute; z-index:999; width:8px; height:16px; border-radius:2px; pointer-events:none;}
+    dialog {padding:2em;border:none;border-radius:8px;box-shadow:0 10px 32px #0003;}
+    .footer {background:#f4f4f7;padding:2em 1em;text-align:center;font-size:1em;color:#333;}
+    .footer a {color:#2457ff;text-decoration:none;margin:0 0.7em;}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Bassam Ingenieurbüro für Bauwesen GmbH",
+    "description": "Ausschreibung und Vergabe nach HOAI LP 6 und 7, Baugutachten, Immobilienbewertung.",
+    "url": "https://ing-bassam.de/",
+    "telephone": "+49 176 23581339",
+    "address": {"@type": "PostalAddress","streetAddress": "Nehringstraße 23-24","addressLocality": "Berlin","postalCode": "14059","addressCountry": "DE"},
+    "areaServed": "Deutschland",
+    "founder": "Karim Abu Elkheir"
+  }
+  </script>
+  <meta name="robots" content="index,follow" />
 </head>
 <body>
-  <h1>Testseite: HTML funktioniert</h1>
-  <p>Wenn du DAS siehst, wird deine HTML-Datei richtig ausgeliefert.</p>
+  <main class="container">
+    <h1>Bassam Ingenieurbüro für Bauwesen GmbH</h1>
+    <div class="grid-2">
+      <!-- Kontaktformular -->
+      <div class="card">
+        <h2>Kontakt</h2>
+        <form id="contact" name="kontakt" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off">
+          <input type="hidden" name="_subject" value="Kontakt – Anfrage über ing-bassam.de">
+          <input type="hidden" name="formular" value="kontakt">
+          <input type="hidden" name="ts_start" id="contact_ts_start" />
+          <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
+          <label>Ihr Name:<input type="text" name="name" required /></label>
+          <label>E-Mail:<input type="email" name="email" required /></label>
+          <label>Nachricht:<textarea name="message" required rows="4"></textarea></label>
+          <button type="submit">Absenden</button>
+          <div id="ok" class="ok">Vielen Dank! Ihre Nachricht wurde versendet.</div>
+          <div id="err" class="err">Fehler beim Senden. Bitte versuchen Sie es erneut.</div>
+        </form>
+      </div>
+      <!-- Quickcheck-Formular -->
+      <div class="card">
+        <h2>Quickcheck</h2>
+        <form id="quickform" name="quickcheck" action="https://formspree.io/f/xrblrldq" method="POST" autocomplete="off">
+          <input type="hidden" name="_subject" value="Quickcheck – Anfrage über ing-bassam.de">
+          <input type="hidden" name="formular" value="quickcheck">
+          <input type="hidden" name="ts_start" id="quick_ts_start" />
+          <p class="field-honey"><label>Bitte nicht ausfüllen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
+          <label>Ihr Name:<input type="text" name="name" required /></label>
+          <label>E-Mail:<input type="email" name="email" required /></label>
+          <label>Kurze Beschreibung:<textarea name="beschreibung" required rows="3"></textarea></label>
+          <button type="submit">Absenden</button>
+          <div id="qok" class="ok">Vielen Dank für Ihre Anfrage!</div>
+          <div id="qerr" class="err">Fehler beim Senden. Bitte versuchen Sie es erneut.</div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer class="footer" role="contentinfo">
+    © <span id="y"></span> Bassam Ingenieurbüro für Bauwesen GmbH –
+    <a href="#" onclick="openModal('impressum');return false;">Impressum</a>
+    ·
+    <a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a>
+  </footer>
+  
+  <dialog id="impressum">
+    <h3>Impressum</h3>
+    <p>Verantwortlich: Karim Abu Elkheir, Nehringstraße 23-24, 14059 Berlin<br>
+      Telefon: +49 176 23581339<br>
+      E-Mail: info@ing-bassam.de</p>
+    <button onclick="this.closest('dialog').close()">Schließen</button>
+  </dialog>
+  <dialog id="datenschutz">
+    <h3>Datenschutz</h3>
+    <p>Es werden keine personenbezogenen Daten gespeichert außer zur Bearbeitung Ihrer Anfrage. Es werden keine Cookies für Tracking eingesetzt.</p>
+    <button onclick="this.closest('dialog').close()">Schließen</button>
+  </dialog>
+  <div id="toasts" style="position:fixed;bottom:0;left:0;right:0;z-index:1200;pointer-events:none;"></div>
+  
+  <script type="module">
+    (() => {
+      // Hilfsfunktionen
+      const $ = (sel, ctx=document) => ctx.querySelector(sel);
+      const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
+      const currentYear = () => (new Date()).getFullYear();
+      // Jahr im Footer aktualisieren
+      const y = $('#y');
+      if (y) y.textContent = currentYear();
+
+      // === Spam-Schutz: Zeitfalle initialisieren ===
+      document.addEventListener('DOMContentLoaded', () => {
+        ['quickform','contact'].forEach(id=>{
+          const f = document.getElementById(id);
+          if(f){
+            const ts = f.querySelector('[name=ts_start]');
+            if(ts) ts.value = Date.now();
+          }
+        });
+      });
+
+      // === AJAX-Forms mit Spam-Schutz ===
+      const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrblrldq';
+      const MAILTO = 'k.abuelkheir@ing-bassam.de';
+
+      async function submitViaAjax(formEl, okEl, errEl){
+        // --- SPAM-SCHUTZ PRÜFEN ---
+        // Honeypot
+        const honey = formEl.querySelector('[name=_gotcha]');
+        if(honey && honey.value.trim() !== ""){
+          if(errEl) errEl.style.display = 'block';
+          showToast('err', 'Spamverdacht – bitte Formular korrekt ausfüllen.');
+          return;
+        }
+        // Zeitfalle
+        const t = formEl.querySelector('[name=ts_start]');
+        if (t) {
+          const now = Date.now();
+          const then = Number(t.value);
+          if (then && now - then < 4000) {
+            if (errEl) errEl.style.display = 'block';
+            showToast('err', 'Bitte nicht so schnell absenden.');
+            return;
+          }
+        }
+
+        const btn = formEl.querySelector('button[type="submit"]');
+        const original = btn ? btn.innerHTML : '';
+        if(btn){ btn.classList.add('loading'); btn.disabled = true; btn.innerHTML = '<span class="spinner" aria-hidden="true"></span><span>Senden…</span>'; }
+        okEl && (okEl.style.display = 'none');
+        errEl && (errEl.style.display = 'none');
+
+        try{
+          const res = await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(formEl),
+            redirect: 'manual'
+          });
+          if(res.ok){
+            okEl && (okEl.style.display = 'block');
+            popCard(formEl);
+            fireConfetti(formEl);
+            showToast('ok','Nachricht gesendet. Vielen Dank!');
+            formEl.reset();
+            // Zeitfalle neu setzen nach reset
+            const ts = formEl.querySelector('[name=ts_start]');
+            if(ts) ts.value = Date.now();
+          }else{
+            errEl && (errEl.style.display = 'block');
+            formEl.closest('.card')?.classList.add('shake');
+            showToast('err','Senden fehlgeschlagen. Bitte später erneut versuchen.');
+            setTimeout(()=>formEl.closest('.card')?.classList.remove('shake'),600);
+          }
+        }catch(e){
+          errEl && (errEl.style.display = 'block');
+          showToast('err','Netzwerkfehler. Prüfen Sie Ihre Verbindung.');
+        }finally{
+          if(btn){ btn.classList.remove('loading'); btn.disabled = false; btn.innerHTML = original; }
+        }
+      }
+
+      function enableAjax(formId, okId, errId){
+        const form = document.getElementById(formId);
+        if(!form) return;
+        const ok = document.getElementById(okId);
+        const err = document.getElementById(errId);
+        form.addEventListener('submit', (ev)=>{
+          ev.preventDefault();
+          if(!form.checkValidity()){ form.reportValidity(); return; }
+          if(!FORMSPREE_ENDPOINT){
+            const subject = encodeURIComponent('Anfrage über ing-bassam.de: ' + (form.name?.value || 'Kontakt'));
+            const lines = [];
+            new FormData(form).forEach((v,k)=> lines.push(`${k}: ${v}`));
+            window.location.href = `mailto:${MAILTO}?subject=${subject}&body=${encodeURIComponent(lines.join('\n'))}`;
+            ok && (ok.style.display = 'block');
+            form.reset();
+            return;
+          }
+          submitViaAjax(form, ok, err);
+        });
+      }
+
+      enableAjax('contact','ok','err');
+      enableAjax('quickform','qok','qerr');
+
+      // Modale, Animationen, Toasts
+      function openModal(id){
+        const el = document.getElementById(id);
+        if(el && el.showModal) el.showModal();
+      }
+      window.openModal = openModal;
+      function popCard(el){ el.closest('.card')?.animate([{transform:'scale(.98)'},{transform:'scale(1.02)'},{transform:'scale(1)'}],{duration:320,easing:'cubic-bezier(.2,.9,.2,1)'}); }
+      function showToast(type, msg){
+        const wrap = document.getElementById('toasts');
+        if(!wrap) return;
+        const t = document.createElement('div');
+        t.className = 'toast ' + (type==='ok'?'ok':'err');
+        t.setAttribute('role','status');
+        t.innerHTML = (type==='ok'
+          ? '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="#14b885" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+          : '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 8v4m0 4h.01M12 5a7 7 0 100 14 7 7 0 000-14z" stroke="#e4644e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+          + `<span>${msg}</span>`;
+        wrap.appendChild(t);
+        setTimeout(()=>{ t.style.opacity = '0'; t.style.transform = 'translateY(-6px)'; setTimeout(()=>t.remove(),250); }, 4200);
+      }
+      function fireConfetti(refEl){
+        const host = refEl.closest('.card') || document.body;
+        for(let i=0;i<24;i++){
+          const c = document.createElement('i');
+          c.className = 'confetti';
+          c.style.left = (refEl.offsetLeft + refEl.offsetWidth*0.5 + (Math.random()*120-60)) + 'px';
+          c.style.top = (refEl.offsetTop + 10) + 'px';
+          c.style.background = `hsl(${Math.random()*360},85%,60%)`;
+          c.style.transform = `translateY(-60px) rotate(${Math.random()*180}deg)`;
+          c.style.animationDuration = (600 + Math.random()*600) + 'ms';
+          c.style.opacity = .9;
+          host.appendChild(c);
+          setTimeout(()=>c.remove(),1200);
+        }
+      }
+      // Dialog schließt mit ESC oder Enter
+      $$('dialog').forEach(dlg => {
+        dlg.addEventListener('keydown', e => {
+          if(e.key === 'Escape' || e.key === 'Enter'){
+            dlg.close();
+          }
+        });
+      });
+      // Autosave für Formulare
+      function enableAutosave(formId, storageKey) {
+        const form = document.getElementById(formId);
+        if (!form) return;
+        if (window.localStorage) {
+          const saved = window.localStorage.getItem(storageKey);
+          if (saved) {
+            try {
+              const data = JSON.parse(saved);
+              Object.entries(data).forEach(([k, v]) => {
+                if (form.elements[k]) form.elements[k].value = v;
+              });
+            } catch {}
+          }
+        }
+        form.addEventListener('input', () => {
+          if (window.localStorage) {
+            const data = {};
+            Array.from(form.elements).forEach(el => {
+              if (el.name && el.type !== 'hidden') data[el.name] = el.value;
+            });
+            window.localStorage.setItem(storageKey, JSON.stringify(data));
+          }
+        });
+        form.addEventListener('reset', () => {
+          if (window.localStorage) window.localStorage.removeItem(storageKey);
+        });
+      }
+      enableAutosave('contact', 'bassam_autosave_contact');
+      enableAutosave('quickform', 'bassam_autosave_quickform');
+    })();
+  </script>
 </body>
 </html>
