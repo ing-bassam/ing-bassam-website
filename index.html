@@ -14,11 +14,12 @@
   <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='48' fill='%23ffffff'/%3E%3Cpath d='M64 176l64-96 64 96' stroke='%232457ff' stroke-width='16' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='128' cy='112' r='10' fill='%232457ff'/%3E%3C/svg%3E" />
 
-  <!-- reCAPTCHA v3: setze unten deinen Site Key -->
+  <!-- hCaptcha (explicit render; invisible) -->
   <script>
-    const RECAPTCHA_SITE_KEY = "YOUR_RECAPTCHA_SITE_KEY"; // TODO: ersetzen
+    // TODO: HIER deinen hCaptcha SITE KEY eintragen (nicht Google reCAPTCHA!)
+    const HCAPTCHA_SITE_KEY = "00e8f2b0-0ff6-4cb6-89d8-34fa4460ed9c";
   </script>
-  <script defer src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY"></script>
+  <script src="https://hcaptcha.com/1/api.js?render=explicit&onload=hcaptchaReady" async defer></script>
 
   <style>
     :root{
@@ -33,6 +34,10 @@
         --glass:rgba(17,24,44,.6); --glass-strong:rgba(17,24,44,.8); }
     }
 
+    /* Safety: Honeypots immer unsichtbar – selbst wenn später CSS bricht */
+    [hidden]{display:none!important}
+    .hp{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important}
+
     *{box-sizing:border-box}
     html,body{
       margin:0;height:100%;
@@ -45,25 +50,11 @@
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
 
-    .container{
-      max-width:1200px;
-      margin-inline:auto;
-      padding-inline:var(--gutter);
-    }
-
-    @supports (padding: max(0px)){
-      .container{
-        padding-left:max(var(--gutter), env(safe-area-inset-left));
-        padding-right:max(var(--gutter), env(safe-area-inset-right));
-      }
-      .wrap{
-        padding-left:max(0px, env(safe-area-inset-left));
-        padding-right:max(0px, env(safe-area-inset-right));
-      }
-      body{
-        padding-left:max(0px, env(safe-area-inset-left));
-        padding-right:max(0px, env(safe-area-inset-right));
-      }
+    .container{max-width:1200px;margin-inline:auto;padding-inline:var(--gutter)}
+    @supports (padding:max(0px)){
+      .container{padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right))}
+      .wrap{padding-left:max(0px,env(safe-area-inset-left));padding-right:max(0px,env(safe-area-inset-right))}
+      body{padding-left:max(0px,env(safe-area-inset-left));padding-right:max(0px,env(safe-area-inset-right))}
     }
 
     .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border:0;font-weight:600;box-shadow:0 10px 28px rgba(36,87,255,.25);cursor:pointer;transition:transform .15s ease,box-shadow .2s ease}
@@ -123,7 +114,7 @@
 
     .field{display:flex;flex-direction:column;gap:6px}
     .field label{font-size:13px;color:#475167}
-    .field input,.field textarea,.field select{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--ink')}
+    .field input,.field textarea,.field select{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:10px;padding:12px;color:var(--ink);}
     .field textarea{min-height:120px}
 
     .footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:14px}
@@ -139,41 +130,12 @@
     .alert.err{display:block;background:rgba(228,100,78,.08);color:#8a3a2d}
 
     @keyframes spin{to{transform:rotate(360deg)}}
-    @keyframes fadeInUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes slideDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
     @keyframes shake{10%,90%{transform:translateX(-1px)}20%,80%{transform:translateX(2px)}30%,50%,70%{transform:translateX(-4px)}40%,60%{transform:translateX(4px)}}
 
     #toasts{position:fixed;top:16px;right:16px;display:flex;flex-direction:column;gap:10px;z-index:9999}
     .toast{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--glass-strong);backdrop-filter:blur(10px);box-shadow:0 6px 24px rgba(0,0,0,.08);opacity:0;transform:translateY(-6px);animation:slideDown .25s ease forwards}
     .toast.ok{border-color:rgba(20,184,133,.35)}
     .toast.err{border-color:rgba(228,100,78,.35)}
-
-    .shake{animation:shake .5s ease both}
-
-    /* Honeypots unsichtbar aber im DOM - schützt auch SRs */
-    .hp{position:absolute !important; left:-10000px !important; top:auto !important; width:1px !important; height:1px !important; overflow:hidden !important; opacity:0 !important;}
-
-    @media (max-width: 420px){
-      h1 { font-size:30px; }
-      .badge { font-size:11px; }
-    }
-
-    @media (max-width: 1000px){
-      .hero .grid{grid-template-columns:1fr}
-      .features{grid-template-columns:1fr 1fr}
-      .steps{grid-template-columns:1fr 1fr}
-      .stats{grid-template-columns:1fr 1fr}
-      .logos{grid-template-columns:repeat(3,1fr)}
-      .grid-2{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-    }
-    @media (max-width: 720px){
-      .navlinks{display:none}
-      .hamb{display:flex;align-items:center;gap:8px;border:1px solid var(--line);padding:8px 12px;border-radius:10px;cursor:pointer}
-      #mnav{display:none;position:absolute;top:57px;left:0;right:0;background:var(--glass-strong);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-      #mnav a{display:block;padding:14px 20px;border-top:1px solid var(--line)}
-      h1{font-size:34px}
-    }
   </style>
 
   <script type="application/ld+json">
@@ -254,19 +216,17 @@
             <div class="field"><label for="qtel">Telefon</label><input id="qtel" name="tel" placeholder="+49" inputmode="tel" pattern="^[0-9+()\\s\\-]{6,20}$" /></div>
             <div class="field" style="grid-column:1/-1"><label for="qmsg">Kurzbeschreibung</label><textarea id="qmsg" name="msg" placeholder="Projekt, Termin, Ort" maxlength="2000"></textarea></div>
 
-            <!-- Standard-Honeypot von Formspree -->
-            <p aria-hidden="true" class="hp"><label>Feld leer lassen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
-            <!-- Zusätzliche statische Honeypots (clientseitig geprüft) -->
-            <input type="text" name="company" class="hp" aria-hidden="true" autocomplete="off" tabindex="-1">
-            <input type="text" name="website" class="hp" aria-hidden="true" autocomplete="off" tabindex="-1">
+            <!-- Unsichtbares hCaptcha-Widget (kein zusätzliches sichtbares Feld) -->
+            <div class="h-captcha" data-size="invisible" data-badge="bottomright"></div>
 
-            <!-- Anti-Bot Metadaten -->
+            <!-- Anti-Bot-Metadaten (unsichtbar) -->
+            <input type="text" name="company" class="hp" hidden aria-hidden="true" autocomplete="off" tabindex="-1">
+            <input type="text" name="website" class="hp" hidden aria-hidden="true" autocomplete="off" tabindex="-1">
             <input type="hidden" name="form_rendered_at" class="render-ts">
             <input type="hidden" name="origin" class="origin-field">
-            <input type="hidden" name="g-recaptcha-response" class="recaptcha-token">
 
             <div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;justify-content:space-between">
-              <button class="btn" type="submit">Absenden</button>
+              <button class="btn" type="submit">Anfrage senden</button>
               <small class="sub">Durch Absenden stimmen Sie der Verarbeitung zum Zweck der Kontaktaufnahme zu.</small>
             </div>
           </form>
@@ -336,43 +296,6 @@
       </div>
     </section>
 
-    <section id="prozess" class="section" aria-labelledby="h-proz">
-      <div class="container">
-        <h2 id="h-proz">Ablauf</h2>
-        <p class="sub">Strukturiert, dokumentiert, fristgerecht.</p>
-        <div class="steps">
-          <div class="step glass"><b>1 Anfrage</b><div>Kurzer Projektcheck mit Ziel, Termin, Budgetrahmen.</div></div>
-          <div class="step glass"><b>2 Angebot</b><div>Transparenter Leistungs- und Honorarvorschlag.</div></div>
-          <div class="step glass"><b>3 Umsetzung</b><div>Erstellung der Unterlagen und Bieterkommunikation.</div></div>
-          <div class="step glass"><b>4 Vergabe</b><div>Wertung, Verhandlung, Zuschlag, Dokumentation.</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="h-vorteile">
-      <div class="container">
-        <h2 id="h-vorteile">Vorteile</h2>
-        <p class="sub">Planbare Termine und belastbare Ergebnisse.</p>
-        <div class="stats">
-          <div class="stat glass"><div class="n">100+</div><div class="k">erstellte LVs</div></div>
-          <div class="stat glass"><div class="n">50 Mio €</div><div class="k">verhandelte Volumina</div></div>
-          <div class="stat glass"><div class="n">48 h</div><div class="k">Reaktionszeit</div></div>
-          <div class="stat glass"><div class="n">95 %</div><div class="k">Termintreue</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="referenzen" class="section" aria-labelledby="h-ref">
-      <div class="container">
-        <h2 id="h-ref">Referenzen</h2>
-        <p class="sub">Aus Datenschutzgründen stellen wir Projektdetails im Gespräch vor. Beispielhafte Auftraggeber.</p>
-        <div class="logos" aria-label="Logos Platzhalter">
-          <div class="glass"></div><div class="glass"></div><div class="glass"></div>
-          <div class="glass"></div><div class="glass"></div><div class="glass"></div>
-        </div>
-      </div>
-    </section>
-
     <section class="section" aria-labelledby="h-ueber">
       <div class="container grid-2">
         <div class="card glass">
@@ -418,19 +341,17 @@
             </div>
             <div class="field" style="grid-column:1/-1"><label for="msg">Nachricht</label><textarea id="msg" name="msg" required placeholder="Ihre Anfrage" maxlength="4000"></textarea></div>
 
-            <!-- Standard-Honeypot -->
-            <p aria-hidden="true" class="hp"><label>Feld leer lassen<input name="_gotcha" autocomplete="off" tabindex="-1" /></label></p>
-            <!-- Zusätzliche statische Honeypots (clientseitig geprüft) -->
-            <input type="text" name="company" class="hp" aria-hidden="true" autocomplete="off" tabindex="-1">
-            <input type="text" name="website" class="hp" aria-hidden="true" autocomplete="off" tabindex="-1">
+            <!-- Unsichtbares hCaptcha -->
+            <div class="h-captcha" data-size="invisible" data-badge="bottomright"></div>
 
-            <!-- Anti-Bot Metadaten -->
+            <!-- Anti-Bot-Metadaten (unsichtbar) -->
+            <input type="text" name="company" class="hp" hidden aria-hidden="true" autocomplete="off" tabindex="-1">
+            <input type="text" name="website" class="hp" hidden aria-hidden="true" autocomplete="off" tabindex="-1">
             <input type="hidden" name="form_rendered_at" class="render-ts">
             <input type="hidden" name="origin" class="origin-field">
-            <input type="hidden" name="g-recaptcha-response" class="recaptcha-token">
 
             <div style="grid-column:1/-1;display:flex;gap:10px;align-items:center;justify-content:space-between">
-              <button class="btn" type="submit">Senden</button>
+              <button class="btn" type="submit">Anfrage senden</button>
               <small class="sub">Mit dem Senden stimmen Sie der Verarbeitung Ihrer Angaben zur Bearbeitung zu.</small>
             </div>
           </form>
@@ -491,7 +412,7 @@
     // Jahr
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Nav-Höhe dynamisch
+    // Nav-Höhe
     function setNavHeight(){
       const n = document.querySelector('header.nav');
       const h = n?.offsetHeight || 72;
@@ -531,27 +452,18 @@
     });
     topbtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-    // ---------- Security Hardening für Formspree ----------
+    // ---------- Security/Spam-Hardening ----------
     const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrblrldq';
     const MAILTO = 'k.abuelkheir@ing-bassam.de';
-    const MIN_FILL_MS = 5000;                 // Mindest-Ausfüllzeit
-    const RATE_LIMIT_MS = 30000;              // pro Browser
+    const MIN_FILL_MS = 5000;
+    const RATE_LIMIT_MS = 30000;
     const ALLOWED_HOSTS = ['ing-bassam.de','www.ing-bassam.de'];
 
-    // reCAPTCHA v3 Token abrufen, falls Site Key gesetzt
-    async function getRecaptchaToken(action){
-      try{
-        if(!RECAPTCHA_SITE_KEY || RECAPTCHA_SITE_KEY === 'YOUR_RECAPTCHA_SITE_KEY') return '';
-        if(!window.grecaptcha || !window.grecaptcha.execute) return '';
-        await grecaptcha.ready();
-        const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action });
-        return token || '';
-      }catch(e){ return ''; }
-    }
+    function openModal(id){ const el=document.getElementById(id); if(el && el.showModal) el.showModal(); }
+    window.openModal = openModal;
 
     function showToast(type, msg){
-      const wrap = document.getElementById('toasts');
-      if(!wrap) return;
+      const wrap = document.getElementById('toasts'); if(!wrap) return;
       const t = document.createElement('div');
       t.className = 'toast ' + (type==='ok'?'ok':'err');
       t.setAttribute('role','status');
@@ -560,76 +472,58 @@
         : '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true"><path d="M12 8v4m0 4h.01M12 5a 7 7 0 100 14 7 7 0 000-14z" stroke="#e4644e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
       ) + '<span>'+ msg +'</span>';
       wrap.appendChild(t);
-      setTimeout(()=>{
-        t.style.opacity = '0';
-        t.style.transform = 'translateY(-6px)';
-        setTimeout(()=>t.remove(),250);
-      }, 4200);
+      setTimeout(()=>{ t.style.opacity='0'; t.style.transform='translateY(-6px)'; setTimeout(()=>t.remove(),250); }, 4200);
     }
 
-    function openModal(id){
-      const el = document.getElementById(id);
-      if(el && el.showModal) el.showModal();
+    // hCaptcha explicit render (unsichtbar)
+    let hcaptchaReadyFired = false;
+    function hcaptchaReady(){
+      if(hcaptchaReadyFired) return; hcaptchaReadyFired = true;
+      document.querySelectorAll('.h-captcha').forEach(el=>{
+        if(!HCAPTCHA_SITE_KEY || HCAPTCHA_SITE_KEY==="YOUR_HCAPTCHA_SITE_KEY") return;
+        const id = hcaptcha.render(el, {
+          sitekey: HCAPTCHA_SITE_KEY,
+          size: 'invisible',
+          callback: onHCaptchaSuccess,
+          'error-callback': ()=> showToast('err','CAPTCHA fehlgeschlagen. Bitte erneut versuchen.')
+        });
+        el.dataset.widgetId = id;
+      });
     }
-    window.openModal = openModal;
+    window.hcaptchaReady = hcaptchaReady;
 
-    // Inject dynamischen Honeypot, Timestamp und Origin
+    let pendingForm = null;
+    function onHCaptchaSuccess(){
+      if(pendingForm){ submitViaAjax(pendingForm.form, pendingForm.ok, pendingForm.err); pendingForm=null; }
+    }
+
+    // Schutzwerte
     function hardenForm(form){
+      // Render-Timestamp
+      const ts = form.querySelector('.render-ts'); if(ts) ts.value = String(Date.now());
+      // Origin
+      const origin = form.querySelector('.origin-field'); if(origin) origin.value = location.hostname;
       // dynamischer Honeypot
       const hp = document.createElement('input');
-      hp.type = 'text';
-      hp.className = 'hp';
-      const rnd = Math.random().toString(36).slice(2,8);
-      hp.name = 'notes_' + rnd;  // nicht vorhersagbar
-      hp.setAttribute('aria-hidden','true');
-      hp.setAttribute('autocomplete','off');
-      hp.setAttribute('tabindex','-1');
-      form.appendChild(hp);
-      form.dataset.hp = hp.name;
-
-      // Render-Timestamp
-      const ts = form.querySelector('.render-ts');
-      if(ts) ts.value = String(Date.now());
-
-      // Origin
-      const origin = form.querySelector('.origin-field');
-      if(origin) origin.value = location.hostname;
+      hp.type='text'; hp.name='notes_'+Math.random().toString(36).slice(2,8);
+      hp.className='hp'; hp.autocomplete='off'; hp.tabIndex=-1; hp.hidden = true;
+      form.appendChild(hp); form.dataset.hp = hp.name;
     }
 
     function formBlockedReason(form){
-      // Host-Check (verhindert Cross-Site-Embedding via Browser)
-      if(!ALLOWED_HOSTS.includes(location.hostname)){
-        return 'Anfrage blockiert: unerlaubter Host';
-      }
-      // Rate-Limit pro Browser
-      const key = 'last_submit_' + form.id;
-      const last = Number(localStorage.getItem(key) || 0);
-      if(Date.now() - last < RATE_LIMIT_MS){
-        return 'Bitte warte kurz vor einer weiteren Anfrage';
-      }
-      // Mindest-Ausfüllzeit
+      if(!ALLOWED_HOSTS.includes(location.hostname)) return 'Anfrage blockiert: unerlaubter Host';
+      const key='last_submit_'+form.id, last=Number(localStorage.getItem(key)||0);
+      if(Date.now()-last < RATE_LIMIT_MS) return 'Bitte kurz warten, dann erneut senden.';
       const ts = Number(form.querySelector('.render-ts')?.value || 0);
-      if(ts && (Date.now() - ts) < MIN_FILL_MS){
-        return 'Ausfüllzeit zu kurz - bitte Formular normal ausfüllen';
-      }
-      // Honeypots müssen leer sein
-      const hp1 = form.querySelector('input[name="_gotcha"]');
-      const hp2 = form.querySelector('input[name="company"]');
-      const hp3 = form.querySelector('input[name="website"]');
-      if((hp1 && hp1.value) || (hp2 && hp2.value) || (hp3 && hp3.value)){
-        return 'Spam erkannt (Honeypot)';
-      }
-      // Dyn. Honeypot
-      const dynName = form.dataset.hp;
-      if(dynName){
-        const dyn = form.querySelector(`input[name="${dynName}"]`);
-        if(dyn && dyn.value) return 'Spam erkannt (dyn. Honeypot)';
-      }
-      // E-Mail grob plausibel
+      if(ts && (Date.now()-ts) < MIN_FILL_MS) return 'Ausfüllzeit zu kurz – bitte Formular normal ausfüllen.';
+      // Honeypots
+      const hpStatic = ['company','website'].some(n => (form.querySelector(`input[name="${n}"]`)||{}).value);
+      if(hpStatic) return 'Spam erkannt (Honeypot)';
+      const dyn = form.dataset.hp && form.querySelector(`input[name="${form.dataset.hp}"]`);
+      if(dyn && dyn.value) return 'Spam erkannt (dyn. Honeypot)';
+      // E-Mail Plausibilität
       const email = form.querySelector('input[name="email"]')?.value || '';
-      if(email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
-        return 'Bitte gültige E-Mail angeben';
-      }
+      if(email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return 'Bitte gültige E-Mail angeben.';
       return '';
     }
 
@@ -637,76 +531,50 @@
       const btn = formEl.querySelector('button[type="submit"]');
       const original = btn ? btn.innerHTML : '';
       if(btn){ btn.classList.add('loading'); btn.disabled = true; btn.innerHTML = '<span class="spinner" aria-hidden="true" style="width:16px;height:16px;border:2px solid rgba(255,255,255,.45);border-top-color:#fff;border-radius:50%;display:inline-block;animation:spin .8s linear infinite"></span><span>Senden…</span>'; }
-      if(okEl) okEl.style.display = 'none';
-      if(errEl) errEl.style.display = 'none';
+      if(okEl) okEl.style.display='none'; if(errEl) errEl.style.display='none';
 
       try{
-        // reCAPTCHA Token setzen, falls verfügbar
-        const token = await getRecaptchaToken('contact_form');
-        const tokenField = formEl.querySelector('.recaptcha-token');
-        if(tokenField) tokenField.value = token;
-
         const res = await fetch(FORMSPREE_ENDPOINT, {
-          method: 'POST',
-          mode: 'cors',
-          headers: { 'Accept': 'application/json' },
-          body: new FormData(formEl)
-          // referrerPolicy absichtlich NICHT gesetzt, damit Formspree die Domain erkennen kann
+          method:'POST', mode:'cors', headers:{'Accept':'application/json'}, body:new FormData(formEl)
         });
-
-        if(res.ok || res.status === 200 || res.status === 201){
-          if(okEl) okEl.style.display = 'block';
+        if(res.ok || res.status===200 || res.status===201){
+          if(okEl) okEl.style.display='block';
           showToast('ok','Nachricht gesendet. Vielen Dank!');
           formEl.reset();
-          // Nach Reset: neue Schutzwerte setzen
+          const w = formEl.querySelector('.h-captcha'); if(window.hcaptcha && w?.dataset.widgetId) hcaptcha.reset(w.dataset.widgetId);
           hardenForm(formEl);
-          localStorage.setItem('last_submit_' + formEl.id, String(Date.now()));
+          localStorage.setItem('last_submit_'+formEl.id, String(Date.now()));
         }else{
-          if(errEl) errEl.style.display = 'block';
+          if(errEl) errEl.style.display='block';
           formEl.closest('.card')?.classList.add('shake');
           showToast('err','Senden fehlgeschlagen. Bitte später erneut versuchen.');
           setTimeout(()=>formEl.closest('.card')?.classList.remove('shake'),600);
         }
       }catch(e){
-        if(errEl) errEl.style.display = 'block';
+        if(errEl) errEl.style.display='block';
         showToast('err','Netzwerkfehler. Prüfen Sie Ihre Verbindung.');
       }finally{
-        if(btn){ btn.classList.remove('loading'); btn.disabled = false; btn.innerHTML = original; }
+        if(btn){ btn.classList.remove('loading'); btn.disabled=false; btn.innerHTML = original; }
       }
     }
 
     function enableAjax(formId, okId, errId){
-      const form = document.getElementById(formId);
-      if(!form) return;
-      const ok = document.getElementById(okId);
-      const err = document.getElementById(errId);
-
-      // Schutzwerte initial setzen
+      const form = document.getElementById(formId); if(!form) return;
+      const ok = document.getElementById(okId); const err = document.getElementById(errId);
       hardenForm(form);
-
       form.addEventListener('submit', async (ev)=>{
         ev.preventDefault();
-        // HTML5-Validierung
         if(!form.checkValidity()){ form.reportValidity(); return; }
-        // Security-Gates
         const why = formBlockedReason(form);
-        if(why){
-          showToast('err', why);
-          form.closest('.card')?.classList.add('shake');
-          setTimeout(()=>form.closest('.card')?.classList.remove('shake'),600);
-          return;
+        if(why){ showToast('err', why); form.closest('.card')?.classList.add('shake'); setTimeout(()=>form.closest('.card')?.classList.remove('shake'),600); return; }
+
+        // hCaptcha invisible: erst Challenge, dann senden
+        const widget = form.querySelector('.h-captcha');
+        if(window.hcaptcha && widget?.dataset.widgetId){
+          const rid = widget.dataset.widgetId;
+          if(!hcaptcha.getResponse(rid)){ pendingForm = {form, ok, err}; hcaptcha.execute(rid); return; }
         }
-        // Fallback: Wenn kein Formspree-Endpoint konfiguriert ist, via Mailto
-        if(!FORMSPREE_ENDPOINT){
-          const subject = encodeURIComponent('Anfrage über ing-bassam.de: ' + (form.getAttribute('name') || 'Kontakt'));
-          const lines = [];
-          new FormData(form).forEach((v,k)=> lines.push(`${k}: ${v}`));
-          window.location.href = `mailto:${MAILTO}?subject=${subject}&body=${encodeURIComponent(lines.join('\n'))}`;
-          if(ok) ok.style.display = 'block';
-          form.reset();
-          hardenForm(form);
-          return;
-        }
+
         await submitViaAjax(form, ok, err);
       });
     }
