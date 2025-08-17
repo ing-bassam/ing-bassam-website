@@ -11,44 +11,32 @@
   <meta http-equiv="Referrer-Policy" content="same-origin">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b0d0f'/%3E%3Cpath d='M16 44 L32 20 L48 44' stroke='%23ffffff' stroke-width='4' fill='none'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=20250818">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%232563eb'/%3E%3Cstop offset='1' stop-color='%2310b981'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='url(%23g)'/%3E%3Cpath d='M16 44 L32 20 L48 44' stroke='%23ffffff' stroke-width='4' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20250817">
   <script defer src="/assets/js/main.js"></script>
   <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </head>
-
 <body>
+
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="index.html">BIB</a>
+      <a class="logo" href="index.html" aria-label="Bassam Ingenieurbüro für Bauwesen GmbH">BIB</a>
       <nav aria-label="Hauptnavigation">
-        <ul class="nav">
-          <li><a href="index.html">Startseite</a></li>
-          <li><a href="leistungen.html">Leistungen</a></li>
-          <li><a href="projekte.html">Projekte</a></li>
-          <li><a href="fachartikel.html">Fachartikel</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
+        <ul class="nav"><li><a href="index.html">Startseite</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="projekte.html">Projekte</a></li><li><a href="fachartikel.html">Fachartikel</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="hero-slim">
-      <div class="container measure">
-        <p class="eyebrow">404</p>
-        <h1>Seite nicht gefunden</h1>
-        <p class="lead">Die angeforderte Seite existiert nicht.</p>
-      </div>
-    </section>
-    <section class="section">
-      <div class="container">
-        <a class="btn" href="index.html">Zur Startseite</a>
-      </div>
-    </section>
-  </main>
+<main>
+  <section class="section">
+    <div class="container measure prose">
+      <h1>Seite nicht gefunden</h1>
+      <p>Die angeforderte Seite existiert nicht. Bitte nutzen Sie die Navigation.</p>
+      <p><a class="btn" href="index.html">Zur Startseite</a></p>
+    </div>
+  </section>
+</main>
 
-  <!-- Footer (wie gehabt) -->
   <footer class="site-footer" id="kontakt">
     <div class="container">
       <div class="footer-grid">
@@ -62,6 +50,7 @@
           </ul>
           <p class="small">© 2025 Bassam Ingenieurbüro für Bauwesen GmbH</p>
         </section>
+
         <section class="footer-form">
           <h2 class="h4">Kontakt aufnehmen</h2>
           <form action="https://formspree.io/f/xrblrldq" method="POST" class="contact-form" id="footer-form" novalidate>
@@ -82,10 +71,12 @@
             <label>Nachricht
               <textarea name="message" rows="4" placeholder="Beschreiben Sie Ihr Anliegen kurz."></textarea>
             </label>
+
             <label class="checkbox">
               <input type="checkbox" name="consent" required>
               <span>Ich habe die <a href="datenschutz.html" target="_self">Datenschutzhinweise</a> gelesen und willige ein.</span>
             </label>
+
             <input type="hidden" name="_subject" value="Neue Website-Anfrage">
             <input type="hidden" name="_language" value="de">
             <input type="hidden" name="_redirect" value="https://ing-bassam.de/danke.html">
@@ -108,5 +99,6 @@
       </div>
     </div>
   </footer>
+
 </body>
 </html>
