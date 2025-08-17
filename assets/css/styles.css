@@ -66,3 +66,49 @@ img{max-width:100%; height:auto}
 /* Menüpunkt „Projekte“ vorübergehend ausblenden (passt auch für ../projekte.html) */
 .nav a[href$="projekte.html"] { display: none !important; }
 
+/* ——— Leistungen: moderne Optik ——— */
+
+.container.narrow{ max-width: 860px }
+
+/* Schlanker Hero */
+.hero-slim{
+  background:linear-gradient(180deg,#f8fafc,#fff);
+  border-bottom:1px solid var(--line);
+  padding:36px 0 18px;
+}
+.eyebrow{ text-transform:uppercase; letter-spacing:.12em; color:var(--muted); font-weight:600; font-size:12px; margin:0 0 6px 0 }
+
+/* Badges */
+.badge-row{ display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:14px }
+.badge{ display:flex; gap:10px; align-items:center; border:1px solid var(--line); background:#fff; border-radius:12px; padding:10px 12px }
+.badge svg{ width:20px; height:20px }
+
+/* Service-Karten */
+.service-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:16px }
+.service-card{ border:1px solid var(--line); border-radius:16px; padding:16px; background:#fff; transition:transform .12s ease, box-shadow .12s ease }
+.service-card:hover{ transform:translateY(-2px); box-shadow:0 6px 16px rgba(15,18,22,.08) }
+.service-card h3{ margin-top:4px }
+.klist{ padding-left:18px; margin:8px 0 0 0 }
+.klist li{ margin:6px 0 }
+.mini{ font-size:13px }
+.cta-mini{ display:inline-block; margin-top:10px; font-weight:600 }
+
+/* Ablauf als Timeline */
+.process{ display:grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap:12px; margin-top:10px }
+.step{ border:1px dashed var(--line); border-radius:14px; padding:12px; background:#fff; position:relative }
+.step:before{
+  counter-increment: step; content: counter(step);
+  position:absolute; top:-10px; left:-10px; width:24px; height:24px;
+  border-radius:50%; background:var(--ink); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700
+}
+.process{ counter-reset: step }
+
+/* CTA Banner */
+.banner{ margin:24px 0; background:#0b0d0f; color:#fff; border-radius:16px; padding:18px }
+.banner .row{ display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap }
+.banner .btn{ background:#fff; color:#0b0d0f; border-color:#fff }
+
+/* Menüpunkt Projekte vorübergehend ausblenden – robust für ../projekte.html */
+.nav a[href$="projekte.html"]{ display:none !important }
+
