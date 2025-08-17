@@ -1,9 +1,13 @@
 // assets/js/main.js
-(function(){
-  // setzt einen Zeitstempel fürs Formular, nützlich gegen Spam
-  var ff = document.getElementById('footer-form');
-  if(ff){
-    var ts = ff.querySelector('#ts-footer');
-    if(ts){ ts.value = new Date().toISOString(); }
+(function () {
+  function setTS(form) {
+    var el = form.querySelector('input[name="timestamp"]');
+    if (el) el.value = new Date().toISOString();
+    // optional: Seite mitschicken, falls das Feld vorhanden ist
+    var page = form.querySelector('input[name="page"]');
+    if (page && !page.value) page.value = location.pathname;
   }
+
+  // alle Kontaktformulare auf der Seite bedienen
+  document.querySelectorAll('form.contact-form').forEach(setTS);
 })();
