@@ -63,8 +63,8 @@ img{max-width:100%; height:auto}
   .footer-grid{grid-template-columns: 1fr}
   .grid-2{grid-template-columns:1fr}
 }
-/* Menüpunkt „Projekte“ vorübergehend ausblenden (passt auch für ../projekte.html) */
-.nav a[href$="projekte.html"] { display: none !important; }
+/* Menüpunkt Projekte vorübergehend ausblenden – robust für ../projekte.html */
+.nav a[href$="projekte.html"]{ display:none !important }
 
 /* ——— Leistungen: moderne Optik ——— */
 
@@ -108,7 +108,3 @@ img{max-width:100%; height:auto}
 .banner{ margin:24px 0; background:#0b0d0f; color:#fff; border-radius:16px; padding:18px }
 .banner .row{ display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap }
 .banner .btn{ background:#fff; color:#0b0d0f; border-color:#fff }
-
-/* Menüpunkt Projekte vorübergehend ausblenden – robust für ../projekte.html */
-.nav a[href$="projekte.html"]{ display:none !important }
-
