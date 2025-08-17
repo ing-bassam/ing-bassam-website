@@ -63,3 +63,6 @@ img{max-width:100%; height:auto}
   .footer-grid{grid-template-columns: 1fr}
   .grid-2{grid-template-columns:1fr}
 }
+/* Menüpunkt „Projekte“ vorübergehend ausblenden (passt auch für ../projekte.html) */
+.nav a[href$="projekte.html"] { display: none !important; }
+
