@@ -1,11 +1,11 @@
 /* assets/css/styles.css — modern minimalist theme (fixed) */
 :root{
-  --ink:#0b0d0f;
-  --muted:#64748b;
-  --line:#e5e7eb;
-  --brand:#2563eb;
-  --brand-ink:#e6f0ff;
-  --bg:#ffffff;
+  --ink:#3A3630;
+  --muted:#6F6A62;
+  --line:#E6DCCF;
+  --brand:#B59E86;
+  --brand-ink:#F7F2EC;
+  --bg:#F4EEE6;
   --radius:16px;
   --container:1100px;
 
@@ -109,3 +109,56 @@ img{max-width:100%; height:auto}
 /* Replace dark banner backgrounds */
 .banner{ background:#E6D7C4; color:#3A3630 }
 .banner .btn{ background:#B59E86; color:#fff; border-color:#B59E86 }
+
+--surface:#EFE5D8;
+--sand:#E6D7C4;
+--taupe:#C9B39B;
+--accent:#B59E86;
+
+/* === Sand/Beige Theme Override (restores warm background) === */
+:root{
+  --bg:#F4EEE6;         /* cream background */
+  --surface:#EFE5D8;    /* card/section surface */
+  --sand:#E6D7C4;       /* light sand */
+  --taupe:#C9B39B;      /* mid accent */
+  --accent:#B59E86;     /* dark accent for lines/buttons */
+  --ink:#3A3630;        /* warm dark text */
+  --muted:#6F6A62;      /* muted text */
+  --line:#E6DCCF;       /* separators */
+  --brand:#B59E86;      /* primary */
+  --brand-ink:#F7F2EC;  /* badges */
+}
+
+/* Global */
+body{background:var(--bg); color:var(--ink)}
+
+/* Sections & Cards on warm surface */
+.section{background:var(--surface)}
+.card{background:#fff; border:1px solid var(--line)}
+
+/* Hero with subtle radial lights to avoid flat white */
+.hero, .hero-slim{
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(181,158,134,0.12), transparent 60%),
+    radial-gradient(1000px 500px at 120% 20%, rgba(201,179,155,0.08), transparent 60%),
+    var(--bg);
+}
+.hero .title, .hero-slim h1{color:var(--ink)}
+.lead{color:var(--muted)}
+
+/* Header & Footer */
+.site-header{background:rgba(244,238,230,.85); backdrop-filter:saturate(1.1) blur(8px); border-bottom:1px solid var(--line)}
+.site-footer{background:var(--surface); border-top:1px solid var(--line)}
+
+/* Buttons (already adjusted earlier, leave in the same palette) */
+.btn{border:1px solid var(--brand); background:var(--brand); color:#fff}
+.btn:hover{filter:brightness(.96)}
+.btn.ghost{background:transparent; color:var(--brand); border-color:var(--brand)}
+.btn.ghost:hover{background:var(--sand)}
+
+/* Banner */
+.banner{ background:var(--sand); color:var(--ink) }
+.banner .btn{ background:var(--brand); color:#fff; border-color:var(--brand)}
+
+/* Logo presentation */
+.brand-logo{width:40px; height:40px; border-radius:8px; display:block}
