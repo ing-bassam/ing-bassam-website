@@ -1,3 +1,4 @@
-Sitemap: https://ing-bassam.de/sitemap.xml
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://ing-bassam.de/sitemap.xml
