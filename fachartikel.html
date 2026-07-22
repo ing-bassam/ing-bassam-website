@@ -3,43 +3,97 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fachartikel| Bassam Ingenieurbüro für Bauwesen GmbH</title>
-    <meta name="description" content="Fachartikel.">
+    <title>Fachartikel | Bassam Ingenieurbüro für Bauwesen GmbH</title>
+    <meta name="description" content="Fachartikel und Hinweise rund um bautechnische Vorschriften, VOB, Gutachten und Bauwesen.">
     <link rel="canonical" href="https://ing-bassam.de/fachartikel.html">
     <meta name="theme-color" content="#e8d8bf">
     <link rel="icon" href="assets/logo-header.jpg">
     <link rel="stylesheet" href="styles.css">
     
     <style>
-      /* Zusätzliches, minimales Styling für die Blog-Liste */
+      /* Styling für die aufklappbaren Fachartikel (Accordion) */
       .blog-list {
         display: grid;
-        gap: 32px;
+        gap: 24px;
         max-width: 820px;
         margin: 0 auto;
       }
       .blog-article {
-        padding: 32px;
         border: 1px solid var(--line);
         border-radius: 8px;
         background: #fffdf8;
         box-shadow: 0 10px 26px rgba(117, 99, 68, 0.08);
+        transition: border-color 160ms ease;
+      }
+      .blog-article:hover {
+        border-color: var(--rust);
+      }
+      .blog-article details {
+        padding: 28px;
+      }
+      .blog-article summary {
+        cursor: pointer;
+        list-style: none; /* Entfernt den Standard-Pfeil im Browser */
+      }
+      /* Eigenen kleinen Hinweis/Indikator für den Klick einbauen */
+      .blog-article summary::-webkit-details-marker {
+        display: none;
       }
       .blog-date {
         display: inline-block;
-        margin-bottom: 12px;
+        margin-bottom: 8px;
         color: var(--rust);
-        font-size: 0.88rem;
+        font-size: 0.85rem;
         font-weight: 800;
         text-transform: uppercase;
         letter-spacing: 0.5px;
       }
       .blog-article h2 {
-        font-size: 1.6rem;
-        margin-bottom: 16px;
+        font-size: 1.45rem;
+        margin: 0;
+        color: var(--ink);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
       }
-      .blog-article p {
+      /* Plus/Minus Zeichen als Indikator */
+      .blog-article h2::after {
+        content: "+";
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--rust);
+        flex-shrink: 0;
+        transition: transform 200ms ease;
+      }
+      .blog-article details[open] h2::after {
+        content: "−";
+      }
+      .blog-content {
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+      }
+      .blog-content p {
         color: var(--muted);
+        margin: 0 0 16px 0;
+      }
+      .blog-content p:last-child {
+        margin-bottom: 0;
+      }
+      .close-hint {
+        display: inline-block;
+        margin-top: 16px;
+        color: var(--rust-dark);
+        font-weight: 700;
+        font-size: 0.9rem;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      }
+      .close-hint:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
@@ -64,9 +118,8 @@
     <main id="inhalt">
       <section class="page-hero">
         <div class="container page-hero-inner">
-          <p class="eyebrow">Fachartikel & Einblicke</p>
-          <h1>Wissen aus der bautechnischen Praxis.</h1>
-          <p></p>
+          <p class="eyebrow">Fachartikel</p>
+          <h1>Bauwesen</h1>
         </div>
       </section>
 
@@ -75,20 +128,29 @@
           <div class="blog-list">
 
             <!-- ==========================================
-                 HIER NEUEN ARTIKEL EINFÜGEN (KOPIER-VORLAGE)
-                 Kopiere einfach den gesamten Block von <article> bis </article>
-                 und füge ihn ganz oben (unter diese Linie) neu ein!
+                 KOPIER-VORLAGE FÜR NEUE ARTIKEL:
+                 Füge neue Artikel einfach oben unter diesen Block ein.
                  ========================================== -->
             
             <article class="blog-article">
-              <span class="blog-date">22. Juli 2026</span>
-              <h2>VOB/B verständlich erklärt: Was Bauherren bei der Abnahme beachten müssen</h2>
-              <p>Die Abnahme nach VOB/B ist ein zentraler Meilenstein in jedem Bauprojekt. Mit der Abnahme geht nicht nur die Gefahrtragung auf den Bauherrn über, sondern es beginnt auch die Gewährleistungsfrist. Oft wird hierbei der Fehler gemacht, auf eine formelle Begehung zu verzichten.</p>
-              <p>Wir raten dringend dazu, stets eine förmliche Abnahme mit Protokoll durchzuführen. Darin werden Vorbehalte wegen bekannter Mängel und Vertragsstrafen schriftlich festgehalten. Nur so ist sichergestellt, dass Ihre Rechte als Bauherr vollumfänglich gewahrt bleiben.</p>
+              <details>
+                <summary>
+                  <span class="blog-date">22. Juli 2026</span>
+                  <h2>VOB/B verständlich erklärt: Was Bauherren bei der Abnahme beachten müssen</h2>
+                </summary>
+                <div class="blog-content">
+                  <p>Die Abnahme nach VOB/B ist ein zentraler Meilenstein in jedem Bauprojekt. Mit der Abnahme geht nicht nur die Gefahrtragung auf den Bauherrn über, sondern es beginnt auch die Gewährleistungsfrist. Oft wird hierbei der Fehler gemacht, auf eine formelle Begehung zu verzichten.</p>
+                  <p>Wir raten dringend dazu, stets eine förmliche Abnahme mit Protokoll durchzuführen. Darin werden Vorbehalte wegen bekannter Mängel und Vertragsstrafen schriftlich festgehalten. Nur so ist sichergestellt, dass Ihre Rechte als Bauherr vollumfänglich gewahrt bleiben.</p>
+                  <!-- Kleiner Button zum Schließen -->
+                  <form method="dialog">
+                    <button class="close-hint" onclick="this.closest('details').removeAttribute('open'); return false;">↑ Artikel schließen</button>
+                  </form>
+                </div>
+              </details>
             </article>
 
             <!-- ==========================================
-                 ENDE DER ARTIKEL-VORLAGE
+                 ENDE DER VORLAGE
                  ========================================== -->
 
           </div>
