@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
-      /* Styling für die aufklappbaren Fachartikel (Accordion) */
       .blog-list {
         display: grid;
         gap: 24px;
@@ -33,9 +32,8 @@
       }
       .blog-article summary {
         cursor: pointer;
-        list-style: none; /* Entfernt den Standard-Pfeil im Browser */
+        list-style: none;
       }
-      /* Eigenen kleinen Hinweis/Indikator für den Klick einbauen */
       .blog-article summary::-webkit-details-marker {
         display: none;
       }
@@ -57,7 +55,6 @@
         align-items: center;
         gap: 16px;
       }
-      /* Plus/Minus Zeichen als Indikator */
       .blog-article h2::after {
         content: "+";
         font-size: 1.5rem;
@@ -107,7 +104,6 @@
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="hauptnavigation"><span class="menu-toggle-lines" aria-hidden="true"></span><span class="visually-hidden">Navigation öffnen</span></button>
         <nav class="site-nav" id="hauptnavigation" aria-label="Hauptnavigation">
           <a href="leistungen.html">Leistungen</a>
-          <a href="index.html#arbeitsweise">Arbeitsweise</a>
           <a href="index.html#profil">Profil</a>
           <a href="fachartikel.html" aria-current="page">Fachartikel</a>
           <a href="kontakt.html">Kontakt</a>
@@ -126,11 +122,6 @@
       <section class="section">
         <div class="container">
           <div class="blog-list">
-
-            <!-- ==========================================
-                 KOPIER-VORLAGE FÜR NEUE ARTIKEL:
-                 Füge neue Artikel einfach oben unter diesen Block ein.
-                 ========================================== -->
             
             <article class="blog-article">
               <details>
@@ -139,19 +130,14 @@
                   <h2>VOB/B verständlich erklärt: Was Bauherren bei der Abnahme beachten müssen</h2>
                 </summary>
                 <div class="blog-content">
-                  <p>Die Abnahme nach VOB/B ist ein zentraler Meilenstein in jedem Bauprojekt. Mit der Abnahme geht nicht nur die Gefahrtragung auf den Bauherrn über, sondern es beginnt auch die Gewährleistungsfrist. Oft wird hierbei der Fehler gemacht, auf eine formelle Begehung zu verzichten.</p>
+                  <p>Die Abnahme nach VOB/B is ein zentraler Meilenstein in jedem Bauprojekt. Mit der Abnahme geht nicht nur die Gefahrtragung auf den Bauherrn über, sondern es beginnt auch die Gewährleistungsfrist. Oft wird hierbei der Fehler gemacht, auf eine formelle Begehung zu verzichten.</p>
                   <p>Wir raten dringend dazu, stets eine förmliche Abnahme mit Protokoll durchzuführen. Darin werden Vorbehalte wegen bekannter Mängel und Vertragsstrafen schriftlich festgehalten. Nur so ist sichergestellt, dass Ihre Rechte als Bauherr vollumfänglich gewahrt bleiben.</p>
-                  <!-- Kleiner Button zum Schließen -->
                   <form method="dialog">
                     <button class="close-hint" onclick="this.closest('details').removeAttribute('open'); return false;">↑ Artikel schließen</button>
                   </form>
                 </div>
               </details>
             </article>
-
-            <!-- ==========================================
-                 ENDE DER VORLAGE
-                 ========================================== -->
 
           </div>
         </div>
