@@ -4,949 +4,1443 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BIB Ingenieurbüro für Bauwesen GmbH</title>
+<meta name="description" content="BIB begutachtet, dokumentiert und überwacht Bauvorhaben und Bauschäden – für Versicherungen, Gerichte und Bauherren. Versicherungsgutachten, Gerichtsgutachten, technische Beweissicherung und Objektüberwachung in Berlin.">
+<meta name="theme-color" content="#0a121d">
+<!--
+  DATENSCHUTZ: Diese Richtlinie erlaubt nur Dateien von dieser Website selbst.
+  Externe Schriften, Skripte, Tracking oder Cookies-Dienste werden vom Browser blockiert.
+-->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a121d'/%3E%3Cpath d='M16 46h32' stroke='%23f26b2a' stroke-width='3'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Arial,sans-serif' font-size='22' font-weight='300' fill='%23ffffff'%3EBIB%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/space-grotesk-v22-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('js');</script>
 
 <style>
+  /* =====================================================================
+     SCHRIFTEN – lokal gehostet (keine Verbindung zu Google o. Ä.)
+     ===================================================================== */
+  @font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/inter-v20-latin-regular.woff2') format('woff2');}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/inter-v20-latin-500.woff2') format('woff2');}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/inter-v20-latin-600.woff2') format('woff2');}
+  @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/space-grotesk-v22-latin-500.woff2') format('woff2');}
+  @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/space-grotesk-v22-latin-600.woff2') format('woff2');}
+  @font-face{font-family:'Fira Sans';font-style:normal;font-weight:300;font-display:swap;src:url('fonts/fira-sans-v18-latin-300.woff2') format('woff2');}
+
+  /* =====================================================================
+     DESIGN-TOKENS
+     ===================================================================== */
   :root{
-  /* ---------- LOKALE SCHRIFTARTEN ---------- */
-  /* Fira Sans */
-  @font-face {
-    font-family: 'Fira Sans';
-    font-style: normal;
-    font-weight: 300;
-    src: url('fonts/fira-sans-v18-latin-300.woff2') format('woff2');
-  }
-  @font-face {
-    font-family: 'Fira Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: url('fonts/fira-sans-v18-latin-regular.woff2') format('woff2');
+    /* Dunkle Flächen (Tinte) */
+    --ink-950:#0a121d;
+    --ink-900:#0f1a28;
+    --ink-800:#172334;
+    --ink-line:rgba(255,255,255,.08);
+    --ink-line-2:rgba(255,255,255,.16);
+    --on-ink:#edeff2;
+    --on-ink-2:#aeb6c2;
+    --on-ink-3:#848e9c;
+
+    /* Helle Flächen (Papier) */
+    --paper:#f4f3ef;
+    --surface:#ffffff;
+    --line:#e0ddd5;
+    --line-strong:#c9c5bb;
+    --text:#0f1a28;
+    --text-2:#475262;
+    --text-3:#5e6876;
+
+    /* Akzent: Signalorange, sparsam eingesetzt */
+    --accent:#c2410c;
+    --accent-hover:#a3360a;
+    --accent-bright:#f26b2a;
+    --accent-soft:rgba(194,65,12,.12);
+
+    --error:#b42318;
+
+    --font-body:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-display:'Space Grotesk', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-logo:'Fira Sans', 'Inter', system-ui, sans-serif;
+
+    --radius-sm:6px;
+    --radius:10px;
+    --radius-lg:16px;
+
+    --ease:cubic-bezier(.2,.7,.2,1);
+    --ease-io:cubic-bezier(.65,0,.35,1);
+    --dur:240ms;
+    --dur-slow:560ms;
+
+    --wrap:1200px;
+    --gutter:clamp(20px, 4vw, 40px);
+    --section-y:clamp(80px, 11vw, 136px);
+    --header-h:76px;
   }
 
-  /* Space Grotesk */
-  @font-face {
-    font-family: 'Space Grotesk';
-    font-style: normal;
-    font-weight: 500;
-    src: url('fonts/space-grotesk-v22-latin-500.woff2') format('woff2');
-  }
-  @font-face {
-    font-family: 'Space Grotesk';
-    font-style: normal;
-    font-weight: 600;
-    src: url('fonts/space-grotesk-v22-latin-600.woff2') format('woff2');
-  }
-  @font-face {
-    font-family: 'Space Grotesk';
-    font-style: normal;
-    font-weight: 700;
-    src: url('fonts/space-grotesk-v22-latin-700.woff2') format('woff2');
-  }
-
-  /* Inter */
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    src: url('fonts/inter-v20-latin-regular.woff2') format('woff2');
-  }
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 500;
-    src: url('fonts/inter-v20-latin-500.woff2') format('woff2');
-  }
-  @font-face {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    src: url('fonts/inter-v20-latin-600.woff2') format('woff2');
-  }
-    --onyx:#171721;
-    --graphite:#1e1e2a;
-    --obsidian:#272735;
-    --slate:#70707d;
-    --mist:#e2e3ed;
-    --ash:#c3c3cc;
-    --ivory:#ededf3;
-    --cobalt:#5266eb;
-    --white:#ffffff;
-
-    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
-    --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
-    --font-logo: 'Fira Sans', ui-sans-serif, system-ui, sans-serif;
-
-    --max-w: 1200px;
-    --section-gap: 72px;
-    --card-pad: 32px;
-  }
-
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
+  /* =====================================================================
+     BASIS
+     ===================================================================== */
+  *,*::before,*::after{box-sizing:border-box;}
+  [hidden]{display:none !important;}
+  html{-webkit-text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:80px;}
+  html.is-locked{overflow:hidden;}
   body{
-    background:var(--onyx);
-    color:var(--ivory);
+    margin:0;
     font-family:var(--font-body);
-    font-size:16px;
-    line-height:1.5;
+    font-size:1rem;
+    line-height:1.65;
+    color:var(--text);
+    background:var(--paper);
     -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
   }
+  img,svg{display:block; max-width:100%;}
   a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-  ul{list-style:none;}
+  button,input,select,textarea{font:inherit; color:inherit;}
+  h1,h2,h3,h4{margin:0; font-family:var(--font-display); font-weight:600; line-height:1.12; letter-spacing:-.015em; text-wrap:balance;}
+  p{margin:0; text-wrap:pretty;}
+  ul{margin:0; padding:0; list-style:none;}
+  ::selection{background:var(--accent); color:#fff;}
+  :focus-visible{outline:2px solid var(--accent-bright); outline-offset:3px; border-radius:4px;}
 
-  h1,h2,h3{
-    font-family:var(--font-display);
-    font-weight:600;
-    line-height:1.15;
-    letter-spacing:0.01em;
+  .wrap{width:100%; max-width:var(--wrap); margin-inline:auto; padding-inline:var(--gutter);}
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
+  .skip-link{
+    position:fixed; left:16px; top:-80px; z-index:200;
+    background:var(--accent); color:#fff; padding:12px 18px; border-radius:var(--radius-sm); font-weight:500;
+    transition:top var(--dur) var(--ease);
   }
+  .skip-link:focus{top:16px;}
 
-  .wrap{max-width:var(--max-w); margin:0 auto; padding:0 24px;}
+  .icon{width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0;}
 
-  /* ---------- NAV ---------- */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    padding:20px 0;
-    transition:background .3s ease, backdrop-filter .3s ease, padding .3s ease, border-color .3s ease;
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    min-height:48px; padding:0 22px;
+    border:1px solid transparent; border-radius:var(--radius-sm);
+    font-size:.96875rem; font-weight:500; line-height:1; white-space:nowrap;
+    cursor:pointer;
+    transition:background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease), transform var(--dur) var(--ease);
+  }
+  .btn .icon{width:18px; height:18px; transition:transform var(--dur) var(--ease);}
+  .btn:hover .icon-arrow{transform:translateX(3px);}
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:var(--accent); color:#fff;}
+  .btn-primary:hover{background:var(--accent-hover);}
+  .btn-ghost{border-color:var(--ink-line-2); color:var(--on-ink);}
+  .btn-ghost:hover{border-color:rgba(255,255,255,.4); background:rgba(255,255,255,.04);}
+  .btn-outline{border-color:var(--line-strong); color:var(--text); background:transparent;}
+  .btn-outline:hover{border-color:var(--text);}
+
+  /* ---------- Textlink mit Pfeil ---------- */
+  .text-link{
+    display:inline-flex; align-items:center; gap:8px; min-height:44px;
+    font-weight:500; font-size:.9375rem;
+  }
+  .text-link .icon{width:18px; height:18px; transition:transform var(--dur) var(--ease);}
+  .text-link:hover .icon{transform:translateX(3px);}
+
+  /* =====================================================================
+     HEADER / NAVIGATION
+     ===================================================================== */
+  .site-header{
+    position:fixed; inset:0 0 auto; z-index:100;
+    color:var(--on-ink);
     border-bottom:1px solid transparent;
+    transition:background-color var(--dur) var(--ease), border-color var(--dur) var(--ease);
   }
-  header.scrolled{
-    background:rgba(23,23,33,0.82);
-    backdrop-filter:blur(16px);
-    -webkit-backdrop-filter:blur(16px);
-    padding:14px 0;
-    border-bottom:1px solid rgba(226,227,237,0.08);
+  .site-header.is-scrolled,
+  .site-header.nav-open{
+    background:rgba(10,18,29,.9);
+    -webkit-backdrop-filter:saturate(140%) blur(14px);
+    backdrop-filter:saturate(140%) blur(14px);
+    border-bottom-color:var(--ink-line);
   }
-  nav{display:flex; align-items:center; justify-content:space-between;}
+  .header-inner{
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+    height:var(--header-h);
+    transition:height var(--dur) var(--ease);
+  }
+  .site-header.is-scrolled .header-inner{height:64px;}
 
-  .logo{display:flex; align-items:center; gap:10px;}
-  .logo-mark{width:22px; height:22px;}
-  .logo-text{display:flex; flex-direction:column; line-height:1;}
-  .logo-text b{font-family:var(--font-logo); font-size:26px; font-weight:300; font-style:normal; letter-spacing:0.02em; color:var(--ivory);}
-  .logo-text span{font-size:10px; letter-spacing:0.06em; color:var(--ash); text-transform:uppercase; margin-top:4px;}
+  .logo{display:inline-flex; flex-direction:column; line-height:1; padding-block:6px;}
+  .logo b{font-family:var(--font-logo); font-size:26px; font-weight:300; letter-spacing:.02em; color:#fff;}
+  .logo span{margin-top:5px; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--on-ink-2);}
 
-  .nav-links{display:flex; gap:8px; align-items:center;}
+  .site-nav{display:flex; align-items:center; gap:28px;}
+  .nav-links{display:flex; align-items:center; gap:4px;}
   .nav-links a{
-    padding:10px 20px; border-radius:40px; font-size:15px; font-weight:500;
-    transition:background .2s ease;
+    position:relative; display:inline-flex; align-items:center; min-height:44px; padding:0 14px;
+    font-size:.9375rem; font-weight:500; color:var(--on-ink-2);
+    transition:color var(--dur) var(--ease);
   }
-  .nav-links a:hover{background:rgba(237,237,243,0.08);}
-
-  .nav-cta{
-    background:var(--cobalt); color:var(--white);
-    padding:10px 22px; border-radius:32px; font-size:15px; font-weight:500;
-    white-space:nowrap;
+  .nav-links a::after{
+    content:""; position:absolute; left:14px; right:14px; bottom:8px; height:1px;
+    background:var(--accent-bright);
+    transform:scaleX(0); transform-origin:left;
+    transition:transform var(--dur) var(--ease);
   }
-  .nav-cta:hover{opacity:0.92;}
+  .nav-links a:hover,
+  .nav-links a.is-active{color:#fff;}
+  .nav-links a:hover::after,
+  .nav-links a.is-active::after{transform:scaleX(1);}
+  .header-cta{min-height:42px; padding:0 18px; font-size:.9375rem;}
 
-  .nav-toggle{display:none; background:none; border:none; color:var(--ivory); font-size:24px; cursor:pointer;}
+  .nav-toggle{
+    display:none; place-items:center;
+    width:44px; height:44px; padding:0;
+    background:transparent; border:1px solid var(--ink-line-2); border-radius:var(--radius-sm);
+    color:#fff; cursor:pointer;
+  }
+  .nav-toggle .icon-close{display:none;}
+  .nav-open .nav-toggle .icon-menu{display:none;}
+  .nav-open .nav-toggle .icon-close{display:block;}
 
-  /* ---------- HERO ---------- */
+  /* =====================================================================
+     HERO
+     ===================================================================== */
   .hero{
-    position:relative;
-    min-height:100vh;
-    display:flex; align-items:center; justify-content:center;
-    overflow:hidden;
-    padding:140px 24px 100px;
+    position:relative; isolation:isolate; overflow:hidden;
+    background:var(--ink-950); color:var(--on-ink);
+    padding-top:calc(var(--header-h) + clamp(48px, 9vh, 104px));
   }
-  .hero-bg{
-    position:absolute; inset:0; z-index:0;
-    background:
-      radial-gradient(ellipse at 50% 0%, rgba(82,102,235,0.16), transparent 55%),
-      var(--onyx);
+  /* feines Raster wie auf einem Planblatt */
+  .hero::before{
+    content:""; position:absolute; inset:0; z-index:-1;
+    background-image:
+      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size:56px 56px;
+    background-position:center -1px;
+    -webkit-mask-image:radial-gradient(ellipse 75% 70% at 72% 38%, #000 25%, transparent 78%);
+    mask-image:radial-gradient(ellipse 75% 70% at 72% 38%, #000 25%, transparent 78%);
   }
-  .hero-grid{position:absolute; inset:0; z-index:0; opacity:0.5;}
-  .hero-content{position:relative; z-index:1; text-align:center; max-width:720px;}
+  .hero-grid{
+    display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+    gap:clamp(32px, 5vw, 72px); align-items:center;
+    padding-bottom:clamp(56px, 8vh, 96px);
+  }
   .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:13px; letter-spacing:0.06em; text-transform:uppercase;
-    color:var(--ash); border:1px solid var(--slate); border-radius:40px;
-    padding:6px 16px; margin-bottom:28px;
+    display:inline-flex; align-items:center; gap:14px; margin-bottom:28px;
+    font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--on-ink-2);
   }
-  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--cobalt);}
+  .eyebrow::before{content:""; width:32px; height:1px; background:var(--accent-bright);}
   .hero h1{
-    font-size:56px; color:var(--white); margin-bottom:22px;
+    font-size:clamp(2.5rem, 4.9vw, 4.125rem);
+    line-height:1.03; letter-spacing:-.028em;
+    color:#fff; margin-bottom:28px;
   }
-  .hero h1 em{font-style:normal; color:var(--cobalt);}
-  .hero p{
-    font-size:18px; color:var(--ash); max-width:520px; margin:0 auto 36px;
+  .hero h1 .accent{color:var(--accent-bright);}
+  .hero-lead{
+    max-width:34em; margin-bottom:40px;
+    font-size:clamp(1.0625rem, 1.35vw, 1.1875rem); line-height:1.65; color:var(--on-ink-2);
+    text-wrap:balance;
   }
-  .hero-actions{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+  .hero-actions{display:flex; flex-wrap:wrap; gap:12px;}
+  .hero-meta{
+    display:flex; align-items:center; gap:10px; margin-top:44px;
+    font-size:.8125rem; color:var(--on-ink-3);
+  }
+  .hero-meta .icon{width:16px; height:16px; color:var(--accent-bright);}
 
-  .btn-primary{
-    background:var(--cobalt); color:var(--white);
-    padding:14px 30px; border-radius:32px; font-size:16px; font-weight:500;
-    display:inline-block; transition:opacity .2s ease;
+  /* ---------- Technische Zeichnung (reines SVG, keine Bilder) ---------- */
+  .hero-drawing{position:relative;}
+  .dwg{width:100%; height:auto; max-width:540px; margin-left:auto; overflow:visible;}
+  .dwg .s{fill:none; stroke:#c4cad3; stroke-width:1.25; stroke-linecap:butt; stroke-linejoin:miter; opacity:.62;}
+  .dwg .d{fill:none; stroke:var(--on-ink-3); stroke-width:1; opacity:.85;}
+  .dwg .x{fill:none; stroke:var(--on-ink-3); stroke-width:1; stroke-dasharray:3 4; opacity:0; animation:fadeTo55 .8s ease both; animation-delay:1.3s;}
+  .dwg .h{fill:none; stroke:var(--on-ink-3); stroke-width:.9; opacity:.5;}
+  .dwg .a{fill:none; stroke:var(--accent-bright); stroke-width:1.4;}
+  .dwg text{font-family:var(--font-display); font-size:11px; font-weight:500; letter-spacing:.06em; fill:var(--on-ink-3);}
+  .dwg text.ta{fill:var(--accent-bright);}
+  .dwg [pathLength]{
+    stroke-dasharray:1; stroke-dashoffset:1;
+    animation:draw 1.5s var(--ease-io) both;
+    animation-delay:calc(.35s + var(--i, 0) * 70ms);
   }
-  .btn-primary:hover{opacity:0.9;}
-  .btn-ghost{
-    background:transparent; color:var(--ivory); border:1px solid var(--ivory);
-    padding:13px 28px; border-radius:40px; font-size:16px; font-weight:500;
-    display:inline-block; transition:background .2s ease;
-  }
-  .btn-ghost:hover{background:rgba(237,237,243,0.08);}
+  .dwg text{opacity:0; animation:fadeIn .8s ease both; animation-delay:1.45s;}
 
-  /* measurement-line signature motif */
-  .measure-line{
-    position:absolute; z-index:0; opacity:0.35;
+  /* ---------- Einstieg nach Zielgruppe ---------- */
+  .audience{border-top:1px solid var(--ink-line);}
+  .audience-grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); margin-inline:-20px;}
+  .audience-item{
+    position:relative; display:flex; flex-direction:column; gap:10px;
+    padding:30px 20px 34px;
+    transition:background-color var(--dur) var(--ease);
   }
+  .audience-item + .audience-item{border-left:1px solid var(--ink-line);}
+  .audience-item::before{
+    content:""; position:absolute; left:0; right:0; top:-1px; height:2px;
+    background:var(--accent-bright);
+    transform:scaleX(0); transform-origin:left;
+    transition:transform var(--dur-slow) var(--ease);
+  }
+  .audience-item:hover{background:rgba(255,255,255,.025);}
+  .audience-item:hover::before,
+  .audience-item:focus-visible::before{transform:scaleX(1);}
+  .audience-kicker{font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--on-ink-3);}
+  .audience-title{font-family:var(--font-display); font-size:1.3125rem; font-weight:600; letter-spacing:-.01em; color:#fff;}
+  .audience-text{font-size:.9375rem; line-height:1.55; color:var(--on-ink-2);}
+  .audience-link{
+    display:inline-flex; align-items:center; gap:8px; margin-top:auto; padding-top:10px;
+    font-size:.875rem; font-weight:500; color:var(--accent-bright);
+  }
+  .audience-link .icon{width:16px; height:16px; transition:transform var(--dur) var(--ease);}
+  .audience-item:hover .audience-link .icon{transform:translateX(3px);}
 
-  /* ---------- SECTIONS ---------- */
-  section{padding:var(--section-gap) 0;}
-  .section-head{max-width:640px; margin:0 auto 48px; text-align:center;}
-  .section-tag{
-    font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--cobalt);
-    font-weight:600; margin-bottom:14px; display:block;
-  }
-  .section-head h2{font-size:36px; color:var(--white); margin-bottom:14px;}
-  .section-head p{color:var(--ash); font-size:17px;}
+  /* =====================================================================
+     SEKTIONEN – gemeinsam
+     ===================================================================== */
+  .section{padding-block:var(--section-y);}
+  .section-alt{background:var(--surface); border-top:1px solid var(--line);}
+  .section-dark{background:var(--ink-900); color:var(--on-ink);}
 
-  /* ---------- LEISTUNGEN ---------- */
-  .services-grid{
-    display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;
+  .section-head{
+    display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:24px 72px; align-items:end;
+    margin-bottom:clamp(40px, 6vw, 72px);
   }
+  .section-label{
+    display:flex; align-items:center; gap:14px; margin-bottom:20px;
+    font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent);
+  }
+  .section-label .num{font-family:var(--font-display); font-weight:500; letter-spacing:.04em; color:var(--text-3);}
+  .section-label .rule{width:32px; height:1px; background:currentColor; opacity:.5;}
+  .section-dark .section-label{color:var(--accent-bright);}
+  .section-dark .section-label .num{color:var(--on-ink-3);}
+  .section-head h2{font-size:clamp(2rem, 3.8vw, 3rem);}
+  .section-intro{max-width:36em; font-size:1.0625rem; line-height:1.7; color:var(--text-2);}
+
+  /* =====================================================================
+     LEISTUNGEN
+     ===================================================================== */
+  .services-grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px;}
   .service-card{
-    background:var(--graphite); border-radius:12px; padding:var(--card-pad);
-    display:flex; flex-direction:column; gap:18px;
-  }
-  .service-icon{
-    width:44px; height:44px; border-radius:12px; background:var(--obsidian);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .service-icon svg{width:22px; height:22px; stroke:var(--cobalt);}
-  .service-card h3{font-size:21px; color:var(--white); font-weight:600;}
-  .service-card p{color:var(--ash); font-size:15px; line-height:1.55;}
-
-  /* ---------- FACHWISSEN ---------- */
-  .articles-grid{
-    display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
-  }
-  .article-card{
-    background:var(--graphite); border-radius:12px; overflow:hidden;
+    position:relative; overflow:hidden;
     display:flex; flex-direction:column;
+    padding:clamp(28px, 3.4vw, 40px);
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    scroll-margin-top:110px;
+    transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
   }
-  .article-thumb{
-    height:140px; width:100%;
-    background:
-      repeating-linear-gradient(135deg, rgba(82,102,235,0.14) 0 2px, transparent 2px 18px),
-      var(--obsidian);
-    display:flex; align-items:center; justify-content:center;
+  .service-card::before{
+    content:""; position:absolute; left:0; right:0; top:0; height:2px;
+    background:var(--accent);
+    transform:scaleX(0); transform-origin:left;
+    transition:transform var(--dur-slow) var(--ease);
   }
-  .article-thumb span{font-size:11px; letter-spacing:0.05em; color:var(--slate); text-transform:uppercase;}
-  .article-body{padding:24px; display:flex; flex-direction:column; gap:10px; flex:1;}
-  .article-date{font-size:13px; color:var(--slate);}
-  .article-body h3{font-size:18px; color:var(--white); font-weight:600; line-height:1.3;}
-  .article-body p{font-size:14px; color:var(--ash);}
-  .article-link{font-size:14px; color:var(--cobalt); font-weight:500; margin-top:auto;}
+  .service-card:hover{
+    border-color:var(--line-strong);
+    box-shadow:0 1px 2px rgba(15,26,40,.04), 0 16px 36px -18px rgba(15,26,40,.18);
+    transform:translateY(-2px);
+  }
+  .service-card:hover::before{transform:scaleX(1);}
+  .service-card:target{border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-soft);}
+  .service-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:36px;}
+  .service-icon{
+    display:grid; place-items:center; width:48px; height:48px;
+    border:1px solid var(--line); border-radius:8px; color:var(--accent);
+    transition:background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+  .service-icon .icon{width:22px; height:22px;}
+  .service-card:hover .service-icon{background:var(--accent); border-color:var(--accent); color:#fff;}
+  .service-num{font-family:var(--font-display); font-size:.875rem; font-weight:500; letter-spacing:.04em; color:var(--text-3);}
+  .service-card h3{font-size:1.375rem; margin-bottom:12px;}
+  .service-card p{font-size:.984375rem; line-height:1.68; color:var(--text-2);}
+  .service-card .text-link{margin-top:auto; padding-top:24px; align-self:flex-start; color:var(--text);}
+  .service-card .text-link:hover{color:var(--accent);}
 
-  .fachwissen-note{
-    text-align:center; margin-top:36px; color:var(--slate); font-size:14px;
+  /* =====================================================================
+     FACHWISSEN
+     ===================================================================== */
+  .fw-toggle > summary{list-style:none;}
+  .fw-toggle > summary::-webkit-details-marker{display:none;}
+  .fw-summary{
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    padding-block:22px; border-block:1px solid var(--line);
+    cursor:pointer;
   }
+  .fw-summary-text{font-size:.9375rem; color:var(--text-2);}
+  .fw-summary-text strong{font-weight:600; color:var(--text);}
+  .fw-summary .btn{pointer-events:none;}
+  .fw-summary .icon-chevron{transition:transform var(--dur) var(--ease);}
+  .fw-toggle[open] .icon-chevron{transform:rotate(180deg);}
+  .fw-toggle .label-open{display:none;}
+  .fw-toggle[open] .label-open{display:inline;}
+  .fw-toggle[open] .label-closed{display:none;}
+  .fw-summary:hover .btn{border-color:var(--text);}
 
-  /* ---------- COLLAPSIBLE (Fachwissen-Toggle) ---------- */
-  .fachwissen-toggle{text-align:center;}
-  .fachwissen-toggle summary{
-    list-style:none; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
-    background:transparent; color:var(--ivory); border:1px solid var(--ivory);
-    padding:13px 28px; border-radius:40px; font-size:16px; font-weight:500;
-    transition:background .2s ease;
+  .filters{display:flex; flex-wrap:wrap; gap:8px; margin:36px 0 28px;}
+  .chip{
+    min-height:44px; padding:0 18px;
+    background:transparent; border:1px solid var(--line); border-radius:999px;
+    font-size:.875rem; font-weight:500; color:var(--text-2);
+    cursor:pointer;
+    transition:background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
   }
-  .fachwissen-toggle summary::-webkit-details-marker{display:none;}
-  .fachwissen-toggle summary:hover{background:rgba(237,237,243,0.08);}
-  .fachwissen-toggle summary .chevron{width:14px; height:14px; stroke:var(--ivory); transition:transform .2s ease;}
-  .fachwissen-toggle[open] summary .chevron{transform:rotate(180deg);}
-  .fachwissen-toggle[open] summary{margin-bottom:40px;}
-  .fachwissen-toggle summary .label-open{display:none;}
-  .fachwissen-toggle[open] summary .label-closed{display:none;}
-  .fachwissen-toggle[open] summary .label-open{display:inline;}
+  .chip:hover{border-color:var(--line-strong); color:var(--text);}
+  .chip[aria-pressed="true"]{background:var(--ink-900); border-color:var(--ink-900); color:#fff;}
 
-  /* ---------- KONTAKT ---------- */
-  .kontakt-box{
-    background:var(--graphite); border-radius:12px; padding:56px;
-    display:grid; grid-template-columns:1.1fr 1fr; gap:56px; align-items:center;
+  .articles-grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:20px;}
+  .article-card{
+    --cat:var(--accent);
+    position:relative; overflow:hidden;
+    display:flex; flex-direction:column;
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
   }
-  .kontakt-info h2{font-size:32px; color:var(--white); margin-bottom:16px;}
-  .kontakt-info p{color:var(--ash); font-size:16px; margin-bottom:28px;}
-  .kontakt-list{display:flex; flex-direction:column; gap:16px;}
-  .kontakt-list li{display:flex; align-items:center; gap:12px; font-size:15px;}
-  .kontakt-list svg{width:18px; height:18px; stroke:var(--cobalt); flex-shrink:0;}
+  [data-category="bauphysik"]{--cat:#2f5d8a;}
+  [data-category="bauschaden"]{--cat:#c2410c;}
+  [data-category="recht"]{--cat:#3f6b5a;}
+  .article-card:hover{
+    border-color:var(--line-strong);
+    box-shadow:0 16px 36px -18px rgba(15,26,40,.2);
+    transform:translateY(-2px);
+  }
+  .article-card:has(.article-open:focus-visible){outline:2px solid var(--accent); outline-offset:3px;}
+  .article-head{
+    display:flex; align-items:flex-end; justify-content:space-between;
+    height:84px; padding:14px 20px;
+    border-bottom:1px solid var(--line);
+    background:repeating-linear-gradient(135deg, color-mix(in srgb, var(--cat) 22%, transparent) 0 1px, transparent 1px 11px);
+  }
+  .article-cat{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.75rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text);
+    background:var(--paper); padding:4px 8px 4px 0;
+  }
+  .article-cat::before{content:""; width:8px; height:8px; background:var(--cat);}
+  .article-no{font-family:var(--font-display); font-size:.8125rem; color:var(--text-3); background:var(--paper); padding:2px 0 2px 8px;}
+  .article-body{display:flex; flex-direction:column; gap:10px; flex:1; padding:22px 20px 18px;}
+  .article-meta{font-size:.8125rem; color:var(--text-3);}
+  .article-card h3{font-size:1.125rem; line-height:1.3; letter-spacing:-.01em;}
+  .article-card p{font-size:.9375rem; line-height:1.6; color:var(--text-2);}
+  .article-open{
+    display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
+    min-height:44px; margin-top:auto; padding:6px 0 0;
+    background:none; border:0; cursor:pointer;
+    font-size:.9375rem; font-weight:500; color:var(--accent);
+  }
+  .article-open::after{content:""; position:absolute; inset:0;}
+  .article-open:focus-visible{outline:none;}
+  .article-open .icon{width:18px; height:18px; transition:transform var(--dur) var(--ease);}
+  .article-card:hover .article-open .icon{transform:translateX(3px);}
+  .article-card.is-new{animation:fadeUp .5s var(--ease) both; animation-delay:calc(var(--n, 0) * 70ms);}
+  .fw-more{display:flex; justify-content:center; margin-top:36px;}
+  .fw-empty{padding:32px 0; color:var(--text-3);}
 
-  form{display:flex; flex-direction:column; gap:14px;}
-  label{font-size:13px; color:var(--ash); margin-bottom:-6px;}
-  input, textarea{
-    background:var(--obsidian); border:1px solid var(--slate); border-radius:12px;
-    padding:13px 16px; color:var(--ivory); font-family:var(--font-body); font-size:15px;
-    width:100%;
+  /* ---------- Lesefenster ---------- */
+  .article-dialog{
+    width:100%; height:100%; max-width:none; max-height:none; margin:0;
+    padding:clamp(12px, 4vw, 40px);
+    background:transparent; border:0; color:var(--text);
+    overflow-y:auto; overscroll-behavior:contain;
   }
-  input:focus, textarea:focus{outline:2px solid var(--cobalt); outline-offset:1px; border-color:var(--cobalt);}
-  textarea{resize:vertical; min-height:110px;}
-  .form-submit{
-    background:var(--cobalt); color:var(--white); border:none; border-radius:32px;
-    padding:14px 28px; font-size:16px; font-weight:500; cursor:pointer; font-family:var(--font-body);
-    align-self:flex-start; transition:opacity .2s ease;
+  .article-dialog::backdrop{background:rgba(10,18,29,.74); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);}
+  .article-dialog[open] .dialog-panel{animation:dialogIn .32s var(--ease) both;}
+  .article-dialog[open]::backdrop{animation:fadeIn .25s ease both;}
+  .dialog-header .article-cat{background:transparent;}
+  .dialog-panel{
+    position:relative; max-width:780px; margin:0 auto;
+    background:var(--surface); border-radius:var(--radius-lg);
+    box-shadow:0 40px 90px -30px rgba(0,0,0,.55);
   }
-  .form-submit:hover{opacity:0.9;}
+  .dialog-header{
+    position:sticky; top:calc(-1 * clamp(12px, 4vw, 40px)); z-index:1;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:14px 16px 14px clamp(24px, 5vw, 56px);
+    background:rgba(255,255,255,.94);
+    -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+  }
+  .dialog-close{
+    display:grid; place-items:center; width:44px; height:44px; padding:0;
+    background:transparent; border:1px solid var(--line); border-radius:8px;
+    cursor:pointer; transition:border-color var(--dur) var(--ease);
+  }
+  .dialog-close:hover{border-color:var(--text);}
+  .dialog-body{padding:36px clamp(24px, 5vw, 56px) 40px;}
+  .dialog-meta{font-size:.8125rem; color:var(--text-3);}
+  .dialog-title{font-size:clamp(1.625rem, 3.2vw, 2.25rem); line-height:1.15; margin:10px 0 28px;}
+  .dialog-title:focus{outline:none;}
+  .prose p{margin-bottom:1.1em; font-size:1.0625rem; line-height:1.78; color:var(--text-2);}
+  .prose h3{margin:1.9em 0 .6em; font-size:1.25rem;}
+  .prose ul, .prose ol{margin:0 0 1.1em; padding-left:1.25em; color:var(--text-2); list-style:disc;}
+  .prose li{margin-bottom:.4em;}
+  .prose strong{color:var(--text); font-weight:600;}
+  .dialog-footer{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px 16px;
+    padding:18px clamp(24px, 5vw, 56px) 22px;
+    border-top:1px solid var(--line);
+    font-size:.875rem; color:var(--text-3);
+  }
+  .dialog-footer .text-link{color:var(--accent);}
 
-  /* ---------- FOOTER / IMPRESSUM ---------- */
-  footer{border-top:1px solid rgba(226,227,237,0.08); padding-top:56px;}
+  /* =====================================================================
+     KONTAKT
+     ===================================================================== */
+  .contact-grid{display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr); gap:clamp(40px, 6vw, 96px); align-items:start;}
+  .contact-info h2{font-size:clamp(2rem, 3.8vw, 3rem); color:#fff; margin-bottom:20px;}
+  .contact-lead{max-width:30em; margin-bottom:40px; font-size:1.0625rem; line-height:1.7; color:var(--on-ink-2);}
+  .contact-list{border-top:1px solid var(--ink-line);}
+  .contact-list li{border-bottom:1px solid var(--ink-line);}
+  .contact-row{display:flex; align-items:center; gap:16px; min-height:76px; padding-block:14px;}
+  .contact-icon{
+    display:grid; place-items:center; width:42px; height:42px; flex-shrink:0;
+    border:1px solid var(--ink-line-2); border-radius:8px; color:var(--accent-bright);
+    transition:background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+  }
+  .contact-k{display:block; margin-bottom:2px; font-size:.75rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--on-ink-3);}
+  .contact-v{display:block; font-size:1.0625rem; color:#fff; transition:color var(--dur) var(--ease);}
+  a.contact-row:hover .contact-v{color:var(--accent-bright);}
+  a.contact-row:hover .contact-icon{background:var(--accent); border-color:var(--accent); color:#fff;}
+
+  .form-card{
+    background:var(--surface); color:var(--text);
+    border-radius:var(--radius-lg);
+    padding:clamp(28px, 4vw, 48px);
+    box-shadow:0 40px 80px -40px rgba(0,0,0,.5);
+  }
+  .form-card h3{font-size:1.375rem; margin-bottom:6px;}
+  .form-sub{margin-bottom:28px; font-size:.875rem; color:var(--text-3);}
+  .field-row{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0 16px;}
+  .field{display:flex; flex-direction:column; gap:8px; margin-bottom:18px;}
+  .field label{font-size:.875rem; font-weight:500; color:var(--text);}
+  .field label .req{color:var(--accent);}
+  .field label .opt{font-weight:400; color:var(--text-3);}
+  .field input,
+  .field select,
+  .field textarea{
+    width:100%; min-height:48px; padding:12px 14px;
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm);
+    font-size:1rem; line-height:1.5; color:var(--text);
+    transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), background-color var(--dur) var(--ease);
+  }
+  .field input::placeholder,
+  .field textarea::placeholder{color:#8a919c;}
+  .field input:hover,
+  .field select:hover,
+  .field textarea:hover{border-color:var(--line-strong);}
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus{outline:none; background:#fff; border-color:var(--ink-900); box-shadow:0 0 0 3px rgba(15,26,40,.1);}
+  .field select{
+    -webkit-appearance:none; appearance:none; padding-right:42px; cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475262' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 14px center; background-size:18px;
+  }
+  .field textarea{min-height:148px; resize:vertical;}
+  .field [aria-invalid="true"]{border-color:var(--error); background:#fffbfa;}
+  .field [aria-invalid="true"]:focus{box-shadow:0 0 0 3px rgba(180,35,24,.14);}
+  .field-error{font-size:.8125rem; color:var(--error);}
+  .field-error:empty{display:none;}
+  .form-foot{display:flex; flex-direction:column; align-items:flex-start; gap:16px; margin-top:6px;}
+  .form-note{font-size:.8125rem; line-height:1.6; color:var(--text-3);}
+  .form-note a{color:var(--text-2); text-decoration:underline; text-underline-offset:2px;}
+  .form-note a:hover{color:var(--accent);}
+
+  .form-success{padding:8px 0;}
+  .form-success-icon{
+    display:grid; place-items:center; width:52px; height:52px; margin-bottom:22px;
+    border-radius:50%; background:var(--accent-soft); color:var(--accent);
+  }
+  .form-success-icon .icon{width:26px; height:26px;}
+  .form-success h3{margin-bottom:12px;}
+  .form-success h3:focus{outline:none;}
+  .form-success p{margin-bottom:12px; font-size:.9375rem; line-height:1.65; color:var(--text-2);}
+  .form-success p a{color:var(--text); font-weight:500; text-decoration:underline; text-underline-offset:2px;}
+  .form-success .btn{margin-top:12px;}
+
+  /* =====================================================================
+     FOOTER / RECHTLICHES
+     ===================================================================== */
+  .site-footer{background:var(--ink-950); color:var(--on-ink-2); border-top:1px solid var(--ink-line);}
   .footer-top{
-    display:flex; justify-content:space-between; align-items:flex-start; gap:32px; flex-wrap:wrap;
-    padding-bottom:40px;
+    display:grid; grid-template-columns:minmax(0,1.5fr) repeat(3, minmax(0,1fr));
+    gap:40px; padding-block:72px 56px;
   }
-  .footer-brand p{color:var(--slate); font-size:13px; margin-top:10px; max-width:280px;}
-  .footer-links{display:flex; gap:56px; flex-wrap:wrap;}
-  .footer-col h4{font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ash); margin-bottom:14px;}
-  .footer-col a{display:block; font-size:14px; color:var(--slate); margin-bottom:10px;}
-  .footer-col a:hover{color:var(--ivory);}
+  .footer-brand p{max-width:24em; margin-top:18px; font-size:.875rem; line-height:1.65; color:var(--on-ink-3);}
+  .footer-col h4{
+    margin-bottom:14px; font-family:var(--font-body);
+    font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--on-ink-3);
+  }
+  .footer-col a{display:flex; align-items:center; min-height:36px; font-size:.9375rem; color:var(--on-ink-2); transition:color var(--dur) var(--ease);}
+  .footer-col a:hover{color:#fff;}
 
-  .impressum{
-    border-top:1px solid rgba(226,227,237,0.08);
+  .legal-item{border-top:1px solid var(--ink-line); scroll-margin-top:72px;}
+  .legal-item > summary{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    min-height:68px; list-style:none; cursor:pointer;
+    font-weight:500; color:var(--on-ink); transition:color var(--dur) var(--ease);
   }
-  .impressum summary{
-    list-style:none; cursor:pointer;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:22px 24px; font-size:14px; color:var(--ash); font-weight:500;
-  }
-  .impressum summary::-webkit-details-marker{display:none;}
-  .impressum summary:hover{color:var(--ivory);}
-  .impressum summary .chevron{width:14px; height:14px; stroke:var(--slate); transition:transform .2s ease; flex-shrink:0;}
-  .impressum[open] summary .chevron{transform:rotate(180deg);}
-  .impressum-content{
-    padding:0 24px 40px;
-    font-size:13px; color:var(--slate); line-height:1.7;
-  }
-  .impressum-content h4{font-size:14px; color:var(--ivory); margin:18px 0 6px; font-weight:600; font-family:var(--font-body);}
-  .impressum-content h4:first-child{margin-top:0;}
-  .impressum-content .placeholder{color:var(--cobalt);}
-  .impressum-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px;}
+  .legal-item > summary::-webkit-details-marker{display:none;}
+  .legal-item > summary:hover{color:#fff;}
+  .legal-item > summary .icon{color:var(--on-ink-3); transition:transform var(--dur) var(--ease);}
+  .legal-item[open] > summary .icon{transform:rotate(180deg);}
+  .legal-content{max-width:880px; padding-bottom:48px; font-size:.90625rem; line-height:1.75; color:var(--on-ink-2);}
+  .legal-content h4{margin:28px 0 8px; font-family:var(--font-body); font-size:.9375rem; font-weight:600; letter-spacing:0; color:#fff;}
+  .legal-content p + p{margin-top:0;}
+  .legal-content a{color:var(--accent-bright); text-decoration:underline; text-underline-offset:2px;}
+  .legal-content strong{color:var(--on-ink); font-weight:600;}
+  .legal-content code{font-size:.9em; padding:1px 5px; border-radius:4px; background:rgba(255,255,255,.06);}
+  .legal-content ul{margin:6px 0 12px; padding-left:1.25em; list-style:disc;}
+  .legal-content li{margin-bottom:4px;}
+  .legal-lead{font-size:.8125rem; color:var(--on-ink-3);}
+  .legal-grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:8px 32px;}
+  .legal-grid h4:first-child{margin-top:20px;}
 
   .bottom-bar{
-    padding:20px 0 32px; text-align:center; font-size:12px; color:var(--slate);
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px 24px;
+    position:relative; padding-block:24px 32px;
+    font-size:.8125rem; color:var(--on-ink-3);
   }
+  .bottom-bar::before{content:""; position:absolute; top:0; left:var(--gutter); right:var(--gutter); height:1px; background:var(--ink-line);}
 
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width:860px){
-    .nav-links, .nav-cta{display:none;}
-    .nav-toggle{display:block;}
-    .hero h1{font-size:38px;}
-    .services-grid{grid-template-columns:1fr;}
-    .articles-grid{grid-template-columns:1fr;}
-    .kontakt-box{grid-template-columns:1fr; padding:32px;}
-    .impressum-grid{grid-template-columns:1fr;}
-    .footer-top{flex-direction:column;}
-  }
+  /* =====================================================================
+     MOTION – dezent
+     ===================================================================== */
+  @keyframes fadeUp{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:none;}}
+  @keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
+  @keyframes fadeTo55{from{opacity:0;} to{opacity:.55;}}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @keyframes dialogIn{from{opacity:0; transform:translateY(12px) scale(.985);} to{opacity:1; transform:none;}}
 
-  /* ---------- MOTION ---------- */
-  .reveal{
-    opacity:0; transform:translateY(28px);
-    transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
-  }
-  .reveal.in-view{opacity:1; transform:translateY(0);}
+  .hero-copy > *{animation:fadeUp .8s var(--ease) both;}
+  .hero-copy > :nth-child(1){animation-delay:.05s;}
+  .hero-copy > :nth-child(2){animation-delay:.12s;}
+  .hero-copy > :nth-child(3){animation-delay:.2s;}
+  .hero-copy > :nth-child(4){animation-delay:.28s;}
+  .hero-copy > :nth-child(5){animation-delay:.36s;}
+  .audience-item{animation:fadeUp .8s var(--ease) both;}
+  .audience-item:nth-child(1){animation-delay:.5s;}
+  .audience-item:nth-child(2){animation-delay:.58s;}
+  .audience-item:nth-child(3){animation-delay:.66s;}
 
-  .hero-content > *{
-    opacity:0; transform:translateY(20px);
-    animation:heroUp .8s cubic-bezier(.16,1,.3,1) forwards;
-  }
-  .hero-content .eyebrow{animation-delay:.05s;}
-  .hero-content h1{animation-delay:.15s;}
-  .hero-content p{animation-delay:.28s;}
-  .hero-content .hero-actions{animation-delay:.4s;}
-  @keyframes heroUp{to{opacity:1; transform:translateY(0);}}
-
-  .measure-line path, .measure-line line{
-    stroke-dasharray:1400;
-    stroke-dashoffset:1400;
-    animation:drawLine 1.8s cubic-bezier(.16,1,.3,1) forwards;
-    animation-delay:.3s;
-  }
-  @keyframes drawLine{to{stroke-dashoffset:0;}}
-
-  .service-card, .article-card{
-    border:1px solid transparent;
-    transition:transform .35s cubic-bezier(.16,1,.3,1), border-color .35s ease, background-color .35s ease;
-  }
-  .service-card:hover, .article-card:hover{
-    transform:translateY(-6px);
-    border-color:rgba(82,102,235,0.4);
-    background-color:#23232f;
-  }
-  .service-icon{transition:background-color .35s ease, transform .35s ease;}
-  .service-card:hover .service-icon{background-color:var(--cobalt); transform:scale(1.06);}
-  .service-card:hover .service-icon svg{stroke:var(--white);}
-
-  .services-grid .service-card:nth-child(1){transition-delay:0s;}
-  .services-grid .service-card:nth-child(2){transition-delay:.08s;}
-  .services-grid .service-card:nth-child(3){transition-delay:.16s;}
-  .services-grid .service-card:nth-child(4){transition-delay:.24s;}
-  .articles-grid .article-card:nth-child(1){transition-delay:0s;}
-  .articles-grid .article-card:nth-child(2){transition-delay:.1s;}
-  .articles-grid .article-card:nth-child(3){transition-delay:.2s;}
-
-  .nav-links a{position:relative;}
-  .btn-primary, .btn-ghost, .form-submit{
-    transition:opacity .25s ease, transform .25s cubic-bezier(.16,1,.3,1), background-color .25s ease;
-  }
-  .btn-primary:hover, .form-submit:hover{transform:translateY(-2px);}
-  .btn-ghost:hover{transform:translateY(-2px);}
-
-  @media (prefers-reduced-motion: reduce){
-    .reveal{opacity:1; transform:none; transition:none;}
-    .hero-content > *{animation:none; opacity:1; transform:none;}
-    .measure-line path, .measure-line line{animation:none; stroke-dashoffset:0;}
-  }
+  html.js .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s var(--ease), transform .7s var(--ease); transition-delay:var(--d, 0s);}
+  html.js .reveal.is-visible{opacity:1; transform:none;}
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
-    *{transition:none !important;}
+    *,*::before,*::after{
+      animation-duration:.01ms !important;
+      animation-delay:0s !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+      transition-delay:0s !important;
+    }
+    html.js .reveal{opacity:1; transform:none;}
+    .service-card:hover,
+    .article-card:hover{transform:none;}
+  }
+
+  /* =====================================================================
+     RESPONSIVE
+     ===================================================================== */
+  @media (max-width:1024px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-drawing{max-width:420px; width:100%; margin-inline:auto;}
+    .dwg{margin-inline:auto;}
+    .section-head{grid-template-columns:1fr; gap:16px;}
+    .contact-grid{grid-template-columns:1fr;}
+    .articles-grid{grid-template-columns:repeat(2, minmax(0,1fr));}
+    .footer-top{grid-template-columns:repeat(3, minmax(0,1fr));}
+    .footer-brand{grid-column:1 / -1;}
+  }
+
+  @media (max-width:860px){
+    .nav-toggle{display:grid;}
+    .site-nav{
+      position:absolute; top:100%; left:0; right:0;
+      display:none; flex-direction:column; align-items:stretch; gap:20px;
+      padding:8px var(--gutter) 28px;
+      background:var(--ink-950); border-bottom:1px solid var(--ink-line);
+    }
+    .nav-open .site-nav{display:flex; animation:fadeIn .2s ease both;}
+    .nav-links{flex-direction:column; align-items:stretch; gap:0;}
+    .nav-links li + li{border-top:1px solid var(--ink-line);}
+    .nav-links a{min-height:56px; padding:0; font-size:1.0625rem; color:var(--on-ink);}
+    .nav-links a::after{display:none;}
+    .nav-links a.is-active{color:var(--accent-bright);}
+    .header-cta{min-height:50px;}
+  }
+
+  @media (max-width:640px){
+    .hero-drawing{display:none;}
+    .hero-actions .btn{flex:1 1 auto;}
+    .audience-grid{grid-template-columns:1fr; margin-inline:0;}
+    .audience-item{padding:24px 0 26px;}
+    .audience-item + .audience-item{border-left:0; border-top:1px solid var(--ink-line);}
+    .services-grid,
+    .articles-grid{grid-template-columns:1fr;}
+    .field-row{grid-template-columns:1fr;}
+    .legal-grid{grid-template-columns:1fr;}
+    .footer-top{grid-template-columns:repeat(2, minmax(0,1fr)); padding-block:56px 40px;}
+    .fw-summary .btn{width:100%;}
   }
 </style>
 </head>
 <body>
 
-<header id="siteHeader">
-  <nav class="wrap">
-    <a href="#start" class="logo">
-      <span class="logo-text"><b>BIB</b><span>Ingenieurbüro für Bauwesen</span></span>
+<!-- ================= ICON-SAMMLUNG (Lucide, ISC-Lizenz) ================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+  <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="11.5" cy="11.5" r="3.5"/><path d="m17 17-2.5-2.5"/></symbol>
+  <symbol id="i-helmet" viewBox="0 0 24 24"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 6 6v3"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><rect x="2" y="15" width="20" height="4" rx="1"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+</svg>
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="#start" class="logo" aria-label="BIB Ingenieurbüro für Bauwesen – zum Seitenanfang">
+      <b>BIB</b><span>Ingenieurbüro für Bauwesen</span>
     </a>
-    <div class="nav-links">
-      <a href="#start">Start</a>
-      <a href="#leistungen">Leistungen</a>
-      <a href="#fachwissen">Fachwissen</a>
-      <a href="#kontakt">Kontakt</a>
-    </div>
-    <a href="#kontakt" class="nav-cta">Kontakt aufnehmen</a>
-    <button class="nav-toggle" aria-label="Menü öffnen">☰</button>
-  </nav>
+
+    <nav class="site-nav" id="siteNav" aria-label="Hauptnavigation">
+      <ul class="nav-links">
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#fachwissen">Fachwissen</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <a href="#kontakt" class="btn btn-primary header-cta">Kontakt aufnehmen</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Menü öffnen">
+      <svg class="icon icon-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+      <svg class="icon icon-close" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+  </div>
 </header>
 
-<main>
+<main id="main">
 
   <!-- ================= HERO / START ================= -->
-  <section id="start" class="hero">
-    <div class="hero-bg"></div>
-    <svg class="hero-grid measure-line" viewBox="0 0 1200 700" style="top:0; left:0; width:100%; height:100%;">
-      <line x1="120" y1="0" x2="120" y2="700" stroke="#70707d" stroke-width="1"/>
-      <line x1="0" y1="180" x2="1200" y2="180" stroke="#70707d" stroke-width="1"/>
-      <line x1="1080" y1="0" x2="1080" y2="700" stroke="#70707d" stroke-width="1"/>
-      <g stroke="#5266eb" stroke-width="1.4">
-        <line x1="120" y1="270" x2="1080" y2="270"/>
-        <line x1="120" y1="264" x2="120" y2="276"/>
-        <line x1="1080" y1="264" x2="1080" y2="276"/>
-      </g>
-    </svg>
-    <div class="hero-content">
-      <span class="eyebrow"><span class="dot"></span>Erfahrene Bauingenieure</span>
-      <h1>Technische Gutachten. <em>Präzise</em>. Rechtssicher.</h1>
-      <p>BIB begutachtet, dokumentiert und überwacht Bauvorhaben und Bauschäden – für Versicherungen, Gerichte und Bauherren.</p>
-      <div class="hero-actions">
-        <a href="#leistungen" class="btn-primary">Leistungen ansehen</a>
-        <a href="#kontakt" class="btn-ghost">Kontakt aufnehmen</a>
+  <section id="start" class="hero" aria-labelledby="heroTitle">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Erfahrene Bauingenieure</span>
+        <h1 id="heroTitle">Technische Gutachten. <span class="accent">Präzise.</span> Rechtssicher.</h1>
+        <p class="hero-lead">BIB begutachtet, dokumentiert und überwacht Bauvorhaben und Bauschäden – für Versicherungen, Gerichte und Bauherren.</p>
+        <div class="hero-actions">
+          <a href="#kontakt" class="btn btn-primary">Kontakt aufnehmen <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="#leistungen" class="btn btn-ghost">Leistungen ansehen</a>
+        </div>
+        <p class="hero-meta"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Bassam Ingenieurbüro für Bauwesen GmbH · Berlin</p>
+      </div>
+
+      <!-- Dekorative Schnittzeichnung: Gebäude mit Maßketten und Detailpunkt -->
+      <div class="hero-drawing" aria-hidden="true">
+        <svg class="dwg" viewBox="0 0 520 540" focusable="false">
+          <!-- Gelände mit Schraffur -->
+          <path class="h" pathLength="1" style="--i:0" d="M20 400H108M412 400H440"/>
+          <path class="h" pathLength="1" style="--i:1" d="M28 412L40 400M40 412L52 400M52 412L64 400M64 412L76 400M76 412L88 400M88 412L100 400M416 412L428 400M428 412L440 400"/>
+
+          <!-- Bodenplatte / Fundament -->
+          <path class="s" pathLength="1" style="--i:2" d="M104 462H416V476H104Z"/>
+          <!-- Außenwände -->
+          <path class="s" pathLength="1" style="--i:3" d="M116 462V208H128V462"/>
+          <path class="s" pathLength="1" style="--i:3" d="M392 462V208H404V462"/>
+          <!-- Decken -->
+          <path class="s" pathLength="1" style="--i:4" d="M128 384H392V394H128"/>
+          <path class="s" pathLength="1" style="--i:5" d="M128 296H392V306H128"/>
+          <path class="s" pathLength="1" style="--i:6" d="M116 208H404V218H128"/>
+          <!-- Dach -->
+          <path class="s" pathLength="1" style="--i:7" d="M92 212L260 86L428 212"/>
+          <path class="s" pathLength="1" style="--i:7" d="M116 208L260 100L404 208"/>
+          <!-- Treppe -->
+          <path class="s" pathLength="1" style="--i:8" d="M298 462H312V449H326V436H340V423H354V410H368V397H382V394"/>
+          <!-- Innenwand -->
+          <path class="s" pathLength="1" style="--i:8" d="M248 384V306M254 384V306"/>
+
+          <!-- Hilfslinien zu den Höhenkoten -->
+          <path class="x" d="M410 100H454M410 208H454M410 296H454M410 384H454M420 462H454"/>
+
+          <!-- Vertikale Maßkette -->
+          <path class="d" pathLength="1" style="--i:9" d="M460 92V470"/>
+          <path class="a" pathLength="1" style="--i:10" d="M455 105L465 95M455 213L465 203M455 301L465 291M455 389L465 379M455 467L465 457"/>
+          <text x="474" y="104">+9,70</text>
+          <text x="474" y="212">+6,00</text>
+          <text x="474" y="300">+3,00</text>
+          <text class="ta" x="474" y="388">±0,00</text>
+          <text x="474" y="466">−2,65</text>
+
+          <!-- Horizontale Maßkette -->
+          <path class="d" pathLength="1" style="--i:10" d="M108 504H412M116 484V512M404 484V512"/>
+          <path class="a" pathLength="1" style="--i:11" d="M111 509L121 499M399 509L409 499"/>
+          <text x="260" y="496" text-anchor="middle">9,60</text>
+
+          <!-- Geschossbezeichnungen -->
+          <text x="142" y="282">OG</text>
+          <text x="142" y="370">EG</text>
+          <text x="160" y="448">KG</text>
+
+          <!-- Detailpunkt: Anschluss Bodenplatte / Kellerwand -->
+          <circle class="a" pathLength="1" style="--i:12" cx="116" cy="462" r="30"/>
+          <path class="a" pathLength="1" style="--i:13" d="M130 440L124 448L130 454L123 462L128 470"/>
+          <path class="a" pathLength="1" style="--i:13" d="M95 483L78 500H20"/>
+          <text class="ta" x="20" y="517">DETAIL A</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Einstieg nach Zielgruppe -->
+    <div class="audience">
+      <div class="wrap">
+        <h2 class="sr-only">Ihr Anliegen</h2>
+        <div class="audience-grid">
+          <a class="audience-item" href="#leistung-objektueberwachung">
+            <span class="audience-kicker">Ihr Anliegen</span>
+            <span class="audience-title">Private Bauherren</span>
+            <span class="audience-text">Wir begleiten Ihre Bauausführung vor Ort und vertreten Ihre Interessen gegenüber den ausführenden Firmen.</span>
+            <span class="audience-link">Objektüberwachung (LP&nbsp;8) <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </a>
+          <a class="audience-item" href="#leistung-beweissicherung">
+            <span class="audience-kicker">Ihr Anliegen</span>
+            <span class="audience-title">Unternehmen &amp; Partner</span>
+            <span class="audience-text">Lückenlose Dokumentation des Gebäudezustands vor, während und nach Bauarbeiten.</span>
+            <span class="audience-link">Technische Beweissicherung <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </a>
+          <a class="audience-item" href="#leistung-versicherungsgutachten">
+            <span class="audience-kicker">Ihr Anliegen</span>
+            <span class="audience-title">Gutachten benötigt</span>
+            <span class="audience-text">Unabhängige, nachvollziehbare Gutachten für Versicherungen, Gerichte und Bauherren.</span>
+            <span class="audience-link">Versicherungs- &amp; Gerichtsgutachten <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ================= LEISTUNGEN ================= -->
-  <section id="leistungen">
+  <section id="leistungen" class="section" aria-labelledby="leistungenTitle">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="section-tag">Leistungen</span>
-        <h2>Ausgebildete und Erfahrene Bauingenieure</h2>
-        <p>Vier Kernbereiche, in denen wir Bauherren, Versicherungen und Gerichte mit unabhängiger technischer Expertise unterstützen.</p>
+      <div class="section-head">
+        <div class="reveal">
+          <p class="section-label"><span class="num">01</span><span class="rule"></span><span>Leistungen</span></p>
+          <h2 id="leistungenTitle">Ausgebildete und erfahrene Bauingenieure</h2>
+        </div>
+        <p class="section-intro reveal" style="--d:.08s">Vier Kernbereiche, in denen wir Bauherren, Versicherungen und Gerichte mit unabhängiger technischer Expertise unterstützen.</p>
       </div>
-      <div class="services-grid">
 
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/></svg>
+      <div class="services-grid">
+        <article class="service-card reveal" id="leistung-versicherungsgutachten">
+          <div class="service-top">
+            <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+            <span class="service-num">01</span>
           </div>
           <h3>Versicherungsgutachten</h3>
-          <p>Wir ermitteln Schadensursache und -umfang bei Gebäudeschäden und liefern Versicherungen eine belastbare, unabhängige Bewertungsgrundlage für die Regulierung.</p>
-        </div>
+          <p>Wir ermitteln Schadensursache und &#8209;umfang bei Gebäudeschäden und liefern Versicherungen eine belastbare, unabhängige Bewertungsgrundlage für die Regulierung.</p>
+          <a href="#kontakt" class="text-link" data-topic="Versicherungsgutachten">Anfrage stellen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
 
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7l-3 6a3 3 0 0 0 6 0l-3-6zM19 7l-3 6a3 3 0 0 0 6 0l-3-6zM5 7h14M8 3h8"/></svg>
+        <article class="service-card reveal" style="--d:.08s" id="leistung-gerichtsgutachten">
+          <div class="service-top">
+            <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg></span>
+            <span class="service-num">02</span>
           </div>
           <h3>Gerichtsgutachten</h3>
           <p>Als gerichtlich beauftragte Sachverständige erstellen wir neutrale, nachvollziehbare Gutachten, die vor Gericht Bestand haben und Streitfragen fundiert klären.</p>
-        </div>
+          <a href="#kontakt" class="text-link" data-topic="Gerichtsgutachten">Anfrage stellen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
 
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <article class="service-card reveal" id="leistung-beweissicherung">
+          <div class="service-top">
+            <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg></span>
+            <span class="service-num">03</span>
           </div>
           <h3>Technische Beweissicherung</h3>
           <p>Vor, während und nach Bauarbeiten dokumentieren wir den Zustand von Gebäuden lückenlos – als belastbarer Nachweis für spätere Auseinandersetzungen.</p>
-        </div>
+          <a href="#kontakt" class="text-link" data-topic="Technische Beweissicherung">Anfrage stellen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
 
-        <div class="service-card reveal">
-          <div class="service-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10l8-6 8 6v11"/><path d="M9 21v-6h6v6"/></svg>
+        <article class="service-card reveal" style="--d:.08s" id="leistung-objektueberwachung">
+          <div class="service-top">
+            <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-helmet"/></svg></span>
+            <span class="service-num">04</span>
           </div>
           <h3>Objektüberwachung (LP&nbsp;8)</h3>
           <p>Als Bauherrenvertretung begleiten wir die Bauausführung vor Ort, sichern Qualität, Kosten und Termine und vertreten Ihre Interessen gegenüber den ausführenden Firmen.</p>
-        </div>
-
+          <a href="#kontakt" class="text-link" data-topic="Objektüberwachung (LP 8)">Anfrage stellen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- ================= FACHWISSEN / FACHPORTAL ================= -->
-  <section id="fachwissen">
+  <section id="fachwissen" class="section section-alt" aria-labelledby="fachwissenTitle">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="section-tag">Fachwissen & Publikationen</span>
-        <h2>Einblicke ins Bauwesen</h2>
-        <p>Fachbeiträge zu Bauphysik, Bauschäden und baurechtlichen Fragestellungen aus dem Bauwesen.</p>
+      <div class="section-head">
+        <div class="reveal">
+          <p class="section-label"><span class="num">02</span><span class="rule"></span><span>Fachwissen &amp; Publikationen</span></p>
+          <h2 id="fachwissenTitle">Einblicke ins Bauwesen</h2>
+        </div>
+        <p class="section-intro reveal" style="--d:.08s">Fachbeiträge zu Bauphysik, Bauschäden und baurechtlichen Fragestellungen aus dem Bauwesen.</p>
       </div>
 
-      <!-- EINGEKLAPPTES FACHPORTAL (STANDARDMÄSSIG ARCHIVIERT) -->
-      <details class="fachwissen-toggle" id="fachwissenDetails" ontoggle="if(this.open) { resetAndShowInitial(); }">
-        <summary>
-          <span class="label-closed">Fachbeiträge anzeigen (6 verfügbar)</span>
-          <span class="label-open">Fachbeiträge ausblenden</span>
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      <!-- Eingeklapptes Fachportal (standardmäßig geschlossen) -->
+      <details class="fw-toggle reveal" id="fachwissenDetails">
+        <summary class="fw-summary">
+          <span class="fw-summary-text"><strong id="articleCount">6</strong> Fachbeiträge verfügbar</span>
+          <span class="btn btn-outline">
+            <span class="label-closed">Fachbeiträge anzeigen</span>
+            <span class="label-open">Fachbeiträge ausblenden</span>
+            <svg class="icon icon-chevron" aria-hidden="true"><use href="#i-chevron"/></svg>
+          </span>
         </summary>
 
-        <div style="margin-top: 40px;">
-          <!-- KATEGORIE-GLIEDERUNG -->
-          <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 36px; flex-wrap: wrap;">
-            <button onclick="filterArticles('all')" class="filter-btn active" style="background: var(--cobalt); color: var(--white); border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 500; font-size: 14px;">Alle Themen</button>
-            <button onclick="filterArticles('bauphysik')" class="filter-btn" style="background: var(--obsidian); color: var(--ash); border: 1px solid var(--slate); padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 500; font-size: 14px;">Bauphysik</button>
-            <button onclick="filterArticles('bauschaden')" class="filter-btn" style="background: var(--obsidian); color: var(--ash); border: 1px solid var(--slate); padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 500; font-size: 14px;">Bauschäden</button>
-            <button onclick="filterArticles('recht')" class="filter-btn" style="background: var(--obsidian); color: var(--ash); border: 1px solid var(--slate); padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: 500; font-size: 14px;">Gutachter & Recht</button>
-          </div>
+        <div class="filters" role="group" aria-label="Beiträge nach Thema filtern">
+          <button type="button" class="chip" data-filter="all" aria-pressed="true">Alle Themen</button>
+          <button type="button" class="chip" data-filter="bauphysik" aria-pressed="false">Bauphysik</button>
+          <button type="button" class="chip" data-filter="bauschaden" aria-pressed="false">Bauschäden</button>
+          <button type="button" class="chip" data-filter="recht" aria-pressed="false">Gutachter &amp; Recht</button>
+        </div>
 
-          <!-- ARTIKEL GRID -->
-          <div class="articles-grid" id="articleGrid">
+        <div class="articles-grid" id="articleGrid" aria-live="polite"></div>
+        <noscript><p class="fw-empty">Zum Anzeigen der Fachbeiträge wird JavaScript benötigt.</p></noscript>
 
-            <!-- Artikel 1: Bauphysik -->
-            <div class="article-card" data-category="bauphysik" style="display: none;">
-              <div class="article-thumb" style="background: linear-gradient(135deg, rgba(82,102,235,0.2), var(--obsidian));"><span>Bauphysik</span></div>
-              <div class="article-body">
-                <span class="article-date">Fachbeitrag • Wärmeschutz</span>
-                <h3>WU-Beton in der Praxis: Vermeidung von Rissbildung & Feuchteschutz</h3>
-                <p>Herausforderungen bei weißer Wanne, Fugenband-Details und wirksamer Abdichtung gegen drückendes Wasser.</p>
-                <a href="javascript:void(0)" onclick="openArticle('wu-beton')" class="article-link">Weiterlesen →</a>
-              </div>
-            </div>
-
-            <!-- Artikel 2: Bauschäden -->
-            <div class="article-card" data-category="bauschaden" style="display: none;">
-              <div class="article-thumb" style="background: linear-gradient(135deg, rgba(235,82,82,0.2), var(--obsidian));"><span>Bauschäden</span></div>
-              <div class="article-body">
-                <span class="article-date">Schadensanalyse • Feuchtigkeit</span>
-                <h3>Wasserschäden nach Rohrbruch: Beweissicherung & Sanierung</h3>
-                <p>Wie verhalte ich mich bei verdeckten Leitungswasserschäden? Messmethoden und lückenlose Dokumentation.</p>
-                <a href="javascript:void(0)" onclick="openArticle('wasserschaden')" class="article-link">Weiterlesen →</a>
-              </div>
-            </div>
-
-            <!-- Artikel 3: Recht -->
-            <div class="article-card" data-category="recht" style="display: none;">
-              <div class="article-thumb" style="background: linear-gradient(135deg, rgba(82,235,160,0.2), var(--obsidian));"><span>Gutachter & Recht</span></div>
-              <div class="article-body">
-                <span class="article-date">Rechtsprechung • Innovation</span>
-                <h3>Künstliche Intelligenz in Gerichtsgutachten: Zulässigkeit & Grenzen</h3>
-                <p>Welche Rolle moderne KI-Tools bei der Analyse von Baumängeln spielen und wo die strengen juristischen Grenzen liegen.</p>
-                <a href="javascript:void(0)" onclick="openArticle('ki-gutachten')" class="article-link">Weiterlesen →</a>
-              </div>
-            </div>
-
-            <!-- Artikel 4: Bauphysik -->
-            <div class="article-card" data-category="bauphysik" style="display: none;">
-              <div class="article-thumb" style="background: linear-gradient(135deg, rgba(82,102,235,0.2), var(--obsidian));"><span>Bauphysik</span></div>
-              <div class="article-body">
-                <span class="article-date">Schallschutz & Akustik</span>
-                <h3>Schallschutz im Wohnungsbau nach DIN 4109: Typische Mängel</h3>
-                <p>Trittschall und Luftschall im Massiv- und Holzbau effektiv entkoppeln – Mängelbeseitigung und schalltechnische Prüfungen.</p>
-                <a href="javascript:void(0)" onclick="openArticle('schallschutz')" class="article-link">Weiterlesen →</a>
-              </div>
-            </div>
-
-            <!-- Artikel 5: Bauschäden -->
-            <div class="article-card" data-category="bauschaden" style="display: none;">
-              <div class="article-thumb" style="background: linear-gradient(135deg, rgba(235,82,82,0.2), var(--obsidian));"><span>Bauschäden</span></div>
-              <div class="article-body">
-                <span class="article-date">Sturmschaden • Dachbau</span>
-                <h3>Sturmschäden am Steildach: Schadensermittlung für Versicherungen</h3>
-                <p>Sogsicherungen, Windsogsicherung und die korrekte Dokumentation von abgedeckten Dachflächen für die Schadensregulierung.</p>
-                <a href="javascript:void(0)" onclick="openArticle('sturmschaden')" class="article-link">Weiterlesen →</a>
-              </div>
-            </div>
-
-            <!-- Artikel 6: Recht -->
-            <div class="article-card" data-category="recht" style="display: none;">
-              <div class="article-thumb" style="background: linear-gradient(135deg, rgba(82,235,160,0.2), var(--obsidian));"><span>Gutachter & Recht</span></div>
-              <div class="article-body">
-                <span class="article-date">Privat vs. Gericht</span>
-                <h3>Gerichtsgutachten vs. Privatgutachten: Der genaue Unterschied</h3>
-                <p>Wann ein Parteigutachten ausreicht, um außergerichtlich eine Einigung zu erzielen, und wann der Gang zum Gerichtsgutachter zwingend ist.</p>
-                <a href="javascript:void(0)" onclick="openArticle('gutachter-vergleich')" class="article-link">Weiterlesen →</a>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- BUTTON: WEITERE BEITRÄGE LADEN -->
-          <div style="text-align: center; margin-top: 40px;">
-            <button id="loadMoreBtn" onclick="loadMoreArticles()" style="background: transparent; color: var(--ivory); border: 1px solid var(--ivory); padding: 12px 32px; border-radius: 40px; font-size: 15px; font-weight: 500; cursor: pointer; transition: background .2s;">
-              Weitere Beiträge laden (+3)
-            </button>
-          </div>
+        <div class="fw-more">
+          <button type="button" class="btn btn-outline" id="loadMoreBtn" hidden>Weitere Beiträge laden (+3)</button>
         </div>
       </details>
     </div>
   </section>
 
   <!-- ================= KONTAKT ================= -->
-  <section id="kontakt">
-    <div class="wrap">
-      <div class="kontakt-box reveal">
-        <div class="kontakt-info">
-          <h2>Sprechen wir über Ihr Projekt</h2>
-          <p>Ob Schadensfall, Rechtsstreit oder laufende Baumaßnahme – schildern Sie uns Ihr Anliegen, wir melden uns zeitnah zurück.</p>
-          <ul class="kontakt-list">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>+49 176 23581339</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>info@ing-bassam.de</li>
-          </ul>
-        </div>
-        <!-- Kontaktformular mit Erfolgsmeldung -->
-        <div style="width: 100%;">
-          <form id="kontaktForm" onsubmit="handleContactSubmit(event)">
-            <div id="formFields">
-              <div style="margin-bottom: 14px;">
-                <label for="name">Name</label>
-                <input id="name" type="text" placeholder="Ihr Name" required>
+  <section id="kontakt" class="section section-dark" aria-labelledby="kontaktTitle">
+    <div class="wrap contact-grid">
+      <div class="contact-info reveal">
+        <p class="section-label"><span class="num">03</span><span class="rule"></span><span>Kontakt</span></p>
+        <h2 id="kontaktTitle">Sprechen wir über Ihr Projekt</h2>
+        <p class="contact-lead">Ob Schadensfall, Rechtsstreit oder laufende Baumaßnahme – schildern Sie uns Ihr Anliegen, wir melden uns zeitnah zurück.</p>
+        <ul class="contact-list">
+          <li>
+            <a class="contact-row" href="tel:+4917623581339">
+              <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+              <span><span class="contact-k">Telefon</span><span class="contact-v">+49 176 23581339</span></span>
+            </a>
+          </li>
+          <li>
+            <a class="contact-row" href="mailto:info@ing-bassam.de">
+              <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+              <span><span class="contact-k">E-Mail</span><span class="contact-v">info@ing-bassam.de</span></span>
+            </a>
+          </li>
+          <li>
+            <div class="contact-row">
+              <span class="contact-icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <span><span class="contact-k">Anschrift</span><span class="contact-v">Straße am Flugplatz 6a, 12487 Berlin</span></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-card reveal" style="--d:.1s">
+        <!-- Kontaktformular: öffnet das E-Mail-Programm (mailto). Es werden keine Daten auf dem Webserver gespeichert. -->
+        <form id="kontaktForm" action="mailto:info@ing-bassam.de" method="post" enctype="text/plain" novalidate>
+          <div id="formFields">
+            <h3>Anfrage senden</h3>
+            <p class="form-sub">Felder mit <span aria-hidden="true">*</span><span class="sr-only">Stern</span> sind Pflichtfelder.</p>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" placeholder="Ihr Name" required aria-describedby="nameError" data-required="Bitte geben Sie Ihren Namen ein.">
+                <span class="field-error" id="nameError" aria-live="polite"></span>
               </div>
-              <div style="margin-bottom: 14px;">
-                <label for="email">E-Mail</label>
-                <input id="email" type="email" placeholder="ihre@email.de" required>
+              <div class="field">
+                <label for="email">E-Mail <span class="req" aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="ihre@email.de" required aria-describedby="emailError" data-required="Bitte geben Sie Ihre E-Mail-Adresse ein.">
+                <span class="field-error" id="emailError" aria-live="polite"></span>
               </div>
-              <div style="margin-bottom: 14px;">
-                <label for="msg">Nachricht</label>
-                <textarea id="msg" placeholder="Beschreiben Sie kurz Ihr Anliegen" required></textarea>
-              </div>
-              <button class="form-submit" type="submit">Nachricht senden</button>
             </div>
 
-            <!-- Die Erfolgsmeldung (wird anfangs ausgeblendet) -->
-            <div id="formSuccess" style="display: none; background: var(--obsidian); border: 1px solid var(--cobalt); padding: 32px 24px; border-radius: 12px; text-align: center;">
-              <h3 style="color: var(--white); margin-bottom: 12px; font-size: 20px;">Vielen Dank für Ihre Anfrage!</h3>
-              <p style="color: var(--ash); font-size: 15px; line-height: 1.5;">Wir haben Ihr Anliegen aufgenommen und melden uns in Kürze telefonisch oder per E-Mail bei Ihnen.</p>
+            <div class="field">
+              <label for="topic">Anliegen <span class="opt">(optional)</span></label>
+              <select id="topic" name="anliegen">
+                <option value="">Bitte wählen</option>
+                <option>Versicherungsgutachten</option>
+                <option>Gerichtsgutachten</option>
+                <option>Technische Beweissicherung</option>
+                <option>Objektüberwachung (LP 8)</option>
+                <option>Sonstiges</option>
+              </select>
             </div>
-          </form>
-        </div>
+
+            <div class="field">
+              <label for="msg">Nachricht <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="msg" name="nachricht" placeholder="Beschreiben Sie kurz Ihr Anliegen" required aria-describedby="msgError" data-required="Bitte beschreiben Sie kurz Ihr Anliegen."></textarea>
+              <span class="field-error" id="msgError" aria-live="polite"></span>
+            </div>
+
+            <div class="form-foot">
+              <button class="btn btn-primary" type="submit">Nachricht senden <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+              <p class="form-note">Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer vorbereiteten Nachricht. Ihre Eingaben werden nicht auf dieser Website gespeichert. Weitere Informationen finden Sie in der <a href="#datenschutz">Datenschutzerklärung</a>.</p>
+            </div>
+          </div>
+
+          <!-- Hinweis nach dem Absenden (anfangs ausgeblendet) -->
+          <div id="formSuccess" class="form-success" hidden>
+            <span class="form-success-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+            <h3 tabindex="-1" id="formSuccessTitle">Vielen Dank für Ihre Anfrage!</h3>
+            <p>Ihr E-Mail-Programm wurde mit einer vorbereiteten Nachricht geöffnet. Bitte senden Sie die E-Mail dort ab – wir melden uns anschließend in Kürze telefonisch oder per E-Mail bei Ihnen.</p>
+            <p>Falls sich kein E-Mail-Programm geöffnet hat, erreichen Sie uns direkt unter <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a> oder telefonisch unter <a href="tel:+4917623581339">+49 176 23581339</a>.</p>
+            <button type="button" class="btn btn-outline" id="formBack">Zurück zum Formular</button>
+          </div>
+        </form>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="logo">
-          <span class="logo-text"><b>BIB</b><span>Ingenieurbüro für Bauwesen</span></span>
-        </div>
-        <p>Bassam Ingenieurbüro für Bauwesen GmbH</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <a href="#start">Start</a>
-          <a href="#leistungen">Leistungen</a>
-          <a href="#fachwissen">Fachwissen</a>
-          <a href="#kontakt">Kontakt</a>
-        </div>
-        <div class="footer-col">
-          <h4>Rechtliches</h4>
-          <a href="#impressum">Impressum</a>
-          <a href="#datenschutz">Datenschutz</a> 
-        </div>
-      </div>
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a href="#start" class="logo" aria-label="BIB Ingenieurbüro für Bauwesen – zum Seitenanfang">
+        <b>BIB</b><span>Ingenieurbüro für Bauwesen</span>
+      </a>
+      <p>Bassam Ingenieurbüro für Bauwesen GmbH<br>Straße am Flugplatz 6a, 12487 Berlin</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="#start">Start</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#fachwissen">Fachwissen</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <a href="tel:+4917623581339">+49 176 23581339</a>
+      <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a>
+    </div>
+    <div class="footer-col">
+      <h4>Rechtliches</h4>
+      <a href="#impressum">Impressum</a>
+      <a href="#datenschutz">Datenschutz</a>
     </div>
   </div>
 
-  <!-- ================= IMPRESSUM ================= -->
-  <details id="impressum" class="impressum">
-    <summary class="wrap">
-      Impressum
-      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-    </summary>
-    <div class="wrap impressum-content">
-      <p style="margin-bottom: 16px; font-size: 12px; color: var(--slate);">Angaben gemäß §§ 5, 6 DDG</p>
-      
-      <div class="impressum-grid">
-        <div>
-          <h4>Anbieter</h4>
-          Bassam Ingenieurbüro für Bauwesen GmbH<br>
-          Straße am Flugplatz 6a<br>
-          12487 Berlin
+  <div class="wrap legal">
+    <!-- ================= IMPRESSUM ================= -->
+    <details id="impressum" class="legal-item">
+      <summary>Impressum <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+      <div class="legal-content">
+        <p class="legal-lead">Angaben gemäß §§ 5, 6 DDG</p>
+
+        <div class="legal-grid">
+          <div>
+            <h4>Anbieter</h4>
+            Bassam Ingenieurbüro für Bauwesen GmbH<br>
+            Straße am Flugplatz 6a<br>
+            12487 Berlin
+          </div>
+          <div>
+            <h4>Vertreten durch</h4>
+            Geschäftsführer: Abdel Karim Abu Elkheir<br>
+            <h4>Kontakt</h4>
+            Telefon: +49 176 23581339<br>
+            E-Mail: info@ing-bassam.de
+          </div>
+          <div>
+            <h4>Registereintrag</h4>
+            Registergericht: Amtsgericht Charlottenburg (Berlin)<br>
+            Registernummer: HRB 274183 B<br>
+            Umsatzsteuer-ID: DE455794705
+          </div>
         </div>
-        <div>
-          <h4>Vertreten durch</h4>
-          Geschäftsführer: Abdel Karim Abu Elkheir<br>
-          <h4>Kontakt</h4>
-          Telefon: +49 176 23581339<br>
-          E-Mail: info@ing-bassam.de
-        </div>
-        <div>
-          <h4>Registereintrag</h4>
-          Registergericht: Amtsgericht Charlottenburg (Berlin)<br>
-          Registernummer: HRB 274183 B<br>
-          Umsatzsteuer-ID: <span class="placeholder">DE455794705</span>
-        </div>
+
+        <h4>Berufsbezeichnung und berufsrechtliche Regelungen</h4>
+        Berufsbezeichnung: Ingenieur (verliehen in der Bundesrepublik Deutschland)<br>
+        Zuständige Kammer: Ingenieurkammer Berlin, Brückenstraße 6, 10179 Berlin<br>
+        Geltende berufsrechtliche Regelungen: Berliner Ingenieurgesetz (BInG) – einsehbar auf der Website der zuständigen Kammer.
+
+        <h4>Streitschlichtung</h4>
+        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
       </div>
+    </details>
 
-      <h4>Berufsbezeichnung und berufsrechtliche Regelungen</h4>
-      Berufsbezeichnung: Ingenieur (verliehen in der Bundesrepublik Deutschland)<br>
-      Zuständige Kammer: Ingenieurkammer Berlin, Brückenstraße 6, 10179 Berlin<br>
-      Geltende berufsrechtliche Regelungen: Berliner Ingenieurgesetz (BInG) – einsehbar auf der Website der zuständigen Kammer.
+    <!-- ================= DATENSCHUTZ ================= -->
+    <details id="datenschutz" class="legal-item">
+      <summary>Datenschutzerklärung <svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+      <div class="legal-content">
 
-      <h4>Streitschlichtung</h4>
-      Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" style="color:var(--cobalt);" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
-    </div>
-  </details>
+        <h4>1. Datenschutz auf einen Blick</h4>
+        <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Diese Website ist bewusst datensparsam gestaltet. <strong>Wir verwenden keine Cookies, keine Analyse-Tools (wie Google Analytics) und speichern keine Formulardaten auf unserem Webserver.</strong></p>
 
-  <!-- ================= DATENSCHUTZ ================= -->
-  <details id="datenschutz" class="impressum">
-    <summary class="wrap">
-      Datenschutzerklärung
-      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-    </summary>
-    <div class="wrap impressum-content">
-      
-      <h4>1. Datenschutz auf einen Blick</h4>
-      <p>Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Diese Website ist bewusst datensparsam gestaltet. <strong>Wir verwenden keine Cookies, keine Analyse-Tools (wie Google Analytics) und speichern keine Formulardaten auf unserem Webserver.</strong></p>
+        <h4>2. Verantwortliche Stelle</h4>
+        <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
+        Bassam Ingenieurbüro für Bauwesen GmbH<br>
+        Straße am Flugplatz 6a<br>
+        12487 Berlin<br>
+        Geschäftsführer: Abdel Karim Abu Elkheir<br>
+        Telefon: +49 176 23581339<br>
+        E-Mail: info@ing-bassam.de</p>
 
-      <h4>2. Verantwortliche Stelle</h4>
-      <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
-      Bassam Ingenieurbüro für Bauwesen GmbH<br>
-      Straße am Flugplatz 6a<br>
-      12487 Berlin<br>
-      Geschäftsführer: Abdel Karim Abu Elkheir<br>
-      Telefon: +49 176 23581339<br>
-      E-Mail: info@ing-bassam.de</p>
+        <h4>3. Datenerfassung auf unserer Website (Server-Logfiles)</h4>
+        <p>Bei der rein informatorischen Nutzung der Website erheben wir nur die personenbezogenen Daten, die Ihr Browser automatisch an unseren Server übermittelt (sog. Server-Logfiles). Dies sind z. B. Browsertyp/Version, Betriebssystem, Referrer-URL, Hostname des zugreifenden Rechners, Uhrzeit der Anfrage und IP-Adresse.<br>
+        Diese Daten sind technisch erforderlich, um Ihnen unsere Website anzuzeigen und die Stabilität und Sicherheit zu gewährleisten. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Rechtsgrundlage hierfür ist unser berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO).</p>
 
-      <h4>3. Datenerfassung auf unserer Website (Server-Logfiles)</h4>
-      <p>Bei der rein informatorischen Nutzung der Website erheben wir nur die personenbezogenen Daten, die Ihr Browser automatisch an unseren Server übermittelt (sog. Server-Logfiles). Dies sind z. B. Browsertyp/Version, Betriebssystem, Referrer-URL, Hostname des zugreifenden Rechners, Uhrzeit der Anfrage und IP-Adresse.<br>
-      Diese Daten sind technisch erforderlich, um Ihnen unsere Website anzuzeigen und die Stabilität und Sicherheit zu gewährleisten. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Rechtsgrundlage hierfür ist unser berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO).</p>
+        <h4>4. Kontaktaufnahme / Kontaktformular</h4>
+        <p>Wenn Sie über das Kontaktformular auf unserer Website oder per E-Mail Kontakt mit uns aufnehmen, erfolgt die Datenübermittlung direkt über Ihr eigenes E-Mail-Programm (via <code>mailto</code>-Funktion). Ihre Eingaben aus dem Formular werden <strong>nicht</strong> auf unserem Webserver gespeichert oder in einer Datenbank verarbeitet.<br>
+        Die von Ihnen per E-Mail übersandten personenbezogenen Daten (z. B. Name, E-Mail-Adresse, Anliegen) werden von uns ausschließlich zur Bearbeitung Ihrer Anfrage gespeichert und verwendet. Die Rechtsgrundlage für die Verarbeitung dieser Daten ist Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung/-erfüllung) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bearbeitung von Anfragen). Die Daten werden gelöscht, sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
 
-      <h4>4. Kontaktaufnahme / Kontaktformular</h4>
-      <p>Wenn Sie über das Kontaktformular auf unserer Website oder per E-Mail Kontakt mit uns aufnehmen, erfolgt die Datenübermittlung direkt über Ihr eigenes E-Mail-Programm (via <code>mailto</code>-Funktion). Ihre Eingaben aus dem Formular werden <strong>nicht</strong> auf unserem Webserver gespeichert oder in einer Datenbank verarbeitet. <br>
-      Die von Ihnen per E-Mail übersandten personenbezogenen Daten (z. B. Name, E-Mail-Adresse, Anliegen) werden von uns ausschließlich zur Bearbeitung Ihrer Anfrage gespeichert und verwendet. Die Rechtsgrundlage für die Verarbeitung dieser Daten ist Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung/-erfüllung) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bearbeitung von Anfragen). Die Daten werden gelöscht, sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+        <h4>5. Keine Cookies und kein Tracking</h4>
+        <p>Diese Website verwendet keinerlei Cookies, Web-Beacons, Tracking-Pixel oder vergleichbare Technologien zur Auswertung des Nutzerverhaltens. Sie können sich auf unserer Seite völlig anonym bewegen.</p>
 
-      <h4>5. Keine Cookies und kein Tracking</h4>
-      <p>Diese Website verwendet keinerlei Cookies, Web-Beacons, Tracking-Pixel oder vergleichbare Technologien zur Auswertung des Nutzerverhaltens. Sie können sich auf unserer Seite völlig anonym bewegen.</p>
+        <h4>6. Ihre Rechte</h4>
+        <p>Sie haben jederzeit das Recht:</p>
+        <ul>
+          <li>unentgeltlich <strong>Auskunft</strong> über Herkunft, Empfänger und Zweck Ihrer bei uns gespeicherten personenbezogenen Daten zu erhalten (Art. 15 DSGVO).</li>
+          <li>die <strong>Berichtigung</strong> unrichtiger oder unvollständiger Daten zu verlangen (Art. 16 DSGVO).</li>
+          <li>die <strong>Löschung</strong> Ihrer bei uns gespeicherten Daten zu verlangen (Art. 17 DSGVO).</li>
+          <li>die <strong>Einschränkung</strong> der Datenverarbeitung zu verlangen (Art. 18 DSGVO).</li>
+          <li>Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten aushändigen zu lassen (<strong>Datenübertragbarkeit</strong>, Art. 20 DSGVO).</li>
+          <li>aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung <strong>Widerspruch</strong> einzulegen (Art. 21 DSGVO).</li>
+        </ul>
+        <p>Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an die oben angegebene verantwortliche Stelle wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde (z. B. Berliner Beauftragte für Datenschutz und Informationsfreiheit) zu.</p>
 
-      <h4>6. Ihre Rechte</h4>
-      <p>Sie haben jederzeit das Recht:<br>
-      * unentgeltlich <strong>Auskunft</strong> über Herkunft, Empfänger und Zweck Ihrer bei uns gespeicherten personenbezogenen Daten zu erhalten (Art. 15 DSGVO).<br>
-      * die <strong>Berichtigung</strong> unrichtiger oder unvollständiger Daten zu verlangen (Art. 16 DSGVO).<br>
-      * die <strong>Löschung</strong> Ihrer bei uns gespeicherten Daten zu verlangen (Art. 17 DSGVO).<br>
-      * die <strong>Einschränkung</strong> der Datenverarbeitung zu verlangen (Art. 18 DSGVO).<br>
-      * Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten aushändigen zu lassen (<strong>Datenübertragbarkeit</strong>, Art. 20 DSGVO).<br>
-      * aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung <strong>Widerspruch</strong> einzulegen (Art. 21 DSGVO).<br>
-      <br>
-      Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an die oben angegebene verantwortliche Stelle wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde (z. B. Berliner Beauftragte für Datenschutz und Informationsfreiheit) zu.</p>
-      
-    </div>
-  </details>
+      </div>
+    </details>
+  </div>
 
-  <!-- HIER IST DAS COPYRIGHT JETZT FEST AUF 2026 GESETZT -->
-  <div class="bottom-bar">© 2026 Bassam Ingenieurbüro für Bauwesen GmbH</div>
+  <div class="wrap bottom-bar">
+    <!-- HIER IST DAS COPYRIGHT JETZT FEST AUF 2026 GESETZT -->
+    <span>© 2026 Bassam Ingenieurbüro für Bauwesen GmbH</span>
+    <span>Keine Cookies. Kein Tracking.</span>
+  </div>
 </footer>
 
-<!-- EINZIGES ZENTRALES VOLLBILD LESE-MODAL -->
-<div id="articleModal" style="display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(23,23,33,0.95); backdrop-filter: blur(12px); overflow-y: auto; padding: 40px 20px;">
-  <div style="max-width: 800px; margin: 0 auto; background: var(--graphite); border: 1px solid rgba(82,102,235,0.3); border-radius: 16px; padding: 48px; position: relative;">
-    <button onclick="closeArticle()" style="background: var(--obsidian); color: var(--ivory); border: 1px solid var(--slate); padding: 10px 20px; border-radius: 30px; cursor: pointer; font-weight: 500; margin-bottom: 32px; display: inline-flex; align-items: center; gap: 8px;">
-      ← Zurück zur Übersicht
-    </button>
-    <div id="modalContent" style="color: var(--ivory); line-height: 1.8; font-size: 16px;"></div>
-    <div style="margin-top: 48px; border-top: 1px solid rgba(226,227,237,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--slate); font-size: 14px;">
+<!-- ================= LESEFENSTER FÜR FACHBEITRÄGE ================= -->
+<dialog class="article-dialog" id="articleDialog" aria-labelledby="dialogTitle">
+  <div class="dialog-panel">
+    <div class="dialog-header">
+      <span class="article-cat" id="dialogCat"></span>
+      <button type="button" class="dialog-close" data-dialog-close aria-label="Beitrag schließen">
+        <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+    <div class="dialog-body">
+      <p class="dialog-meta" id="dialogMeta"></p>
+      <h2 class="dialog-title" id="dialogTitle" tabindex="-1" autofocus></h2>
+      <div class="prose" id="dialogContent"></div>
+    </div>
+    <div class="dialog-footer">
       <span>BIB Ingenieurbüro für Bauwesen GmbH</span>
-      <a href="#kontakt" onclick="closeArticle()" style="color: var(--cobalt); font-weight: 500;">Fragen zu diesem Thema? Kontakt aufnehmen →</a>
+      <a href="#kontakt" class="text-link" id="dialogContact">Fragen zu diesem Thema? Kontakt aufnehmen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
     </div>
   </div>
-</div>
+</dialog>
 
 <script>
-  // 1. SKRIPT FÜR DAS KONTAKTFORMULAR
-  function handleContactSubmit(event) {
-    event.preventDefault(); 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const msg = document.getElementById('msg').value;
+  /* =====================================================================
+     FACHBEITRÄGE
+     So fügen Sie einen neuen Beitrag hinzu: einen weiteren Eintrag in
+     diese Liste kopieren und anpassen. Neueste Beiträge nach oben.
+       category: 'bauphysik' | 'bauschaden' | 'recht'
+       meta:     kurze Zeile über dem Titel
+       teaser:   1–2 Sätze für die Übersichtskarte
+       body:     der eigentliche Artikel als HTML (<p>, <h3>, <ul><li>)
+     ===================================================================== */
+  const ARTICLES = [
+    {
+      id: 'wu-beton',
+      category: 'bauphysik',
+      meta: 'Fachbeitrag • Wärmeschutz',
+      title: 'WU-Beton in der Praxis: Vermeidung von Rissbildung & Feuchteschutz',
+      teaser: 'Herausforderungen bei weißer Wanne, Fugenband-Details und wirksamer Abdichtung gegen drückendes Wasser.',
+      body: `
+        <p>Wasserdichter Beton (WU-Beton) ist im modernen Hoch- und Kellerbau der Standard, um Gebäude dauerhaft vor Feuchtigkeit zu schützen. Doch die Planung und Ausführung erfordert höchste ingenieurtechnische Sorgfalt.</p>
+        <h3>Herausforderungen bei der Rissbreitenbeschränkung</h3>
+        <p>Beton neigt beim Aushärten naturgemäß zu Schwindprozessen. Da WU-Betonkonstruktionen (wie weiße Wannen) flüssigkeitsdicht sein müssen, schreibt die Richtlinie vor, dass die Rissbreiten auf ein zulässiges Maß (meist 0,15 mm bis 0,20 mm) begrenzt werden müssen.</p>
+      `
+    },
+    {
+      id: 'wasserschaden',
+      category: 'bauschaden',
+      meta: 'Schadensanalyse • Feuchtigkeit',
+      title: 'Wasserschäden nach Rohrbruch: Beweissicherung & Sanierung',
+      teaser: 'Wie verhalte ich mich bei verdeckten Leitungswasserschäden? Messmethoden und lückenlose Dokumentation.',
+      body: `
+        <p>Ein unbemerkter Rohrbruch führt schnell zu massiven Durchfeuchtungen der Bausubstanz. Entscheidend für die Schadensregulierung mit Versicherungen ist eine unverzügliche Beweissicherung.</p>
+        <h3>Schadensursache ermitteln</h3>
+        <p>Mithilfe thermografischer Untersuchungen, Feuchtigkeitsmessungen und Endoskopie grenzen wir den Schaden präzise ein.</p>
+      `
+    },
+    {
+      id: 'ki-gutachten',
+      category: 'recht',
+      meta: 'Rechtsprechung • Innovation',
+      title: 'Künstliche Intelligenz in Gerichtsgutachten: Zulässigkeit & Grenzen',
+      teaser: 'Welche Rolle moderne KI-Tools bei der Analyse von Baumängeln spielen und wo die strengen juristischen Grenzen liegen.',
+      body: `
+        <p>Der Einsatz von Künstlicher Intelligenz hält Einzug in das Bauwesen. Doch welche rechtlichen und fachlichen Grenzen gelten bei der Erstellung von Gutachten?</p>
+        <h3>Persönliche Verantwortung des Sachverständigen</h3>
+        <p>Ein gerichtlich oder privat beauftragter Sachverständiger haftet persönlich für die Richtigkeit seiner Feststellungen. KI dient als Werkzeug, während der Sachverstand beim Ingenieur bleibt.</p>
+      `
+    },
+    {
+      id: 'schallschutz',
+      category: 'bauphysik',
+      meta: 'Schallschutz & Akustik',
+      title: 'Schallschutz im Wohnungsbau nach DIN 4109: Typische Mängel',
+      teaser: 'Trittschall und Luftschall im Massiv- und Holzbau effektiv entkoppeln – Mängelbeseitigung und schalltechnische Prüfungen.',
+      body: `
+        <p>Lärmbelästigung ist einer der häufigsten Streitpunkte. Die Einhaltung der Mindestanforderungen nach DIN 4109 schützt vor kostspieligen Mängelbeseitigungen.</p>
+      `
+    },
+    {
+      id: 'sturmschaden',
+      category: 'bauschaden',
+      meta: 'Sturmschaden • Dachbau',
+      title: 'Sturmschäden am Steildach: Schadensermittlung für Versicherungen',
+      teaser: 'Sogsicherungen, Windsogsicherung und die korrekte Dokumentation von abgedeckten Dachflächen für die Schadensregulierung.',
+      body: `
+        <p>Nach Stürmen gehören Dachschäden zu den häufigsten Meldungen. Wir dokumentieren die Windsogsicherung und erstellen Schadensprotokolle.</p>
+      `
+    },
+    {
+      id: 'gutachter-vergleich',
+      category: 'recht',
+      meta: 'Privat vs. Gericht',
+      title: 'Gerichtsgutachten vs. Privatgutachten: Der genaue Unterschied',
+      teaser: 'Wann ein Parteigutachten ausreicht, um außergerichtlich eine Einigung zu erzielen, und wann der Gang zum Gerichtsgutachter zwingend ist.',
+      body: `
+        <p>Ein Privatgutachten hilft, außergerichtlich Ansprüche durchzusetzen. Ein Gerichtsgutachten wird vom Richter im Streitfall angeordnet.</p>
+      `
+    }
+  ];
 
-    const subject = encodeURIComponent("Neue Anfrage über Website von " + name);
-    const body = encodeURIComponent("Name: " + name + "\nE-Mail: " + email + "\n\nNachricht:\n" + msg);
-    
-    window.location.href = `mailto:info@ing-bassam.de?subject=${subject}&body=${body}`;
+  const CATEGORY_LABELS = { bauphysik: 'Bauphysik', bauschaden: 'Bauschäden', recht: 'Gutachter & Recht' };
 
-    document.getElementById('formFields').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  }
+  (() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // 2. FACHPORTAL & FILTER LOGIK (3er Schritte)
-  let currentCategory = 'all';
-  let visibleCount = 3;
+    /* ---------- Header beim Scrollen ---------- */
+    const header = document.getElementById('siteHeader');
+    const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
 
-  function resetAndShowInitial() {
-    visibleCount = 3;
-    updateArticleDisplay();
-  }
-
-  function filterArticles(category) {
-    currentCategory = category;
-    visibleCount = 3; 
-
-    const buttons = document.querySelectorAll('.filter-btn');
-    buttons.forEach(btn => {
-      btn.style.background = 'var(--obsidian)';
-      btn.style.color = 'var(--ash)';
-      btn.style.borderColor = 'var(--slate)';
+    /* ---------- Mobiles Menü ---------- */
+    const navToggle = document.getElementById('navToggle');
+    const siteNav = document.getElementById('siteNav');
+    const setNavOpen = (open) => {
+      header.classList.toggle('nav-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+    };
+    navToggle.addEventListener('click', () => setNavOpen(navToggle.getAttribute('aria-expanded') !== 'true'));
+    siteNav.addEventListener('click', (e) => { if (e.target.closest('a')) setNavOpen(false); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && header.classList.contains('nav-open')) { setNavOpen(false); navToggle.focus(); }
     });
-    event.target.style.background = 'var(--cobalt)';
-    event.target.style.color = 'var(--white)';
-    event.target.style.borderColor = 'transparent';
+    window.matchMedia('(min-width: 861px)').addEventListener('change', (e) => { if (e.matches) setNavOpen(false); });
 
-    updateArticleDisplay();
-  }
+    /* ---------- Aktiver Menüpunkt ---------- */
+    const navLinks = [...document.querySelectorAll('.nav-links a')];
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((a) => a.classList.toggle('is-active', a.hash === '#' + entry.target.id));
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('main > section[id]').forEach((s) => spy.observe(s));
 
-  function loadMoreArticles() {
-    visibleCount += 3;
-    updateArticleDisplay();
-  }
-
-  function updateArticleDisplay() {
-    const cards = document.querySelectorAll('.article-card');
-    let shownInCategory = 0;
-    let totalInCategory = 0;
-
-    cards.forEach(card => {
-      const cat = card.getAttribute('data-category');
-      const matchesCategory = (currentCategory === 'all' || cat === currentCategory);
-
-      if (matchesCategory) {
-        totalInCategory++;
-        if (shownInCategory < visibleCount) {
-          card.style.display = 'flex';
-          shownInCategory++;
-        } else {
-          card.style.display = 'none';
-        }
-      } else {
-        card.style.display = 'none';
-      }
-    });
-
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    if (loadMoreBtn) {
-      if (shownInCategory >= totalInCategory) {
-        loadMoreBtn.style.display = 'none';
-      } else {
-        loadMoreBtn.style.display = 'inline-block';
-      }
-    }
-  }
-
-  // ARTIKEL-DATENBANK FÜR DAS LESEFENSTER
-  const articlesData = {
-    'wu-beton': {
-      text: `
-        <h2 style="font-size: 28px; margin-bottom: 16px; color: var(--white);">WU-Beton in der Praxis: Vermeidung von Rissbildung & Feuchteschutz</h2>
-        <p style="color: var(--ash); margin-bottom: 20px;">Wasserdichter Beton (WU-Beton) ist im modernen Hoch- und Kellerbau der Standard, um Gebäude dauerhaft vor Feuchtigkeit zu schützen. Doch die Planung und Ausführung erfordert höchste ingenieurtechnische Sorgfalt.</p>
-        <h3 style="font-size: 20px; color: var(--white); margin: 24px 0 12px;">Herausforderungen bei der Rissbreitenbeschränkung</h3>
-        <p style="color: var(--ash); margin-bottom: 20px;">Beton neigt beim Aushärten naturgemäß zu Schwindprozessen. Da WU-Betonkonstruktionen (wie weiße Wannen) flüssigkeitsdicht sein müssen, schreibt die Richtlinie vor, dass die Rissbreiten auf ein zulässiges Maß (meist 0,15 mm bis 0,20 mm) begrenzt werden müssen.</p>
-      `
-    },
-    'wasserschaden': {
-      text: `
-        <h2 style="font-size: 28px; margin-bottom: 16px; color: var(--white);">Wasserschäden nach Rohrbruch: Beweissicherung & Sanierung</h2>
-        <p style="color: var(--ash); margin-bottom: 20px;">Ein unbemerkter Rohrbruch führt schnell zu massiven Durchfeuchtungen der Bausubstanz. Entscheidend für die Schadensregulierung mit Versicherungen ist eine unverzügliche Beweissicherung.</p>
-        <h3 style="font-size: 20px; color: var(--white); margin: 24px 0 12px;">Schadensursache ermitteln</h3>
-        <p style="color: var(--ash); margin-bottom: 20px;">Mithilfe thermografischer Untersuchungen, Feuchtigkeitsmessungen und Endoskopie grenzen wir den Schaden präzise ein.</p>
-      `
-    },
-    'ki-gutachten': {
-      text: `
-        <h2 style="font-size: 28px; margin-bottom: 16px; color: var(--white);">Künstliche Intelligenz in Gerichtsgutachten: Zulässigkeit & Grenzen</h2>
-        <p style="color: var(--ash); margin-bottom: 20px;">Der Einsatz von Künstlicher Intelligenz hält Einzug in das Bauwesen. Doch welche rechtlichen und fachlichen Grenzen gelten bei der Erstellung von Gutachten?</p>
-        <h3 style="font-size: 20px; color: var(--white); margin: 24px 0 12px;">Persönliche Verantwortung des Sachverständigen</h3>
-        <p style="color: var(--ash); margin-bottom: 20px;">Ein gerichtlich oder privat beauftragter Sachverständiger haftet persönlich für die Richtigkeit seiner Feststellungen. KI dient als Werkzeug, während der Sachverstand beim Ingenieur bleibt.</p>
-      `
-    },
-    'schallschutz': {
-      text: `
-        <h2 style="font-size: 28px; margin-bottom: 16px; color: var(--white);">Schallschutz im Wohnungsbau nach DIN 4109: Typische Mängel</h2>
-        <p style="color: var(--ash); margin-bottom: 20px;">Lärmbelästigung ist einer der häufigsten Streitpunkte. Die Einhaltung der Mindestanforderungen nach DIN 4109 schützt vor kostspieligen Mängelbeseitigungen.</p>
-      `
-    },
-    'sturmschaden': {
-      text: `
-        <h2 style="font-size: 28px; margin-bottom: 16px; color: var(--white);">Sturmschäden am Steildach: Schadensermittlung für Versicherungen</h2>
-        <p style="color: var(--ash); margin-bottom: 20px;">Nach Stürmen gehören Dachschäden zu den häufigsten Meldungen. Wir dokumentieren die Windsogsicherung und erstellen Schadensprotokolle.</p>
-      `
-    },
-    'gutachter-vergleich': {
-      text: `
-        <h2 style="font-size: 28px; margin-bottom: 16px; color: var(--white);">Gerichtsgutachten vs. Privatgutachten: Der genaue Unterschied</h2>
-        <p style="color: var(--ash); margin-bottom: 20px;">Ein Privatgutachten hilft, außergerichtlich Ansprüche durchzusetzen. Ein Gerichtsgutachten wird vom Richter im Streitfall angeordnet.</p>
-      `
-    }
-  };
-
-  function openArticle(articleId) {
-    const data = articlesData[articleId];
-    if (data) {
-      document.getElementById('modalContent').innerHTML = data.text;
-      document.getElementById('articleModal').style.display = 'block';
-      document.body.style.overflow = 'hidden'; 
-    }
-  }
-
-  function closeArticle() {
-    document.getElementById('articleModal').style.display = 'none';
-    document.body.style.overflow = 'auto'; 
-  }
-
-  // 3. HEADER SCROLL & ANIMATIONS
-  const header = document.getElementById('siteHeader');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) header.classList.add('scrolled');
-    else header.classList.remove('scrolled');
-  });
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  if (!prefersReducedMotion) {
+    /* ---------- Sanftes Einblenden beim Scrollen ---------- */
     const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-    revealEls.forEach(el => observer.observe(el));
-
-    const heroBg = document.querySelector('.hero-bg');
-    const hero = document.querySelector('.hero');
-    if (heroBg && hero) {
-      hero.addEventListener('mousemove', (e) => {
-        const x = (e.clientX / window.innerWidth) * 100;
-        const y = (e.clientY / window.innerHeight) * 100;
-        heroBg.style.background =
-          `radial-gradient(ellipse at ${x}% ${y}%, rgba(82,102,235,0.18), transparent 55%), var(--onyx)`;
-      });
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      revealEls.forEach((el) => el.classList.add('is-visible'));
+    } else {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      revealEls.forEach((el) => revealObserver.observe(el));
     }
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view'));
-  }
+
+    /* ---------- Impressum & Datenschutz über Links öffnen ---------- */
+    const openLegal = (hash) => {
+      const target = hash && document.getElementById(hash.slice(1));
+      if (target && target.tagName === 'DETAILS') target.open = true;
+    };
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href="#impressum"], a[href="#datenschutz"]');
+      if (link) openLegal(link.hash);
+    });
+    window.addEventListener('hashchange', () => openLegal(location.hash));
+    openLegal(location.hash);
+
+    /* ---------- Fachbeiträge: Filter & „Weitere laden“ ---------- */
+    const PAGE_SIZE = 3;
+    let currentCategory = 'all';
+    let visibleCount = PAGE_SIZE;
+
+    const details = document.getElementById('fachwissenDetails');
+    const grid = document.getElementById('articleGrid');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const chips = [...document.querySelectorAll('.chip')];
+    document.getElementById('articleCount').textContent = ARTICLES.length;
+
+    const arrowIcon = '<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>';
+
+    const renderArticles = (startIndex = 0) => {
+      const list = ARTICLES.filter((a) => currentCategory === 'all' || a.category === currentCategory);
+      const shown = list.slice(0, visibleCount);
+
+      if (startIndex === 0) grid.innerHTML = '';
+      shown.slice(startIndex).forEach((a, i) => {
+        const card = document.createElement('article');
+        card.className = 'article-card' + (reduceMotion ? '' : ' is-new');
+        card.dataset.category = a.category;
+        card.style.setProperty('--n', i);
+        const number = String(ARTICLES.indexOf(a) + 1).padStart(2, '0');
+        card.innerHTML = `
+          <div class="article-head">
+            <span class="article-cat">${CATEGORY_LABELS[a.category]}</span>
+            <span class="article-no">Nr. ${number}</span>
+          </div>
+          <div class="article-body">
+            <span class="article-meta">${a.meta}</span>
+            <h3>${a.title}</h3>
+            <p>${a.teaser}</p>
+            <button type="button" class="article-open" data-article="${a.id}">Weiterlesen ${arrowIcon}<span class="sr-only">: ${a.title}</span></button>
+          </div>`;
+        grid.appendChild(card);
+      });
+
+      const remaining = list.length - shown.length;
+      loadMoreBtn.hidden = remaining <= 0;
+      loadMoreBtn.textContent = `Weitere Beiträge laden (+${Math.min(PAGE_SIZE, remaining)})`;
+      if (!list.length) grid.innerHTML = '<p class="fw-empty">In dieser Kategorie gibt es noch keine Beiträge.</p>';
+    };
+
+    chips.forEach((chip) => chip.addEventListener('click', () => {
+      currentCategory = chip.dataset.filter;
+      visibleCount = PAGE_SIZE;
+      chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+      renderArticles();
+    }));
+
+    loadMoreBtn.addEventListener('click', () => {
+      const before = grid.querySelectorAll('.article-card').length;
+      visibleCount += PAGE_SIZE;
+      renderArticles(before);
+      const firstNew = grid.querySelectorAll('.article-open')[before];
+      if (firstNew) firstNew.focus({ preventScroll: true });
+    });
+
+    details.addEventListener('toggle', () => {
+      if (details.open) { visibleCount = PAGE_SIZE; renderArticles(); }
+    });
+    renderArticles();
+
+    /* ---------- Lesefenster ---------- */
+    const dialog = document.getElementById('articleDialog');
+    let lastTrigger = null;
+    let restoreFocus = true;
+
+    const openArticle = (id, trigger) => {
+      const a = ARTICLES.find((x) => x.id === id);
+      if (!a) return;
+      document.getElementById('dialogCat').textContent = CATEGORY_LABELS[a.category];
+      document.getElementById('dialogCat').closest('.dialog-panel').dataset.category = a.category;
+      document.getElementById('dialogMeta').textContent = a.meta;
+      document.getElementById('dialogTitle').textContent = a.title;
+      document.getElementById('dialogContent').innerHTML = a.body;
+      lastTrigger = trigger;
+      restoreFocus = true;
+      dialog.showModal();
+      dialog.scrollTop = 0;
+      document.documentElement.classList.add('is-locked');
+    };
+
+    grid.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-article]');
+      if (btn) openArticle(btn.dataset.article, btn);
+    });
+    const cleanupDialog = () => {
+      if (!document.documentElement.classList.contains('is-locked')) return;
+      document.documentElement.classList.remove('is-locked');
+      if (restoreFocus && lastTrigger) lastTrigger.focus({ preventScroll: true });
+    };
+    const closeArticle = () => {
+      if (dialog.open) dialog.close();
+      cleanupDialog();
+    };
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) closeArticle(); });
+    dialog.querySelector('[data-dialog-close]').addEventListener('click', closeArticle);
+    document.getElementById('dialogContact').addEventListener('click', () => { restoreFocus = false; closeArticle(); });
+    dialog.addEventListener('close', cleanupDialog);
+
+    /* ---------- Kontaktformular (mailto) ---------- */
+    const form = document.getElementById('kontaktForm');
+    const formFields = document.getElementById('formFields');
+    const formSuccess = document.getElementById('formSuccess');
+    const topic = document.getElementById('topic');
+    const required = ['name', 'email', 'msg'].map((id) => document.getElementById(id));
+
+    document.querySelectorAll('[data-topic]').forEach((link) => {
+      link.addEventListener('click', () => { topic.value = link.dataset.topic; });
+    });
+
+    const validateField = (field) => {
+      let message = '';
+      if (!field.value.trim()) message = field.dataset.required;
+      else if (field.type === 'email' && field.validity.typeMismatch) message = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
+      field.setAttribute('aria-invalid', message ? 'true' : 'false');
+      document.getElementById(field.id + 'Error').textContent = message;
+      return !message;
+    };
+
+    required.forEach((field) => {
+      field.addEventListener('blur', () => { if (field.value.trim()) validateField(field); });
+      field.addEventListener('input', () => { if (field.getAttribute('aria-invalid') === 'true') validateField(field); });
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const invalid = required.filter((field) => !validateField(field));
+      if (invalid.length) { invalid[0].focus(); return; }
+
+      const name = required[0].value.trim();
+      const email = required[1].value.trim();
+      const msg = required[2].value.trim();
+      const anliegen = topic.value;
+
+      const subject = encodeURIComponent('Neue Anfrage über Website von ' + name + (anliegen ? ' – ' + anliegen : ''));
+      const body = encodeURIComponent('Name: ' + name + '\nE-Mail: ' + email + (anliegen ? '\nAnliegen: ' + anliegen : '') + '\n\nNachricht:\n' + msg);
+
+      window.location.href = `mailto:info@ing-bassam.de?subject=${subject}&body=${body}`;
+
+      formFields.hidden = true;
+      formSuccess.hidden = false;
+      document.getElementById('formSuccessTitle').focus();
+    });
+
+    document.getElementById('formBack').addEventListener('click', () => {
+      formSuccess.hidden = true;
+      formFields.hidden = false;
+      required[0].focus();
+    });
+  })();
 </script>
 
 </body>

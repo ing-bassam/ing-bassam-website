@@ -1,25 +1,60 @@
 <!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Seite nicht gefunden | Bassam Ingenieurbüro für Bauwesen GmbH</title>
-    <meta name="description" content="Die angeforderte Seite wurde nicht gefunden.">
-    <meta name="robots" content="noindex">
-    <meta name="theme-color" content="#e8d8bf">
-    <link rel="icon" href="assets/logo-header.jpg">
-  </head>
-  <body>
-    <main class="standalone-message">
-      <div class="container narrow">
-        <p class="eyebrow">404</p>
-        <h1>Seite nicht gefunden.</h1>
-        <p>Die angeforderte Seite existiert nicht oder wurde verschoben.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="index.html">Zur Startseite</a>
-          <a class="button button-secondary dark-secondary" href="kontakt.html">Kontakt aufnehmen</a>
-        </div>
-      </div>
-    </main>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seite nicht gefunden | Bassam Ingenieurbüro für Bauwesen GmbH</title>
+<meta name="description" content="Die angeforderte Seite wurde nicht gefunden.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a121d">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'self'">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a121d'/%3E%3Cpath d='M16 46h32' stroke='%23f26b2a' stroke-width='3'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Arial,sans-serif' font-size='22' font-weight='300' fill='%23ffffff'%3EBIB%3C/text%3E%3C/svg%3E">
+<style>
+  @font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url('/fonts/inter-v20-latin-regular.woff2') format('woff2');}
+  @font-face{font-family:'Inter';font-weight:500;font-display:swap;src:url('/fonts/inter-v20-latin-500.woff2') format('woff2');}
+  @font-face{font-family:'Space Grotesk';font-weight:600;font-display:swap;src:url('/fonts/space-grotesk-v22-latin-600.woff2') format('woff2');}
+  @font-face{font-family:'Fira Sans';font-weight:300;font-display:swap;src:url('/fonts/fira-sans-v18-latin-300.woff2') format('woff2');}
+
+  *,*::before,*::after{box-sizing:border-box;}
+  body{
+    margin:0; min-height:100vh; min-height:100svh;
+    display:flex; flex-direction:column;
+    padding:32px clamp(20px, 4vw, 40px);
+    background:#0a121d; color:#edeff2;
+    font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; line-height:1.65;
+    background-image:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size:56px 56px;
+  }
+  a{color:inherit; text-decoration:none;}
+  :focus-visible{outline:2px solid #f26b2a; outline-offset:3px; border-radius:4px;}
+  .logo{display:inline-flex; flex-direction:column; line-height:1;}
+  .logo b{font-family:'Fira Sans', 'Inter', sans-serif; font-size:26px; font-weight:300; letter-spacing:.02em; color:#fff;}
+  .logo span{margin-top:5px; font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:#aeb6c2;}
+  main{flex:1; display:flex; flex-direction:column; justify-content:center; max-width:640px; padding-block:64px;}
+  .eyebrow{display:flex; align-items:center; gap:14px; margin:0 0 24px; font-size:.75rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:#aeb6c2;}
+  .eyebrow::before{content:""; width:32px; height:1px; background:#f26b2a;}
+  h1{margin:0 0 20px; font-family:'Space Grotesk', 'Inter', sans-serif; font-weight:600; font-size:clamp(2.5rem, 6vw, 4rem); line-height:1.05; letter-spacing:-.025em; color:#fff;}
+  p{margin:0 0 40px; font-size:1.125rem; color:#aeb6c2;}
+  .actions{display:flex; flex-wrap:wrap; gap:12px;}
+  .btn{display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 22px; border-radius:6px; border:1px solid transparent; font-weight:500; transition:background-color .24s ease, border-color .24s ease;}
+  .btn-primary{background:#c2410c; color:#fff;}
+  .btn-primary:hover{background:#a3360a;}
+  .btn-ghost{border-color:rgba(255,255,255,.16);}
+  .btn-ghost:hover{border-color:rgba(255,255,255,.4);}
+  footer{font-size:.8125rem; color:#848e9c;}
+</style>
+</head>
+<body>
+  <a href="/" class="logo" aria-label="BIB Ingenieurbüro für Bauwesen – zur Startseite"><b>BIB</b><span>Ingenieurbüro für Bauwesen</span></a>
+  <main>
+    <p class="eyebrow">Fehler 404</p>
+    <h1>Seite nicht gefunden.</h1>
+    <p>Die angeforderte Seite existiert nicht oder wurde verschoben.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/">Zur Startseite</a>
+      <a class="btn btn-ghost" href="/#kontakt">Kontakt aufnehmen</a>
+    </div>
+  </main>
+  <footer>© 2026 Bassam Ingenieurbüro für Bauwesen GmbH · <a href="/#impressum">Impressum</a> · <a href="/#datenschutz">Datenschutz</a></footer>
+</body>
 </html>
