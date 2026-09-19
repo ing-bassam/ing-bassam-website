@@ -926,10 +926,13 @@
         <p class="section-intro reveal" style="--d:.08s">Fachbeiträge zu Bauphysik, Bauschäden und baurechtlichen Fragestellungen aus dem Bauwesen.</p>
       </div>
 
-      <!-- Eingeklapptes Fachportal (standardmäßig geschlossen) -->
-      <details class="fw-toggle reveal" id="fachwissenDetails">
+      <!-- Solange keine Beiträge freigegeben sind, steht hier nur dieser Hinweis -->
+      <p class="fw-empty" id="fachwissenPending">Die ersten Fachbeiträge sind in Vorbereitung und erscheinen hier nach fachlicher Prüfung.</p>
+
+      <!-- Eingeklapptes Fachportal (standardmäßig geschlossen; wird per Skript eingeblendet, sobald Beiträge vorliegen) -->
+      <details class="fw-toggle reveal" id="fachwissenDetails" hidden>
         <summary class="fw-summary">
-          <span class="fw-summary-text"><strong id="articleCount">6</strong> Fachbeiträge verfügbar</span>
+          <span class="fw-summary-text"><strong id="articleCount">0</strong> Fachbeiträge verfügbar</span>
           <span class="btn btn-outline">
             <span class="label-closed">Fachbeiträge anzeigen</span>
             <span class="label-open">Fachbeiträge ausblenden</span>
@@ -1192,72 +1195,9 @@
        body:     der eigentliche Artikel als HTML (<p>, <h3>, <ul><li>)
      ===================================================================== */
   const ARTICLES = [
-    {
-      id: 'wu-beton',
-      category: 'bauphysik',
-      meta: 'Fachbeitrag • Wärmeschutz',
-      title: 'WU-Beton in der Praxis: Vermeidung von Rissbildung & Feuchteschutz',
-      teaser: 'Herausforderungen bei weißer Wanne, Fugenband-Details und wirksamer Abdichtung gegen drückendes Wasser.',
-      body: `
-        <p>Wasserdichter Beton (WU-Beton) ist im modernen Hoch- und Kellerbau der Standard, um Gebäude dauerhaft vor Feuchtigkeit zu schützen. Doch die Planung und Ausführung erfordert höchste ingenieurtechnische Sorgfalt.</p>
-        <h3>Herausforderungen bei der Rissbreitenbeschränkung</h3>
-        <p>Beton neigt beim Aushärten naturgemäß zu Schwindprozessen. Da WU-Betonkonstruktionen (wie weiße Wannen) flüssigkeitsdicht sein müssen, schreibt die Richtlinie vor, dass die Rissbreiten auf ein zulässiges Maß (meist 0,15 mm bis 0,20 mm) begrenzt werden müssen.</p>
-      `
-    },
-    {
-      id: 'wasserschaden',
-      category: 'bauschaden',
-      meta: 'Schadensanalyse • Feuchtigkeit',
-      title: 'Wasserschäden nach Rohrbruch: Beweissicherung & Sanierung',
-      teaser: 'Wie verhalte ich mich bei verdeckten Leitungswasserschäden? Messmethoden und lückenlose Dokumentation.',
-      body: `
-        <p>Ein unbemerkter Rohrbruch führt schnell zu massiven Durchfeuchtungen der Bausubstanz. Entscheidend für die Schadensregulierung mit Versicherungen ist eine unverzügliche Beweissicherung.</p>
-        <h3>Schadensursache ermitteln</h3>
-        <p>Mithilfe thermografischer Untersuchungen, Feuchtigkeitsmessungen und Endoskopie grenzen wir den Schaden präzise ein.</p>
-      `
-    },
-    {
-      id: 'ki-gutachten',
-      category: 'recht',
-      meta: 'Rechtsprechung • Innovation',
-      title: 'Künstliche Intelligenz in Gerichtsgutachten: Zulässigkeit & Grenzen',
-      teaser: 'Welche Rolle moderne KI-Tools bei der Analyse von Baumängeln spielen und wo die strengen juristischen Grenzen liegen.',
-      body: `
-        <p>Der Einsatz von Künstlicher Intelligenz hält Einzug in das Bauwesen. Doch welche rechtlichen und fachlichen Grenzen gelten bei der Erstellung von Gutachten?</p>
-        <h3>Persönliche Verantwortung des Sachverständigen</h3>
-        <p>Ein gerichtlich oder privat beauftragter Sachverständiger haftet persönlich für die Richtigkeit seiner Feststellungen. KI dient als Werkzeug, während der Sachverstand beim Ingenieur bleibt.</p>
-      `
-    },
-    {
-      id: 'schallschutz',
-      category: 'bauphysik',
-      meta: 'Schallschutz & Akustik',
-      title: 'Schallschutz im Wohnungsbau nach DIN 4109: Typische Mängel',
-      teaser: 'Trittschall und Luftschall im Massiv- und Holzbau effektiv entkoppeln – Mängelbeseitigung und schalltechnische Prüfungen.',
-      body: `
-        <p>Lärmbelästigung ist einer der häufigsten Streitpunkte. Die Einhaltung der Mindestanforderungen nach DIN 4109 schützt vor kostspieligen Mängelbeseitigungen.</p>
-      `
-    },
-    {
-      id: 'sturmschaden',
-      category: 'bauschaden',
-      meta: 'Sturmschaden • Dachbau',
-      title: 'Sturmschäden am Steildach: Schadensermittlung für Versicherungen',
-      teaser: 'Sogsicherungen, Windsogsicherung und die korrekte Dokumentation von abgedeckten Dachflächen für die Schadensregulierung.',
-      body: `
-        <p>Nach Stürmen gehören Dachschäden zu den häufigsten Meldungen. Wir dokumentieren die Windsogsicherung und erstellen Schadensprotokolle.</p>
-      `
-    },
-    {
-      id: 'gutachter-vergleich',
-      category: 'recht',
-      meta: 'Privat vs. Gericht',
-      title: 'Gerichtsgutachten vs. Privatgutachten: Der genaue Unterschied',
-      teaser: 'Wann ein Parteigutachten ausreicht, um außergerichtlich eine Einigung zu erzielen, und wann der Gang zum Gerichtsgutachter zwingend ist.',
-      body: `
-        <p>Ein Privatgutachten hilft, außergerichtlich Ansprüche durchzusetzen. Ein Gerichtsgutachten wird vom Richter im Streitfall angeordnet.</p>
-      `
-    }
+    /* Noch keine freigegebenen Beiträge. Entwürfe entstehen über den Workflow
+       „Fachartikel-Entwurf" im Ordner entwuerfe/ und werden erst nach fachlicher
+       Prüfung hier eingetragen. */
   ];
 
   const CATEGORY_LABELS = { bauphysik: 'Bauphysik', bauschaden: 'Bauschäden', recht: 'Gutachter & Recht' };
@@ -1335,6 +1275,8 @@
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     const chips = [...document.querySelectorAll('.chip')];
     document.getElementById('articleCount').textContent = ARTICLES.length;
+    details.hidden = ARTICLES.length === 0;
+    document.getElementById('fachwissenPending').hidden = ARTICLES.length > 0;
 
     const arrowIcon = '<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>';
 
