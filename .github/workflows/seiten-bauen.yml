@@ -1,0 +1,125 @@
+name: Fachwissen-Seiten bauen
+
+# -----------------------------------------------------------------------------
+# Baut aus den Markdown-Entwürfen in entwuerfe/ die statischen Artikelseiten
+# unter fachwissen/ und schreibt die sitemap.xml neu.
+#
+# Warum automatisch: KI-Crawler führen kein JavaScript aus. Der Artikeltext muss
+# deshalb im ausgelieferten HTML stehen, und jeder Beitrag braucht eine eigene
+# URL, auf die ein Zitat zeigen kann.
+#
+# Wann der Lauf startet:
+#   - wenn der Fachartikel-Agent einen Entwurf auf einen entwurf/*-Zweig schiebt
+#     (die Seite landet dann im selben Pull Request wie der Entwurf),
+#   - wenn im Pull Request am Entwurf nachgebessert wird,
+#   - wenn der Entwurf nach dem Mergen auf main liegt,
+#   - wenn im Entwurf „status: Veröffentlicht" gesetzt wird,
+#   - von Hand über Actions -> Fachwissen-Seiten bauen -> Run workflow.
+#
+# Kein Kreislauf: Der Lauf schreibt ausschließlich nach fachwissen/ und in
+# sitemap.xml. Beides steht nicht in der paths-Liste unten, der eigene Commit
+# löst also keinen neuen Lauf aus. Zusätzlich lösen Commits mit dem
+# GITHUB_TOKEN grundsätzlich keine weiteren Workflows aus.
+# -----------------------------------------------------------------------------
+
+on:
+  push:
+    branches:
+      - main
+      - 'entwurf/**'
+    paths:
+      - 'entwuerfe/**'
+      - 'tools/artikel_generator.py'
+      - 'fachwissen/artikel.css'
+      - '.github/workflows/seiten-bauen.yml'
+  workflow_dispatch:
+
+# Läuft je Zweig nur einmal gleichzeitig. Schiebt der Agent zwei Commits kurz
+# hintereinander, gewinnt der neuere Lauf.
+concurrency:
+  group: seiten-bauen-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  bauen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    permissions:
+      contents: write        # erzeugte Seiten zurückschreiben
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v6
+        with:
+          # Ohne persist-credentials würde der spätere Push die Anmeldung
+          # nicht finden.
+          persist-credentials: true
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Abhängigkeiten installieren
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip --quiet
+          # markdown wandelt den Entwurf in HTML (inkl. Fußnoten und Tabellen),
+          # PyYAML liest das Frontmatter.
+          python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2'
+
+      - name: Seiten bauen
+        id: bauen
+        run: |
+          set -euo pipefail
+          python tools/artikel_generator.py | tee "$RUNNER_TEMP/generator.log"
+          {
+            echo '## Fachwissen-Seiten'
+            echo
+            echo '```'
+            cat "$RUNNER_TEMP/generator.log"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Änderungen zurückschreiben
+        id: commit
+        env:
+          ZWEIG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "$(git status --porcelain -- fachwissen sitemap.xml)" ]; then
+            echo "::notice title=Fachwissen::Die erzeugten Seiten sind bereits aktuell."
+            echo "geaendert=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Bewusst nur diese beiden Pfade: Der Lauf fasst weder Entwürfe noch
+          # index.html, robots.txt oder CNAME an.
+          git add -A fachwissen sitemap.xml
+          git commit -m "Fachwissen-Seiten neu gebaut" \
+                     -m "Automatisch erzeugt aus entwuerfe/ durch tools/artikel_generator.py."
+
+          # Zwischenzeitliche Commits auf dem Zweig nicht überschreiben.
+          git pull --rebase --autostash origin "$ZWEIG"
+          git push origin "HEAD:$ZWEIG"
+
+          echo "geaendert=true" >> "$GITHUB_OUTPUT"
+          echo "::notice title=Fachwissen::Erzeugte Seiten aktualisiert und auf $ZWEIG geschoben."
+
+      - name: Ergebnis prüfen
+        if: steps.commit.outputs.geaendert == 'true'
+        run: |
+          set -euo pipefail
+          # Nach dem Schreiben darf ein zweiter Lauf nichts mehr ändern. Tut er
+          # es doch, ist der Generator nicht reproduzierbar – das würde bei
+          # jedem Lauf einen neuen Commit erzeugen.
+          if ! python tools/artikel_generator.py --pruefen > /dev/null; then
+            echo "::error title=Fachwissen::Der Generator liefert bei zwei Läufen unterschiedliche Ergebnisse."
+            exit 1
+          fi
+          echo "::notice title=Fachwissen::Zweiter Lauf bestätigt: Ergebnis ist stabil."

@@ -1,4 +1,64 @@
+# Alle Crawler sind willkommen – Suchmaschinen wie KI-Systeme.
 User-agent: *
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Die folgenden Zeilen ändern technisch nichts: Die Regel oben erlaubt bereits
+# jedem Crawler alles. Sie halten die Entscheidung ausdrücklich fest, damit
+# niemand später versehentlich pauschal sperrt.
+#
+# Die Anbieter betreiben je Zweck einen eigenen Crawler. Eine Sperre für den
+# Trainings-Crawler wirkt NICHT auf den Such- oder Antwort-Crawler desselben
+# Anbieters – und umgekehrt. Wer in KI-Antworten zitiert werden will, muss
+# mindestens die Such- und Antwort-Crawler zulassen.
+#
+# Das Ingenieurbüro erlaubt bewusst auch das Training: Die Fachbeiträge sind
+# Anzeige für die Leistung, nicht das Produkt selbst. Ein Modell, das BIB aus
+# dem Training kennt, kann das Büro auch ohne Suchanfrage nennen.
+# ---------------------------------------------------------------------------
+
+# Anthropic (Claude)
+User-agent: ClaudeBot          # Training
+Allow: /
+User-agent: Claude-SearchBot   # Suchindex
+Allow: /
+User-agent: Claude-User        # holt die Seite bei einer Nutzerfrage
+Allow: /
+
+# OpenAI (ChatGPT)
+User-agent: GPTBot             # Training
+Allow: /
+User-agent: OAI-SearchBot      # Suchindex
+Allow: /
+User-agent: ChatGPT-User       # holt die Seite bei einer Nutzerfrage
+Allow: /
+
+# Google
+User-agent: Googlebot          # Suche und AI Overviews
+Allow: /
+User-agent: Google-Extended    # Gemini: Training und Grounding
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# Weitere
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: DuckAssistBot
+Allow: /
+User-agent: MistralAI-User
+Allow: /
+User-agent: cohere-ai
+Allow: /
+User-agent: meta-externalagent
 Allow: /
 
 Sitemap: https://ing-bassam.de/sitemap.xml
