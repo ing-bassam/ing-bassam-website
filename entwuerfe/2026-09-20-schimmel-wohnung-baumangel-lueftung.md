@@ -18,8 +18,8 @@ notion_id: 3dfd96ad-00b4-812e-ae3a-c3ff31320430
 notion_url: "https://app.notion.com/p/Schimmel-in-der-Wohnung-Baumangel-oder-L-ftungsverhalten-3dfd96ad00b4812eae3ac3ff31320430"
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 5640
-lesezeit: 29 Minuten
+wortzahl: 5835
+lesezeit: 30 Minuten
 fussnoten: 12
 quellen_geprueft: 11
 zahlenwerte_norm: 6
