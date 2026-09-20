@@ -1,7 +1,7 @@
 ---
 name: urteilsbesprechung
 description: Wählt aus einer vorsortierten Liste amtlicher Gerichtsentscheidungen eine baurelevante aus, prüft sie am Volltext und schreibt daraus eine Urteilsbesprechung als Fachartikel für ing-bassam.de. Wird vom Workflow „Urteilsbesprechung" mit dem Pfad zur Kandidatenliste aufgerufen und läuft ohne Rückfragen.
-allowed-tools: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch, Bash(git checkout:*), Bash(git add:*), Bash(git commit:*), Bash(git push:*), Bash(gh pr create:*), Bash(gh pr list:*), Bash(wc:*)
+allowed-tools: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch, Bash(git checkout:*), Bash(git add:*), Bash(git commit:*), Bash(git push:*), Bash(gh pr create:*), Bash(gh pr list:*), Bash(wc:*), Bash(python tools/artikel_generator.py)
 ---
 
 # Urteilsbesprechung
@@ -133,7 +133,9 @@ Branch: `entwurf/<kurzform>`. Titel des Pull Requests: `Entwurf: <Thema>`.
 
 ## Zusätzlich in den Pull Request
 
-Über die Vorlage des Fachartikel-Skills hinaus:
+Es gilt die Vorlage des Fachartikel-Skills mit ihrer Reihenfolge: Leselink und Dreizeiler oben, der Prüfbericht zugeklappt darunter. Der Block „Besprochene Entscheidung“ gehört **oberhalb** des zugeklappten Bereichs, unmittelbar unter die Kennzahlenzeilen – er sagt, worum es überhaupt geht. Die beiden anderen Blöcke stehen **innerhalb** des Prüfberichts, hinter den Hinweisen zum Lauf.
+
+Ebenso gilt der Pflichtschritt `python tools/artikel_generator.py` vor dem Commit; die gebaute Seite geht mit in denselben Pull Request.
 
 ```
 ### Besprochene Entscheidung
