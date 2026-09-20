@@ -32,12 +32,15 @@ from __future__ import annotations
 
 import argparse
 import html
+import io
 import re
 import sys
 import time
+import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
+import zipfile
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -92,8 +95,8 @@ THEMENFELD = [
 ]
 
 
-def abrufen(url: str, versuche: int = 3) -> str:
-    """Holt eine Seite. Bei Fehlern wird begrenzt erneut versucht."""
+def rohabruf(url: str, versuche: int = 3) -> bytes:
+    """Holt eine Adresse als Bytes. Bei Fehlern wird begrenzt erneut versucht."""
     letzte: Exception | None = None
     for versuch in range(versuche):
         try:
@@ -101,13 +104,70 @@ def abrufen(url: str, versuche: int = 3) -> str:
                 url, headers={"User-Agent": KENNUNG, "Accept-Language": "de"}
             )
             with urllib.request.urlopen(anfrage, timeout=60) as antwort:
-                rohdaten = antwort.read()
-            return rohdaten.decode("utf-8", errors="replace")
+                return antwort.read()
         except (urllib.error.URLError, TimeoutError, OSError) as fehler:
             letzte = fehler
             if versuch < versuche - 1:
                 time.sleep(2 * (versuch + 1))
     raise RuntimeError(f"Abruf fehlgeschlagen: {url} – {letzte}")
+
+
+def abrufen(url: str, versuche: int = 3) -> str:
+    return rohabruf(url, versuche).decode("utf-8", errors="replace")
+
+
+def nur_text(auszeichnung: str) -> str:
+    """Entfernt Auszeichnung und fasst Leerraum zusammen."""
+    ohne = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", auszeichnung, flags=re.S | re.I)
+    ohne = re.sub(r"<[^>]+>", " ", ohne)
+    return re.sub(r"[ \t]+", " ", html.unescape(ohne)).strip()
+
+
+def dateiname(wert: str) -> str:
+    wert = wert.lower()
+    for alt, neu in (("ä", "ae"), ("ö", "oe"), ("ü", "ue"), ("ß", "ss")):
+        wert = wert.replace(alt, neu)
+    wert = unicodedata.normalize("NFKD", wert)
+    wert = "".join(z for z in wert if not unicodedata.combining(z))
+    return re.sub(r"[^a-z0-9]+", "-", wert).strip("-")[:60]
+
+
+def volltext_holen(fund: "Fund") -> tuple[str, str]:
+    """Lädt den Volltext einer Entscheidung.
+
+    Rückgabe: (Klartext, ECLI). Für den Bund liegt der Volltext als ZIP mit
+    einer XML-Datei bereit – ein Agent kann ein ZIP nicht lesen, das Skript
+    entpackt es deshalb hier. Brandenburg liefert HTML.
+    """
+    if fund.link.endswith(".zip"):
+        rohdaten = rohabruf(fund.link)
+        with zipfile.ZipFile(io.BytesIO(rohdaten)) as archiv:
+            namen = [n for n in archiv.namelist() if n.lower().endswith(".xml")]
+            if not namen:
+                raise RuntimeError("ZIP enthält keine XML-Datei")
+            xml = archiv.read(namen[0]).decode("utf-8", errors="replace")
+        ecli = ""
+        treffer = re.search(r"\bECLI:[A-Z0-9.:]+", xml)
+        if treffer:
+            ecli = treffer.group(0)
+        return nur_text(xml), ecli
+
+    seite = abrufen(fund.link)
+    text = nur_text(seite)
+    treffer = re.search(r"\bECLI:[A-Z0-9.:]+", text)
+    return text, treffer.group(0) if treffer else ""
+
+
+def themenbezug(text: str) -> tuple[int, list[str]]:
+    """Zählt, wie viele Begriffe des Themenfelds im Volltext vorkommen.
+
+    Das ist ein Hinweis für den Agenten, keine Entscheidung. Ein hoher Wert
+    bedeutet nicht, dass die Entscheidung taugt; ein niedriger nicht, dass sie
+    untauglich ist.
+    """
+    klein = text.lower()
+    getroffen = [b for b in THEMENFELD if b.lower() in klein]
+    return len(getroffen), getroffen
 
 
 def bekannte_aktenzeichen() -> set[str]:
@@ -139,6 +199,13 @@ class Fund:
         self.quelle = quelle
         self.grund = grund
         self.region = region            # "Berlin/Brandenburg" oder "Bund"
+        # wird erst beim Laden des Volltextes gefüllt
+        self.volltext: Path | None = None
+        self.ecli = ""
+        self.woerter = 0
+        self.treffer = 0
+        self.begriffe: list[str] = []
+        self.hinweis = ""
 
     @property
     def schluessel(self) -> str:
@@ -260,17 +327,60 @@ def bb_treffer_lesen(seite: str, gericht: str, begriff: str) -> list[Fund]:
 # Bericht
 # --------------------------------------------------------------------------
 
-def bericht(funde: list[Fund], stichtag: date, grenze: int) -> str:
-    sortiert = sorted(
-        funde,
-        key=lambda f: (0 if f.region == "Berlin/Brandenburg" else 1, f.datum),
-    )
-    # innerhalb jeder Region das jüngste Datum zuerst
-    bb = sorted([f for f in sortiert if f.region == "Berlin/Brandenburg"],
+def volltexte_ablegen(auswahl: list["Fund"], ordner: Path, pause: float) -> None:
+    """Holt die Volltexte der Kandidaten und legt sie als Textdatei ab.
+
+    Der Agent liest danach nur noch lokale Dateien. Das ist zuverlässiger als
+    ein Abruf im Agentenlauf – beim Bund sogar zwingend, weil dort nur ein ZIP
+    bereitsteht – und spart Web-Aufrufe für die eigentliche Prüfung.
+    """
+    ordner.mkdir(parents=True, exist_ok=True)
+    for fund in auswahl:
+        ziel = ordner / f"{dateiname(fund.aktenzeichen)}.txt"
+        try:
+            text, ecli = volltext_holen(fund)
+        except Exception as ausnahme:
+            fund.hinweis = f"Volltext nicht abrufbar ({ausnahme}). Bitte selbst öffnen."
+            print(f"  Volltext fehlgeschlagen: {fund.aktenzeichen} – {ausnahme}")
+            time.sleep(pause)
+            continue
+        fund.ecli = ecli
+        fund.woerter = len(text.split())
+        fund.treffer, begriffe = themenbezug(text)
+        fund.begriffe = begriffe
+        kopf = (
+            "Volltext einer Gerichtsentscheidung, unverändert aus der amtlichen Quelle.\n"
+            f"Gericht: {fund.gericht}\n"
+            f"Entscheidungsdatum: {fund.datum}\n"
+            f"Aktenzeichen: {fund.aktenzeichen}\n"
+            f"ECLI: {ecli or 'nicht vergeben'}\n"
+            f"Amtliche Quelle: {fund.link}\n"
+            f"Herausgeber: {fund.quelle}\n"
+            f"Abgerufen am: {date.today().isoformat()}\n"
+            + "-" * 72 + "\n\n"
+        )
+        ziel.write_text(kopf + text, encoding="utf-8", newline="\n")
+        fund.volltext = ziel
+        print(f"  Volltext: {fund.aktenzeichen} – {fund.woerter} Wörter, "
+              f"{fund.treffer} Themenbegriffe")
+        time.sleep(pause)
+
+
+def auswaehlen(funde: list[Fund], grenze: int) -> tuple[list[Fund], list[Fund]]:
+    """Wählt die Kandidaten aus: Berlin/Brandenburg vor Bund, je das Jüngste zuerst."""
+    bb = sorted([f for f in funde if f.region == "Berlin/Brandenburg"],
                 key=lambda f: f.datum, reverse=True)
-    bund = sorted([f for f in sortiert if f.region == "Bund"],
+    bund = sorted([f for f in funde if f.region == "Bund"],
                   key=lambda f: f.datum, reverse=True)
-    auswahl = bb[: max(grenze // 2, 1)] + bund[: grenze - len(bb[: max(grenze // 2, 1)])]
+    # Mindestens die Hälfte der Plätze gehört Berlin und Brandenburg; bleiben
+    # Plätze frei, füllt der Bund auf.
+    anteil_bb = bb[: max(grenze // 2, 1)]
+    anteil_bund = bund[: max(grenze - len(anteil_bb), 0)]
+    return anteil_bb, anteil_bund
+
+
+def bericht(bb: list[Fund], bund: list[Fund], stichtag: date) -> str:
+    auswahl = bb + bund
 
     zeilen = [
         "# Kandidaten für eine Urteilsbesprechung",
@@ -282,6 +392,15 @@ def bericht(funde: list[Fund], stichtag: date, grenze: int) -> str:
         "Bauwesen betrifft und einen Beitrag trägt, entscheidest du am Volltext.",
         "Berlin und Brandenburg stehen zuerst, danach der Bund; innerhalb der",
         "Gruppen die jüngste Entscheidung zuerst.",
+        "",
+        "Die Volltexte liegen bereits als Textdatei neben dieser Liste – öffne sie",
+        "mit Read, nicht mit WebFetch. Sie stammen unverändert aus der amtlichen",
+        "Quelle; der Kopf jeder Datei nennt Gericht, Datum, Aktenzeichen, ECLI und",
+        "die Fundstelle. Übernimm die Angaben zur Zitierung aus diesem Kopf.",
+        "",
+        "Die Zahl der Begriffe aus dem Themenfeld ist ein grober Hinweis, keine",
+        "Aussage über die Eignung. Ein hoher Wert kann auch eine Kostenentscheidung",
+        "in einer Bausache treffen, ein niedriger eine grundlegende Entscheidung.",
         "",
         "## Hinweis zur Abdeckung",
         "",
@@ -303,8 +422,7 @@ def bericht(funde: list[Fund], stichtag: date, grenze: int) -> str:
         ]
         return "\n".join(zeilen)
 
-    for gruppe, titel in ((bb[: max(grenze // 2, 1)], "Berlin und Brandenburg"),
-                          (bund[: grenze - len(bb[: max(grenze // 2, 1)])], "Bund")):
+    for gruppe, titel in ((bb, "Berlin und Brandenburg"), (bund, "Bund")):
         if not gruppe:
             continue
         zeilen += [f"## {titel} ({len(gruppe)})", ""]
@@ -312,11 +430,24 @@ def bericht(funde: list[Fund], stichtag: date, grenze: int) -> str:
             zeilen += [
                 f"### {nummer}. {f.gericht}, {datum_deutsch(f.datum)} – {f.aktenzeichen}",
                 "",
-                f"- Volltext: {f.link}",
-                f"- Quelle: {f.quelle}",
-                f"- Aufgenommen, weil: {f.grund}",
-                "",
             ]
+            if f.volltext:
+                zeilen.append(f"- Volltext (lokal, mit Read öffnen): `{f.volltext}`")
+                zeilen.append(f"- Umfang: {f.woerter} Wörter")
+                zeilen.append(
+                    f"- Begriffe aus dem Themenfeld: {f.treffer}"
+                    + (f" ({', '.join(f.begriffe[:8])})" if f.begriffe else "")
+                )
+            else:
+                zeilen.append(f"- Volltext: {f.link}")
+            if f.ecli:
+                zeilen.append(f"- ECLI: {f.ecli}")
+            zeilen.append(f"- Amtliche Fundstelle: {f.link}")
+            zeilen.append(f"- Herausgeber: {f.quelle}")
+            zeilen.append(f"- In die Liste gekommen über: {f.grund}")
+            if f.hinweis:
+                zeilen.append(f"- Achtung: {f.hinweis}")
+            zeilen.append("")
     return "\n".join(zeilen)
 
 
@@ -330,7 +461,7 @@ def main() -> int:
     zerleger.add_argument("--ziel", required=True, help="Datei für die Kandidatenliste")
     zerleger.add_argument("--monate", type=int, default=18,
                           help="Wie weit zurück gesucht wird (Vorgabe: 18)")
-    zerleger.add_argument("--max", type=int, default=40,
+    zerleger.add_argument("--max", type=int, default=12,
                           help="Höchstzahl der Kandidaten in der Liste")
     zerleger.add_argument("--pause", type=float, default=1.0,
                           help="Sekunden zwischen zwei Abfragen der Landesdatenbank")
@@ -366,8 +497,15 @@ def main() -> int:
 
     ziel = Path(argumente.ziel)
     ziel.parent.mkdir(parents=True, exist_ok=True)
-    ziel.write_text(bericht(funde, stichtag, argumente.max), encoding="utf-8", newline="\n")
-    print(f"\nKandidaten gesamt: {len(funde)}")
+
+    bb, bund = auswaehlen(funde, argumente.max)
+    auswahl = bb + bund
+    if auswahl:
+        print(f"\nVolltexte werden geladen ({len(auswahl)} Entscheidungen) …")
+        volltexte_ablegen(auswahl, ziel.parent / "volltexte", argumente.pause)
+
+    ziel.write_text(bericht(bb, bund, stichtag), encoding="utf-8", newline="\n")
+    print(f"\nGefunden: {len(funde)} · in der Liste: {len(auswahl)}")
     print(f"Liste geschrieben: {ziel}")
     return 0
 
