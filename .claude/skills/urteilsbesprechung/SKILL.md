@@ -26,16 +26,26 @@ Die Turn-Regel aus dem Fachartikel-Skill gilt: Beende vor der Abschlussnachricht
 
 2. **Vorauswahl.** Nimm die ersten sechs bis acht Kandidaten in der Reihenfolge der Liste. Berlin und Brandenburg stehen bewusst oben; gib ihnen den Vorzug, solange die Entscheidung fachlich trägt.
 
-3. **Volltext prüfen** (WebFetch, höchstens 12 Abrufe). Für jeden Kandidaten in der Reihenfolge der Liste: Hole den Volltext von der in der Liste genannten amtlichen Adresse und beantworte drei Fragen.
+3. **Volltext prüfen** (Read). Die Volltexte liegen bereits als Textdatei vor; die Liste nennt bei jedem Kandidaten den Pfad. Öffne sie mit **Read**, nicht mit WebFetch. Der Umweg über das Netz ist hier nicht nur unnötig, sondern beim Bund unmöglich: Dort liefert die amtliche Quelle ein ZIP-Archiv, das WebFetch nicht lesen kann. Das Skript hat es bereits entpackt.
+
+   Fehlt bei einem Kandidaten der Pfad und steht dort „Achtung: Volltext nicht abrufbar", überspringe ihn und vermerke das im Pull Request.
+
+   Für jeden Kandidaten in der Reihenfolge der Liste beantwortest du drei Fragen.
    - *Betrifft sie das Themenfeld?* Bauvertrag, Werkvertrag am Bau, Architekten- oder Ingenieurvertrag, Baumangel, Abnahme, Werklohn, Nachtrag, gestörter Bauablauf, Bauzeit, Behinderung, Kalkulation, Planungsfehler, Beweissicherung, Sachverständigenbeweis am Bau. Reine Miet-, Kauf-, Insolvenz-, Vergabe-, Kosten- oder Verfahrensfragen ohne Baubezug scheiden aus, auch wenn ein Suchbegriff vorkommt.
    - *Trägt sie einen Beitrag?* Eine Entscheidung trägt, wenn sie eine Rechtsfrage klärt, eine Abgrenzung schärft, von der bisherigen Linie abweicht oder eine für die Praxis wiederkehrende Konstellation behandelt. Eine Nichtzulassungsbeschwerde ohne Begründung, ein Hinweisbeschluss ohne Aussage oder eine reine Einzelfallwürdigung trägt nicht.
    - *Reicht der Volltext?* Enthält die Entscheidung Tatbestand und Entscheidungsgründe, oder nur einen Tenor? Ohne Gründe kannst du sie nicht besprechen.
+
+   Die Liste nennt je Kandidat die Zahl der gefundenen Begriffe aus dem Themenfeld. Das ist ein grober Hinweis, keine Aussage über die Eignung: Ein hoher Wert kann auch eine Kostenentscheidung in einer Bausache treffen, ein niedriger eine grundlegende Entscheidung. Du liest trotzdem selbst.
 
    Notiere je Kandidat in einem Satz, warum er taugt oder ausscheidet. Diese Notizen kommen später in den Pull Request.
 
 4. **Eine auswählen.** Genau eine Entscheidung wird besprochen. Findest du unter den geprüften Kandidaten keine geeignete, prüfe weitere aus der Liste. Ist die Liste erschöpft, endest du mit `ERGEBNIS: KEINE GEEIGNETE ENTSCHEIDUNG` und nennst in der Abschlussnachricht, was du geprüft und warum du es verworfen hast. Du weichst nicht auf eine Entscheidung außerhalb der Liste aus.
 
-5. **Fundstelle dreifach sichern.** Bevor du schreibst, stimmen Gericht, Spruchkörper, Entscheidungsdatum, Aktenzeichen und – falls vorhanden – ECLI **wörtlich** mit dem Volltext auf der amtlichen Seite überein. Du übernimmst sie von dort, nie aus der Kandidatenliste und nie aus dem Gedächtnis. Weicht die Liste vom Volltext ab, gilt der Volltext, und du vermerkst die Abweichung im Pull Request. Das ersetzt für diese eine Fundstelle die dreistufige Absicherung des Fachartikel-Skills; für **jede weitere** genannte Entscheidung, Norm oder Vorschrift gilt sie unverändert.
+5. **Fundstelle sichern.** Gericht, Spruchkörper, Entscheidungsdatum, Aktenzeichen und – falls vergeben – ECLI übernimmst du **wörtlich aus dem Kopf der Volltextdatei**. Dieser Kopf stammt unverändert aus der amtlichen Quelle; das Skript hat nichts umformuliert. Niemals aus dem Gedächtnis, niemals aus der Überschrift der Kandidatenliste.
+
+   Liegt die Entscheidung bei einer Landesdatenbank und ist die Fundstelle eine gewöhnliche Internetadresse, rufst du sie zusätzlich einmal mit WebFetch ab und vergleichst Datum und Aktenzeichen. Stimmt etwas nicht überein, gilt der Volltext, und du vermerkst die Abweichung im Pull Request. Beim Bund entfällt dieser Abgleich, weil dort nur das ZIP-Archiv bereitsteht – die Angaben stammen dann direkt aus der amtlichen XML-Datei darin.
+
+   Das ersetzt für diese eine Fundstelle die dreistufige Absicherung des Fachartikel-Skills. Für **jede weitere** genannte Entscheidung, Norm oder Vorschrift gilt sie unverändert.
 
 6. **Schreiben, prüfen, abgeben** wie im Fachartikel-Skill beschrieben.
 
