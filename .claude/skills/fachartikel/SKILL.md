@@ -66,6 +66,9 @@ leistung: <aus dem Auftrag, kommagetrennt oder leer>
 kernfrage: <aus dem Auftrag oder selbst formuliert>
 meta_beschreibung: <höchstens 155 Zeichen, enthält den Kernbegriff, verspricht nichts>
 schlagwoerter: <5 bis 8 Begriffe, kommagetrennt, nur Themenbegriffe und bestätigte Regelwerke>
+definition: <der eine Definitionssatz, wortgleich wie im Text>
+autor: Abdel Karim Abu Elkheir
+qualifikation: <nur wenn der Auftrag sie nennt, sonst leer lassen>
 kurzform: <wie im Dateinamen>
 erstellt: <JJJJ-MM-TT>
 status: Entwurf
@@ -122,6 +125,22 @@ Abdel Karim Abu Elkheir ist Bauingenieur und Geschäftsführer der Bassam Ingeni
 **Untersuchungsverfahren.** Thermografie, Blower-Door, Leckortung, Schimmel- und Materialanalytik, Laborprüfungen und ähnliche Verfahren beschreibst du generisch („je nach Fragestellung kommen … in Betracht, teils unter Hinzuziehung von Fachlaboren oder Messdienstleistern“). Du behauptest nie, das Büro führe ein bestimmtes Verfahren selbst durch oder halte Geräte vor, es sei denn, der Auftrag sagt es ausdrücklich.
 
 **Interne Verlinkung.** Pflicht ist ein ruhiger Verweis auf die Leistung des Büros im **letzten H2-Abschnitt des Hauptteils** (beim Format Checkliste also im letzten inhaltlichen H2, nicht in `## Zum Abhaken`). Erlaubt ist ein zweiter im Hauptteil, und zwar nur dort, wo ein Leser sachlich vor der Frage steht, ob er einen Sachverständigen braucht. Nie mehr als zwei. Bei mehreren Werten in `leistung` bestimmt der erste den Pflichtverweis, der zweite darf den optionalen Verweis bestimmen; weitere werden nicht verlinkt. Anker: Objektüberwachung LP 8 führt zu `https://ing-bassam.de/#leistung-objektueberwachung`; Gutachten führt bei Versicherungsfällen (Leitungswasser, Sturm, Brand, Elementar) zu `https://ing-bassam.de/#leistung-versicherungsgutachten`, bei Zustandsfeststellungen vor oder während Bauarbeiten, an Nachbargebäuden oder vor der Abnahme zu `https://ing-bassam.de/#leistung-beweissicherung`; Bauherrenvertretung, Baubegleitung, Claim Management, Kalkulation und Energieberatung führen zu `https://ing-bassam.de/#kontakt`, die Leistung wird im Satz beim Namen genannt. Passt bei „Gutachten“ keiner dieser Kontexte, gilt `#kontakt` mit der Leistung im Satz. Für Leser, die selbst Partei sind, verweist du auf `#leistung-beweissicherung` oder `#kontakt` mit der Formulierung „Privatgutachten oder fachliche Begleitung“. Der Anker `#leistung-gerichtsgutachten` wird nur gesetzt, wenn im selben Satz steht, dass Gerichtssachverständige vom Gericht ausgewählt und beauftragt werden. Form: ein ruhiger Satz mit Markdown-Link, etwa „Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand fest, bevor saniert wird.“ Keine Ausrufezeichen, keine Versprechen, keine Preise. Nie formulieren, ein Gutachten „beweise“ den Mangel oder „sichere den Anspruch“.
+
+## Zitierfähigkeit
+
+Aus dem Entwurf entsteht automatisch eine eigene Seite unter `https://ing-bassam.de/fachwissen/<kurzform>/`. Der ganze Text steht dort im ausgelieferten HTML, ohne JavaScript, weil KI-Crawler kein JavaScript ausführen. Du schreibst weiterhin nur die Markdown-Datei; die Seite baut ein Skript daraus.
+
+**KI-Systeme zitieren nicht Seiten, sondern einzelne Absätze.** Beim Abruf wird der Text in Passagen zerlegt und jede Passage einzeln auf die Frage bewertet. Der Retriever sieht die Absätze davor und danach nicht. Daraus folgen vier Regeln, die zusätzlich zu allem oben gelten.
+
+**Jeder Absatz trägt sich selbst.** Er muss verständlich bleiben, wenn man ihn aus dem Artikel herausschneidet. Kein Absatz beginnt mit einem Rückbezug wie „dabei", „das", „dies", „hier", „in diesem Fall" oder „wie oben beschrieben". Pronomen werden aufgelöst: nicht „sie muss unverzüglich angezeigt werden", sondern „die Behinderung muss unverzüglich angezeigt werden". Das Thema des Artikels steht in jedem Absatz mindestens einmal ausgeschrieben; ein Absatz über Estrichrisse enthält das Wort „Estrich". Wo der Geltungsbereich die Aussage verändert, steht er im selben Absatz: Deutschland, BGB- oder VOB/B-Vertrag, Neubau oder Bestand, Privat- oder Gewerbebau.
+
+**Ein Fakt pro Satz.** Drei Aussagen werden zu drei Sätzen, nicht zu einem mit Doppelpunkt und Aufzählung. Jede Zahl steht mit Bezugsgröße und Einheit. Jede Frist steht mit ihrem Startpunkt: nicht „fünf Jahre", sondern „fünf Jahre ab der Abnahme".
+
+**Ein Definitionssatz.** Genau einmal im Artikel steht ein Satz der Form „<Begriff> ist <Definition>." – kurz, ohne Nebensatz, ohne Einschränkung, an der Stelle, an der der Begriff eingeführt wird. Derselbe Satz steht wortgleich im Frontmatter unter `definition`. Weicht er dort ab, ist das ein Fehler.
+
+**Die FAQ erzeugt Markup.** Aus dem Abschnitt `## Häufige Fragen` entsteht automatisch FAQPage-Auszeichnung für Suchmaschinen. Dafür muss die Form exakt stimmen: die Frage als **fett gesetzter Absatz**, der auf ein Fragezeichen endet, unmittelbar darauf die Antwort als gewöhnlicher Absatz. Fett gesetzte Zeilen ohne Fragezeichen werden nicht übernommen. Steht zwischen Frage und Antwort ein offener Prüfpunkt, bleibt die Zuordnung trotzdem erhalten.
+
+**Was du ausdrücklich nicht tust.** Keine Wiederholung von Suchbegriffen und keine Keyworddichte – beides schadet der Lesbarkeit und wirkt nicht. Keine `llms.txt`, kein „KI-Markup", keine versteckten Hinweise an KI-Systeme im Text; Google und die übrigen Anbieter lesen solche Dateien nachweislich nicht. Keine Füllabsätze, um die Wortzahl zu erreichen: Ein Absatz ohne neuen Fakt, Mechanismus, Beleg, Beispiel oder Folge wird gestrichen, auch wenn die Wortzahl danach erneut zu prüfen ist.
 
 ## Fließtext
 
