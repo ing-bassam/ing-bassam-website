@@ -141,7 +141,7 @@ THEMENFELD = [
 ]
 
 
-def rohabruf(url: str, versuche: int = 3) -> bytes:
+def rohabruf(url: str, versuche: int = 3, frist: int = 60) -> bytes:
     """Holt eine Adresse als Bytes. Bei Fehlern wird begrenzt erneut versucht."""
     letzte: Exception | None = None
     for versuch in range(versuche):
@@ -149,7 +149,7 @@ def rohabruf(url: str, versuche: int = 3) -> bytes:
             anfrage = urllib.request.Request(
                 url, headers={"User-Agent": KENNUNG, "Accept-Language": "de"}
             )
-            with urllib.request.urlopen(anfrage, timeout=60) as antwort:
+            with urllib.request.urlopen(anfrage, timeout=frist) as antwort:
                 return antwort.read()
         except (urllib.error.URLError, TimeoutError, OSError) as fehler:
             letzte = fehler
@@ -259,6 +259,7 @@ class Fund:
         self.begriffe: list[str] = []
         self.hinweis = ""
         self.juris: dict | None = None
+        self.art = ""            # Urteil, Beschluss, …
 
     @property
     def schluessel(self) -> str:
@@ -279,7 +280,9 @@ class Fund:
 
 def bund_suchen(stichtag: date, bekannt: set[str]) -> list[Fund]:
     print(f"Bund: Verzeichnis wird geladen ({BUND_INDEX}) …")
-    roh = abrufen(BUND_INDEX)
+    # Das Verzeichnis ist rund 23 MB groß. Auf dem Runner reichen 60 Sekunden
+    # nicht; im ersten echten Lauf lief genau das in eine Zeitüberschreitung.
+    roh = rohabruf(BUND_INDEX, versuche=3, frist=300).decode("utf-8", errors="replace")
     eintraege = re.findall(r"<item>(.*?)</item>", roh, re.S)
     print(f"Bund: {len(eintraege)} Entscheidungen im Verzeichnis")
 
@@ -562,6 +565,7 @@ def juris_eintrag_lesen(eintrag: dict, basis: str, portal: str, land: str,
         grund=f"Volltexttreffer für „{begriff}\"" + (f", {art}" if art else ""),
         region=region,
     )
+    fund.art = art
     fund.juris = {"portal": portal, "basis": basis, "docId": doc_id,
                   "docPart": eintrag.get("docPart") or "L"}
     return fund
@@ -645,6 +649,8 @@ def nrw_treffer_lesen(seite: str, begriff: str) -> list[Fund]:
         )
         if ecli:
             fund.ecli = ecli.group(1)
+        if art:
+            fund.art = art.group(1).strip()
         funde.append(fund)
     return funde
 
@@ -797,6 +803,8 @@ def bericht(gruppen: dict[str, list[Fund]], stichtag: date) -> str:
                 )
             else:
                 zeilen.append(f"- Volltext: {f.link}")
+            if f.art:
+                zeilen.append(f"- Entscheidungsart: {f.art}")
             if f.ecli:
                 zeilen.append(f"- ECLI: {f.ecli}")
             zeilen.append(f"- Amtliche Fundstelle: {f.link}")
