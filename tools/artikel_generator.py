@@ -378,8 +378,20 @@ class Artikel:
         self.wortzahl = woerter_zaehlen(self.rohtext)
 
     @property
-    def oeffentlich(self) -> bool:
+    def freigegeben(self) -> bool:
+        """Status im Kopf der Datei – die Absicht des Autors."""
         return self.status.strip().lower() == STATUS_OEFFENTLICH
+
+    @property
+    def oeffentlich(self) -> bool:
+        """Tatsächlich veröffentlicht: freigegeben UND keine offenen Prüfpunkte.
+
+        Ein TODO-Block steht für eine Angabe, die der Agent bewusst nicht
+        behauptet hat. Solange einer im Text steht, darf die Seite weder
+        indexiert noch in Übersicht und Sitemap aufgenommen werden – auch
+        dann nicht, wenn der Status schon auf Veröffentlicht steht.
+        """
+        return self.freigegeben and not self.todos
 
     @property
     def pfad_relativ(self) -> str:
@@ -507,7 +519,8 @@ def artikelseite(artikel: Artikel) -> str:
             "<strong>Entwurf – noch nicht freigegeben.</strong> Diese Seite ist von der "
             "Indexierung ausgenommen und steht weder in der Übersicht noch in der Sitemap. "
             f"Status: <code>{html.escape(artikel.status)}</code>. "
-            "Sie wird öffentlich, sobald im Entwurf <code>status: Veröffentlicht</code> steht."
+            "Sie wird öffentlich, sobald im Entwurf <code>status: Veröffentlicht</code> steht "
+            "und kein Prüfpunkt mehr offen ist."
             + (f' Offene Prüfpunkte im Text: {artikel.todos}.' if artikel.todos else "")
             + "</div>"
         )
@@ -719,6 +732,16 @@ def main() -> int:
                 f"{bekannt[a.kurzform].name} belegt"
             )
         bekannt[a.kurzform] = a.pfad
+
+    # Freigabe trotz offener Prüfpunkte ist ein Fehler, kein stiller Sonderfall:
+    # Der Lauf endet mit Rückgabewert 2, der Workflow schlägt sichtbar fehl.
+    for a in artikel:
+        if a.freigegeben and a.todos:
+            fehler.append(
+                f"{a.pfad.name}: Status „Veröffentlicht“, aber {a.todos} offene "
+                f"Prüfpunkte im Text. Erst die TODO-Blöcke auflösen, dann freigeben. "
+                f"Die Seite bleibt bis dahin auf noindex."
+            )
 
     oeffentlich = [a for a in artikel if a.oeffentlich]
 
