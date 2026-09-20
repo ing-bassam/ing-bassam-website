@@ -514,7 +514,11 @@ def artikelseite(artikel: Artikel) -> str:
 
     marken = []
     if artikel.kategorie:
-        marken.append(f'<span class="marke">{html.escape(artikel.kategorie)}</span>')
+        # data-kategorie steuert die Farbe des Punktes; siehe artikel.css.
+        marken.append(
+            f'<span class="marke marke--kategorie" data-kategorie="{slug(artikel.kategorie)}">'
+            f'{html.escape(artikel.kategorie)}</span>'
+        )
     if artikel.format:
         marken.append(f'<span class="marke">{html.escape(artikel.format)}</span>')
     marken_html = " ".join(marken)
@@ -587,10 +591,15 @@ def uebersichtsseite(artikel: list[Artikel]) -> str:
     if artikel:
         karten = []
         for a in sorted(artikel, key=lambda x: (x.veroeffentlicht, x.titel), reverse=True):
-            marken = " ".join(
-                f'<span class="marke">{html.escape(t)}</span>'
-                for t in (a.kategorie, a.format) if t
-            )
+            marken_teile = []
+            if a.kategorie:
+                marken_teile.append(
+                    f'<span class="marke marke--kategorie" data-kategorie="{slug(a.kategorie)}">'
+                    f'{html.escape(a.kategorie)}</span>'
+                )
+            if a.format:
+                marken_teile.append(f'<span class="marke">{html.escape(a.format)}</span>')
+            marken = " ".join(marken_teile)
             karten.append(f"""        <li class="karte">
           <div class="marken">{marken}</div>
           <h2><a href="{a.kurzform}/">{html.escape(a.titel)}</a></h2>
