@@ -43,7 +43,7 @@ Die Turn-Regel aus dem Fachartikel-Skill gilt: Beende vor der Abschlussnachricht
 
 5. **Fundstelle sichern.** Gericht, Spruchkörper, Entscheidungsdatum, Aktenzeichen und – falls vergeben – ECLI übernimmst du **wörtlich aus dem Kopf der Volltextdatei**. Dieser Kopf stammt unverändert aus der amtlichen Quelle; das Skript hat nichts umformuliert. Niemals aus dem Gedächtnis, niemals aus der Überschrift der Kandidatenliste.
 
-   Liegt die Entscheidung bei einer Landesdatenbank und ist die Fundstelle eine gewöhnliche Internetadresse, rufst du sie zusätzlich einmal mit WebFetch ab und vergleichst Datum und Aktenzeichen. Stimmt etwas nicht überein, gilt der Volltext, und du vermerkst die Abweichung im Pull Request. Beim Bund entfällt dieser Abgleich, weil dort nur das ZIP-Archiv bereitsteht – die Angaben stammen dann direkt aus der amtlichen XML-Datei darin.
+   Liegt die Entscheidung bei einer Landesdatenbank und ist die Fundstelle eine gewöhnliche Internetadresse, die sich ohne JavaScript lesen lässt (Brandenburg, Nordrhein-Westfalen), rufst du sie zusätzlich einmal mit WebFetch ab und vergleichst Datum und Aktenzeichen. Bei den juris-Portalen – erkennbar an einer Fundstelle der Form `…/perma?d=…` – entfällt der Abgleich, weil die Seite ihren Inhalt erst im Browser aufbaut; die Angaben stammen dort unmittelbar aus der Schnittstelle des Portals. Stimmt etwas nicht überein, gilt der Volltext, und du vermerkst die Abweichung im Pull Request. Beim Bund entfällt dieser Abgleich, weil dort nur das ZIP-Archiv bereitsteht – die Angaben stammen dann direkt aus der amtlichen XML-Datei darin.
 
    Das ersetzt für diese eine Fundstelle die dreistufige Absicherung des Fachartikel-Skills. Für **jede weitere** genannte Entscheidung, Norm oder Vorschrift gilt sie unverändert.
 
@@ -56,13 +56,14 @@ Zulässig sind ausschließlich amtliche Quellen:
 - `rechtsprechung-im-internet.de` – Bundesministerium der Justiz und Bundesamt für Justiz
 - `gerichtsentscheidungen.brandenburg.de` – Landesrechtsportal Brandenburg
 - `nrwesuche.justiz.nrw.de` – Justiz Nordrhein-Westfalen
+- `gesetze.berlin.de` und die gleichartigen Portale von Baden-Württemberg, Hamburg, Hessen, Mecklenburg-Vorpommern, Rheinland-Pfalz, Saarland, Sachsen-Anhalt, Schleswig-Holstein und Thüringen
 - Rechtsprechungsdatenbanken weiterer Länder über `justiz.de/onlinedienste/rechtsprechung`
 - `gesetze-im-internet.de` für Gesetzeswortlaut
 - die Internetauftritte der Gerichte selbst
 
 Nicht zulässig sind Anwaltskanzlei-Blogs, Portale wie dejure oder openJur als **Beleg** und KI-Zusammenfassungen. Du darfst dort nachsehen, ob eine Entscheidung besprochen wurde, belegst aber immer an der amtlichen Fundstelle.
 
-Ein Hinweis zur Abdeckung, der in jeden Pull Request gehört, wenn keine Berliner Entscheidung dabei ist: Die Berliner Datenbank ist ohne JavaScript nicht abrufbar, Entscheidungen des Kammergerichts fehlen deshalb systematisch.
+Berlin ist seit dem Ausbau der Quellen enthalten, einschließlich Kammergericht und Landgericht Berlin. Nicht durchsucht werden Bayern, Niedersachsen, Bremen und Sachsen; fehlt eine Entscheidung aus diesen Ländern, ist das kein Versehen, sondern eine bekannte Lücke – erwähne sie im Pull Request nur, wenn sie für das Thema erheblich wäre.
 
 ## Aufbau der Besprechung
 

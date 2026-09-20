@@ -26,13 +26,14 @@ Quellen – ausschließlich amtlich:
                 mit Gericht, Aktenzeichen, ECLI und Datum. Enthält als einziges
                 Land ein Berufsgericht für Beratende Ingenieure im Bauwesen.
 
-  Berlin        Nicht abrufbar. Die Datenbank gesetze.berlin.de lädt ihre
-                Treffer erst im Browser über eine Schnittstelle, die Abrufe von
-                außerhalb mit „security_wrongDomain" ablehnt. Dieselbe Technik
-                setzen neun weitere Länder ein (Baden-Württemberg, Hamburg,
-                Hessen, Mecklenburg-Vorpommern, Rheinland-Pfalz, Saarland,
-                Sachsen-Anhalt, Schleswig-Holstein, Thüringen). Das Skript
-                weist auf die Lücke hin, statt sie zu verschweigen.
+  Berlin und    Zehn Länder betreiben ihre Datenbank auf der juris-Technik
+  neun weitere  „recherche3": Berlin, Baden-Württemberg, Hamburg, Hessen,
+  Länder        Mecklenburg-Vorpommern, Rheinland-Pfalz, Saarland,
+                Sachsen-Anhalt, Schleswig-Holstein und Thüringen. Die
+                Oberfläche entsteht erst im Browser; die Schnittstelle
+                dahinter ist nach anonymer Anmeldung regulär abfragbar und
+                liefert Treffer nach Datum absteigend sowie den Volltext.
+                Damit ist auch das Kammergericht Berlin erfasst.
 
 Aufruf:  python tools/urteile_finden.py --ziel <datei> [--monate 18] [--max 12]
 """
@@ -41,7 +42,9 @@ from __future__ import annotations
 
 import argparse
 import html
+import http.cookiejar
 import io
+import json
 import re
 import sys
 import time
@@ -50,7 +53,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import zipfile
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 WURZEL = Path(__file__).resolve().parent.parent
@@ -72,6 +75,29 @@ NRW_GERICHTE = [
 ]
 
 KENNUNG = "BIB-Fachartikel/1.0 (+https://ing-bassam.de; Recherche für Fachbeiträge)"
+
+# Zehn Länder betreiben ihre Rechtsprechungsdatenbank auf derselben Technik
+# (juris „recherche3"). Deren Oberfläche entsteht erst im Browser, die
+# dahinterliegende Schnittstelle ist aber dieselbe und lässt sich nach einer
+# anonymen Anmeldung regulär abfragen: Cookie setzen, Portalseite laden,
+# „init" holt das CSRF-Token, danach „search" und „document".
+# Berlin steht bewusst an erster Stelle – dort sitzt das Büro.
+JURIS_PORTALE = [
+    ("https://gesetze.berlin.de", "bsbe", "Berlin", "Berlin/Brandenburg"),
+    ("https://www.lareda.hessenrecht.hessen.de", "bshe", "Hessen", "Weitere Länder"),
+    ("https://www.landesrecht-bw.de", "bsbw", "Baden-Württemberg", "Weitere Länder"),
+    ("https://www.landesrecht-hamburg.de", "bsha", "Hamburg", "Weitere Länder"),
+    ("https://www.landesrecht.rlp.de", "bsrp", "Rheinland-Pfalz", "Weitere Länder"),
+    ("https://www.landesrecht-mv.de", "bsmv", "Mecklenburg-Vorpommern", "Weitere Länder"),
+    ("https://recht.saarland.de", "bssl", "Saarland", "Weitere Länder"),
+    ("https://www.landesrecht.sachsen-anhalt.de", "bsst", "Sachsen-Anhalt", "Weitere Länder"),
+    ("https://www.gesetze-rechtsprechung.sh.juris.de", "bssh", "Schleswig-Holstein", "Weitere Länder"),
+    ("https://landesrecht.thueringen.de", "bsth", "Thüringen", "Weitere Länder"),
+]
+
+# Browser-Kennung: Die juris-Portale liefern schlankeren Clients nichts aus.
+JURIS_UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+            "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36")
 
 # Senate des Bundes, die für privates Baurecht zuständig sind. Der Schlüssel ist
 # das Muster im Aktenzeichen, der Wert die Begründung für den Kandidatenbericht.
@@ -159,6 +185,12 @@ def volltext_holen(fund: "Fund") -> tuple[str, str]:
     einer XML-Datei bereit – ein Agent kann ein ZIP nicht lesen, das Skript
     entpackt es deshalb hier. Brandenburg liefert HTML.
     """
+    if fund.juris:
+        sitzung = juris_sitzung(fund.juris["basis"], fund.juris["portal"])
+        text = sitzung.volltext(fund.juris["docId"], fund.juris.get("docPart", "L"))
+        treffer = re.search(r"ECLI:[A-Z0-9.:]+", text)
+        return text, treffer.group(0) if treffer else ""
+
     if fund.link.endswith(".zip"):
         rohdaten = rohabruf(fund.link)
         with zipfile.ZipFile(io.BytesIO(rohdaten)) as archiv:
@@ -226,6 +258,7 @@ class Fund:
         self.treffer = 0
         self.begriffe: list[str] = []
         self.hinweis = ""
+        self.juris: dict | None = None
 
     @property
     def schluessel(self) -> str:
@@ -341,6 +374,179 @@ def bb_treffer_lesen(seite: str, gericht: str, begriff: str) -> list[Fund]:
             region="Berlin/Brandenburg",
         ))
     return funde
+
+
+# --------------------------------------------------------------------------
+# juris-Portale der Länder (Berlin und neun weitere)
+# --------------------------------------------------------------------------
+
+class JurisSitzung:
+    """Eine angemeldete Sitzung bei einem juris-Landesportal."""
+
+    def __init__(self, basis: str, portal: str):
+        self.basis = basis.rstrip("/")
+        self.portal = portal
+        self.oeffner = urllib.request.build_opener(
+            urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar())
+        )
+        self.token = ""
+        self.r3id = ""
+
+    def anmelden(self) -> None:
+        """Anonyme Anmeldung: Cookie, Portalseite, init."""
+        gastgeber = urllib.parse.urlsplit(self.basis).hostname or ""
+        for verarbeiter in self.oeffner.handlers:
+            if isinstance(verarbeiter, urllib.request.HTTPCookieProcessor):
+                verarbeiter.cookiejar.set_cookie(http.cookiejar.Cookie(
+                    0, "r3autologin", f'"{self.portal}"', None, False,
+                    gastgeber, False, False, "/", True, True, None, False,
+                    None, None, {},
+                ))
+        self.oeffner.open(urllib.request.Request(
+            f"{self.basis}/{self.portal}/search",
+            headers={"User-Agent": JURIS_UA, "Accept-Language": "de"},
+        ), timeout=60).read()
+        self.r3id = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
+        antwort = self.aufrufen("init", self.grunddaten())
+        self.token = antwort.get("csrfToken", "")
+        if not self.token:
+            raise RuntimeError("init lieferte kein CSRF-Token")
+
+    def grunddaten(self) -> dict:
+        return {"clientID": self.portal,
+                "clientVersion": f"{self.portal} - V08_35_00",
+                "r3ID": self.r3id}
+
+    def aufrufen(self, pfad: str, nutzlast: dict) -> dict:
+        kopf = {"Content-Type": "application/json", "User-Agent": JURIS_UA,
+                "juris-portalid": self.portal,
+                "Referer": f"{self.basis}/{self.portal}/search"}
+        if self.token:
+            kopf["x-csrf-token"] = self.token
+        anfrage = urllib.request.Request(
+            f"{self.basis}/jportal/wsrest/recherche3/{pfad}",
+            data=json.dumps(nutzlast).encode("utf-8"), headers=kopf,
+        )
+        with self.oeffner.open(anfrage, timeout=90) as antwort:
+            return json.loads(antwort.read().decode("utf-8"))
+
+    def erneut(self, pfad: str, nutzlast_bauer) -> dict:
+        """Ruft auf und meldet sich bei abgelaufener Sitzung einmal neu an.
+
+        Die Sitzungen laufen nach einiger Zeit ab; ein langer Lauf über zehn
+        Portale kann darüber stolpern. Statt den Kandidaten zu verlieren, wird
+        einmal neu angemeldet und der Aufruf wiederholt.
+        """
+        try:
+            return self.aufrufen(pfad, nutzlast_bauer())
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, OSError):
+            self.anmelden()
+            return self.aufrufen(pfad, nutzlast_bauer())
+
+    def suchen(self, wort: str, anzahl: int = 25) -> list[dict]:
+        def nutzlast() -> dict:
+            return {
+                "searchTasks": {"RESULT_LIST": {
+                    "start": 1, "size": anzahl, "sort": "date",
+                    "addToHistory": True, "addCategory": True}},
+                "filters": {"CATEGORY": ["Rechtsprechung"]},
+                "searches": [{"id": "FastSearch", "value": wort}],
+                **self.grunddaten(),
+            }
+        return self.erneut("search", nutzlast).get("resultList") or []
+
+    def volltext(self, doc_id: str, teil: str = "L") -> str:
+        def nutzlast() -> dict:
+            return {
+                "docId": doc_id, "format": "xsl", "keyword": None, "docPart": teil,
+                "sourceParams": {"position": 0, "sort": "date", "source": "TL",
+                                 "category": "Rechtsprechung"},
+                "searches": [], **self.grunddaten(),
+            }
+        antwort = self.erneut("document", nutzlast)
+        return nur_text(str(antwort.get("head", "")) + " " + str(antwort.get("text", "")))
+
+
+# Sitzungen werden je Portal einmal aufgebaut und wiederverwendet.
+_JURIS_SITZUNGEN: dict[str, JurisSitzung] = {}
+
+
+def juris_sitzung(basis: str, portal: str) -> JurisSitzung:
+    if portal not in _JURIS_SITZUNGEN:
+        sitzung = JurisSitzung(basis, portal)
+        sitzung.anmelden()
+        _JURIS_SITZUNGEN[portal] = sitzung
+    return _JURIS_SITZUNGEN[portal]
+
+
+def juris_suchen(stichtag: date, bekannt: set[str], pause: float,
+                 nur_berlin: bool = False) -> list[Fund]:
+    """Durchsucht die juris-Landesportale, Berlin zuerst."""
+    gefunden: dict[str, Fund] = {}
+    portale = [p for p in JURIS_PORTALE if not nur_berlin or p[1] == "bsbe"]
+
+    for basis, portal, land, region in portale:
+        try:
+            sitzung = juris_sitzung(basis, portal)
+        except Exception as fehler:
+            # Ein Land, das nicht antwortet, darf den Lauf nicht beenden.
+            print(f"  {land}: Anmeldung fehlgeschlagen – {fehler}")
+            continue
+
+        for begriff in BB_BEGRIFFE:
+            try:
+                treffer = sitzung.suchen(begriff)
+            except Exception as fehler:
+                print(f"  {land}: „{begriff}\" übersprungen – {fehler}")
+                time.sleep(pause)
+                continue
+
+            neu = 0
+            for eintrag in treffer:
+                fund = juris_eintrag_lesen(eintrag, basis, portal, land, region, begriff)
+                if fund is None or fund.datum < stichtag.isoformat():
+                    continue
+                if fund.schluessel in bekannt or fund.schluessel in gefunden:
+                    continue
+                gefunden[fund.schluessel] = fund
+                neu += 1
+            if neu:
+                print(f"  {land}: „{begriff}\" – {neu} neu")
+            time.sleep(pause)
+
+    print(f"juris-Landesportale: {len(gefunden)} Entscheidungen seit {stichtag.isoformat()}")
+    return list(gefunden.values())
+
+
+def juris_eintrag_lesen(eintrag: dict, basis: str, portal: str, land: str,
+                        region: str, begriff: str) -> Fund | None:
+    roh_datum = str(eintrag.get("date") or "")
+    treffer = re.fullmatch(r"(\d{2})\.(\d{2})\.(\d{4})", roh_datum)
+    doc_id = eintrag.get("docId")
+    titel = [str(t) for t in (eintrag.get("titleList") or [])]
+    if not (treffer and doc_id and titel):
+        return None
+    tag, monat, jahr = treffer.groups()
+    # titleList ist üblicherweise [Gericht und Spruchkörper, Aktenzeichen].
+    gericht = titel[0]
+    aktenzeichen = titel[1] if len(titel) > 1 else ""
+    if not aktenzeichen:
+        return None
+    unter = [str(u) for u in (eintrag.get("subtitleList") or [])]
+    art = unter[0] if unter else ""
+
+    fund = Fund(
+        gericht=gericht,
+        datum=f"{jahr}-{monat}-{tag}",
+        aktenzeichen=aktenzeichen,
+        link=f"{basis.rstrip('/')}/perma?d={doc_id}",
+        quelle=f"{urllib.parse.urlsplit(basis).hostname} (Landesrechtsportal {land})",
+        grund=f"Volltexttreffer für „{begriff}\"" + (f", {art}" if art else ""),
+        region=region,
+    )
+    fund.juris = {"portal": portal, "basis": basis, "docId": doc_id,
+                  "docPart": eintrag.get("docPart") or "L"}
+    return fund
 
 
 # --------------------------------------------------------------------------
@@ -522,15 +728,14 @@ def bericht(gruppen: dict[str, list[Fund]], stichtag: date) -> str:
         "",
         "## Hinweis zur Abdeckung",
         "",
-        "Durchsucht werden: der Bund (rechtsprechung-im-internet.de), Brandenburg",
-        "samt der gemeinsamen Gerichte von Berlin und Brandenburg (OVG, LSG,",
-        "LArbG, FG) und Nordrhein-Westfalen.",
+        "Durchsucht werden: der Bund (rechtsprechung-im-internet.de), Berlin,",
+        "Brandenburg samt der gemeinsamen Gerichte von Berlin und Brandenburg",
+        "(OVG, LSG, LArbG, FG), Nordrhein-Westfalen sowie Baden-Württemberg,",
+        "Hamburg, Hessen, Mecklenburg-Vorpommern, Rheinland-Pfalz, Saarland,",
+        "Sachsen-Anhalt, Schleswig-Holstein und Thüringen.",
         "",
-        "Nicht durchsucht wird Berlin selbst: Die Datenbank gesetze.berlin.de",
-        "liefert ihre Treffer erst im Browser und sperrt Abrufe von außerhalb ab",
-        "(Fehler „security_wrongDomain\"). Entscheidungen des Kammergerichts und",
-        "der Berliner Landgerichte fehlen deshalb. Ebenso fehlen neun weitere",
-        "Länder, die dieselbe Technik einsetzen.",
+        "Nicht enthalten sind Bayern, Niedersachsen, Bremen und Sachsen. Deren",
+        "Portale liefern kein auswertbares Trefferformat.",
         "",
     ]
 
@@ -593,7 +798,8 @@ def main() -> int:
                           help="Höchstzahl der Kandidaten in der Liste")
     zerleger.add_argument("--pause", type=float, default=1.0,
                           help="Sekunden zwischen zwei Abfragen der Landesdatenbank")
-    zerleger.add_argument("--nur", choices=["bund", "brandenburg", "nrw"],
+    zerleger.add_argument("--nur",
+                          choices=["bund", "brandenburg", "nrw", "laender", "berlin"],
                           help="nur eine Quelle abfragen (für Tests)")
     argumente = zerleger.parse_args()
 
@@ -611,6 +817,14 @@ def main() -> int:
         except Exception as ausnahme:
             fehler = True
             print(f"FEHLER Brandenburg: {ausnahme}", file=sys.stderr)
+
+    if argumente.nur in (None, "laender", "berlin"):
+        try:
+            funde += juris_suchen(stichtag, bekannt, argumente.pause,
+                                  nur_berlin=(argumente.nur == "berlin"))
+        except Exception as ausnahme:
+            fehler = True
+            print(f"FEHLER juris-Landesportale: {ausnahme}", file=sys.stderr)
 
     if argumente.nur in (None, "nrw"):
         try:
