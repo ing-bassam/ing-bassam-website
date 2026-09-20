@@ -17,11 +17,11 @@ name: Urteilsbesprechung
 #   rechtsprechung-im-internet.de           Bundesamt für Justiz
 #   gerichtsentscheidungen.brandenburg.de   Landesrechtsportal Brandenburg
 #   nrwesuche.justiz.nrw.de                 Justiz Nordrhein-Westfalen
+#   gesetze.berlin.de und neun weitere      juris-Landesportale, darunter das
+#                                           Kammergericht Berlin
 #
-# Bekannte Lücke: Die Berliner Datenbank (gesetze.berlin.de) ist eine reine
-# JavaScript-Anwendung und ohne Browser nicht abrufbar. Entscheidungen des
-# Kammergerichts fehlen deshalb. Die gemeinsamen Gerichte von Berlin und
-# Brandenburg (OVG, LSG, LArbG, FG) sind über das Brandenburger Portal enthalten.
+# Nicht enthalten sind Bayern, Niedersachsen, Bremen und Sachsen: Deren Portale
+# liefern kein auswertbares Trefferformat.
 # -----------------------------------------------------------------------------
 
 on:
@@ -44,9 +44,11 @@ on:
         type: choice
         options:
           - "alle"
+          - "nur Berlin"
           - "nur Brandenburg"
           - "nur Bund"
           - "nur Nordrhein-Westfalen"
+          - "nur juris-Länderportale"
       schwerpunkt:
         description: "Optionaler Schwerpunkt, z. B. „Nachtragsmanagement“ (leer = freie Wahl)"
         required: false
@@ -103,6 +105,8 @@ jobs:
             "nur Brandenburg")          NUR=(--nur brandenburg) ;;
             "nur Bund")                 NUR=(--nur bund) ;;
             "nur Nordrhein-Westfalen")  NUR=(--nur nrw) ;;
+            "nur Berlin")               NUR=(--nur berlin) ;;
+            "nur juris-Länderportale")  NUR=(--nur laender) ;;
             *)                          NUR=() ;;
           esac
 
