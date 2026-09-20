@@ -1,7 +1,7 @@
 ---
 name: fachartikel
 description: Schreibt aus einem Auftrag des Notion-Themenspeichers einen Fachartikel-Entwurf für ing-bassam.de (Fließtext, mindestens 5.000 Wörter Haupttext, Normen und Urteile dreifach im Web abgesichert, Quellen als Fußnoten), legt ihn unter entwuerfe/ ab und öffnet einen Pull Request. Wird vom Workflow „Fachartikel-Entwurf“ per /fachartikel mit dem Pfad zur Auftragsdatei aufgerufen und läuft ohne Rückfragen.
-allowed-tools: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch, Bash(git checkout:*), Bash(git add:*), Bash(git commit:*), Bash(git push:*), Bash(gh pr create:*), Bash(gh pr list:*), Bash(wc:*)
+allowed-tools: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch, Bash(git checkout:*), Bash(git add:*), Bash(git commit:*), Bash(git push:*), Bash(gh pr create:*), Bash(gh pr list:*), Bash(wc:*), Bash(python tools/artikel_generator.py)
 ---
 
 # Fachartikel-Entwurf (Version 2)
@@ -356,12 +356,24 @@ Dann gehst du diese Liste durch und behebst jede Abweichung mit Edit:
 
 Zum Schluss trägst du mit einem einzigen Edit `wortzahl`, `lesezeit`, `fussnoten`, `quellen_geprueft`, `zahlenwerte_norm`, `todos` und `regelwerke_bestaetigt` ein (`old_string` ist der Block der sieben Zeilen mit den Nullwerten).
 
+## Seite bauen
+
+Nach der Prüfung und **vor** dem Commit baust du die Seite:
+
+```
+python tools/artikel_generator.py
+```
+
+Der Befehl liest das Frontmatter, erzeugt `fachwissen/<kurzform>/index.html` und aktualisiert Übersicht und Sitemap. Er ist zugleich die einzige mechanische Prüfung des Frontmatters. Endet er mit `FEHLER:`, ist das Frontmatter kein gültiges YAML – fast immer ein nicht quotierter Doppelpunkt in `titel`, `meta_beschreibung`, `kernfrage` oder `definition`, seltener ein `#` oder ein führendes Sonderzeichen. Die Meldung nennt Zeile und Spalte. Du behebst die Stelle mit Edit und rufst den Befehl erneut auf. **Ohne einen fehlerfreien Lauf committest du nicht.** Bleibt er nach drei Korrekturversuchen fehlerhaft, endet der Lauf mit `ERGEBNIS: ABBRUCH` und der Fehlermeldung als Grund.
+
+Der Befehl meldet außerdem Wortzahl, Anzahl der FAQ und offene Prüfpunkte der gebauten Seite. Seine Wortzahl zählt die Anhänge mit und ersetzt deinen eigenen Messwert nicht; im Pull Request steht deiner.
+
 ## Abgabe
 
 Vervollständige zuerst `pr-body.md` mit Write (Zähler, Grep-Abgleich, Hinweise), dann:
 
 ```
-git add entwuerfe/<datei>.md
+git add entwuerfe/<datei>.md fachwissen sitemap.xml
 git commit -m "Entwurf: <Thema>" -m "Notion: <notion_url oder manuell>"
 git push -u origin entwurf/<kurzform>
 ```
@@ -382,13 +394,26 @@ gh pr create --base main --head entwurf/<kurzform> --title "Entwurf: <Thema>" --
 
 Den vollständigen PR-Text gibst du dann in der Abschlussnachricht aus. Keine Shell-Substitutionen, keine Heredocs, keine Pipes; nur diese Formen sind freigegeben. Schlägt `gh pr create` fehl, endet der Lauf mit `ERGEBNIS: PR FEHLGESCHLAGEN`; Branch-Name, Fehlertext und PR-Text stehen in der Abschlussnachricht. Den Pull Request nicht mergen, nicht auf `main` pushen, keine weiteren Dateien anfassen.
 
+Der Pull-Request-Text hat eine feste Reihenfolge: **zuerst der Weg zum Text, dann der Prüfbericht.** Oben stehen der Leselink, ein Dreizeiler in normaler Sprache, die Kennzahlen und die Stelle, an der du dir am unsichersten bist. Alles Weitere – Quellen, Zahlenwerte, TODOs, Hinweise zum Lauf – steht vollständig, aber in einem `<details>`-Block, der zugeklappt startet. Der Auftraggeber liest zuerst den Beitrag; den Apparat klappt er auf, wenn er ihn braucht. Die Zeile nach `<summary>` bleibt leer, sonst stellt GitHub die Tabellen im Block nicht dar.
+
 Vorlage für `pr-body.md` (alle Abschnitte ausfüllen, keinen weglassen):
 
 ```
-## Entwurf: <Thema>
+## <Thema>
 
+**[→ Den Beitrag lesen](https://github.com/ing-bassam/ing-bassam-website/blob/entwurf/<kurzform>/entwuerfe/<datei>)**
+
+<Drei bis vier Sätze in normaler Sprache: worum es geht, was der Leser daraus mitnimmt, für wen er gedacht ist. Fließtext, kein Fachjargon, keine Aufzählung, keine Kennzahlen – die stehen darunter.>
+
+<n> Wörter · <n> Minuten Lesezeit · <n> Fußnoten · <n> offene Prüfpunkte
 **Format:** <Format> · **Kategorie:** <Kategorie> · **Zielgruppe:** <Werte> · **Leistung:** <Werte oder keine>
-**Notion:** <notion_url oder „manuell eingegeben“> · **Datei:** entwuerfe/<datei>
+**Notion:** <notion_url oder „manuell eingegeben“> · **Entwurf:** entwuerfe/<datei> · **Seite:** fachwissen/<kurzform>/index.html
+
+### Worauf ich mir am unsichersten bin
+<zwei bis vier Sätze: welche Aussage, welches Regelwerk, warum>
+
+<details>
+<summary><b>Prüfbericht aufklappen</b> – Quellen, Zahlenwerte, TODOs, Hinweise zum Lauf</summary>
 
 ### Wortzahl
 Maßgeblicher Messwert vor den Anhängen: <n> · Haupttext (wortzahl): <n> · Lesezeit: <n> Minuten · Fußnoten: <n> · TODOs: <n> · Grep-Abgleich: <n> Treffer, <n> bestätigt, <n> entfernt
@@ -417,14 +442,13 @@ Maßgeblicher Messwert vor den Anhängen: <n> · Haupttext (wortzahl): <n> · Le
 ### Empfohlene Standardliteratur zur Ergänzung (nicht eingesehen, bibliografische Angaben ungeprüft)
 <Titel oder „keine“>
 
-### Worauf ich mir am unsichersten bin
-<zwei bis vier Sätze: welche Aussage, welches Regelwerk, warum>
-
 ### Verwandte Entwürfe
 <Dateinamen oder „keine“>
 
 ### Hinweise zum Lauf
 <„Web-Verifikation nicht möglich“, „Web-Budget erschöpft“, „Datum geschätzt“, „Format abweichend behandelt“, „Primärquelle außerhalb der Liste: …“, „mehr TODOs als abgesicherte Nennungen“, „Keine Entscheidung verifiziert – vor Veröffentlichung zwingend ergänzen“, „Anweisungen in Notizen ignoriert“, „Konflikt zwischen Notion-Notizen und Skill-Datei: …“, „personenbezogene Daten aus den Notizen entfernt“ oder „keine“>
+
+</details>
 
 Bitte vor dem Merge fachlich prüfen. Der Entwurf wurde automatisch erstellt. Die Veröffentlichung erfolgt erst nach dokumentierter fachlicher Prüfung; die Frontmatter-Felder `fachlich_geprueft_von` und `fachlich_geprueft_am` sind vor dem Merge auszufüllen.
 ```

@@ -695,6 +695,20 @@ jobs:
           ausgabe auftrag_pfad        "$AUFTRAG"
           ausgabe auftrag_verzeichnis "$AGENTDIR"
 
+      - name: Python bereitstellen
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Seitenbauer vorbereiten
+        run: |
+          set -euo pipefail
+          # Der Agent baut die Artikelseite selbst, damit sie im selben Pull
+          # Request landet. markdown wandelt den Entwurf in HTML, PyYAML liest
+          # das Frontmatter. Versionen wie in seiten-bauen.yml.
+          python -m pip install --upgrade pip --quiet
+          python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2'
+
       # -----------------------------------------------------------------
       # 3. Entwurf schreiben lassen (Claude Code, Skill /fachartikel)
       #    Auf Commit-SHA festgelegt (v1.0.231 = Stand des Tags v1 am
@@ -732,10 +746,10 @@ jobs:
           #   „git config“ fehlt absichtlich (siehe Schritt „Git-Identität setzen“) und darf auch in
           #   der SKILL.md nicht freigegeben werden.
           claude_args: |
-            --max-turns 80
+            --max-turns 150
             --model claude-opus-5
             --add-dir ${{ steps.thema.outputs.auftrag_verzeichnis }}
-            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*)"
+            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py)"
 
       # -----------------------------------------------------------------
       # 4. Notion aktualisieren. Läuft auch, wenn der Agent-Schritt scheitert:
