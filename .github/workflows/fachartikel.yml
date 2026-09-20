@@ -1,69 +1,1020 @@
 name: Fachartikel-Entwurf
 
+# ---------------------------------------------------------------------------
+# Fachartikel-Entwurf, Version 2 (mit Notion-Anbindung)
+#
+# Ablauf:
+#   1. Voraussetzungen prüfen, Startzeit merken, Git-Identität setzen.
+#   2. Thema laden – aus dem Notion-Themenspeicher (explizite Seite per URL,
+#      Seiten-ID oder Titel; sonst nächstes offenes Thema nach Priorität)
+#      oder als manueller Fallback.
+#      Ergebnis: Auftragsdatei in $RUNNER_TEMP/fachartikel/auftrag.md
+#      (liegt außerhalb des Repos und wird nie committet).
+#   3. Claude Code schreibt den Entwurf nach entwuerfe/ und öffnet einen
+#      Pull Request (Branch entwurf/<kurzform>).
+#   4. Notion wird aktualisiert.
+#      - Agent erfolgreich: Status = Entwurf, Entwurf (PR) = PR-URL,
+#        Entwurf erstellt = heutiges Datum.
+#      - Agent gescheitert, PR existiert aber schon: nur Entwurf (PR) wird
+#        eingetragen. Der Status bleibt unverändert, weil der Entwurf
+#        unvollständig sein kann. Das Thema wird trotzdem nicht erneut
+#        automatisch gewählt (die Auswahl überspringt Seiten mit PR-Link).
+#   5. Kontrolle, ob der Hauptzweig während des Laufs verändert wurde.
+#
+# Benötigte Secrets:
+#   CLAUDE_CODE_OAUTH_TOKEN  – für anthropics/claude-code-action
+#   NOTION_TOKEN             – interne Notion-Integration mit den Fähigkeiten
+#                              „Inhalte lesen“ und „Inhalte aktualisieren“,
+#                              mit der Datenbank „Themenspeicher Fachartikel“
+#                              verbunden. Nur bei manuellem Thema entbehrlich.
+#
+# Sicherheitsregeln in dieser Datei:
+#   - Eingaben und Secrets gelangen ausschließlich über env: in Shell-Schritte,
+#     nie als Ausdruck in doppelten geschweiften Klammern direkt im Skripttext
+#     (keine Shell-Injection möglich).
+#   - Der NOTION_TOKEN wird nie ausgegeben und nie als Kommandozeilenargument
+#     übergeben (curl liest den Header über stdin). Kein set -x, kein curl -v.
+#   - Das Repository ist öffentlich, damit sind auch Logs und Job-Zusammenfassung
+#     für jeden angemeldeten GitHub-Nutzer lesbar. Ins Log kommen deshalb nur das
+#     gewählte Thema und seine Kopfdaten – weder die Notion-Notizen noch die
+#     Liste der offenen Themen. Trotzdem gilt: keine vertraulichen Inhalte und
+#     keine Mandantendaten in den Notion-Notizen ablegen, denn der Agent
+#     verarbeitet sie zu einem öffentlichen Pull Request.
+#   - Fremdinhalt (API-Antworten, Notion-Texte) wird nur mit dem Präfix „| “
+#     ausgegeben, damit der Runner keine Zeile als Workflow-Befehl auswertet.
+#   - Der Agent darf kein „git config“ ausführen (damit ließe sich beliebiger
+#     Code starten). Die Git-Identität setzt ein eigener Workflow-Schritt.
+#   - Beide Actions sind auf einen Commit-SHA festgelegt. Aktualisierungen
+#     kommen über Dependabot (.github/dependabot.yml, Ökosystem github-actions).
+#
+# Dringend empfohlen (Einstellung im Repository, nicht in dieser Datei):
+#   Settings → Branches/Rulesets → für „main“ „Require a pull request before
+#   merging“ aktivieren, ohne Ausnahme für Actions. Erst dann ist technisch
+#   ausgeschlossen, dass der Agent direkt auf main pusht. Bis dahin sichern das
+#   nur der Prompt und die Kontrolle in Schritt 5.
+# ---------------------------------------------------------------------------
+
 # Wird nur von Hand gestartet: Actions -> Fachartikel-Entwurf -> Run workflow
 on:
   workflow_dispatch:
     inputs:
+      notion_seite:
+        description: "Notion-Seite aus dem Themenspeicher: Link der Seite, Seiten-ID oder exakter Titel. Leer = nächstes offenes Thema nach Priorität."
+        required: false
+        type: string
       thema:
-        description: "Thema (aus dem Notion-Themenspeicher kopieren)"
-        required: true
+        description: "Manuelles Thema (Fallback ohne Notion). Wird ignoriert, wenn eine Notion-Seite angegeben ist."
+        required: false
+        type: string
       kategorie:
-        description: "Kategorie"
-        required: true
+        description: "Kategorie – „aus Notion“ übernimmt den Wert der Notion-Seite, alles andere übersteuert ihn"
+        required: false
         type: choice
+        default: "aus Notion"
         options:
-          - Bauphysik
-          - Bauschäden
-          - Gutachter & Recht
-          - Baubetrieb
-          - Bauherrenwissen
-          - Hausverwaltung & Bestand
+          - "aus Notion"
+          - "Bauphysik"
+          - "Bauschäden"
+          - "Gutachter & Recht"
+          - "Baubetrieb"
+          - "Bauherrenwissen"
+          - "Hausverwaltung & Bestand"
+          - "Energie & Förderung"
       format:
-        description: "Format"
-        required: true
+        description: "Format – „aus Notion“ übernimmt den Wert der Notion-Seite, alles andere übersteuert ihn"
+        required: false
         type: choice
+        default: "aus Notion"
         options:
-          - Fachbeitrag
-          - Ratgeber
-          - Grundlagen
-          - Urteilsbesprechung
-          - Praxisfall
-          - Checkliste
+          - "aus Notion"
+          - "Ratgeber"
+          - "Fachbeitrag"
+          - "Grundlagen"
+          - "Praxisfall"
+          - "Checkliste"
+          - "Rechtsprechung"
       zielgruppe:
-        description: "Zielgruppe"
-        required: true
+        description: "Zielgruppe – „aus Notion“ übernimmt die Werte der Notion-Seite, alles andere übersteuert sie"
+        required: false
         type: choice
+        default: "aus Notion"
         options:
-          - Privat
-          - Gewerblich
-          - Hausverwaltung
+          - "aus Notion"
+          - "Privat"
+          - "Gewerblich"
+          - "Hausverwaltung"
+
+# Name des Laufs in der Actions-Übersicht: zeigt sofort, womit gestartet wurde.
+run-name: "Fachartikel-Entwurf: ${{ inputs.notion_seite || inputs.thema || 'nächstes offenes Thema aus Notion' }}"
+
+# Nie zwei Läufe gleichzeitig: sonst würden beide dasselbe offene Thema wählen.
+# Ein zweiter Lauf wartet, bis der erste (inkl. Notion-Aktualisierung) fertig ist.
+concurrency:
+  group: fachartikel-entwurf
+  cancel-in-progress: false
+
+env:
+  NOTION_VERSION: "2025-09-03"
+  NOTION_DATA_SOURCE_ID: "532c3c18-5d73-4312-89f6-a2a4035b981d"   # Data Source „Themenspeicher Fachartikel“
+  NOTION_DATABASE_ID: "9ea1826a-3b65-46b2-b674-9017b9423d43"      # zugehörige Datenbank-ID
 
 jobs:
   entwurf:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 60
 
     permissions:
       contents: write        # Entwurfsdatei anlegen und Branch pushen
       pull-requests: write   # Pull Request öffnen
       id-token: write        # von der Claude-Action benötigt
 
-    steps:
-      - name: Repository auschecken
-        uses: actions/checkout@v6
+    defaults:
+      run:
+        shell: bash
 
+    steps:
+      # -----------------------------------------------------------------
+      # 1. Voraussetzungen prüfen und Startzeit merken
+      # -----------------------------------------------------------------
+      - name: Voraussetzungen prüfen
+        id: start
+        env:
+          # Nur Ja/Nein, nie der Wert selbst – Secrets bleiben außerhalb des Logs.
+          CLAUDE_TOKEN_VORHANDEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+          NOTION_TOKEN_VORHANDEN: ${{ secrets.NOTION_TOKEN != '' }}
+        run: |
+          set -euo pipefail
+
+          if [ "$CLAUDE_TOKEN_VORHANDEN" != "true" ]; then
+            echo "::error title=Fachartikel::Secret CLAUDE_CODE_OAUTH_TOKEN fehlt. Unter Settings → Secrets and variables → Actions anlegen."
+            exit 1
+          fi
+          if [ "$NOTION_TOKEN_VORHANDEN" != "true" ]; then
+            echo "::notice title=Fachartikel::Secret NOTION_TOKEN ist nicht gesetzt – funktioniert nur mit manuellem Thema."
+          fi
+
+          # Zeitstempel (UTC, ISO 8601) mit einer Minute Toleranz gegen Uhrenabweichung.
+          # Damit wird am Ende nur der Pull Request gezählt, der in diesem Lauf entstanden ist.
+          zeit="$(date -u -d '-1 minute' +%Y-%m-%dT%H:%M:%SZ)"
+          echo "zeit=${zeit}" >> "$GITHUB_OUTPUT"
+          echo "Jobstart (minus Toleranz): ${zeit}"
+
+      # Auf Commit-SHA festgelegt (v6.1.0). Aktualisierung über Dependabot.
+      # persist-credentials bleibt bewusst eingeschaltet: Der Agent muss den Entwurfs-Branch pushen.
+      - name: Repository auschecken
+        id: checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: true
+
+      # Die Git-Identität setzt der Workflow, nicht der Agent: „git config“ ist dem Agenten
+      # nicht erlaubt, weil sich darüber beliebige Befehle ausführen ließen (core.fsmonitor,
+      # core.pager, credential.helper …). Hooks werden aus demselben Grund abgeschaltet.
+      - name: Git-Identität setzen
+        id: git
+        env:
+          STANDARDZWEIG: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config core.hooksPath /dev/null
+
+          # Stand des Hauptzweigs merken (für die Kontrolle in Schritt 5). Ein Fehler hier ist nicht fatal.
+          zweig="${STANDARDZWEIG:-main}"
+          sha="$(git ls-remote origin "refs/heads/${zweig}" 2>/dev/null | cut -f1 | head -n 1 || true)"
+          echo "zweig=${zweig}" >> "$GITHUB_OUTPUT"
+          echo "sha=${sha}" >> "$GITHUB_OUTPUT"
+          echo "Hauptzweig ${zweig} steht bei ${sha:-unbekannt}"
+
+      # -----------------------------------------------------------------
+      # 2. Thema laden (Notion oder manuell) und Auftragsdatei schreiben
+      # -----------------------------------------------------------------
+      - name: Thema aus Notion laden und Auftragsdatei schreiben
+        id: thema
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          INPUT_NOTION_SEITE: ${{ inputs.notion_seite }}
+          INPUT_THEMA: ${{ inputs.thema }}
+          INPUT_KATEGORIE: ${{ inputs.kategorie }}
+          INPUT_FORMAT: ${{ inputs.format }}
+          INPUT_ZIELGRUPPE: ${{ inputs.zielgruppe }}
+        # ACHTUNG: In dieses Skript keine Ausdrücke in doppelten geschweiften Klammern einfügen,
+        # auch nicht in Bash-Kommentaren – Werte nur über env: hereinreichen. Sobald ein run-Block
+        # einen solchen Ausdruck enthält, gilt für den ganzen Block das GitHub-Limit von
+        # 21.000 Zeichen, und dieses Skript ist länger. Wer es stark erweitern will, lagert es
+        # besser nach .github/scripts/ aus und ruft es hier mit bash auf.
+        run: |
+          set -euo pipefail
+
+          # ---------- Verzeichnisse außerhalb des Repos ----------
+          # AGENTDIR wird dem Agenten per --add-dir freigegeben und enthält nur die Auftragsdatei.
+          # ARBEIT enthält Zwischenstände (API-Antworten, Kandidatenliste) und wird am Ende gelöscht.
+          AGENTDIR="${RUNNER_TEMP}/fachartikel"
+          ARBEIT="${RUNNER_TEMP}/fachartikel-arbeit"
+          rm -rf -- "$AGENTDIR" "$ARBEIT"
+          mkdir -p "$AGENTDIR" "$ARBEIT"
+          trap 'rm -rf -- "$ARBEIT"' EXIT
+          AUFTRAG="${AGENTDIR}/auftrag.md"
+          ANTWORT="${ARBEIT}/notion-antwort.json"     # letzte API-Antwort
+          CURLFEHLER="${ARBEIT}/curl-fehler.txt"      # stderr von curl (enthält nie Header)
+          JQFEHLER="${ARBEIT}/jq-fehler.txt"          # stderr von jq bei der Block-Konvertierung
+          KANDIDATEN="${ARBEIT}/kandidaten.jsonl"     # offene Themen, eine Seite pro Zeile
+          BLOECKE="${ARBEIT}/bloecke.jsonl"           # Blöcke des Seitenkörpers, einer pro Zeile
+          SEITE="${ARBEIT}/seite.json"                # gewählte Seite
+          : > "$KANDIDATEN"; : > "$BLOECKE"; : > "$ANTWORT"; : > "$CURLFEHLER"
+
+          # Häufiger Fehler beim Einfügen des Secrets: Leerzeichen oder Zeilenumbruch am Ende.
+          NOTION_TOKEN="$(printf '%s' "${NOTION_TOKEN:-}" | tr -d '[:space:]')"
+
+          # ---------- Hilfsfunktionen ----------
+
+          # Schreibt eine Step-Ausgabe, auch mehrzeilig und mit Sonderzeichen sicher.
+          ausgabe() {
+            local trenner="AUSGABE_${RANDOM}${RANDOM}${RANDOM}"
+            printf '%s<<%s\n%s\n%s\n' "$1" "$trenner" "$2" "$trenner" >> "$GITHUB_OUTPUT"
+          }
+
+          # Whitespace vorn/hinten entfernen, Zeilenumbrüche zu Leerzeichen (für einzeilige Felder).
+          einzeilig() {
+            printf '%s' "$1" | tr '\r\n\t' '   ' | sed -e 's/  */ /g' -e 's/^ //' -e 's/ $//'
+          }
+
+          # Fremdinhalt nie roh ausgeben: Der Runner wertet Zeilen, die mit „::“ beginnen, als
+          # Workflow-Befehl aus. Das Präfix „| “ verhindert das.
+          fremd() { sed 's/^/| /'; }
+
+          # Notion-API aufrufen: notion_api METHODE PFAD [JSON-BODY]
+          # Gibt den HTTP-Status auf stdout aus; die Antwort liegt danach in $ANTWORT.
+          # Vorübergehende Fehler (Netz, 429, 5xx) werden von curl bis zu 3-mal wiederholt.
+          # Der Authorization-Header kommt über stdin (-K -), damit der Token nicht in der
+          # Prozessliste steht. $ANTWORT wird vorher geleert, damit nach einem Netzfehler nicht
+          # die Antwort des vorherigen Aufrufs unter falschem Etikett im Log landet.
+          notion_api() {
+            local methode="$1" pfad="$2" body="${3:-}"
+            local -a args=( -sS --max-time 60 --retry 3 --retry-delay 3
+                            -o "$ANTWORT" -w '%{http_code}' -X "$methode"
+                            -H "Notion-Version: ${NOTION_VERSION}"
+                            -H "Content-Type: application/json" )
+            if [ -n "$body" ]; then args+=( --data "$body" ); fi
+            : > "$ANTWORT"
+            local status
+            status="$(curl "${args[@]}" -K - "https://api.notion.com/v1${pfad}" 2>"$CURLFEHLER" \
+                        <<< "header = \"Authorization: Bearer ${NOTION_TOKEN}\"")" || true
+            status="${status: -3}"
+            printf '%s' "${status:-000}"
+          }
+
+          # Fehlerantwort knapp zeigen: von Notion nur code und message, sonst die ersten Zeichen.
+          # Wird nur bei Fehlerstatus aufgerufen – dann enthält die Antwort keine Seiteninhalte.
+          antwort_zeigen() {
+            if [ -s "$ANTWORT" ]; then
+              if jq -e 'type == "object" and has("code")' "$ANTWORT" >/dev/null 2>&1; then
+                jq -r '"code: \(.code // "?")", "message: \(.message // "?")"' "$ANTWORT" | fremd
+              else
+                echo "| $(head -c 500 "$ANTWORT" | tr '\r\n' '  ')"
+              fi
+            fi
+            if [ -s "$CURLFEHLER" ]; then echo "| curl: $(head -c 1000 "$CURLFEHLER" | tr '\r\n' '  ')"; fi
+          }
+
+          # Verständlicher Hinweis je HTTP-Status.
+          notion_hinweis() {
+            local status="$1" kontext="$2"
+            case "$status" in
+              400) echo "::error title=Fachartikel::Notion: Anfrage abgelehnt (HTTP 400) bei „${kontext}“ – meist fehlt eine Eigenschaft oder sie heißt anders als erwartet (Thema, Status, Priorität, Entwurf (PR), Entwurf erstellt). Details in der Log-Gruppe darüber." ;;
+              401) echo "::error title=Fachartikel::Notion: Nicht autorisiert (HTTP 401) bei „${kontext}“ – NOTION_TOKEN ungültig, widerrufen oder unvollständig eingefügt." ;;
+              403) echo "::error title=Fachartikel::Notion: Zugriff verweigert (HTTP 403) bei „${kontext}“ – die Integration ist nicht mit dem Themenspeicher verbunden (Notion: Datenbank → ··· → Verbindungen), oder ihr fehlen die Fähigkeiten „Inhalte lesen“ bzw. „Inhalte aktualisieren“ (notion.so/profile/integrations)." ;;
+              404) echo "::error title=Fachartikel::Notion: Nicht gefunden (HTTP 404) bei „${kontext}“ – Seite/Datenbank existiert nicht oder ist für die Integration nicht freigegeben." ;;
+              409) echo "::error title=Fachartikel::Notion: Konflikt (HTTP 409) bei „${kontext}“ – die Seite wurde gleichzeitig bearbeitet. Später erneut starten." ;;
+              429) echo "::error title=Fachartikel::Notion: Rate-Limit (HTTP 429) bei „${kontext}“ – auch nach Wiederholungen. Später erneut starten." ;;
+              000) echo "::error title=Fachartikel::Notion: keine Verbindung (Netzwerk/Timeout) bei „${kontext}“." ;;
+              *)   echo "::error title=Fachartikel::Notion: HTTP ${status} bei „${kontext}“." ;;
+            esac
+          }
+
+          # Prüft HTTP-Status und JSON-Form. Bei Fehler: knappe Antwort ohne Secrets ins Log, Abbruch.
+          notion_pruefen() {
+            local status="$1" kontext="$2"
+            case "$status" in
+              2[0-9][0-9])
+                if jq -e . "$ANTWORT" >/dev/null 2>&1; then return 0; fi
+                # Eine 2xx-Antwort kann Seiteninhalt enthalten – deshalb nur die Größe nennen.
+                echo "::error title=Fachartikel::Notion: Antwort bei „${kontext}“ ist kein gültiges JSON (HTTP ${status}, $(wc -c < "$ANTWORT" | tr -d ' ') Bytes)."
+                exit 1
+                ;;
+            esac
+            echo "::group::Notion-Antwort (${kontext}, HTTP ${status})"
+            antwort_zeigen
+            echo "::endgroup::"
+            notion_hinweis "$status" "$kontext"
+            exit 1
+          }
+
+          # Priorität als Rang für die Sortierung: Hoch → Mittel → Später → (leer)
+          JQ_RANG='def rang: (.properties["Priorität"].select.name // "") as $p
+                     | if $p == "Hoch" then 0 elif $p == "Mittel" then 1 elif $p == "Später" then 2 else 3 end;'
+
+          # ---------- Eingaben normalisieren ----------
+          INPUT_NOTION_SEITE="$(einzeilig "$INPUT_NOTION_SEITE")"
+          INPUT_THEMA="$(einzeilig "$INPUT_THEMA")"
+
+          # Eingabe notion_seite einordnen:
+          #   - URL oder Seiten-ID          → 32 Hex-Zeichen (mit oder ohne Bindestriche) herausziehen
+          #   - URL/ID der Datenbank selbst → Abbruch mit Hinweis (keine stille Automatik-Auswahl)
+          #   - alles andere                → als Titel im Themenspeicher suchen
+          # Reihenfolge bei URLs:
+          #   1. Parameter „p=“ auswerten. Öffnet man ein Thema aus der Datenbankansicht (Seitenleiste
+          #      oder zentriert), lautet die Adresse …/<Datenbank-ID>?v=<Ansicht>&p=<Seiten-ID>&pm=s –
+          #      die Seiten-ID steht dann nur in „p=“.
+          #   2. Sonst den Query-String abschneiden („?v=…“ enthält die View-ID, ebenfalls 32 Hex-Zeichen)
+          #      und die letzte ID im Pfad nehmen. Die Bindestriche bleiben beim Suchen stehen: Sie trennen
+          #      die ID vom Titel-Anfang der URL (sonst würde z. B. „…-im-Bad-<id>“ zu 35 Hex-Zeichen
+          #      verschmelzen und die falsche ID liefern).
+          re_uuid='[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+          re_id="${re_uuid}|[0-9a-fA-F]{32}"
+          re_p="[?&]p=(${re_uuid}|[0-9a-fA-F]{32})([&#]|\$)"
+          seite_id=""
+          seite_titel=""
+          if [ -n "$INPUT_NOTION_SEITE" ]; then
+            if [[ "$INPUT_NOTION_SEITE" =~ ^https?:// ]] || [[ "$INPUT_NOTION_SEITE" == *notion.so/* ]] \
+               || [[ "$INPUT_NOTION_SEITE" == *notion.site/* ]] || [[ "$INPUT_NOTION_SEITE" =~ ^[0-9a-fA-F-]{32,36}$ ]]; then
+              if [[ "$INPUT_NOTION_SEITE" =~ $re_p ]]; then
+                hex="${BASH_REMATCH[1]}"
+                echo "Link aus der Datenbankansicht erkannt – die Seiten-ID stammt aus dem Parameter „p=“."
+              else
+                roh="${INPUT_NOTION_SEITE%%\?*}"
+                roh="${roh%%#*}"
+                hex="$(printf '%s' "$roh" | grep -oE "$re_id" | tail -n 1 || true)"
+              fi
+              if [ -z "$hex" ]; then
+                echo "::error title=Fachartikel::Eingabe notion_seite enthält keine Notion-Seiten-ID (32 Hex-Zeichen): „${INPUT_NOTION_SEITE}“"
+                exit 1
+              fi
+              hex="$(printf '%s' "$hex" | tr -d '-' | tr 'A-F' 'a-f')"
+              seite_id="${hex:0:8}-${hex:8:4}-${hex:12:4}-${hex:16:4}-${hex:20:12}"
+              if [ "$seite_id" = "$NOTION_DATABASE_ID" ] || [ "$seite_id" = "$NOTION_DATA_SOURCE_ID" ]; then
+                echo "::error title=Fachartikel::Die Eingabe notion_seite zeigt auf die Datenbank „Themenspeicher Fachartikel“ selbst, nicht auf eine Themenseite. Bitte den Link der Themenseite angeben (Seite öffnen → ··· → Link kopieren) oder das Feld leer lassen – dann wird das nächste offene Thema gewählt."
+                exit 1
+              fi
+            else
+              seite_titel="$INPUT_NOTION_SEITE"
+            fi
+          fi
+
+          # Modus bestimmen (Vorrang: Notion-Seite/-Titel vor manuellem Thema vor automatischer Auswahl)
+          if [ -n "$seite_id" ] || [ -n "$seite_titel" ]; then
+            if [ -n "$seite_id" ]; then modus="notion_seite"; else modus="notion_titel"; fi
+            if [ -n "$INPUT_THEMA" ]; then
+              echo "::warning title=Fachartikel::Sowohl notion_seite als auch thema angegeben – die Notion-Seite hat Vorrang, das manuelle Thema „${INPUT_THEMA}“ wird ignoriert."
+            fi
+          elif [ -n "$INPUT_THEMA" ]; then
+            modus="manuell"
+          else
+            modus="notion_auto"
+          fi
+          echo "Modus: ${modus}"
+
+          # ---------- Felder befüllen ----------
+          thema=""; kernfrage=""; kategorie=""; format=""; zielgruppe=""; leistung=""
+          prioritaet=""; notion_id=""; notion_url=""; notion_status=""; notizen=""; quelle=""
+          bloecke_anzahl=0; notizen_woerter=0
+
+          if [ "$modus" = "manuell" ]; then
+            # ----- Manueller Fallback: keine Notion-Abfrage -----
+            quelle="manuell"
+            thema="$INPUT_THEMA"
+            if [ "$INPUT_KATEGORIE" = "aus Notion" ] || [ "$INPUT_FORMAT" = "aus Notion" ] || [ "$INPUT_ZIELGRUPPE" = "aus Notion" ]; then
+              echo "::error title=Fachartikel::Bei manuellem Thema müssen Kategorie, Format und Zielgruppe im Formular gewählt werden – „aus Notion“ ist ohne Notion-Seite nicht möglich."
+              exit 1
+            fi
+            kategorie="$INPUT_KATEGORIE"; format="$INPUT_FORMAT"; zielgruppe="$INPUT_ZIELGRUPPE"
+            echo "::notice title=Fachartikel::Manuelles Thema – Notion wird weder abgefragt noch am Ende aktualisiert."
+
+          else
+            # ----- Notion -----
+            quelle="notion"
+            if [ -z "$NOTION_TOKEN" ]; then
+              echo "::error title=Fachartikel::Secret NOTION_TOKEN fehlt. Unter Settings → Secrets and variables → Actions anlegen (interne Notion-Integration mit Lese-/Schreibzugriff, mit „Themenspeicher Fachartikel“ verbunden) – oder ein manuelles Thema mit Kategorie, Format und Zielgruppe eingeben."
+              exit 1
+            fi
+            if [[ ! "$NOTION_TOKEN" =~ ^[A-Za-z0-9_-]+$ ]]; then
+              echo "::error title=Fachartikel::Secret NOTION_TOKEN enthält unerwartete Zeichen (erlaubt sind Buchstaben, Ziffern, „_“ und „-“). Bitte den Token in Notion neu kopieren und das Secret ersetzen."
+              exit 1
+            fi
+
+            if [ "$modus" = "notion_seite" ]; then
+              # ----- Explizit angegebene Seite -----
+              echo "Lade Notion-Seite ${seite_id} …"
+              status="$(notion_api GET "/pages/${seite_id}")"
+              if [ "$status" = "404" ]; then
+                echo "::error title=Fachartikel::Notion-Seite „${INPUT_NOTION_SEITE}“ (ID ${seite_id}) nicht gefunden – falsche ID/URL, Seite gelöscht oder für die Integration nicht freigegeben."
+                exit 1
+              fi
+              notion_pruefen "$status" "Seite ${seite_id} lesen"
+              cp "$ANTWORT" "$SEITE"
+
+              # Gehört die Seite wirklich zum Themenspeicher? Streng prüfen: Auch eine Seite ohne
+              # übergeordnete Datenbank (normale Unterseite, Workspace-Seite) wird abgewiesen – sonst
+              # würde Schritt 4 am Ende eine fremde Seite verändern. Mit Notion-Version 2025-09-03
+              # nennt parent bei Datenbankseiten immer data_source_id und database_id.
+              elternteil="$(jq -r '.parent.data_source_id // .parent.database_id // ""' "$SEITE")"
+              elterntyp="$(jq -r '.parent.type // "unbekannt"' "$SEITE")"
+              if [ "$elternteil" != "$NOTION_DATA_SOURCE_ID" ] && [ "$elternteil" != "$NOTION_DATABASE_ID" ]; then
+                echo "::error title=Fachartikel::Die Notion-Seite ${seite_id} gehört nicht zum Themenspeicher Fachartikel (übergeordnet: ${elternteil:-keine Datenbank}, Typ ${elterntyp}). Bitte den Link einer Themenseite aus dem Themenspeicher angeben."
+                exit 1
+              fi
+              if [ "$(jq -r '.archived // false' "$SEITE")" = "true" ] || [ "$(jq -r '.in_trash // false' "$SEITE")" = "true" ]; then
+                echo "::error title=Fachartikel::Die Notion-Seite ${seite_id} ist archiviert bzw. im Papierkorb."
+                exit 1
+              fi
+
+            elif [ "$modus" = "notion_titel" ]; then
+              # ----- Seite über den Titel suchen: erst exakt, dann eindeutiger Teiltreffer -----
+              echo "Suche im Themenspeicher nach dem Titel „${seite_titel}“ …"
+              body="$(jq -cn --arg t "$seite_titel" '{filter: {property: "Thema", title: {equals: $t}}, page_size: 25}')"
+              status="$(notion_api POST "/data_sources/${NOTION_DATA_SOURCE_ID}/query" "$body")"
+              notion_pruefen "$status" "Thema per Titel suchen (exakt)"
+              anzahl="$(jq -r '(.results // []) | length' "$ANTWORT")"
+              trefferart="exakt"
+              if [ "$anzahl" -eq 0 ]; then
+                body="$(jq -cn --arg t "$seite_titel" '{filter: {property: "Thema", title: {contains: $t}}, page_size: 25}')"
+                status="$(notion_api POST "/data_sources/${NOTION_DATA_SOURCE_ID}/query" "$body")"
+                notion_pruefen "$status" "Thema per Titel suchen (Teiltreffer)"
+                anzahl="$(jq -r '(.results // []) | length' "$ANTWORT")"
+                trefferart="Teiltreffer"
+              fi
+              if [ "$anzahl" -eq 0 ]; then
+                echo "::error title=Fachartikel::Kein Thema mit dem Titel „${seite_titel}“ im Themenspeicher gefunden. Tipp: in Notion die Seite des Themas öffnen und deren Link in notion_seite einfügen."
+                exit 1
+              fi
+              if [ "$anzahl" -gt 1 ]; then
+                # Die Trefferliste gehört zum Redaktionsplan und steht deshalb nur im Debug-Log.
+                if [ "${RUNNER_DEBUG:-}" = "1" ]; then
+                  echo "::group::Treffer für „${seite_titel}“ (${trefferart})"
+                  jq -r '.results[] | "\([.properties.Thema.title[]?.plain_text] | join("")) [\(.properties.Status.select.name // "ohne Status")]"' "$ANTWORT" | fremd
+                  echo "::endgroup::"
+                fi
+                echo "::error title=Fachartikel::Der Titel „${seite_titel}“ ist nicht eindeutig (${trefferart}, mindestens ${anzahl} Seiten). Bitte den exakten Titel oder – am sichersten – den Notion-Link der Seite angeben."
+                exit 1
+              fi
+              jq -c '.results[0]' "$ANTWORT" > "$SEITE"
+              seite_id="$(jq -r '.id' "$SEITE")"
+              if [ "$trefferart" = "Teiltreffer" ]; then
+                gefunden="$(einzeilig "$(jq -r '[.properties.Thema.title[]?.plain_text] | join("")' "$SEITE")")"
+                echo "::warning title=Fachartikel::Kein exakter Titel „${seite_titel}“ – genau ein Thema enthält den Text und wird verwendet: „${gefunden}“"
+              fi
+              echo "Gefunden: Seite ${seite_id} (${trefferart})"
+
+            else
+              # ----- Nächstes offenes Thema: Status Idee oder Gliederung, noch ohne Entwurfs-PR -----
+              # Die Bedingung „Entwurf (PR) ist leer“ verhindert doppelte Artikel: Scheitert der Agent,
+              # nachdem der PR schon offen ist, bleibt der Status auf „Idee“, aber der PR-Link steht drin.
+              echo "Frage offene Themen (Status Idee/Gliederung, ohne Entwurfs-PR) ab …"
+              abfrage='{"filter":{"and":[{"or":[{"property":"Status","select":{"equals":"Idee"}},{"property":"Status","select":{"equals":"Gliederung"}}]},{"property":"Entwurf (PR)","url":{"is_empty":true}}]},"sorts":[{"timestamp":"created_time","direction":"ascending"}],"page_size":100}'
+              cursor=""
+              seiten_zaehler=0
+              while :; do
+                if [ -n "$cursor" ]; then
+                  body="$(jq -c --arg c "$cursor" '. + {start_cursor: $c}' <<< "$abfrage")"
+                else
+                  body="$abfrage"
+                fi
+                status="$(notion_api POST "/data_sources/${NOTION_DATA_SOURCE_ID}/query" "$body")"
+                notion_pruefen "$status" "Themenspeicher abfragen"
+                jq -c '.results[]?' "$ANTWORT" >> "$KANDIDATEN"
+                seiten_zaehler=$((seiten_zaehler + 1))
+                if [ "$(jq -r '.has_more // false' "$ANTWORT")" != "true" ]; then break; fi
+                cursor="$(jq -r '.next_cursor // ""' "$ANTWORT")"
+                if [ -z "$cursor" ] || [ "$seiten_zaehler" -ge 20 ]; then break; fi
+              done
+
+              anzahl="$(jq -s 'length' "$KANDIDATEN")"
+              if [ "$anzahl" -eq 0 ]; then
+                echo "::error title=Fachartikel::Keine offenen Themen im Themenspeicher (Status „Idee“ oder „Gliederung“ und Feld „Entwurf (PR)“ leer). In Notion ein Thema anlegen oder ein manuelles Thema eingeben."
+                exit 1
+              fi
+
+              # Die vollständige Reihenfolge ist der Redaktionsplan – im öffentlichen Log nur bei
+              # eingeschaltetem Debug-Logging („Re-run jobs“ → „Enable debug logging“).
+              if [ "${RUNNER_DEBUG:-}" = "1" ]; then
+                echo "::group::Offene Themen in Auswahlreihenfolge (nur im Debug-Log, max. 15)"
+                jq -r -s "$JQ_RANG"'
+                  sort_by(rang, .created_time)
+                  | to_entries
+                  | (.[:15][] | "\(.key + 1). [\(.value.properties["Priorität"].select.name // "ohne Priorität")] \(.value.properties.Status.select.name // "?") – \([.value.properties.Thema.title[]?.plain_text] | join(""))"),
+                    (if length > 15 then "… und \(length - 15) weitere" else empty end)
+                ' "$KANDIDATEN" | fremd
+                echo "::endgroup::"
+              fi
+
+              jq -c -s "$JQ_RANG"' sort_by(rang, .created_time) | .[0]' "$KANDIDATEN" > "$SEITE"
+              seite_id="$(jq -r '.id' "$SEITE")"
+              echo "Gewählt: Seite ${seite_id} – 1 von ${anzahl} offenen Themen (Priorität Hoch → Mittel → Später, dann älteste zuerst)"
+            fi
+
+            # ----- Eigenschaften der gewählten Seite auslesen -----
+            notion_id="$(jq -r '.id' "$SEITE")"
+            notion_url="$(einzeilig "$(jq -r '.url // ""' "$SEITE")")"
+            thema="$(einzeilig "$(jq -r '[.properties.Thema.title[]?.plain_text] | join("")' "$SEITE")")"
+            kernfrage="$(einzeilig "$(jq -r '[.properties.Kernfrage.rich_text[]?.plain_text] | join("")' "$SEITE")")"
+            format="$(jq -r '.properties.Format.select.name // ""' "$SEITE")"
+            kategorie="$(jq -r '.properties.Kategorie.select.name // ""' "$SEITE")"
+            zielgruppe="$(jq -r '[.properties.Zielgruppe.multi_select[]?.name] | join(", ")' "$SEITE")"
+            leistung="$(jq -r '[.properties.Leistung.multi_select[]?.name] | join(", ")' "$SEITE")"
+            prioritaet="$(jq -r '.properties["Priorität"].select.name // ""' "$SEITE")"
+            notion_status="$(jq -r '.properties.Status.select.name // ""' "$SEITE")"
+            vorhandener_pr="$(einzeilig "$(jq -r '.properties["Entwurf (PR)"].url // ""' "$SEITE")")"
+
+            if [ -z "$thema" ]; then
+              echo "::error title=Fachartikel::Die Notion-Seite ${notion_id} hat keinen Titel (Eigenschaft „Thema“ leer)."
+              exit 1
+            fi
+            case "$notion_status" in
+              Idee|Gliederung) ;;
+              "") echo "::warning title=Fachartikel::Die Seite hat keinen Status. Es wird trotzdem ein Entwurf erstellt." ;;
+              *)  echo "::warning title=Fachartikel::Die Seite hat den Status „${notion_status}“ (nicht Idee/Gliederung). Auf ausdrücklichen Wunsch wird trotzdem ein Entwurf erstellt; der Status wird am Ende nicht zurückgesetzt." ;;
+            esac
+            if [ -n "$vorhandener_pr" ]; then
+              echo "::warning title=Fachartikel::Für diese Seite ist bereits ein Entwurfs-PR eingetragen (${vorhandener_pr}). Es entsteht ein weiterer Entwurf; der Eintrag in Notion wird am Ende überschrieben."
+            fi
+
+            # ----- Übersteuerung durch Formulareingaben -----
+            if [ -n "$INPUT_KATEGORIE" ] && [ "$INPUT_KATEGORIE" != "aus Notion" ] && [ "$INPUT_KATEGORIE" != "$kategorie" ]; then
+              echo "::notice title=Fachartikel::Kategorie übersteuert: Notion „${kategorie:-leer}“ → Formular „${INPUT_KATEGORIE}“"
+              kategorie="$INPUT_KATEGORIE"
+            fi
+            if [ -n "$INPUT_FORMAT" ] && [ "$INPUT_FORMAT" != "aus Notion" ] && [ "$INPUT_FORMAT" != "$format" ]; then
+              echo "::notice title=Fachartikel::Format übersteuert: Notion „${format:-leer}“ → Formular „${INPUT_FORMAT}“"
+              format="$INPUT_FORMAT"
+            fi
+            if [ -n "$INPUT_ZIELGRUPPE" ] && [ "$INPUT_ZIELGRUPPE" != "aus Notion" ] && [ "$INPUT_ZIELGRUPPE" != "$zielgruppe" ]; then
+              echo "::notice title=Fachartikel::Zielgruppe übersteuert: Notion „${zielgruppe:-leer}“ → Formular „${INPUT_ZIELGRUPPE}“"
+              zielgruppe="$INPUT_ZIELGRUPPE"
+            fi
+
+            # ----- Seitenkörper (Notizen/Gliederung) als Klartext lesen -----
+            echo "Lese Seiteninhalt von ${notion_id} …"
+            cursor=""
+            seiten_zaehler=0
+            while :; do
+              pfad="/blocks/${notion_id}/children?page_size=100"
+              if [ -n "$cursor" ]; then pfad="${pfad}&start_cursor=${cursor}"; fi
+              status="$(notion_api GET "$pfad")"
+              notion_pruefen "$status" "Seiteninhalt lesen"
+              jq -c '.results[]?' "$ANTWORT" >> "$BLOECKE"
+              seiten_zaehler=$((seiten_zaehler + 1))
+              if [ "$(jq -r '.has_more // false' "$ANTWORT")" != "true" ]; then break; fi
+              cursor="$(jq -r '.next_cursor // ""' "$ANTWORT")"
+              if [ -z "$cursor" ] || [ "$seiten_zaehler" -ge 20 ]; then break; fi
+            done
+
+            # Blöcke der obersten Ebene zu Markdown-ähnlichem Klartext. Unterblöcke (eingerückte
+            # Aufzählungen, Inhalt von Aufklappern, Tabellenzeilen, Spalten) werden nicht gelesen;
+            # betroffene Zeilen bekommen einen sichtbaren Vermerk, und unten folgt eine Warnung.
+            # Link-Ziele aus dem Text bleiben erhalten („Text (https://…)“).
+            if ! notizen="$(jq -r '
+              def txt: . as $b
+                | [ ($b[$b.type].rich_text // [])[]
+                    | (.plain_text // "") as $p
+                    | (.href // "") as $h
+                    | if $h != "" and $h != $p then $p + " (" + $h + ")" else $p end ]
+                | join("");
+              def marke: if .has_children == true then " […Unterpunkte in Notion, nicht übernommen]" else "" end;
+              def zeile(p): p + txt + marke;
+              .type as $t
+              | if   $t == "heading_1"          then zeile("# ")
+                elif $t == "heading_2"          then zeile("## ")
+                elif $t == "heading_3"          then zeile("### ")
+                elif $t == "bulleted_list_item" then zeile("- ")
+                elif $t == "numbered_list_item" then zeile("1. ")
+                elif $t == "toggle"             then zeile("- ")
+                elif $t == "to_do"              then zeile(if .to_do.checked == true then "- [x] " else "- [ ] " end)
+                elif $t == "quote"              then zeile("> ")
+                elif $t == "callout"            then zeile("> ")
+                elif $t == "paragraph"          then zeile("")
+                elif $t == "code"               then "```\n" + txt + "\n```"
+                elif $t == "divider"            then "---"
+                elif $t == "child_page"         then "[Unterseite: " + (.child_page.title // "") + "]"
+                elif $t == "child_database"     then "[Eingebettete Datenbank: " + (.child_database.title // "") + " – nicht übernommen]"
+                elif $t == "table"              then "[Tabelle in Notion – nicht übernommen]"
+                elif ($t == "bookmark" or $t == "embed" or $t == "link_preview") then (.[$t].url // "")
+                elif .has_children == true      then "[" + $t + " in Notion – Inhalt liegt in Unterblöcken und wird nicht übernommen]"
+                else empty
+                end
+            ' "$BLOECKE" 2>"$JQFEHLER")"; then
+              echo "::warning title=Fachartikel::Seiteninhalt konnte nicht konvertiert werden (jq-Fehler) – die Notizen aus Notion fehlen in der Auftragsdatei. Bitte die Notion-Seite prüfen."
+              echo "| jq: $(head -c 1000 "$JQFEHLER" 2>/dev/null | tr '\r\n' '  ' || true)"
+              notizen=""
+            fi
+            bloecke_anzahl="$(jq -s 'length' "$BLOECKE")"
+            notizen_woerter="$(printf '%s' "$notizen" | wc -w | tr -d ' ')"
+            mit_unterpunkten="$(jq -s '[ .[] | select(.has_children == true and .type != "child_page" and .type != "child_database") ] | length' "$BLOECKE")"
+            if [ "$mit_unterpunkten" -gt 0 ]; then
+              echo "::warning title=Fachartikel::${mit_unterpunkten} Block/Blöcke der Notion-Seite haben Unterpunkte (eingerückte Aufzählungen, Aufklapper, Tabellen, Spalten). Unterpunkte werden nicht übernommen – bitte in Notion auf die oberste Ebene ziehen, wenn sie in den Artikel einfließen sollen."
+            fi
+          fi
+
+          # ---------- Pflichtfelder prüfen ----------
+          fehlt=""
+          [ -n "$kategorie" ]  || fehlt="${fehlt} Kategorie"
+          [ -n "$format" ]     || fehlt="${fehlt} Format"
+          [ -n "$zielgruppe" ] || fehlt="${fehlt} Zielgruppe"
+          if [ -n "$fehlt" ]; then
+            echo "::error title=Fachartikel::Pflichtfeld(er) leer:${fehlt}. In Notion an der Seite pflegen oder im Formular wählen (Übersteuerung)."
+            exit 1
+          fi
+          if [ -z "$notizen" ]; then notizen="(keine)"; fi
+
+          # ---------- Auftragsdatei exakt nach Vertrag schreiben ----------
+          {
+            printf '# Auftrag Fachartikel\n'
+            printf 'thema: %s\n'      "$thema"
+            printf 'kernfrage: %s\n'  "$kernfrage"
+            printf 'kategorie: %s\n'  "$kategorie"
+            printf 'format: %s\n'     "$format"
+            printf 'zielgruppe: %s\n' "$zielgruppe"
+            printf 'leistung: %s\n'   "$leistung"
+            printf 'prioritaet: %s\n' "$prioritaet"
+            printf 'notion_id: %s\n'  "$notion_id"
+            printf 'notion_url: %s\n' "$notion_url"
+            printf 'quelle: %s\n'     "$quelle"
+            printf '\n## Notizen aus Notion\n'
+            printf '%s\n' "$notizen"
+          } > "$AUFTRAG"
+
+          # ---------- Zusammenfassung ins Log (ohne Token, ohne Notizen) ----------
+          # Jede Zeile beginnt mit einem festen Etikett; die Werte sind einzeilig.
+          echo "::group::Gewähltes Thema"
+          printf '%-12s %s\n' "Quelle:"     "$quelle"
+          printf '%-12s %s\n' "Thema:"      "$thema"
+          printf '%-12s %s\n' "Kernfrage:"  "${kernfrage:--}"
+          printf '%-12s %s\n' "Kategorie:"  "$kategorie"
+          printf '%-12s %s\n' "Format:"     "$format"
+          printf '%-12s %s\n' "Zielgruppe:" "$zielgruppe"
+          printf '%-12s %s\n' "Leistung:"   "${leistung:--}"
+          printf '%-12s %s\n' "Priorität:"  "${prioritaet:--}"
+          printf '%-12s %s\n' "Status:"     "${notion_status:--}"
+          printf '%-12s %s\n' "Notion-ID:"  "${notion_id:--}"
+          printf '%-12s %s\n' "Notion-URL:" "${notion_url:--}"
+          printf '%-12s %s\n' "Auftrag:"    "$AUFTRAG"
+          printf '%-12s %s\n' "Notizen:"    "${bloecke_anzahl} Block/Blöcke, ${notizen_woerter} Wörter – stehen nur in der Auftragsdatei, nicht im Log"
+          echo "::endgroup::"
+
+          # Kurzfassung in die Job-Zusammenfassung (Pipes maskieren, damit die Tabelle hält)
+          m() { printf '%s' "$1" | sed 's/|/\\|/g'; }
+          {
+            echo "## Fachartikel-Entwurf – gewähltes Thema"
+            echo ""
+            echo "| Feld | Wert |"
+            echo "|---|---|"
+            echo "| Quelle | $(m "$quelle") |"
+            echo "| Thema | $(m "$thema") |"
+            echo "| Kernfrage | $(m "${kernfrage:--}") |"
+            echo "| Kategorie | $(m "$kategorie") |"
+            echo "| Format | $(m "$format") |"
+            echo "| Zielgruppe | $(m "$zielgruppe") |"
+            echo "| Leistung | $(m "${leistung:--}") |"
+            echo "| Priorität | $(m "${prioritaet:--}") |"
+            if [ -n "$notion_url" ]; then echo "| Notion | [Seite öffnen](${notion_url}) |"; fi
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          # ---------- Outputs für die folgenden Schritte ----------
+          ausgabe thema               "$thema"
+          ausgabe kernfrage           "$kernfrage"
+          ausgabe kategorie           "$kategorie"
+          ausgabe format              "$format"
+          ausgabe zielgruppe          "$zielgruppe"
+          ausgabe leistung            "$leistung"
+          ausgabe prioritaet          "$prioritaet"
+          ausgabe notion_id           "$notion_id"
+          ausgabe notion_url          "$notion_url"
+          ausgabe notion_status       "$notion_status"
+          ausgabe quelle              "$quelle"
+          ausgabe auftrag_pfad        "$AUFTRAG"
+          ausgabe auftrag_verzeichnis "$AGENTDIR"
+
+      # -----------------------------------------------------------------
+      # 3. Entwurf schreiben lassen (Claude Code, Skill /fachartikel)
+      #    Auf Commit-SHA festgelegt (v1.0.231 = Stand des Tags v1 am
+      #    19.09.2026). Aktualisierung über Dependabot.
+      # -----------------------------------------------------------------
       - name: Entwurf schreiben lassen
-        uses: anthropics/claude-code-action@v1
+        id: claude
+        timeout-minutes: 50   # lässt dem Abschluss-Schritt Zeit innerhalb der 60 Job-Minuten
+        uses: anthropics/claude-code-action@cfc3eb22bfed5c26ef66e3223c982af27e4524de # v1.0.231
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Ausdrücke unter with: sind kein Shell-Kontext – die Werte werden als Text übergeben.
           prompt: |
             /fachartikel
-            Thema: ${{ inputs.thema }}
-            Kategorie: ${{ inputs.kategorie }}
-            Format: ${{ inputs.format }}
-            Zielgruppe: ${{ inputs.zielgruppe }}
+            Auftragsdatei: ${{ steps.thema.outputs.auftrag_pfad }}
+            Lies die Auftragsdatei zuerst vollständig; sie enthält die Notizen/Gliederung aus Notion, die als Vorgabe gelten.
+            Thema: ${{ steps.thema.outputs.thema }}
+            Kernfrage: ${{ steps.thema.outputs.kernfrage }}
+            Kategorie: ${{ steps.thema.outputs.kategorie }}
+            Format: ${{ steps.thema.outputs.format }}
+            Zielgruppe: ${{ steps.thema.outputs.zielgruppe }}
+            Leistung: ${{ steps.thema.outputs.leistung }}
+            Priorität: ${{ steps.thema.outputs.prioritaet }}
+            Notion-ID: ${{ steps.thema.outputs.notion_id }}
+            Notion-URL: ${{ steps.thema.outputs.notion_url }}
+            Quelle: ${{ steps.thema.outputs.quelle }}
+          # --add-dir: Zugriff auf das Verzeichnis der Auftragsdatei außerhalb des Repos. Es enthält
+          #   nur auftrag.md (und später pr-body.md des Agenten), keine Zwischenstände aus Notion.
+          #   Pfad des Runners, ohne Leerzeichen, daher ohne Anführungszeichen; die nächste Option
+          #   beendet die Pfadliste.
+          # --allowedTools: bewusst redundant zur SKILL.md (Frontmatter allowed-tools), damit der
+          #   Workflow auch dann läuft, wenn die Skill-Datei einmal abweicht. Web nur zur Quellenprüfung.
+          #   „git config“ fehlt absichtlich (siehe Schritt „Git-Identität setzen“) und darf auch in
+          #   der SKILL.md nicht freigegeben werden.
           claude_args: |
-            --max-turns 30
+            --max-turns 80
             --model claude-opus-5
+            --add-dir ${{ steps.thema.outputs.auftrag_verzeichnis }}
+            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*)"
+
+      # -----------------------------------------------------------------
+      # 4. Notion aktualisieren. Läuft auch, wenn der Agent-Schritt scheitert:
+      #    Ein bereits geöffneter PR wird dann in Notion vermerkt, der Status
+      #    aber NICHT auf „Entwurf“ gesetzt (der Entwurf kann unvollständig sein).
+      # -----------------------------------------------------------------
+      - name: Notion aktualisieren (PR-Link, bei Erfolg Status Entwurf)
+        id: notion
+        if: always() && steps.thema.outcome == 'success'
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          QUELLE: ${{ steps.thema.outputs.quelle }}
+          THEMA: ${{ steps.thema.outputs.thema }}
+          NOTION_ID: ${{ steps.thema.outputs.notion_id }}
+          NOTION_URL: ${{ steps.thema.outputs.notion_url }}
+          NOTION_STATUS_VORHER: ${{ steps.thema.outputs.notion_status }}
+          JOBSTART: ${{ steps.start.outputs.zeit }}
+          AGENT_ERGEBNIS: ${{ steps.claude.outcome }}
+        # ACHTUNG: Auch hier keine Ausdrücke in doppelten geschweiften Klammern ins Skript – nur über env:.
+        run: |
+          set -euo pipefail
+
+          ARBEIT="${RUNNER_TEMP}/fachartikel-abschluss"
+          rm -rf -- "$ARBEIT"
+          mkdir -p "$ARBEIT"
+          trap 'rm -rf -- "$ARBEIT"' EXIT
+          ANTWORT="${ARBEIT}/notion-update-antwort.json"
+          FEHLER="${ARBEIT}/fehler.txt"
+          : > "$ANTWORT"; : > "$FEHLER"
+
+          NOTION_TOKEN="$(printf '%s' "${NOTION_TOKEN:-}" | tr -d '[:space:]')"
+
+          # Fremdinhalt nie roh ausgeben (siehe Schritt 2).
+          fremd() { sed 's/^/| /'; }
+
+          # Hinweis für das manuelle Nachtragen – nur, wenn es eine Notion-Seite gibt.
+          nachtragen=""
+          if [ "$QUELLE" = "notion" ] && [ -n "$NOTION_ID" ]; then
+            nachtragen=" Notion wurde nicht verändert – bitte die Seite ${NOTION_URL:-$NOTION_ID} von Hand nachtragen."
+          fi
+
+          echo "Ergebnis des Agent-Schritts: ${AGENT_ERGEBNIS}"
+
+          # ---------- Pull-Request-Liste abrufen (mit Wiederholung) ----------
+          # Ein Fehler von gh ist etwas anderes als „kein PR“: Sonst bliebe Notion auf „Idee“,
+          # der Lauf wäre grün, und der nächste Lauf würde dasselbe Thema noch einmal schreiben.
+          pr_liste=""
+          gh_ok="false"
+          for versuch in 1 2 3; do
+            if pr_liste="$(gh pr list --repo "$GITHUB_REPOSITORY" --state all --limit 100 \
+                             --json number,url,title,headRefName,createdAt 2>"$FEHLER")" \
+               && jq -e 'type == "array"' >/dev/null 2>&1 <<< "$pr_liste"; then
+              gh_ok="true"
+              break
+            fi
+            echo "gh pr list fehlgeschlagen (Versuch ${versuch} von 3)."
+            if [ "$versuch" -lt 3 ]; then sleep 5; fi
+          done
+          if [ "$gh_ok" != "true" ]; then
+            echo "::error title=Fachartikel::Die Liste der Pull Requests ist nicht abrufbar ($(head -c 300 "$FEHLER" | tr '\r\n' '  ')). Bitte unter „Pull requests“ nachsehen, ob ein Entwurf entstanden ist.${nachtragen}"
+            {
+              echo "## Ergebnis"
+              echo ""
+              echo "Die Liste der Pull Requests war nicht abrufbar (Agent-Schritt: ${AGENT_ERGEBNIS}).${nachtragen}"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+          # ---------- Pull Request dieses Laufs suchen ----------
+          # Nur PRs, die nach dem Jobstart erstellt wurden. Bevorzugt Branch entwurf/*; hat der Agent
+          # den Branch anders benannt, zählt ersatzweise ein PR, dessen Titel mit „Entwurf“ beginnt
+          # oder das Thema enthält. Bei mehreren gewinnt der mit dem Thema im Titel, sonst der neueste.
+          thema_klein="$(printf '%s' "$THEMA" | tr '[:upper:]' '[:lower:]')"
+          pr="$(jq -c --arg start "$JOBSTART" --arg thema "$thema_klein" '
+            [ .[] | select(.createdAt >= $start) ] as $neu
+            | [ $neu[] | select((.headRefName // "") | startswith("entwurf/")) ] as $entwurf
+            | [ $neu[] | select(((.title // "") | ascii_downcase) as $t
+                                | ($t | startswith("entwurf")) or ($thema != "" and ($t | contains($thema)))) ] as $ersatz
+            | (if ($entwurf | length) > 0 then $entwurf else $ersatz end)
+            | sort_by(.createdAt) | reverse
+            | ([ .[] | select(((.title // "") | ascii_downcase) | contains($thema)) ] + .)
+            | .[0] // empty
+          ' <<< "$pr_liste")"
+
+          if [ -z "$pr" ]; then
+            {
+              echo "## Ergebnis"
+              echo ""
+              echo "Kein Pull Request entstanden (Agent-Schritt: ${AGENT_ERGEBNIS}). Notion wurde nicht verändert."
+            } >> "$GITHUB_STEP_SUMMARY"
+            if [ "$AGENT_ERGEBNIS" = "success" ]; then
+              echo "::error title=Fachartikel::Der Agent meldete Erfolg, aber es existiert kein Pull Request aus diesem Lauf (erstellt nach ${JOBSTART}). Mögliche Ursachen: Text zu kurz und deshalb nicht committet, Push abgelehnt, Duplikat erkannt – die Abschlussmeldung des Agenten im Schritt „Entwurf schreiben lassen“ nennt den Grund. Notion bleibt unverändert."
+              exit 1
+            fi
+            echo "::warning title=Fachartikel::Kein Pull Request aus diesem Lauf gefunden (erstellt nach ${JOBSTART}). Agent-Schritt: ${AGENT_ERGEBNIS}. Notion bleibt unverändert."
+            exit 0
+          fi
+
+          pr_nummer="$(jq -r '.number' <<< "$pr")"
+          pr_url="$(jq -r '.url' <<< "$pr")"
+          pr_branch="$(jq -r '.headRefName' <<< "$pr")"
+          pr_titel="$(jq -r '.title' <<< "$pr" | tr '\r\n' '  ')"
+          echo "Pull Request gefunden: #${pr_nummer} „${pr_titel}“ (Branch ${pr_branch}) – ${pr_url}"
+          case "$pr_branch" in
+            entwurf/*) ;;
+            *) echo "::warning title=Fachartikel::Der Pull Request #${pr_nummer} liegt nicht auf einem Branch entwurf/* (sondern „${pr_branch}“). Er wurde über Titel und Zeitpunkt zugeordnet – bitte prüfen, ob es der richtige ist." ;;
+          esac
+
+          # ---------- Manuelles Thema: nichts zu aktualisieren ----------
+          if [ "$QUELLE" != "notion" ] || [ -z "$NOTION_ID" ]; then
+            echo "::notice title=Fachartikel::Manuelles Thema – keine Notion-Seite zu aktualisieren. PR: ${pr_url}"
+            {
+              echo "## Ergebnis"
+              echo ""
+              echo "- Pull Request: [#${pr_nummer} ${pr_titel}](${pr_url})"
+              echo "- Notion: nicht aktualisiert (manuelles Thema)"
+              echo "- Agent-Schritt: ${AGENT_ERGEBNIS}"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # ---------- Was wird in Notion gesetzt? ----------
+          # Datum in Berliner Zeit (Datum ohne Uhrzeit, wie das Notion-Feld).
+          heute="$(TZ=Europe/Berlin date +%F)"
+          status_setzen="true"
+          datum_setzen="true"
+          case "$NOTION_STATUS_VORHER" in
+            Idee|Gliederung|Entwurf|"") ;;
+            *)
+              # Status wie „Fachlich geprüft“ oder „Veröffentlicht“ nicht zurücksetzen.
+              status_setzen="false"
+              echo "::warning title=Fachartikel::Status der Notion-Seite bleibt „${NOTION_STATUS_VORHER}“ (wird nicht auf „Entwurf“ zurückgesetzt)." ;;
+          esac
+          # Gescheiterter Agent (max-turns, Timeout, Abbruch, API-Fehler): Der PR kann einen halbfertigen
+          # Text enthalten. Dann weder Status noch Datum setzen, nur den PR-Link als Spur.
+          if [ "$AGENT_ERGEBNIS" != "success" ]; then
+            status_setzen="false"
+            datum_setzen="false"
+            echo "::warning title=Fachartikel::Der Agent-Schritt endete mit „${AGENT_ERGEBNIS}“ – der Status in Notion bleibt „${NOTION_STATUS_VORHER:-leer}“, eingetragen wird nur der PR-Link. Bitte den PR ${pr_url} prüfen: Ist der Entwurf brauchbar, den Status in Notion von Hand auf „Entwurf“ setzen. Soll das Thema neu geschrieben werden, den PR schließen und in Notion das Feld „Entwurf (PR)“ leeren – erst dann wählt die Automatik das Thema wieder."
+          fi
+
+          # Text für das manuelle Nachtragen, passend zu dem, was gesetzt werden sollte.
+          soll="Entwurf (PR) = ${pr_url}"
+          if [ "$datum_setzen" = "true" ]; then soll="${soll}, Entwurf erstellt = ${heute}"; fi
+          if [ "$status_setzen" = "true" ]; then soll="Status „Entwurf“, ${soll}"; fi
+
+          if [ -z "$NOTION_TOKEN" ]; then
+            echo "::error title=Fachartikel::NOTION_TOKEN fehlt – Notion-Seite ${NOTION_ID} kann nicht aktualisiert werden. Der Pull Request existiert: ${pr_url}. Bitte in Notion von Hand setzen: ${soll}."
+            exit 1
+          fi
+          if [[ ! "$NOTION_TOKEN" =~ ^[A-Za-z0-9_-]+$ ]]; then
+            echo "::error title=Fachartikel::Secret NOTION_TOKEN enthält unerwartete Zeichen – Notion-Seite ${NOTION_ID} kann nicht aktualisiert werden. Bitte in Notion von Hand setzen: ${soll}."
+            exit 1
+          fi
+
+          body="$(jq -n -c --arg url "$pr_url" --arg datum "$heute" \
+                    --argjson s "$status_setzen" --argjson d "$datum_setzen" '
+            { properties: (
+                { "Entwurf (PR)": { url: $url } }
+                + (if $d then { "Entwurf erstellt": { date: { start: $datum } } } else {} end)
+                + (if $s then { "Status": { select: { name: "Entwurf" } } } else {} end)
+              ) }
+          ')"
+
+          # ---------- Notion-Seite aktualisieren ----------
+          # curl wiederholt 429/5xx selbst. 409 (Konflikt, bei PATCH gelegentlich) und Verbindungsabbrüche
+          # werden hier bis zu zweimal nachgeholt – der PATCH ist idempotent.
+          # Der Authorization-Header kommt über stdin, damit der Token nicht in der Prozessliste steht.
+          status="000"
+          for versuch in 1 2 3; do
+            : > "$ANTWORT"
+            status="$(curl -sS --max-time 60 --retry 3 --retry-delay 3 \
+                        -o "$ANTWORT" -w '%{http_code}' -X PATCH \
+                        -H "Notion-Version: ${NOTION_VERSION}" \
+                        -H "Content-Type: application/json" \
+                        --data "$body" -K - \
+                        "https://api.notion.com/v1/pages/${NOTION_ID}" 2>"$FEHLER" \
+                        <<< "header = \"Authorization: Bearer ${NOTION_TOKEN}\"")" || true
+            status="${status: -3}"
+            status="${status:-000}"
+            if [ "$status" = "409" ] || [ "$status" = "000" ]; then
+              if [ "$versuch" -lt 3 ]; then
+                echo "Notion antwortete mit HTTP ${status} – neuer Versuch in 3 Sekunden (${versuch} von 3)."
+                sleep 3
+                continue
+              fi
+            fi
+            break
+          done
+
+          case "$status" in
+            2[0-9][0-9])
+              neuer_status="$(jq -r '.properties.Status.select.name // "?"' "$ANTWORT" 2>/dev/null | tr '\r\n' '  ' || echo "?")"
+              gesetzt="PR-Link"
+              if [ "$datum_setzen" = "true" ]; then gesetzt="${gesetzt} und Datum ${heute}"; fi
+              echo "::notice title=Fachartikel::Notion aktualisiert: ${gesetzt} eingetragen, Status jetzt „${neuer_status}“. PR: ${pr_url}"
+              {
+                echo "## Ergebnis"
+                echo ""
+                echo "- Pull Request: [#${pr_nummer} ${pr_titel}](${pr_url})"
+                echo "- Notion: [Seite](${NOTION_URL}) – ${gesetzt} eingetragen, Status „${neuer_status}“"
+                echo "- Agent-Schritt: ${AGENT_ERGEBNIS}"
+                if [ "$AGENT_ERGEBNIS" != "success" ]; then
+                  echo "- **Achtung:** Der Agent ist nicht sauber fertig geworden. Der Entwurf kann unvollständig sein; der Status in Notion wurde deshalb nicht auf „Entwurf“ gesetzt."
+                fi
+              } >> "$GITHUB_STEP_SUMMARY"
+              ;;
+            *)
+              echo "::group::Notion-Antwort (Seite aktualisieren, HTTP ${status})"
+              if [ -s "$ANTWORT" ]; then
+                if jq -e 'type == "object" and has("code")' "$ANTWORT" >/dev/null 2>&1; then
+                  jq -r '"code: \(.code // "?")", "message: \(.message // "?")"' "$ANTWORT" | fremd
+                else
+                  echo "| $(head -c 500 "$ANTWORT" | tr '\r\n' '  ')"
+                fi
+              fi
+              if [ -s "$FEHLER" ]; then echo "| curl: $(head -c 1000 "$FEHLER" | tr '\r\n' '  ')"; fi
+              echo "::endgroup::"
+              case "$status" in
+                400) grund="Anfrage abgelehnt – meist fehlt in Notion die Eigenschaft „Entwurf (PR)“, „Entwurf erstellt“ oder „Status“, oder sie heißt anders" ;;
+                401) grund="NOTION_TOKEN ungültig, widerrufen oder unvollständig eingefügt" ;;
+                403) grund="die Integration ist nicht mit dem Themenspeicher verbunden, oder ihr fehlt die Fähigkeit „Inhalte aktualisieren“ (notion.so/profile/integrations)" ;;
+                404) grund="Seite gelöscht oder für die Integration nicht freigegeben" ;;
+                409) grund="Konflikt – die Seite wurde gleichzeitig bearbeitet" ;;
+                429) grund="Rate-Limit, auch nach Wiederholungen" ;;
+                000) grund="keine Verbindung zu Notion (Netzwerk/Timeout)" ;;
+                *)   grund="unerwarteter Fehler" ;;
+              esac
+              echo "::error title=Fachartikel::Notion-Seite ${NOTION_ID} konnte nicht aktualisiert werden (HTTP ${status}: ${grund}). Der Pull Request existiert: ${pr_url}. Bitte in Notion von Hand setzen: ${soll}."
+              {
+                echo "## Ergebnis"
+                echo ""
+                echo "- Pull Request: [#${pr_nummer} ${pr_titel}](${pr_url})"
+                echo "- Notion: **Aktualisierung fehlgeschlagen** (HTTP ${status}: ${grund}) – bitte von Hand nachtragen: ${soll}"
+                echo "- Agent-Schritt: ${AGENT_ERGEBNIS}"
+              } >> "$GITHUB_STEP_SUMMARY"
+              exit 1
+              ;;
+          esac
+
+      # -----------------------------------------------------------------
+      # 5. Kontrolle: Wurde der Hauptzweig während des Laufs verändert?
+      #    Der Agent darf nie auf main pushen. Solange keine Branch-Protection
+      #    aktiv ist, sichert das nur der Prompt – diese Kontrolle macht einen
+      #    Verstoß wenigstens sofort sichtbar.
+      # -----------------------------------------------------------------
+      - name: Hauptzweig unverändert?
+        id: hauptzweig
+        if: always() && steps.git.outcome == 'success' && steps.git.outputs.sha != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ZWEIG: ${{ steps.git.outputs.zweig }}
+          SHA_VORHER: ${{ steps.git.outputs.sha }}
+        run: |
+          set -euo pipefail
+
+          sha_nachher="$(git ls-remote origin "refs/heads/${ZWEIG}" 2>/dev/null | cut -f1 | head -n 1 || true)"
+          if [ -z "$sha_nachher" ]; then
+            echo "Stand von ${ZWEIG} nicht abrufbar – Kontrolle übersprungen."
+            exit 0
+          fi
+          if [ "$sha_nachher" = "$SHA_VORHER" ]; then
+            echo "${ZWEIG} ist unverändert (${SHA_VORHER})."
+            exit 0
+          fi
+
+          # Wer hat den neuesten Commit auf dem Hauptzweig eingespielt? Ein Merge über die GitHub-Oberfläche
+          # hat den Committer „GitHub“; ein direkter Push des Agenten trägt die Bot-Identität.
+          # (Fehler bei der Abfrage sind nicht fatal.)
+          committer="$(gh api "repos/${GITHUB_REPOSITORY}/commits/${sha_nachher}" \
+                         --jq '.commit.committer.name' 2>/dev/null | tr '\r\n' '  ' || true)"
+          committer_klein="$(printf '%s' "$committer" | tr '[:upper:]' '[:lower:]')"
+          case "$committer_klein" in
+            *"[bot]"*|*claude*)
+              echo "::error title=Fachartikel::Der Zweig ${ZWEIG} wurde während des Laufs direkt von einem Bot verändert (${SHA_VORHER:0:7} → ${sha_nachher:0:7}, Committer: ${committer}). Der Agent darf nie auf ${ZWEIG} pushen – bitte den Commit prüfen, ggf. zurücknehmen und Branch-Protection aktivieren (Settings → Branches)."
+              exit 1
+              ;;
+            *)
+              echo "::notice title=Fachartikel::Der Zweig ${ZWEIG} hat sich während des Laufs geändert (${SHA_VORHER:0:7} → ${sha_nachher:0:7}, Committer: ${committer:-unbekannt}). Ein eigener Commit oder Merge ist unbedenklich."
+              ;;
+          esac
