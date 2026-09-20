@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import argparse
 import html
+import math
 import os
 import re
 import sys
@@ -139,6 +140,21 @@ def erste_h1_entfernen(rumpf: str) -> tuple[str, str]:
     return "\n".join(zeilen).strip("\n"), titel
 
 
+def haupttext(rumpf: str) -> str:
+    """Der Teil, den das Frontmatter-Feld ``wortzahl`` meint.
+
+    Von der H1 bis einschließlich ``## Häufige Fragen`` – ohne Hinweis,
+    Autorenkasten und Quellenverzeichnis. Fehlt die FAQ-Überschrift, wird wie
+    bisher alles gezählt; lieber zu viel als eine still halbierte Zahl.
+    """
+    marke = re.search(r"^##\s*Häufige Fragen\b.*$", rumpf, flags=re.M | re.I)
+    if not marke:
+        return rumpf
+    rest = rumpf[marke.end():]
+    ende = re.search(r"^(##\s|---\s*$|\[\^)", rest, flags=re.M)
+    return rumpf[: marke.end() + (ende.start() if ende else len(rest))]
+
+
 def woerter_zaehlen(text: str) -> int:
     ohne_code = re.sub(r"```.*?```", " ", text, flags=re.S)
     return len([w for w in re.split(r"\s+", ohne_code) if w])
@@ -158,9 +174,13 @@ def markdown_zu_html(rumpf: str) -> tuple[str, int]:
     # Kein nl2br: Im Fließtext sollen einzelne Zeilenumbrüche keine harten
     # Umbrüche erzeugen, sonst zerfällt jeder Absatz optisch in Zeilen.
     umwandler = markdown.Markdown(
-        extensions=["extra", "sane_lists"],
+        extensions=["extra", "sane_lists", "toc"],
         extension_configs={
-            "footnotes": {"BACKLINK_TITLE": "Zurück zu Fußnote %d"}
+            "footnotes": {"BACKLINK_TITLE": "Zurück zu Fußnote %d"},
+            # Eigene Kennung statt der Standardfunktion: Die wirft Umlaute
+            # ersatzlos weg, aus „Lüftungsverhalten" würde „luftungsverhalten".
+            # slug() transliteriert sie wie in der Kurzform-Konvention.
+            "toc": {"slugify": lambda wert, trenner: slug(wert), "toc_depth": "2-3"},
         },
         output_format="html5",
     )
@@ -193,7 +213,10 @@ def faq_aus_html(inhalt: str) -> list[tuple[str, str]]:
     # vor dem Autorenkasten. Offene Prüfpunkte dürfen dazwischenstehen.
     rest = re.split(r"<h[1-6]|<hr\b", teil[1], maxsplit=1)[0]
     def blank(roh: str) -> str:
-        return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", roh)).strip()
+        # Fußnotenmarken zuerst ganz entfernen. Sonst bleibt die nackte Ziffer
+        # stehen und eine Antwort endet im Markup auf „… begünstigen kann.4".
+        ohne_marken = re.sub(r"<sup\b[^>]*>.*?</sup>", "", roh, flags=re.S)
+        return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", ohne_marken)).strip()
 
     paare: list[tuple[str, str]] = []
     absaetze = re.findall(r"<p>(.*?)</p>", rest, re.S)
@@ -213,8 +236,13 @@ def faq_aus_html(inhalt: str) -> list[tuple[str, str]]:
                 offene_frage = None
             paare.append((blank(zusammen.group(1)), blank(zusammen.group(2))))
         elif offene_frage:
-            paare.append((offene_frage, blank(absatz)))
-            offene_frage = None
+            # Mehrabsätzige Antwort: weitere Absätze anhängen, statt sie zu
+            # verwerfen. Die Frage bleibt offen, bis die nächste fett gesetzte
+            # Frage beginnt.
+            if paare and paare[-1][0] == offene_frage:
+                paare[-1] = (offene_frage, (paare[-1][1] + " " + blank(absatz)).strip())
+            else:
+                paare.append((offene_frage, blank(absatz)))
     # Nur echte Fragen mit Antwort gehören ins FAQPage-Markup. Das Fragezeichen
     # hält Fettzeilen wie „Über den Autor" zuverlässig heraus.
     return [(f, a) for f, a in paare if f.endswith("?") and a]
@@ -264,12 +292,26 @@ def json_wert(wert) -> str:
 def strukturierte_daten(artikel: "Artikel") -> str:
     typ = "TechArticle" if artikel.format.lower() in FACHLICHE_FORMATE else "Article"
 
+    # Ein einziger Firmenknoten mit fester Kennung. Vorher stand dieselbe GmbH
+    # dreimal im Datensatz: einmal auf der Startseite, einmal als publisher und
+    # einmal als Arbeitgeber des Verfassers – zweimal davon ohne Kennung und
+    # unter abweichendem Namen.
+    firma_id = BASIS_URL + "/#organization"
+    firma = {"@type": "Organization", "@id": firma_id, "name": FIRMA,
+             "url": BASIS_URL + "/"}
     autor = {
         "@type": "Person",
         "name": artikel.autor,
         "jobTitle": artikel.qualifikation or None,
-        "worksFor": {"@type": "Organization", "name": FIRMA},
+        "worksFor": {"@id": firma_id},
     }
+    # about darf nur behaupten, was sichtbar auf der Seite steht. Deshalb nur,
+    # wenn der Definitionssatz wörtlich im gerenderten Text vorkommt.
+    definition_sichtbar = bool(
+        artikel.definition
+        and artikel.definition.strip() in re.sub(r"<[^>]+>", "", artikel.inhalt_html)
+    )
+    adressat = artikel.adressat or (artikel.zielgruppe[0] if artikel.zielgruppe else "")
     knoten: list[dict] = [
         {
             "@type": typ,
@@ -280,17 +322,21 @@ def strukturierte_daten(artikel: "Artikel") -> str:
             "datePublished": artikel.veroeffentlicht,
             "dateModified": artikel.geaendert,
             "author": autor,
-            "publisher": {
-                "@type": "Organization",
-                "name": FIRMA,
-                "url": BASIS_URL + "/",
-            },
+            "publisher": {"@id": firma_id},
             "mainEntityOfPage": {"@type": "WebPage", "@id": artikel.url},
             "articleSection": artikel.kategorie or None,
-            "keywords": ", ".join(artikel.schlagwoerter) or None,
+            "keywords": artikel.schlagwoerter or None,
+            "abstract": artikel.definition or None,
+            "about": ({"@type": "DefinedTerm", "name": artikel.titel,
+                       "description": artikel.definition}
+                      if definition_sichtbar else None),
+            "audience": ({"@type": "Audience", "audienceType": adressat}
+                         if adressat else None),
+            "isPartOf": {"@type": "CollectionPage", "@id": f"{BASIS_URL}/fachwissen/"},
             "wordCount": artikel.wortzahl or None,
             "isAccessibleForFree": True,
         },
+        firma,
         {
             "@type": "BreadcrumbList",
             "itemListElement": [
@@ -348,6 +394,8 @@ class Artikel:
         self.kernfrage = als_text(kopf.get("kernfrage"))
         self.zielgruppe = als_liste(kopf.get("zielgruppe"))
         self.schlagwoerter = als_liste(kopf.get("schlagwoerter"))
+        self.definition = als_text(kopf.get("definition"))
+        self.adressat = als_text(kopf.get("adressat"))
         self.status = als_text(kopf.get("status")) or "Entwurf"
 
         self.meta_beschreibung = als_text(kopf.get("meta_beschreibung"))
@@ -375,7 +423,8 @@ class Artikel:
 
         self.inhalt_html, self.todos = markdown_zu_html(self.rohtext)
         self.faq = faq_aus_html(self.inhalt_html)
-        self.wortzahl = woerter_zaehlen(self.rohtext)
+        self.wortzahl = woerter_zaehlen(haupttext(self.rohtext))
+        self.wortzahl_gesamt = woerter_zaehlen(self.rohtext)
 
     @property
     def freigegeben(self) -> bool:
@@ -403,7 +452,120 @@ class Artikel:
 
     @property
     def lesezeit(self) -> int:
-        return max(1, round(self.wortzahl / 200))
+        # Der Skill verlangt Aufrunden, nicht kaufmännisches Runden.
+        return max(1, math.ceil(self.wortzahl / 200))
+
+
+# --------------------------------------------------------------------------
+# Mechanische Prüfung des Entwurfs
+# --------------------------------------------------------------------------
+
+# Mindestzahl der FAQ-Fragen. Die SKILL.md verweist auf diese Konstante,
+# damit die Zahl nicht an zwei Stellen gepflegt werden muss.
+FAQ_MINDEST = 6
+
+
+def _falten(text: str) -> str:
+    """Vergleichsform: Kleinschreibung, Umlaute auf den Grundbuchstaben.
+
+    Nicht die Kurzform-Umschrift (ä zu ae) verwenden: Sonst scheitert das
+    Schlagwort „Bauschaden" am Plural „Bauschäden", weil aus dem einen
+    „bauschad" und aus dem anderen „bauschaed" wird.
+    """
+    tief = text.lower()
+    for zeichen, ersatz in (("ä", "a"), ("ö", "o"), ("ü", "u"), ("ß", "ss")):
+        tief = tief.replace(zeichen, ersatz)
+    return re.sub(r"[^a-z0-9]+", " ", tief)
+
+
+def _stamm(begriff: str) -> str:
+    """Wortstamm für die Schlagwort-Deckung: Endungen dürfen abweichen."""
+    b = _falten(begriff).strip()
+    return b[:-2] if len(b) > 6 else b
+
+
+def entwurf_pruefen(a: "Artikel") -> list[str]:
+    """Prüft den Entwurf mechanisch gegen die Regeln des Skills.
+
+    Diese Prüfungen ändern den Rückgabewert NICHT. Der Generator läuft über
+    alle Dateien im Entwurfsordner; ein Fehler in einem fremden, älteren
+    Entwurf dürfte niemals den Commit des laufenden Entwurfs blockieren oder
+    den Seitenbau auf dem Hauptzweig rot färben. Die Meldungen sind Hinweise
+    für Agent und Verfasser, keine Sperre.
+    """
+    befunde: list[str] = []
+
+    def melden(regel: str, ist, soll):
+        befunde.append(f"PRUEFUNG: {a.pfad.name}: {regel} – {ist} statt {soll}")
+
+    rumpf = haupttext(a.rohtext)
+    ohne_todo = "\n".join(z for z in rumpf.split("\n") if not z.lstrip().startswith("> TODO:"))
+
+    listen = len([z for z in rumpf.split("\n")
+                  if re.match(r"^\s*([-*+] |\d+[.)] |\|)", z) and "[ ]" not in z])
+    if a.format.lower() != "checkliste" and listen:
+        melden("Aufzählungen oder Tabellen im Haupttext", listen, 0)
+
+    for regel, muster, soll in [
+        ("Überschriften ab H3", r"^#{3,}", 0),
+        ("Ausrufezeichen im Haupttext", r"!", 0),
+        ("Restmarker FORTSETZUNG", r"FORTSETZUNG", 0),
+    ]:
+        n = len(re.findall(muster, ohne_todo, flags=re.M))
+        if n != soll:
+            melden(regel, n, soll)
+
+    gerade = ohne_todo.count('"')
+    if gerade:
+        melden("gerade Anführungszeichen außerhalb des Dateikopfs", gerade, 0)
+
+    marken = {m for m in re.findall(r"\[\^(\d+)\](?!:)", a.rohtext)}
+    eintraege = {m for m in re.findall(r"^\[\^(\d+)\]:", a.rohtext, flags=re.M)}
+    if marken - eintraege:
+        melden("Fußnotenmarken ohne Eintrag", sorted(marken - eintraege), "keine")
+    if eintraege - marken:
+        melden("Fußnoteneinträge ohne Marke im Text", sorted(eintraege - marken), "keine")
+    if eintraege and sorted(int(x) for x in eintraege) != list(range(1, len(eintraege) + 1)):
+        melden("Fußnoten nicht lückenlos nummeriert", sorted(int(x) for x in eintraege), "1..n")
+    ohne_datum = [m.group(1) for m in re.finditer(r"^\[\^(\d+)\]:(.*)$", a.rohtext, flags=re.M)
+                  if "abgerufen am" not in m.group(2)]
+    if ohne_datum:
+        melden("Fußnoteneinträge ohne Abrufdatum", ohne_datum, "keine")
+
+    h2 = len(re.findall(r"^## ", rumpf, flags=re.M))
+    if not 6 <= h2 <= 11:
+        melden("H2-Abschnitte im Haupttext", h2, "6 bis 10 zuzüglich Häufige Fragen")
+
+    if len(a.titel) > 70:
+        melden("Länge titel", len(a.titel), "höchstens 70 Zeichen")
+    if len(a.meta_beschreibung) > 155:
+        melden("Länge meta_beschreibung", len(a.meta_beschreibung), "höchstens 155 Zeichen")
+
+    intern = len(re.findall(r"ing-bassam\.de/#", a.rohtext))
+    if intern not in (1, 2):
+        melden("interne Verweise", intern, "1 oder 2")
+
+    if len(a.faq) < FAQ_MINDEST:
+        melden("erkannte FAQ-Paare", len(a.faq), f"mindestens {FAQ_MINDEST}")
+
+    sichtbar = re.sub(r"<[^>]+>", " ", a.inhalt_html)
+    if a.definition and a.definition.strip() not in re.sub(r"\s+", " ", sichtbar):
+        melden("Definitionssatz wörtlich im Text", "fehlt", "wortgleich vorhanden")
+
+    flach = _falten(sichtbar)
+    fehlend = [s for s in a.schlagwoerter
+               if len(s) >= 4 and _stamm(s) and _stamm(s) not in flach]
+    if fehlend:
+        melden("Schlagwörter ohne Deckung im Text", fehlend, "jedes Schlagwort kommt vor")
+
+    # Markdown-Links [Text](Adresse) und Fußnotenmarken sind keine Platzhalter.
+    platzhalter = [m.group(0) for m
+                   in re.finditer(r"\[[^\]\n]{12,}\](?!\()", ohne_todo)
+                   if not m.group(0).startswith("[^")]
+    if platzhalter:
+        melden("Platzhalter in eckigen Klammern im Text", platzhalter, "keine")
+
+    return befunde
 
 
 # --------------------------------------------------------------------------
@@ -458,7 +620,8 @@ FUSS_VORLAGE = """
 """
 
 
-def og_block(titel: str, beschreibung: str, url: str, typ: str, zeit: str = "") -> str:
+def og_block(titel: str, beschreibung: str, url: str, typ: str, zeit: str = "",
+             geaendert: str = "", bereich: str = "", verfasser: str = "") -> str:
     zeilen = [
         '<meta property="og:type" content="%s">' % typ,
         '<meta property="og:locale" content="de_DE">',
@@ -470,6 +633,13 @@ def og_block(titel: str, beschreibung: str, url: str, typ: str, zeit: str = "") 
     ]
     if zeit:
         zeilen.append('<meta property="article:published_time" content="%s">' % zeit)
+    if geaendert:
+        zeilen.append('<meta property="article:modified_time" content="%s">' % geaendert)
+    if bereich:
+        zeilen.append('<meta property="article:section" content="%s">'
+                      % html.escape(bereich, quote=True))
+    if verfasser:
+        zeilen.append('<meta name="author" content="%s">' % html.escape(verfasser, quote=True))
     return "\n".join(zeilen) + "\n"
 
 
@@ -478,7 +648,10 @@ def kopf_bauen(*, titel_tag: str, beschreibung: str, canonical: str, css: str,
     return KOPF_VORLAGE.format(
         titel_tag=html.escape(titel_tag),
         beschreibung=html.escape(beschreibung, quote=True),
-        robots="" if indexierbar else '<meta name="robots" content="noindex, follow">\n',
+        # Freigegebene Seiten erlauben Suchmaschinen ausdrücklich Auszüge in
+        # voller Länge; ohne Angabe kürzen manche Anbieter von sich aus.
+        robots=('<meta name="robots" content="max-snippet:-1, max-image-preview:large">\n'
+                if indexierbar else '<meta name="robots" content="noindex, follow">\n'),
         canonical=html.escape(canonical, quote=True),
         css=css,
         og=og,
@@ -509,7 +682,9 @@ def artikelseite(artikel: Artikel) -> str:
         fachwissen="../",
         indexierbar=artikel.oeffentlich,
         og=og_block(artikel.titel, artikel.meta_beschreibung, artikel.url,
-                    "article", artikel.veroeffentlicht),
+                    "article", artikel.veroeffentlicht,
+                    geaendert=artikel.geaendert, bereich=artikel.kategorie,
+                    verfasser=artikel.autor),
     )
 
     warnung = ""
@@ -768,6 +943,10 @@ def main() -> int:
         kennzeichen = "öffentlich" if a.oeffentlich else f"noindex ({a.status})"
         hinweis = f", {a.todos} offene Prüfpunkte" if a.todos else ""
         print(f"  - {a.kurzform}: {a.wortzahl} Wörter, {len(a.faq)} FAQ, {kennzeichen}{hinweis}")
+        print(f"      Haupttext: {a.wortzahl} Wörter (Vorschlag für das Frontmatter-Feld wortzahl), "
+              f"Datei gesamt: {a.wortzahl_gesamt}")
+        for zeile in entwurf_pruefen(a):
+            print(f"      {zeile}")
     if verwaist:
         print("Entfernt (kein Entwurf mehr vorhanden): " + ", ".join(verwaist))
     if geaendert:
