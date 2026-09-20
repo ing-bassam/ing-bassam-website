@@ -10,7 +10,7 @@ aktenzeichen: 21 U 11/21
 ecli: ECLI:DE:KG:2026:0306.21U11.21.00
 entscheidungsdatum: 2026-03-06
 fundstelle: https://gesetze.berlin.de/perma?d=NJRE001641772
-meta_beschreibung: Kammergericht Berlin: Der Auftragnehmer beweist die vertragsgerechte Bauleistung. Nur das vereinbarte Messverfahren trägt diesen Nachweis.
+meta_beschreibung: "Kammergericht Berlin: Der Auftragnehmer beweist die vertragsgerechte Bauleistung. Nur das vereinbarte Messverfahren trägt diesen Nachweis."
 schlagwoerter: Beweislast, Aufmaß, Messverfahren, VOB/B, Bausoll, Toleranz, Bauvertrag
 definition: Ein Aufmaß ist die vertraglich geregelte Messung, mit der der Auftragnehmer die tatsächlich erbrachte Bauleistung nach Art und Menge nachweist.
 autor: Abdel Karim Abu Elkheir
