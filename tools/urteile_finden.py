@@ -320,6 +320,7 @@ def bund_suchen(stichtag: date, bekannt: set[str]) -> list[Fund]:
 
 def bb_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
     gefunden: dict[str, Fund] = {}
+    versuche = fehlschlaege = 0
     for gericht in BB_GERICHTE:
         for begriff in BB_BEGRIFFE:
             adresse = BB_SUCHE + "?" + urllib.parse.urlencode({
@@ -327,9 +328,11 @@ def bb_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
                 "select_source": gericht,
                 "input_date_promulgation_from": stichtag.strftime("%Y-%m-%d"),
             })
+            versuche += 1
             try:
                 seite = abrufen(adresse)
             except RuntimeError as fehler:
+                fehlschlaege += 1
                 print(f"  Brandenburg: „{begriff}\" bei {gericht} übersprungen – {fehler}")
                 continue
             neu = 0
@@ -343,6 +346,12 @@ def bb_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
             if neu:
                 print(f"  Brandenburg: {gericht} / „{begriff}\" – {neu} neu")
             time.sleep(pause)
+    # Eine Quelle, die vollständig ausgefallen ist, darf nicht wie „nichts
+    # gefunden" aussehen – sonst wird der Nutzer aufgefordert, den Zeitraum zu
+    # erweitern, obwohl gar nicht gesucht werden konnte.
+    if versuche and fehlschlaege == versuche:
+        raise RuntimeError(
+            f"Brandenburg nicht erreichbar: alle {versuche} Abfragen fehlgeschlagen")
     print(f"Brandenburg: {len(gefunden)} Entscheidungen seit {stichtag.isoformat()}")
     return list(gefunden.values())
 
@@ -484,6 +493,7 @@ def juris_suchen(stichtag: date, bekannt: set[str], pause: float,
     """Durchsucht die juris-Landesportale, Berlin zuerst."""
     gefunden: dict[str, Fund] = {}
     portale = [p for p in JURIS_PORTALE if not nur_berlin or p[1] == "bsbe"]
+    erreichte = 0
 
     for basis, portal, land, region in portale:
         try:
@@ -492,6 +502,7 @@ def juris_suchen(stichtag: date, bekannt: set[str], pause: float,
             # Ein Land, das nicht antwortet, darf den Lauf nicht beenden.
             print(f"  {land}: Anmeldung fehlgeschlagen – {fehler}")
             continue
+        erreichte += 1
 
         for begriff in BB_BEGRIFFE:
             try:
@@ -514,6 +525,13 @@ def juris_suchen(stichtag: date, bekannt: set[str], pause: float,
                 print(f"  {land}: „{begriff}\" – {neu} neu")
             time.sleep(pause)
 
+    # Kein einziges Portal erreichbar heißt Ausfall, nicht „keine Treffer".
+    if portale and erreichte == 0:
+        raise RuntimeError(
+            f"Kein juris-Portal erreichbar ({len(portale)} versucht)")
+    if erreichte < len(portale):
+        print(f"  Hinweis: {len(portale) - erreichte} von {len(portale)} Portalen "
+              f"waren nicht erreichbar.")
     print(f"juris-Landesportale: {len(gefunden)} Entscheidungen seit {stichtag.isoformat()}")
     return list(gefunden.values())
 
@@ -561,6 +579,7 @@ def nrw_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
     zurück und nennt je Treffer Gericht, Aktenzeichen, ECLI und Datum.
     """
     gefunden: dict[str, Fund] = {}
+    versuche = fehlschlaege = 0
     for gericht in NRW_GERICHTE:
         for begriff in BB_BEGRIFFE:
             daten = urllib.parse.urlencode({
@@ -570,6 +589,7 @@ def nrw_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
                 "qSize": "20",
                 "gerichtstyp": gericht,
             }).encode()
+            versuche += 1
             try:
                 anfrage = urllib.request.Request(
                     NRW_SUCHE, data=daten,
@@ -578,6 +598,7 @@ def nrw_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
                 with urllib.request.urlopen(anfrage, timeout=60) as antwort:
                     seite = antwort.read().decode("utf-8", errors="replace")
             except Exception as fehler:
+                fehlschlaege += 1
                 print(f"  NRW: „{begriff}\" bei {gericht[:28]} übersprungen – {fehler}")
                 time.sleep(pause)
                 continue
@@ -593,6 +614,9 @@ def nrw_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
             if neu:
                 print(f"  NRW: {gericht[:28]} / „{begriff}\" – {neu} neu")
             time.sleep(pause)
+    if versuche and fehlschlaege == versuche:
+        raise RuntimeError(
+            f"Nordrhein-Westfalen nicht erreichbar: alle {versuche} Abfragen fehlgeschlagen")
     print(f"Nordrhein-Westfalen: {len(gefunden)} Entscheidungen seit {stichtag.isoformat()}")
     return list(gefunden.values())
 
