@@ -67,7 +67,7 @@ kernfrage: <aus dem Auftrag oder selbst formuliert>
 meta_beschreibung: <höchstens 155 Zeichen, enthält den Kernbegriff, verspricht nichts>
 schlagwoerter: <5 bis 8 Begriffe, kommagetrennt, nur Themenbegriffe und bestätigte Regelwerke>
 definition: <der eine Definitionssatz, wortgleich wie im Text>
-autor: Abdel Karim Abu Elkheir
+autor: Karim Abu Elkheir
 qualifikation: <nur wenn der Auftrag sie nennt, sonst leer lassen>
 kurzform: <wie im Dateinamen>
 erstellt: <JJJJ-MM-TT>
@@ -117,10 +117,10 @@ Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er
 
 **Über den Autor**
 
-Abdel Karim Abu Elkheir ist Bauingenieur und Geschäftsführer der Bassam Ingenieurbüro für Bauwesen GmbH in Berlin. [Qualifikation und Bestellung: vom Auftraggeber zu ergänzen] Das Büro erstellt Versicherungs- und Gerichtsgutachten, sichert Beweise und überwacht Bauvorhaben in der Leistungsphase 8. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: <JJJJ-MM-TT>.
+M.Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: <JJJJ-MM-TT>.
 ```
 
-**Titelschutz.** Keine Titel, Bestellungen, Zertifikate oder Mitgliedschaften erfinden. Ohne ausdrückliche Grundlage im Auftrag schreibst du weder hier noch im Artikel: „öffentlich bestellt und vereidigt“, „zertifiziert“, „staatlich anerkannt“, „Beratender Ingenieur“, „Prüfingenieur“, „Prüfsachverständiger“, „gerichtlich zugelassen“, „gerichtlich anerkannt“, „nach DIN EN ISO/IEC 17024 zertifiziert“, „Energieeffizienz-Experte“ und werbende Selbstzuschreibungen wie „unabhängig“ oder „neutral“. Der Platzhalter in eckigen Klammern ist kein fachliches TODO und zählt nicht in `todos`.
+**Titelschutz.** Keine Titel, Bestellungen, Zertifikate oder Mitgliedschaften erfinden. Ohne ausdrückliche Grundlage im Auftrag schreibst du weder hier noch im Artikel: „öffentlich bestellt und vereidigt“, „zertifiziert“, „staatlich anerkannt“, „Beratender Ingenieur“, „Prüfingenieur“, „Prüfsachverständiger“, „gerichtlich zugelassen“, „gerichtlich anerkannt“, „nach DIN EN ISO/IEC 17024 zertifiziert“, „Energieeffizienz-Experte“ und werbende Selbstzuschreibungen wie „unabhängig“ oder „neutral“. Der Autorenkasten nennt ausschließlich den akademischen Grad; alles Weitere wäre eine nicht geführte Bestellung.
 
 **Untersuchungsverfahren.** Thermografie, Blower-Door, Leckortung, Schimmel- und Materialanalytik, Laborprüfungen und ähnliche Verfahren beschreibst du generisch („je nach Fragestellung kommen … in Betracht, teils unter Hinzuziehung von Fachlaboren oder Messdienstleistern“). Du behauptest nie, das Büro führe ein bestimmtes Verfahren selbst durch oder halte Geräte vor, es sei denn, der Auftrag sagt es ausdrücklich.
 
@@ -331,7 +331,7 @@ Führe diese Grep-Läufe im Zählmodus aus, mehrere in einem Turn, jeweils auf d
 - Interne Links: `ing-bassam\.de/#` – Soll 1 oder 2.
 - Frontmatter-Längen: `^titel: .{73,}` und `^meta_beschreibung: .{158,}` – Soll je 0 (die zwei zusätzlichen Zeichen sind der Spielraum für gerade Anführungszeichen).
 - Gerade Anführungszeichen außerhalb des Frontmatters: `"` – zulässig nur in den quotierten Frontmatter-Werten.
-- Autorenkasten und Hinweis wörtlich: „Er ist keine Rechtsberatung und ersetzt keine Begutachtung des Einzelfalls.“ – Soll 1; „[Qualifikation und Bestellung: vom Auftraggeber zu ergänzen]“ – Soll 1.
+- Autorenkasten und Hinweis wörtlich: „Er ist keine Rechtsberatung und ersetzt keine Begutachtung des Einzelfalls.“ – Soll 1; „M.Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin.“ – Soll 1. Eckige Klammern im Autorenkasten sind ein Fehler; der Generator meldet sie als Platzhalter.
 
 **Pflicht-Grep gegen unbelegte Nennungen** (Inhaltsmodus, Zeilen mit `> TODO` und das Quellenverzeichnis bei der Bewertung ausnehmen):
 

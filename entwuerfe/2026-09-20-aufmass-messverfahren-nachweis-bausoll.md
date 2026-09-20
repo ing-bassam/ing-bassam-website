@@ -13,7 +13,7 @@ fundstelle: https://gesetze.berlin.de/perma?d=NJRE001641772
 meta_beschreibung: "Kammergericht Berlin: Der Auftragnehmer beweist die vertragsgerechte Bauleistung. Nur das vereinbarte Messverfahren trägt diesen Nachweis."
 schlagwoerter: Beweislast, Aufmaß, Messverfahren, VOB/B, Bausoll, Toleranz, Bauvertrag
 definition: Ein Aufmaß ist die vertraglich geregelte Messung, mit der der Auftragnehmer die tatsächlich erbrachte Bauleistung nach Art und Menge nachweist.
-autor: Abdel Karim Abu Elkheir
+autor: Karim Abu Elkheir
 qualifikation:
 kurzform: aufmass-messverfahren-nachweis-bausoll
 erstellt: 2026-09-20
@@ -210,7 +210,7 @@ Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er
 
 **Über den Autor**
 
-Abdel Karim Abu Elkheir ist Bauingenieur und Geschäftsführer der Bassam Ingenieurbüro für Bauwesen GmbH in Berlin. [Qualifikation und Bestellung: vom Auftraggeber zu ergänzen] Das Büro erstellt Versicherungs- und Gerichtsgutachten, sichert Beweise und überwacht Bauvorhaben in der Leistungsphase 8. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: 2026-09-20.
+M.Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: 2026-09-20.
 
 ## Quellen und Fußnoten
 
