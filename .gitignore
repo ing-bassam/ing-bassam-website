@@ -1,2 +1,4 @@
+# Der Seitenbauer laeuft jetzt im Repository-Verzeichnis und legt dabei
+# Bytecode-Zwischendateien an. Die gehoeren nicht in die Versionierung.
 __pycache__/
 *.pyc
