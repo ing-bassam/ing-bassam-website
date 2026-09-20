@@ -95,6 +95,24 @@ a:hover{color:var(--accent-hover);}
   border:1px solid var(--line-strong); border-radius:999px;
   font-size:.75rem; letter-spacing:.04em; text-transform:uppercase; color:var(--text-3);
 }
+
+/* Kategorien tragen einen farbigen Punkt, wie schon auf der Startseite.
+   Die drei ursprünglichen Farben sind unverändert übernommen; die vier
+   Kategorien, die im Notion-Themenspeicher hinzugekommen sind, ergänzen sie
+   in derselben gedeckten Sättigung. */
+.marke--kategorie{position:relative; padding-left:24px;}
+.marke--kategorie::before{
+  content:""; position:absolute; left:10px; top:50%; transform:translateY(-50%);
+  width:8px; height:8px; border-radius:50%;
+  background:var(--kat, var(--line-strong));
+}
+[data-kategorie="bauphysik"]{--kat:#2f5d8a;}
+[data-kategorie="bauschaeden"]{--kat:#c2410c;}
+[data-kategorie="gutachter-recht"]{--kat:#3f6b5a;}
+[data-kategorie="baubetrieb"]{--kat:#8a5a2f;}
+[data-kategorie="bauherrenwissen"]{--kat:#5a4a8a;}
+[data-kategorie="hausverwaltung-bestand"]{--kat:#8a2f5d;}
+[data-kategorie="energie-foerderung"]{--kat:#2f8a7a;}
 .artikel-kopf h1{
   font-family:var(--font-display); font-weight:600;
   font-size:clamp(1.75rem, 4vw, 2.625rem); line-height:1.2;
