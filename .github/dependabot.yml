@@ -1,0 +1,22 @@
+# Haelt die eingebundenen GitHub-Actions aktuell.
+#
+# Die Workflows nageln jede Action auf einen bestimmten Commit fest, damit unter
+# einem beweglichen Tag wie „v1" nie unbemerkt anderer Code mit den Zugangsdaten
+# laeuft. Festgenagelte Staende veralten allerdings - auch sicherheitsrelevante
+# Korrekturen kaemen nicht mehr an. Dependabot sieht woechentlich nach und
+# oeffnet einen Pull Request, wenn es eine neuere Fassung gibt.
+#
+# Es aendert nichts von selbst: Jede Aktualisierung ist ein Pull Request, den du
+# ansiehst und mergst oder verwirfst.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Berlin"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "Actions"
