@@ -14,8 +14,9 @@ name: Urteilsbesprechung
 #      HTML-Seite – sie landet im selben Pull Request.
 #
 # Quellen (ausschließlich amtlich):
-#   rechtsprechung-im-internet.de   Bundesamt für Justiz
+#   rechtsprechung-im-internet.de           Bundesamt für Justiz
 #   gerichtsentscheidungen.brandenburg.de   Landesrechtsportal Brandenburg
+#   nrwesuche.justiz.nrw.de                 Justiz Nordrhein-Westfalen
 #
 # Bekannte Lücke: Die Berliner Datenbank (gesetze.berlin.de) ist eine reine
 # JavaScript-Anwendung und ohne Browser nicht abrufbar. Entscheidungen des
@@ -39,12 +40,13 @@ on:
       quelle:
         description: "Welche Datenbanken abgefragt werden"
         required: false
-        default: "beide"
+        default: "alle"
         type: choice
         options:
-          - "beide"
+          - "alle"
           - "nur Brandenburg"
           - "nur Bund"
+          - "nur Nordrhein-Westfalen"
       schwerpunkt:
         description: "Optionaler Schwerpunkt, z. B. „Nachtragsmanagement“ (leer = freie Wahl)"
         required: false
@@ -98,9 +100,10 @@ jobs:
           LISTE="$ARBEIT/kandidaten.md"
 
           case "$QUELLE" in
-            "nur Brandenburg") NUR=(--nur brandenburg) ;;
-            "nur Bund")        NUR=(--nur bund) ;;
-            *)                 NUR=() ;;
+            "nur Brandenburg")          NUR=(--nur brandenburg) ;;
+            "nur Bund")                 NUR=(--nur bund) ;;
+            "nur Nordrhein-Westfalen")  NUR=(--nur nrw) ;;
+            *)                          NUR=() ;;
           esac
 
           MON="${MONATE:-18}"

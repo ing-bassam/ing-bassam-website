@@ -20,12 +20,21 @@ Quellen – ausschließlich amtlich:
                 Brandenburger Gerichten auch die gemeinsamen Gerichte von
                 Berlin und Brandenburg (OVG, LSG, LArbG, FG).
 
-  Berlin        Die Berliner Datenbank (gesetze.berlin.de) ist eine reine
-                JavaScript-Anwendung und ohne Browser nicht abrufbar. Das
-                Kammergericht fehlt deshalb. Das Skript weist darauf hin,
-                statt die Lücke zu verschweigen.
+  Nordrhein-    nrwesuche.justiz.nrw.de (Justiz Nordrhein-Westfalen)
+  Westfalen     Die größte Entscheidungsdatenbank des Landes. Nimmt die Suche
+                nur per POST entgegen, liefert die Treffer aber serverseitig
+                mit Gericht, Aktenzeichen, ECLI und Datum. Enthält als einziges
+                Land ein Berufsgericht für Beratende Ingenieure im Bauwesen.
 
-Aufruf:  python tools/urteile_finden.py --ziel <datei> [--monate 18] [--max 40]
+  Berlin        Nicht abrufbar. Die Datenbank gesetze.berlin.de lädt ihre
+                Treffer erst im Browser über eine Schnittstelle, die Abrufe von
+                außerhalb mit „security_wrongDomain" ablehnt. Dieselbe Technik
+                setzen neun weitere Länder ein (Baden-Württemberg, Hamburg,
+                Hessen, Mecklenburg-Vorpommern, Rheinland-Pfalz, Saarland,
+                Sachsen-Anhalt, Schleswig-Holstein, Thüringen). Das Skript
+                weist auf die Lücke hin, statt sie zu verschweigen.
+
+Aufruf:  python tools/urteile_finden.py --ziel <datei> [--monate 18] [--max 12]
 """
 
 from __future__ import annotations
@@ -50,6 +59,17 @@ ENTWUERFE = WURZEL / "entwuerfe"
 BUND_INDEX = "https://www.rechtsprechung-im-internet.de/rii-toc.xml"
 BB_BASIS = "https://gerichtsentscheidungen.brandenburg.de"
 BB_SUCHE = BB_BASIS + "/suche"
+NRW_SUCHE = "https://nrwesuche.justiz.nrw.de/index.php"
+
+# Gerichtsarten in NRW, bei denen Bausachen zu erwarten sind. Das Berufsgericht
+# für Beratende Ingenieure ist für ein Sachverständigenbüro unmittelbar
+# einschlägig und gibt es in dieser Form nur in Nordrhein-Westfalen.
+NRW_GERICHTE = [
+    "Oberlandesgericht",
+    "Landgericht",
+    "Berufsgericht für Beratende Ingenieure und Ingenieurinnen sowie "
+    "Ingenieure und Ingenieurinnen im Bauwesen",
+]
 
 KENNUNG = "BIB-Fachartikel/1.0 (+https://ing-bassam.de; Recherche für Fachbeiträge)"
 
@@ -324,6 +344,82 @@ def bb_treffer_lesen(seite: str, gericht: str, begriff: str) -> list[Fund]:
 
 
 # --------------------------------------------------------------------------
+# Nordrhein-Westfalen
+# --------------------------------------------------------------------------
+
+def nrw_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
+    """Durchsucht die NRW-Entscheidungsdatenbank.
+
+    Anders als Brandenburg nimmt NRW die Suche nur per POST entgegen; eine
+    Adresse allein genügt nicht. Die Trefferliste kommt serverseitig gerendert
+    zurück und nennt je Treffer Gericht, Aktenzeichen, ECLI und Datum.
+    """
+    gefunden: dict[str, Fund] = {}
+    for gericht in NRW_GERICHTE:
+        for begriff in BB_BEGRIFFE:
+            daten = urllib.parse.urlencode({
+                "q": begriff,
+                "method": "search",
+                "absenden": "Suchen",
+                "qSize": "20",
+                "gerichtstyp": gericht,
+            }).encode()
+            try:
+                anfrage = urllib.request.Request(
+                    NRW_SUCHE, data=daten,
+                    headers={"User-Agent": KENNUNG, "Accept-Language": "de"},
+                )
+                with urllib.request.urlopen(anfrage, timeout=60) as antwort:
+                    seite = antwort.read().decode("utf-8", errors="replace")
+            except Exception as fehler:
+                print(f"  NRW: „{begriff}\" bei {gericht[:28]} übersprungen – {fehler}")
+                time.sleep(pause)
+                continue
+
+            neu = 0
+            for fund in nrw_treffer_lesen(seite, begriff):
+                if fund.datum < stichtag.isoformat():
+                    continue
+                if fund.schluessel in bekannt or fund.schluessel in gefunden:
+                    continue
+                gefunden[fund.schluessel] = fund
+                neu += 1
+            if neu:
+                print(f"  NRW: {gericht[:28]} / „{begriff}\" – {neu} neu")
+            time.sleep(pause)
+    print(f"Nordrhein-Westfalen: {len(gefunden)} Entscheidungen seit {stichtag.isoformat()}")
+    return list(gefunden.values())
+
+
+def nrw_treffer_lesen(seite: str, begriff: str) -> list[Fund]:
+    funde: list[Fund] = []
+    for block in re.findall(r"<div class='einErgebnis'>(.*?)</div>", seite, re.S):
+        link = re.search(r"href='([^']+)'", block)
+        gericht = re.search(r"Gericht:\s*([^<]+)", block)
+        az = re.search(r"Aktenzeichen:\s*([^<]+)", block)
+        datum = re.search(r"Entscheidungsdatum:\s*(\d{2})\.(\d{2})\.(\d{4})", block)
+        if not (link and az and datum):
+            continue
+        ecli = re.search(r"(ECLI:[A-Z0-9.:]+)", block)
+        art = re.search(r"Entscheidungsart:\s*([^<]+)", block)
+        tag, monat, jahr = datum.groups()
+        fund = Fund(
+            gericht=(gericht.group(1).strip() if gericht else "Gericht in Nordrhein-Westfalen"),
+            datum=f"{jahr}-{monat}-{tag}",
+            aktenzeichen=az.group(1).strip(),
+            link=html.unescape(link.group(1).strip()),
+            quelle="nrwesuche.justiz.nrw.de (Justiz Nordrhein-Westfalen)",
+            grund=f"Volltexttreffer für „{begriff}\""
+                  + (f", {art.group(1).strip()}" if art else ""),
+            region="Weitere Länder",
+        )
+        if ecli:
+            fund.ecli = ecli.group(1)
+        funde.append(fund)
+    return funde
+
+
+# --------------------------------------------------------------------------
 # Bericht
 # --------------------------------------------------------------------------
 
@@ -366,21 +462,43 @@ def volltexte_ablegen(auswahl: list["Fund"], ordner: Path, pause: float) -> None
         time.sleep(pause)
 
 
-def auswaehlen(funde: list[Fund], grenze: int) -> tuple[list[Fund], list[Fund]]:
-    """Wählt die Kandidaten aus: Berlin/Brandenburg vor Bund, je das Jüngste zuerst."""
-    bb = sorted([f for f in funde if f.region == "Berlin/Brandenburg"],
-                key=lambda f: f.datum, reverse=True)
-    bund = sorted([f for f in funde if f.region == "Bund"],
-                  key=lambda f: f.datum, reverse=True)
-    # Mindestens die Hälfte der Plätze gehört Berlin und Brandenburg; bleiben
-    # Plätze frei, füllt der Bund auf.
-    anteil_bb = bb[: max(grenze // 2, 1)]
-    anteil_bund = bund[: max(grenze - len(anteil_bb), 0)]
-    return anteil_bb, anteil_bund
+REGIONEN = ("Berlin/Brandenburg", "Bund", "Weitere Länder")
 
 
-def bericht(bb: list[Fund], bund: list[Fund], stichtag: date) -> str:
-    auswahl = bb + bund
+def auswaehlen(funde: list[Fund], grenze: int) -> dict[str, list[Fund]]:
+    """Verteilt die Plätze auf die Regionen, je das Jüngste zuerst.
+
+    Berlin und Brandenburg bekommen die Hälfte, weil das Büro dort arbeitet.
+    Der Bund folgt, weil der BGH bundesweit die Linie vorgibt. Die übrigen
+    Länder füllen auf, was übrig bleibt.
+    """
+    nach_region = {
+        r: sorted([f for f in funde if f.region == r], key=lambda f: f.datum, reverse=True)
+        for r in REGIONEN
+    }
+    anteile = {
+        "Berlin/Brandenburg": max(grenze // 2, 1),
+        "Bund": max(grenze // 3, 1),
+    }
+    ausgewaehlt: dict[str, list[Fund]] = {}
+    rest = grenze
+    for region in REGIONEN:
+        platz = anteile.get(region, rest)
+        ausgewaehlt[region] = nach_region[region][: max(min(platz, rest), 0)]
+        rest -= len(ausgewaehlt[region])
+    # Freie Plätze an die Regionen zurückgeben, die noch Kandidaten haben.
+    for region in REGIONEN:
+        if rest <= 0:
+            break
+        offen = [f for f in nach_region[region] if f not in ausgewaehlt[region]]
+        nachschlag = offen[:rest]
+        ausgewaehlt[region] += nachschlag
+        rest -= len(nachschlag)
+    return ausgewaehlt
+
+
+def bericht(gruppen: dict[str, list[Fund]], stichtag: date) -> str:
+    auswahl = [f for r in REGIONEN for f in gruppen.get(r, [])]
 
     zeilen = [
         "# Kandidaten für eine Urteilsbesprechung",
@@ -404,11 +522,15 @@ def bericht(bb: list[Fund], bund: list[Fund], stichtag: date) -> str:
         "",
         "## Hinweis zur Abdeckung",
         "",
-        "Die Berliner Rechtsprechungsdatenbank (gesetze.berlin.de) ist eine reine",
-        "JavaScript-Anwendung und ohne Browser nicht abrufbar. Entscheidungen des",
-        "Kammergerichts und der Berliner Landgerichte fehlen deshalb in dieser",
-        "Liste. Enthalten sind die gemeinsamen Gerichte von Berlin und Brandenburg",
-        "(OVG, LSG, LArbG, FG) über das Brandenburger Portal.",
+        "Durchsucht werden: der Bund (rechtsprechung-im-internet.de), Brandenburg",
+        "samt der gemeinsamen Gerichte von Berlin und Brandenburg (OVG, LSG,",
+        "LArbG, FG) und Nordrhein-Westfalen.",
+        "",
+        "Nicht durchsucht wird Berlin selbst: Die Datenbank gesetze.berlin.de",
+        "liefert ihre Treffer erst im Browser und sperrt Abrufe von außerhalb ab",
+        "(Fehler „security_wrongDomain\"). Entscheidungen des Kammergerichts und",
+        "der Berliner Landgerichte fehlen deshalb. Ebenso fehlen neun weitere",
+        "Länder, die dieselbe Technik einsetzen.",
         "",
     ]
 
@@ -422,7 +544,13 @@ def bericht(bb: list[Fund], bund: list[Fund], stichtag: date) -> str:
         ]
         return "\n".join(zeilen)
 
-    for gruppe, titel in ((bb, "Berlin und Brandenburg"), (bund, "Bund")):
+    titel_je_region = {
+        "Berlin/Brandenburg": "Berlin und Brandenburg",
+        "Bund": "Bund",
+        "Weitere Länder": "Weitere Länder",
+    }
+    for region in REGIONEN:
+        gruppe, titel = gruppen.get(region, []), titel_je_region[region]
         if not gruppe:
             continue
         zeilen += [f"## {titel} ({len(gruppe)})", ""]
@@ -465,7 +593,7 @@ def main() -> int:
                           help="Höchstzahl der Kandidaten in der Liste")
     zerleger.add_argument("--pause", type=float, default=1.0,
                           help="Sekunden zwischen zwei Abfragen der Landesdatenbank")
-    zerleger.add_argument("--nur", choices=["bund", "brandenburg"],
+    zerleger.add_argument("--nur", choices=["bund", "brandenburg", "nrw"],
                           help="nur eine Quelle abfragen (für Tests)")
     argumente = zerleger.parse_args()
 
@@ -477,14 +605,21 @@ def main() -> int:
     funde: list[Fund] = []
     fehler = False
 
-    if argumente.nur != "bund":
+    if argumente.nur in (None, "brandenburg"):
         try:
             funde += bb_suchen(stichtag, bekannt, argumente.pause)
         except Exception as ausnahme:
             fehler = True
             print(f"FEHLER Brandenburg: {ausnahme}", file=sys.stderr)
 
-    if argumente.nur != "brandenburg":
+    if argumente.nur in (None, "nrw"):
+        try:
+            funde += nrw_suchen(stichtag, bekannt, argumente.pause)
+        except Exception as ausnahme:
+            fehler = True
+            print(f"FEHLER Nordrhein-Westfalen: {ausnahme}", file=sys.stderr)
+
+    if argumente.nur not in ("brandenburg", "nrw"):
         try:
             funde += bund_suchen(stichtag, bekannt)
         except Exception as ausnahme:
@@ -498,13 +633,13 @@ def main() -> int:
     ziel = Path(argumente.ziel)
     ziel.parent.mkdir(parents=True, exist_ok=True)
 
-    bb, bund = auswaehlen(funde, argumente.max)
-    auswahl = bb + bund
+    gruppen = auswaehlen(funde, argumente.max)
+    auswahl = [f for r in REGIONEN for f in gruppen[r]]
     if auswahl:
         print(f"\nVolltexte werden geladen ({len(auswahl)} Entscheidungen) …")
         volltexte_ablegen(auswahl, ziel.parent / "volltexte", argumente.pause)
 
-    ziel.write_text(bericht(bb, bund, stichtag), encoding="utf-8", newline="\n")
+    ziel.write_text(bericht(gruppen, stichtag), encoding="utf-8", newline="\n")
     print(f"\nGefunden: {len(funde)} · in der Liste: {len(auswahl)}")
     print(f"Liste geschrieben: {ziel}")
     return 0

@@ -55,6 +55,7 @@ Zulässig sind ausschließlich amtliche Quellen:
 
 - `rechtsprechung-im-internet.de` – Bundesministerium der Justiz und Bundesamt für Justiz
 - `gerichtsentscheidungen.brandenburg.de` – Landesrechtsportal Brandenburg
+- `nrwesuche.justiz.nrw.de` – Justiz Nordrhein-Westfalen
 - Rechtsprechungsdatenbanken weiterer Länder über `justiz.de/onlinedienste/rechtsprechung`
 - `gesetze-im-internet.de` für Gesetzeswortlaut
 - die Internetauftritte der Gerichte selbst
