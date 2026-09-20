@@ -394,6 +394,8 @@ gh pr create --base main --head entwurf/<kurzform> --title "Entwurf: <Thema>" --
 
 Den vollständigen PR-Text gibst du dann in der Abschlussnachricht aus. Keine Shell-Substitutionen, keine Heredocs, keine Pipes; nur diese Formen sind freigegeben. Schlägt `gh pr create` fehl, endet der Lauf mit `ERGEBNIS: PR FEHLGESCHLAGEN`; Branch-Name, Fehlertext und PR-Text stehen in der Abschlussnachricht. Den Pull Request nicht mergen, nicht auf `main` pushen, keine weiteren Dateien anfassen.
 
+Die Adresse der späteren Seite ergibt sich fest aus der Kurzform: `https://ing-bassam.de/fachwissen/<kurzform>/`. Du schreibst sie immer aus, damit der Auftraggeber sie nicht selbst zusammensetzen muss.
+
 Der Pull-Request-Text hat eine feste Reihenfolge: **zuerst der Weg zum Text, dann der Prüfbericht.** Oben stehen der Leselink, ein Dreizeiler in normaler Sprache, die Kennzahlen und die Stelle, an der du dir am unsichersten bist. Alles Weitere – Quellen, Zahlenwerte, TODOs, Hinweise zum Lauf – steht vollständig, aber in einem `<details>`-Block, der zugeklappt startet. Der Auftraggeber liest zuerst den Beitrag; den Apparat klappt er auf, wenn er ihn braucht. Die Zeile nach `<summary>` bleibt leer, sonst stellt GitHub die Tabellen im Block nicht dar.
 
 Vorlage für `pr-body.md` (alle Abschnitte ausfüllen, keinen weglassen):
@@ -402,6 +404,8 @@ Vorlage für `pr-body.md` (alle Abschnitte ausfüllen, keinen weglassen):
 ## <Thema>
 
 **[→ Den Beitrag lesen](https://github.com/ing-bassam/ing-bassam-website/blob/entwurf/<kurzform>/entwuerfe/<datei>)**
+
+**Auf der Website nach dem Merge:** https://ing-bassam.de/fachwissen/<kurzform>/ – noindex und nicht verlinkt, bis `status: Veröffentlicht` gesetzt und kein Prüfpunkt mehr offen ist.
 
 <Drei bis vier Sätze in normaler Sprache: worum es geht, was der Leser daraus mitnimmt, für wen er gedacht ist. Fließtext, kein Fachjargon, keine Aufzählung, keine Kennzahlen – die stehen darunter.>
 
