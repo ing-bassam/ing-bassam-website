@@ -34,6 +34,13 @@ Die Turn-Regel aus dem Fachartikel-Skill gilt: Beende vor der Abschlussnachricht
    - *Betrifft sie das Themenfeld?* Bauvertrag, Werkvertrag am Bau, Architekten- oder Ingenieurvertrag, Baumangel, Abnahme, Werklohn, Nachtrag, gestörter Bauablauf, Bauzeit, Behinderung, Kalkulation, Planungsfehler, Beweissicherung, Sachverständigenbeweis am Bau. Reine Miet-, Kauf-, Insolvenz-, Vergabe-, Kosten- oder Verfahrensfragen ohne Baubezug scheiden aus, auch wenn ein Suchbegriff vorkommt.
    - *Trägt sie einen Beitrag?* Eine Entscheidung trägt, wenn sie eine Rechtsfrage klärt, eine Abgrenzung schärft, von der bisherigen Linie abweicht oder eine für die Praxis wiederkehrende Konstellation behandelt. Eine Nichtzulassungsbeschwerde ohne Begründung, ein Hinweisbeschluss ohne Aussage oder eine reine Einzelfallwürdigung trägt nicht.
    - *Reicht der Volltext?* Enthält die Entscheidung Tatbestand und Entscheidungsgründe, oder nur einen Tenor? Ohne Gründe kannst du sie nicht besprechen.
+   - *Ist der Streit entschieden?* Besprochen wird nur, was die Instanz abschließt. Das ist der wichtigste Filter, denn ein Beitrag über einen Fall, der weiterläuft, veraltet mit der nächsten Entscheidung.
+
+     **Geeignet:** ein Endurteil, das den Rechtsstreit in der Instanz vollständig erledigt; jede Entscheidung des Bundesgerichtshofs, weil dort keine weitere Tatsacheninstanz folgt; ein Berufungsurteil, in dem die Revision **nicht** zugelassen wurde.
+
+     **Nicht geeignet:** Teilurteil, Grundurteil, Zwischenurteil, Vorbehaltsurteil und Versäumnisurteil, weil über Grund oder Höhe noch gestritten wird; jedes Urteil, in dem die Revision **zugelassen** wurde, weil der Fall dann beim Bundesgerichtshof weitergeht; Hinweisbeschlüsse; Entscheidungen im einstweiligen Rechtsschutz; Beschlüsse über Prozesskostenhilfe, Streitwert oder Kosten.
+
+     Ob die Revision zugelassen wurde, steht am Ende der Entscheidungsgründe. Ob es sich um ein Teil- oder Grundurteil handelt, steht im Tenor oder in der Bezeichnung. Steht dort nichts davon, ist es ein Endurteil. Dass gegen ein Berufungsurteil ohne zugelassene Revision noch eine Nichtzulassungsbeschwerde laufen kann, steht der Besprechung nicht entgegen – es wird im Text und im Pull Request vermerkt.
 
    Die Liste nennt je Kandidat die Zahl der gefundenen Begriffe aus dem Themenfeld. Das ist ein grober Hinweis, keine Aussage über die Eignung: Ein hoher Wert kann auch eine Kostenentscheidung in einer Bausache treffen, ein niedriger eine grundlegende Entscheidung. Du liest trotzdem selbst.
 
@@ -92,7 +99,7 @@ Vorschriften nennst du mit Kurzbezeichnung und Paragraf, bei der ersten Nennung 
 
 ## Was du in diesem Format nicht tust
 
-- **Keine Prognose.** Du sagst nicht, wie ein vergleichbarer Fall ausginge oder wie ein Revisionsverfahren enden wird. Ist die Entscheidung nicht rechtskräftig oder ist ein Rechtsmittel anhängig und das aus dem Volltext ersichtlich, schreibst du es hin.
+- **Keine Prognose.** Du sagst nicht, wie ein vergleichbarer Fall ausginge oder wie ein Revisionsverfahren enden wird. Im Abschnitt „Was die Entscheidung nicht sagt" hältst du fest, wie weit der Streit entschieden ist: ob die Revision zugelassen wurde, ob es sich um ein Endurteil handelt und ob nach dem Volltext noch etwas offen ist.
 - **Keine Partei ergreifen.** Weder Bauherr noch Unternehmer bekommen Recht zugesprochen. Du referierst, was das Gericht entschieden hat.
 - **Keine Handlungsempfehlung mit Rechtsfolge.** „Wer so dokumentiert, gewinnt den Prozess" ist verboten. Erlaubt ist: „Das Gericht hat die Dokumentation in diesem Fall als ausreichend angesehen; welche Anforderungen im Einzelfall gelten, beurteilt ein Rechtsanwalt."
 - **Keine erfundenen Parallelentscheidungen.** Eine weitere Entscheidung nennst du nur, wenn du sie in diesem Lauf an einer amtlichen Quelle bestätigt hast.
@@ -136,7 +143,8 @@ Branch: `entwurf/<kurzform>`. Titel des Pull Requests: `Entwurf: <Thema>`.
 - Aktenzeichen: <…>
 - ECLI: <… oder „nicht vergeben">
 - Fundstelle: <Adresse>
-- Rechtskraft: <aus dem Volltext ersichtlich / nicht ersichtlich>
+- Entscheidungsart: <Endurteil / Berufungsurteil ohne zugelassene Revision / BGH-Entscheidung>
+- Abschluss: <was die Entscheidung erledigt, und was nach dem Volltext offen bleibt>
 
 ### Geprüfte und verworfene Kandidaten
 

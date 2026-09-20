@@ -120,7 +120,7 @@ jobs:
           python tools/urteile_finden.py \
             --ziel "$LISTE" \
             --monate "$MON" \
-            --max 40 \
+            --max 12 \
             --pause 1.0 \
             "${NUR[@]}" | tee "$ARBEIT/suche.log"
 
@@ -168,7 +168,7 @@ jobs:
           # --allowedTools: bewusst redundant zur SKILL.md, damit der Lauf auch dann trägt,
           #   wenn die Skill-Datei einmal abweicht. „git config“ fehlt absichtlich.
           claude_args: |
-            --max-turns 90
+            --max-turns 150
             --model claude-opus-5
             --add-dir ${{ steps.kandidaten.outputs.verzeichnis }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*)"
