@@ -1,0 +1,185 @@
+name: Urteilsbesprechung
+
+# -----------------------------------------------------------------------------
+# Sucht in amtlichen Rechtsprechungsdatenbanken nach einer baurelevanten
+# Gerichtsentscheidung und lässt daraus eine Urteilsbesprechung schreiben.
+#
+# Ablauf:
+#   1. tools/urteile_finden.py stellt eine vorsortierte Kandidatenliste
+#      zusammen – Berlin und Brandenburg zuerst, danach der Bund, jeweils die
+#      jüngsten Entscheidungen zuerst. Schon besprochene Aktenzeichen fallen raus.
+#   2. Der Agent prüft die Kandidaten am Volltext, wählt eine aus und schreibt
+#      den Entwurf nach entwuerfe/. Er öffnet einen Pull Request.
+#   3. Der Workflow „Fachwissen-Seiten bauen" erzeugt daraus automatisch die
+#      HTML-Seite – sie landet im selben Pull Request.
+#
+# Quellen (ausschließlich amtlich):
+#   rechtsprechung-im-internet.de   Bundesamt für Justiz
+#   gerichtsentscheidungen.brandenburg.de   Landesrechtsportal Brandenburg
+#
+# Bekannte Lücke: Die Berliner Datenbank (gesetze.berlin.de) ist eine reine
+# JavaScript-Anwendung und ohne Browser nicht abrufbar. Entscheidungen des
+# Kammergerichts fehlen deshalb. Die gemeinsamen Gerichte von Berlin und
+# Brandenburg (OVG, LSG, LArbG, FG) sind über das Brandenburger Portal enthalten.
+# -----------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+    inputs:
+      monate:
+        description: "Wie weit zurück gesucht wird (Monate)"
+        required: false
+        default: "18"
+        type: choice
+        options:
+          - "6"
+          - "12"
+          - "18"
+          - "36"
+      quelle:
+        description: "Welche Datenbanken abgefragt werden"
+        required: false
+        default: "beide"
+        type: choice
+        options:
+          - "beide"
+          - "nur Brandenburg"
+          - "nur Bund"
+      schwerpunkt:
+        description: "Optionaler Schwerpunkt, z. B. „Nachtragsmanagement“ (leer = freie Wahl)"
+        required: false
+        default: ""
+
+concurrency:
+  group: urteilsbesprechung
+  cancel-in-progress: false
+
+jobs:
+  besprechung:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    permissions:
+      contents: write        # Entwurf anlegen und Branch pushen
+      pull-requests: write   # Pull Request öffnen
+      id-token: write        # von der Claude-Action benötigt
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v6
+
+      - name: Git-Identität setzen
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Fremde Hooks im Arbeitsverzeichnis dürfen nicht ausgeführt werden.
+          git config core.hooksPath /dev/null
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Kandidaten suchen
+        id: kandidaten
+        env:
+          # Eingaben nie direkt in die Shell schreiben, sondern über die Umgebung.
+          MONATE: ${{ inputs.monate }}
+          QUELLE: ${{ inputs.quelle }}
+        run: |
+          set -euo pipefail
+
+          # Das Laufdatum kommt aus dem Runner, nicht aus Repository-Metadaten.
+          echo "heute=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+          ARBEIT="$RUNNER_TEMP/urteil"
+          mkdir -p "$ARBEIT"
+          LISTE="$ARBEIT/kandidaten.md"
+
+          case "$QUELLE" in
+            "nur Brandenburg") NUR=(--nur brandenburg) ;;
+            "nur Bund")        NUR=(--nur bund) ;;
+            *)                 NUR=() ;;
+          esac
+
+          MON="${MONATE:-18}"
+          case "$MON" in
+            ''|*[!0-9]*) MON=18 ;;
+          esac
+
+          python tools/urteile_finden.py \
+            --ziel "$LISTE" \
+            --monate "$MON" \
+            --max 40 \
+            --pause 1.0 \
+            "${NUR[@]}" | tee "$ARBEIT/suche.log"
+
+          if grep -q "## Keine Kandidaten" "$LISTE"; then
+            echo "::warning title=Urteilsbesprechung::Im Zeitraum der letzten ${MON} Monate wurde keine noch nicht besprochene Entscheidung gefunden. Größeren Zeitraum wählen."
+            echo "gefunden=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "gefunden=true" >> "$GITHUB_OUTPUT"
+          fi
+
+          echo "liste=$LISTE" >> "$GITHUB_OUTPUT"
+
+          {
+            echo '## Kandidatensuche'
+            echo
+            echo '```'
+            cat "$ARBEIT/suche.log"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Besprechung schreiben lassen
+        id: claude
+        if: steps.kandidaten.outputs.gefunden == 'true'
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /urteilsbesprechung
+            Kandidatenliste: ${{ steps.kandidaten.outputs.liste }}
+            Datum: ${{ steps.kandidaten.outputs.heute }}
+            Schwerpunkt: ${{ inputs.schwerpunkt }}
+
+            Lies zuerst .claude/skills/fachartikel/SKILL.md vollständig, dann die
+            Kandidatenliste. Ist ein Schwerpunkt genannt, bevorzuge Entscheidungen
+            dazu, solange sie fachlich tragen; sonst wähle frei nach der Reihenfolge
+            der Liste.
+          claude_args: |
+            --max-turns 90
+            --model claude-opus-5
+
+      - name: Ergebnis melden
+        if: always()
+        env:
+          GEFUNDEN: ${{ steps.kandidaten.outputs.gefunden }}
+          AGENT: ${{ steps.claude.outcome }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          if [ "$GEFUNDEN" != "true" ]; then
+            echo "::notice title=Urteilsbesprechung::Kein Kandidat – es wurde kein Entwurf erstellt."
+            exit 0
+          fi
+
+          if [ "$AGENT" != "success" ]; then
+            echo "::warning title=Urteilsbesprechung::Der Agent endete mit „${AGENT}\". Falls ein Branch entwurf/* entstanden ist, bitte von Hand prüfen."
+            exit 0
+          fi
+
+          PR="$(gh pr list --state open --json url,headRefName,createdAt \
+                 --jq '[.[] | select(.headRefName | startswith("entwurf/"))]
+                       | sort_by(.createdAt) | last | .url // ""' 2>/dev/null || echo "")"
+
+          if [ -n "$PR" ]; then
+            echo "::notice title=Urteilsbesprechung::Entwurf liegt bereit: $PR"
+            echo "- Entwurf: $PR" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning title=Urteilsbesprechung::Der Agent meldet Erfolg, es ist aber kein offener Entwurf-Zweig zu finden. Bitte im Log nachsehen."
+          fi
