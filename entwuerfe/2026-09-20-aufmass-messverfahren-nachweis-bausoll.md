@@ -18,12 +18,12 @@ autor: Karim Abu Elkheir
 qualifikation:
 kurzform: aufmass-messverfahren-nachweis-bausoll
 erstellt: 2026-09-20
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
-fachlich_geprueft_von:
-fachlich_geprueft_am:
+fachlich_geprueft_von: Karim Abu Elkheir
+fachlich_geprueft_am: 2026-09-21
 wortzahl: 6621
 lesezeit: 34 Minuten
 fussnoten: 13
