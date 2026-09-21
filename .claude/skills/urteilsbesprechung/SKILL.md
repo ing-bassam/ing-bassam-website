@@ -139,7 +139,7 @@ Das Feld `aktenzeichen` ist wichtig: Der Kandidatenfinder liest es aus den vorha
 
 ## Umfang
 
-Es gelten die 5.000 Wörter aus dem Fachartikel-Skill. Trägt die Entscheidung das nicht, **füllst du nicht auf**. Du erweiterst stattdessen die Einordnung: wie die Frage bisher behandelt wurde, welche bauwirtschaftliche oder bautechnische Bedeutung sie hat, was sie für Dokumentation und Beweisführung ändert. Trägt sie auch das nicht, war es die falsche Entscheidung – geh zurück zu Schritt 4 und nimm eine andere.
+Es gilt der Umfang aus dem Fachartikel-Skill: 3.000 bis 5.000 Wörter Haupttext, also 15 bis 25 Minuten Lesezeit, Zielwert 3.800 bis 4.500. Trägt die Entscheidung auch 3.000 Wörter nicht, **füllst du nicht auf**. Du erweiterst stattdessen die Einordnung: wie die Frage bisher behandelt wurde, welche bauwirtschaftliche oder bautechnische Bedeutung sie hat, was sie für Dokumentation und Beweisführung ändert. Trägt sie auch das nicht, war es die falsche Entscheidung – geh zurück zu Schritt 4 und nimm eine andere.
 
 ## Dateiname und Branch
 

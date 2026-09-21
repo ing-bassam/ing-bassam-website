@@ -464,6 +464,11 @@ class Artikel:
 # damit die Zahl nicht an zwei Stellen gepflegt werden muss.
 FAQ_MINDEST = 6
 
+# Lesezeit, die der Auftraggeber für angenehm hält. Bei 200 Wörtern je Minute
+# entspricht das 3.000 bis 5.000 Wörtern Haupttext.
+LESEZEIT_MIN = 15
+LESEZEIT_MAX = 25
+
 
 def _falten(text: str) -> str:
     """Vergleichsform: Kleinschreibung, Umlaute auf den Grundbuchstaben.
@@ -533,8 +538,12 @@ def entwurf_pruefen(a: "Artikel") -> list[str]:
         melden("Fußnoteneinträge ohne Abrufdatum", ohne_datum, "keine")
 
     h2 = len(re.findall(r"^## ", rumpf, flags=re.M))
-    if not 6 <= h2 <= 11:
-        melden("H2-Abschnitte im Haupttext", h2, "6 bis 10 zuzüglich Häufige Fragen")
+    if not 7 <= h2 <= 10:
+        melden("H2-Abschnitte im Haupttext", h2, "6 bis 8 zuzüglich Häufige Fragen")
+
+    if not LESEZEIT_MIN <= a.lesezeit <= LESEZEIT_MAX:
+        melden("Lesezeit", f"{a.lesezeit} Minuten ({a.wortzahl} Wörter)",
+               f"{LESEZEIT_MIN} bis {LESEZEIT_MAX} Minuten")
 
     if len(a.titel) > 70:
         melden("Länge titel", len(a.titel), "höchstens 70 Zeichen")
