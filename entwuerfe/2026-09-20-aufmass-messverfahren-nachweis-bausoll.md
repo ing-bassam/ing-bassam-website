@@ -22,8 +22,8 @@ status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
-fachlich_geprueft_von: Karim Abu Elkheir
-fachlich_geprueft_am: 2026-09-21
+fachlich_geprueft_von: 
+fachlich_geprueft_am: 
 wortzahl: 6621
 lesezeit: 34 Minuten
 fussnoten: 13
