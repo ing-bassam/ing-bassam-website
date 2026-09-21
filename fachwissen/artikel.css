@@ -108,7 +108,7 @@ a:hover{color:var(--accent-hover);}
 }
 [data-kategorie="bauphysik"]{--kat:#2f5d8a;}
 [data-kategorie="bauschaeden"]{--kat:#c2410c;}
-[data-kategorie="gutachter-recht"]{--kat:#3f6b5a;}
+[data-kategorie="gutachten-recht"]{--kat:#3f6b5a;}
 [data-kategorie="baubetrieb"]{--kat:#8a5a2f;}
 [data-kategorie="bauherrenwissen"]{--kat:#5a4a8a;}
 [data-kategorie="hausverwaltung-bestand"]{--kat:#8a2f5d;}

@@ -1,6 +1,6 @@
 ---
 titel: Wer beweist die vertragsgerechte Bauleistung vor der Abnahme?
-kategorie: Gutachter & Recht
+kategorie: Gutachten & Recht
 format: Rechtsprechung
 zielgruppe: Gewerblich
 leistung: Beweissicherung, Objektüberwachung LP 8
