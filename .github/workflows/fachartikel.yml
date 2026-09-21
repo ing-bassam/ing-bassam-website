@@ -103,6 +103,8 @@ on:
           - "Privat"
           - "Gewerblich"
           - "Hausverwaltung"
+          - "Wohnungsbaugesellschaft"
+          - "Mieter"
 
 # Name des Laufs in der Actions-Übersicht: zeigt sofort, womit gestartet wurde.
 run-name: "Fachartikel-Entwurf: ${{ inputs.notion_seite || inputs.thema || 'nächstes offenes Thema aus Notion' }}"

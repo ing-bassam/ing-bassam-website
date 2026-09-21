@@ -51,7 +51,7 @@ SITEMAP = WURZEL / "sitemap.xml"
 BASIS_URL = "https://ing-bassam.de"
 FIRMA = "Bassam Ingenieurbüro für Bauwesen GmbH"
 KURZNAME = "BIB Ingenieurbüro für Bauwesen"
-AUTOR_VORGABE = "Abdel Karim Abu Elkheir"
+AUTOR_VORGABE = "Karim Abu Elkheir"
 TELEFON = "+49 176 23581339"
 EMAIL = "info@ing-bassam.de"
 

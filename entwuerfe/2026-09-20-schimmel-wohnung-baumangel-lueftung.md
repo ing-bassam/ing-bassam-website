@@ -8,7 +8,7 @@ kernfrage: Ist Schimmel in meiner Wohnung ein Baumangel oder liegt es an falsche
 meta_beschreibung: "Schimmel in der Wohnung: Wie sich klären lässt, ob ein Baumangel oder das Lüftungsverhalten die Ursache ist, und was Sie dokumentieren sollten."
 schlagwoerter: Schimmel, Baumangel, Lüftungsverhalten, Wärmebrücke, Raumluftfeuchte, Hausverwaltung, Gutachten, Beweissicherung
 definition: Schimmel in der Wohnung ist ein Pilzbefall auf Bauteil- oder Einrichtungsoberflächen infolge dauerhaft zu hoher Feuchte an diesen Oberflächen.
-autor: Abdel Karim Abu Elkheir
+autor: Karim Abu Elkheir
 qualifikation:
 kurzform: schimmel-wohnung-baumangel-lueftung
 erstellt: 2026-09-20
@@ -213,7 +213,7 @@ Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er
 
 **Über den Autor**
 
-Abdel Karim Abu Elkheir ist Bauingenieur und Geschäftsführer der Bassam Ingenieurbüro für Bauwesen GmbH in Berlin. [Qualifikation und Bestellung: vom Auftraggeber zu ergänzen] Das Büro erstellt Versicherungs- und Gerichtsgutachten, sichert Beweise und überwacht Bauvorhaben in der Leistungsphase 8. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: 2026-09-20.
+M.Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: 2026-09-20.
 
 ## Quellen und Fußnoten
 
