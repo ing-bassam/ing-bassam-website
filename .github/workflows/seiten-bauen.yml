@@ -72,8 +72,18 @@ jobs:
       - name: Seiten bauen
         id: bauen
         run: |
-          set -euo pipefail
-          python tools/artikel_generator.py | tee "$RUNNER_TEMP/generator.log"
+          set -uo pipefail
+          # Rückgabewert merken statt sofort abzubrechen: Ist ein einzelner
+          # Beitrag gesperrt (etwa „Veröffentlicht“ mit offenem Prüfpunkt), bleibt
+          # er auf noindex – alle anderen Seiten sollen trotzdem aktuell werden.
+          # Der Lauf schlägt erst am Ende fehl, damit die Warnung erhalten bleibt.
+          python tools/artikel_generator.py 2>&1 | tee "$RUNNER_TEMP/generator.log"
+          RUECKGABE=${PIPESTATUS[0]}
+          echo "rueckgabe=$RUECKGABE" >> "$GITHUB_OUTPUT"
+          if [ "$RUECKGABE" -ne 0 ] && [ "$RUECKGABE" -ne 2 ]; then
+            echo "::error title=Fachwissen::Der Generator ist unerwartet abgebrochen (Rückgabewert $RUECKGABE)."
+            exit "$RUECKGABE"
+          fi
           {
             echo '## Fachwissen-Seiten'
             echo
@@ -118,8 +128,20 @@ jobs:
           # Nach dem Schreiben darf ein zweiter Lauf nichts mehr ändern. Tut er
           # es doch, ist der Generator nicht reproduzierbar – das würde bei
           # jedem Lauf einen neuen Commit erzeugen.
-          if ! python tools/artikel_generator.py --pruefen > /dev/null; then
+          # Zweiter Lauf und Vergleich über git statt über den Rückgabewert: Der
+          # ist bei einem gesperrten Beitrag immer 2 und sagte hier nichts aus.
+          python tools/artikel_generator.py > /dev/null 2>&1 || true
+          if [ -n "$(git status --porcelain -- fachwissen sitemap.xml)" ]; then
             echo "::error title=Fachwissen::Der Generator liefert bei zwei Läufen unterschiedliche Ergebnisse."
             exit 1
           fi
           echo "::notice title=Fachwissen::Zweiter Lauf bestätigt: Ergebnis ist stabil."
+
+      - name: Gesperrte Beiträge melden
+        if: always() && steps.bauen.outputs.rueckgabe == '2'
+        run: |
+          # Die übrigen Seiten sind zu diesem Zeitpunkt bereits zurückgeschrieben.
+          grep "^FEHLER:" "$RUNNER_TEMP/generator.log" | while IFS= read -r zeile; do
+            echo "::error title=Beitrag gesperrt::${zeile#FEHLER: }"
+          done
+          exit 2
