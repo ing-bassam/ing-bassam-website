@@ -94,6 +94,11 @@ def verbinden(bibliothek: Path) -> sqlite3.Connection:
     return sqlite3.connect(index_pfad(bibliothek))
 
 
+# Zulässige Doppelschreibungen: Die Bücher schreiben teils „selbständig“, teils
+# „selbstständig“ – gesucht wird nach beiden.
+SCHREIBWEISEN = [("selbstständ", "selbständ"), ("selbständ", "selbstständ")]
+
+
 def anfrage_bilden(suchtext: str, verknuepfung: str) -> str:
     teile = []
     for gruppe, wort in re.findall(r'"([^"]+)"|(\S+)', suchtext):
@@ -103,8 +108,15 @@ def anfrage_bilden(suchtext: str, verknuepfung: str) -> str:
                 teile.append('"' + " ".join(woerter) + '"')
         else:
             wort = re.sub(r"[^\w]", "", wort)
-            if wort:
-                teile.append(f'"{wort}"*')
+            if not wort:
+                continue
+            formen = [wort]
+            for alt, neu in SCHREIBWEISEN:
+                if alt in wort.lower():
+                    formen.append(wort.lower().replace(alt, neu))
+                    break
+            teile.append("(" + " OR ".join(f'"{f}"*' for f in formen) + ")"
+                         if len(formen) > 1 else f'"{wort}"*')
     return f" {verknuepfung} ".join(teile)
 
 
@@ -129,13 +141,19 @@ def suchen(bibliothek: Path, suchtext: str, werk: str, anzahl: int, alle: bool =
                   " AND kennung NOT IN (SELECT kennung FROM werke WHERE ersetzt != '')")
                + " ORDER BY bm25(seiten) LIMIT 200")
         try:
-            zeilen = db.execute(sql, (anfrage, werk) if werk else (anfrage,)).fetchall()
+            neue = db.execute(sql, (anfrage, werk) if werk else (anfrage,)).fetchall()
         except sqlite3.OperationalError as fehler:
             print(f"Suchanfrage nicht verstanden ({fehler}).")
             return
-        if zeilen or verknuepfung == "OR" or " " not in suchtext.strip():
+        bekannt = {(z[0], z[1]) for z in zeilen}
+        zeilen += [z for z in neue if (z[0], z[1]) not in bekannt]
+        # Wenige Seiten enthalten alle Wörter: breiter suchen und anhängen.
+        if len(zeilen) >= max(3, anzahl // 2) or " " not in suchtext.strip():
             break
-        hinweis = "(Keine Seite enthält alle Wörter – Ergebnis der ODER-Suche.)"
+        if verknuepfung == "AND":
+            hinweis = ("(Wenige Seiten enthalten alle Wörter – dahinter folgen Seiten mit "
+                       "einem Teil der Wörter.)" if zeilen else
+                       "(Keine Seite enthält alle Wörter – Ergebnis der ODER-Suche.)")
     if not zeilen:
         print("Keine Treffer. Andere Wörter oder Wortanfänge versuchen, etwa Fachbegriff "
               "statt Umschreibung.")
@@ -145,6 +163,11 @@ def suchen(bibliothek: Path, suchtext: str, werk: str, anzahl: int, alle: bool =
     if not (werk or alle):
         print("(Ältere Auflagen sind ausgeblendet; mit --alle-auflagen einbeziehen.)")
 
+    # Treffer in Verzeichnissen (Stichwort-, Literatur-, Inhaltsverzeichnis)
+    # belegen nichts; sie rücken ans Ende.
+    verzeichnis = re.compile(r"(Stichwort|Sach|Literatur|Abkürzungs|Inhalts)verzeichnis|"
+                             r"^(Literatur|Index|Register)$", re.I)
+    zeilen.sort(key=lambda z: bool(verzeichnis.search(kapitel(db, z[0], z[2]))))
     auswahl, je_werk = [], {}
     for zeile in zeilen:
         if werk or je_werk.get(zeile[0], 0) < JE_WERK:

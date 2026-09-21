@@ -240,7 +240,7 @@ def aufbereiten(treffer: dict, isbn: str) -> dict:
     auflage_text = (felder("250", "a") or [""])[0]
     auflage = (re.match(r"(\d+)", auflage_text) or [None, ""])[1] if auflage_text else ""
     ort = re.sub(r",\s*Germany$", "", sauber((felder("264", "a") or felder("260", "a") or [""])[0]))
-    verlag = sauber((felder("264", "b") or felder("260", "b") or [""])[0])
+    verlag = verlag_kuerzen(sauber((felder("264", "b") or felder("260", "b") or [""])[0]))
     jahr = (re.search(r"(?:19|20)\d{2}", " ".join(felder("264", "c") + felder("260", "c")))
             or [""])[0] if (felder("264", "c") or felder("260", "c")) else ""
     return {"titel": titel, "untertitel": untertitel, "personen": namen, "rolle": rolle,
@@ -317,18 +317,62 @@ def auflagen_kennzeichnen(katalog: list[dict]) -> None:
     Katalog – etwa für den Stand zum Zeitpunkt einer Abnahme –, erscheinen in
     der Suche aber nur auf Wunsch.
     """
-    gruppen: dict[str, list[dict]] = {}
     for e in katalog:
         e.pop("ersetzt_durch", None)
-        person = slug((e.get("personen") or [""])[0].split(",")[0])
-        gruppen.setdefault(f"{slug(e.get('titel', ''))}|{person}", []).append(e)
-    for gruppe in gruppen.values():
-        if len(gruppe) < 2 or not gruppe[0].get("titel"):
-            continue
+
+    def verweisen(gruppe: list[dict]) -> None:
+        gruppe = [e for e in gruppe if not e.get("ersetzt_durch")]
+        if len(gruppe) < 2:
+            return
         gruppe.sort(key=lambda e: (e.get("jahr") or "", int(e.get("auflage") or 0),
-                                   e.get("seiten") or 0), reverse=True)
+                                   len(e.get("personen") or []), e.get("seiten") or 0),
+                    reverse=True)
         for aelter in gruppe[1:]:
             aelter["ersetzt_durch"] = gruppe[0]["kennung"]
+
+    # Gleiche ISBN in zwei Dateien: dasselbe Buch, die vollständigere zählt.
+    nach_isbn: dict[str, list[dict]] = {}
+    for e in katalog:
+        if e.get("isbn"):
+            nach_isbn.setdefault(e["isbn"], []).append(e)
+    for gruppe in nach_isbn.values():
+        verweisen(gruppe)
+    # Gleicher Titel und gleiche erste Person: mehrere Auflagen.
+    gruppen: dict[str, list[dict]] = {}
+    for e in katalog:
+        if e.get("titel"):
+            person = slug((e.get("personen") or [""])[0].split(",")[0])
+            gruppen.setdefault(f"{slug(e['titel'])}|{person}", []).append(e)
+    for gruppe in gruppen.values():
+        verweisen(gruppe)
+
+
+def verlag_kuerzen(verlag: str) -> str:
+    """„Springer Fachmedien Wiesbaden, Imprint: Springer Vieweg“ wird „Springer Vieweg“."""
+    return re.sub(r"^.*Imprint:\s*", "", verlag or "").strip()
+
+
+def katalog_auffrischen(ziel: Path, katalog: list[dict], ergaenzungen: dict) -> None:
+    """Zitate, Ergänzungen und Auflagenverweise neu setzen, ohne die PDFs zu lesen.
+
+    Die Kennungen bleiben dabei unverändert, damit Texte und Gliederungen
+    nicht umbenannt werden müssen.
+    """
+    for e in katalog:
+        if e["pruefsumme"] in ergaenzungen:
+            e.update({k: v for k, v in ergaenzungen[e["pruefsumme"]].items() if k != "kennung"})
+        e["verlag"] = verlag_kuerzen(e.get("verlag", ""))
+        e["zitat"] = zitat_bilden(e)
+        isbn_teil = f" ISBN {e['isbn']}." if e.get("isbn") else ""
+        for pfad, alt, neu in (
+                (ziel / "texte" / f"{e['kennung']}.txt", r"^Zitat: .*$",
+                 f"Zitat: {e['zitat']}, S. <Seite>.{isbn_teil}"),
+                (ziel / "gliederung" / f"{e['kennung']}.md", r"^# Gliederung: .*$",
+                 f"# Gliederung: {e['zitat']}")):
+            if pfad.exists():
+                inhalt = pfad.read_text(encoding="utf-8")
+                pfad.write_text(re.sub(alt, lambda _t: neu, inhalt, count=1, flags=re.M),
+                                encoding="utf-8", newline="\n")
 
 
 # ---------------------------------------------------------------------------
@@ -343,6 +387,9 @@ def main() -> int:
                         help="Unterordner, die nicht in die Bibliothek gehören")
     parser.add_argument("--grenze", type=int, default=0, help="nur die ersten n Werke (Test)")
     parser.add_argument("--prozesse", type=int, default=6)
+    parser.add_argument("--nur-katalog", action="store_true",
+                        help="nur Zitate, Ergänzungen und Auflagenverweise auffrischen; "
+                             "die PDFs werden nicht gelesen")
     args = parser.parse_args()
 
     ziel = args.bibliothek
@@ -357,6 +404,14 @@ def main() -> int:
     if ergaenzungen_pfad.exists():
         for eintrag in yaml.safe_load(ergaenzungen_pfad.read_text(encoding="utf-8")) or []:
             ergaenzungen[eintrag.pop("pruefsumme")] = eintrag
+
+    if args.nur_katalog:
+        katalog_auffrischen(ziel, katalog, ergaenzungen)
+        auflagen_kennzeichnen(katalog)
+        katalog_schreiben(katalog_pfad, katalog)
+        print(f"Katalog aufgefrischt: {len(katalog)} Werke, "
+              f"{sum(1 for e in katalog if e.get('ersetzt_durch'))} ältere Auflagen oder Dubletten.")
+        return 0
 
     # PDFs sammeln, Dubletten über die Prüfsumme zusammenfassen.
     werke: dict[str, dict] = {}
@@ -456,14 +511,18 @@ def main() -> int:
             print(f"  {kennung:<45} {len(gelesen['seiten']):>5} S.  {angaben['quelle_katalog']}")
 
     auflagen_kennzeichnen(katalog)
-    katalog.sort(key=lambda e: e["kennung"])
-    katalog_pfad.write_text(
-        "# Fachbibliothek des BIB Ingenieurbüros – erzeugt von tools/bibliothek_auszug.py.\n"
-        "# Einträge mit „quelle_katalog: Impressum – bitte prüfen“ von Hand vervollständigen.\n"
-        + yaml.safe_dump(katalog, allow_unicode=True, sort_keys=False, width=1000),
-        encoding="utf-8", newline="\n")
+    katalog_schreiben(katalog_pfad, katalog)
     print(f"Fertig in {time.monotonic() - start:.0f} s. Katalog: {len(katalog)} Werke.")
     return 0
+
+
+def katalog_schreiben(pfad: Path, katalog: list[dict]) -> None:
+    katalog.sort(key=lambda e: e["kennung"])
+    pfad.write_text(
+        "# Fachbibliothek des BIB Ingenieurbüros – erzeugt von tools/bibliothek_auszug.py.\n"
+        "# Korrekturen gehören in katalog-ergaenzungen.yml; danach mit --nur-katalog auffrischen.\n"
+        + yaml.safe_dump(katalog, allow_unicode=True, sort_keys=False, width=1000),
+        encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":
