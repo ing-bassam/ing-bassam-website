@@ -176,7 +176,9 @@ def markdown_zu_html(rumpf: str) -> tuple[str, int]:
     umwandler = markdown.Markdown(
         extensions=["extra", "sane_lists", "toc"],
         extension_configs={
-            "footnotes": {"BACKLINK_TITLE": "Zurück zu Fußnote %d"},
+            # Die Fußnoten gehören zu „extra“; ihre Einstellungen müssen deshalb
+            # dort stehen, sonst bleibt der englische Hinweistext stehen.
+            "extra": {"footnotes": {"BACKLINK_TITLE": "Zurück zu Fußnote %d im Text"}},
             # Eigene Kennung statt der Standardfunktion: Die wirft Umlaute
             # ersatzlos weg, aus „Lüftungsverhalten" würde „luftungsverhalten".
             # slug() transliteriert sie wie in der Kurzform-Konvention.
@@ -185,6 +187,13 @@ def markdown_zu_html(rumpf: str) -> tuple[str, int]:
         output_format="html5",
     )
     inhalt = umwandler.convert(rumpf)
+
+    # Je Fußnote nur ein Rücksprung-Pfeil. Die Erweiterung setzt einen Pfeil
+    # für jede Verwendung – bei einer Urteilsbesprechung, die dieselbe
+    # Entscheidung 56-mal zitiert, stehen sonst 56 Pfeile hintereinander.
+    # Der erste Pfeil (href="#fnref:n") führt zur ersten Verwendung und bleibt.
+    inhalt = re.sub(r'<a class="footnote-backref" href="#fnref\d+:[^"]*"[^>]*>.*?</a>',
+                    "", inhalt, flags=re.S)
 
     # TODO-Zitatblöcke als Warnkasten auszeichnen, damit sie beim Durchsehen
     # nicht übersehen werden.
