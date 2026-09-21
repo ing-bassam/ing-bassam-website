@@ -12,7 +12,7 @@ autor: Karim Abu Elkheir
 qualifikation:
 kurzform: technische-beweissicherung-grundlagen
 erstellt: 2026-09-20
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e1d96ad-00b4-81b7-bc67-dc5e25b26e67
 notion_url: https://app.notion.com/p/Was-ist-eine-technische-Beweissicherung-und-wann-braucht-man-sie-3e1d96ad00b481b7bc67dc5e25b26e67
