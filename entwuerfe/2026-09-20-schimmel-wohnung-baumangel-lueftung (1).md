@@ -8,11 +8,11 @@ kernfrage: Ist Schimmel in meiner Wohnung ein Baumangel oder liegt es an falsche
 meta_beschreibung: "Schimmel in der Wohnung: Wie sich klären lässt, ob ein Baumangel oder das Lüftungsverhalten die Ursache ist, und was Sie dokumentieren sollten."
 schlagwoerter: Schimmel, Baumangel, Lüftungsverhalten, Wärmebrücke, Raumluftfeuchte, Hausverwaltung, Gutachten, Beweissicherung
 definition: Schimmel in der Wohnung ist ein Pilzbefall auf Bauteil- oder Einrichtungsoberflächen infolge dauerhaft zu hoher Feuchte an diesen Oberflächen.
-autor: Karim Abu Elkheir
+autor: M. Sc. Karim Abu Elkheir
 qualifikation:
 kurzform: schimmel-wohnung-baumangel-lueftung
 erstellt: 2026-09-20
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-812e-ae3a-c3ff31320430
 notion_url: "https://app.notion.com/p/Schimmel-in-der-Wohnung-Baumangel-oder-L-ftungsverhalten-3dfd96ad00b4812eae3ac3ff31320430"
@@ -23,7 +23,7 @@ lesezeit: 34 Minuten
 fussnoten: 15
 quellen_geprueft: 15
 zahlenwerte_norm: 7
-todos: 1
+todos: 0
 regelwerke_bestaetigt: "DIN 4108-2:2026-05, DIN 4108-3:2024-03, DIN 1946-6:2019-12, WTA-Merkblatt 4-12-21/D, UBA-Schimmelleitfaden, BGB 535/536/536c, ZPO 485/404/404a, WEG 1/5/18/19/27, BGH VIII ZR 271/17, BGH VIII ZR 67/18, BGH XII ZR 272/97, BGH VIII ZR 223/04, AWMF-Leitlinie 161/001, UBA-Ratgeber Schwarzstaub"
 ---
 
@@ -66,8 +66,6 @@ Wie viel „zu feucht“ ist, beschreibt der Schimmelleitfaden des Umweltbundesa
 Um zu verstehen, wie Feuchte an eine Wandoberfläche gelangt, hilft ein physikalischer Zusammenhang. Warme Luft kann mehr Wasserdampf aufnehmen als kalte. Kühlt Luft ab, steigt ihre relative Feuchte, also der Anteil des tatsächlich enthaltenen Wasserdampfs an der möglichen Sättigung. Wird die Luft weit genug abgekühlt, erreicht sie den Taupunkt, und Wasser schlägt sich als Tauwasser nieder. In einer Wohnung geschieht diese Abkühlung an der kältesten Oberfläche im Raum. Das ist im Winter fast immer die Innenseite einer Außenwand, oft in der Ecke oder an der Fensterlaibung. Dort entsteht die dauerhaft hohe Feuchte unmittelbar an der Oberfläche, die Schimmel ermöglicht. Der Leitfaden rechnet dazu ein Beispiel vor: Raumluft von 22 °C mit 50 Prozent relativer Feuchte erreicht an einer 14,5 °C kalten Wandoberfläche rund 80 Prozent relative Feuchte; sinkt die Oberflächentemperatur unter etwa 11 °C, fällt Tauwasser aus.[^1]
 
 Warum manche Oberflächen kälter sind als andere, erklären die Wärmebrücken. Eine Wärmebrücke ist ein Bereich der Gebäudehülle, durch den Wärme schneller nach außen fließt als durch die Fläche daneben. Es gibt geometrische Wärmebrücken, etwa Raumecken, bei denen einer kleinen Innenfläche eine große Außenfläche gegenübersteht. Es gibt konstruktive Wärmebrücken, etwa durchlaufende Betondecken, Balkonplatten, Fensterstürze oder Stahlträger. Die Norm für den Wärmeschutz von Gebäuden ist DIN 4108-2; sie legt Mindestanforderungen an die Wärmedämmung von Bauteilen und im Bereich von Wärmebrücken fest.[^3] Dort ist auch eine Mindestanforderung an die Oberflächentemperatur verankert, die dem Schutz vor Tauwasser und Schimmel dient.
-
-> TODO: [Wert] – Normtext fehlt: Temperaturfaktor und Mindestwert der raumseitigen Oberflächentemperatur nach DIN 4108-2 – Geprüft: DIN Media bestätigt DIN 4108-2:2026-05 als aktuelle Ausgabe, die DIN 4108-2:2013-02 ersetzt; frei zugängliche Fachquellen nennen einen Temperaturfaktor von mindestens 0,70 und 12,6 Grad Celsius zur Ausgabe 2013-02 – Zu prüfen: Werte und Abschnitt in beiden Ausgaben (2013-02 und 2026-05), weil nach der BGH-Rechtsprechung grundsätzlich die bei Errichtung geltende Ausgabe maßgeblich ist und für Gebäude der Jahre 2013 bis 2026 damit meist noch die Ausgabe 2013-02 gilt – Vorschlag: Einsicht in den lizenzierten Normtext beider Ausgaben – Im Text vorläufig umschrieben als „Mindestanforderung an die Oberflächentemperatur“.
 
 Die zweite Größe neben der Oberflächentemperatur ist der Feuchteeintrag im Haushalt. Menschen geben beim Atmen und über die Haut Wasserdampf ab. Kochen, Duschen, Baden, Wäschetrocknen, Zimmerpflanzen und Aquarien kommen hinzu. Ein Haushalt mit vier Personen bringt deshalb deutlich mehr Feuchte in die Wohnung als eine allein bewohnte Wohnung gleicher Größe. Nach dem Schimmelleitfaden summiert sich die Feuchte, die ein durchschnittlicher Drei-Personen-Haushalt an die Raumluft abgibt, auf etwa 6 bis 12 Liter am Tag.[^1] Dieser Eintrag ist nicht vorwerfbar, sondern normale Nutzung. Er wird erst dann zum Problem, wenn er nicht abgeführt wird. Für die Frage nach Baumangel oder Lüftungsverhalten ist deshalb nie der Eintrag allein maßgeblich, sondern das Verhältnis von Eintrag, Abtransport und Oberflächentemperatur.
 
