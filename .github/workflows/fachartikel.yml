@@ -123,7 +123,9 @@ env:
 jobs:
   entwurf:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    # Schreiben bis 50 Minuten, Schlussprüfung bis 35, dazu Notion, Quellenabruf
+    # und Abschluss.
+    timeout-minutes: 100
 
     permissions:
       contents: write        # Entwurfsdatei anlegen und Branch pushen
@@ -707,9 +709,10 @@ jobs:
           set -euo pipefail
           # Der Agent baut die Artikelseite selbst, damit sie im selben Pull
           # Request landet. markdown wandelt den Entwurf in HTML, PyYAML liest
-          # das Frontmatter. Versionen wie in seiten-bauen.yml.
+          # das Frontmatter. Versionen wie in seiten-bauen.yml. pypdf liest
+          # PDF-Quellen für die Schlussprüfung.
           python -m pip install --upgrade pip --quiet
-          python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2'
+          python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2' 'pypdf==6.19.0'
 
       # -----------------------------------------------------------------
       # 3. Entwurf schreiben lassen (Claude Code, Skill /fachartikel)
@@ -718,7 +721,7 @@ jobs:
       # -----------------------------------------------------------------
       - name: Entwurf schreiben lassen
         id: claude
-        timeout-minutes: 50   # lässt dem Abschluss-Schritt Zeit innerhalb der 60 Job-Minuten
+        timeout-minutes: 50   # lässt Notion und Schlussprüfung Zeit innerhalb der 100 Job-Minuten
         uses: anthropics/claude-code-action@cfc3eb22bfed5c26ef66e3223c982af27e4524de # v1.0.231
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -751,7 +754,7 @@ jobs:
             --max-turns 150
             --model claude-opus-5
             --add-dir ${{ steps.thema.outputs.auftrag_verzeichnis }}
-            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*)"
+            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*)"
 
       # -----------------------------------------------------------------
       # 4. Notion aktualisieren. Läuft auch, wenn der Agent-Schritt scheitert:
@@ -994,7 +997,127 @@ jobs:
           esac
 
       # -----------------------------------------------------------------
-      # 5. Kontrolle: Wurde der Hauptzweig während des Laufs verändert?
+      # 5. Schlussprüfung. Ein Skript lädt jede Quelle aus dem Fußnoten-
+      #    verzeichnis herunter; ein unabhängiger Agent vergleicht jeden
+      #    belegten Satz mit dem Quelltext, streicht Unbelegtes und liest
+      #    Korrektur. Anlass: Beim Beitrag zu OVG 6 A 1/25 standen Fußnoten
+      #    mit „Inhaltlich bestätigt durch …“, deren Quelle die Zahlen gar
+      #    nicht enthielt. Läuft nach Notion, damit ein Abbruch hier die
+      #    Notion-Pflege nicht verhindert.
+      # -----------------------------------------------------------------
+      - name: Entwurf für die Schlussprüfung bestimmen
+        id: ziel
+        if: ${{ !cancelled() && steps.claude.outcome == 'success' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JOBSTART: ${{ steps.start.outputs.zeit }}
+        run: |
+          set -euo pipefail
+          ARBEIT="${RUNNER_TEMP}/schlusspruefung"
+          mkdir -p "$ARBEIT"
+          gh pr list --state open --json number,headRefName,createdAt > "$ARBEIT/prs.json"
+          # Nur ein Pull Request, der in diesem Lauf entstanden ist, wird geprüft.
+          ZEILE="$(python - "$JOBSTART" "$ARBEIT/prs.json" <<'PY'
+          import json, sys
+          beginn, datei = sys.argv[1], sys.argv[2]
+          prs = [p for p in json.load(open(datei, encoding="utf-8"))
+                 if p["headRefName"].startswith("entwurf/") and p["createdAt"] >= beginn]
+          prs.sort(key=lambda p: p["createdAt"])
+          print(f'{prs[-1]["number"]} {prs[-1]["headRefName"]}' if prs else "")
+          PY
+          )"
+          if [ -z "$ZEILE" ]; then
+            echo "::notice title=Schlussprüfung::Kein neuer Entwurf – nichts zu prüfen."
+            echo "bereit=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          NR="${ZEILE%% *}"
+          ZWEIG="${ZEILE#* }"
+          git fetch -q origin "$ZWEIG"
+          git checkout -q -B "$ZWEIG" "origin/$ZWEIG"
+          ENTWURF="$(gh pr view "$NR" --json files \
+                      --jq '[.files[].path | select(startswith("entwuerfe/") and endswith(".md"))][0] // ""')"
+          if [ -z "$ENTWURF" ] || [ ! -f "$ENTWURF" ]; then
+            echo "::warning title=Schlussprüfung::Im Pull Request #$NR ist keine Entwurfsdatei zu finden."
+            echo "bereit=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          {
+            echo "bereit=true"
+            echo "nummer=$NR"
+            echo "zweig=$ZWEIG"
+            echo "entwurf=$ENTWURF"
+            echo "arbeit=$ARBEIT"
+            echo "bericht=$ARBEIT/schlusspruefung.md"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Quellen für die Schlussprüfung laden
+        id: quellen
+        if: ${{ !cancelled() && steps.ziel.outputs.bereit == 'true' }}
+        env:
+          ENTWURF: ${{ steps.ziel.outputs.entwurf }}
+          ARBEIT: ${{ steps.ziel.outputs.arbeit }}
+        run: |
+          set -euo pipefail
+          if ! AUSGABE="$(python tools/quellen_laden.py "$ENTWURF" "$ARBEIT")"; then
+            echo "::warning title=Schlussprüfung::Quellen nicht ladbar – $(printf '%s\n' "$AUSGABE" | tail -n 1)"
+            echo "bereit=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          printf '%s\n' "$AUSGABE"
+          echo "pruefliste=$(printf '%s\n' "$AUSGABE" | tail -n 1)" >> "$GITHUB_OUTPUT"
+          echo "bereit=true" >> "$GITHUB_OUTPUT"
+
+      - name: Schlussprüfung gegen die Quellen
+        id: schluss
+        if: ${{ !cancelled() && steps.quellen.outputs.bereit == 'true' }}
+        # Scheitert die Prüfung, bleibt der Entwurf bestehen; der nächste Schritt
+        # vermerkt das im Pull Request.
+        continue-on-error: true
+        timeout-minutes: 35
+        uses: anthropics/claude-code-action@cfc3eb22bfed5c26ef66e3223c982af27e4524de # v1.0.231
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /schlusspruefung
+            Entwurf: ${{ steps.ziel.outputs.entwurf }}
+            Prüfliste: ${{ steps.quellen.outputs.pruefliste }}
+            Bericht: ${{ steps.ziel.outputs.bericht }}
+          # Kein git, kein gh. Web nur, um eine tote Adresse desselben Dokuments
+          # zu ersetzen oder eine nicht ladbare Quelle einmal nachzulesen
+          # (höchstens zwölf Aufrufe laut Skill).
+          claude_args: |
+            --max-turns 80
+            --model claude-opus-5
+            --add-dir ${{ steps.ziel.outputs.arbeit }}
+            --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,WebFetch,WebSearch,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(wc:*)"
+
+      - name: Ergebnis der Schlussprüfung übernehmen
+        if: ${{ !cancelled() && steps.quellen.outputs.bereit == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ steps.ziel.outputs.nummer }}
+          ZWEIG: ${{ steps.ziel.outputs.zweig }}
+          BERICHT: ${{ steps.ziel.outputs.bericht }}
+          PRUEFUNG: ${{ steps.schluss.outcome }}
+        run: |
+          set -euo pipefail
+          # Fehler in fremden Entwürfen dürfen hier nicht stoppen.
+          python tools/artikel_generator.py > /dev/null || true
+          if ! git diff --quiet -- entwuerfe fachwissen sitemap.xml; then
+            git add entwuerfe fachwissen sitemap.xml
+            git commit -q -m "Schlusspruefung: Korrekturen gegen die Quellen" \
+                          -m "Automatisch nach dem Schreiben geprueft. Einzelheiten im Kommentar des Pull Requests."
+            git push -q origin "HEAD:$ZWEIG"
+          fi
+          if [ -s "$BERICHT" ]; then
+            gh pr comment "$NR" --body-file "$BERICHT"
+          else
+            gh pr comment "$NR" --body "⚠️ Die Schlussprüfung gegen die Quellen ist nicht vollständig durchgelaufen (Ergebnis: ${PRUEFUNG}). Bitte Zahlen und Fußnoten vor dem Merge selbst an den Quellen prüfen."
+          fi
+
+      # -----------------------------------------------------------------
+      # 6. Kontrolle: Wurde der Hauptzweig während des Laufs verändert?
       #    Der Agent darf nie auf main pushen. Solange keine Branch-Protection
       #    aktiv ist, sichert das nur der Prompt – diese Kontrolle macht einen
       #    Verstoß wenigstens sofort sichtbar.

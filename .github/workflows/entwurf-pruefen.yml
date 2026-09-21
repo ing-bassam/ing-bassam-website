@@ -1,0 +1,260 @@
+# Prüfung eines vorhandenen Entwurfs
+#
+# Für Entwürfe, die bereits im Ordner entwuerfe/ liegen – etwa nachdem sie von
+# Hand gekürzt oder überarbeitet wurden. Neue Beiträge durchlaufen dieselben
+# Prüfungen automatisch in den Workflows „Fachartikel-Entwurf“ und
+# „Urteilsbesprechung“.
+#
+#   Faktenprüfung   nur bei Urteilsbesprechungen: jede Aussage über die
+#                   Entscheidung gegen den amtlichen Volltext
+#                   (tools/volltext_laden.py holt ihn anhand von fundstelle
+#                   und aktenzeichen im Frontmatter)
+#   Schlussprüfung  bei jedem Entwurf: jede Fußnote gegen den heruntergeladenen
+#                   Wortlaut ihrer Quelle (tools/quellen_laden.py), unbelegte
+#                   Risikoaussagen, Überschriften, Lektorat
+#
+# Die Korrekturen kommen als Pull Request mit beiden Prüfberichten; am Entwurf
+# auf dem Hauptzweig ändert sich nichts, bevor Sie ihn mergen.
+
+name: Entwurf prüfen
+
+on:
+  workflow_dispatch:
+    inputs:
+      entwurf:
+        description: "Entwurfsdatei, z. B. entwuerfe/2026-09-20-aufmass-messverfahren-nachweis-bausoll.md"
+        required: true
+        type: string
+      umfang:
+        description: "Welche Prüfungen laufen (die Faktenprüfung nur bei Urteilsbesprechungen)"
+        required: false
+        default: "beide"
+        type: choice
+        options:
+          - "beide"
+          - "nur Schlussprüfung"
+          - "nur Faktenprüfung"
+
+run-name: "Entwurf prüfen: ${{ inputs.entwurf }}"
+
+concurrency:
+  group: entwurf-pruefen
+  cancel-in-progress: false
+
+jobs:
+  pruefen:
+    runs-on: ubuntu-latest
+    # Faktenprüfung bis 50 Minuten, Schlussprüfung bis 40, dazu Abruf und Abschluss.
+    timeout-minutes: 110
+
+    permissions:
+      contents: write        # Korrekturzweig pushen
+      pull-requests: write   # Pull Request mit den Prüfberichten öffnen
+      id-token: write        # von der Claude-Action benötigt
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Git-Identität setzen
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config core.hooksPath /dev/null
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Abhängigkeiten installieren
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip --quiet
+          python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2' 'pypdf==6.19.0'
+
+      - name: Entwurf prüfen und Volltext laden
+        id: vorbereitung
+        env:
+          # Eingaben nie direkt in die Shell schreiben, sondern über die Umgebung.
+          ENTWURF: ${{ inputs.entwurf }}
+          UMFANG: ${{ inputs.umfang }}
+        run: |
+          set -euo pipefail
+          # Nur Dateien im Entwurfsordner, nur harmlose Zeichen im Namen.
+          if ! [[ "$ENTWURF" =~ ^entwuerfe/[a-z0-9-]+\.md$ ]] || [ ! -f "$ENTWURF" ]; then
+            echo "::error title=Entwurf prüfen::„$ENTWURF“ ist keine Datei im Ordner entwuerfe/."
+            exit 1
+          fi
+          ARBEIT="$RUNNER_TEMP/pruefung"
+          mkdir -p "$ARBEIT"
+          : > "$ARBEIT/faktenpruefung.diff"
+          KURZ="$(basename "$ENTWURF" .md)"
+          ZWEIG="pruefung/${KURZ#????-??-??-}-$(date -u +%Y%m%d%H%M)"
+          # Korrekturen landen auf einem eigenen Zweig; gepusht wird erst am Ende.
+          git checkout -q -b "$ZWEIG"
+          {
+            echo "arbeit=$ARBEIT"
+            echo "zweig=$ZWEIG"
+            echo "start=$(git rev-parse HEAD)"
+            echo "diff=$ARBEIT/faktenpruefung.diff"
+            echo "faktenbericht=$ARBEIT/faktenpruefung.md"
+            echo "schlussbericht=$ARBEIT/schlusspruefung.md"
+          } >> "$GITHUB_OUTPUT"
+
+          FAKTEN=false
+          SCHLUSS=false
+          case "$UMFANG" in
+            "nur Schlussprüfung") SCHLUSS=true ;;
+            "nur Faktenprüfung")  FAKTEN=true ;;
+            *)                    FAKTEN=true; SCHLUSS=true ;;
+          esac
+
+          # Die Faktenprüfung braucht eine Urteilsbesprechung mit Fundstelle.
+          if [ "$FAKTEN" = true ]; then
+            if grep -q '^aktenzeichen:[[:space:]]*[^[:space:]]' "$ENTWURF" \
+               && grep -q '^fundstelle:[[:space:]]*[^[:space:]]' "$ENTWURF"; then
+              if AUSGABE="$(python tools/volltext_laden.py "$ENTWURF" "$ARBEIT/volltexte")"; then
+                printf '%s\n' "$AUSGABE"
+                echo "volltext=$(printf '%s\n' "$AUSGABE" | tail -n 1)" >> "$GITHUB_OUTPUT"
+              else
+                echo "::warning title=Faktenprüfung::Volltext nicht abrufbar, die Faktenprüfung entfällt: $AUSGABE"
+                FAKTEN=false
+              fi
+            else
+              echo "::notice title=Faktenprüfung::Keine Urteilsbesprechung – die Faktenprüfung entfällt."
+              FAKTEN=false
+            fi
+          fi
+          if [ "$FAKTEN" = false ] && [ "$SCHLUSS" = false ]; then
+            echo "::warning title=Entwurf prüfen::Für diesen Entwurf und diese Auswahl ist keine Prüfung möglich."
+          fi
+          echo "fakten=$FAKTEN" >> "$GITHUB_OUTPUT"
+          echo "schluss=$SCHLUSS" >> "$GITHUB_OUTPUT"
+
+      - name: Fakten gegen den Volltext prüfen
+        id: fakten
+        if: steps.vorbereitung.outputs.fakten == 'true'
+        continue-on-error: true
+        timeout-minutes: 50
+        uses: anthropics/claude-code-action@cfc3eb22bfed5c26ef66e3223c982af27e4524de # v1.0.231
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /faktenpruefung
+            Entwurf: ${{ inputs.entwurf }}
+            Volltext: ${{ steps.vorbereitung.outputs.volltext }}
+            Bericht: ${{ steps.vorbereitung.outputs.faktenbericht }}
+          claude_args: |
+            --max-turns 110
+            --model claude-opus-5
+            --add-dir ${{ steps.vorbereitung.outputs.arbeit }}
+            --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(wc:*)"
+
+      - name: Ergebnis der Faktenprüfung festhalten
+        if: ${{ !cancelled() && steps.vorbereitung.outputs.fakten == 'true' }}
+        env:
+          ENTWURF: ${{ inputs.entwurf }}
+          DIFF: ${{ steps.vorbereitung.outputs.diff }}
+        run: |
+          set -euo pipefail
+          # Die Schlussprüfung prüft jede Änderung der Faktenprüfung noch einmal.
+          git diff -U0 -- "$ENTWURF" > "$DIFF" || true
+          python tools/artikel_generator.py > /dev/null || true
+          if ! git diff --quiet -- entwuerfe fachwissen sitemap.xml; then
+            git add entwuerfe fachwissen sitemap.xml
+            git commit -q -m "Faktenpruefung: $(basename "$ENTWURF" .md)" \
+                          -m "Korrekturen gegen den amtlichen Volltext. Einzelheiten im Pull Request."
+          fi
+
+      - name: Quellen für die Schlussprüfung laden
+        id: quellen
+        if: ${{ !cancelled() && steps.vorbereitung.outputs.schluss == 'true' }}
+        env:
+          ENTWURF: ${{ inputs.entwurf }}
+          VOLLTEXT: ${{ steps.vorbereitung.outputs.volltext }}
+          ARBEIT: ${{ steps.vorbereitung.outputs.arbeit }}
+        run: |
+          set -euo pipefail
+          VT=()
+          if [ -n "$VOLLTEXT" ] && [ -f "$VOLLTEXT" ]; then
+            VT=(--volltext "$VOLLTEXT")
+          fi
+          if ! AUSGABE="$(python tools/quellen_laden.py "$ENTWURF" "$ARBEIT/schlusspruefung" "${VT[@]}")"; then
+            echo "::warning title=Schlussprüfung::Quellen nicht ladbar – $(printf '%s\n' "$AUSGABE" | tail -n 1)"
+            echo "bereit=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          printf '%s\n' "$AUSGABE"
+          echo "pruefliste=$(printf '%s\n' "$AUSGABE" | tail -n 1)" >> "$GITHUB_OUTPUT"
+          echo "bereit=true" >> "$GITHUB_OUTPUT"
+
+      - name: Schlussprüfung gegen die Quellen
+        id: schluss
+        if: ${{ !cancelled() && steps.quellen.outputs.bereit == 'true' }}
+        continue-on-error: true
+        timeout-minutes: 40
+        uses: anthropics/claude-code-action@cfc3eb22bfed5c26ef66e3223c982af27e4524de # v1.0.231
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /schlusspruefung
+            Entwurf: ${{ inputs.entwurf }}
+            Prüfliste: ${{ steps.quellen.outputs.pruefliste }}
+            Volltext: ${{ steps.vorbereitung.outputs.volltext }}
+            Änderungen der Faktenprüfung: ${{ steps.vorbereitung.outputs.diff }}
+            Bericht: ${{ steps.vorbereitung.outputs.schlussbericht }}
+          claude_args: |
+            --max-turns 80
+            --model claude-opus-5
+            --add-dir ${{ steps.vorbereitung.outputs.arbeit }}
+            --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,WebFetch,WebSearch,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(wc:*)"
+
+      - name: Korrekturen als Pull Request vorlegen
+        if: always() && steps.vorbereitung.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENTWURF: ${{ inputs.entwurf }}
+          ZWEIG: ${{ steps.vorbereitung.outputs.zweig }}
+          START: ${{ steps.vorbereitung.outputs.start }}
+          ARBEIT: ${{ steps.vorbereitung.outputs.arbeit }}
+          FAKTENBERICHT: ${{ steps.vorbereitung.outputs.faktenbericht }}
+          SCHLUSSBERICHT: ${{ steps.vorbereitung.outputs.schlussbericht }}
+          FAKTEN: ${{ steps.fakten.outcome }}
+          SCHLUSS: ${{ steps.schluss.outcome }}
+        run: |
+          set -euo pipefail
+          python tools/artikel_generator.py > /dev/null || true
+          if ! git diff --quiet -- entwuerfe fachwissen sitemap.xml; then
+            git add entwuerfe fachwissen sitemap.xml
+            git commit -q -m "Schlusspruefung: $(basename "$ENTWURF" .md)" \
+                          -m "Korrekturen gegen die Quellen. Einzelheiten im Pull Request."
+          fi
+
+          TEXT="$ARBEIT/pr-body.md"
+          : > "$TEXT"
+          for bericht in "$FAKTENBERICHT" "$SCHLUSSBERICHT"; do
+            if [ -s "$bericht" ]; then
+              cat "$bericht" >> "$TEXT"
+              printf '\n\n' >> "$TEXT"
+            fi
+          done
+          if [ ! -s "$TEXT" ]; then
+            printf '⚠️ Keine Prüfung hat einen Bericht geschrieben (Faktenprüfung: %s, Schlussprüfung: %s). Die Korrekturen im Diff sind möglicherweise unvollständig; bitte vor dem Merge selbst gegenlesen.\n' \
+              "${FAKTEN:-übersprungen}" "${SCHLUSS:-übersprungen}" > "$TEXT"
+          fi
+
+          if [ "$(git rev-list --count "$START"..HEAD)" = "0" ]; then
+            {
+              echo "## Keine Korrekturen nötig"
+              echo
+              cat "$TEXT"
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "::notice title=Entwurf prüfen::Keine Korrekturen – kein Pull Request nötig. Die Berichte stehen in der Zusammenfassung dieses Laufs."
+            exit 0
+          fi
+          git push -q -u origin "$ZWEIG"
+          gh pr create --base main --head "$ZWEIG" \
+            --title "Pruefung: $(basename "$ENTWURF" .md)" \
+            --body-file "$TEXT"
