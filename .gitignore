@@ -2,3 +2,7 @@
 # Bytecode-Zwischendateien an. Die gehoeren nicht in die Versionierung.
 __pycache__/
 *.pyc
+
+# Fachbibliothek: wird im Workflow aus dem privaten Repository FachwissenAgent
+# geladen und darf nie in dieses öffentliche Repository gelangen.
+.bibliothek/

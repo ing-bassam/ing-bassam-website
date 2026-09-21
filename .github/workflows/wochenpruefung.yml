@@ -90,6 +90,54 @@ jobs:
             echo "::notice title=Wöchentliche Prüfung::Alle Quellen-Links sind in Ordnung."
           fi
 
+      # Zugangsschlüssel für die Fachbibliothek laufen ab. Ohne Warnung würden
+      # die Agenten dann still ohne Bibliothek schreiben.
+      - name: Fachbibliothek erreichbar?
+        id: bib
+        env:
+          TOKEN_DA: ${{ secrets.BIBLIOTHEK_TOKEN != '' }}
+        run: echo "vorhanden=$TOKEN_DA" >> "$GITHUB_OUTPUT"
+
+      - name: Fachbibliothek testweise laden
+        id: bibladen
+        if: steps.bib.outputs.vorhanden == 'true'
+        continue-on-error: true
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ing-bassam/FachwissenAgent
+          token: ${{ secrets.BIBLIOTHEK_TOKEN }}
+          path: .bibliothek
+          persist-credentials: false
+          sparse-checkout: katalog.yml
+          sparse-checkout-cone-mode: false
+
+      - name: Zugang zur Fachbibliothek festhalten
+        if: steps.bib.outputs.vorhanden == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ERGEBNIS: ${{ steps.bibladen.outcome }}
+        run: |
+          set -euo pipefail
+          TITEL="Fachbibliothek: Zugangsschlüssel erneuern"
+          NR="$(gh issue list --state open --limit 200 --json number,title \
+                  --jq '.[] | "\(.number)\t\(.title)"' \
+                | awk -F '\t' -v t="$TITEL" '$2 == t { print $1; exit }')"
+          if [ "$ERGEBNIS" != "success" ]; then
+            if [ -z "$NR" ]; then
+              printf '%s\n' \
+                "Die Agenten konnten die Fachbibliothek (privates Repository FachwissenAgent) nicht laden. Meist ist der Zugangsschlüssel abgelaufen." \
+                "" \
+                "So erneuern Sie ihn: GitHub → Profilbild → Settings → Developer settings → Personal access tokens → Fine-grained tokens → den Schlüssel „Fachbibliothek lesen“ öffnen → Regenerate token. Den neuen Wert unter ing-bassam-website → Settings → Secrets and variables → Actions → BIBLIOTHEK_TOKEN → Update eintragen." \
+                "" \
+                "Bis dahin schreiben die Agenten ohne Fachbibliothek. Dieses Issue schließt sich, sobald die Prüfung wieder erfolgreich ist." \
+                > "$RUNNER_TEMP/bibliothek-issue.md"
+              gh issue create --title "$TITEL" --body-file "$RUNNER_TEMP/bibliothek-issue.md"
+            fi
+            echo "::warning title=Fachbibliothek::Die Fachbibliothek ist nicht erreichbar – Zugangsschlüssel erneuern."
+          elif [ -n "$NR" ]; then
+            gh issue close "$NR" --comment "Die Fachbibliothek ist wieder erreichbar."
+          fi
+
       - name: Kürzlich geänderte Seiten erneut melden (IndexNow)
         continue-on-error: true
         env:
