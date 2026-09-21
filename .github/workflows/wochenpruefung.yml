@@ -38,7 +38,9 @@ concurrency:
 jobs:
   pruefen:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # Der Link-Check hat sein eigenes, begrenztes Zeitfenster (siehe dort);
+    # der Rest braucht wenige Minuten. Reserve für Warteschlangenzeiten.
+    timeout-minutes: 25
 
     permissions:
       contents: read   # Entwürfe lesen
@@ -55,43 +57,12 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Quellen-Links prüfen
-        id: links
-        run: |
-          set -euo pipefail
-          BERICHT="$RUNNER_TEMP/quellen-links.md"
-          python tools/links_pruefen.py "$BERICHT" | tee "$RUNNER_TEMP/links.log"
-          echo "befunde=$(tail -n 1 "$RUNNER_TEMP/links.log")" >> "$GITHUB_OUTPUT"
-          echo "bericht=$BERICHT" >> "$GITHUB_OUTPUT"
-          cat "$BERICHT" >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Ergebnis im Issue festhalten
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BEFUNDE: ${{ steps.links.outputs.befunde }}
-          BERICHT: ${{ steps.links.outputs.bericht }}
-        run: |
-          set -euo pipefail
-          TITEL="Wöchentliche Prüfung: Quellen-Links"
-          NR="$(gh issue list --state open --limit 200 --json number,title \
-                  --jq '.[] | "\(.number)\t\(.title)"' \
-                | awk -F '\t' -v t="$TITEL" '$2 == t { print $1; exit }')"
-          if [ "${BEFUNDE:-0}" -gt 0 ]; then
-            if [ -n "$NR" ]; then
-              gh issue edit "$NR" --body-file "$BERICHT"
-              echo "::notice title=Wöchentliche Prüfung::Defekte Adressen: $BEFUNDE – Issue #$NR aktualisiert."
-            else
-              gh issue create --title "$TITEL" --body-file "$BERICHT"
-              echo "::notice title=Wöchentliche Prüfung::Defekte Adressen: $BEFUNDE – neues Issue angelegt."
-            fi
-          elif [ -n "$NR" ]; then
-            gh issue close "$NR" --comment "Alle Quellen-Links sind wieder in Ordnung (Prüfung vom $(date -u +%d.%m.%Y))."
-          else
-            echo "::notice title=Wöchentliche Prüfung::Alle Quellen-Links sind in Ordnung."
-          fi
-
       # Zugangsschlüssel für die Fachbibliothek laufen ab. Ohne Warnung würden
-      # die Agenten dann still ohne Bibliothek schreiben.
+      # die Agenten dann still ohne Bibliothek schreiben. Dieser Block steht
+      # bewusst vor dem Link-Check: Der prüft rund 100 externe Adressen und
+      # kann je nach Erreichbarkeit lange dauern – er darf die Bibliotheksprüfung
+      # nicht mehr verdrängen, wie es einmal geschehen ist (Lauf durch das
+      # Zeitlimit des gesamten Jobs abgebrochen, bevor er an der Reihe war).
       - name: Fachbibliothek erreichbar?
         id: bib
         env:
@@ -137,6 +108,51 @@ jobs:
           elif [ -n "$NR" ]; then
             gh issue close "$NR" --comment "Die Fachbibliothek ist wieder erreichbar."
           fi
+
+      - name: Quellen-Links prüfen
+        id: links
+        # Eigenes Zeitfenster, damit ein hängender externer Server nie den
+        # ganzen Job und damit die Prüfungen danach verdrängen kann.
+        timeout-minutes: 12
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          BERICHT="$RUNNER_TEMP/quellen-links.md"
+          python tools/links_pruefen.py "$BERICHT" | tee "$RUNNER_TEMP/links.log"
+          echo "befunde=$(tail -n 1 "$RUNNER_TEMP/links.log")" >> "$GITHUB_OUTPUT"
+          echo "bericht=$BERICHT" >> "$GITHUB_OUTPUT"
+          cat "$BERICHT" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Ergebnis im Issue festhalten
+        if: steps.links.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BEFUNDE: ${{ steps.links.outputs.befunde }}
+          BERICHT: ${{ steps.links.outputs.bericht }}
+        run: |
+          set -euo pipefail
+          TITEL="Wöchentliche Prüfung: Quellen-Links"
+          NR="$(gh issue list --state open --limit 200 --json number,title \
+                  --jq '.[] | "\(.number)\t\(.title)"' \
+                | awk -F '\t' -v t="$TITEL" '$2 == t { print $1; exit }')"
+          if [ "${BEFUNDE:-0}" -gt 0 ]; then
+            if [ -n "$NR" ]; then
+              gh issue edit "$NR" --body-file "$BERICHT"
+              echo "::notice title=Wöchentliche Prüfung::Defekte Adressen: $BEFUNDE – Issue #$NR aktualisiert."
+            else
+              gh issue create --title "$TITEL" --body-file "$BERICHT"
+              echo "::notice title=Wöchentliche Prüfung::Defekte Adressen: $BEFUNDE – neues Issue angelegt."
+            fi
+          elif [ -n "$NR" ]; then
+            gh issue close "$NR" --comment "Alle Quellen-Links sind wieder in Ordnung (Prüfung vom $(date -u +%d.%m.%Y))."
+          else
+            echo "::notice title=Wöchentliche Prüfung::Alle Quellen-Links sind in Ordnung."
+          fi
+
+      - name: Quellen-Links nicht vollständig geprüft
+        if: steps.links.outcome != 'success'
+        run: |
+          echo "::warning title=Wöchentliche Prüfung::Der Link-Check ist nicht sauber durchgelaufen (Zeitlimit oder Fehler) – Issue bleibt diese Woche unverändert."
 
       - name: Kürzlich geänderte Seiten erneut melden (IndexNow)
         continue-on-error: true
