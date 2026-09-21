@@ -8,10 +8,11 @@ kernfrage: Was leistet eine technische Beweissicherung, und in welchen Situation
 meta_beschreibung: "Technische Beweissicherung: Zustandsfeststellung vor Nachbarbebauung, Sanierung und Abnahme – Ablauf, Beweiswert und Abgrenzung zum Beweisverfahren."
 schlagwoerter: Beweissicherung, Zustandsfeststellung, selbständiges Beweisverfahren, Privatgutachten, Nachbarbebauung, Bauschaden, DIN 4123, DIN 4150-3
 definition: Eine technische Beweissicherung ist die fachlich dokumentierte Feststellung des Zustands eines Bauwerks zu einem bestimmten Zeitpunkt.
-autor: Karim Abu Elkheir
+autor: M. Sc. Karim Abu Elkheir
 qualifikation:
 kurzform: technische-beweissicherung-grundlagen
 erstellt: 2026-09-20
+aktualisiert: 2026-09-21
 status: Veröffentlicht
 quelle: notion
 notion_id: 3e1d96ad-00b4-81b7-bc67-dc5e25b26e67
@@ -215,7 +216,7 @@ Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er
 
 **Über den Autor**
 
-M.Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: 2026-09-21.
+M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: 2026-09-21.
 
 ## Quellen und Fußnoten
 

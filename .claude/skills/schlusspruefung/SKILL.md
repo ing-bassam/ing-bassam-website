@@ -91,7 +91,7 @@ Nur Sprache, nie Inhalt: Tippfehler, fehlende oder doppelte Wörter, falsche End
 - **Nichts Neues.** Keine neuen Tatsachen, keine neuen Quellen, keine neuen Fußnoten, keine TODO-Blöcke. Einzige Ausnahme ist die aktuelle Adresse desselben Dokuments (Teil A).
 - **Der Absatz bleibt lesbar.** Nach einer Streichung liest du den Absatz im Zusammenhang (Grep mit Zeilennummer). Er muss für sich verständlich bleiben. Bezieht sich ein Folgesatz auf den gestrichenen („Dieser Anstieg …“), passt du den Bezug an oder streichst auch ihn.
 - **Minimal und im Stil des Artikels:** Fließtext, keine Aufzählungen, keine Überschriften ab H3, Anführungszeichen „so“.
-- **Nicht anfassen:** `## Hinweis`, Autorenkasten, `status`, `fachlich_geprueft_von`, `fachlich_geprueft_am`, bestehende TODO-Blöcke und die Fußnote zur besprochenen Entscheidung. Aussagen über die besprochene Entscheidung änderst du nur in Teil B (Rechtsmittel, Verknüpfung), Teil C und Teil D, und nur gegen den Volltext. Keine anderen Dateien, kein Commit, kein Push – das übernimmt der Workflow.
+- **Nicht anfassen:** `## Hinweis`, Autorenkasten, `autor`, `status`, `aktualisiert`, `fachlich_geprueft_von`, `fachlich_geprueft_am`, bestehende TODO-Blöcke und die Fußnote zur besprochenen Entscheidung. Aussagen über die besprochene Entscheidung änderst du nur in Teil B (Rechtsmittel, Verknüpfung), Teil C und Teil D, und nur gegen den Volltext. Keine anderen Dateien, kein Commit, kein Push – das übernimmt der Workflow.
 
 ## Fußnoten ordnen, Seite bauen, Selbstkontrolle
 

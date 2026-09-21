@@ -1,0 +1,104 @@
+name: Wöchentliche Prüfung
+
+# -----------------------------------------------------------------------------
+# Läuft jeden Montag früh – ohne KI und ohne Kontingent:
+#
+#   1. Prüft die Quellen-Links aller veröffentlichten Beiträge
+#      (tools/links_pruefen.py). Führt eine Adresse nicht mehr zur Quelle –
+#      Seite gelöscht oder nur noch Umleitung auf eine Startseite –, entsteht
+#      ein Issue „Wöchentliche Prüfung: Quellen-Links“. Es wird jede Woche still
+#      aktualisiert und geschlossen, sobald alles wieder in Ordnung ist. So gibt
+#      es nur dann eine Benachrichtigung, wenn sich etwas ändert.
+#   2. Meldet Seiten, deren Stand in den letzten acht Tagen neu ist, noch einmal
+#      per IndexNow – falls eine Meldung beim Seitenbau untergegangen ist.
+#
+# Von Hand: Actions → Wöchentliche Prüfung → Run workflow. Mit dem Haken
+# „Alle veröffentlichten Seiten neu melden“ gehen alle Adressen der Sitemap an
+# IndexNow.
+#
+# Hinweis: GitHub pausiert Zeitpläne, wenn im Repository 60 Tage lang nichts
+# geschieht. Dann genügt ein beliebiger Commit oder ein Klick auf „Enable
+# workflow“.
+# -----------------------------------------------------------------------------
+
+on:
+  schedule:
+    - cron: "0 5 * * 1"   # montags 05:00 UTC = 07:00 Uhr Sommerzeit, 06:00 Uhr Winterzeit
+  workflow_dispatch:
+    inputs:
+      alle_melden:
+        description: "Alle veröffentlichten Seiten neu per IndexNow melden"
+        type: boolean
+        default: false
+
+concurrency:
+  group: wochenpruefung
+  cancel-in-progress: false
+
+jobs:
+  pruefen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    permissions:
+      contents: read   # Entwürfe lesen
+      issues: write    # Befunde als Issue festhalten
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Quellen-Links prüfen
+        id: links
+        run: |
+          set -euo pipefail
+          BERICHT="$RUNNER_TEMP/quellen-links.md"
+          python tools/links_pruefen.py "$BERICHT" | tee "$RUNNER_TEMP/links.log"
+          echo "befunde=$(tail -n 1 "$RUNNER_TEMP/links.log")" >> "$GITHUB_OUTPUT"
+          echo "bericht=$BERICHT" >> "$GITHUB_OUTPUT"
+          cat "$BERICHT" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Ergebnis im Issue festhalten
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BEFUNDE: ${{ steps.links.outputs.befunde }}
+          BERICHT: ${{ steps.links.outputs.bericht }}
+        run: |
+          set -euo pipefail
+          TITEL="Wöchentliche Prüfung: Quellen-Links"
+          NR="$(gh issue list --state open --limit 200 --json number,title \
+                  --jq '.[] | "\(.number)\t\(.title)"' \
+                | awk -F '\t' -v t="$TITEL" '$2 == t { print $1; exit }')"
+          if [ "${BEFUNDE:-0}" -gt 0 ]; then
+            if [ -n "$NR" ]; then
+              gh issue edit "$NR" --body-file "$BERICHT"
+              echo "::notice title=Wöchentliche Prüfung::Defekte Adressen: $BEFUNDE – Issue #$NR aktualisiert."
+            else
+              gh issue create --title "$TITEL" --body-file "$BERICHT"
+              echo "::notice title=Wöchentliche Prüfung::Defekte Adressen: $BEFUNDE – neues Issue angelegt."
+            fi
+          elif [ -n "$NR" ]; then
+            gh issue close "$NR" --comment "Alle Quellen-Links sind wieder in Ordnung (Prüfung vom $(date -u +%d.%m.%Y))."
+          else
+            echo "::notice title=Wöchentliche Prüfung::Alle Quellen-Links sind in Ordnung."
+          fi
+
+      - name: Kürzlich geänderte Seiten erneut melden (IndexNow)
+        continue-on-error: true
+        env:
+          ALLE: ${{ inputs.alle_melden }}
+        run: |
+          set -euo pipefail
+          # Die Seiten sind längst online – kein Warten nötig.
+          if [ "$ALLE" = "true" ]; then
+            python tools/indexnow.py --alle --warten 0
+          else
+            python tools/indexnow.py --seit 8 --warten 0
+          fi

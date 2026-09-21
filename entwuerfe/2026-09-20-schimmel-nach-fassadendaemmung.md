@@ -8,10 +8,11 @@ kernfrage: Verursacht eine Fassadendämmung Schimmel in den Wohnungen, oder lieg
 meta_beschreibung: Nach einer Fassadendämmung tritt Schimmel auf. Wie Sie Wärmebrücken, Luftwechsel und Ausführungsfehler als Ursache sauber voneinander trennen.
 schlagwoerter: Fassadendämmung, Schimmel, Wärmebrücke, Lüftungskonzept, Wärmedämm-Verbundsystem, Bauschaden, Hausverwaltung
 definition: Eine Fassadendämmung ist eine zusätzliche Dämmschicht auf der Außenseite der Außenwand.
-autor: Karim Abu Elkheir
+autor: M. Sc. Karim Abu Elkheir
 qualifikation:
 kurzform: schimmel-nach-fassadendaemmung
 erstellt: 2026-09-20
+aktualisiert: 2026-09-21
 status: Veröffentlicht
 quelle: notion
 notion_id: 3e1d96ad-00b4-814c-a710-f6b7a174291c
@@ -237,7 +238,7 @@ Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er
 
 **Über den Autor**
 
-M.Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: 2026-09-21.
+M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: 2026-09-21.
 
 ## Quellen und Fußnoten
 

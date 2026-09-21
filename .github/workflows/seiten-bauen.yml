@@ -43,7 +43,9 @@ concurrency:
 jobs:
   bauen:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Seitenbau braucht wenige Minuten; bis zu 15 kommen für IndexNow dazu,
+    # das wartet, bis GitHub Pages den neuen Stand ausliefert.
+    timeout-minutes: 25
 
     permissions:
       contents: write        # erzeugte Seiten zurückschreiben
@@ -136,6 +138,35 @@ jobs:
             exit 1
           fi
           echo "::notice title=Fachwissen::Zweiter Lauf bestätigt: Ergebnis ist stabil."
+
+      # IndexNow: Bing und die übrigen teilnehmenden Suchmaschinen erfahren
+      # sofort von neuen und geänderten Seiten, statt auf ihren Crawler zu
+      # warten. Gemeldet werden nur Adressen, deren Eintrag in der Sitemap neu
+      # ist oder deren Stand sich geändert hat – Entwürfe stehen dort nie.
+      # Nur auf main, denn nur main ist online. Ein Fehler hier färbt den
+      # Seitenbau nicht rot; die wöchentliche Prüfung meldet verpasste Seiten
+      # nach.
+      - name: Suchmaschinen benachrichtigen (IndexNow)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        timeout-minutes: 15
+        env:
+          VORHER: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          ALT="$RUNNER_TEMP/sitemap-vorher.xml"
+          : > "$ALT"
+          MODUS=(--vorher "$ALT")
+          if [[ "$VORHER" =~ ^[0-9a-f]{40}$ ]] && [[ ! "$VORHER" =~ ^0+$ ]] \
+             && git fetch -q --depth=1 origin "$VORHER" 2>/dev/null; then
+            git show "$VORHER:sitemap.xml" > "$ALT" 2>/dev/null || true
+            # Kam die Schlüsseldatei erst mit diesem Push, hat noch keine
+            # Suchmaschine eine Meldung erhalten: dann einmal alle Seiten melden.
+            if ! git ls-tree --name-only "$VORHER" | grep -Eq '^[0-9a-f]{32}\.txt$'; then
+              MODUS=(--alle)
+            fi
+          fi
+          python tools/indexnow.py "${MODUS[@]}"
 
       - name: Gesperrte Beiträge melden
         if: always() && steps.bauen.outputs.rueckgabe == '2'

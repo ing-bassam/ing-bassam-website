@@ -67,10 +67,11 @@ kernfrage: <aus dem Auftrag oder selbst formuliert>
 meta_beschreibung: <höchstens 155 Zeichen, enthält den Kernbegriff, verspricht nichts>
 schlagwoerter: <5 bis 8 Begriffe, kommagetrennt, nur Themenbegriffe und bestätigte Regelwerke>
 definition: <der eine Definitionssatz, wortgleich wie im Text>
-autor: Karim Abu Elkheir
+autor: M. Sc. Karim Abu Elkheir
 qualifikation: <nur wenn der Auftrag sie nennt, sonst leer lassen>
 kurzform: <wie im Dateinamen>
 erstellt: <JJJJ-MM-TT>
+aktualisiert:
 status: Entwurf
 quelle: <notion oder manuell>
 notion_id: <aus dem Auftrag oder leer>
@@ -87,7 +88,7 @@ regelwerke_bestaetigt:
 ---
 ```
 
-Die sieben letzten Felder stehen untereinander, damit ein einziger Edit sie am Ende setzt: `wortzahl` (Haupttext-Wörter nach der Formel unten), `lesezeit` (Wortzahl geteilt durch 200, aufgerundet, in der Form „21 Minuten“), `fussnoten` (Anzahl der Einträge im Verzeichnis), `quellen_geprueft` (Anzahl der vollständig abgesicherten Regelwerke, Gesetze und Urteile), `zahlenwerte_norm` (Anzahl der genannten Zahlenwerte mit Normbezug), `todos` (Anzahl der TODO-Blöcke), `regelwerke_bestaetigt` (kommagetrennte Kurzformen der vollständig abgesicherten Regelwerke, Gesetze und Urteile). `fachlich_geprueft_von` und `fachlich_geprueft_am` legst du leer an; der Auftraggeber kann damit seine Prüfung dokumentieren, für die Veröffentlichung sind sie nicht nötig. Leere Felder bleiben leer, aber vorhanden.
+Die sieben letzten Felder stehen untereinander, damit ein einziger Edit sie am Ende setzt: `wortzahl` (Haupttext-Wörter nach der Formel unten), `lesezeit` (Wortzahl geteilt durch 200, aufgerundet, in der Form „21 Minuten“), `fussnoten` (Anzahl der Einträge im Verzeichnis), `quellen_geprueft` (Anzahl der vollständig abgesicherten Regelwerke, Gesetze und Urteile), `zahlenwerte_norm` (Anzahl der genannten Zahlenwerte mit Normbezug), `todos` (Anzahl der TODO-Blöcke), `regelwerke_bestaetigt` (kommagetrennte Kurzformen der vollständig abgesicherten Regelwerke, Gesetze und Urteile). `fachlich_geprueft_von` und `fachlich_geprueft_am` legst du leer an; der Auftraggeber kann damit seine Prüfung dokumentieren, für die Veröffentlichung sind sie nicht nötig. `aktualisiert` legst du ebenfalls leer an: Der Auftraggeber trägt dort ein Datum ein, wenn er den Beitrag später inhaltlich überarbeitet. Die Seite zeigt dann „Aktualisiert am …“, der Autorenkasten übernimmt das Datum als Stand, und Suchmaschinen erfahren über Sitemap und IndexNow von der Überarbeitung. Der Autorenname lautet immer „M. Sc. Karim Abu Elkheir“, so hat der Auftraggeber es festgelegt. Leere Felder bleiben leer, aber vorhanden.
 
 Enthält ein Frontmatter-Wert einen Doppelpunkt, ein `#` oder ein führendes Sonderzeichen, steht er in **geraden doppelten Anführungszeichen**. Das ist die einzige zulässige Verwendung gerader Anführungszeichen in der Datei; die Längengrenzen zählen ohne diese beiden Zeichen.
 
@@ -117,14 +118,14 @@ Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er
 
 **Über den Autor**
 
-M.Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: <JJJJ-MM-TT>.
+M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: <JJJJ-MM-TT>.
 ```
 
 **Titelschutz.** Keine Titel, Bestellungen, Zertifikate oder Mitgliedschaften erfinden. Ohne ausdrückliche Grundlage im Auftrag schreibst du weder hier noch im Artikel: „öffentlich bestellt und vereidigt“, „zertifiziert“, „staatlich anerkannt“, „Beratender Ingenieur“, „Prüfingenieur“, „Prüfsachverständiger“, „gerichtlich zugelassen“, „gerichtlich anerkannt“, „nach DIN EN ISO/IEC 17024 zertifiziert“, „Energieeffizienz-Experte“ und werbende Selbstzuschreibungen wie „unabhängig“ oder „neutral“. Der Autorenkasten nennt ausschließlich den akademischen Grad; alles Weitere wäre eine nicht geführte Bestellung.
 
 **Untersuchungsverfahren.** Thermografie, Blower-Door, Leckortung, Schimmel- und Materialanalytik, Laborprüfungen und ähnliche Verfahren beschreibst du generisch („je nach Fragestellung kommen … in Betracht, teils unter Hinzuziehung von Fachlaboren oder Messdienstleistern“). Du behauptest nie, das Büro führe ein bestimmtes Verfahren selbst durch oder halte Geräte vor, es sei denn, der Auftrag sagt es ausdrücklich.
 
-**Interne Verlinkung.** Pflicht ist ein ruhiger Verweis auf die Leistung des Büros im **letzten H2-Abschnitt des Hauptteils** (beim Format Checkliste also im letzten inhaltlichen H2, nicht in `## Zum Abhaken`). Erlaubt ist ein zweiter im Hauptteil, und zwar nur dort, wo ein Leser sachlich vor der Frage steht, ob er einen Sachverständigen braucht. Nie mehr als zwei. Bei mehreren Werten in `leistung` bestimmt der erste den Pflichtverweis, der zweite darf den optionalen Verweis bestimmen; weitere werden nicht verlinkt. Anker: Objektüberwachung LP 8 führt zu `https://ing-bassam.de/#leistung-objektueberwachung`; Gutachten führt bei Versicherungsfällen (Leitungswasser, Sturm, Brand, Elementar) zu `https://ing-bassam.de/#leistung-versicherungsgutachten`, bei Zustandsfeststellungen vor oder während Bauarbeiten, an Nachbargebäuden oder vor der Abnahme zu `https://ing-bassam.de/#leistung-beweissicherung`; Bauherrenvertretung, Baubegleitung, Claim Management, Kalkulation und Energieberatung führen zu `https://ing-bassam.de/#kontakt`, die Leistung wird im Satz beim Namen genannt. Passt bei „Gutachten“ keiner dieser Kontexte, gilt `#kontakt` mit der Leistung im Satz. Für Leser, die selbst Partei sind, verweist du auf `#leistung-beweissicherung` oder `#kontakt` mit der Formulierung „Privatgutachten oder fachliche Begleitung“. Der Anker `#leistung-gerichtsgutachten` wird nur gesetzt, wenn im selben Satz steht, dass Gerichtssachverständige vom Gericht ausgewählt und beauftragt werden. Form: ein ruhiger Satz mit Markdown-Link, etwa „Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand fest, bevor saniert wird.“ Keine Ausrufezeichen, keine Versprechen, keine Preise. Nie formulieren, ein Gutachten „beweise“ den Mangel oder „sichere den Anspruch“.
+**Interne Verlinkung.** Pflicht ist ein ruhiger Verweis auf die Leistung des Büros im **letzten H2-Abschnitt des Hauptteils** (beim Format Checkliste also im letzten inhaltlichen H2, nicht in `## Zum Abhaken`). Erlaubt ist ein zweiter im Hauptteil, und zwar nur dort, wo ein Leser sachlich vor der Frage steht, ob er einen Sachverständigen braucht. Nie mehr als zwei. Bei mehreren Werten in `leistung` bestimmt der erste den Pflichtverweis, der zweite darf den optionalen Verweis bestimmen; weitere werden nicht verlinkt. Anker: Objektüberwachung LP 8 führt zu `https://ing-bassam.de/#leistung-objektueberwachung`; Gutachten führt bei Versicherungsfällen (Leitungswasser, Sturm, Brand, Elementar) zu `https://ing-bassam.de/#leistung-versicherungsgutachten`, bei Zustandsfeststellungen vor oder während Bauarbeiten, an Nachbargebäuden oder vor der Abnahme zu `https://ing-bassam.de/#leistung-beweissicherung`; Bauherrenvertretung, Baubegleitung, Claim Management, Kalkulation und Energieberatung führen zu `https://ing-bassam.de/#kontakt`, die Leistung wird im Satz beim Namen genannt. Passt bei „Gutachten“ keiner dieser Kontexte, gilt `#kontakt` mit der Leistung im Satz. Für Leser, die selbst Partei sind, verweist du auf `#leistung-beweissicherung` oder `#kontakt` mit der Formulierung „Privatgutachten oder fachliche Begleitung“. Der Anker `#leistung-gerichtsgutachten` wird nur gesetzt, wenn im selben Satz steht, dass Gerichtssachverständige vom Gericht ausgewählt und beauftragt werden. Form: ein ruhiger Satz mit Markdown-Link, etwa „Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand fest, bevor saniert wird.“ Keine Ausrufezeichen, keine Versprechen, keine Preise. Nie formulieren, ein Gutachten „beweise“ den Mangel oder „sichere den Anspruch“. Links auf andere Fachbeiträge setzt du im Text nicht: Der Seitenbauer stellt unter jeden Artikel automatisch drei passende veröffentlichte Beiträge, anhand von Schlagwörtern, Kategorie und Zielgruppe. Gut gewählte `schlagwoerter` sind deshalb auch für die Verlinkung wichtig.
 
 ## Zitierfähigkeit
 
@@ -346,7 +347,7 @@ Führe diese Grep-Läufe im Zählmodus aus, mehrere in einem Turn, jeweils auf d
 - Interne Links: `ing-bassam\.de/#` – Soll 1 oder 2.
 - Frontmatter-Längen: `^titel: .{73,}` und `^meta_beschreibung: .{158,}` – Soll je 0 (die zwei zusätzlichen Zeichen sind der Spielraum für gerade Anführungszeichen).
 - Gerade Anführungszeichen außerhalb des Frontmatters: `"` – zulässig nur in den quotierten Frontmatter-Werten.
-- Autorenkasten und Hinweis wörtlich: „Er ist keine Rechtsberatung und ersetzt keine Begutachtung des Einzelfalls.“ – Soll 1; „M.Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin.“ – Soll 1. Eckige Klammern im Autorenkasten sind ein Fehler; der Generator meldet sie als Platzhalter.
+- Autorenkasten und Hinweis wörtlich: „Er ist keine Rechtsberatung und ersetzt keine Begutachtung des Einzelfalls.“ – Soll 1; „M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin.“ – Soll 1. Eckige Klammern im Autorenkasten sind ein Fehler; der Generator meldet sie als Platzhalter.
 
 **Pflicht-Grep gegen unbelegte Nennungen** (Inhaltsmodus, Zeilen mit `> TODO` und das Quellenverzeichnis bei der Bewertung ausnehmen):
 

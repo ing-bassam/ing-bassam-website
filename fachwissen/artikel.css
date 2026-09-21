@@ -193,6 +193,14 @@ a:hover{color:var(--accent-hover);}
 .karte-meta{font-size:.8125rem; color:var(--text-3); margin:0;}
 .leer{padding:40px 0 80px; color:var(--text-3);}
 
+/* Passende Fachbeiträge unter dem Artikel – dieselben Karten wie in der Übersicht */
+.weiterlesen{margin:56px 0 0; padding-top:28px; border-top:1px solid var(--line);}
+.weiterlesen h2{font-family:var(--font-display); font-weight:600; font-size:1.375rem; line-height:1.3; margin:0 0 20px;}
+.weiterlesen .karten{grid-template-columns:1fr; margin-bottom:48px;}
+.karte h3{font-family:var(--font-display); font-weight:600; font-size:1.1875rem; line-height:1.35; margin:0 0 10px;}
+.karte h3 a{color:var(--text); text-decoration:none;}
+.karte h3 a:hover{color:var(--accent);}
+
 /* -------------------------------------------------------------- Fuß */
 .seiten-fuss{background:var(--ink-950); color:var(--on-ink-2); margin-top:72px; padding:48px 0 40px; font-size:.9375rem;}
 .seiten-fuss p{margin:0 0 10px;}
@@ -210,7 +218,7 @@ a:hover{color:var(--accent-hover);}
 }
 
 @media print{
-  .seiten-kopf,.seiten-fuss,.brotkrumen,.skip-link,.entwurfswarnung{display:none;}
+  .seiten-kopf,.seiten-fuss,.brotkrumen,.skip-link,.entwurfswarnung,.weiterlesen{display:none;}
   body{background:#fff; font-size:11pt;}
   .prosa h2{margin-top:24pt;}
   a{color:inherit; text-decoration:none;}

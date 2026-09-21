@@ -51,7 +51,14 @@ SITEMAP = WURZEL / "sitemap.xml"
 BASIS_URL = "https://ing-bassam.de"
 FIRMA = "Bassam Ingenieurbüro für Bauwesen GmbH"
 KURZNAME = "BIB Ingenieurbüro für Bauwesen"
-AUTOR_VORGABE = "Karim Abu Elkheir"
+# Autorenname, wie ihn der Auftraggeber festgelegt hat (21.09.2026): überall
+# „M. Sc. Karim Abu Elkheir“. Steht im Entwurf eine andere Schreibweise
+# desselben Namens („Karim Abu Elkheir“, „M.Sc. …“), gilt trotzdem diese –
+# Suchmaschinen und KI-Systeme ordnen Urheberschaft über den Namen zu, und
+# dafür muss er auf jeder Seite gleich lauten.
+AUTOR_NAME = "Karim Abu Elkheir"
+AUTOR_GRAD = "M. Sc."
+AUTOR_VORGABE = f"{AUTOR_GRAD} {AUTOR_NAME}"
 TELEFON = "+49 176 23581339"
 EMAIL = "info@ing-bassam.de"
 
@@ -66,6 +73,25 @@ FACHLICHE_FORMATE = {"fachbeitrag", "rechtsprechung", "grundlagen", "urteilsbesp
 # --------------------------------------------------------------------------
 # Hilfsfunktionen
 # --------------------------------------------------------------------------
+
+GRAD_VORN = re.compile(
+    r"^\s*((?:(?:M|B)\.?\s?(?:Sc|Eng|A)\.?|Dipl\.-Ing\.(?:\s?\(FH\))?|Dr\.-Ing\.|Dr\.)\s+)+")
+
+
+def autor_aufteilen(roh: str) -> tuple[str, str, str]:
+    """Liefert Anzeigeform, Name ohne Grad und Grad.
+
+    In den strukturierten Daten steht der Grad getrennt (honorificPrefix),
+    damit die Person unter ihrem Namen erkannt wird; sichtbar bleibt die volle
+    Form.
+    """
+    treffer = GRAD_VORN.match(roh)
+    grad = " ".join(treffer.group(0).split()) if treffer else ""
+    name = " ".join((roh[treffer.end():] if treffer else roh).split())
+    if name == AUTOR_NAME:
+        return AUTOR_VORGABE, AUTOR_NAME, AUTOR_GRAD
+    return " ".join(f"{grad} {name}".split()), name, grad
+
 
 def kurzform_aus_dateiname(pfad: Path) -> str:
     """`2026-09-19-technische-beweissicherung.md` -> `technische-beweissicherung`."""
@@ -301,7 +327,8 @@ def strukturierte_daten(artikel: "Artikel") -> str:
              "url": BASIS_URL + "/"}
     autor = {
         "@type": "Person",
-        "name": artikel.autor,
+        "name": artikel.autor_name,
+        "honorificPrefix": artikel.autor_grad or None,
         "jobTitle": artikel.qualifikation or None,
         "worksFor": {"@id": firma_id},
     }
@@ -405,7 +432,8 @@ class Artikel:
             self.meta_beschreibung = self.kernfrage or self.titel
         self.meta_beschreibung = self.meta_beschreibung[:300]
 
-        self.autor = als_text(kopf.get("autor")) or AUTOR_VORGABE
+        self.autor, self.autor_name, self.autor_grad = autor_aufteilen(
+            als_text(kopf.get("autor")) or AUTOR_VORGABE)
         self.qualifikation = als_text(kopf.get("qualifikation"))
         if ist_platzhalter(self.qualifikation):
             self.qualifikation = ""
@@ -415,11 +443,21 @@ class Artikel:
             treffer = re.match(r"^(\d{4}-\d{2}-\d{2})-", pfad.stem)
             erstellt = treffer.group(1) if treffer else als_text(date.today())
         self.veroeffentlicht = erstellt
-        self.geaendert = datum_oder_none(als_text(kopf.get("fachlich_geprueft_am"))) or erstellt
+        # Letzter inhaltlicher Stand. „aktualisiert“ setzt der Autor, wenn er
+        # den Beitrag überarbeitet; bisher änderte sich das Datum nur mit
+        # „fachlich_geprueft_am“, und eine Überarbeitung blieb für Leser und
+        # Suchmaschinen unsichtbar. Es gilt das jüngste der drei Daten.
+        self.aktualisiert = datum_oder_none(als_text(kopf.get("aktualisiert")))
+        geprueft_am = datum_oder_none(als_text(kopf.get("fachlich_geprueft_am")))
+        self.geaendert = max(d for d in (erstellt, self.aktualisiert, geprueft_am) if d)
 
         self.geprueft_von = als_text(kopf.get("fachlich_geprueft_von"))
         if ist_platzhalter(self.geprueft_von):
             self.geprueft_von = ""
+
+        # Verwandte Beiträge setzt main(), sobald alle Entwürfe gelesen sind.
+        self.passende: list[Artikel] = []
+        self.passend_thematisch = False
 
         self.inhalt_html, self.todos = markdown_zu_html(self.rohtext)
         self.faq = faq_aus_html(self.inhalt_html)
@@ -748,10 +786,14 @@ def artikelseite(artikel: Artikel) -> str:
         marken.append(f'<span class="marke">{html.escape(artikel.format)}</span>')
     marken_html = " ".join(marken)
 
-    geprueft = ""
+    stand = ""
     if artikel.geaendert != artikel.veroeffentlicht:
-        geprueft = (f' · Zuletzt fachlich geprüft am '
-                    f'<time datetime="{artikel.geaendert}">{datum_deutsch(artikel.geaendert)}</time>')
+        wort = ("Aktualisiert am" if artikel.aktualisiert == artikel.geaendert
+                else "Zuletzt fachlich geprüft am")
+        stand = (f' · {wort} '
+                 f'<time datetime="{artikel.geaendert}">{datum_deutsch(artikel.geaendert)}</time>')
+
+    qualifikation = f", {html.escape(artikel.qualifikation)}" if artikel.qualifikation else ""
 
     return (
         kopf
@@ -770,15 +812,16 @@ def artikelseite(artikel: Artikel) -> str:
         {marken_html}
         <h1>{html.escape(artikel.titel)}</h1>
         <p class="artikel-meta">
-          Von {html.escape(artikel.autor)}{(" , " + html.escape(artikel.qualifikation)) if artikel.qualifikation else ""} ·
-          <time datetime="{artikel.veroeffentlicht}">{datum_deutsch(artikel.veroeffentlicht)}</time>{geprueft} ·
+          Von {html.escape(artikel.autor)}{qualifikation} ·
+          <time datetime="{artikel.veroeffentlicht}">{datum_deutsch(artikel.veroeffentlicht)}</time>{stand} ·
           etwa {artikel.lesezeit} Minuten Lesezeit
         </p>
       </header>
 
       <div class="prosa">
-{artikel.inhalt_html}
+{autorenkasten_angleichen(artikel.inhalt_html, artikel.geaendert)}
       </div>
+{weiterlesen_html(artikel)}
     </div>
   </article>
 </main>
@@ -787,6 +830,77 @@ def artikelseite(artikel: Artikel) -> str:
 """
         + fuss_bauen(start="../../", fachwissen="../")
     )
+
+
+def autorenkasten_angleichen(inhalt: str, geaendert: str) -> str:
+    """Autorenname und „Stand“ im Autorenkasten auf den gültigen Stand bringen.
+
+    Der Kasten steht als Text im Entwurf. Ohne diese Angleichung zeigte der
+    Kopf „Aktualisiert am 15.10.“, der Kasten darunter aber weiter den Stand
+    vom Erstelldatum – und ältere Entwürfe schrieben den Grad „M.Sc.“ ohne
+    Leerzeichen.
+    """
+    inhalt = inhalt.replace(f"M.Sc. {AUTOR_NAME}", AUTOR_VORGABE)
+
+    def ersetzen(treffer: re.Match) -> str:
+        return treffer.group(1) + max(treffer.group(2), geaendert)
+
+    return re.sub(r"(Kontakt:[^<]*?Stand:\s*)(\d{4}-\d{2}-\d{2})", ersetzen, inhalt)
+
+
+def passende_beitraege(artikel: "Artikel", kandidaten: list["Artikel"],
+                       anzahl: int = 3) -> tuple[list["Artikel"], bool]:
+    """Die veröffentlichten Beiträge, die thematisch am nächsten liegen.
+
+    Punkte: je gemeinsames Schlagwort 3, gleiche Kategorie 2, je gemeinsame
+    Zielgruppe 1. Bei Gleichstand der neuere Beitrag, dann der Titel – so
+    liefern zwei Läufe dasselbe Ergebnis. Reichen die thematischen Treffer
+    nicht, füllen die neuesten Beiträge auf; der zweite Rückgabewert sagt,
+    ob alle gezeigten Beiträge thematisch passen.
+
+    Weil die Liste bei jedem Neubau neu berechnet wird, verlinken ältere
+    Artikel automatisch auf neu veröffentlichte.
+    """
+    eigene = {_falten(s) for s in artikel.schlagwoerter}
+
+    def punkte(b: "Artikel") -> int:
+        wert = 3 * len(eigene & {_falten(s) for s in b.schlagwoerter})
+        if artikel.kategorie and b.kategorie == artikel.kategorie:
+            wert += 2
+        return wert + len(set(artikel.zielgruppe) & set(b.zielgruppe))
+
+    andere = [b for b in kandidaten if b.kurzform != artikel.kurzform]
+    andere.sort(key=lambda b: b.titel)
+    andere.sort(key=lambda b: b.veroeffentlicht, reverse=True)
+    andere.sort(key=punkte, reverse=True)
+    thematisch = [b for b in andere if punkte(b) > 0][:anzahl]
+    if len(thematisch) >= min(2, len(andere)):
+        return thematisch, True
+    auffuellen = [b for b in andere if b not in thematisch][:anzahl - len(thematisch)]
+    return thematisch + auffuellen, False
+
+
+def weiterlesen_html(artikel: "Artikel") -> str:
+    """Block unter dem Artikel: Links auf verwandte, veröffentlichte Beiträge."""
+    if not artikel.passende:
+        return ""
+    karten = []
+    for b in artikel.passende:
+        marke = (f'<span class="marke marke--kategorie" data-kategorie="{slug(b.kategorie)}">'
+                 f'{html.escape(b.kategorie)}</span>' if b.kategorie else "")
+        karten.append(f"""          <li class="karte">
+            <div class="marken">{marke}</div>
+            <h3><a href="../{b.kurzform}/">{html.escape(b.titel)}</a></h3>
+            <p>{html.escape(b.meta_beschreibung)}</p>
+            <p class="karte-meta"><time datetime="{b.veroeffentlicht}">{datum_deutsch(b.veroeffentlicht)}</time> · etwa {b.lesezeit} Minuten</p>
+          </li>""")
+    ueberschrift = "Passende Fachbeiträge" if artikel.passend_thematisch else "Weitere Fachbeiträge"
+    return (f"""      <nav class="weiterlesen" aria-labelledby="weiterlesen-titel">
+        <h2 id="weiterlesen-titel">{ueberschrift}</h2>
+        <ul class="karten">
+""" + "\n".join(karten) + """
+        </ul>
+      </nav>""")
 
 
 def datum_deutsch(iso: str) -> str:
@@ -956,6 +1070,9 @@ def main() -> int:
             )
 
     oeffentlich = [a for a in artikel if a.oeffentlich]
+    # Verlinkt wird nur auf Veröffentlichtes – nie auf einen Entwurf mit noindex.
+    for a in artikel:
+        a.passende, a.passend_thematisch = passende_beitraege(a, oeffentlich)
 
     geaendert: list[str] = []
     for a in artikel:
