@@ -13,11 +13,11 @@ fundstelle: https://gesetze.berlin.de/perma?d=NJRE001651242
 meta_beschreibung: Das OVG Berlin-Brandenburg begrenzt die Erstattung von Schallschutzkosten auf das Preisniveau des Bauwerkvertrags. Was das für die Baupraxis bedeutet.
 schlagwoerter: baulicher Schallschutz, Kostenerstattung, Baupreissteigerung, Leistungsverzeichnis, Bauwerkvertrag, Wohnungseigentum, DIN 4109-1, Bauzeit
 definition: Passiver baulicher Schallschutz ist der Schutz von Aufenthaltsräumen gegen Außenlärm durch die Umfassungsbauteile des Gebäudes.
-autor: Karim Abu Elkheir
+autor: M. Sc. Karim Abu Elkheir
 qualifikation: B.Eng. Bauingenieurwesen, M.Sc. Wirtschaftsingenieurwesen (Schwerpunkt Bautechnik und Management)
 kurzform: schallschutz-kostenerstattung-verzoegerung
 erstellt: 2026-09-21
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
