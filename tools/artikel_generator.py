@@ -574,6 +574,34 @@ def entwurf_pruefen(a: "Artikel") -> list[str]:
     if platzhalter:
         melden("Platzhalter in eckigen Klammern im Text", platzhalter, "keine")
 
+    # Doppelte Wörter. „und und“ ist ein Tippfehler; „Den den Eigentümern
+    # übersandten …“ ist grammatisch möglich, liest sich aber wie einer und wird
+    # umgestellt. Relativsätze wie „…, die die Eigentümer …“ und „soweit sie sie
+    # anerkannte“ bleiben unbeanstandet.
+    doppelt = []
+    for m in re.finditer(r"\b([^\W\d_]+)\s+(\1)\b", ohne_todo, flags=re.I):
+        wort = m.group(1)
+        if wort in {"Sie", "sie", "die", "der", "das", "den", "dem", "des"}:
+            continue
+        doppelt.append(m.group(0))
+    if doppelt:
+        melden("doppelte Wörter", doppelt, "keine (Tippfehler beheben oder Satz umstellen)")
+
+    # Urteilsbesprechung: Jeder Absatz, der das Gericht nennt, trägt die
+    # Randnummer, auf der er beruht. Beim Beitrag zu OVG 6 A 1/25 standen
+    # Zuschreibungen an den Senat ohne Randnummer und wurden nie geprüft.
+    if a.format.lower() == "rechtsprechung":
+        ohne_rn = []
+        for absatz in re.split(r"\n\s*\n", ohne_todo):
+            absatz = absatz.strip()
+            if not absatz or absatz.startswith(("#", "**", ">")):
+                continue
+            if re.search(r"\b(Senat|Senats|Kammer)\b", absatz) and "(Rn." not in absatz:
+                ohne_rn.append(" ".join(absatz.split()[:8]) + " …")
+        if ohne_rn:
+            melden("Absätze über die Entscheidung ohne Randnummer", ohne_rn,
+                   "je Absatz mindestens eine „(Rn. n)“")
+
     return befunde
 
 

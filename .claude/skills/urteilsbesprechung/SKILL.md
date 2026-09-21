@@ -1,7 +1,7 @@
 ---
 name: urteilsbesprechung
 description: Wählt aus einer vorsortierten Liste amtlicher Gerichtsentscheidungen eine baurelevante aus, prüft sie am Volltext und schreibt daraus eine Urteilsbesprechung als Fachartikel für ing-bassam.de. Wird vom Workflow „Urteilsbesprechung" mit dem Pfad zur Kandidatenliste aufgerufen und läuft ohne Rückfragen.
-allowed-tools: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch, Bash(git checkout:*), Bash(git add:*), Bash(git commit:*), Bash(git push:*), Bash(gh pr create:*), Bash(gh pr list:*), Bash(wc:*), Bash(python tools/artikel_generator.py:*)
+allowed-tools: Read, Glob, Grep, Write, Edit, WebSearch, WebFetch, Bash(git checkout:*), Bash(git add:*), Bash(git commit:*), Bash(git push:*), Bash(gh pr create:*), Bash(gh pr list:*), Bash(wc:*), Bash(python tools/artikel_generator.py:*), Bash(python tools/fussnoten_ordnen.py:*)
 ---
 
 # Urteilsbesprechung
@@ -17,6 +17,8 @@ Das Format ist immer `Rechtsprechung`, damit Gruppe B gilt: wissenschaftlicher A
 ## Was diesen Lauf unterscheidet
 
 Nicht du suchst das Thema – die Entscheidung bringt es mit. Der Workflow hat dir unter dem im Prompt genannten Pfad eine Kandidatenliste hingelegt. Sie ist **vorsortiert, nicht geprüft**: Ein Treffer kann das Wort „Bauvertrag" enthalten und trotzdem eine Kostenbeschwerde sein.
+
+Nach deinem Lauf prüfen zwei unabhängige Instanzen deinen Entwurf: die **Faktenprüfung** jede Aussage über die Entscheidung an ihrer Randnummer, die **Schlussprüfung** jede Fußnote am heruntergeladenen Wortlaut der Quelle. Was nicht trägt, wird gestrichen und fehlt dann im Text. Was du nicht belegen kannst, schreibst du deshalb gar nicht erst.
 
 ## Ablauf
 
@@ -40,7 +42,7 @@ Die Turn-Regel aus dem Fachartikel-Skill gilt: Beende vor der Abschlussnachricht
 
      **Nicht geeignet:** Teilurteil, Grundurteil, Zwischenurteil, Vorbehaltsurteil und Versäumnisurteil, weil über Grund oder Höhe noch gestritten wird; jedes Urteil, in dem die Revision **zugelassen** wurde, weil der Fall dann beim Bundesgerichtshof weitergeht; Hinweisbeschlüsse; Entscheidungen im einstweiligen Rechtsschutz; Beschlüsse über Prozesskostenhilfe, Streitwert oder Kosten.
 
-     Ob die Revision zugelassen wurde, steht am Ende der Entscheidungsgründe. Ob es sich um ein Teil- oder Grundurteil handelt, steht im Tenor oder in der Bezeichnung. Steht dort nichts davon, ist es ein Endurteil. Dass gegen ein Berufungsurteil ohne zugelassene Revision noch eine Nichtzulassungsbeschwerde laufen kann, steht der Besprechung nicht entgegen – es wird im Text und im Pull Request vermerkt.
+     Ob die Revision zugelassen wurde, steht am Ende der Entscheidungsgründe. Ob es sich um ein Teil- oder Grundurteil handelt, steht im Tenor oder in der Bezeichnung. Steht dort nichts davon, ist es ein Endurteil. Dass gegen ein Urteil ohne zugelassene Revision noch eine Nichtzulassungsbeschwerde laufen kann, steht der Besprechung nicht entgegen. **Im Text steht dazu nur, was der Volltext sagt:** dass die Revision nicht zugelassen wurde, mit Randnummer. Ob eine Beschwerde eingelegt wurde oder noch möglich ist, bei welchem Gericht und in welcher Frist, schreibst du nicht – das weißt du nicht. Beim Beitrag zu OVG 6 A 1/25 war genau dieser Satz falsch. Im Pull Request steht unter „Abschluss“: „Rechtskraft nicht geprüft“.
 
    Die Liste nennt je Kandidat die Zahl der gefundenen Begriffe aus dem Themenfeld. Das ist ein grober Hinweis, keine Aussage über die Eignung: Ein hoher Wert kann auch eine Kostenentscheidung in einer Bausache treffen, ein niedriger eine grundlegende Entscheidung. Du liest trotzdem selbst.
 
@@ -54,7 +56,14 @@ Die Turn-Regel aus dem Fachartikel-Skill gilt: Beende vor der Abschlussnachricht
 
    Das ersetzt für die **Fundstelle selbst** – Gericht, Datum, Aktenzeichen, ECLI – die dreistufige Absicherung des Fachartikel-Skills. **Es ersetzt nicht die Prüfung dessen, was du über die Entscheidung schreibst.** Jede solche Aussage muss an einer bestimmten Randnummer des Volltexts stehen und trägt diese Randnummer im Text (siehe Zitierweise); nach deinem Lauf vergleicht eine unabhängige Faktenprüfung jede Aussage mit genau dieser Stelle. Für **jede weitere** genannte Entscheidung, Norm oder Vorschrift gilt die dreistufige Absicherung unverändert.
 
-6. **Schreiben, prüfen, abgeben** wie im Fachartikel-Skill beschrieben.
+6. **Belegauszug anlegen** (ein bis zwei Turns), bevor du schreibst. Lege mit Write im Verzeichnis der Kandidatenliste die Datei `belegauszug.md` an. Abweichend von Regel 3 des Fachartikel-Skills ist sie neben `pr-body.md` die zweite zulässige Datei außerhalb des Repositorys. Sie enthält:
+   - den **Verfahrensweg** mit Randnummer: Hat das Gericht in erster Instanz entschieden, über eine Berufung oder über eine Revision? Gibt es eine Vorinstanz, und was hat sie entschieden?
+   - den Tenor in eigenen Worten und die Randnummer, an der steht, ob die Revision zugelassen wurde;
+   - für jede Aussage, die du über die Entscheidung treffen willst, die Randnummer mit einem **wörtlichen Belegstück** von höchstens 25 Wörtern: den Sachverhalt, jeden tragenden Grund in der Reihenfolge des Gerichts, jede Gewichtung („regelmäßig“, „untergeordnet“, „im Ergebnis“), jede Entscheidung, die das Gericht selbst anführt, und jede Norm, die es heranzieht, in der Fassung, die es nennt.
+
+   Beim Schreiben ist diese Datei deine Grundlage für alles, was du über die Entscheidung sagst. Was nicht darin steht, schlägst du mit Grep im Volltext nach, bevor du es schreibst. Beim ersten Artikel dieses Agenten entstanden fünfzehn Abweichungen, weil über viele Züge aus der Erinnerung geschrieben wurde.
+
+7. **Schreiben, prüfen, abgeben** wie im Fachartikel-Skill beschrieben.
 
 ## Quellen
 
@@ -74,16 +83,16 @@ Berlin ist seit dem Ausbau der Quellen enthalten, einschließlich Kammergericht 
 
 ## Aufbau der Besprechung
 
-Der Aufbau aus dem Fachartikel-Skill gilt, mit dieser Belegung der H2-Abschnitte. Sechs bis zehn H2, Fließtext, keine H3.
+Der Aufbau aus dem Fachartikel-Skill gilt, mit dieser Belegung der H2-Abschnitte. Sechs bis acht H2, Fließtext, keine H3.
 
 Der **erste Absatz** nennt in zwei bis drei Sätzen, was das Gericht entschieden hat und was daraus für die Baupraxis folgt – ohne Vorrede, ohne „In diesem Beitrag". Gericht, Datum und Aktenzeichen stehen im ersten oder zweiten Satz.
 
-Danach in dieser Reihenfolge:
+Danach folgen diese Funktionen in dieser Reihenfolge. **Es sind Funktionen, keine Überschriften:** Jede H2 ist eine sprechende Aussage, die zu diesem Fall passt, und sie setzt nichts voraus, was der Belegauszug nicht trägt. Über dem Beitrag zu OVG 6 A 1/25 stand „Der Verfahrensgang und was das Gericht daran geändert hat“, obwohl das Oberverwaltungsgericht in erster Instanz entschieden hatte – es gab nichts zu ändern.
 
 - **Worum gestritten wurde.** Der Sachverhalt in eigenen Worten, so weit er aus der Entscheidung hervorgeht. Beteiligte heißen „der Bauherr", „das Unternehmen", „der Architekt". Keine Namen, keine Orte, auch wenn sie im Volltext stehen.
-- **Der Verfahrensgang**, knapp: Was hat die Vorinstanz entschieden, was hat das Gericht daran geändert.
+- **Der Verfahrensgang**, knapp und nur, wenn es einen gibt: Was hat die Vorinstanz entschieden, was hat das Gericht daran geändert. Hat das Gericht in erster Instanz entschieden, entfällt dieser Abschnitt; Klage und Anträge stehen dann im Sachverhalt.
 - **Die tragenden Gründe.** Die Argumentation des Gerichts, nachvollziehbar wiedergegeben, mit den maßgeblichen Vorschriften. Hier gehört der Kern des Beitrags hin.
-- **Einordnung.** Steht die Entscheidung auf der bisherigen Linie, schärft sie eine Abgrenzung, weicht sie ab? Abweichende Auffassungen benennst du als solche.
+- **Einordnung.** Steht die Entscheidung auf der bisherigen Linie, schärft sie eine Abgrenzung, weicht sie ab? Abweichende Auffassungen benennst du als solche. Grundlage sind die Entscheidungen und Fundstellen, die das Gericht selbst anführt, und Quellen, die du nach dem Fachartikel-Skill abgesichert hast. Erläuterst du eine Norm, die das Gericht nicht heranzieht, steht sie erkennbar getrennt von der Entscheidung und wird nicht mit ihr verknüpft („spiegelt den Gedanken des Senats“, „der Senat überträgt diese Sicht“). So wurde beim Beitrag zu OVG 6 A 1/25 dem Senat § 649 BGB zugeschrieben, den er nicht zitiert.
 - **Was daraus für die Baupraxis folgt.** Der eigentliche Zweck des Beitrags: Was bedeutet die Entscheidung für Dokumentation, Aufmaß, Nachtragsbegründung, Bauzeitnachweis, Mängelrüge, Beweissicherung oder die Arbeit des Sachverständigen? Dieser Abschnitt ist der längste.
 - **Was die Entscheidung nicht sagt.** Die Grenze des Anwendungsbereichs. Wer sie überdehnt, zieht falsche Schlüsse.
 
@@ -111,11 +120,14 @@ Beim ersten Artikel dieses Agenten sind fünfzehn Abweichungen vom Urteil entsta
 - **Alle Gründe, in der Reihenfolge des Gerichts.** Nennt das Gericht mehrere Gründe oder stellt es zuerst auf eine prozessuale Frage ab (Verspätung, Unschlüssigkeit, fehlende Fälligkeit), gibst du das so wieder.
 - **„Neu“ nur mit Deckung.** Zitiert das Gericht für denselben Satz eigene oder höchstrichterliche Rechtsprechung, ist er nicht neu – dann „bekräftigt“ oder „wendet an“.
 - **Keine These gegen einen Befund.** Verwertet das Gericht etwas, das deiner Aussage widerspricht, gehört es in denselben Absatz.
-- **Titel, Beschreibung und FAQ nicht zuspitzen.** Sie sagen nicht mehr als die Entscheidung.
+- **Titel, Beschreibung und FAQ nicht zuspitzen.** Sie sagen nicht mehr als die Entscheidung. „Der Senat hielt 27 Monate für ausreichend“ steht so nicht im Urteil, wenn der Senat nur vorrechnet, dass 27 Monate zur Verfügung standen.
+- **Keine Regel aus dem Einzelfall.** „… dann ist das vereinbarte Preisniveau festgeschrieben, und zwar auch dann, wenn der Markt sich bewegt“ ist eine allgemeine Regel, die das Urteil nicht aufstellt – auch nicht in einem Praxisabsatz.
+- **Normen in der Fassung des Falls.** Vorschriften, die das Gericht anwendet, gibst du so wieder, wie das Gericht sie heranzieht, in der Fassung, die zum Zeitpunkt des Sachverhalts galt. gesetze-im-internet.de zeigt nur die heutige Fassung. Liegt der Sachverhalt vor einer Neufassung, zitierst du den heutigen Wortlaut nicht als damaligen. *Beispiel:* § 23 Abs. 3 WEG verlangt heute Zustimmung in Textform; für den Sachverhalt der Jahre 2019 und 2020 galt die Fassung vor dem 1. Dezember 2020 mit schriftlicher Zustimmung.
+- **Randnummern nur an Aussagen über die Entscheidung.** Eine bautechnische Erläuterung bekommt keine Randnummer, auch wenn sie im selben Absatz steht. „… verändern die bauphysikalische Situation der Räume in der Regel spürbar (Rn. 80)“ – Randnummer 80 nennt die Arbeiten, sagt aber nichts über Bauphysik.
 
 ## Was du in diesem Format nicht tust
 
-- **Keine Prognose.** Du sagst nicht, wie ein vergleichbarer Fall ausginge oder wie ein Revisionsverfahren enden wird. Im Abschnitt „Was die Entscheidung nicht sagt" hältst du fest, wie weit der Streit entschieden ist: ob die Revision zugelassen wurde, ob es sich um ein Endurteil handelt und ob nach dem Volltext noch etwas offen ist.
+- **Keine Prognose.** Du sagst nicht, wie ein vergleichbarer Fall ausginge oder wie ein Revisionsverfahren enden wird. Im Abschnitt „Was die Entscheidung nicht sagt" hältst du fest, wie weit der Streit entschieden ist: ob die Revision zugelassen wurde, ob es sich um ein Endurteil handelt und ob nach dem Volltext noch etwas offen ist – jeweils mit Randnummer. Nichts darüber, ob ein Rechtsmittel eingelegt wurde, eingelegt werden kann, bei welchem Gericht oder in welcher Frist.
 - **Keine Partei ergreifen.** Weder Bauherr noch Unternehmer bekommen Recht zugesprochen. Du referierst, was das Gericht entschieden hat.
 - **Keine Handlungsempfehlung mit Rechtsfolge.** „Wer so dokumentiert, gewinnt den Prozess" ist verboten. Erlaubt ist: „Das Gericht hat die Dokumentation in diesem Fall als ausreichend angesehen; welche Anforderungen im Einzelfall gelten, beurteilt ein Rechtsanwalt."
 - **Keine erfundenen Parallelentscheidungen.** Eine weitere Entscheidung nennst du nur, wenn du sie in diesem Lauf an einer amtlichen Quelle bestätigt hast.
@@ -139,7 +151,7 @@ Das Feld `aktenzeichen` ist wichtig: Der Kandidatenfinder liest es aus den vorha
 
 ## Umfang
 
-Es gilt der Umfang aus dem Fachartikel-Skill: 3.000 bis 5.000 Wörter Haupttext, also 15 bis 25 Minuten Lesezeit, Zielwert 3.800 bis 4.500. Trägt die Entscheidung auch 3.000 Wörter nicht, **füllst du nicht auf**. Du erweiterst stattdessen die Einordnung: wie die Frage bisher behandelt wurde, welche bauwirtschaftliche oder bautechnische Bedeutung sie hat, was sie für Dokumentation und Beweisführung ändert. Trägt sie auch das nicht, war es die falsche Entscheidung – geh zurück zu Schritt 4 und nimm eine andere.
+Es gilt der Umfang aus dem Fachartikel-Skill: 3.000 bis 5.000 Wörter Haupttext, also 15 bis 25 Minuten Lesezeit, Zielwert 3.800 bis 4.500. Trägt die Entscheidung auch 3.000 Wörter nicht, **füllst du nicht auf**. Du erweiterst stattdessen die Einordnung: wie die Frage bisher behandelt wurde, welche bauwirtschaftliche oder bautechnische Bedeutung sie hat, was sie für Dokumentation und Beweisführung ändert – belegt wie alles andere, nie aus dem Gedächtnis. Trägt sie auch das nicht, war es die falsche Entscheidung – geh zurück zu Schritt 4 und nimm eine andere.
 
 ## Dateiname und Branch
 
@@ -162,7 +174,8 @@ Ebenso gilt der Pflichtschritt `python tools/artikel_generator.py` vor dem Commi
 - ECLI: <… oder „nicht vergeben">
 - Fundstelle: <Adresse>
 - Entscheidungsart: <Endurteil / Berufungsurteil ohne zugelassene Revision / BGH-Entscheidung>
-- Abschluss: <was die Entscheidung erledigt, und was nach dem Volltext offen bleibt>
+- Verfahrensweg: <erste Instanz / Berufung gegen … / Revision gegen …>
+- Abschluss: <was die Entscheidung erledigt und was nach dem Volltext offen bleibt; Revision zugelassen ja oder nein, mit Randnummer; „Rechtskraft nicht geprüft“>
 
 ### Geprüfte und verworfene Kandidaten
 
