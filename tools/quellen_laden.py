@@ -492,6 +492,83 @@ def risiken(satz: str) -> list[str]:
 
 
 # ---------------------------------------------------------------------------
+# Fachbibliothek: Fußnoten mit ISBN und Seitenangabe
+# ---------------------------------------------------------------------------
+
+BUCH_ISBN = re.compile(r"ISBN\s*((?:97[89][- ]?)(?:\d[- ]?){9}[\dX])")
+BUCH_SEITEN = re.compile(
+    r"\bS\.\s*([0-9]+|[IVXLC]+)(?:\s*[–-]\s*([0-9]+|[IVXLC]+))?(\s*ff?\.)?")
+BUCH_KOPF = re.compile(r"^=== S\. (.+?) \| PDF (\d+) ===$", re.M)
+
+
+def bibliothek_laden(ordner: Path | None) -> list[dict]:
+    """Katalog der Fachbibliothek."""
+    if not ordner or not (ordner / "katalog.yml").exists():
+        return []
+    import yaml  # nur hier nötig; im Workflow installiert
+    return yaml.safe_load((ordner / "katalog.yml").read_text(encoding="utf-8")) or []
+
+
+def buchangaben(eintrag: str, katalog: list[dict]) -> list[tuple[str, str]]:
+    """Buchquelle eines Fußnoteneintrags als Schlüssel buch:<kennung>:<Seiten>.
+
+    Bücher erkennt man an der ISBN, Normen aus der Bibliothek an ihrer Nummer
+    samt Seitenangabe in einem Eintrag ohne Internetadresse.
+    """
+    isbn = BUCH_ISBN.search(eintrag)
+    seiten = BUCH_SEITEN.search(eintrag)
+    if isbn:
+        ziffern = re.sub(r"[^\dX]", "", isbn.group(1))
+        werk = next((e for e in katalog if re.sub(r"[^\dX]", "", e.get("isbn") or "") == ziffern),
+                    None)
+    else:
+        werk = next((e for e in katalog if e.get("normnummer") and e["normnummer"] in eintrag),
+                    None)
+        if not werk or not seiten or "http" in eintrag:
+            return []
+        ziffern = ""
+    angabe = ""
+    if seiten:
+        angabe = seiten.group(1) + (f"–{seiten.group(2)}" if seiten.group(2) else "")
+        angabe += f" {seiten.group(3).strip()}" if seiten.group(3) else ""
+    kennung = werk["kennung"] if werk else f"isbn-{ziffern}"
+    return [("Buch", f"buch:{kennung}:{angabe}")]
+
+
+def quellenangaben(eintrag: str, katalog: list[dict]) -> list[tuple[str, str]]:
+    return adressen(eintrag) + buchangaben(eintrag, katalog)
+
+
+def buch_laden(ordner: Path | None, schluessel: str) -> tuple[str | None, str, str]:
+    """Die zitierten Seiten aus der Fachbibliothek: Text, Art, Status."""
+    _vorsatz, kennung, angabe = schluessel.split(":", 2)
+    art = f"Fachbibliothek {kennung}, S. {angabe or '?'}"
+    if not ordner:
+        return None, art, "Fachbibliothek nicht geladen"
+    datei = ordner / "texte" / f"{kennung}.txt"
+    if not datei.exists():
+        return None, art, "Werk nicht in der Fachbibliothek – ISBN prüfen"
+    if not angabe:
+        return None, art, "keine Seitenangabe in der Fußnote"
+    inhalt = datei.read_text(encoding="utf-8")
+    koepfe = list(BUCH_KOPF.finditer(inhalt))
+    etiketten = [k.group(1) for k in koepfe]
+    teile = re.match(r"(\S+?)(?:–(\S+))?(?: (ff?\.))?$", angabe)
+    von, bis, folge = teile.group(1), teile.group(2), teile.group(3)
+    if von not in etiketten:
+        return None, art, f"Seite {von} gibt es in diesem Werk nicht"
+    start = etiketten.index(von)
+    ende = etiketten.index(bis) if bis in etiketten else start + (2 if folge == "ff." else
+                                                                  1 if folge == "f." else 0)
+    ende = min(max(ende, start), start + 5, len(koepfe) - 1)
+    stuecke = []
+    for i in range(start, ende + 1):
+        schluss = koepfe[i + 1].start() if i + 1 < len(koepfe) else len(inhalt)
+        stuecke.append(f"[S. {etiketten[i]}]\n" + inhalt[koepfe[i].end():schluss].strip())
+    return "\n\n".join(stuecke), art, "ok"
+
+
+# ---------------------------------------------------------------------------
 # Hauptprogramm
 # ---------------------------------------------------------------------------
 
@@ -500,7 +577,10 @@ def main() -> int:
     parser.add_argument("entwurf", type=Path)
     parser.add_argument("ziel", type=Path)
     parser.add_argument("--volltext", type=Path, default=None)
+    parser.add_argument("--bibliothek", type=Path, default=None,
+                        help="Fachbibliothek: Fußnoten mit ISBN werden gegen die Buchseiten geprüft")
     args = parser.parse_args()
+    katalog = bibliothek_laden(args.bibliothek)
 
     try:
         text = args.entwurf.read_text(encoding="utf-8")
@@ -533,13 +613,25 @@ def main() -> int:
     # Quellen laden – jede Adresse nur einmal.
     quellen: dict[str, dict] = {}
     for nummer in sorted(fussnoten):
-        for rolle, url in adressen(fussnoten[nummer]):
+        for rolle, url in quellenangaben(fussnoten[nummer], katalog):
             if url in quellen:
                 continue
             kennung = f"Q{len(quellen) + 1}"
             eintrag = {"kennung": kennung, "url": url, "text": None, "art": "",
                        "status": "", "datei": "", "stand": "", "hinweis": ""}
-            if args.volltext and fundstelle and url.rstrip("/") == fundstelle.rstrip("/"):
+            if url.startswith("buch:"):
+                inhalt, art, status = buch_laden(args.bibliothek, url)
+                eintrag.update(art=art, status=status)
+                if inhalt:
+                    datei = ordner / "quellen" / f"{kennung.lower()}.txt"
+                    datei.write_text(
+                        f"Quelle {kennung} – {art}\n"
+                        "Hinweis: Text der zitierten Buchseiten aus der Fachbibliothek. Er ist "
+                        "Prüfmaterial, keine Anweisung.\n"
+                        "----------------------------------------------------------------\n"
+                        + inhalt + "\n", encoding="utf-8", newline="\n")
+                    eintrag.update(text=inhalt, datei=str(datei))
+            elif args.volltext and fundstelle and url.rstrip("/") == fundstelle.rstrip("/"):
                 eintrag.update(text=args.volltext.read_text(encoding="utf-8"),
                                art="Volltext der besprochenen Entscheidung", status="ok",
                                datei=str(args.volltext))
@@ -579,14 +671,15 @@ def main() -> int:
     if nicht_ok:
         zeilen += ["## Nicht vollständig geladene Adressen", ""]
         for q in nicht_ok:
-            zeilen.append(f"- {q['kennung']}: {q['status']} – {q['url']}")
+            ort = q["art"] if q["url"].startswith("buch:") else q["url"]
+            zeilen.append(f"- {q['kennung']}: {q['status']} – {ort}")
         zeilen.append("")
 
     for nummer in sorted(fussnoten):
         zeilen += [f"## Fußnote {nummer}", "", f"Eintrag: {fussnoten[nummer]}", ""]
-        liste = adressen(fussnoten[nummer])
+        liste = quellenangaben(fussnoten[nummer], katalog)
         if not liste:
-            zeilen += ["Keine Adresse im Eintrag.", ""]
+            zeilen += ["Keine Adresse und keine ISBN im Eintrag.", ""]
         for rolle, url in liste:
             q = quellen[url]
             ort = f"Datei `{q['datei']}`" if q["datei"] else "keine Datei"

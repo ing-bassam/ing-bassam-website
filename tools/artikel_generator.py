@@ -570,10 +570,14 @@ def entwurf_pruefen(a: "Artikel") -> list[str]:
         melden("Fußnoteneinträge ohne Marke im Text", sorted(eintraege - marken), "keine")
     if eintraege and sorted(int(x) for x in eintraege) != list(range(1, len(eintraege) + 1)):
         melden("Fußnoten nicht lückenlos nummeriert", sorted(int(x) for x in eintraege), "1..n")
+    # Webquellen tragen ein Abrufdatum, Buch- und Normquellen aus der
+    # Fachbibliothek stattdessen eine Seitenangabe (Bücher zusätzlich die ISBN).
     ohne_datum = [m.group(1) for m in re.finditer(r"^\[\^(\d+)\]:(.*)$", a.rohtext, flags=re.M)
-                  if "abgerufen am" not in m.group(2)]
+                  if "abgerufen am" not in m.group(2)
+                  and not (re.search(r"\bS\.\s*\S+", m.group(2)) and "http" not in m.group(2))]
     if ohne_datum:
-        melden("Fußnoteneinträge ohne Abrufdatum", ohne_datum, "keine")
+        melden("Fußnoteneinträge ohne Abrufdatum (Web) oder Seitenangabe (Buch)",
+               ohne_datum, "keine")
 
     h2 = len(re.findall(r"^## ", rumpf, flags=re.M))
     if not 7 <= h2 <= 10:
