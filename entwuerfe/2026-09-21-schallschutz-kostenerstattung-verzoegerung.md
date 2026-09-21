@@ -17,6 +17,7 @@ autor: M. Sc. Karim Abu Elkheir
 qualifikation: B.Eng. Bauingenieurwesen, M.Sc. Wirtschaftsingenieurwesen (Schwerpunkt Bautechnik und Management)
 kurzform: schallschutz-kostenerstattung-verzoegerung
 erstellt: 2026-09-21
+aktualisiert:
 status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:

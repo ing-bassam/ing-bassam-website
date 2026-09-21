@@ -12,6 +12,7 @@ autor: M. Sc. Karim Abu Elkheir
 qualifikation:
 kurzform: schimmel-wohnung-baumangel-lueftung
 erstellt: 2026-09-20
+aktualisiert: 2026-09-21
 status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-812e-ae3a-c3ff31320430
@@ -209,7 +210,7 @@ Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er
 
 **Über den Autor**
 
-M.Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: 2026-09-21.
+M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: 2026-09-21.
 
 ## Quellen und Fußnoten
 
