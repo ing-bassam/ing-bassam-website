@@ -12,7 +12,7 @@ autor: Karim Abu Elkheir
 qualifikation:
 kurzform: schimmel-nach-fassadendaemmung
 erstellt: 2026-09-20
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e1d96ad-00b4-814c-a710-f6b7a174291c
 notion_url: https://app.notion.com/p/Schimmel-nach-Fassadend-mmung-Ursache-oder-Folge-3e1d96ad00b4814ca710f6b7a174291c
