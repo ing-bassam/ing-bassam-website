@@ -70,7 +70,10 @@ def pruefsumme(pfad: Path) -> str:
 
 # Verlagsnummern der Bücher in der Bibliothek und ihre Länge – für die übliche
 # Schreibweise mit Bindestrichen (978-3-658-28148-9).
-VERLAGSNUMMERN = ("658", "662", "322", "648", "503", "410", "8348")
+VERLAGSNUMMERN = ("658", "662", "322", "540", "648", "503", "410", "8348")
+# Bei diesen Verlagen (Springer) sind die Personen in den Verlagsdaten bei
+# Crossref vollständiger als im Datensatz der Nationalbibliothek.
+SPRINGER = ("978-3-658", "978-3-662", "978-3-8348", "978-3-322", "978-3-540")
 
 
 ISBN10 = re.compile(r"ISBN(?:-10)?:?\s*(\d[\d -]{8,11}[\dX])\b")
@@ -396,11 +399,13 @@ def main() -> int:
                     angaben.update(personen=gefunden["personen"], rolle=gefunden["rolle"])
                 if angaben["personen"]:
                     break
-            if angaben and not angaben["personen"]:
-                dois = gelesen["dois"] or [f"10.1007/{i}" for i in gelesen["isbns"][:1]
-                                           if i.startswith(("978-3-658", "978-3-662", "978-3-8348",
-                                                            "978-3-322"))]
-                for doi in dois[:2]:
+            springer = bool(gelesen["isbns"]) and gelesen["isbns"][0].startswith(SPRINGER)
+            if angaben and (springer or not angaben["personen"]):
+                # Springer meldet Autoren und Herausgeber vollständig an Crossref;
+                # im DNB-Datensatz fehlen sie teils ganz oder teilweise.
+                dois = [d for d in gelesen["dois"] if d.startswith("10.1007/")]
+                dois += [f"10.1007/{i}" for i in gelesen["isbns"][:1] if i.startswith(SPRINGER)]
+                for doi in list(dict.fromkeys(dois))[:2]:
                     namen, rolle = crossref_personen(doi)
                     time.sleep(0.5)
                     if namen:
