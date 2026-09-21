@@ -169,6 +169,51 @@ def nur_text(auszeichnung: str) -> str:
     return re.sub(r"[ \t]+", " ", html.unescape(ohne)).strip()
 
 
+def umbrechen(text: str, grenze: int = 1500) -> str:
+    """Bricht überlange Zeilen an Satzgrenzen um.
+
+    Eine Randnummer steht bei juris in einer Zeile; einzelne sind länger als
+    2.000 Zeichen. Lesewerkzeuge schneiden solche Zeilen ab. Der Umbruch
+    erhält den Wortlaut vollständig, nur die Zeilenlänge ändert sich.
+    """
+    ergebnis: list[str] = []
+    for zeile in text.split("\n"):
+        while len(zeile) > grenze:
+            schnitt = zeile.rfind(". ", 0, grenze)
+            if schnitt < grenze // 3:
+                schnitt = zeile.rfind(" ", 0, grenze)
+            if schnitt <= 0:
+                schnitt = grenze
+            ergebnis.append(zeile[: schnitt + 1].rstrip())
+            zeile = "   " + zeile[schnitt + 1:].lstrip()
+        ergebnis.append(zeile)
+    return "\n".join(ergebnis)
+
+
+def volltext_kopf(gericht: str, datum: str, aktenzeichen: str, ecli: str,
+                  fundstelle: str, herausgeber: str, ist_juris: bool,
+                  abgerufen: str) -> str:
+    """Kopf jeder Volltextdatei. Suchskript und Nachlade-Skript nutzen ihn gemeinsam."""
+    zeilen = [
+        "Volltext einer Gerichtsentscheidung, unverändert aus der amtlichen Quelle.",
+        f"Gericht: {gericht}",
+        f"Entscheidungsdatum: {datum}",
+        f"Aktenzeichen: {aktenzeichen}",
+        f"ECLI: {ecli or 'nicht vergeben'}",
+        f"Amtliche Quelle: {fundstelle}",
+        f"Herausgeber: {herausgeber}",
+        f"Abgerufen am: {abgerufen}",
+    ]
+    if ist_juris:
+        # Auf der Portalseite steht an dieser Stelle nur das juris-Logo, ein Bild.
+        # Im Text geht die Angabe verloren; ohne sie ist nicht erkennbar, dass die
+        # Orientierungssätze nicht vom Gericht stammen.
+        zeilen.append("Dokumentationsquelle: juris. Die Leitsätze stammen vom Gericht, "
+                      "die Orientierungssätze von der juris-Dokumentationsstelle.")
+    zeilen.append("Zitierweise: Jede Randnummer beginnt mit „Randnummer <n>“; im Artikel als „(Rn. <n>)“.")
+    return "\n".join(zeilen) + "\n" + "-" * 72 + "\n\n"
+
+
 def dateiname(wert: str) -> str:
     wert = wert.lower()
     for alt, neu in (("ä", "ae"), ("ö", "oe"), ("ü", "ue"), ("ß", "ss")):
@@ -680,18 +725,10 @@ def volltexte_ablegen(auswahl: list["Fund"], ordner: Path, pause: float) -> None
         fund.woerter = len(text.split())
         fund.treffer, begriffe = themenbezug(text)
         fund.begriffe = begriffe
-        kopf = (
-            "Volltext einer Gerichtsentscheidung, unverändert aus der amtlichen Quelle.\n"
-            f"Gericht: {fund.gericht}\n"
-            f"Entscheidungsdatum: {fund.datum}\n"
-            f"Aktenzeichen: {fund.aktenzeichen}\n"
-            f"ECLI: {ecli or 'nicht vergeben'}\n"
-            f"Amtliche Quelle: {fund.link}\n"
-            f"Herausgeber: {fund.quelle}\n"
-            f"Abgerufen am: {date.today().isoformat()}\n"
-            + "-" * 72 + "\n\n"
-        )
-        ziel.write_text(kopf + text, encoding="utf-8", newline="\n")
+        kopf = volltext_kopf(fund.gericht, fund.datum, fund.aktenzeichen, ecli,
+                             fund.link, fund.quelle, bool(fund.juris),
+                             date.today().isoformat())
+        ziel.write_text(kopf + umbrechen(text), encoding="utf-8", newline="\n")
         fund.volltext = ziel
         print(f"  Volltext: {fund.aktenzeichen} – {fund.woerter} Wörter, "
               f"{fund.treffer} Themenbegriffe")
