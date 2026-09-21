@@ -133,7 +133,7 @@ entscheidungsdatum: <JJJJ-MM-TT>
 fundstelle: <Adresse der amtlichen Fundstelle>
 ```
 
-`format` ist `Rechtsprechung`. `kategorie` ist `Gutachter & Recht`, außer die Entscheidung betrifft eindeutig Baubetrieb, Kalkulation oder Nachtragsmanagement – dann `Baubetrieb`. `quelle` ist `rechtsprechung`. `notion_id` und `notion_url` bleiben leer: Das Thema stammt aus der Rechtsprechung, nicht aus dem Themenspeicher, und dieser Lauf schreibt nichts nach Notion.
+`format` ist `Rechtsprechung`. `kategorie` ist `Gutachten & Recht`, außer die Entscheidung betrifft eindeutig Baubetrieb, Kalkulation oder Nachtragsmanagement – dann `Baubetrieb`. `quelle` ist `rechtsprechung`. `notion_id` und `notion_url` bleiben leer: Das Thema stammt aus der Rechtsprechung, nicht aus dem Themenspeicher, und dieser Lauf schreibt nichts nach Notion.
 
 Das Feld `aktenzeichen` ist wichtig: Der Kandidatenfinder liest es aus den vorhandenen Entwürfen und schlägt dieselbe Entscheidung kein zweites Mal vor.
 

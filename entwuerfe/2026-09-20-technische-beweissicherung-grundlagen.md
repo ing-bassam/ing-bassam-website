@@ -1,6 +1,6 @@
 ---
 titel: "Technische Beweissicherung: Was sie leistet und wann sie nötig ist"
-kategorie: Gutachter & Recht
+kategorie: Gutachten & Recht
 format: Grundlagen
 zielgruppe: Privat, Hausverwaltung
 leistung: Gutachten
