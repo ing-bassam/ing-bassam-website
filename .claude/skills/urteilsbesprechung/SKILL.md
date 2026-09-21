@@ -52,7 +52,7 @@ Die Turn-Regel aus dem Fachartikel-Skill gilt: Beende vor der Abschlussnachricht
 
    Liegt die Entscheidung bei einer Landesdatenbank und ist die Fundstelle eine gewöhnliche Internetadresse, die sich ohne JavaScript lesen lässt (Brandenburg, Nordrhein-Westfalen), rufst du sie zusätzlich einmal mit WebFetch ab und vergleichst Datum und Aktenzeichen. Bei den juris-Portalen – erkennbar an einer Fundstelle der Form `…/perma?d=…` – entfällt der Abgleich, weil die Seite ihren Inhalt erst im Browser aufbaut; die Angaben stammen dort unmittelbar aus der Schnittstelle des Portals. Stimmt etwas nicht überein, gilt der Volltext, und du vermerkst die Abweichung im Pull Request. Beim Bund entfällt dieser Abgleich, weil dort nur das ZIP-Archiv bereitsteht – die Angaben stammen dann direkt aus der amtlichen XML-Datei darin.
 
-   Das ersetzt für diese eine Fundstelle die dreistufige Absicherung des Fachartikel-Skills. Für **jede weitere** genannte Entscheidung, Norm oder Vorschrift gilt sie unverändert.
+   Das ersetzt für die **Fundstelle selbst** – Gericht, Datum, Aktenzeichen, ECLI – die dreistufige Absicherung des Fachartikel-Skills. **Es ersetzt nicht die Prüfung dessen, was du über die Entscheidung schreibst.** Jede solche Aussage muss an einer bestimmten Randnummer des Volltexts stehen und trägt diese Randnummer im Text (siehe Zitierweise); nach deinem Lauf vergleicht eine unabhängige Faktenprüfung jede Aussage mit genau dieser Stelle. Für **jede weitere** genannte Entscheidung, Norm oder Vorschrift gilt die dreistufige Absicherung unverändert.
 
 6. **Schreiben, prüfen, abgeben** wie im Fachartikel-Skill beschrieben.
 
@@ -96,6 +96,22 @@ Im Text bei der ersten Nennung vollständig: Gericht, Spruchkörper, Datum, Akte
 Beispiel: „Das Oberlandesgericht Brandenburg hat mit Urteil vom 4. Juni 2026 (Aktenzeichen 10 U 14/24) entschieden, dass …"
 
 Vorschriften nennst du mit Kurzbezeichnung und Paragraf, bei der ersten Nennung je Abschnitt vollständig, belegt über `gesetze-im-internet.de`.
+
+**Randnummern sind Pflicht.** Jeder Absatz, der Sachverhalt, Verfahrensgang, Begründung oder Gewichtung der besprochenen Entscheidung wiedergibt, nennt die Randnummer, auf der er beruht, im Text: „(Rn. 146)“, „(Rn. 124–135)“. Eine Sammelangabe wie „Rn. 1 bis 198“ in der Fußnote ersetzt das nicht. Schreibst du einen Satz, zu dem du keine Randnummer angeben kannst, gehört er nicht in den Artikel. Die Fußnote zur Entscheidung steht wie bisher bei der ersten Nennung.
+
+**Zuschreibung.** Leitsätze stammen vom Gericht. Orientierungssätze stammen bei juris-Quellen von der Dokumentationsstelle, nicht vom Senat – der Kopf der Volltextdatei sagt es. Meinungen aus der Kommentarliteratur, die das Gericht referiert, sind Literatur, nicht Gericht; Ausführungen des Sachverständigen sind des Sachverständigen, bis das Gericht sie sich zu eigen macht.
+
+## Genauigkeit gegenüber dem Volltext
+
+Beim ersten Artikel dieses Agenten sind fünfzehn Abweichungen vom Urteil entstanden – nicht weil der Volltext fehlte, sondern weil über viele Züge aus der Erinnerung geschrieben wurde. Diese Regeln verhindern die wiederkehrenden Muster:
+
+- **Nichts beschreiben, was nicht dasteht.** Art, Lage und Größe des Vorhabens, Rolle der Beteiligten: nur mit den Worten des Urteils.
+- **Dauern berechnen.** Liegen zwei Daten vor, nennst du den Abstand, den sie ergeben – nie „Monate später“, wenn es sieben Wochen sind.
+- **Die Gewichtung des Gerichts übernehmen.** Wo das Gericht etwas „untergeordnet“, „lediglich ergänzend“, „daneben“ oder „im Ergebnis“ nennt, stellst du es nicht als tragend dar.
+- **Alle Gründe, in der Reihenfolge des Gerichts.** Nennt das Gericht mehrere Gründe oder stellt es zuerst auf eine prozessuale Frage ab (Verspätung, Unschlüssigkeit, fehlende Fälligkeit), gibst du das so wieder.
+- **„Neu“ nur mit Deckung.** Zitiert das Gericht für denselben Satz eigene oder höchstrichterliche Rechtsprechung, ist er nicht neu – dann „bekräftigt“ oder „wendet an“.
+- **Keine These gegen einen Befund.** Verwertet das Gericht etwas, das deiner Aussage widerspricht, gehört es in denselben Absatz.
+- **Titel, Beschreibung und FAQ nicht zuspitzen.** Sie sagen nicht mehr als die Entscheidung.
 
 ## Was du in diesem Format nicht tust
 

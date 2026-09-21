@@ -1,0 +1,135 @@
+# Faktenprüfung einer vorhandenen Urteilsbesprechung
+#
+# Prüft einen Entwurf, der bereits im Ordner entwuerfe/ liegt, Satz für Satz
+# gegen den amtlichen Volltext der besprochenen Entscheidung und legt die
+# Korrekturen als Pull Request vor. Neue Urteilsbesprechungen durchlaufen
+# dieselbe Prüfung automatisch im Workflow „Urteilsbesprechung“; dieser hier
+# ist für Entwürfe, die vorher entstanden sind oder erneut geprüft werden sollen.
+#
+# Der Volltext wird anhand der Frontmatter-Felder fundstelle und aktenzeichen
+# von der amtlichen Quelle nachgeladen (tools/volltext_laden.py).
+
+name: Faktenprüfung
+
+on:
+  workflow_dispatch:
+    inputs:
+      entwurf:
+        description: "Entwurfsdatei, z. B. entwuerfe/2026-09-20-aufmass-messverfahren-nachweis-bausoll.md"
+        required: true
+        type: string
+
+run-name: "Faktenprüfung: ${{ inputs.entwurf }}"
+
+concurrency:
+  group: faktenpruefung
+  cancel-in-progress: false
+
+jobs:
+  pruefen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    permissions:
+      contents: write        # Korrekturzweig pushen
+      pull-requests: write   # Pull Request mit dem Prüfbericht öffnen
+      id-token: write        # von der Claude-Action benötigt
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Git-Identität setzen
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config core.hooksPath /dev/null
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Abhängigkeiten installieren
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip --quiet
+          python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2'
+
+      - name: Entwurf prüfen und Volltext laden
+        id: vorbereitung
+        env:
+          # Eingaben nie direkt in die Shell schreiben, sondern über die Umgebung.
+          ENTWURF: ${{ inputs.entwurf }}
+        run: |
+          set -euo pipefail
+          # Nur Dateien im Entwurfsordner, nur harmlose Zeichen im Namen.
+          if ! [[ "$ENTWURF" =~ ^entwuerfe/[a-z0-9-]+\.md$ ]] || [ ! -f "$ENTWURF" ]; then
+            echo "::error title=Faktenprüfung::„$ENTWURF“ ist keine Datei im Ordner entwuerfe/."
+            exit 1
+          fi
+          ARBEIT="$RUNNER_TEMP/faktenpruefung"
+          mkdir -p "$ARBEIT"
+          if ! AUSGABE="$(python tools/volltext_laden.py "$ENTWURF" "$ARBEIT/volltexte")"; then
+            echo "::error title=Faktenprüfung::$AUSGABE"
+            exit 1
+          fi
+          echo "$AUSGABE"
+          KURZ="$(basename "$ENTWURF" .md)"
+          {
+            echo "volltext=$(printf '%s\n' "$AUSGABE" | tail -n 1)"
+            echo "arbeit=$ARBEIT"
+            echo "bericht=$ARBEIT/faktenpruefung.md"
+            echo "zweig=pruefung/${KURZ#????-??-??-}-$(date -u +%Y%m%d%H%M)"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Fakten gegen den Volltext prüfen
+        id: pruefung
+        timeout-minutes: 45
+        uses: anthropics/claude-code-action@cfc3eb22bfed5c26ef66e3223c982af27e4524de # v1.0.231
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /faktenpruefung
+            Entwurf: ${{ inputs.entwurf }}
+            Volltext: ${{ steps.vorbereitung.outputs.volltext }}
+            Bericht: ${{ steps.vorbereitung.outputs.bericht }}
+          claude_args: |
+            --max-turns 90
+            --model claude-opus-5
+            --add-dir ${{ steps.vorbereitung.outputs.arbeit }}
+            --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,Bash(python tools/artikel_generator.py:*),Bash(wc:*)"
+
+      - name: Korrekturen als Pull Request vorlegen
+        if: always() && steps.vorbereitung.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENTWURF: ${{ inputs.entwurf }}
+          ZWEIG: ${{ steps.vorbereitung.outputs.zweig }}
+          BERICHT: ${{ steps.vorbereitung.outputs.bericht }}
+          PRUEFUNG: ${{ steps.pruefung.outcome }}
+        run: |
+          set -euo pipefail
+          python tools/artikel_generator.py > /dev/null || true
+          if git diff --quiet -- entwuerfe fachwissen sitemap.xml; then
+            if [ -s "$BERICHT" ]; then
+              echo "## Faktenprüfung ohne Korrekturbedarf" >> "$GITHUB_STEP_SUMMARY"
+              cat "$BERICHT" >> "$GITHUB_STEP_SUMMARY"
+              echo "::notice title=Faktenprüfung::Keine Abweichung gefunden – kein Pull Request nötig."
+            else
+              echo "::warning title=Faktenprüfung::Prüfung nicht vollständig durchgelaufen (Ergebnis: ${PRUEFUNG})."
+            fi
+            exit 0
+          fi
+          git checkout -q -b "$ZWEIG"
+          git add entwuerfe fachwissen sitemap.xml
+          git commit -q -m "Faktenpruefung: $(basename "$ENTWURF" .md)" \
+                        -m "Korrekturen gegen den amtlichen Volltext. Einzelheiten im Pull Request."
+          git push -q -u origin "$ZWEIG"
+          if [ ! -s "$BERICHT" ]; then
+            printf '⚠️ Die Prüfung ist nicht vollständig durchgelaufen (Ergebnis: %s). Die Korrekturen im Diff sind unvollständig; bitte vor dem Merge selbst gegenlesen.\n' "$PRUEFUNG" > "$BERICHT"
+          fi
+          gh pr create --base main --head "$ZWEIG" \
+            --title "Faktenpruefung: $(basename "$ENTWURF" .md)" \
+            --body-file "$BERICHT"
