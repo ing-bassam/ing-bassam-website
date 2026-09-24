@@ -18,7 +18,7 @@ autor: M. Sc. Karim Abu Elkheir
 qualifikation:
 kurzform: widerruf-hausbesuch-werklohn
 erstellt: 2026-09-24
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
