@@ -447,6 +447,9 @@ class Artikel:
         # den Beitrag überarbeitet; bisher änderte sich das Datum nur mit
         # „fachlich_geprueft_am“, und eine Überarbeitung blieb für Leser und
         # Suchmaschinen unsichtbar. Es gilt das jüngste der drei Daten.
+        # Vorlagen: Liste der Download-Dateien (Pfad relativ zur Repository-Wurzel).
+        # Der Vorlagen-Agent trägt sie ein; die Seite zeigt daraus den Download-Kasten.
+        self.dateien = [als_text(d) for d in als_liste(kopf.get("dateien"))]
         self.aktualisiert = datum_oder_none(als_text(kopf.get("aktualisiert")))
         geprueft_am = datum_oder_none(als_text(kopf.get("fachlich_geprueft_am")))
         self.geaendert = max(d for d in (erstellt, self.aktualisiert, geprueft_am) if d)
@@ -506,6 +509,26 @@ FAQ_MINDEST = 6
 # entspricht das 3.000 bis 5.000 Wörtern Haupttext.
 LESEZEIT_MIN = 15
 LESEZEIT_MAX = 25
+
+# Kurze Formate: leicht verständliche Urteilsbesprechung und die Seite zu einer
+# Vorlage. Der Auftraggeber will dort höchstens 10 Minuten Lesezeit, wenige
+# Abschnitte und weniger FAQ. Schlüssel: Format in Kleinschreibung.
+KURZE_FORMATE = {
+    "urteil verständlich": {"lesezeit": (4, 10), "h2": (3, 7), "faq": 3},
+    "vorlage": {"lesezeit": (2, 10), "h2": (2, 6), "faq": 3},
+}
+
+# Formate, die eine Gerichtsentscheidung wiedergeben: Jeder Absatz über das
+# Gericht braucht eine Randnummer.
+URTEILS_FORMATE = {"rechtsprechung", "urteil verständlich"}
+
+
+def grenzen(a: "Artikel") -> dict:
+    """Lesezeit-, Abschnitts- und FAQ-Grenzen für das Format des Beitrags."""
+    kurz = KURZE_FORMATE.get(a.format.lower())
+    if kurz:
+        return kurz
+    return {"lesezeit": (LESEZEIT_MIN, LESEZEIT_MAX), "h2": (6, 8), "faq": FAQ_MINDEST}
 
 
 def _falten(text: str) -> str:
@@ -579,13 +602,17 @@ def entwurf_pruefen(a: "Artikel") -> list[str]:
         melden("Fußnoteneinträge ohne Abrufdatum (Web) oder Seitenangabe (Buch)",
                ohne_datum, "keine")
 
+    g = grenzen(a)
     h2 = len(re.findall(r"^## ", rumpf, flags=re.M))
-    if not 7 <= h2 <= 10:
-        melden("H2-Abschnitte im Haupttext", h2, "6 bis 8 zuzüglich Häufige Fragen")
+    h2_min, h2_max = g["h2"]
+    # Die FAQ zählen als eigene H2 mit; bei den langen Formaten gilt weiter 7..10.
+    if not h2_min + 1 <= h2 <= h2_max + 2:
+        melden("H2-Abschnitte im Haupttext", h2, f"{h2_min} bis {h2_max} zuzüglich Häufige Fragen")
 
-    if not LESEZEIT_MIN <= a.lesezeit <= LESEZEIT_MAX:
+    lz_min, lz_max = g["lesezeit"]
+    if not lz_min <= a.lesezeit <= lz_max:
         melden("Lesezeit", f"{a.lesezeit} Minuten ({a.wortzahl} Wörter)",
-               f"{LESEZEIT_MIN} bis {LESEZEIT_MAX} Minuten")
+               f"{lz_min} bis {lz_max} Minuten")
 
     if len(a.titel) > 70:
         melden("Länge titel", len(a.titel), "höchstens 70 Zeichen")
@@ -596,8 +623,8 @@ def entwurf_pruefen(a: "Artikel") -> list[str]:
     if intern not in (1, 2):
         melden("interne Verweise", intern, "1 oder 2")
 
-    if len(a.faq) < FAQ_MINDEST:
-        melden("erkannte FAQ-Paare", len(a.faq), f"mindestens {FAQ_MINDEST}")
+    if len(a.faq) < g["faq"]:
+        melden("erkannte FAQ-Paare", len(a.faq), f"mindestens {g['faq']}")
 
     sichtbar = re.sub(r"<[^>]+>", " ", a.inhalt_html)
     if a.definition and a.definition.strip() not in re.sub(r"\s+", " ", sichtbar):
@@ -632,7 +659,7 @@ def entwurf_pruefen(a: "Artikel") -> list[str]:
     # Urteilsbesprechung: Jeder Absatz, der das Gericht nennt, trägt die
     # Randnummer, auf der er beruht. Beim Beitrag zu OVG 6 A 1/25 standen
     # Zuschreibungen an den Senat ohne Randnummer und wurden nie geprüft.
-    if a.format.lower() == "rechtsprechung":
+    if a.format.lower() in URTEILS_FORMATE:
         ohne_rn = []
         for absatz in re.split(r"\n\s*\n", ohne_todo):
             absatz = absatz.strip()
@@ -822,7 +849,7 @@ def artikelseite(artikel: Artikel) -> str:
         </p>
       </header>
 
-      <div class="prosa">
+{download_html(artikel)}      <div class="prosa">
 {autorenkasten_angleichen(artikel.inhalt_html, artikel.geaendert)}
       </div>
 {weiterlesen_html(artikel)}
@@ -834,6 +861,42 @@ def artikelseite(artikel: Artikel) -> str:
 """
         + fuss_bauen(start="../../", fachwissen="../")
     )
+
+
+DATEI_ARTEN = {
+    ".pdf": ("PDF", "zum Ausdrucken oder am Bildschirm ausfüllen"),
+    ".docx": ("Word", "zum Anpassen"),
+    ".xlsx": ("Excel", "zum Weiterrechnen"),
+}
+
+
+def download_html(artikel: "Artikel") -> str:
+    """Kasten mit den Download-Dateien einer Vorlage, oben auf der Seite."""
+    if not artikel.dateien:
+        return ""
+    eintraege = []
+    for pfad in artikel.dateien:
+        datei = WURZEL / pfad
+        if not datei.is_file():
+            print(f"PRUEFUNG: {artikel.pfad.name}: Download-Datei fehlt – {pfad}")
+            continue
+        art, zweck = DATEI_ARTEN.get(datei.suffix.lower(), (datei.suffix.lstrip(".").upper(), ""))
+        if "ausfuellbar" in datei.stem:
+            art, zweck = "PDF ausfüllbar", "am Bildschirm ausfüllen und speichern"
+        elif datei.suffix.lower() == ".pdf":
+            zweck = "zum Ausdrucken"
+        groesse = datei.stat().st_size
+        groesse_text = f"{groesse / 1024:.0f} KB" if groesse < 1_000_000 else f"{groesse / 1_048_576:.1f} MB"
+        eintraege.append(
+            f'        <li><a class="download" href="{html.escape(BASIS_URL + "/" + pfad)}" download>'
+            f'<b>{html.escape(art)}</b> <span>{html.escape(zweck)} · {groesse_text}</span></a></li>')
+    if not eintraege:
+        return ""
+    return ('      <aside class="downloads" aria-labelledby="downloads-titel">\n'
+            '        <h2 id="downloads-titel">Vorlage herunterladen</h2>\n'
+            '        <p>Kostenlos, ohne Anmeldung. Mit Logo und Stand des Büros; '
+            'bitte unverändert weitergeben.</p>\n'
+            '        <ul>\n' + "\n".join(eintraege) + "\n        </ul>\n      </aside>\n")
 
 
 def autorenkasten_angleichen(inhalt: str, geaendert: str) -> str:
@@ -943,16 +1006,16 @@ def uebersichtsseite(artikel: list[Artikel]) -> str:
             if a.format:
                 marken_teile.append(f'<span class="marke">{html.escape(a.format)}</span>')
             marken = " ".join(marken_teile)
-            karten.append(f"""        <li class="karte">
+            karten.append(f"""        <li class="karte" data-kategorie="{slug(a.kategorie)}" data-format="{slug(a.format)}">
           <div class="marken">{marken}</div>
           <h2><a href="{a.kurzform}/">{html.escape(a.titel)}</a></h2>
           <p>{html.escape(a.meta_beschreibung)}</p>
           <p class="karte-meta"><time datetime="{a.veroeffentlicht}">{datum_deutsch(a.veroeffentlicht)}</time> · etwa {a.lesezeit} Minuten</p>
         </li>""")
-        liste = '<ul class="karten">\n' + "\n".join(karten) + "\n      </ul>"
+        liste = filter_html(artikel) + '<ul class="karten">\n' + "\n".join(karten) + "\n      </ul>"
         einleitung = (
             f"{len(artikel)} Beitrag" if len(artikel) == 1 else f"{len(artikel)} Beiträge"
-        ) + " zu Bauschäden, Bauphysik, Baubetrieb und baurechtlichen Fragen."
+        ) + " zu Bauschäden, Bauphysik, Baubetrieb und baurechtlichen Fragen – zum Eingrenzen ein Thema oder Format antippen."
     else:
         liste = ('<p class="leer">Die ersten Fachbeiträge sind in Vorbereitung und '
                  "erscheinen hier nach fachlicher Prüfung.</p>")
@@ -977,6 +1040,57 @@ def uebersichtsseite(artikel: list[Artikel]) -> str:
 """
         + fuss_bauen(start="../", fachwissen="./")
     )
+
+
+def filter_html(artikel: list[Artikel]) -> str:
+    """Hashtag-Chips über der Übersicht: ein Klick zeigt nur Beiträge dieser
+    Kategorie oder dieses Formats.
+
+    Ohne JavaScript – die Seiten liefern keins aus (Content-Security-Policy,
+    KI-Crawler). Die Chips sind Radio-Knöpfe; die Regel ``:has(#…:checked)``
+    blendet die übrigen Karten aus. Browser ohne ``:has`` (vor 2023) zeigen
+    einfach alle Beiträge. Die Regeln entstehen hier je vorhandenem Wert.
+    """
+    kategorien: dict[str, tuple[str, int]] = {}
+    formate: dict[str, tuple[str, int]] = {}
+    for a in artikel:
+        if a.kategorie:
+            k = slug(a.kategorie)
+            kategorien[k] = (a.kategorie, kategorien.get(k, ("", 0))[1] + 1)
+        if a.format:
+            f = slug(a.format)
+            formate[f] = (a.format, formate.get(f, ("", 0))[1] + 1)
+    if len(kategorien) + len(formate) < 2:
+        return ""
+
+    def chip(kennung: str, name: str, anzahl: int, zusatz: str = "") -> str:
+        return (f'          <input type="radio" name="filter" id="filter-{kennung}"{zusatz}>'
+                f'<label for="filter-{kennung}">#{html.escape(name)} <span>{anzahl}</span></label>')
+
+    zeilen = ['      <form class="filter" aria-label="Beiträge eingrenzen">',
+              '        <p class="filter-titel">Thema</p>',
+              '        <div class="chips">',
+              chip("alle", "Alle", len(artikel), " checked")]
+    zeilen += [chip(f"k-{k}", name, n) for k, (name, n) in sorted(kategorien.items(),
+                                                                key=lambda e: e[1][0])]
+    zeilen += ['        </div>', '        <p class="filter-titel">Format</p>', '        <div class="chips">']
+    zeilen += [chip(f"f-{f}", name, n) for f, (name, n) in sorted(formate.items(),
+                                                                key=lambda e: e[1][0])]
+    zeilen += ['        </div>', '      </form>']
+
+    regeln = []
+    for k in kategorien:
+        regeln.append(f'main:has(#filter-k-{k}:checked) .karte:not([data-kategorie="{k}"])'
+                      '{display:none}')
+        regeln.append(f'#filter-k-{k}:checked+label{{--chip:var(--kat,var(--accent))}}')
+    for f in formate:
+        regeln.append(f'main:has(#filter-f-{f}:checked) .karte:not([data-format="{f}"])'
+                      '{display:none}')
+    # Die Kategoriefarbe des Chips kommt aus derselben Zuordnung wie der Punkt auf den Karten.
+    for k, (name, _n) in kategorien.items():
+        regeln.append(f'label[for="filter-k-{k}"]{{--kat:var(--kat-{k})}}')
+    stil = "      <style>" + "".join(regeln) + "</style>"
+    return "\n".join(zeilen) + "\n" + stil + "\n      "
 
 
 def bisherige_stande() -> dict[str, str]:

@@ -1,0 +1,485 @@
+name: Urteil verständlich
+
+# -----------------------------------------------------------------------------
+# Sucht in amtlichen Rechtsprechungsdatenbanken nach einer baurelevanten
+# Gerichtsentscheidung und lässt daraus eine KURZE, LEICHT VERSTÄNDLICHE
+# Besprechung für Bauherren, Eigentümer und Hausverwaltungen schreiben
+# (Format „Urteil verständlich“, höchstens 10 Minuten Lesezeit).
+#
+# Technisch ist dieser Workflow eine Kopie von urteil.yml mit dem Skill
+# /urteil-verstaendlich statt /urteilsbesprechung. Auswahl der Entscheidung,
+# Faktenprüfung und Schlussprüfung sind dieselben.
+#
+# Ablauf:
+#   1. tools/urteile_finden.py stellt eine vorsortierte Kandidatenliste
+#      zusammen – Berlin und Brandenburg zuerst, danach der Bund, jeweils die
+#      jüngsten Entscheidungen zuerst. Schon besprochene Aktenzeichen fallen raus.
+#   2. Der Agent prüft die Kandidaten am Volltext, wählt eine aus und schreibt
+#      den Entwurf nach entwuerfe/. Er baut die HTML-Seite und öffnet einen
+#      Pull Request.
+#   3. Faktenprüfung: Ein zweiter Agent vergleicht jede Aussage über die
+#      Entscheidung mit ihrer Randnummer im Volltext.
+#   4. Schlussprüfung: tools/quellen_laden.py lädt jede Fußnotenquelle herunter;
+#      ein dritter Agent vergleicht jeden belegten Satz mit dem Quelltext und
+#      prüft die Änderungen der Faktenprüfung noch einmal gegen den Volltext.
+#   Beide Prüfungen committen ihre Korrekturen in den Pull Request und
+#   berichten als Kommentar.
+#
+# Quellen (ausschließlich amtlich):
+#   rechtsprechung-im-internet.de           Bundesamt für Justiz
+#   gerichtsentscheidungen.brandenburg.de   Landesrechtsportal Brandenburg
+#   nrwesuche.justiz.nrw.de                 Justiz Nordrhein-Westfalen
+#   gesetze.berlin.de und neun weitere      juris-Landesportale, darunter das
+#                                           Kammergericht Berlin
+#
+# Nicht enthalten sind Bayern, Niedersachsen, Bremen und Sachsen: Deren Portale
+# liefern kein auswertbares Trefferformat.
+# -----------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+    inputs:
+      monate:
+        description: "Wie weit zurück gesucht wird (Monate)"
+        required: false
+        default: "18"
+        type: choice
+        options:
+          - "6"
+          - "12"
+          - "18"
+          - "36"
+      quelle:
+        description: "Welche Datenbanken abgefragt werden"
+        required: false
+        default: "alle"
+        type: choice
+        options:
+          - "alle"
+          - "nur Berlin"
+          - "nur Brandenburg"
+          - "nur Bund"
+          - "nur Nordrhein-Westfalen"
+          - "nur juris-Länderportale"
+      schwerpunkt:
+        description: "Optionaler Schwerpunkt, z. B. „Nachtragsmanagement“ (leer = freie Wahl)"
+        required: false
+        default: ""
+
+concurrency:
+  group: urteil-verstaendlich
+  cancel-in-progress: false
+
+jobs:
+  besprechung:
+    runs-on: ubuntu-latest
+    # Schreiben bis 60 Minuten, Faktenprüfung bis 50, Schlussprüfung bis 40,
+    # dazu Bibliothek, Suche, Quellenabruf und Abschluss.
+    timeout-minutes: 175
+
+    permissions:
+      contents: write        # Entwurf anlegen und Branch pushen
+      pull-requests: write   # Pull Request öffnen
+      id-token: write        # von der Claude-Action benötigt
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Git-Identität setzen
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Fremde Hooks im Arbeitsverzeichnis dürfen nicht ausgeführt werden.
+          git config core.hooksPath /dev/null
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Seitenbauer vorbereiten
+        run: |
+          set -euo pipefail
+          # Der Agent baut die Artikelseite selbst, damit sie im selben Pull
+          # Request landet. markdown wandelt den Entwurf in HTML, PyYAML liest
+          # das Frontmatter. Versionen wie in seiten-bauen.yml. pypdf liest
+          # PDF-Quellen für die Schlussprüfung.
+          python -m pip install --upgrade pip --quiet
+          python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2' 'pypdf==6.19.0'
+
+      # -----------------------------------------------------------------
+      # Fachbibliothek des Büros: Textauszüge der Fachbücher aus dem privaten
+      # Repository FachwissenAgent, mit gedruckten Seitenzahlen und Katalog.
+      # Ohne das Secret BIBLIOTHEK_TOKEN oder bei einem Fehler arbeitet der
+      # Agent wie bisher ohne Bibliothek; der Lauf bricht deswegen nicht ab.
+      # -----------------------------------------------------------------
+      - name: Fachbibliothek prüfen
+        id: bib
+        env:
+          # Nur Ja/Nein, nie der Wert selbst.
+          TOKEN_DA: ${{ secrets.BIBLIOTHEK_TOKEN != '' }}
+        run: |
+          echo "vorhanden=$TOKEN_DA" >> "$GITHUB_OUTPUT"
+          if [ "$TOKEN_DA" != "true" ]; then
+            echo "::notice title=Fachbibliothek::Secret BIBLIOTHEK_TOKEN fehlt – der Agent arbeitet ohne Fachbibliothek."
+          fi
+
+      - name: Fachbibliothek laden
+        id: bibladen
+        if: steps.bib.outputs.vorhanden == 'true'
+        continue-on-error: true
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ing-bassam/FachwissenAgent
+          token: ${{ secrets.BIBLIOTHEK_TOKEN }}
+          path: .bibliothek
+          # Der Zugangsschlüssel bleibt nicht im Arbeitsverzeichnis liegen,
+          # das der Agent lesen kann.
+          persist-credentials: false
+
+      - name: Suchindex der Fachbibliothek bauen
+        id: bibindex
+        if: steps.bibladen.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          python tools/bibliothek_suchen.py .bibliothek --index
+          echo "ordner=.bibliothek" >> "$GITHUB_OUTPUT"
+
+      - name: Fachbibliothek nicht ladbar
+        if: steps.bibladen.outcome == 'failure'
+        run: |
+          echo "::warning title=Fachbibliothek::Die Fachbibliothek konnte nicht geladen werden. Meist ist der Zugangsschlüssel BIBLIOTHEK_TOKEN abgelaufen – bitte erneuern. Der Agent arbeitet in diesem Lauf ohne Bibliothek."
+
+      - name: Kandidaten suchen
+        id: kandidaten
+        env:
+          # Eingaben nie direkt in die Shell schreiben, sondern über die Umgebung.
+          MONATE: ${{ inputs.monate }}
+          QUELLE: ${{ inputs.quelle }}
+        run: |
+          set -euo pipefail
+
+          # Das Laufdatum kommt aus dem Runner, nicht aus Repository-Metadaten.
+          echo "heute=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+          # Startzeitpunkt merken: Nur ein danach entstandener PR gehört zu diesem Lauf.
+          echo "beginn=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+
+          ARBEIT="$RUNNER_TEMP/urteil"
+          mkdir -p "$ARBEIT"
+          LISTE="$ARBEIT/kandidaten.md"
+
+          case "$QUELLE" in
+            "nur Brandenburg")          NUR=(--nur brandenburg) ;;
+            "nur Bund")                 NUR=(--nur bund) ;;
+            "nur Nordrhein-Westfalen")  NUR=(--nur nrw) ;;
+            "nur Berlin")               NUR=(--nur berlin) ;;
+            "nur juris-Länderportale")  NUR=(--nur laender) ;;
+            *)                          NUR=() ;;
+          esac
+
+          MON="${MONATE:-18}"
+          case "$MON" in
+            ''|*[!0-9]*) MON=18 ;;
+          esac
+
+          python tools/urteile_finden.py \
+            --ziel "$LISTE" \
+            --monate "$MON" \
+            --max 12 \
+            --pause 1.0 \
+            "${NUR[@]}" | tee "$ARBEIT/suche.log"
+
+          if grep -q "## Keine Kandidaten" "$LISTE"; then
+            echo "::warning title=Urteil verständlich::Im Zeitraum der letzten ${MON} Monate wurde keine noch nicht besprochene Entscheidung gefunden. Größeren Zeitraum wählen."
+            echo "gefunden=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "gefunden=true" >> "$GITHUB_OUTPUT"
+          fi
+
+          echo "liste=$LISTE" >> "$GITHUB_OUTPUT"
+          # Der Agent braucht Zugriff auf dieses Verzeichnis: Es liegt außerhalb
+          # des Checkouts und enthält Kandidatenliste und Volltexte.
+          echo "verzeichnis=$ARBEIT" >> "$GITHUB_OUTPUT"
+
+          {
+            echo '## Kandidatensuche'
+            echo
+            echo '```'
+            cat "$ARBEIT/suche.log"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Besprechung schreiben lassen
+        id: claude
+        if: steps.kandidaten.outputs.gefunden == 'true'
+        timeout-minutes: 60   # lässt Fakten- und Schlussprüfung Zeit innerhalb der 175 Job-Minuten
+        uses: anthropics/claude-code-action@cfc3eb22bfed5c26ef66e3223c982af27e4524de # v1.0.231
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /urteil-verstaendlich
+            Kandidatenliste: ${{ steps.kandidaten.outputs.liste }}
+            Datum: ${{ steps.kandidaten.outputs.heute }}
+            Schwerpunkt: ${{ inputs.schwerpunkt }}
+            Bibliothek: ${{ steps.bibindex.outputs.ordner || 'nicht verfügbar' }}
+
+            Lies zuerst .claude/skills/fachartikel/SKILL.md und
+            .claude/skills/urteilsbesprechung/SKILL.md vollständig, dann die
+            Kandidatenliste. Ist ein Schwerpunkt genannt, bevorzuge Entscheidungen
+            dazu, solange sie fachlich tragen; sonst wähle frei nach der Reihenfolge
+            der Liste.
+          # --add-dir: Kandidatenliste und Volltexte liegen im Runner-Temp, nicht im Checkout.
+          #   Ohne diese Freigabe kann der Agent die Liste nicht lesen und bricht ab.
+          # --allowedTools: bewusst redundant zur SKILL.md, damit der Lauf auch dann trägt,
+          #   wenn die Skill-Datei einmal abweicht. „git config“ fehlt absichtlich.
+          claude_args: |
+            --max-turns 170
+            --model claude-opus-5
+            --add-dir ${{ steps.kandidaten.outputs.verzeichnis }}
+            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
+
+      # -----------------------------------------------------------------
+      # Faktenprüfung. Ein zweiter, unabhängiger Agent vergleicht jede Aussage
+      # über die besprochene Entscheidung mit ihrer Randnummer im Volltext und
+      # korrigiert Abweichungen. Anlass: Der erste Artikel gab das Urteil an
+      # fünfzehn Stellen falsch wieder, obwohl der Volltext vollständig vorlag –
+      # geschrieben wurde über viele Züge aus der Erinnerung, geprüft nie.
+      # -----------------------------------------------------------------
+      - name: Entwurf für die Prüfungen bestimmen
+        id: ziel
+        if: steps.claude.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BEGINN: ${{ steps.kandidaten.outputs.beginn }}
+          ARBEIT: ${{ steps.kandidaten.outputs.verzeichnis }}
+        run: |
+          set -euo pipefail
+          gh pr list --state open --json number,headRefName,createdAt > "$ARBEIT/prs.json"
+          # Nur ein Pull Request, der in diesem Lauf entstanden ist, wird geprüft.
+          ZEILE="$(python - "$BEGINN" "$ARBEIT/prs.json" <<'PY'
+          import json, sys
+          beginn, datei = sys.argv[1], sys.argv[2]
+          prs = [p for p in json.load(open(datei, encoding="utf-8"))
+                 if p["headRefName"].startswith("entwurf/") and p["createdAt"] >= beginn]
+          prs.sort(key=lambda p: p["createdAt"])
+          print(f'{prs[-1]["number"]} {prs[-1]["headRefName"]}' if prs else "")
+          PY
+          )"
+          if [ -z "$ZEILE" ]; then
+            echo "::notice title=Prüfung::Kein neuer Entwurf – nichts zu prüfen."
+            echo "entwurf_da=false" >> "$GITHUB_OUTPUT"
+            echo "pruefen=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          NR="${ZEILE%% *}"
+          ZWEIG="${ZEILE#* }"
+          git fetch -q origin "$ZWEIG"
+          git checkout -q -B "$ZWEIG" "origin/$ZWEIG"
+
+          ENTWURF="$(gh pr view "$NR" --json files \
+                      --jq '[.files[].path | select(startswith("entwuerfe/") and endswith(".md"))][0] // ""')"
+          if [ -z "$ENTWURF" ] || [ ! -f "$ENTWURF" ]; then
+            echo "::warning title=Prüfung::Im Pull Request #$NR ist keine Entwurfsdatei zu finden."
+            echo "entwurf_da=false" >> "$GITHUB_OUTPUT"
+            echo "pruefen=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Die Schlussprüfung läuft auch dann, wenn der Volltext fehlt; die
+          # Faktenprüfung nur mit Volltext. Der Diff bleibt leer, bis die
+          # Faktenprüfung etwas ändert.
+          : > "$ARBEIT/faktenpruefung.diff"
+          {
+            echo "entwurf_da=true"
+            echo "nummer=$NR"
+            echo "zweig=$ZWEIG"
+            echo "entwurf=$ENTWURF"
+            echo "bericht=$ARBEIT/faktenpruefung.md"
+            echo "diff=$ARBEIT/faktenpruefung.diff"
+            echo "schlussbericht=$ARBEIT/schlusspruefung.md"
+          } >> "$GITHUB_OUTPUT"
+
+          # Der Volltext liegt aus dem Suchlauf bereit; fehlt er, wird er von der
+          # Fundstelle des Entwurfs nachgeladen.
+          AZ="$(grep -m1 '^aktenzeichen:' "$ENTWURF" | sed 's/^aktenzeichen:[[:space:]]*//; s/^"//; s/"$//')"
+          DATEI="$(python -c 'import sys; sys.path.insert(0, "tools"); import urteile_finden as u; print(u.dateiname(sys.argv[1]))' "$AZ")"
+          VOLLTEXT="$ARBEIT/volltexte/$DATEI.txt"
+          if [ ! -f "$VOLLTEXT" ]; then
+            VOLLTEXT="$(python tools/volltext_laden.py "$ENTWURF" "$ARBEIT/volltexte" | tail -n 1)" || VOLLTEXT=""
+          fi
+          if [ -z "$VOLLTEXT" ] || [ ! -f "$VOLLTEXT" ]; then
+            echo "::warning title=Faktenprüfung::Volltext zu $AZ nicht verfügbar – keine Faktenprüfung."
+            gh pr comment "$NR" --body "⚠️ Die automatische Faktenprüfung konnte nicht laufen: Der Volltext zu $AZ war nicht verfügbar. Bitte die Aussagen über die Entscheidung vor dem Merge selbst gegen den Volltext prüfen."
+            echo "pruefen=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "pruefen=true" >> "$GITHUB_OUTPUT"
+          echo "volltext=$VOLLTEXT" >> "$GITHUB_OUTPUT"
+
+      - name: Fakten gegen den Volltext prüfen
+        id: pruefung
+        if: steps.ziel.outputs.pruefen == 'true'
+        # Scheitert die Prüfung, bleibt der Entwurf bestehen; der nächste Schritt
+        # vermerkt das im Pull Request.
+        continue-on-error: true
+        timeout-minutes: 50
+        uses: anthropics/claude-code-action@cfc3eb22bfed5c26ef66e3223c982af27e4524de # v1.0.231
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /faktenpruefung
+            Entwurf: ${{ steps.ziel.outputs.entwurf }}
+            Volltext: ${{ steps.ziel.outputs.volltext }}
+            Bericht: ${{ steps.ziel.outputs.bericht }}
+          # Kein Netz, kein git, kein gh: Der Prüfer vergleicht nur Entwurf und
+          # Volltext und korrigiert den Entwurf. Commit und Kommentar macht der
+          # nächste Schritt.
+          claude_args: |
+            --max-turns 110
+            --model claude-opus-5
+            --add-dir ${{ steps.kandidaten.outputs.verzeichnis }}
+            --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(wc:*)"
+
+      - name: Prüfergebnis in den Pull Request übernehmen
+        if: steps.ziel.outputs.pruefen == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ steps.ziel.outputs.nummer }}
+          ZWEIG: ${{ steps.ziel.outputs.zweig }}
+          ENTWURF: ${{ steps.ziel.outputs.entwurf }}
+          BERICHT: ${{ steps.ziel.outputs.bericht }}
+          DIFF: ${{ steps.ziel.outputs.diff }}
+          PRUEFUNG: ${{ steps.pruefung.outcome }}
+        run: |
+          set -euo pipefail
+          # Die Schlussprüfung prüft jede Änderung der Faktenprüfung noch einmal
+          # gegen den Volltext – dafür wird der Diff vor dem Commit gesichert.
+          git diff -U0 -- "$ENTWURF" > "$DIFF" || true
+          # Fehler in fremden Entwürfen dürfen hier nicht stoppen.
+          python tools/artikel_generator.py > /dev/null || true
+          if ! git diff --quiet -- entwuerfe fachwissen sitemap.xml; then
+            git add entwuerfe fachwissen sitemap.xml
+            git commit -q -m "Faktenpruefung: Korrekturen gegen den Volltext" \
+                          -m "Automatisch nach dem Schreiben geprueft. Einzelheiten im Kommentar des Pull Requests."
+            git push -q origin "HEAD:$ZWEIG"
+          fi
+          if [ -s "$BERICHT" ]; then
+            gh pr comment "$NR" --body-file "$BERICHT"
+          else
+            gh pr comment "$NR" --body "⚠️ Die automatische Faktenprüfung ist nicht vollständig durchgelaufen (Ergebnis: ${PRUEFUNG}). Bitte die Aussagen über die Entscheidung vor dem Merge selbst gegen den Volltext prüfen."
+          fi
+
+      # -----------------------------------------------------------------
+      # Schlussprüfung. Anlass: Beim Beitrag zu OVG 6 A 1/25 standen nach der
+      # Faktenprüfung noch Fußnoten mit „Inhaltlich bestätigt durch …“, deren
+      # Quelle die Zahlen gar nicht enthielt, ein Gesetz in der falschen Fassung
+      # und ein erfundener Rechtsmittelhinweis. Ein Skript lädt deshalb jede
+      # Fußnotenquelle herunter; ein unabhängiger Agent vergleicht jeden
+      # belegten Satz mit dem Quelltext.
+      # -----------------------------------------------------------------
+      - name: Quellen für die Schlussprüfung laden
+        id: quellen
+        if: ${{ !cancelled() && steps.ziel.outputs.entwurf_da == 'true' }}
+        env:
+          ENTWURF: ${{ steps.ziel.outputs.entwurf }}
+          VOLLTEXT: ${{ steps.ziel.outputs.volltext }}
+          ARBEIT: ${{ steps.kandidaten.outputs.verzeichnis }}
+        run: |
+          set -euo pipefail
+          VT=()
+          if [ -n "$VOLLTEXT" ] && [ -f "$VOLLTEXT" ]; then
+            VT=(--volltext "$VOLLTEXT")
+          fi
+          if [ -f .bibliothek/katalog.yml ]; then VT+=(--bibliothek .bibliothek); fi
+          if ! AUSGABE="$(python tools/quellen_laden.py "$ENTWURF" "$ARBEIT/schlusspruefung" "${VT[@]}")"; then
+            echo "::warning title=Schlussprüfung::Quellen nicht ladbar – $(printf '%s\n' "$AUSGABE" | tail -n 1)"
+            echo "bereit=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          printf '%s\n' "$AUSGABE"
+          echo "pruefliste=$(printf '%s\n' "$AUSGABE" | tail -n 1)" >> "$GITHUB_OUTPUT"
+          echo "bereit=true" >> "$GITHUB_OUTPUT"
+
+      - name: Schlussprüfung gegen die Quellen
+        id: schluss
+        if: ${{ !cancelled() && steps.quellen.outputs.bereit == 'true' }}
+        continue-on-error: true
+        timeout-minutes: 40
+        uses: anthropics/claude-code-action@cfc3eb22bfed5c26ef66e3223c982af27e4524de # v1.0.231
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /schlusspruefung
+            Entwurf: ${{ steps.ziel.outputs.entwurf }}
+            Prüfliste: ${{ steps.quellen.outputs.pruefliste }}
+            Volltext: ${{ steps.ziel.outputs.volltext }}
+            Änderungen der Faktenprüfung: ${{ steps.ziel.outputs.diff }}
+            Bericht: ${{ steps.ziel.outputs.schlussbericht }}
+            Bibliothek: ${{ steps.bibindex.outputs.ordner || 'nicht verfügbar' }}
+          # Kein git, kein gh. Web nur, um eine tote Adresse desselben Dokuments
+          # zu ersetzen oder eine nicht ladbare Quelle einmal nachzulesen
+          # (höchstens zwölf Aufrufe laut Skill).
+          claude_args: |
+            --max-turns 80
+            --model claude-opus-5
+            --add-dir ${{ steps.kandidaten.outputs.verzeichnis }}
+            --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,WebFetch,WebSearch,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*),Bash(wc:*)"
+
+      - name: Ergebnis der Schlussprüfung übernehmen
+        if: ${{ !cancelled() && steps.quellen.outputs.bereit == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ steps.ziel.outputs.nummer }}
+          ZWEIG: ${{ steps.ziel.outputs.zweig }}
+          BERICHT: ${{ steps.ziel.outputs.schlussbericht }}
+          PRUEFUNG: ${{ steps.schluss.outcome }}
+        run: |
+          set -euo pipefail
+          python tools/artikel_generator.py > /dev/null || true
+          if ! git diff --quiet -- entwuerfe fachwissen sitemap.xml; then
+            git add entwuerfe fachwissen sitemap.xml
+            git commit -q -m "Schlusspruefung: Korrekturen gegen die Quellen" \
+                          -m "Automatisch nach der Faktenpruefung geprueft. Einzelheiten im Kommentar des Pull Requests."
+            git push -q origin "HEAD:$ZWEIG"
+          fi
+          if [ -s "$BERICHT" ]; then
+            gh pr comment "$NR" --body-file "$BERICHT"
+          else
+            gh pr comment "$NR" --body "⚠️ Die Schlussprüfung gegen die Quellen ist nicht vollständig durchgelaufen (Ergebnis: ${PRUEFUNG}). Bitte Zahlen und Fußnoten vor dem Merge selbst an den Quellen prüfen."
+          fi
+
+      - name: Ergebnis melden
+        if: always()
+        env:
+          GEFUNDEN: ${{ steps.kandidaten.outputs.gefunden }}
+          AGENT: ${{ steps.claude.outcome }}
+          BEGINN: ${{ steps.kandidaten.outputs.beginn }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          if [ "$GEFUNDEN" != "true" ]; then
+            echo "::notice title=Urteil verständlich::Kein Kandidat – es wurde kein Entwurf erstellt."
+            exit 0
+          fi
+
+          if [ "$AGENT" != "success" ]; then
+            echo "::warning title=Urteil verständlich::Der Agent endete mit „${AGENT}\". Falls ein Branch entwurf/* entstanden ist, bitte von Hand prüfen."
+            exit 0
+          fi
+
+          PR="$(gh pr list --state open --json url,headRefName,createdAt \
+                 --jq '[.[] | select(.headRefName | startswith("entwurf/"))]
+                       | sort_by(.createdAt) | last | .url // ""' 2>/dev/null || echo "")"
+
+          if [ -n "$PR" ]; then
+            echo "::notice title=Urteil verständlich::Entwurf liegt bereit: $PR"
+            echo "- Entwurf: $PR" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning title=Urteil verständlich::Der Agent meldet Erfolg, es ist aber kein seit ${BEGINN} angelegter Entwurf-Zweig zu finden. Möglicherweise hat er alle Kandidaten verworfen – bitte im Log nachsehen."
+          fi
