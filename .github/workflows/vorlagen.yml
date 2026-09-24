@@ -1,0 +1,495 @@
+name: Vorlagen und Checklisten
+
+# ---------------------------------------------------------------------------
+# Arbeitet die Notion-Liste „Kostenlose Vorlagen & Checklisten“ ab.
+#
+# Ablauf:
+#   1. Nächste Vorlage mit Status „Idee“ (Priorität Hoch → Mittel → Später)
+#      aus Notion laden – oder eine bestimmte Seite per Link/ID.
+#      Ergebnis: Auftragsdatei in $RUNNER_TEMP/vorlage/auftrag.md.
+#   2. Claude Code (Skill /vorlage) recherchiert in Fachbibliothek und Web,
+#      schreibt die Beschreibung vorlagen/<kurzform>.yml, baut daraus mit
+#      tools/vorlage_bauen.py die Downloads (PDF, ausfüllbares PDF, Word,
+#      Excel – mit Logo und Wasserzeichen) und eine kurze Begleitseite unter
+#      entwuerfe/, und öffnet einen Pull Request (Branch vorlage/<kurzform>).
+#   3. Notion: Status „In Arbeit“, Download-Link = Adresse der Seite.
+#   4. Schlussprüfung: jede Fußnote der Begleitseite gegen den Quelltext;
+#      Paragrafen in der Vorlage müssen dort belegt sein.
+#   5. Kontrolle, ob der Hauptzweig unverändert blieb.
+#
+# Benötigte Secrets: CLAUDE_CODE_OAUTH_TOKEN, NOTION_TOKEN (Integration muss
+# mit der Datenbank „Kostenlose Vorlagen & Checklisten“ verbunden sein),
+# optional BIBLIOTHEK_TOKEN für die Fachbibliothek.
+#
+# Sicherheitsregeln wie in fachartikel.yml: Eingaben und Secrets nur über env:,
+# Fremdinhalt nur mit Präfix „| “ ins Log, kein „git config“ für den Agenten,
+# Actions per Commit-SHA festgelegt.
+# ---------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+    inputs:
+      notion_seite:
+        description: "Vorlage aus der Notion-Liste: Link der Seite oder Seiten-ID. Leer = nächste Vorlage mit Status „Idee“ nach Priorität."
+        required: false
+        type: string
+
+run-name: "Vorlage: ${{ inputs.notion_seite || 'nächste Vorlage aus Notion' }}"
+
+concurrency:
+  group: vorlagen
+  cancel-in-progress: false
+
+env:
+  NOTION_VERSION: "2025-09-03"
+  NOTION_DATA_SOURCE_ID: "b2141992-3f79-4905-a9ee-785d876ad95e"   # Data Source „Kostenlose Vorlagen & Checklisten“
+  NOTION_DATABASE_ID: "2fbea8b7-d9c3-4b78-ad13-561628053ec7"      # zugehörige Datenbank-ID
+
+jobs:
+  vorlage:
+    runs-on: ubuntu-latest
+    # Schreiben und Bauen bis 60 Minuten, Schlussprüfung bis 35, dazu Notion und Abschluss.
+    timeout-minutes: 115
+
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Voraussetzungen prüfen
+        id: start
+        env:
+          CLAUDE_TOKEN_VORHANDEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+          NOTION_TOKEN_VORHANDEN: ${{ secrets.NOTION_TOKEN != '' }}
+        run: |
+          set -euo pipefail
+          if [ "$CLAUDE_TOKEN_VORHANDEN" != "true" ]; then
+            echo "::error title=Vorlagen::Secret CLAUDE_CODE_OAUTH_TOKEN fehlt."
+            exit 1
+          fi
+          if [ "$NOTION_TOKEN_VORHANDEN" != "true" ]; then
+            echo "::error title=Vorlagen::Secret NOTION_TOKEN fehlt – die Vorlagen kommen aus Notion."
+            exit 1
+          fi
+          echo "zeit=$(date -u -d '-1 minute' +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+
+      - name: Repository auschecken
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: true
+
+      - name: Git-Identität setzen
+        id: git
+        env:
+          STANDARDZWEIG: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config core.hooksPath /dev/null
+          zweig="${STANDARDZWEIG:-main}"
+          sha="$(git ls-remote origin "refs/heads/${zweig}" 2>/dev/null | cut -f1 | head -n 1 || true)"
+          echo "zweig=${zweig}" >> "$GITHUB_OUTPUT"
+          echo "sha=${sha}" >> "$GITHUB_OUTPUT"
+
+      # -----------------------------------------------------------------
+      # Vorlage aus Notion laden und Auftragsdatei schreiben
+      # -----------------------------------------------------------------
+      - name: Vorlage aus Notion laden
+        id: auftrag
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          INPUT_NOTION_SEITE: ${{ inputs.notion_seite }}
+          HEUTE: ${{ github.run_started_at }}
+        # Keine Ausdrücke in doppelten geschweiften Klammern in diesem Skript (21.000-Zeichen-Grenze).
+        run: |
+          set -euo pipefail
+          AGENTDIR="${RUNNER_TEMP}/vorlage"
+          ARBEIT="${RUNNER_TEMP}/vorlage-arbeit"
+          rm -rf -- "$AGENTDIR" "$ARBEIT"
+          mkdir -p "$AGENTDIR" "$ARBEIT"
+          trap 'rm -rf -- "$ARBEIT"' EXIT
+          AUFTRAG="${AGENTDIR}/auftrag.md"
+          ANTWORT="${ARBEIT}/antwort.json"
+          CURLFEHLER="${ARBEIT}/curl.txt"
+          SEITE="${ARBEIT}/seite.json"
+          BLOECKE="${ARBEIT}/bloecke.jsonl"
+          : > "$BLOECKE"
+          NOTION_TOKEN="$(printf '%s' "${NOTION_TOKEN:-}" | tr -d '[:space:]')"
+          if [[ ! "$NOTION_TOKEN" =~ ^[A-Za-z0-9_-]+$ ]]; then
+            echo "::error title=Vorlagen::Secret NOTION_TOKEN enthält unerwartete Zeichen."
+            exit 1
+          fi
+
+          ausgabe() {
+            local trenner="AUSGABE_${RANDOM}${RANDOM}${RANDOM}"
+            printf '%s<<%s\n%s\n%s\n' "$1" "$trenner" "$2" "$trenner" >> "$GITHUB_OUTPUT"
+          }
+          einzeilig() { printf '%s' "$1" | tr '\r\n\t' '   ' | sed -e 's/  */ /g' -e 's/^ //' -e 's/ $//'; }
+          fremd() { sed 's/^/| /'; }
+          notion_api() {
+            local methode="$1" pfad="$2" body="${3:-}"
+            local -a args=( -sS --max-time 60 --retry 3 --retry-delay 3 -o "$ANTWORT" -w '%{http_code}'
+                            -X "$methode" -H "Notion-Version: ${NOTION_VERSION}" -H "Content-Type: application/json" )
+            if [ -n "$body" ]; then args+=( --data "$body" ); fi
+            : > "$ANTWORT"
+            local status
+            status="$(curl "${args[@]}" -K - "https://api.notion.com/v1${pfad}" 2>"$CURLFEHLER" \
+                        <<< "header = \"Authorization: Bearer ${NOTION_TOKEN}\"")" || true
+            printf '%s' "${status: -3}"
+          }
+          notion_pruefen() {
+            local status="$1" kontext="$2"
+            case "$status" in
+              2[0-9][0-9]) if jq -e . "$ANTWORT" >/dev/null 2>&1; then return 0; fi ;;
+            esac
+            echo "::group::Notion-Antwort (${kontext}, HTTP ${status})"
+            if [ -s "$ANTWORT" ]; then jq -r '"code: \(.code // "?")", "message: \(.message // "?")"' "$ANTWORT" 2>/dev/null | fremd || true; fi
+            if [ -s "$CURLFEHLER" ]; then echo "| curl: $(head -c 500 "$CURLFEHLER" | tr '\r\n' '  ')"; fi
+            echo "::endgroup::"
+            echo "::error title=Vorlagen::Notion: HTTP ${status} bei „${kontext}“. Häufige Ursachen: Integration nicht mit der Datenbank „Kostenlose Vorlagen & Checklisten“ verbunden (Notion: Datenbank → ··· → Verbindungen), Token abgelaufen, Eigenschaft umbenannt."
+            exit 1
+          }
+
+          eingabe="$(einzeilig "$INPUT_NOTION_SEITE")"
+          if [ -n "$eingabe" ]; then
+            re='([0-9a-fA-F]{32})'
+            roh="${eingabe%%\?*}"
+            roh="${roh//-/}"
+            if [[ "$roh" =~ $re ]]; then
+              seite_id="${BASH_REMATCH[1]}"
+            else
+              echo "::error title=Vorlagen::Eingabe enthält keine Notion-Seiten-ID (32 Hex-Zeichen): „${eingabe}“"
+              exit 1
+            fi
+            status="$(notion_api GET "/pages/${seite_id}")"
+            notion_pruefen "$status" "Seite lesen"
+            cp "$ANTWORT" "$SEITE"
+            eltern="$(jq -r '.parent.data_source_id // .parent.database_id // ""' "$SEITE" | tr -d '-')"
+            if [ "$eltern" != "$(tr -d '-' <<< "$NOTION_DATA_SOURCE_ID")" ] && [ "$eltern" != "$(tr -d '-' <<< "$NOTION_DATABASE_ID")" ]; then
+              echo "::error title=Vorlagen::Die Seite gehört nicht zur Liste „Kostenlose Vorlagen & Checklisten“."
+              exit 1
+            fi
+          else
+            abfrage='{"filter":{"and":[{"property":"Status","select":{"equals":"Idee"}},{"property":"Download-Link","url":{"is_empty":true}}]},"sorts":[{"timestamp":"created_time","direction":"ascending"}],"page_size":100}'
+            status="$(notion_api POST "/data_sources/${NOTION_DATA_SOURCE_ID}/query" "$abfrage")"
+            notion_pruefen "$status" "Liste abfragen"
+            anzahl="$(jq -r '(.results // []) | length' "$ANTWORT")"
+            if [ "$anzahl" -eq 0 ]; then
+              echo "::error title=Vorlagen::Keine Vorlage mit Status „Idee“ und leerem Download-Link in der Notion-Liste."
+              exit 1
+            fi
+            jq -c '
+              def rang: (.properties["Priorität"].select.name // "") as $p
+                | if $p == "Hoch" then 0 elif $p == "Mittel" then 1 elif $p == "Später" then 2 else 3 end;
+              .results | sort_by(rang, .created_time) | .[0]' "$ANTWORT" > "$SEITE"
+            echo "Gewählt: 1 von ${anzahl} offenen Vorlagen (Priorität Hoch → Mittel → Später, dann älteste zuerst)"
+          fi
+
+          notion_id="$(jq -r '.id' "$SEITE")"
+          notion_url="$(einzeilig "$(jq -r '.url // ""' "$SEITE")")"
+          vorlage="$(einzeilig "$(jq -r '[.properties.Vorlage.title[]?.plain_text] | join("")' "$SEITE")")"
+          zweck="$(einzeilig "$(jq -r '[.properties.Zweck.rich_text[]?.plain_text] | join("")' "$SEITE")")"
+          typ="$(jq -r '.properties.Typ.select.name // ""' "$SEITE")"
+          kategorie="$(jq -r '.properties.Kategorie.select.name // ""' "$SEITE")"
+          zielgruppe="$(jq -r '[.properties.Zielgruppe.multi_select[]?.name] | join(", ")' "$SEITE")"
+          leistung="$(jq -r '[.properties.Leistung.multi_select[]?.name] | join(", ")' "$SEITE")"
+          dateiformat="$(jq -r '[.properties.Dateiformat.multi_select[]?.name] | join(", ")' "$SEITE")"
+          aufwand="$(jq -r '.properties.Aufwand.select.name // ""' "$SEITE")"
+          prioritaet="$(jq -r '.properties["Priorität"].select.name // ""' "$SEITE")"
+          notion_status="$(jq -r '.properties.Status.select.name // ""' "$SEITE")"
+          if [ -z "$vorlage" ] || [ -z "$typ" ] || [ -z "$kategorie" ]; then
+            echo "::error title=Vorlagen::Pflichtfeld leer (Vorlage, Typ oder Kategorie) bei Seite ${notion_id}."
+            exit 1
+          fi
+
+          # Seiteninhalt (Notizen) der obersten Ebene als Klartext
+          status="$(notion_api GET "/blocks/${notion_id}/children?page_size=100")"
+          notion_pruefen "$status" "Seiteninhalt lesen"
+          jq -c '.results[]?' "$ANTWORT" >> "$BLOECKE"
+          notizen="$(jq -r '
+            def txt: [(.[.type].rich_text // [])[] | .plain_text // ""] | join("");
+            .type as $t
+            | if $t == "heading_1" then "# " + txt elif $t == "heading_2" then "## " + txt
+              elif $t == "heading_3" then "### " + txt
+              elif ($t == "bulleted_list_item" or $t == "toggle") then "- " + txt
+              elif $t == "numbered_list_item" then "1. " + txt
+              elif $t == "to_do" then "- [ ] " + txt
+              elif ($t == "paragraph" or $t == "quote" or $t == "callout") then txt
+              else empty end' "$BLOECKE" 2>/dev/null || true)"
+          if [ -z "$notizen" ]; then notizen="(keine)"; fi
+          heute="$(TZ=Europe/Berlin date +%F)"
+
+          {
+            printf '# Auftrag Vorlage\n'
+            printf 'vorlage: %s\n'     "$vorlage"
+            printf 'typ: %s\n'         "$typ"
+            printf 'zweck: %s\n'       "$zweck"
+            printf 'kategorie: %s\n'   "$kategorie"
+            printf 'zielgruppe: %s\n'  "$zielgruppe"
+            printf 'leistung: %s\n'    "$leistung"
+            printf 'dateiformat: %s\n' "$dateiformat"
+            printf 'aufwand: %s\n'     "$aufwand"
+            printf 'prioritaet: %s\n'  "$prioritaet"
+            printf 'datum: %s\n'       "$heute"
+            printf 'notion_id: %s\n'   "$notion_id"
+            printf 'notion_url: %s\n'  "$notion_url"
+            printf 'quelle: notion\n'
+            printf '\n## Notizen aus Notion\n%s\n' "$notizen"
+          } > "$AUFTRAG"
+
+          echo "::group::Gewählte Vorlage"
+          printf '%-13s %s\n' "Vorlage:" "$vorlage" "Typ:" "$typ" "Zweck:" "${zweck:--}" "Kategorie:" "$kategorie" \
+                 "Zielgruppe:" "${zielgruppe:--}" "Dateiformat:" "${dateiformat:--}" "Priorität:" "${prioritaet:--}" \
+                 "Status:" "${notion_status:--}" "Notion:" "${notion_url:--}"
+          echo "::endgroup::"
+          {
+            echo "## Vorlage – gewählter Auftrag"; echo ""
+            echo "| Feld | Wert |"; echo "|---|---|"
+            echo "| Vorlage | ${vorlage//|/\\|} |"; echo "| Typ | ${typ} |"; echo "| Zweck | ${zweck//|/\\|} |"
+            echo "| Dateiformat | ${dateiformat:--} |"; echo "| Priorität | ${prioritaet:--} |"
+            if [ -n "$notion_url" ]; then echo "| Notion | [Seite öffnen](${notion_url}) |"; fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          ausgabe vorlage     "$vorlage"
+          ausgabe typ         "$typ"
+          ausgabe notion_id   "$notion_id"
+          ausgabe notion_url  "$notion_url"
+          ausgabe auftrag_pfad        "$AUFTRAG"
+          ausgabe auftrag_verzeichnis "$AGENTDIR"
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Seitenbauer und Vorlagenbauer vorbereiten
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip --quiet
+          # markdown/PyYAML: Seitenbauer; reportlab/python-docx/openpyxl/Pillow: Downloads;
+          # pypdf: Schlussprüfung. Alle kostenlos.
+          python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2' 'pypdf==6.19.0' \
+            'reportlab==4.4.4' 'python-docx==1.2.0' 'openpyxl==3.1.5' 'Pillow==11.3.0'
+
+      # -----------------------------------------------------------------
+      # Fachbibliothek (siehe fachartikel.yml)
+      # -----------------------------------------------------------------
+      - name: Fachbibliothek prüfen
+        id: bib
+        env:
+          TOKEN_DA: ${{ secrets.BIBLIOTHEK_TOKEN != '' }}
+        run: |
+          echo "vorhanden=$TOKEN_DA" >> "$GITHUB_OUTPUT"
+          if [ "$TOKEN_DA" != "true" ]; then
+            echo "::notice title=Fachbibliothek::Secret BIBLIOTHEK_TOKEN fehlt – der Agent arbeitet ohne Fachbibliothek."
+          fi
+
+      - name: Fachbibliothek laden
+        id: bibladen
+        if: steps.bib.outputs.vorhanden == 'true'
+        continue-on-error: true
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ing-bassam/FachwissenAgent
+          token: ${{ secrets.BIBLIOTHEK_TOKEN }}
+          path: .bibliothek
+          persist-credentials: false
+
+      - name: Suchindex der Fachbibliothek bauen
+        id: bibindex
+        if: steps.bibladen.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          python tools/bibliothek_suchen.py .bibliothek --index
+          echo "ordner=.bibliothek" >> "$GITHUB_OUTPUT"
+
+      - name: Fachbibliothek nicht ladbar
+        if: steps.bibladen.outcome == 'failure'
+        run: |
+          echo "::warning title=Fachbibliothek::Die Fachbibliothek konnte nicht geladen werden (Zugangsschlüssel BIBLIOTHEK_TOKEN prüfen). Der Agent arbeitet ohne Bibliothek."
+
+      # -----------------------------------------------------------------
+      # Vorlage und Begleitseite schreiben lassen
+      # -----------------------------------------------------------------
+      - name: Vorlage erstellen lassen
+        id: claude
+        timeout-minutes: 60
+        uses: anthropics/claude-code-action@cfc3eb22bfed5c26ef66e3223c982af27e4524de # v1.0.231
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /vorlage
+            Auftragsdatei: ${{ steps.auftrag.outputs.auftrag_pfad }}
+            Vorlage: ${{ steps.auftrag.outputs.vorlage }}
+            Typ: ${{ steps.auftrag.outputs.typ }}
+            Notion-URL: ${{ steps.auftrag.outputs.notion_url }}
+            Bibliothek: ${{ steps.bibindex.outputs.ordner || 'nicht verfügbar' }}
+
+            Lies zuerst .claude/skills/fachartikel/SKILL.md vollständig, dann die
+            Auftragsdatei.
+          claude_args: |
+            --max-turns 140
+            --model claude-opus-5
+            --add-dir ${{ steps.auftrag.outputs.auftrag_verzeichnis }}
+            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/vorlage_bauen.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
+
+      # -----------------------------------------------------------------
+      # Pull Request dieses Laufs bestimmen, Notion aktualisieren
+      # -----------------------------------------------------------------
+      - name: Pull Request bestimmen und Notion aktualisieren
+        id: ziel
+        if: always() && steps.auftrag.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_ID: ${{ steps.auftrag.outputs.notion_id }}
+          NOTION_URL: ${{ steps.auftrag.outputs.notion_url }}
+          JOBSTART: ${{ steps.start.outputs.zeit }}
+          AGENT: ${{ steps.claude.outcome }}
+        run: |
+          set -euo pipefail
+          NOTION_TOKEN="$(printf '%s' "${NOTION_TOKEN:-}" | tr -d '[:space:]')"
+          ARBEIT="${RUNNER_TEMP}/vorlage-abschluss"
+          mkdir -p "$ARBEIT"
+          gh pr list --state open --limit 100 --json number,url,headRefName,createdAt > "$ARBEIT/prs.json"
+          ZEILE="$(python - "$JOBSTART" "$ARBEIT/prs.json" <<'PY'
+          import json, sys
+          beginn, datei = sys.argv[1], sys.argv[2]
+          prs = [p for p in json.load(open(datei, encoding="utf-8"))
+                 if p["headRefName"].startswith("vorlage/") and p["createdAt"] >= beginn]
+          prs.sort(key=lambda p: p["createdAt"])
+          print(f'{prs[-1]["number"]}\t{prs[-1]["headRefName"]}\t{prs[-1]["url"]}' if prs else "")
+          PY
+          )"
+          if [ -z "$ZEILE" ]; then
+            if [ "$AGENT" = "success" ]; then
+              echo "::error title=Vorlagen::Der Agent meldete Erfolg, aber es gibt keinen Pull Request aus diesem Lauf (Branch vorlage/*). Die Abschlussmeldung im Schritt „Vorlage erstellen lassen“ nennt den Grund. Notion bleibt unverändert."
+              echo "bereit=false" >> "$GITHUB_OUTPUT"
+              exit 1
+            fi
+            echo "::warning title=Vorlagen::Kein Pull Request aus diesem Lauf (Agent: ${AGENT}). Notion bleibt unverändert."
+            echo "bereit=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          NR="$(cut -f1 <<< "$ZEILE")"; ZWEIG="$(cut -f2 <<< "$ZEILE")"; PR_URL="$(cut -f3 <<< "$ZEILE")"
+          KURZ="${ZWEIG#vorlage/}"
+          SEITEN_URL="https://ing-bassam.de/fachwissen/${KURZ}/"
+          echo "Pull Request #${NR} (${ZWEIG}) – ${PR_URL}"
+          echo "- Pull Request: ${PR_URL}" >> "$GITHUB_STEP_SUMMARY"
+
+          git fetch -q origin "$ZWEIG"
+          git checkout -q -B "$ZWEIG" "origin/$ZWEIG"
+          ENTWURF="$(gh pr view "$NR" --json files --jq '[.files[].path | select(startswith("entwuerfe/") and endswith(".md"))][0] // ""')"
+          {
+            echo "bereit=$([ -n "$ENTWURF" ] && [ -f "$ENTWURF" ] && echo true || echo false)"
+            echo "nummer=$NR"; echo "zweig=$ZWEIG"; echo "entwurf=$ENTWURF"
+            echo "arbeit=$ARBEIT"; echo "bericht=$ARBEIT/schlusspruefung.md"
+          } >> "$GITHUB_OUTPUT"
+
+          # Notion: Status „In Arbeit“ und Adresse der späteren Seite. Bei gescheitertem Agenten
+          # nur die Adresse (der Entwurf kann unvollständig sein).
+          body="$(jq -n -c --arg url "$SEITEN_URL" --arg datum "$(TZ=Europe/Berlin date +%F)" --argjson ok "$([ "$AGENT" = success ] && echo true || echo false)" '
+            { properties: ({ "Download-Link": { url: $url } }
+              + (if $ok then { "Status": { select: { name: "In Arbeit" } }, "Stand": { date: { start: $datum } } } else {} end)) }')"
+          status="$(curl -sS --max-time 60 --retry 3 --retry-delay 3 -o "$ARBEIT/notion.json" -w '%{http_code}' -X PATCH \
+                      -H "Notion-Version: ${NOTION_VERSION}" -H "Content-Type: application/json" --data "$body" -K - \
+                      "https://api.notion.com/v1/pages/${NOTION_ID}" <<< "header = \"Authorization: Bearer ${NOTION_TOKEN}\"")" || status="000"
+          case "${status: -3}" in
+            2[0-9][0-9]) echo "::notice title=Vorlagen::Notion aktualisiert (Status In Arbeit, Download-Link ${SEITEN_URL}). PR: ${PR_URL}" ;;
+            *) echo "::error title=Vorlagen::Notion-Seite konnte nicht aktualisiert werden (HTTP ${status: -3}). Bitte von Hand: Status „In Arbeit“, Download-Link ${SEITEN_URL}. PR: ${PR_URL}" ;;
+          esac
+
+      # -----------------------------------------------------------------
+      # Schlussprüfung der Begleitseite (wie in fachartikel.yml)
+      # -----------------------------------------------------------------
+      - name: Quellen für die Schlussprüfung laden
+        id: quellen
+        if: ${{ !cancelled() && steps.ziel.outputs.bereit == 'true' }}
+        env:
+          ENTWURF: ${{ steps.ziel.outputs.entwurf }}
+          ARBEIT: ${{ steps.ziel.outputs.arbeit }}
+        run: |
+          set -euo pipefail
+          BIB=()
+          if [ -f .bibliothek/katalog.yml ]; then BIB=(--bibliothek .bibliothek); fi
+          if ! AUSGABE="$(python tools/quellen_laden.py "$ENTWURF" "$ARBEIT" "${BIB[@]}")"; then
+            echo "::warning title=Schlussprüfung::Quellen nicht ladbar – $(printf '%s\n' "$AUSGABE" | tail -n 1)"
+            echo "bereit=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          printf '%s\n' "$AUSGABE"
+          echo "pruefliste=$(printf '%s\n' "$AUSGABE" | tail -n 1)" >> "$GITHUB_OUTPUT"
+          echo "bereit=true" >> "$GITHUB_OUTPUT"
+
+      - name: Schlussprüfung gegen die Quellen
+        id: schluss
+        if: ${{ !cancelled() && steps.quellen.outputs.bereit == 'true' }}
+        continue-on-error: true
+        timeout-minutes: 35
+        uses: anthropics/claude-code-action@cfc3eb22bfed5c26ef66e3223c982af27e4524de # v1.0.231
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /schlusspruefung
+            Entwurf: ${{ steps.ziel.outputs.entwurf }}
+            Prüfliste: ${{ steps.quellen.outputs.pruefliste }}
+            Bericht: ${{ steps.ziel.outputs.bericht }}
+            Bibliothek: ${{ steps.bibindex.outputs.ordner || 'nicht verfügbar' }}
+          claude_args: |
+            --max-turns 80
+            --model claude-opus-5
+            --add-dir ${{ steps.ziel.outputs.arbeit }}
+            --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,WebFetch,WebSearch,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*),Bash(python tools/vorlage_bauen.py:*),Bash(wc:*)"
+
+      - name: Ergebnis der Schlussprüfung übernehmen
+        if: ${{ !cancelled() && steps.quellen.outputs.bereit == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ steps.ziel.outputs.nummer }}
+          ZWEIG: ${{ steps.ziel.outputs.zweig }}
+          BERICHT: ${{ steps.ziel.outputs.bericht }}
+          PRUEFUNG: ${{ steps.schluss.outcome }}
+        run: |
+          set -euo pipefail
+          python tools/artikel_generator.py > /dev/null || true
+          if ! git diff --quiet -- entwuerfe vorlagen fachwissen sitemap.xml; then
+            git add entwuerfe vorlagen fachwissen sitemap.xml
+            git commit -q -m "Schlusspruefung: Korrekturen gegen die Quellen" \
+                          -m "Automatisch nach dem Erstellen geprueft. Einzelheiten im Kommentar des Pull Requests."
+            git push -q origin "HEAD:$ZWEIG"
+          fi
+          if [ -s "$BERICHT" ]; then
+            gh pr comment "$NR" --body-file "$BERICHT"
+          else
+            gh pr comment "$NR" --body "⚠️ Die Schlussprüfung ist nicht vollständig durchgelaufen (Ergebnis: ${PRUEFUNG}). Bitte Vorlage und Begleitseite vor dem Merge selbst prüfen."
+          fi
+
+      - name: Hauptzweig unverändert?
+        if: always() && steps.git.outcome == 'success' && steps.git.outputs.sha != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ZWEIG: ${{ steps.git.outputs.zweig }}
+          SHA_VORHER: ${{ steps.git.outputs.sha }}
+        run: |
+          set -euo pipefail
+          sha_nachher="$(git ls-remote origin "refs/heads/${ZWEIG}" 2>/dev/null | cut -f1 | head -n 1 || true)"
+          if [ -z "$sha_nachher" ] || [ "$sha_nachher" = "$SHA_VORHER" ]; then
+            echo "${ZWEIG} ist unverändert."
+            exit 0
+          fi
+          committer="$(gh api "repos/${GITHUB_REPOSITORY}/commits/${sha_nachher}" --jq '.commit.committer.name' 2>/dev/null | tr '[:upper:]' '[:lower:]' || true)"
+          case "$committer" in
+            *"[bot]"*|*claude*)
+              echo "::error title=Vorlagen::Der Zweig ${ZWEIG} wurde während des Laufs von einem Bot verändert (Committer: ${committer}). Bitte prüfen."
+              exit 1 ;;
+            *) echo "::notice title=Vorlagen::${ZWEIG} hat sich während des Laufs geändert (eigener Commit oder Merge – unbedenklich)." ;;
+          esac

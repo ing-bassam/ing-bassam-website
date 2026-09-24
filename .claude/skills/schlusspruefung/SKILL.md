@@ -1,7 +1,7 @@
 ---
 name: schlusspruefung
 description: Letzte unabhängige Prüfung eines fertigen Entwurfs, bevor der Auftraggeber ihn liest – für Fachartikel und Urteilsbesprechungen. Vergleicht jede belegte Aussage mit dem heruntergeladenen Wortlaut ihrer Quelle, streicht unbelegte Aussagen der bekannten Risikoklassen, prüft Titel, Überschriften, Einstieg, FAQ und Beschreibung und liest Korrektur. Bei Urteilsbesprechungen prüft sie zusätzlich jede Änderung der Faktenprüfung gegen den Volltext. Wird von den Workflows per /schlusspruefung aufgerufen und läuft ohne Rückfragen.
-allowed-tools: Read, Grep, Glob, Edit, Write, WebFetch, WebSearch, Bash(python tools/artikel_generator.py:*), Bash(python tools/fussnoten_ordnen.py:*), Bash(python tools/bibliothek_suchen.py:*), Bash(wc:*)
+allowed-tools: Read, Grep, Glob, Edit, Write, WebFetch, WebSearch, Bash(python tools/artikel_generator.py:*), Bash(python tools/fussnoten_ordnen.py:*), Bash(python tools/bibliothek_suchen.py:*), Bash(python tools/vorlage_bauen.py:*), Bash(wc:*)
 ---
 
 # Schlussprüfung
@@ -26,6 +26,7 @@ Warum es dich gibt – diese Fehler standen im Beitrag zu OVG 6 A 1/25, nachdem 
 - `Entwurf:` Markdown-Datei im Repository.
 - `Prüfliste:` erzeugt von `tools/quellen_laden.py`. Sie nennt je Fußnote die belegten Sätze, den Ladestatus jeder Adresse, den Pfad des heruntergeladenen Quelltexts, einen Zahlenabgleich (✓ kommt im Quelltext vor, ✗ kommt nicht vor) und bei Bundesgesetzen den Stand der abrufbaren Fassung. Am Ende stehen Sätze ohne Beleg, die in eine Risikoklasse fallen.
 - `Bericht:` Pfad für dein Protokoll.
+- Das Format steht im Frontmatter des Entwurfs. `Urteil verständlich` prüfst du wie `Rechtsprechung` (Randnummern, Volltext), zusätzlich streichst du Zuspitzungen, die beim Vereinfachen entstehen („immer“, „nie“, „grundsätzlich“ ohne Deckung im Urteil). Bei `Vorlage` prüfst du auch die Beschreibung `vorlagen/<kurzform>.yml`: jeder Paragraf, jede Frist und jeder Wert darin muss in den Quellen der Begleitseite belegt sein; sonst ersetzt du ihn dort durch die allgemeine Bezeichnung und rufst danach `python tools/vorlage_bauen.py vorlagen/<kurzform>.yml` auf, damit die Downloads neu entstehen.
 - `Bibliothek:` `.bibliothek`, wenn die Fachbibliothek des Büros geladen ist, sonst „nicht verfügbar“. Fußnoten mit ISBN verweisen auf ein Buch daraus; die Prüfliste enthält dann den Text der zitierten Seiten.
 - Nur bei Urteilsbesprechungen: `Volltext:` (jede Randnummer beginnt mit „Randnummer <n>“) und `Änderungen der Faktenprüfung:` (ein Diff, der leer sein kann). Fehlen sie oder sind sie leer, entfallen Teil C und die Prüfungen am Volltext in Teil B und D; das vermerkst du im Bericht unter „Selbst prüfen“.
 
