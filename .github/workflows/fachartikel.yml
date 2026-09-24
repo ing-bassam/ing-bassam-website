@@ -58,6 +58,17 @@ name: Fachartikel-Entwurf
 on:
   workflow_dispatch:
     inputs:
+      runden:
+        description: "Wie viele Beiträge nacheinander? Jede Runde ist ein vollständiger Durchlauf mit allen Prüfungen und verbraucht Kontingent. Scheitert eine Runde oder findet sie nichts mehr, entfallen die übrigen."
+        required: false
+        default: "1"
+        type: choice
+        options:
+          - "1"
+          - "2"
+          - "3"
+          - "4"
+          - "5"
       notion_seite:
         description: "Notion-Seite aus dem Themenspeicher: Link der Seite, Seiten-ID oder exakter Titel. Leer = nächstes offenes Thema nach Priorität."
         required: false
@@ -107,7 +118,7 @@ on:
           - "Mieter"
 
 # Name des Laufs in der Actions-Übersicht: zeigt sofort, womit gestartet wurde.
-run-name: "Fachartikel-Entwurf: ${{ inputs.notion_seite || inputs.thema || 'nächstes offenes Thema aus Notion' }}"
+run-name: "Fachartikel-Entwurf: ${{ inputs.notion_seite || inputs.thema || 'nächstes offenes Thema aus Notion' }} · ${{ inputs.runden || '1' }} Runde(n)"
 
 # Nie zwei Läufe gleichzeitig: sonst würden beide dasselbe offene Thema wählen.
 # Ein zweiter Lauf wartet, bis der erste (inkl. Notion-Aktualisierung) fertig ist.
@@ -129,7 +140,49 @@ env:
   NOTION_DATABASE_ID: "9ea1826a-3b65-46b2-b674-9017b9423d43"      # zugehörige Datenbank-ID
 
 jobs:
+  # -----------------------------------------------------------------
+  # Runden planen: Die Auswahl „Runden“ wird zu einer Liste [1, 2, …], die
+  # der eigentliche Job der Reihe nach abarbeitet (max-parallel: 1). Jede
+  # Runde startet erst, wenn die vorige samt Prüfungen und Notion fertig ist –
+  # so wählt sie automatisch das nächste offene Thema. Ist ein bestimmtes
+  # Thema oder eine bestimmte Seite angegeben, gibt es nur eine Runde.
+  # -----------------------------------------------------------------
+  planen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    permissions: {}
+    outputs:
+      liste: ${{ steps.plan.outputs.liste }}
+      anzahl: ${{ steps.plan.outputs.anzahl }}
+    steps:
+      - name: Runden planen
+        id: plan
+        env:
+          RUNDEN: ${{ inputs.runden }}
+          EINZELN: "${{ inputs.notion_seite }}${{ inputs.thema }}"
+        run: |
+          set -euo pipefail
+          N="${RUNDEN:-1}"
+          case "$N" in ''|*[!0-9]*) N=1 ;; esac
+          if [ "$N" -lt 1 ]; then N=1; fi
+          if [ "$N" -gt 5 ]; then N=5; fi
+          if [ -n "$(printf '%s' "$EINZELN" | tr -d '[:space:]')" ] && [ "$N" -gt 1 ]; then
+            echo "::warning title=Fachartikel::Ein bestimmtes Thema bzw. eine bestimmte Seite ist angegeben – es gibt nur eine Runde (sonst entstünde derselbe Beitrag mehrfach)."
+            N=1
+          fi
+          echo "liste=[$(seq -s, 1 "$N")]" >> "$GITHUB_OUTPUT"
+          echo "anzahl=$N" >> "$GITHUB_OUTPUT"
+          echo "Geplant: $N Runde(n)."
+
   entwurf:
+    needs: planen
+    name: "Runde ${{ matrix.runde }} von ${{ needs.planen.outputs.anzahl }}"
+    strategy:
+      # Nacheinander, nie gleichzeitig; ein Fehlschlag sagt die übrigen Runden ab.
+      max-parallel: 1
+      fail-fast: true
+      matrix:
+        runde: ${{ fromJSON(needs.planen.outputs.liste) }}
     runs-on: ubuntu-latest
     # Schreiben bis 60 Minuten, Schlussprüfung bis 35, dazu Bibliothek, Notion,
     # Quellenabruf und Abschluss.
@@ -1213,3 +1266,31 @@ jobs:
               echo "::notice title=Fachartikel::Der Zweig ${ZWEIG} hat sich während des Laufs geändert (${SHA_VORHER:0:7} → ${sha_nachher:0:7}, Committer: ${committer:-unbekannt}). Ein eigener Commit oder Merge ist unbedenklich."
               ;;
           esac
+
+      # -----------------------------------------------------------------
+      # Mehrere Runden: Die nächste Runde startet nur, wenn diese einen neuen
+      # Entwurf hervorgebracht hat. Sonst (Liste leer, kein passender Fall,
+      # Duplikat) würde sie dieselbe vergebliche Suche wiederholen und
+      # Kontingent verbrauchen. Der Fehler hier sagt die übrigen Runden ab.
+      # -----------------------------------------------------------------
+      - name: Weitere Runden nur nach einem neuen Entwurf
+        if: success() && matrix.runde < fromJSON(needs.planen.outputs.anzahl)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BEGINN: ${{ steps.start.outputs.zeit }}
+          PRAEFIX: "entwurf/"
+          RUNDE: ${{ matrix.runde }}
+          ANZAHL: ${{ needs.planen.outputs.anzahl }}
+        run: |
+          set -euo pipefail
+          if [ -z "${BEGINN:-}" ]; then
+            echo "::error title=Fachartikel::Startzeit dieser Runde unbekannt – die übrigen Runden werden sicherheitshalber abgesagt."
+            exit 1
+          fi
+          neu="$(gh pr list --state open --limit 100 --json headRefName,createdAt \
+                  --jq '[.[] | select((.headRefName | startswith(env.PRAEFIX)) and .createdAt >= env.BEGINN)] | length')"
+          if [ "${neu:-0}" -eq 0 ]; then
+            echo "::error title=Fachartikel::Runde ${RUNDE} von ${ANZAHL} hat keinen neuen Entwurf erzeugt (nichts Passendes mehr gefunden oder Duplikat). Die übrigen Runden werden abgesagt, damit kein Kontingent verpufft."
+            exit 1
+          fi
+          echo "::notice title=Fachartikel::Runde ${RUNDE} von ${ANZAHL} fertig – weiter mit der nächsten."

@@ -29,12 +29,23 @@ name: Vorlagen und Checklisten
 on:
   workflow_dispatch:
     inputs:
+      runden:
+        description: "Wie viele Beiträge nacheinander? Jede Runde ist ein vollständiger Durchlauf mit allen Prüfungen und verbraucht Kontingent. Scheitert eine Runde oder findet sie nichts mehr, entfallen die übrigen."
+        required: false
+        default: "1"
+        type: choice
+        options:
+          - "1"
+          - "2"
+          - "3"
+          - "4"
+          - "5"
       notion_seite:
         description: "Vorlage aus der Notion-Liste: Link der Seite oder Seiten-ID. Leer = nächste Vorlage mit Status „Idee“ nach Priorität."
         required: false
         type: string
 
-run-name: "Vorlage: ${{ inputs.notion_seite || 'nächste Vorlage aus Notion' }}"
+run-name: "Vorlage: ${{ inputs.notion_seite || 'nächste Vorlage aus Notion' }} · ${{ inputs.runden || '1' }} Runde(n)"
 
 concurrency:
   group: vorlagen
@@ -46,7 +57,49 @@ env:
   NOTION_DATABASE_ID: "2fbea8b7-d9c3-4b78-ad13-561628053ec7"      # zugehörige Datenbank-ID
 
 jobs:
+  # -----------------------------------------------------------------
+  # Runden planen: Die Auswahl „Runden“ wird zu einer Liste [1, 2, …], die
+  # der eigentliche Job der Reihe nach abarbeitet (max-parallel: 1). Jede
+  # Runde startet erst, wenn die vorige samt Prüfungen und Notion fertig ist –
+  # so wählt sie automatisch das nächste offene Thema. Ist ein bestimmtes
+  # Thema oder eine bestimmte Seite angegeben, gibt es nur eine Runde.
+  # -----------------------------------------------------------------
+  planen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    permissions: {}
+    outputs:
+      liste: ${{ steps.plan.outputs.liste }}
+      anzahl: ${{ steps.plan.outputs.anzahl }}
+    steps:
+      - name: Runden planen
+        id: plan
+        env:
+          RUNDEN: ${{ inputs.runden }}
+          EINZELN: "${{ inputs.notion_seite }}"
+        run: |
+          set -euo pipefail
+          N="${RUNDEN:-1}"
+          case "$N" in ''|*[!0-9]*) N=1 ;; esac
+          if [ "$N" -lt 1 ]; then N=1; fi
+          if [ "$N" -gt 5 ]; then N=5; fi
+          if [ -n "$(printf '%s' "$EINZELN" | tr -d '[:space:]')" ] && [ "$N" -gt 1 ]; then
+            echo "::warning title=Vorlagen::Ein bestimmtes Thema bzw. eine bestimmte Seite ist angegeben – es gibt nur eine Runde (sonst entstünde derselbe Beitrag mehrfach)."
+            N=1
+          fi
+          echo "liste=[$(seq -s, 1 "$N")]" >> "$GITHUB_OUTPUT"
+          echo "anzahl=$N" >> "$GITHUB_OUTPUT"
+          echo "Geplant: $N Runde(n)."
+
   vorlage:
+    needs: planen
+    name: "Runde ${{ matrix.runde }} von ${{ needs.planen.outputs.anzahl }}"
+    strategy:
+      # Nacheinander, nie gleichzeitig; ein Fehlschlag sagt die übrigen Runden ab.
+      max-parallel: 1
+      fail-fast: true
+      matrix:
+        runde: ${{ fromJSON(needs.planen.outputs.liste) }}
     runs-on: ubuntu-latest
     # Schreiben und Bauen bis 60 Minuten, Schlussprüfung bis 35, dazu Notion und Abschluss.
     timeout-minutes: 115
@@ -493,3 +546,31 @@ jobs:
               exit 1 ;;
             *) echo "::notice title=Vorlagen::${ZWEIG} hat sich während des Laufs geändert (eigener Commit oder Merge – unbedenklich)." ;;
           esac
+
+      # -----------------------------------------------------------------
+      # Mehrere Runden: Die nächste Runde startet nur, wenn diese einen neuen
+      # Entwurf hervorgebracht hat. Sonst (Liste leer, kein passender Fall,
+      # Duplikat) würde sie dieselbe vergebliche Suche wiederholen und
+      # Kontingent verbrauchen. Der Fehler hier sagt die übrigen Runden ab.
+      # -----------------------------------------------------------------
+      - name: Weitere Runden nur nach einem neuen Entwurf
+        if: success() && matrix.runde < fromJSON(needs.planen.outputs.anzahl)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BEGINN: ${{ steps.start.outputs.zeit }}
+          PRAEFIX: "vorlage/"
+          RUNDE: ${{ matrix.runde }}
+          ANZAHL: ${{ needs.planen.outputs.anzahl }}
+        run: |
+          set -euo pipefail
+          if [ -z "${BEGINN:-}" ]; then
+            echo "::error title=Vorlagen::Startzeit dieser Runde unbekannt – die übrigen Runden werden sicherheitshalber abgesagt."
+            exit 1
+          fi
+          neu="$(gh pr list --state open --limit 100 --json headRefName,createdAt \
+                  --jq '[.[] | select((.headRefName | startswith(env.PRAEFIX)) and .createdAt >= env.BEGINN)] | length')"
+          if [ "${neu:-0}" -eq 0 ]; then
+            echo "::error title=Vorlagen::Runde ${RUNDE} von ${ANZAHL} hat keinen neuen Entwurf erzeugt (nichts Passendes mehr gefunden oder Duplikat). Die übrigen Runden werden abgesagt, damit kein Kontingent verpufft."
+            exit 1
+          fi
+          echo "::notice title=Vorlagen::Runde ${RUNDE} von ${ANZAHL} fertig – weiter mit der nächsten."

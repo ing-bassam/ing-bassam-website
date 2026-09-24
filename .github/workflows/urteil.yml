@@ -33,6 +33,17 @@ name: Urteilsbesprechung
 on:
   workflow_dispatch:
     inputs:
+      runden:
+        description: "Wie viele Beiträge nacheinander? Jede Runde ist ein vollständiger Durchlauf mit allen Prüfungen und verbraucht Kontingent. Scheitert eine Runde oder findet sie nichts mehr, entfallen die übrigen."
+        required: false
+        default: "1"
+        type: choice
+        options:
+          - "1"
+          - "2"
+          - "3"
+          - "4"
+          - "5"
       monate:
         description: "Wie weit zurück gesucht wird (Monate)"
         required: false
@@ -60,6 +71,8 @@ on:
         required: false
         default: ""
 
+run-name: "Urteilsbesprechung · ${{ inputs.runden || '1' }} Runde(n)"
+
 concurrency:
   # Gemeinsame Warteschlange für alle Agenten, die einen Entwurf auf einem
   # Zweig entwurf/… abliefern (Fachartikel, Urteilsbesprechung, Urteil
@@ -73,7 +86,49 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # -----------------------------------------------------------------
+  # Runden planen: Die Auswahl „Runden“ wird zu einer Liste [1, 2, …], die
+  # der eigentliche Job der Reihe nach abarbeitet (max-parallel: 1). Jede
+  # Runde startet erst, wenn die vorige samt Prüfungen und Notion fertig ist –
+  # so wählt sie automatisch das nächste offene Thema. Ist ein bestimmtes
+  # Thema oder eine bestimmte Seite angegeben, gibt es nur eine Runde.
+  # -----------------------------------------------------------------
+  planen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    permissions: {}
+    outputs:
+      liste: ${{ steps.plan.outputs.liste }}
+      anzahl: ${{ steps.plan.outputs.anzahl }}
+    steps:
+      - name: Runden planen
+        id: plan
+        env:
+          RUNDEN: ${{ inputs.runden }}
+          EINZELN: ""
+        run: |
+          set -euo pipefail
+          N="${RUNDEN:-1}"
+          case "$N" in ''|*[!0-9]*) N=1 ;; esac
+          if [ "$N" -lt 1 ]; then N=1; fi
+          if [ "$N" -gt 5 ]; then N=5; fi
+          if [ -n "$(printf '%s' "$EINZELN" | tr -d '[:space:]')" ] && [ "$N" -gt 1 ]; then
+            echo "::warning title=Urteilsbesprechung::Ein bestimmtes Thema bzw. eine bestimmte Seite ist angegeben – es gibt nur eine Runde (sonst entstünde derselbe Beitrag mehrfach)."
+            N=1
+          fi
+          echo "liste=[$(seq -s, 1 "$N")]" >> "$GITHUB_OUTPUT"
+          echo "anzahl=$N" >> "$GITHUB_OUTPUT"
+          echo "Geplant: $N Runde(n)."
+
   besprechung:
+    needs: planen
+    name: "Runde ${{ matrix.runde }} von ${{ needs.planen.outputs.anzahl }}"
+    strategy:
+      # Nacheinander, nie gleichzeitig; ein Fehlschlag sagt die übrigen Runden ab.
+      max-parallel: 1
+      fail-fast: true
+      matrix:
+        runde: ${{ fromJSON(needs.planen.outputs.liste) }}
     runs-on: ubuntu-latest
     # Schreiben bis 60 Minuten, Faktenprüfung bis 50, Schlussprüfung bis 40,
     # dazu Bibliothek, Suche, Quellenabruf und Abschluss.
@@ -475,7 +530,7 @@ jobs:
           fi
 
           PR="$(gh pr list --state open --json url,headRefName,createdAt \
-                 --jq '[.[] | select(.headRefName | startswith("entwurf/"))]
+                 --jq '[.[] | select((.headRefName | startswith("entwurf/")) and .createdAt >= env.BEGINN)]
                        | sort_by(.createdAt) | last | .url // ""' 2>/dev/null || echo "")"
 
           if [ -n "$PR" ]; then
@@ -484,3 +539,31 @@ jobs:
           else
             echo "::warning title=Urteilsbesprechung::Der Agent meldet Erfolg, es ist aber kein seit ${BEGINN} angelegter Entwurf-Zweig zu finden. Möglicherweise hat er alle Kandidaten verworfen – bitte im Log nachsehen."
           fi
+
+      # -----------------------------------------------------------------
+      # Mehrere Runden: Die nächste Runde startet nur, wenn diese einen neuen
+      # Entwurf hervorgebracht hat. Sonst (Liste leer, kein passender Fall,
+      # Duplikat) würde sie dieselbe vergebliche Suche wiederholen und
+      # Kontingent verbrauchen. Der Fehler hier sagt die übrigen Runden ab.
+      # -----------------------------------------------------------------
+      - name: Weitere Runden nur nach einem neuen Entwurf
+        if: success() && matrix.runde < fromJSON(needs.planen.outputs.anzahl)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BEGINN: ${{ steps.kandidaten.outputs.beginn }}
+          PRAEFIX: "entwurf/"
+          RUNDE: ${{ matrix.runde }}
+          ANZAHL: ${{ needs.planen.outputs.anzahl }}
+        run: |
+          set -euo pipefail
+          if [ -z "${BEGINN:-}" ]; then
+            echo "::error title=Urteilsbesprechung::Startzeit dieser Runde unbekannt – die übrigen Runden werden sicherheitshalber abgesagt."
+            exit 1
+          fi
+          neu="$(gh pr list --state open --limit 100 --json headRefName,createdAt \
+                  --jq '[.[] | select((.headRefName | startswith(env.PRAEFIX)) and .createdAt >= env.BEGINN)] | length')"
+          if [ "${neu:-0}" -eq 0 ]; then
+            echo "::error title=Urteilsbesprechung::Runde ${RUNDE} von ${ANZAHL} hat keinen neuen Entwurf erzeugt (nichts Passendes mehr gefunden oder Duplikat). Die übrigen Runden werden abgesagt, damit kein Kontingent verpufft."
+            exit 1
+          fi
+          echo "::notice title=Urteilsbesprechung::Runde ${RUNDE} von ${ANZAHL} fertig – weiter mit der nächsten."
