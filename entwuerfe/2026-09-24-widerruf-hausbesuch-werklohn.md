@@ -1,0 +1,173 @@
+---
+titel: Wann der Widerruf den Werklohn für die Wärmepumpe entfallen lässt
+kategorie: Gutachten & Recht
+format: Rechtsprechung
+zielgruppe: Gewerblich, Privat
+leistung:
+kernfrage: Wann kann ein Kunde den Auftrag für eine Wärmepumpe noch Monate nach dem Einbau widerrufen, und was wird dann aus dem Werklohn?
+gericht: Schleswig-Holsteinisches Oberlandesgericht, 1. Zivilsenat
+aktenzeichen: 1 U 78/25
+ecli: ECLI:DE:OLGSH:2026:0819.1U78.25.00
+entscheidungsdatum: 2026-08-19
+fundstelle: https://www.gesetze-rechtsprechung.sh.juris.de/perma?d=NJRE001651852
+meta_beschreibung: "Widerruf nach dem Hausbesuch: Warum der Werklohn für eine eingebaute Wärmepumpe entfallen kann und was Betriebe dokumentieren müssen."
+schlagwoerter: Widerrufsrecht, Wärmepumpe, Werklohn, Vertragsschluss, Heizungstausch, Verbrauchervertrag, Abnahme, Dokumentation
+definition: Ein außerhalb von Geschäftsräumen geschlossener Vertrag ist ein Vertrag, bei dem der Verbraucher seine Vertragserklärung in Anwesenheit des Unternehmers außerhalb von dessen Geschäftsräumen abgibt.
+autor: M. Sc. Karim Abu Elkheir
+qualifikation:
+kurzform: widerruf-hausbesuch-werklohn
+erstellt: 2026-09-24
+aktualisiert:
+status: Entwurf
+quelle: rechtsprechung
+notion_id:
+notion_url:
+fachlich_geprueft_von:
+fachlich_geprueft_am:
+wortzahl: 3990
+lesezeit: 20 Minuten
+fussnoten: 6
+quellen_geprueft: 1
+zahlenwerte_norm: 0
+todos: 1
+regelwerke_bestaetigt: Schleswig-Holsteinisches OLG 1 U 78/25
+---
+
+# Wann der Widerruf den Werklohn für die Wärmepumpe entfallen lässt
+
+Das Schleswig-Holsteinische Oberlandesgericht hat mit Urteil vom 19. August 2026 (Aktenzeichen 1 U 78/25) entschieden, dass ein Unternehmen keinen Werklohn für eine eingebaute Wärmepumpenanlage verlangen kann, wenn die Auftraggeberin den beim Hausbesuch geschlossenen Vertrag wirksam widerrufen hat.[^1] Der Widerruf war hier gut ein halbes Jahr nach dem Vertragsschluss und fünf Monate nach dem unterschriebenen Abnahmeprotokoll noch rechtzeitig, weil die Widerrufsfrist nie zu laufen begonnen hatte (Rn. 33 bis 37). Ausschlaggebend war eine Formfrage: Bei einem außerhalb von Geschäftsräumen geschlossenen Vertrag muss das Unternehmen die Information über das Widerrufsrecht auf Papier übergeben oder, wenn der Kunde zustimmt, auf einem anderen dauerhaften Datenträger zur Verfügung stellen (Rn. 35). Eine E-Mail an den Enkel der Auftraggeberin genügte dafür nicht, und ein allgemeines Einverständnis mit elektronischer Kommunikation war keine Zustimmung zum Verzicht auf die Papierform (Rn. 43). Für die Baupraxis verschiebt die Entscheidung das Gewicht von der Ausführungsqualität hin zur Dokumentation des Vertragsschlusses.
+
+## Ein Beratungsgespräch im Wohnzimmer, eine eingebaute Wärmepumpe und eine offene Rechnung
+
+Der Streit betraf die Vergütung für die Installation einer Wärmepumpenanlage in einem bewohnten Haus (Rn. 1). Die 86-jährige Auftraggeberin interessierte sich für den Austausch ihrer Gasheizung und bat ihren Enkel, Informationen zu besorgen; dieser vereinbarte ein Beratungsgespräch mit dem Unternehmen (Rn. 2). Am 31. Januar 2024 suchte ein Kundenberater des Unternehmens die Auftraggeberin in ihrem Haus auf, erläuterte in Anwesenheit des Enkels die Möglichkeiten für den Heizungsaustausch und wies darauf hin, dass eine Förderung beantragt werden könne (Rn. 2). Der Fall ist damit der Regelfall des Heizungsmarktes: Beratung, Auftrag und Ausführung liegen in der Wohnung des Kunden, nicht im Betrieb des Unternehmers.
+
+Der Vertragsschluss selbst geschah nach der Schilderung des Kundenberaters am selben Tag und an demselben Tisch. Nach Eingabe der Daten führte die Bestellstrecke zu einer Schaltfläche mit der Bezeichnung „Kostenpflichtig bestellen“, die die Auftraggeberin zunächst selbst erfolglos zu betätigen versuchte; danach betätigte der Kundenberater sie nach Absprache für sie auf seinem eigenen Rechner (Rn. 8 und Rn. 30). Die Vertragsunterlagen mit dem Festpreisangebot gingen erst im Anschluss an das Gespräch als E-Mail an den Enkel, der sie ausdruckte und der Auftraggeberin übergab (Rn. 2). Der Kundenberater hatte an diesem Tag keinen Drucker dabei, und das Unternehmen hat eingeräumt, dass eine Übergabe in Papierform durch das Unternehmen nicht stattgefunden hat (Rn. 38).
+
+Das Unternehmen installierte die Wärmepumpe im Anschluss. Am 14. März 2024 unterschrieb der Enkel ein Abnahmeprotokoll, am 18. März 2024 stellte das Unternehmen eine Schlussrechnung über 31.539,51 Euro (Rn. 3). Erst mit Anwaltsschreiben vom 14. August 2024 erklärte die Auftraggeberin den Widerruf und hilfsweise die Anfechtung wegen arglistiger Täuschung und Irrtums (Rn. 3). Zwischen der Vertragserklärung vom 31. Januar 2024 und dem Widerruf lagen damit sechs Monate und vierzehn Tage, zwischen dem Abnahmeprotokoll und dem Widerruf fünf Monate. Die Anlage war zu diesem Zeitpunkt eingebaut und in Betrieb, die Rechnung offen.
+
+Der wirtschaftliche Hintergrund des Streits ist für die Baupraxis ebenso aufschlussreich wie der rechtliche. Die Auftraggeberin trug vor, sie habe darauf hingewiesen, nur Raten in Höhe ihrer bisherigen monatlichen Gasabschläge zahlen zu können, und sei in dem Glauben gelassen worden, den Preis abzüglich einer Förderung in Raten zahlen zu können (Rn. 6 und Rn. 15). Das Unternehmen hielt dem entgegen, der Auftraggeberin hätte die staatliche Förderung zugestanden, wenn sie den Werklohn gezahlt und dies nachgewiesen hätte (Rn. 4). Im März 2025 erklärte das Unternehmen zudem die Kündigung, weil eine zuvor geforderte Sicherheit nicht geleistet worden war (Rn. 3). Der Senat hat über diese Kündigung in den Entscheidungsgründen nicht mehr befunden.
+
+## Das Landgericht sprach den Werklohn zu, das Oberlandesgericht wies die Klage ab
+
+Der Verfahrensgang zeigt, wie eng die Bewertung an einer einzigen Formfrage hing. In erster Instanz hatte das Landgericht Itzehoe die Auftraggeberin nach persönlicher Anhörung und Vernehmung zweier Zeugen zur Zahlung des Werklohns verurteilt (Rn. 8). Das Landgericht sah einen Vertrag zu den Bedingungen des Angebots als zustande gekommen an und hielt es für bewiesen, dass die Auftraggeberin den Auftrag persönlich erteilt hatte, indem sie sich mit der Übermittlung des Angebots durch den Kundenberater einverstanden erklärte (Rn. 8).
+
+Auch das Landgericht hatte ein Widerrufsrecht bejaht, es jedoch für verfristet gehalten (Rn. 9). Nach seiner Auffassung war die Belehrung mit der Übersendung der Vertragsunterlagen an den Enkel erfolgt und genügte den Anforderungen, weil sie dem gesetzlichen Muster entsprach; spätestens als der Enkel am 14. März 2024 die Abnahme erklärte, habe die Auftraggeberin die Widerrufsbelehrung in ausgedruckter Form gehabt (Rn. 9). Die Anfechtung hielt das Landgericht für nicht unverzüglich erklärt und eine arglistige Täuschung für nicht gegeben (Rn. 10).
+
+Das Oberlandesgericht hat das Urteil des Landgerichts abgeändert und die Klage vollständig abgewiesen; die Kosten des Rechtsstreits trägt das klagende Unternehmen (Tenor). Der Senat stellt einleitend fest, dass die zulässige Berufung Erfolg hat (Rn. 22), und begründet das Ergebnis allein mit dem Widerruf: Die geltend gemachte Zahlung von Werklohn stehe dem Unternehmen „jedenfalls infolge eines wirksamen Widerrufs des Vertrags“ nicht zu (Rn. 23). Das Wort „jedenfalls“ trägt Gewicht, denn der Senat lässt die übrigen Streitfragen ausdrücklich offen und stützt sich auf einen einzigen tragenden Grund.
+
+Bemerkenswert ist die Reihenfolge der Prüfung. Der Senat unterstellt den Vertragsschluss zugunsten des klagenden Unternehmens: Werde die Schilderung des Kundenberaters zugrunde gelegt, sei ein Werkvertrag über die Installation der Wärmepumpenanlage zu den behaupteten Konditionen zustande gekommen (Rn. 24). Erst danach verneint er die Anfechtung, weil sie nicht unverzüglich erklärt worden war und eine arglistige Täuschung nicht bewiesen ist (Rn. 26 und Rn. 27). Die Formfrage des Widerrufsrechts prüft der Senat also zuletzt, und sie entscheidet den Fall. Ob ein Vertrag mit diesem Inhalt tatsächlich geschlossen wurde, hat der Senat nicht festgestellt; welche Folgen eine solche Prüfungsreihenfolge im eigenen Fall hat, beurteilt ein Rechtsanwalt.
+
+## Warum der Vertragsschluss am Küchentisch ein Widerrufsrecht auslöst
+
+Der Senat ordnet den Vertrag als außerhalb von Geschäftsräumen geschlossenen Vertrag ein und leitet daraus das Widerrufsrecht des Verbrauchers ab (Rn. 28 bis 30). Ein außerhalb von Geschäftsräumen geschlossener Vertrag ist ein Vertrag, bei dem der Verbraucher seine Vertragserklärung in Anwesenheit des Unternehmers außerhalb von dessen Geschäftsräumen abgibt. Für diese Einordnung genügt es nach den Ausführungen des Senats, dass der Verbraucher seine Vertragserklärung außerhalb von Geschäftsräumen abgibt, während der Unternehmer seine Willenserklärung später und möglicherweise in seinen Geschäftsräumen abgibt (Rn. 29). Ob es sich bei der Erklärung des Verbrauchers um ein Angebot oder um eine vorweggenommene Annahme handelt, ist dabei gleichgültig (Rn. 29).
+
+Maßgeblich ist der Schutzzweck, den der Senat ausdrücklich benennt: In dieser Lage bestehe die Überrumpelungsgefahr oder der psychologische Druck, vor dem die Vorschrift über Verträge außerhalb von Geschäftsräumen schützen soll (Rn. 29). Der Senat hebt hervor, dass es nach heutigem Recht nicht mehr darauf ankommt, ob der Verbraucher den Besuch des Unternehmers selbst herbeigeführt hat (Rn. 29). Für die Baupraxis heißt das: Auch der vom Kunden ausdrücklich erbetene Beratungstermin in dessen Haus ist ein Termin außerhalb von Geschäftsräumen, und die dort abgegebene Vertragserklärung löst das Widerrufsrecht aus.
+
+Der Einwand des Unternehmens, der Kundenberater habe mangels Vertretungsmacht nicht für beide Seiten handeln können, hat den Senat nicht überzeugt. Das Betätigen der Schaltfläche durch den Kundenberater sei keine Mehrfachvertretung gewesen, weil er keine eigene Willenserklärung im Namen der Auftraggeberin abgegeben, sondern sie nur bei der Abgabe ihrer eigenen Willenserklärung technisch unterstützt habe (Rn. 30). Ebenso wenig kommt es darauf an, ob der Kundenberater rechtsgeschäftlich bevollmächtigt war: Die Eigenschaft als Beauftragter des Unternehmers setzt nach den Ausführungen des Senats keine rechtsgeschäftliche Vertretungsmacht voraus, erfasst sind auch Hilfspersonen, die auf Veranlassung des Unternehmers tätig werden (Rn. 30).
+
+Der Anwendungsbereich des Widerrufsrechts reicht am Bau weiter, als viele Betriebe annehmen. Das AVA-Handbuch weist darauf hin, dass ein Widerrufsrecht unter anderem bei Fernabsatzverträgen und bei Geschäften außerhalb von Geschäftsräumen besteht und dass sein Anwendungsbereich speziell bei Verträgen am Bau vielfältig ist; betroffen sind nach dieser Darstellung auch Planerverträge, die ein Architekt mit einem Verbraucher schließt.[^2] Wer als Fachbetrieb, Planer oder Sachverständiger Verträge in der Wohnung des Auftraggebers anbahnt, sollte deshalb mit einem Widerrufsrecht rechnen und nicht erst bei Streit über die Rechnung danach fragen; wie weit es im Einzelfall reicht, beurteilt ein Rechtsanwalt.
+
+## Warum die Widerrufsfrist beim Heizungstausch nie zu laufen begann
+
+Die entscheidende Weichenstellung der Entscheidung liegt im Fristbeginn, nicht in der Frist selbst. Die Widerrufsfrist beträgt grundsätzlich vierzehn Tage und beginnt mit dem Vertragsschluss, soweit nichts anderes bestimmt ist (Rn. 34). Bei einem außerhalb von Geschäftsräumen geschlossenen Vertrag beginnt sie nach den Ausführungen des Senats jedoch nicht, bevor der Unternehmer den Verbraucher entsprechend den gesetzlichen Anforderungen über Bedingungen, Fristen und Verfahren für die Ausübung des Widerrufsrechts unterrichtet hat (Rn. 34). Solange diese Unterrichtung fehlt, läuft keine Frist; der Widerruf blieb im Streitfall deshalb bis zur Höchstfrist von zwölf Monaten und vierzehn Tagen nach dem Vertragsschluss möglich, die der Senat heranzieht (Rn. 33).
+
+Der Senat verlangt für die Unterrichtung eine bestimmte Form, und das ist der Kern des Falls. Bei einem außerhalb von Geschäftsräumen geschlossenen Vertrag muss der Unternehmer die Informationen „auf Papier oder, wenn der Verbraucher zustimmt, auf einem anderen dauerhaften Datenträger zur Verfügung stellen“ (Rn. 35). Diese Formanforderung ist nach der Begründung des Senats zugleich Voraussetzung für den Beginn der Widerrufsfrist, obwohl die Vorschrift über den Fristbeginn nicht ausdrücklich auf sie verweist (Rn. 36). Der Senat begründet das mit dem Zusammenspiel der Informationsvorschriften und mit der zugrunde liegenden europäischen Verbraucherrechte-Richtlinie, deren Aufbau dieselbe Verknüpfung aufweist (Rn. 36).
+
+Was „auf Papier zur Verfügung stellen“ bedeutet, legt der Senat eng aus und stützt sich dabei auf höchstrichterliche Rechtsprechung. Das Zurverfügungstellen in Papierform setze voraus, dass dem Verbraucher die Informationen physisch übergeben werden; die bloße Kenntnisnahme oder die Möglichkeit der Kenntnisnahme genüge nicht (Rn. 38). Der Senat verweist dafür auf ein Urteil des Bundesgerichtshofs vom 26. November 2020 (Aktenzeichen I ZR 169/19) und übernimmt dessen Maßstab (Rn. 35, Rn. 36 und Rn. 38). Im Streitfall scheiterte die Papierform an einer profanen Tatsache: Der Kundenberater hatte am Tag des Vertragsschlusses keinen Drucker dabei, und das Unternehmen hat eingeräumt, dass es die Unterlagen nicht in Papierform übergeben hat (Rn. 38).
+
+Besonders folgenreich für die Praxis ist die Bewertung des Ausdrucks durch den Enkel. Dass der Enkel die per E-Mail übersandten Unterlagen möglicherweise ausgedruckt und der Auftraggeberin übergeben hat, genügte dem Senat nicht: Entscheidend sei, dass es an einer Übermittlung in Papierform durch den Unternehmer im Wege der physischen Übergabe fehle (Rn. 39). Dass dem Verbraucher die Informationen letztlich auf Papier zur Verfügung stehen, reicht nach dieser Begründung nicht aus (Rn. 39). Der Enkel sei nicht als Beauftragter im Lager des Unternehmens tätig geworden, sondern als Vertreter oder Gehilfe der Auftraggeberin; sein Ausdruck sei deshalb nicht anders zu bewerten, als hätte die Auftraggeberin selbst gedruckt (Rn. 40). Ob im eigenen Fall eine wirksame Unterrichtung vorliegt, ist eine Rechtsfrage, die ein Rechtsanwalt beurteilt.
+
+## Der Leitsatz zur konkludenten Zustimmung schärft eine Abgrenzung
+
+Neben der Papierform gibt es den zweiten Weg, die Informationspflicht zu erfüllen, und über diesen Weg hat der Senat seinen Leitsatz gebildet. Eine E-Mail ist nach den Ausführungen des Senats zwar ein anderer dauerhafter Datenträger, doch ist die Übermittlung auf einem solchen nur ausreichend, wenn der Verbraucher dieser Übermittlungsform zugestimmt hat (Rn. 41). Ob die Zustimmung ausdrücklich erklärt sein muss oder auch konkludent erteilt werden kann, ist in der Literatur umstritten; der Senat referiert diesen Streit unter Hinweis auf einen Kommentar und lässt ihn offen, weil im Streitfall auch eine konkludente Zustimmung nicht vorlag (Rn. 41).
+
+Der Leitsatz des Gerichts formuliert die Anforderung an eine solche konkludente Zustimmung. Danach setzt auch eine konkludente Zustimmung des Verbrauchers ein „nach den Umständen aussagekräftiges Verhalten des Verbrauchers voraus“; ein solches komme nicht in Betracht, wenn die Frage nicht thematisiert worden ist und dem Unternehmer nicht bewusst ist, dass der Verbraucher Anspruch auf Übermittlung in Papierform hat (Leitsatz; vgl. Rn. 43 und Rn. 45). Damit verlagert der Senat die Verantwortung für die Klärung auf den Unternehmer: Wer die Papierform vermeiden will, muss den Punkt ansprechen (Rn. 45).
+
+Das Unternehmen hatte sich darauf berufen, der Enkel habe im Vorfeld telefonisch das Einverständnis mit der Erledigung des Schriftverkehrs per E-Mail erklärt und die E-Mail-Adresse mitgeteilt (Rn. 21 und Rn. 42). Der Senat lässt das nicht genügen. Ein Vertragsschluss außerhalb von Geschäftsräumen und die dabei geltenden Informationspflichten seien nicht Thema des Gesprächs gewesen; das allgemeine Einverständnis mit elektronischer Kommunikation habe mit der Frage, wie diese Informationspflichten zu erfüllen sind, nichts zu tun (Rn. 43). Der Senat hält dem Unternehmen dabei ausdrücklich zugute, dass zum Zeitpunkt des Telefonats kein Anlass bestand, einen Verzicht auf die Papierform zu thematisieren, weil die Umstände des künftigen Vertragsschlusses noch nicht bekannt waren (Rn. 43).
+
+An dieser Stelle enthält die Entscheidung einen Befund, der dem Ergebnis auf den ersten Blick widerspricht und den der Senat selbst benennt. Hätte die Auftraggeberin ihre Vertragserklärung erst nach dem Vertreterbesuch durch Bestätigung eines per E-Mail übersandten Links abgegeben, wie es im Vertriebssystem des Unternehmens der Regelfall ist, wären die Regeln für außerhalb von Geschäftsräumen geschlossene Verträge nicht zur Anwendung gekommen (Rn. 43). Der Werklohn wäre dann möglicherweise nicht an dieser Formfrage gescheitert. Dass gerade der sofortige Auftrag am Tisch den Schutz auslöste, ist keine Ungereimtheit, sondern Folge des Schutzzwecks, den der Senat in der Überrumpelungsgefahr sieht (Rn. 29).
+
+Der Senat begründet sein enges Verständnis der Zustimmung schließlich mit dem Zweck der Vorschrift. Die Annahme, allein die Bereitschaft des Verbrauchers zur Kommunikation per E-Mail bedeute einen Verzicht auf verbraucherschützende Anforderungen, liefe nach der Begründung auf eine „weitgehend beliebige Fiktion und Sinnentleerung des Zustimmungserfordernisses“ hinaus (Rn. 44). Der Verbraucher könnte ihr nur begegnen, indem er auf Vorschriften besteht, die er im Detail regelmäßig nicht kennt (Rn. 44). Auch in der Person der Auftraggeberin selbst sah der Senat keine Zustimmung, weil sie sich zu dieser ihr nicht bekannten und vom Unternehmen nicht angesprochenen Frage in keiner Fallgestaltung verhalten hat (Rn. 45). Ob eine Zustimmung im eigenen Vertragsablauf wirksam erteilt ist, lässt sich nur anwaltlich beurteilen.
+
+## Die Entscheidung bekräftigt die höchstrichterliche Linie zur Papierform
+
+Die Entscheidung steht erkennbar auf der bisherigen Linie und beansprucht keine Rechtsfortbildung. Der Senat hat die Revision nicht zugelassen und begründet das damit, dass die streitentscheidenden Rechtsfragen zu den Pflichtinformationen durch das Urteil des Bundesgerichtshofs vom 26. November 2020 geklärt seien; zu würdigen seien im Übrigen die Umstände des Einzelfalls (Rn. 50). Der eigene Beitrag der Entscheidung liegt damit nicht in einem neuen Rechtssatz, sondern in der Anwendung eines bekannten Maßstabs auf eine Konstellation, die im Heizungsgeschäft alltäglich ist: Beratung beim Kunden, Auftrag über das Tablet des Beraters, Unterlagen per E-Mail im Nachgang.
+
+Für die Einordnung ist wichtig, dass dieses Widerrufsrecht nicht aus dem Bauvertragsrecht stammt, sondern aus dem allgemeinen Verbrauchervertragsrecht. Das Bauvertragsrecht kennt ein eigenes Widerrufsrecht für Bauverträge mit Verbrauchern, doch reicht dessen Anwendungsbereich nach der Fachliteratur nicht so weit, wie der Begriff vermuten lässt: Erfasst sind Verträge, durch die der Unternehmer zum Bau eines neuen Gebäudes oder zu erheblichen Umbaumaßnahmen an einem bestehenden Gebäude verpflichtet wird.[^3] Dort kann der Vertrag binnen zwei Wochen nach Vertragsschluss widerrufen werden.[^4] Ein Heizungstausch im bewohnten Bestand erfüllt die Schwelle der erheblichen Umbaumaßnahme nicht ohne Weiteres, sodass für solche Verträge die allgemeinen Vorschriften über Verträge außerhalb von Geschäftsräumen tragen, wie sie der Senat angewandt hat (Rn. 29).
+
+> TODO: [Gesetz] – Stufe 2 fehlt: Vorschriften über den Verbraucherbauvertrag, vermutlich §§ 650i ff. BGB – Geprüft: gesetze-im-internet.de war in diesem Lauf viermal nicht erreichbar, der Wortlaut konnte nicht abgerufen werden; die Abgrenzung stützt sich auf die Fachbibliothek mit Stand 2021 – Zu prüfen: Gilt die Beschränkung auf Neubau und erhebliche Umbaumaßnahmen unverändert, und wie ist der Heizungstausch dort einzuordnen? – Vorschlag: Wortlaut bei gesetze-im-internet.de gegenprüfen – Im Text vorläufig ohne Paragrafennennung umschrieben als „die besonderen Vorschriften über Bauverträge mit Verbrauchern“.
+
+Die praktische Bedeutung dieser Abgrenzung wird in der Fachliteratur seit Langem betont. Das AVA-Handbuch beschreibt den Anwendungsbereich des Widerrufsrechts bei Verträgen am Bau als vielfältig und nennt ausdrücklich auch Planerverträge mit Verbrauchern.[^2] Für die Praxis heißt das, dass nicht nur der ausführende Fachbetrieb betroffen ist, sondern ebenso das Planungsbüro, das den Vertrag über einen Wärmeschutznachweis oder die Anlagenplanung in der Wohnung des Bauherrn unterschreiben lässt. Ein Verbrauchervertrag entsteht in diesen Fällen unabhängig davon, wie klein das Auftragsvolumen ist; ob und welche Informationspflichten im Einzelfall gelten, klärt ein Rechtsanwalt.
+
+Bemerkenswert ist, wie wenig die technische Seite des Falls zur Entscheidung beitrug. Der Senat musste weder klären, ob die Wärmepumpenanlage richtig ausgelegt war, noch ob die Ausführung mangelfrei erfolgte; beides spielt in den Entscheidungsgründen keine Rolle. Das Abnahmeprotokoll, das in der Baupraxis als Zäsur gilt, entfaltete im Ergebnis keine Schutzwirkung für den Vergütungsanspruch. Der Senat behandelt die erbrachte Werkleistung und die erklärte Abnahme ausdrücklich als Umstände, die den Widerruf nicht rechtsmissbräuchlich erscheinen lassen (Rn. 47).
+
+## Was der Fall für Vertragsanbahnung, Dokumentation und Kalkulation bedeutet
+
+Die wichtigste Folgerung für die Baupraxis betrifft den Ort und den Ablauf des Vertragsschlusses. Wird die Vertragserklärung des Kunden in dessen Wohnung abgegeben, ist der Vertrag ein außerhalb von Geschäftsräumen geschlossener Vertrag, und zwar auch dann, wenn der Kunde den Termin selbst erbeten hat (Rn. 29). Betriebe, die im Heizungstausch, im Bäderbau, in der Dachsanierung oder in der Fassadeninstandsetzung mit Privatkunden arbeiten, schließen ihre Verträge fast immer in dieser Konstellation. Die Entscheidung zeigt, dass die Qualität der Ausführung diesen Punkt nicht heilt: Die Wärmepumpe war eingebaut und in Betrieb, und der Werklohnanspruch scheiterte dennoch (Rn. 23).
+
+Für die Dokumentation folgt daraus eine Verschiebung des Schwerpunkts. In der Baupraxis dokumentieren Betriebe traditionell die Ausführung, und Qualitätsmanagementsysteme sind auf Prozesse wie Beschaffung, Arbeitssicherheit und Abnahme zugeschnitten; zu diesen Prozessen bestehen eigene Protokolle und Formulare.[^5] Der Streitfall zeigt, dass der Vertragsschluss selbst dieselbe Aufmerksamkeit verdient wie die Betonierfreigabe. Wer belegen will, dass er die Unterrichtung über das Widerrufsrecht auf Papier übergeben hat, braucht dafür einen Nachweis aus dem Termin selbst, nicht eine E-Mail vom Abend danach. Der Senat hat die nachgereichte E-Mail und sogar deren Ausdruck durch einen Angehörigen der Kundin nicht genügen lassen (Rn. 39 und Rn. 40).
+
+Aus dem Sachverhalt lässt sich eine schlichte organisatorische Konsequenz ablesen, die der Senat allerdings nicht als Anforderung formuliert. Im Streitfall hatte der Kundenberater keinen Drucker dabei (Rn. 38). Die Papierform verlangt nach den Ausführungen des Senats die physische Übergabe der Informationen an den Verbraucher (Rn. 38). Ein Betrieb, der Aufträge vor Ort annimmt, muss die erforderlichen Unterlagen deshalb mitführen und ihre Übergabe im Termin festhalten. Die Alternative, auf einen dauerhaften Datenträger auszuweichen, setzt nach der Entscheidung eine Zustimmung voraus, die der Unternehmer ansprechen und dokumentieren muss, weil ein allgemeines Einverständnis mit E-Mail-Verkehr dafür nicht genügt (Rn. 43 und Leitsatz).
+
+Für die Kalkulation und das Risikomanagement wirft der Fall eine unangenehme Frage auf. Zwischen der Vertragserklärung und dem Widerruf lagen sechs Monate und vierzehn Tage, in denen das Unternehmen Material, Montagezeit und Inbetriebnahme vorfinanziert hat (Rn. 3). Solange die Unterrichtung über das Widerrufsrecht formgerecht unterbleibt, bleibt der Widerruf nach der vom Senat herangezogenen Höchstfrist bis zu zwölf Monaten und vierzehn Tagen nach Vertragsschluss möglich (Rn. 33). Dieses Zeitfenster überschreitet bei kleineren Bauleistungen die gesamte Projektdauer, sodass ein Vertragsrisiko fortbesteht, wenn der Auftrag längst abgearbeitet ist. Welche Vorkehrungen ein Betrieb daraus für seine Vertragsmuster ableiten sollte, ist eine Rechtsfrage; sie gehört in die Hand eines Rechtsanwalts, nicht in die des Kalkulators.
+
+Die technische Seite des Heizungstauschs bleibt davon unberührt, verliert aber ihre Schutzwirkung für den Vergütungsanspruch. Die fachliche Sorgfalt beginnt bei der Anlagenauslegung, und die Norm-Heizlastberechnung ist die wichtigste Auslegungsgrundlage für die Erzeugerleistung und die Raumheizflächen.[^6] Ein Fachbetrieb, der die Heizlast sauber ermittelt, die Vorlauftemperaturen auf den Bestand abstimmt und die Inbetriebnahme dokumentiert, erbringt damit eine mangelfreie Leistung, verhindert aber keinen Widerruf. Die Entscheidung trennt beide Ebenen deutlich: Über die Mangelfreiheit der Anlage hat der Senat nicht entschieden, sondern die Klage an der Formfrage scheitern lassen (Rn. 23).
+
+Für Bauherren und Eigentümer auf der anderen Seite des Vertrags hat der Fall eine eigene Lehre. Wer einen Heizungstausch, eine Sanierung oder eine energetische Maßnahme beauftragt, entscheidet im Beratungstermin über eine Summe, die im Streitfall knapp über 31.500 Euro lag (Rn. 3), und trifft diese Entscheidung ohne Vergleichsangebot und ohne technische Prüfung der Auslegung. Eine unabhängige [fachliche Begleitung](https://ing-bassam.de/#kontakt) vor der Auftragserteilung ordnet Angebot, Leistungsumfang und Anlagenkonzept ein, bevor unterschrieben wird. Sie ersetzt keine Rechtsberatung: Ob ein Widerrufsrecht besteht und wie es ausgeübt wird, beurteilt ein Rechtsanwalt.
+
+## Was die Entscheidung offenlässt
+
+Die Reichweite der Entscheidung ist enger, als die Wucht des Ergebnisses vermuten lässt. Der Senat hat nicht festgestellt, dass der Vertrag mit dem behaupteten Inhalt tatsächlich zustande gekommen ist. Er hat den Vertragsschluss vielmehr zugunsten des klagenden Unternehmens unterstellt und geprüft, ob der Anspruch auch dann scheitert (Rn. 24). Wer die Entscheidung als Beleg dafür liest, dass ein Vertrag durch das Betätigen einer Schaltfläche auf dem Gerät des Beraters wirksam zustande kommt, überdehnt sie.
+
+Ebenso wenig entscheidet das Urteil über die Rückabwicklung. Der Senat erwähnt, dass die Rückgewähr der erbrachten Leistungen teilweise nicht möglich ist und die Auftraggeberin „möglicherweise“ gleichwohl keinen Wertersatz schuldet (Rn. 47). Dieses Wort ist keine Feststellung, sondern eine Erwägung im Rahmen der Prüfung des Rechtsmissbrauchs; über Wertersatz, Ausbau oder Herausgabe der Anlage ist in diesem Verfahren nicht befunden worden. Wer aus der Entscheidung ableitet, ein Kunde behalte die Wärmepumpe stets ersatzlos, stützt sich auf eine Aussage, die der Senat so nicht getroffen hat.
+
+Die Entscheidung sagt außerdem nichts über die technische Qualität der Leistung. Ob die Wärmepumpenanlage richtig ausgelegt, fachgerecht installiert und mangelfrei in Betrieb genommen wurde, war nicht Gegenstand der Entscheidungsgründe. Auch die vom Unternehmen im März 2025 erklärte Kündigung wegen einer nicht geleisteten Sicherheit (Rn. 3) hat der Senat in den Gründen nicht behandelt. Wer aus dem Fall Schlüsse für einen eigenen Streit ziehen will, sollte diese Lücken kennen; die rechtliche Bewertung eines konkreten Sachverhalts nimmt ein Rechtsanwalt vor.
+
+Zum Stand des Verfahrens sagt der Volltext nur eines, und daran hält sich diese Besprechung. Der Senat hat die Revision nicht zugelassen, weil Zulassungsgründe nicht vorliegen; die streitentscheidenden Rechtsfragen seien höchstrichterlich geklärt, im Übrigen seien die Umstände des Einzelfalls zu würdigen (Rn. 50). Damit handelt es sich um ein Berufungsurteil ohne zugelassene Revision, das den Rechtsstreit in dieser Instanz abschließt. Weitere Angaben zum Verfahrensstand enthält der Volltext nicht.
+
+Für die eigene Vorsorge bleibt es bei einer technischen Empfehlung, die unabhängig vom Ausgang solcher Streitigkeiten trägt. Steht der Ausbau oder Umbau einer bereits eingebauten Anlage im Raum, hält eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) den Zustand fest, bevor Bauteile verändert werden. Sie dokumentiert Einbausituation, Anschlüsse und Funktionsnachweise und schafft damit eine Grundlage, auf die sich beide Seiten später beziehen können; die rechtliche Bewertung dieser Grundlage bleibt einem Rechtsanwalt vorbehalten.
+
+## Häufige Fragen
+
+**Kann ein Kunde den Auftrag für eine Wärmepumpe auch nach dem Einbau noch widerrufen?**
+
+Nach der besprochenen Entscheidung ja, wenn die Widerrufsfrist mangels formgerechter Unterrichtung nicht zu laufen begonnen hat. Im entschiedenen Fall lagen zwischen Vertragserklärung und Widerruf sechs Monate und vierzehn Tage, die Anlage war eingebaut und eine Abnahme erklärt (Rn. 3). Das Oberlandesgericht hat die Werklohnklage gleichwohl abgewiesen (Rn. 23). Ob ein Widerrufsrecht im Einzelfall besteht, beurteilt ein Rechtsanwalt.
+
+**Wann beginnt die Widerrufsfrist bei einem Vertrag, der beim Hausbesuch geschlossen wurde?**
+
+Die Frist beträgt nach den Ausführungen des Senats grundsätzlich vierzehn Tage, beginnt bei einem außerhalb von Geschäftsräumen geschlossenen Vertrag aber nicht, bevor der Unternehmer den Verbraucher formgerecht über Bedingungen, Fristen und Verfahren des Widerrufsrechts unterrichtet hat (Rn. 34). Fehlt diese Unterrichtung, bleibt der Widerruf bis zu der vom Senat herangezogenen Höchstfrist von zwölf Monaten und vierzehn Tagen nach Vertragsschluss möglich (Rn. 33).
+
+**Reicht es, die Widerrufsbelehrung per E-Mail zu schicken?**
+
+Nach der Entscheidung nur dann, wenn der Verbraucher dieser Übermittlungsform zugestimmt hat (Rn. 41). Eine E-Mail ist zwar ein dauerhafter Datenträger, ersetzt die Papierform aber nicht ohne Zustimmung. Ein allgemeines Einverständnis, den Schriftverkehr per E-Mail zu führen, genügt dafür nach dem Leitsatz des Gerichts nicht, wenn die Frage der Papierform nie angesprochen wurde (Rn. 43).
+
+**Schützt ein unterschriebenes Abnahmeprotokoll den Werklohn?**
+
+Im entschiedenen Fall nicht. Der Senat hat ausgeführt, dass die erbrachte Werkleistung und die erklärte Abnahme die Ausübung des Widerrufsrechts nicht rechtsmissbräuchlich erscheinen lassen (Rn. 47). Das Abnahmeprotokoll wurde hier zudem vom Enkel der Auftraggeberin unterschrieben (Rn. 3). Die Abnahme behält ihre Bedeutung für Gefahrübergang und Mängelrechte, sie heilt aber keine unterbliebene Unterrichtung über das Widerrufsrecht.
+
+**Gilt das Widerrufsrecht auch für Planer und Sachverständige?**
+
+Der Anwendungsbereich des Widerrufsrechts bei Verträgen am Bau wird in der Fachliteratur als vielfältig beschrieben; betroffen sind danach auch Planerverträge, die ein Architekt mit einem Verbraucher schließt.[^2] Die besprochene Entscheidung betrifft unmittelbar nur einen Werkvertrag über die Installation einer Wärmepumpenanlage (Rn. 1). Ob ein konkreter Planungs- oder Gutachtenvertrag als Verbrauchervertrag außerhalb von Geschäftsräumen einzuordnen ist, klärt ein Rechtsanwalt.
+
+**Muss der Kunde nach einem Widerruf Wertersatz für die eingebaute Anlage leisten?**
+
+Darüber hat der Senat nicht entschieden. Er erwähnt lediglich, dass die Rückgewähr teilweise nicht möglich ist und die Auftraggeberin „möglicherweise“ keinen Wertersatz schuldet (Rn. 47). Diese Erwägung steht im Zusammenhang mit der Prüfung, ob die Ausübung des Widerrufsrechts treuwidrig war, und ersetzt keine Entscheidung über die Rückabwicklung.
+
+## Hinweis
+
+Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er ist keine Rechtsberatung und ersetzt keine Begutachtung des Einzelfalls. Ob und wie Ansprüche bestehen und durchgesetzt werden können, beurteilt ein Rechtsanwalt. Genannte Normen und Regelwerke sind in der jeweils gültigen Fassung zu prüfen.
+
+---
+
+**Über den Autor**
+
+M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: 2026-09-24.
+
+## Quellen und Fußnoten
+
+[^1]: Schleswig-Holsteinisches Oberlandesgericht, 1. Zivilsenat: Urteil vom 19.08.2026 – 1 U 78/25, ECLI:DE:OLGSH:2026:0819.1U78.25.00, Rn. 1 bis 50 sowie Leitsatz und Tenor. https://www.gesetze-rechtsprechung.sh.juris.de/perma?d=NJRE001651852 (abgerufen am 2026-09-24).
+[^2]: Rode, Bernd; Weller, Wolfgang: AVA-Handbuch. Ausschreibung - Vergabe - Abrechnung - Haftung. 11. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 68. ISBN 978-3-658-48052-3.
+[^3]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 16. ISBN 978-3-658-32822-1.
+[^4]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 180. ISBN 978-3-658-32822-1.
+[^5]: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 57. ISBN 978-3-658-47553-6.
+[^6]: Vielhauer, Martin u. a.: Entwurfsplanung der Technischen Gebäudeausrüstung. Planungsinhalte, Beispiele und Leistungsdefinitionen. Wiesbaden: Springer Vieweg, 2025, S. 85. ISBN 978-3-658-45464-7.
