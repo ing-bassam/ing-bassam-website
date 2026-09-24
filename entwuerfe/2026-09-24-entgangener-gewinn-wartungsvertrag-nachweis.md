@@ -14,11 +14,11 @@ fundstelle: "https://gesetze.berlin.de/perma?d=NJRE001653425"
 meta_beschreibung: "KG Berlin: Wer nach vorzeitiger Beendigung eines Wartungsvertrags entgangenen Gewinn verlangt, muss ersparte Kosten aufschlüsseln und belegen."
 schlagwoerter: entgangener Gewinn, ersparte Aufwendungen, Kündigung, Wartungsvertrag, Kalkulation, Vorteilsausgleich, Abzinsung, Schadensersatz
 definition: Ersparte Aufwendungen sind Kosten, die dem Unternehmer ohne die vorzeitige Vertragsbeendigung entstanden wären und die infolge der Beendigung entfallen.
-autor: Karim Abu Elkheir
+autor: M.Sc. Karim Abu Elkheir
 qualifikation: B.Eng. Bauingenieurwesen, M.Sc. Wirtschaftsingenieurwesen (Schwerpunkt Bautechnik und Management)
 kurzform: entgangener-gewinn-wartungsvertrag-nachweis
 erstellt: 2026-09-24
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
