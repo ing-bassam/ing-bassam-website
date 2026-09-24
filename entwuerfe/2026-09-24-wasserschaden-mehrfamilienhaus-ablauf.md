@@ -12,7 +12,7 @@ autor: M. Sc. Karim Abu Elkheir
 qualifikation:
 kurzform: wasserschaden-mehrfamilienhaus-ablauf
 erstellt: 2026-09-24
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-8141-bc24-ea5ca9e5d4ac
 notion_url: https://app.notion.com/p/Wasserschaden-im-Mehrfamilienhaus-Ablauf-von-Meldung-bis-Regulierung-3dfd96ad00b48141bc24ea5ca9e5d4ac
