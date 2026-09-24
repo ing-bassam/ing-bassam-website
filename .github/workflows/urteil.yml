@@ -61,7 +61,15 @@ on:
         default: ""
 
 concurrency:
-  group: urteilsbesprechung
+  # Gemeinsame Warteschlange für alle Agenten, die einen Entwurf auf einem
+  # Zweig entwurf/… abliefern (Fachartikel, Urteilsbesprechung, Urteil
+  # verständlich). Sie finden ihren Pull Request über „Zweig beginnt mit
+  # entwurf/ und wurde nach dem Start dieses Laufs angelegt“. Liefen zwei
+  # gleichzeitig, könnte ein Lauf den Entwurf des anderen prüfen und in Notion
+  # eintragen. Deshalb läuft immer nur einer; der nächste wartet.
+  # Hinweis: GitHub hält je Gruppe nur EINEN wartenden Lauf. Wer einen dritten
+  # startet, während einer läuft und einer wartet, ersetzt den wartenden.
+  group: entwurf-agenten
   cancel-in-progress: false
 
 jobs:

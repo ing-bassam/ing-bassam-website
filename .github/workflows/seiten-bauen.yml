@@ -27,8 +27,11 @@ on:
     branches:
       - main
       - 'entwurf/**'
+      - 'vorlage/**'
     paths:
       - 'entwuerfe/**'
+      # Download-Dateien der Vorlagen: Größe und Liste im Download-Kasten
+      - 'vorlagen/**'
       - 'tools/artikel_generator.py'
       - 'fachwissen/artikel.css'
       - '.github/workflows/seiten-bauen.yml'
