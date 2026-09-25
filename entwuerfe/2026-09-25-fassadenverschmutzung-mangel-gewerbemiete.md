@@ -73,7 +73,7 @@ Im Vertrag sollte stehen, wer die Fassade reinigt und in welchem Abstand. Diese 
 
 Drei naheliegende Fragen beantwortet das Urteil nicht. Es sagt nicht, wer die Fenster und die Glasfassade zu reinigen hat. Diese Frage blieb zwischen den Parteien streitig (Rn. 14, Rn. 21). Es sagt auch nicht, ob überhaupt ein Mangel vorlag. Die Kammer sprach nur von einem etwaigen optischen Mangel (Rn. 33). Ab welchem Grad eine Verschmutzung zum Mangel wird, ließ sie ausdrücklich offen (Rn. 40). Über eine Minderung der Miete hat die Kammer nicht entschieden; es ging allein um die Kündigungen und um die Anwaltskosten (Rn. 28, Rn. 45).
 
-Die Entscheidung betrifft Gewerberaum in einem Hochhaus, nicht eine Wohnung (Rn. 1, Rn. 3). Sie beruht auf den Umständen dieses Einzelfalls, was die Kammer selbst betont (Rn. 32). Das Urteil schließt den Rechtsstreit in der ersten Instanz ab. Ob es rechtskräftig ist, also nicht mehr angegriffen werden kann, sagt der Volltext nicht.
+Die Entscheidung betrifft Gewerberaum in einem Hochhaus, nicht eine Wohnung (Rn. 1, Rn. 3). Sie beruht auf den Umständen dieses Einzelfalls, was die Kammer selbst betont (Rn. 32).
 
 ## Häufige Fragen
 
