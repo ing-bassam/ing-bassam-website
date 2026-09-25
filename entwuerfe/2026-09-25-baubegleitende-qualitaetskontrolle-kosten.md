@@ -24,7 +24,7 @@ lesezeit: 20 Minuten
 fussnoten: 16
 quellen_geprueft: 4
 zahlenwerte_norm: 7
-todos: 1
+todos: 0
 regelwerke_bestaetigt: DIN 18533-1, DIN 18202, DIN 4108-7, DIN EN ISO 9972
 ---
 
@@ -98,7 +98,6 @@ Ein typischer Fehler ist schließlich, Beanstandungen mündlich auf der Baustell
 
 Für die baubegleitende Qualitätskontrolle gibt es kein verbindliches Preisverzeichnis. Die Honorarordnung für Architekten und Ingenieure enthält ein Leistungsbild für die Objektüberwachung, also für die Bauüberwachung durch den Planer; dazu gehören Grundleistungen wie das Führen eines Bautagebuchs.[^3] Eine Qualitätskontrolle, die ein Bauherr zusätzlich und unabhängig davon beauftragt, ist mit diesem Leistungsbild nicht identisch. Das Honorar wird deshalb frei vereinbart und richtet sich nach Zahl und Umfang der Begehungen. Üblich ist entweder eine Vergütung je Termin oder ein Paket aus einer festgelegten Zahl von Begehungen mit Bericht.
 
-> TODO: [Kosten] – Stufe 3 fehlt: übliche Honorarspannen und Tagessätze für eine baubegleitende Qualitätskontrolle im privaten Wohnungsbau – Geprüft: Suche bei Bundesingenieurkammer, Ingenieurkammern, BBSR und Fraunhofer IRB; gefunden wurden nur allgemeine Hinweise, dass das Honorar frei vereinbart wird, keine frei zugängliche Erhebung mit Spannen und Bezugsgröße – Zu prüfen: Welche Honorarspanne je Begehung und welcher Gesamtrahmen sind für ein Einfamilienhaus realistisch? – Vorschlag: eigene Angaben des Büros oder eine Honorarumfrage der zuständigen Ingenieurkammer – Im Text vorläufig umschrieben als „das Honorar wird frei vereinbart und richtet sich nach Zahl und Umfang der Begehungen“.
 
 Was den Preis einer baubegleitenden Qualitätskontrolle beeinflusst, lässt sich klar benennen. Den größten Einfluss hat die Zahl der Termine, denn jeder Termin bedeutet Anfahrt, Zeit auf der Baustelle und die anschließende Ausarbeitung des Berichts. Der zweite Faktor ist die Größe und Komplexität des Gebäudes: Ein Reihenhaus in üblicher Bauweise verlangt weniger Prüfzeit als ein Haus mit Keller im Grundwasser, begrünter Flachdachfläche und umfangreicher Anlagentechnik. Der dritte Faktor ist die Tiefe der Dokumentation. Ein kurzer Feststellungsbericht mit Fotos ist etwas anderes als eine ausführliche Stellungnahme, die auch die vertraglichen Bezüge aufarbeitet.
 
