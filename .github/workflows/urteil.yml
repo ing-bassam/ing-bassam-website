@@ -74,15 +74,14 @@ on:
 run-name: "Urteilsbesprechung · ${{ inputs.runden || '1' }} Runde(n)"
 
 concurrency:
-  # Gemeinsame Warteschlange für alle Agenten, die einen Entwurf auf einem
-  # Zweig entwurf/… abliefern (Fachartikel, Urteilsbesprechung, Urteil
-  # verständlich). Sie finden ihren Pull Request über „Zweig beginnt mit
-  # entwurf/ und wurde nach dem Start dieses Laufs angelegt“. Liefen zwei
-  # gleichzeitig, könnte ein Lauf den Entwurf des anderen prüfen und in Notion
-  # eintragen. Deshalb läuft immer nur einer; der nächste wartet.
-  # Hinweis: GitHub hält je Gruppe nur EINEN wartenden Lauf. Wer einen dritten
-  # startet, während einer läuft und einer wartet, ersetzt den wartenden.
-  group: entwurf-agenten
+  # Urteilsbesprechung und Urteil verständlich teilen sich diese Warteschlange:
+  # Beide durchsuchen dieselben Datenbanken und würden gleichzeitig gestartet
+  # dieselbe Entscheidung wählen. Startet man beide, wartet der zweite.
+  # Mit Fachartikel und Vorlagen dürfen sie parallel laufen – jeder Agent
+  # erkennt seinen Entwurf am Format im Dateikopf (tools/eigener_entwurf.py).
+  # Hinweis: GitHub hält je Warteschlange nur EINEN wartenden Lauf. Für mehrere
+  # Beiträge deshalb besser die Auswahl „Runden“ nutzen als mehrfach starten.
+  group: urteil-agenten
   cancel-in-progress: false
 
 jobs:
@@ -315,17 +314,8 @@ jobs:
           ARBEIT: ${{ steps.kandidaten.outputs.verzeichnis }}
         run: |
           set -euo pipefail
-          gh pr list --state open --json number,headRefName,createdAt > "$ARBEIT/prs.json"
-          # Nur ein Pull Request, der in diesem Lauf entstanden ist, wird geprüft.
-          ZEILE="$(python - "$BEGINN" "$ARBEIT/prs.json" <<'PY'
-          import json, sys
-          beginn, datei = sys.argv[1], sys.argv[2]
-          prs = [p for p in json.load(open(datei, encoding="utf-8"))
-                 if p["headRefName"].startswith("entwurf/") and p["createdAt"] >= beginn]
-          prs.sort(key=lambda p: p["createdAt"])
-          print(f'{prs[-1]["number"]} {prs[-1]["headRefName"]}' if prs else "")
-          PY
-          )"
+          # Nur der eigene Entwurf dieses Laufs, erkannt am Format im Dateikopf.
+          ZEILE="$(python tools/eigener_entwurf.py --seit "$BEGINN" --format "Rechtsprechung")"
           if [ -z "$ZEILE" ]; then
             echo "::notice title=Prüfung::Kein neuer Entwurf – nichts zu prüfen."
             echo "entwurf_da=false" >> "$GITHUB_OUTPUT"
@@ -529,9 +519,7 @@ jobs:
             exit 0
           fi
 
-          PR="$(gh pr list --state open --json url,headRefName,createdAt \
-                 --jq '[.[] | select((.headRefName | startswith("entwurf/")) and .createdAt >= env.BEGINN)]
-                       | sort_by(.createdAt) | last | .url // ""' 2>/dev/null || echo "")"
+          PR="$(python tools/eigener_entwurf.py --seit "$BEGINN" --format "Rechtsprechung" --ausgabe url 2>/dev/null || echo "")"
 
           if [ -n "$PR" ]; then
             echo "::notice title=Urteilsbesprechung::Entwurf liegt bereit: $PR"
@@ -551,7 +539,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BEGINN: ${{ steps.kandidaten.outputs.beginn }}
-          PRAEFIX: "entwurf/"
           RUNDE: ${{ matrix.runde }}
           ANZAHL: ${{ needs.planen.outputs.anzahl }}
         run: |
@@ -560,8 +547,9 @@ jobs:
             echo "::error title=Urteilsbesprechung::Startzeit dieser Runde unbekannt – die übrigen Runden werden sicherheitshalber abgesagt."
             exit 1
           fi
-          neu="$(gh pr list --state open --limit 100 --json headRefName,createdAt \
-                  --jq '[.[] | select((.headRefName | startswith(env.PRAEFIX)) and .createdAt >= env.BEGINN)] | length')"
+          # Eigene Entwürfe dieser Runde, erkannt am Format im Dateikopf (nicht nur am Zweig):
+          # So zählt ein gleichzeitig laufender anderer Agent nicht als Ergebnis dieser Runde.
+          neu="$(python tools/eigener_entwurf.py --seit "$BEGINN" --format "Rechtsprechung" --ausgabe anzahl)"
           if [ "${neu:-0}" -eq 0 ]; then
             echo "::error title=Urteilsbesprechung::Runde ${RUNDE} von ${ANZAHL} hat keinen neuen Entwurf erzeugt (nichts Passendes mehr gefunden oder Duplikat). Die übrigen Runden werden abgesagt, damit kein Kontingent verpufft."
             exit 1

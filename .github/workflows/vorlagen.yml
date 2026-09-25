@@ -413,16 +413,8 @@ jobs:
           NOTION_TOKEN="$(printf '%s' "${NOTION_TOKEN:-}" | tr -d '[:space:]')"
           ARBEIT="${RUNNER_TEMP}/vorlage-abschluss"
           mkdir -p "$ARBEIT"
-          gh pr list --state open --limit 100 --json number,url,headRefName,createdAt > "$ARBEIT/prs.json"
-          ZEILE="$(python - "$JOBSTART" "$ARBEIT/prs.json" <<'PY'
-          import json, sys
-          beginn, datei = sys.argv[1], sys.argv[2]
-          prs = [p for p in json.load(open(datei, encoding="utf-8"))
-                 if p["headRefName"].startswith("vorlage/") and p["createdAt"] >= beginn]
-          prs.sort(key=lambda p: p["createdAt"])
-          print(f'{prs[-1]["number"]}\t{prs[-1]["headRefName"]}\t{prs[-1]["url"]}' if prs else "")
-          PY
-          )"
+          # Nur der eigene Entwurf dieses Laufs: Format „Vorlage“ und dieselbe Notion-Seite.
+          ZEILE="$(python tools/eigener_entwurf.py --seit "$JOBSTART" --format "Vorlage" --notion-id "$NOTION_ID" --ausgabe tab)"
           if [ -z "$ZEILE" ]; then
             if [ "$AGENT" = "success" ]; then
               echo "::error title=Vorlagen::Der Agent meldete Erfolg, aber es gibt keinen Pull Request aus diesem Lauf (Branch vorlage/*). Die Abschlussmeldung im Schritt „Vorlage erstellen lassen“ nennt den Grund. Notion bleibt unverändert."
@@ -558,7 +550,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BEGINN: ${{ steps.start.outputs.zeit }}
-          PRAEFIX: "vorlage/"
           RUNDE: ${{ matrix.runde }}
           ANZAHL: ${{ needs.planen.outputs.anzahl }}
         run: |
@@ -567,8 +558,9 @@ jobs:
             echo "::error title=Vorlagen::Startzeit dieser Runde unbekannt – die übrigen Runden werden sicherheitshalber abgesagt."
             exit 1
           fi
-          neu="$(gh pr list --state open --limit 100 --json headRefName,createdAt \
-                  --jq '[.[] | select((.headRefName | startswith(env.PRAEFIX)) and .createdAt >= env.BEGINN)] | length')"
+          # Eigene Entwürfe dieser Runde, erkannt am Format im Dateikopf (nicht nur am Zweig):
+          # So zählt ein gleichzeitig laufender anderer Agent nicht als Ergebnis dieser Runde.
+          neu="$(python tools/eigener_entwurf.py --seit "$BEGINN" --format "Vorlage" --ausgabe anzahl)"
           if [ "${neu:-0}" -eq 0 ]; then
             echo "::error title=Vorlagen::Runde ${RUNDE} von ${ANZAHL} hat keinen neuen Entwurf erzeugt (nichts Passendes mehr gefunden oder Duplikat). Die übrigen Runden werden abgesagt, damit kein Kontingent verpufft."
             exit 1
