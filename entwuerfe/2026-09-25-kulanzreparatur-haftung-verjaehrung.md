@@ -57,7 +57,7 @@ Genau daran scheiterte der erste Anspruch. In den Garantiebedingungen stand, das
 
 Hinzu kommt der Zeitablauf. Die Garantie galt für 60 Monate ab Übergabe (Rn. 2), und der Senat stellt fest, dass sie im Jahr 2020 abgelaufen war (Rn. 43). Die Arbeiten fanden erst zwei Jahre danach statt (Rn. 5). Der Senat hält fest: Die Herstellerin hat mit der Reparatur im Jahr 2022 keine Leistung aus dem Garantievertrag erbracht (Rn. 31).
 
-## Aus der Gefälligkeit wurde ein Vertrag, und die Frist lief trotzdem ab
+## Die kostenlose Reparatur war ein Vertrag, und die Frist lief trotzdem ab
 
 Damit stellte sich die entscheidende Frage: Begründet eine kostenlose Reparatur überhaupt Pflichten? Eine Kulanzleistung ist eine Leistung, die ein Unternehmen ohne rechtliche Verpflichtung und ohne Bezahlung erbringt. Der Senat kommt zu dem Ergebnis, dass hier kein unverbindliches Gefälligkeitsverhältnis vorlag, sondern ein Kulanzvertrag (Rn. 36). Eine Kulanzregelung sei in der Regel rechtlich bindend (Rn. 38). Dass eine Leistung unentgeltlich ist, genügt für sich genommen nicht, um eine bloße Gefälligkeit anzunehmen (Rn. 38).
 
@@ -75,7 +75,7 @@ Die wichtigste Erkenntnis für die Praxis ist unbequem. Eine kostenlose Nacharbe
 
 Der Fall zeigt außerdem, wie viel ein Blatt Papier wert ist. Dass der Mitarbeiter der Herstellerin auf einer Verschriftlichung des Auftrags bestand, ergab für den Senat auf deren Seite bereits die rechtliche Bindung (Rn. 39). Wer also mit einer Firma eine Nachbesserung ohne Bezahlung vereinbart, sollte den Umfang der Arbeiten, den Zeitraum und die Beteiligten schriftlich festhalten. Eine E-Mail mit Datum genügt dafür. Wer die Arbeit zurücknimmt, sollte auch diesen Tag notieren, denn er kann der Beginn der Frist sein (Rn. 45).
 
-Für Arbeiten am Haus gilt eine andere Variante derselben Vorschrift. Nach § 634a Absatz 1 Nummer 2 BGB verjähren Mängelansprüche bei einem Bauwerk in fünf Jahren ab der Abnahme, während für Arbeiten an einer beweglichen Sache zwei Jahre gelten.[^2] Bei Arbeiten an einem Bauwerk ist vorrangig immer diese Bauwerksvariante zu prüfen.[^3] Der besprochene Fall betraf einen Wohnwagen und damit die kurze Frist (Rn. 40). Übertragen Sie die zwei Jahre also nicht ungeprüft auf Ihr Dach oder Ihren Keller.
+Für Arbeiten am Haus gilt eine andere Variante derselben Vorschrift. Nach § 634a Absatz 1 Nummer 2 BGB verjähren Mängelansprüche bei einem Bauwerk in fünf Jahren ab der Abnahme, während für Arbeiten an einer Sache zwei Jahre gelten.[^2] Bei Arbeiten an einem Bauwerk ist vorrangig immer diese Bauwerksvariante zu prüfen.[^3] Der besprochene Fall betraf einen Wohnwagen und damit die kurze Frist (Rn. 40). Übertragen Sie die zwei Jahre also nicht ungeprüft auf Ihr Dach oder Ihren Keller.
 
 Für die Beweislage zählt, was früh festgehalten wird. Fotografieren Sie den Zustand nach einer Nachbesserung mit Datum und einem Maßstab im Bild. Halten Sie fest, wer wann was gearbeitet hat, und heben Sie den Schriftwechsel auf. Wenn sich ein Schadensbild verändert, helfen Verlaufsaufnahmen über mehrere Wochen. Bleibt streitig, ob eine Nacharbeit fachgerecht war, kann eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) den Zustand und den Aufbau der Konstruktion dokumentieren, bevor weiter saniert wird.
 
