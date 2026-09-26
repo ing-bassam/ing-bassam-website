@@ -127,6 +127,8 @@ Zur Frage der Fristsetzung ist die Gewichtung zu beachten. Getragen wird die Min
 
 Zum Abschluss des Verfahrens sagt der Volltext dreierlei: Die Berufung wurde mit der Maßgabe zurückgewiesen, dass der Zusatz „derzeit“ im Tenor des landgerichtlichen Urteils entfällt, der Kläger hat die Kosten des Berufungsverfahrens zu tragen (Tenor; Gründe II 4), und die Revision wurde nicht zugelassen, weil die Rechtssache keine grundsätzliche Bedeutung hat und die Entscheidung auf der Anwendung bereits höchstrichterlich geklärter Rechtsfragen im Einzelfall beruht (Gründe II 5). Weitere Angaben zum weiteren Gang des Verfahrens enthält der Volltext nicht, und dieser Beitrag trifft dazu keine Aussage. Für die eigene Sachlage gilt ohnehin, dass die technische Beurteilung eines Bauteils und die rechtliche Bewertung getrennt zu betrachten sind: Wer als Auftraggeber oder Auftragnehmer vor der Frage steht, ob eine Leistung vor dem Verdecken geprüft werden sollte, kann dafür ein [Privatgutachten oder fachliche Begleitung](https://ing-bassam.de/#kontakt) in Anspruch nehmen, während die rechtlichen Folgen ein Rechtsanwalt beurteilt.
 
+Eine kurze, allgemein verständliche Fassung dieses Falls für Bauherren, Eigentümer und Hausverwaltungen steht unter [Handwerker lehnt die Nacharbeit ab: Was aus dem Werklohn wird](https://ing-bassam.de/fachwissen/nachbesserung-verweigert-werklohn/).
+
 ## Häufige Fragen
 
 **Wer muss beweisen, dass eine Bauleistung mangelfrei ist?**
