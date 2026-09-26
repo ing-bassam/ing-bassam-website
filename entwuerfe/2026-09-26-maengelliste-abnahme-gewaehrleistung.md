@@ -47,7 +47,7 @@ Füllen Sie zuerst den Kopf der Mängelliste aus. Dort stehen das Objekt, das Ba
 
 Gehen Sie in einer festen Reihenfolge vor, etwa von außen nach innen und Raum für Raum. Am besten sind Sie zu zweit: Eine Person schaut, die andere schreibt. Jede Zeile wird sofort vollständig ausgefüllt, nicht später aus der Erinnerung. Machen Sie das Foto direkt nach dem Eintrag und tragen Sie die Foto-Nummer in die Zeile ein. Fotografieren Sie mit Datum und legen Sie einen Maßstab ins Bild, zum Beispiel einen Zollstock.
 
-Drucken Sie die ausgefüllte Liste nach der Begehung aus und fügen Sie sie dem Protokoll bei. Beide Seiten unterschreiben sie. Eine Unterschrift bestätigt, dass die Feststellung getroffen wurde; sie ist kein Anerkenntnis des Mangels durch die Firma. Was eine Unterschrift in Ihrem Fall bedeutet, beurteilt ein Rechtsanwalt.
+Drucken Sie die ausgefüllte Liste nach der Begehung aus und fügen Sie sie dem Protokoll bei. Beide Seiten unterschreiben sie. Eine Unterschrift unter dem Abnahmeprotokoll bestätigt, dass die Feststellung getroffen wurde; sie ist kein Anerkenntnis der gerügten Mängel durch die Firma.[^1] Was eine Unterschrift in Ihrem Fall bedeutet, beurteilt ein Rechtsanwalt.
 
 ## Worauf es in den Spalten ankommt
 
@@ -65,7 +65,7 @@ Der häufigste Fehler ist die Sammelzeile. „Diverse Mängel im Bad“ hilft sp
 
 Der zweite Fehler wiegt schwerer: der fehlende Vorbehalt. Bei einer förmlichen Abnahme nach VOB/B ist der Befund gemeinsam schriftlich niederzulegen, und Vorbehalte wegen bekannter Mängel gehören in diese Niederschrift.[^7] Fehlt die Vorbehaltserklärung, kann der Auftraggeber seine Ansprüche auf Mängelbeseitigung und auf Ersatzvornahme verlieren.[^8] Eine ausgefüllte Mängelliste als Anlage ist deshalb mehr als Ordnungsliebe. Welche Erklärung Ihr Vertrag verlangt, prüft ein Rechtsanwalt.
 
-Der dritte Fehler ist das Aufhören. Viele Listen enden mit der Abnahme, obwohl die meisten Mängel erst in den Monaten danach auffallen. Tragen Sie auch mündliche Zusagen der Firma mit Datum ein und halten Sie fest, wer sie gegeben hat.
+Der dritte Fehler ist das Aufhören. Viele Listen enden mit der Abnahme, obwohl die Verjährungsfrist für Mängelansprüche erst mit der Abnahme beginnt. Tragen Sie auch mündliche Zusagen der Firma mit Datum ein und halten Sie fest, wer sie gegeben hat.
 
 ## Wann ein Sachverständiger die Mängelliste übernehmen sollte
 
