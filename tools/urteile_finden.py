@@ -35,7 +35,7 @@ Quellen – ausschließlich amtlich:
                 liefert Treffer nach Datum absteigend sowie den Volltext.
                 Damit ist auch das Kammergericht Berlin erfasst.
 
-Aufruf:  python tools/urteile_finden.py --ziel <datei> [--monate 18] [--max 12]
+Aufruf:  python tools/urteile_finden.py --ziel <datei> [--monate 18] [--max 12] [--streitwert-ab 100000]
 """
 
 from __future__ import annotations
@@ -309,6 +309,47 @@ def texte_offener_entwuerfe() -> list[str]:
         return []
 
 
+STREITWERT_BEGRIFF = re.compile(
+    r"(Streitwert|Gegenstandswert|Wert des (?:Streit|Beschwerde)gegenstand(?:e)?s|Beschwer\b)",
+    re.I)
+BETRAG = re.compile(
+    r"(?:bis(?: zu)?\s+)?(\d{1,3}(?:[.   ]\d{3})+|\d+)(?:,(\d{1,2}))?\s*"
+    r"(Mio\.?|Millionen)?\s*(?:€|EUR\b|Euro\b)", re.I)
+# Satzende: Punkt, danach Leerraum und ein Großbuchstabe (nicht der Tausenderpunkt in
+# 1.250.000 und nicht der Punkt üblicher Abkürzungen wie „Mio. Euro“ oder „Abs. 2“).
+SATZENDE = re.compile(r"(?<!Mio)(?<!Abs)(?<!Nr)(?<!Rn)(?<!vgl)(?<!ca)(?<!Ziff)\.\s+(?=[A-ZÄÖÜ])")
+
+
+def streitwert_lesen(text: str) -> int | None:
+    """Höchster im Volltext genannter Streit-, Gegenstands- oder Beschwerdewert in Euro.
+
+    Gerichte setzen den Streitwert meist am Ende oder im Tenor fest („Der
+    Streitwert für das Berufungsverfahren wird auf 15.357,20 € festgesetzt“,
+    „Streitwert: bis 500.000 €“). Genannt sind oft mehrere Werte (je Instanz);
+    maßgeblich ist der höchste. Stufen wie „bis 500.000 €“ zählen mit ihrer
+    Obergrenze. Ohne Angabe im Volltext: None – viele BGH-Urteile nennen keinen.
+    """
+    werte = []
+    for begriff in STREITWERT_BEGRIFF.finditer(text):
+        # Nur bis zum Satzende lesen – der nächste Satz kann eine Klageforderung nennen.
+        abschnitt = text[begriff.end(): begriff.end() + 200]
+        ende = SATZENDE.search(abschnitt)
+        if ende:
+            abschnitt = abschnitt[:ende.start() + 1]
+        for betrag in BETRAG.finditer(abschnitt):
+            if betrag.group(3):                   # „2,5 Mio. €“
+                ganz = int(re.sub(r"\D", "", betrag.group(1))) * 1_000_000
+                ganz += int((betrag.group(2) or "0").ljust(2, "0")) * 10_000
+            else:
+                ganz = int(re.sub(r"\D", "", betrag.group(1)))
+            werte.append(ganz)
+    return max(werte) if werte else None
+
+
+def euro(wert: int) -> str:
+    return f"{wert:,} €".replace(",", ".")
+
+
 def bekannte_aktenzeichen() -> set[str]:
     """Aktenzeichen, zu denen es schon einen Entwurf gibt – gemergt oder als offener Pull Request.
 
@@ -353,6 +394,7 @@ class Fund:
         self.hinweis = ""
         self.juris: dict | None = None
         self.art = ""            # Urteil, Beschluss, …
+        self.streitwert: int | None = None   # aus dem Volltext, in Euro
 
     @property
     def schluessel(self) -> str:
@@ -773,17 +815,52 @@ def volltexte_ablegen(auswahl: list["Fund"], ordner: Path, pause: float) -> None
         fund.woerter = len(text.split())
         fund.treffer, begriffe = themenbezug(text)
         fund.begriffe = begriffe
+        fund.streitwert = streitwert_lesen(text)
         kopf = volltext_kopf(fund.gericht, fund.datum, fund.aktenzeichen, ecli,
                              fund.link, fund.quelle, bool(fund.juris),
                              date.today().isoformat())
         ziel.write_text(kopf + umbrechen(text), encoding="utf-8", newline="\n")
         fund.volltext = ziel
         print(f"  Volltext: {fund.aktenzeichen} – {fund.woerter} Wörter, "
-              f"{fund.treffer} Themenbegriffe")
+              f"{fund.treffer} Themenbegriffe, Streitwert "
+              f"{euro(fund.streitwert) if fund.streitwert else 'nicht genannt'}")
         time.sleep(pause)
 
 
 REGIONEN = ("Berlin/Brandenburg", "Bund", "Weitere Länder")
+
+
+def nach_streitwert_auswaehlen(funde: list["Fund"], grenze: int, mindestens: int,
+                               ordner: Path, pause: float, pruefen_hoechstens: int) -> list["Fund"]:
+    """Lädt die Volltexte der jüngsten Treffer und behält nur Entscheidungen,
+    deren Streitwert laut Volltext mindestens die Grenze erreicht.
+
+    Der Streitwert steht nur im Volltext, nicht in den Trefferlisten der
+    Portale. Geprüft werden höchstens `pruefen_hoechstens` Volltexte (Laufzeit);
+    Entscheidungen ohne Streitwertangabe fallen heraus. Die Volltexte der
+    verworfenen Treffer werden wieder gelöscht, damit der Agent nur die
+    Kandidaten sieht.
+    """
+    geprueft = 0
+    ohne_angabe = 0
+    treffer: list[Fund] = []
+    for fund in sorted(funde, key=lambda f: f.datum, reverse=True):
+        if geprueft >= pruefen_hoechstens or len(treffer) >= grenze * 2:
+            break
+        volltexte_ablegen([fund], ordner, pause)
+        geprueft += 1
+        if not fund.volltext:
+            continue
+        if fund.streitwert is not None and fund.streitwert >= mindestens:
+            treffer.append(fund)
+            continue
+        if fund.streitwert is None:
+            ohne_angabe += 1
+        fund.volltext.unlink(missing_ok=True)
+        fund.volltext = None
+    print(f"Streitwert ab {euro(mindestens)}: {len(treffer)} von {geprueft} geprüften Volltexten "
+          f"({ohne_angabe} ohne Streitwertangabe).")
+    return treffer
 
 
 def auswaehlen(funde: list[Fund], grenze: int) -> dict[str, list[Fund]]:
@@ -818,7 +895,7 @@ def auswaehlen(funde: list[Fund], grenze: int) -> dict[str, list[Fund]]:
     return ausgewaehlt
 
 
-def bericht(gruppen: dict[str, list[Fund]], stichtag: date) -> str:
+def bericht(gruppen: dict[str, list[Fund]], stichtag: date, streitwert_ab: int = 0) -> str:
     auswahl = [f for r in REGIONEN for f in gruppen.get(r, [])]
 
     zeilen = [
@@ -841,6 +918,11 @@ def bericht(gruppen: dict[str, list[Fund]], stichtag: date) -> str:
         "Aussage über die Eignung. Ein hoher Wert kann auch eine Kostenentscheidung",
         "in einer Bausache treffen, ein niedriger eine grundlegende Entscheidung.",
         "",
+        *([f"**Nur Entscheidungen mit einem Streitwert ab {euro(streitwert_ab)}** laut Volltext "
+            "(Streit-, Gegenstands- oder Beschwerdewert; bei mehreren Instanzen der höchste). "
+            "Entscheidungen ohne Streitwertangabe sind ausgeschlossen. Nenne den Streitwert "
+            "in der Besprechung mit der Stelle im Urteil, an der er festgesetzt ist.", ""]
+          if streitwert_ab else []),
         "## Hinweis zur Abdeckung",
         "",
         "Durchsucht werden: der Bund (rechtsprechung-im-internet.de), Berlin,",
@@ -859,7 +941,8 @@ def bericht(gruppen: dict[str, list[Fund]], stichtag: date) -> str:
             "## Keine Kandidaten",
             "",
             "Im gewählten Zeitraum wurde nichts gefunden, zu dem noch kein Entwurf",
-            "vorliegt. Beende den Lauf mit `ERGEBNIS: KEINE KANDIDATEN`.",
+            "vorliegt" + (f" und dessen Streitwert mindestens {euro(streitwert_ab)} beträgt"
+                          if streitwert_ab else "") + ". Beende den Lauf mit `ERGEBNIS: KEINE KANDIDATEN`.",
             "",
         ]
         return "\n".join(zeilen)
@@ -882,6 +965,8 @@ def bericht(gruppen: dict[str, list[Fund]], stichtag: date) -> str:
             if f.volltext:
                 zeilen.append(f"- Volltext (lokal, mit Read öffnen): `{f.volltext}`")
                 zeilen.append(f"- Umfang: {f.woerter} Wörter")
+                zeilen.append(f"- Streitwert laut Volltext: "
+                              f"{euro(f.streitwert) if f.streitwert else 'nicht genannt'}")
                 zeilen.append(
                     f"- Begriffe aus dem Themenfeld: {f.treffer}"
                     + (f" ({', '.join(f.begriffe[:8])})" if f.begriffe else "")
@@ -915,6 +1000,10 @@ def main() -> int:
                           help="Höchstzahl der Kandidaten in der Liste")
     zerleger.add_argument("--pause", type=float, default=1.0,
                           help="Sekunden zwischen zwei Abfragen der Landesdatenbank")
+    zerleger.add_argument("--streitwert-ab", type=int, default=0,
+                          help="nur Entscheidungen mit mindestens diesem Streitwert in Euro (0 = alle)")
+    zerleger.add_argument("--pruefen-hoechstens", type=int, default=80,
+                          help="bei Streitwertfilter: höchstens so viele Volltexte prüfen")
     zerleger.add_argument("--nur",
                           choices=["bund", "brandenburg", "nrw", "laender", "berlin"],
                           help="nur eine Quelle abfragen (für Tests)")
@@ -964,13 +1053,26 @@ def main() -> int:
     ziel = Path(argumente.ziel)
     ziel.parent.mkdir(parents=True, exist_ok=True)
 
-    gruppen = auswaehlen(funde, argumente.max)
-    auswahl = [f for r in REGIONEN for f in gruppen[r]]
-    if auswahl:
-        print(f"\nVolltexte werden geladen ({len(auswahl)} Entscheidungen) …")
-        volltexte_ablegen(auswahl, ziel.parent / "volltexte", argumente.pause)
+    if argumente.streitwert_ab > 0:
+        print(f"\nStreitwertfilter ab {euro(argumente.streitwert_ab)}: Volltexte werden geprüft …")
+        passende = nach_streitwert_auswaehlen(funde, argumente.max, argumente.streitwert_ab,
+                                              ziel.parent / "volltexte", argumente.pause,
+                                              argumente.pruefen_hoechstens)
+        gruppen = auswaehlen(passende, argumente.max)
+        # Volltexte von Treffern, die über die Höchstzahl hinaus geladen wurden, entfernen.
+        behalten = {id(f) for r in REGIONEN for f in gruppen[r]}
+        for f in passende:
+            if id(f) not in behalten and f.volltext:
+                f.volltext.unlink(missing_ok=True)
+        auswahl = [f for r in REGIONEN for f in gruppen[r]]
+    else:
+        gruppen = auswaehlen(funde, argumente.max)
+        auswahl = [f for r in REGIONEN for f in gruppen[r]]
+        if auswahl:
+            print(f"\nVolltexte werden geladen ({len(auswahl)} Entscheidungen) …")
+            volltexte_ablegen(auswahl, ziel.parent / "volltexte", argumente.pause)
 
-    ziel.write_text(bericht(gruppen, stichtag), encoding="utf-8", newline="\n")
+    ziel.write_text(bericht(gruppen, stichtag, argumente.streitwert_ab), encoding="utf-8", newline="\n")
     print(f"\nGefunden: {len(funde)} · in der Liste: {len(auswahl)}")
     print(f"Liste geschrieben: {ziel}")
     return 0
