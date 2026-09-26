@@ -55,9 +55,9 @@ Die Vorlage gibt es in drei Formen. Das PDF zum Ausdrucken nehmen Sie mit auf de
 
 Der erste Schwerpunkt ist die Verkehrssicherheit der Außenanlagen. Gehwege, Treppen, Handläufe und die Beleuchtung entscheiden darüber, ob Bewohner und Besucher sicher ins Haus kommen. Eine einzelne hochstehende Gehwegplatte genügt für einen Sturz. Bäume gehören ebenfalls dazu. Abgebrochene oder abgestorbene Äste über Wegen und Stellplätzen notieren Sie und lassen den Baum von einer fachkundigen Person kontrollieren.
 
-Der zweite Schwerpunkt sind die Rettungswege. Treppenräume und Flure sind die Wege, über die Bewohner das Haus verlassen und die Feuerwehr hineinkommt. Die Fachliteratur ist hier deutlich. Die Benutzung von Rettungswegen soll nicht durch abgestellte Gegenstände oder durch die Lagerung brennbarer Stoffe beeinträchtigt sein.[^5] Deshalb steht in der Liste nicht nur das Fahrrad im Flur. Sie prüfen auch, ob Türen mit Selbstschließer von allein ins Schloss fallen und ob niemand sie verkeilt hat.
+Der zweite Schwerpunkt sind die Rettungswege. Treppenräume und Flure sind die Wege, über die Bewohner das Haus verlassen und die Feuerwehr hineinkommt. Die Benutzung von Rettungswegen sollte nicht durch abgestellte Gegenstände oder durch die Lagerung brennbarer Stoffe beeinträchtigt sein.[^5] Deshalb steht in der Liste nicht nur das Fahrrad im Flur. Sie prüfen auch, ob Türen mit Selbstschließer von allein ins Schloss fallen und ob niemand sie verkeilt hat.
 
-Der dritte Schwerpunkt ist das Wasser, das vom Gebäude weg soll. Dachflächen, Anschlüsse und Entwässerungseinrichtungen brauchen eine regelmäßige Inspektion. Die Fachliteratur empfiehlt für Dächer eine Inspektion und eine Wartung mindestens einmal im Jahr durch ein Fachunternehmen, mit schriftlicher Dokumentation.[^6] Vom Boden aus sehen Sie davon nur einen Teil. Pflanzenbewuchs in der Rinne, ein feuchter Streifen an der Wand unter einem Fallrohr oder eine dauerhafte Pfütze am Sockel sind die Zeichen, die Sie festhalten.
+Der dritte Schwerpunkt ist das Wasser, das vom Gebäude weg soll. Dachflächen, Anschlüsse und Entwässerungseinrichtungen brauchen eine regelmäßige Inspektion. Für Balkone, Dachterrassen und Laubengänge empfiehlt die Fachliteratur eine Inspektion mindestens einmal im Jahr durch ein Fachunternehmen und eine Wartung ebenfalls mindestens einmal im Jahr; die Ergebnisse der Inspektion sind schriftlich zu dokumentieren.[^6] Vom Boden aus sehen Sie von all dem nur einen Teil. Pflanzenbewuchs in der Rinne, ein feuchter Streifen an der Wand unter einem Fallrohr oder eine dauerhafte Pfütze am Sockel sind die Zeichen, die Sie festhalten.
 
 Der vierte Schwerpunkt sind die Prüf- und Wartungsnachweise. Die Liste fragt bewusst nur, ob ein Nachweis vorliegt und wer die Anlage betreut. Welche Prüfung vorgeschrieben ist und in welchem Abstand, hängt von der Anlage, ihrer Nutzung und dem Landesrecht ab. Für das Trinkwasser gilt die Trinkwasserverordnung, eine gesetzliche Regelung zum Schutz der Gesundheit der Verbraucher.[^7] Die Anlagenliste Ihres Objekts ergänzen Sie deshalb selbst, Anlage für Anlage.
 
@@ -81,7 +81,7 @@ Für Sie als Verwaltung bringt das zwei Dinge. Sie wissen, ob eine Reparatur gen
 
 **Wie oft muss eine Hausverwaltung ein Wohngebäude begehen?**
 
-Ein allgemein gültiges Intervall gibt es nicht. Wie oft eine Begehung sinnvoll ist, hängt von Größe, Alter, Zustand und Nutzung des Objekts ab. Für Dächer und ihre Entwässerung empfiehlt die Fachliteratur eine Inspektion und eine Wartung mindestens einmal im Jahr durch ein Fachunternehmen.[^6] Viele Verwaltungen legen die Objektbegehung deshalb in den Rhythmus dieser Termine.
+Ein allgemein gültiges Intervall gibt es nicht. Wie oft eine Begehung sinnvoll ist, hängt von Größe, Alter, Zustand und Nutzung des Objekts ab. Für Balkone, Dachterrassen und Laubengänge empfiehlt die Fachliteratur eine Inspektion mindestens einmal im Jahr durch ein Fachunternehmen und eine Wartung ebenfalls mindestens einmal im Jahr.[^6] Viele Verwaltungen legen die Objektbegehung deshalb in den Rhythmus dieser jährlichen Termine.
 
 **Darf ich bei der Begehung eine Wohnung betreten?**
 
