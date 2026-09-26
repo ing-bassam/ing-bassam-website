@@ -1248,21 +1248,9 @@ jobs:
             exit 0
           fi
 
-          # Wer hat den neuesten Commit auf dem Hauptzweig eingespielt? Ein Merge über die GitHub-Oberfläche
-          # hat den Committer „GitHub“; ein direkter Push des Agenten trägt die Bot-Identität.
-          # (Fehler bei der Abfrage sind nicht fatal.)
-          committer="$(gh api "repos/${GITHUB_REPOSITORY}/commits/${sha_nachher}" \
-                         --jq '.commit.committer.name' 2>/dev/null | tr '\r\n' '  ' || true)"
-          committer_klein="$(printf '%s' "$committer" | tr '[:upper:]' '[:lower:]')"
-          case "$committer_klein" in
-            *"[bot]"*|*claude*)
-              echo "::error title=Fachartikel::Der Zweig ${ZWEIG} wurde während des Laufs direkt von einem Bot verändert (${SHA_VORHER:0:7} → ${sha_nachher:0:7}, Committer: ${committer}). Der Agent darf nie auf ${ZWEIG} pushen – bitte den Commit prüfen, ggf. zurücknehmen und Branch-Protection aktivieren (Settings → Branches)."
-              exit 1
-              ;;
-            *)
-              echo "::notice title=Fachartikel::Der Zweig ${ZWEIG} hat sich während des Laufs geändert (${SHA_VORHER:0:7} → ${sha_nachher:0:7}, Committer: ${committer:-unbekannt}). Ein eigener Commit oder Merge ist unbedenklich."
-              ;;
-          esac
+          # Die direkte Commit-Kette des Hauptzweigs prüfen: Merges über GitHub und der Seitenbau
+          # sind unbedenklich, ein direkter Bot-Commit (Agent) nicht (tools/hauptzweig_pruefen.py).
+          python tools/hauptzweig_pruefen.py "$SHA_VORHER" "$sha_nachher" --titel Fachartikel
 
       # -----------------------------------------------------------------
       # Mehrere Runden: Die nächste Runde startet nur, wenn diese einen neuen

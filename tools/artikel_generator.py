@@ -515,7 +515,7 @@ LESEZEIT_MAX = 25
 # Abschnitte und weniger FAQ. Schlüssel: Format in Kleinschreibung.
 KURZE_FORMATE = {
     "urteil verständlich": {"lesezeit": (4, 10), "h2": (3, 7), "faq": 3},
-    "vorlage": {"lesezeit": (2, 10), "h2": (2, 6), "faq": 3},
+    "vorlage": {"lesezeit": (5, 10), "h2": (3, 7), "faq": 3},
 }
 
 # Formate, die eine Gerichtsentscheidung wiedergeben: Jeder Absatz über das
