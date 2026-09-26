@@ -298,6 +298,18 @@ jobs:
             --add-dir ${{ steps.kandidaten.outputs.verzeichnis }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
 
+
+      # Die Claude-Aktion zeigt im Protokoll nur Kennzahlen. Dieser Schritt macht
+      # sichtbar, was der Agent gemeldet hat, welche Befehle abgelehnt wurden und
+      # welche Werkzeuge Fehler hatten – sonst bleibt ein stilles Scheitern
+      # („Erfolg, aber kein Pull Request“) unerklärlich. Nichts aus der
+      # Auftragsdatei gelangt ins Protokoll.
+      - name: Abschlussmeldung des Agenten
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        continue-on-error: true
+        env:
+          VERLAUF: ${{ steps.claude.outputs.execution_file }}
+        run: python tools/agent_bericht.py "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
       # -----------------------------------------------------------------
       # Faktenprüfung. Ein zweiter, unabhängiger Agent vergleicht jede Aussage
       # über die besprochene Entscheidung mit ihrer Randnummer im Volltext und

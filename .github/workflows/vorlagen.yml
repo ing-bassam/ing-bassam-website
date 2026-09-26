@@ -395,6 +395,18 @@ jobs:
             --add-dir ${{ steps.auftrag.outputs.auftrag_verzeichnis }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/vorlage_bauen.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
 
+
+      # Die Claude-Aktion zeigt im Protokoll nur Kennzahlen. Dieser Schritt macht
+      # sichtbar, was der Agent gemeldet hat, welche Befehle abgelehnt wurden und
+      # welche Werkzeuge Fehler hatten – sonst bleibt ein stilles Scheitern
+      # („Erfolg, aber kein Pull Request“) unerklärlich. Nichts aus der
+      # Auftragsdatei gelangt ins Protokoll.
+      - name: Abschlussmeldung des Agenten
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        continue-on-error: true
+        env:
+          VERLAUF: ${{ steps.claude.outputs.execution_file }}
+        run: python tools/agent_bericht.py "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
       # -----------------------------------------------------------------
       # Pull Request dieses Laufs bestimmen, Notion aktualisieren
       # -----------------------------------------------------------------
@@ -417,7 +429,7 @@ jobs:
           ZEILE="$(python tools/eigener_entwurf.py --seit "$JOBSTART" --format "Vorlage" --notion-id "$NOTION_ID" --ausgabe tab)"
           if [ -z "$ZEILE" ]; then
             if [ "$AGENT" = "success" ]; then
-              echo "::error title=Vorlagen::Der Agent meldete Erfolg, aber es gibt keinen Pull Request aus diesem Lauf (Branch vorlage/*). Die Abschlussmeldung im Schritt „Vorlage erstellen lassen“ nennt den Grund. Notion bleibt unverändert."
+              echo "::error title=Vorlagen::Der Agent meldete Erfolg, aber es gibt keinen Pull Request aus diesem Lauf (Branch vorlage/*). Den Grund zeigt der Schritt „Abschlussmeldung des Agenten“ (auch in der Zusammenfassung des Laufs). Notion bleibt unverändert."
               echo "bereit=false" >> "$GITHUB_OUTPUT"
               exit 1
             fi
