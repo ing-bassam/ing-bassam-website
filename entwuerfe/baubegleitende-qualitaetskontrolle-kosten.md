@@ -13,7 +13,7 @@ qualifikation:
 kurzform: baubegleitende-qualitaetskontrolle-kosten
 erstellt: 2026-09-25
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-8104-ad7e-c78b8ff9a441
 notion_url: https://app.notion.com/p/Baubegleitende-Qualit-tskontrolle-Nutzen-Termine-Kosten-3dfd96ad00b48104ad7ec78b8ff9a441
