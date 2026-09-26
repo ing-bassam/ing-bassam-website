@@ -1,0 +1,114 @@
+titel: Checkliste Hauskauf
+untertitel: "Besichtigung, Unterlagen und Bauzustand"
+kurzform: hauskauf-besichtigung-unterlagen
+typ: Checkliste
+stand: 2026-09-26
+dateien: [pdf, pdf-ausfuellbar]
+einleitung: "Diese Checkliste führt Sie durch den Kauf eines gebrauchten Wohnhauses. Sie beginnt mit den Unterlagen, die Sie vor dem Termin anfordern, und geht dann von außen nach innen durch das Gebäude bis zur Haustechnik. Am Ende ordnen Sie Ihre Befunde und entscheiden, wo Sie Fachleute brauchen."
+kopffelder:
+  - Objekt und Anschrift
+  - Baujahr laut Verkäufer
+  - Datum der Besichtigung
+  - Anwesende Personen
+  - Angebotspreis und Wohnfläche
+abschnitte:
+  - titel: Unterlagen vor der Besichtigung anfordern
+    punkte:
+      - text: "Der Grundbuchauszug liegt vor, und die zweite Abteilung ist gelesen."
+        hinweis: "In der zweiten Abteilung stehen die Belastungen des Grundstücks außer Hypotheken und Grundschulden sowie Beschränkungen des Verfügungsrechts, etwa Wege- und Leitungsrechte."
+      - text: "Baugenehmigung, genehmigte Pläne und Baubeschreibung liegen vor."
+        hinweis: "Vergleichen Sie die Pläne mit dem, was Sie vor Ort sehen: Umbauten ohne Genehmigung sind ein eigenes Risiko."
+      - text: "Der Energieausweis liegt vor oder wird bei der Besichtigung vorgelegt."
+        hinweis: "Bei einem Verkauf muss der Verkäufer oder der Makler dem Kaufinteressenten spätestens bei der Besichtigung einen Energieausweis oder eine Kopie vorlegen."
+      - text: "Die Wohnflächenberechnung liegt vor, und die Berechnungsgrundlage ist benannt."
+        hinweis: "Fragen Sie nach, nach welcher Regel gerechnet wurde; Dachschrägen und Balkone werden je nach Grundlage unterschiedlich angerechnet."
+      - text: "Nachweise über Modernisierungen an Dach, Heizung, Fenstern und Leitungen liegen mit Jahresangabe vor."
+        hinweis: "Ohne Jahresangabe ist ein Nachweis für die Kostenplanung wenig wert."
+      - text: "Statik und Bodengutachten sind angefordert, soweit vorhanden."
+        hinweis: "Zu einer vollständigen Hausakte gehören Statik, Ausführungsplanung, Baugenehmigung, Bodengutachten und eine Liste der ausführenden Firmen."
+      - text: "Ein Lageplan oder eine Flurkarte liegt vor."
+      - text: "Die Auskunft aus dem Altlastenkataster ist bei der zuständigen Behörde beantragt."
+      - text: "Das Baulastenverzeichnis ist eingesehen, sofern das Bundesland eines führt."
+        hinweis: "Nicht alle Bundesländer führen ein Baulastenverzeichnis; die zuständige Bauaufsicht sagt Ihnen, was vor Ort gilt."
+  - titel: Grundstück und Umgebung
+    punkte:
+      - text: "Das Gelände fällt vom Gebäude weg, an der Fassade stehen keine Pfützen."
+        hinweis: "Ein Gefälle zum Haus hin führt Regenwasser genau dorthin, wo es nicht hingehört."
+      - text: "Dachrinnen und Fallrohre sind angeschlossen, das Wasser versickert nicht am Sockel."
+      - text: "Bäume und große Sträucher stehen weit genug vom Gebäude entfernt."
+        hinweis: "Wurzeln nahe am Haus können Leitungen und erdberührte Bauteile beschädigen."
+      - text: "Garage, Carport und Anbauten sind genehmigt, und die Genehmigung liegt vor."
+      - text: "Zufahrt und Leitungswege liegen auf dem eigenen Grundstück oder sind gesichert."
+        hinweis: "Rechte an fremden Grundstücken stehen in der zweiten Abteilung des Grundbuchs, nicht im Kaufvertrag."
+  - titel: Gebäude von außen
+    punkte:
+      - text: "Die Dacheindeckung ist vollständig, es fehlen keine Ziegel und keine Bleche."
+        hinweis: "Sehen Sie vom Boden oder vom Nachbargrundstück aus hin; steigen Sie nicht auf das Dach."
+      - text: "Der Schornstein ist verputzt oder verkleidet und zeigt keine Abplatzungen."
+      - text: "Dachrinnen, Fallrohre und Blechanschlüsse sind frei von Rost und Löchern."
+      - text: "Die Fassade zeigt keine Risse, Abplatzungen oder dunklen Feuchteflecken."
+        hinweis: "Fotografieren Sie jeden Riss mit einem Maßstab oder einer Münze im Bild; die Ursache klärt eine Fachperson."
+      - text: "Sockel und erdberührte Wände sind frei von Feuchterändern und weißen Salzausblühungen."
+        hinweis: "Weiße, pelzige Ausblühungen zeigen, dass Wasser durch das Mauerwerk gewandert ist und Salze mitgebracht hat."
+      - text: "Fenster und Außentüren schließen dicht, die Dichtungen sind weich und ohne Risse."
+        hinweis: "Das Herstellungsjahr des Glases steht oft als Zahl im Abstandhalter zwischen den Scheiben."
+  - titel: Keller und Innenräume
+    punkte:
+      - text: "Im Keller riecht es nicht muffig oder erdig."
+      - text: "Die Kellerwände sind frei von Feuchterändern, Putzabplatzungen und Salzausblühungen."
+      - text: "Es ist bekannt, ob der Keller nachträglich abgedichtet wurde und mit welchem Verfahren."
+        hinweis: "Ohne nachträgliche Abdichtung ist bei einem Altbau mit einem feuchten Keller zu rechnen; feuchteempfindliche Dinge können dort nicht gelagert werden."
+      - text: "Wände und Decken der Wohnräume sind frei von Rissen, Verfärbungen und Schimmel."
+        hinweis: "Sehen Sie auch hinter Möbeln, Vorhängen und in den Raumecken der Außenwände nach."
+      - text: "Die Böden sind eben, es gibt keine weichen oder stark knarrenden Stellen."
+      - text: "In den Räumen unter den Bädern sind Decken und Wandanschlüsse frei von Flecken."
+      - text: "Die Fugen an Wanne und Dusche sind geschlossen, die Fliesen sitzen fest."
+        hinweis: "Eine elastische Fuge zwischen Wanne und Wand ist keine Abdichtung; Wasser, das dahinter läuft, ist von außen nicht zu sehen."
+  - titel: Dachboden und Dachtragwerk
+    punkte:
+      - text: "Auf der Unterseite der Dachdeckung gibt es keine Wasserränder und keine nassen Stellen."
+      - text: "Die Holzbalken sind trocken und zeigen keine Ausfluglöcher, kein Bohrmehl und keine Pilzgeflechte."
+        hinweis: "Von holzzerstörenden Pilzen befallene Holzbalkendecken sind häufig nicht mehr voll tragfähig; betreten Sie den Bereich dann nicht und holen Sie eine Fachperson."
+      - text: "Die Dämmung ist vorhanden, trocken und liegt ohne Lücken."
+      - text: "Die Dachkonstruktion ist belüftet, an der Unterspannbahn zeigen sich keine Schimmelflecken."
+  - titel: Haustechnik
+    punkte:
+      - text: "Art, Baujahr und Brennstoff der Heizung sind notiert."
+        hinweis: "Das Baujahr steht meist auf dem Typenschild am Kessel; der Austausch einer alten Heizung ist einer der größten Einzelposten der Kostenplanung."
+      - text: "Wartungsnachweise der Heizung und die Bescheinigung des Schornsteinfegers liegen vor."
+      - text: "Der Zählerschrank ist angesehen, Fehlerstrom-Schutzschalter sind vorhanden."
+        hinweis: "Fehlerstrom-Schutzschalter sind die breiten Schalter mit Prüfknopf; fehlen sie, ist mit einer Erneuerung der Elektroinstallation zu rechnen."
+      - text: "Alter und Material der Wasser- und Abwasserleitungen sind erfragt."
+      - text: "Die Zählerstände von Strom, Gas und Wasser sind mit Datum fotografiert."
+  - titel: Schadstoffverdacht nach Baujahr
+    punkte:
+      - text: "Der Baubeginn des Gebäudes liegt nach dem 31. Oktober 1993."
+        hinweis: "Liegt der Baubeginn davor, ist mit asbesthaltigen Bauprodukten zu rechnen, etwa in Faserzementplatten, Bodenbelägen, Klebern oder Spachtelmassen."
+      - text: "Fassadenplatten, Dachplatten, Bodenbeläge und Kleber sind auf Asbestverdacht angesehen, ohne sie zu beschädigen."
+        hinweis: "Verdächtige Bauteile nicht anbohren, abschlagen oder abschleifen; Probenahme und Bewertung übernimmt eine Fachfirma."
+      - text: "Bei einem älteren Dachstuhl ist gefragt, ob Holzschutzmittel aufgebracht wurden."
+        hinweis: "Früher wurden organische Holzschutzmittel wie PCP oder Lindan eingesetzt, die die Raumluft belasten können."
+  - titel: Nach der Besichtigung auswerten
+    punkte:
+      - text: "Alle Auffälligkeiten sind mit Datum, Raum und Maßstab fotografiert."
+      - text: "Die offenen Fragen an den Verkäufer sind schriftlich festgehalten."
+      - text: "Der geschätzte Sanierungsbedarf ist nach Dringlichkeit geordnet: sofort, in den nächsten fünf Jahren, später."
+      - text: "Bekannte Mängel sind vor dem Notartermin geklärt."
+        hinweis: "Kennt der Käufer bei Vertragsschluss einen Mangel, sind seine Rechte wegen dieses Mangels ausgeschlossen."
+      - text: "Bei unklaren Feuchte-, Riss- oder Schadstoffbefunden ist eine Begutachtung vor der Kaufentscheidung beauftragt."
+hinweise:
+  - "Prüfen Sie nur, was ohne Werkzeug und ohne Gefahr zu sehen ist. Öffnen Sie keine Bauteile, bohren Sie nicht und steigen Sie nicht auf das Dach."
+  - "Bei Gasgeruch, Strom in feuchten Bereichen, Absturzgefahr oder Verdacht auf Schadstoffe verlassen Sie den Bereich und schalten Fachfirma, Netzbetreiber oder Behörde ein."
+  - "Ein zweiter Termin bei Regen zeigt Undichtigkeiten an Dach und Sockel, die bei Trockenheit nicht auffallen."
+  - "Kennt der Käufer bei Vertragsschluss einen Mangel, sind seine Rechte wegen dieses Mangels ausgeschlossen. Ein vertraglicher Haftungsausschluss hilft dem Verkäufer dagegen nicht, soweit er einen Mangel arglistig verschwiegen hat. Ob das im Einzelfall vorliegt, beurteilt ein Rechtsanwalt."
+  - "Diese Checkliste gibt den fachlichen Kenntnisstand zum Stand-Datum wieder. Sie ist keine Rechtsberatung und ersetzt keine Begutachtung des Einzelfalls."
+quellen:
+  - "§ 80 Abs. 3 und 4 Gebäudemodernisierungsgesetz (GModG), abgerufen am 26.09.2026"
+  - "§ 442 Abs. 1 und § 444 Bürgerliches Gesetzbuch (BGB)"
+  - "§ 10 Verordnung zur Durchführung der Grundbuchordnung (GBV)"
+  - "§ 1 Abs. 1 Verordnung zur Berechnung der Wohnfläche (WoFlV)"
+  - "Umweltbundesamt und BG BAU zum Asbestverbot seit dem 31. Oktober 1993"
+  - "Schulz, Joachim: Architektur der Bauschäden, 4. Aufl. 2020, S. 596 f."
+  - "Stahr, Michael (Hrsg.): Bausanierung, 7. Aufl. 2022, S. 380"
+  - "Schulz, Joachim: Bauschäden in Bädern und Nassräumen, 2. Aufl. 2026, S. 137"
+  - "Kaub, Siegmund: Schadstoffe im Bauwesen, 4. Aufl. 2024, S. 57"
