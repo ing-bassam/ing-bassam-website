@@ -55,7 +55,7 @@ Halten Sie sich an die Grenze der Selbsthilfe. Sie sehen hin, Sie klopfen nicht 
 
 Der Keller ist der wichtigste Abschnitt. Fragen Sie, ob nachträglich abgedichtet wurde und mit welchem Verfahren. Ist keine Abdichtung ausgeführt worden, ist bei einem Altbau mit einem feuchten Keller zu rechnen.[^8] Das muss kein Mangel sein, solange Sie dort nur feuchteunempfindliche Dinge lagern. Es ist aber ein Mangel für Ihre Planung, wenn Sie unten ein Arbeitszimmer einrichten wollen. Muffiger Geruch, Putzabplatzungen und weiße Salzausblühungen sind die Anzeichen, auf die Sie sehen.
 
-Im Bad sehen Sie auf die Fugen an Wanne und Dusche. Eine elastische Fuge zwischen Wanne und Wand ist keine Abdichtung, sondern eine Verschleißschicht.[^10] Läuft Wasser dahinter, ist das von außen nicht zu erkennen.[^10] Deshalb steht in der Liste ein eigener Punkt für die Räume unter den Bädern. Ein Fleck an der Kellerdecke unter dem Bad sagt mehr als eine frisch nachgezogene Silikonfuge im Bad selbst.
+Im Bad sehen Sie auf die Fugen an Wanne und Dusche. Eine elastische Fuge zwischen Wanne und Wand ist keine Abdichtung.[^10] Läuft Wasser dahinter, ist das von außen nicht zu erkennen.[^10] Deshalb steht in der Liste ein eigener Punkt für die Räume unter den Bädern. Ein Fleck an der Kellerdecke unter dem Bad sagt mehr als eine frisch nachgezogene Silikonfuge im Bad selbst.
 
 Auf dem Dachboden sehen Sie das Tragwerk offen. Suchen Sie nach Wasserrändern, nach Ausfluglöchern, nach Bohrmehl und nach pilzartigen Geflechten. Von holzzerstörenden Pilzen befallene Holzbalkendecken sind häufig nicht mehr voll tragfähig, sodass unverzüglich Abstützungen nötig werden.[^9] Wenn Sie so etwas sehen, betreten Sie die Fläche nicht weiter. Der Befund gehört in fachliche Hände, nicht in eine Kostenschätzung auf dem Parkplatz.
 
@@ -85,7 +85,7 @@ Eine [Kaufberatung](https://ing-bassam.de/#kontakt) während der Besichtigung is
 
 **Muss der Verkäufer mir bei der Besichtigung den Energieausweis zeigen?**
 
-Bei einem Verkauf hat der Verkäufer oder der Immobilienmakler dem möglichen Käufer spätestens bei der Besichtigung einen Energieausweis oder eine Kopie vorzulegen.[^1] Ein Energieausweis ist außerdem auszustellen, wenn für das Gebäude kein gültiger Ausweis vorliegt.[^1] Liegt bei der Besichtigung keiner vor, fragen Sie danach und halten die Antwort in der Checkliste fest. Der Ausweis sagt etwas über den Energiebedarf oder den Verbrauch, nicht über den Bauzustand.
+Bei einem Verkauf hat der Verkäufer oder der Immobilienmakler dem möglichen Käufer spätestens bei der Besichtigung einen Energieausweis oder eine Kopie vorzulegen.[^1] Soll ein bebautes Grundstück verkauft werden, ist ein Energieausweis auszustellen, wenn nicht bereits ein gültiger Energieausweis für das Gebäude vorliegt.[^1] Liegt bei der Besichtigung keiner vor, fragen Sie danach und halten die Antwort in der Checkliste fest. Der Ausweis sagt etwas über den Energiebedarf oder den Verbrauch, nicht über den Bauzustand.
 
 **Kann ich nach dem Kauf noch Mängel rügen, die ich bei der Besichtigung gesehen habe?**
 
@@ -97,7 +97,7 @@ Am wichtigsten sind Grundbuchauszug, Baugenehmigung mit genehmigten Plänen, Ene
 
 **Was kostet eine Begutachtung beim Hauskauf?**
 
-Das Honorar wird frei vereinbart; eine verbindliche Gebührenordnung gibt es dafür nicht. Der Preis richtet sich nach Größe und Baujahr des Gebäudes, nach dem Aufwand vor Ort und danach, ob Sie eine Einschätzung im Gespräch oder einen schriftlichen Bericht brauchen. Messungen und Laboruntersuchungen kosten zusätzlich. Lassen Sie sich den Umfang vorher schriftlich bestätigen.
+Der Preis richtet sich nach Größe und Baujahr des Gebäudes, nach dem Aufwand vor Ort und danach, ob Sie eine Einschätzung im Gespräch oder einen schriftlichen Bericht brauchen. Messungen und Laboruntersuchungen kosten zusätzlich. Lassen Sie sich den Umfang vorher schriftlich bestätigen.
 
 ## Hinweis
 
@@ -111,7 +111,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 ## Quellen und Fußnoten
 
-[^1]: Bundesministerium der Justiz: Gesetz zur Einsparung von Energie und zur Modernisierung der Wärmeversorgung in Gebäuden (Gebäudemodernisierungsgesetz), § 80 Abs. 3 und 4; Stand der abgerufenen Fassung: die Inhaltsseite weist keinen Fassungshinweis aus. https://www.gesetze-im-internet.de/geg/__80.html (abgerufen am 2026-09-26).
+[^1]: Bundesministerium der Justiz: Gesetz zur Einsparung von Energie und zur Modernisierung der Wärmeversorgung in Gebäuden (Gebäudemodernisierungsgesetz), § 80 Abs. 3 und 4. https://www.gesetze-im-internet.de/geg/__80.html (abgerufen am 2026-09-26).
 [^2]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 442 Abs. 1. https://www.gesetze-im-internet.de/bgb/__442.html (abgerufen am 2026-09-26).
 [^3]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 444. https://www.gesetze-im-internet.de/bgb/__444.html (abgerufen am 2026-09-26).
 [^4]: Bundesministerium der Justiz: Verordnung zur Durchführung der Grundbuchordnung, § 10. https://www.gesetze-im-internet.de/gbvfg/__10.html (abgerufen am 2026-09-26).
