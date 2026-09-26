@@ -18,7 +18,7 @@ qualifikation:
 kurzform: kulanzreparatur-haftung-verjaehrung
 erstellt: 2026-09-25
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
