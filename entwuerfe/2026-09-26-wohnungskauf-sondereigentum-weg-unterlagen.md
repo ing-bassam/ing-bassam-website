@@ -57,7 +57,7 @@ Nach dem Termin kommt der wichtigste Abschnitt. Ordnen Sie Ihre Befunde nach dri
 
 Die Zuordnung von Fenstern und Balkonen entscheidet über viel Geld. Sie steht in der Teilungserklärung, nicht im Kaufvertrag. Lesen Sie die Urkunde vor dem Notartermin, und notieren Sie, wer Fenster, Balkonbeläge und Geländer bezahlt.
 
-Balkone und Dachterrassen verdienen einen genauen Blick von unten. Die Abdichtung eines Gebäudes ist zwingender Bestandteil des Gemeinschaftseigentums.[^3] Ist sie undicht, gelangt Wasser in die Geschossdecke darunter.[^3] Typische Merkmale sind Wasserflecken mit dunklen Rändern, abblätternde Deckenfarbe und muffiger Geruch in den dahinterliegenden Räumen.[^3] Solche Spuren an der Decke des Nachbars sagen mehr als ein frisch gestrichener Balkon.
+Balkone und Dachterrassen verdienen einen genauen Blick von unten. Die Abdichtung eines Gebäudes ist zwingender Bestandteil des Gemeinschaftseigentums.[^3] Ist sie undicht, gelangt Wasser in die Geschossdecke darunter.[^3] Typische Merkmale sind Wasserflecken mit dunklen Rändern, abblätternde Deckenfarbe und muffiger Geruch in den dahinterliegenden Räumen.[^3] Solche Spuren an der Decke des Nachbarn sagen mehr als ein frisch gestrichener Balkon.
 
 Der Energieausweis gehört in Ihre Unterlagen. Beim Verkauf legt der Verkäufer oder der Makler ihn dem Kaufinteressenten spätestens bei der Besichtigung vor.[^4] Er bezieht sich auf das gesamte Gebäude, auch beim Verkauf einer einzelnen Wohnung.[^4] Ein Verbrauchsausweis zeigt gemessene Werte, und der Verbrauch hängt stark vom Verhalten der bisherigen Nutzer ab.[^4] Rechnen Sie ihn deshalb nicht in Ihre eigene Heizkostenprognose um.
 
@@ -69,13 +69,13 @@ Der häufigste Fehler ist der zu kurze Blick. Wer nur die Wohnung prüft, übers
 
 Risse werden oft falsch eingeordnet. Risse sind in der Regel nur die optischen Symptome für einen komplexen Schadensmechanismus.[^6] Die technische Bewertung eines Risses kann ergeben, dass kein technischer Mangel vorliegt, während die juristische Bewertung desselben Risses einen Mangel ergibt.[^6] Der Begriff Mangel ist ein Rechtsbegriff.[^6] Notieren Sie Lage, Länge und Verlauf, und verzichten Sie auf eine eigene Bewertung.
 
-Beim Neubau vom Bauträger lohnt ein zweiter Blick auf die Abnahme. Bei der Abnahme von Wohnungseigentum ist zwischen Sonder- und Gemeinschaftseigentum streng zu differenzieren.[^7] Die Abnahme der eigenen Wohnung bedeutet nicht, dass der Erwerber auch das Gemeinschaftseigentum als vertragsgemäß akzeptiert.[^7] Welche Wirkung eine Abnahmeklausel im Erwerbsvertrag hat, beurteilt ein Rechtsanwalt; die Checkliste hält nur den technischen Zustand fest.
+Beim Neubau vom Bauträger lohnt ein zweiter Blick auf die Abnahme. Bei der Abnahme von Wohnungseigentum ist zwischen Sonder- und Gemeinschaftseigentum streng zu differenzieren.[^7] Die Abnahme des Sondereigentums durch den Erwerber hat nicht zwangsläufig zur Folge, dass er auch das Gemeinschaftseigentum als im Wesentlichen vertragsgemäß akzeptiert.[^7] Welche Wirkung eine Abnahmeklausel im Erwerbsvertrag hat, beurteilt ein Rechtsanwalt; die Checkliste hält nur den technischen Zustand fest.
 
 Ein ausgefülltes Blatt ist eine Momentaufnahme. Eine Analyse des Gebäudezustands ist nur befristet gültig, und der Verschleiß der einzelnen Bauteile verläuft unterschiedlich.[^8] Ein Protokoll aus dem Vorjahr ersetzt Ihren eigenen Rundgang daher nicht.
 
 ## Wann ein Sachverständiger vor dem Notartermin hilft
 
-Die Reihenfolge ist in der Praxis klar: Nach der augenscheinlichen Bestandsaufnahme durch den Käufer sollte ein Fachplaner das Gebäude begutachten.[^8] Genau dafür ist diese Checkliste gemacht. Sie liefert die Vorarbeit, mit der ein Termin mit einem Sachverständigen kurz und günstig bleibt.
+Bei der Sanierung eines Gebäudes sollte nach der augenscheinlichen Bestandsaufnahme durch den Bauherrn ein kompetenter Fachplaner das Gebäude begutachten.[^8] Für den Wohnungskauf ist diese Checkliste genau diese Vorarbeit. Sie hält den Zustand so weit fest, dass ein Termin mit einem Sachverständigen kurz und günstig bleibt.
 
 Ein Sachverständiger liest die Unterlagen der Gemeinschaft, ordnet die Befunde ein und schätzt den Instandhaltungsstau am Gemeinschaftseigentum ein. Er sagt Ihnen, welche Arbeiten am Gebäude anstehen und welcher Aufwand dahintersteckt. Was er nicht tut: Er entscheidet keine Rechtsfragen und gibt keine Garantie für verdeckte Schäden.
 
@@ -91,7 +91,7 @@ Die Checkliste nennt sie im ersten Abschnitt. Dazu gehören die Teilungserkläru
 
 **Gehören Fenster und Balkone zur Wohnung oder zur Gemeinschaft?**
 
-Das hängt von der Teilungserklärung ab und lässt sich nicht pauschal beantworten. Als Faustregel ist alles innerhalb der Wohnung Sondereigentum, solange es nicht zum Bestand oder zur Benutzbarkeit der übrigen Wohnungen benötigt wird.[^2] Die Abdichtung eines Gebäudes ist zwingender Bestandteil des Gemeinschaftseigentums.[^3] Beim Balkon können deshalb der Bodenbelag und die Abdichtung darunter verschiedenen Eigentümern zugeordnet sein.
+Das hängt von der Teilungserklärung ab und lässt sich nicht pauschal beantworten. Als Faustregel ist alles innerhalb der Wohnung Sondereigentum, solange es nicht zum Bestand oder zur Benutzbarkeit der übrigen Wohnungen benötigt wird.[^2] Die Abdichtung eines Gebäudes ist zwingender Bestandteil des Gemeinschaftseigentums.[^3] Beim Balkon kann deshalb der Bodenbelag zum Sondereigentum und die Abdichtungsbahn auf der tragenden Decke darunter zum Gemeinschaftseigentum gehören.[^3]
 
 **Reicht die Checkliste ohne einen Sachverständigen aus?**
 
