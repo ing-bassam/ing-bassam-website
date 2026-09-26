@@ -18,7 +18,7 @@ Nach deinem Lauf prüfen die Faktenprüfung (jede Aussage über die Entscheidung
 
 ## Format und Leser
 
-`format` ist `Urteil verständlich`. `kategorie` ist `Gutachten & Recht`, bei Entscheidungen zu Kalkulation, Nachträgen oder Bauablauf `Baubetrieb`. `zielgruppe` nennt die Beteiligten, die der Fall betrifft – etwa `Privat, Hausverwaltung` bei einem Streit um Mängel am Gemeinschaftseigentum, `Gewerblich` bei einem Streit zwischen Unternehmer und Auftraggeber. Für die Sprache gilt **Gruppe A** des Fachartikel-Skills (einfache Sprache, Anrede „Sie“, Fachbegriffe im selben Satz erklärt), obwohl es eine Urteilsbesprechung ist.
+`format` ist `Rechtsprechung` – auf der Website stehen verständliche und ausführliche Besprechungen gemeinsam unter „Rechtsprechung“. Unmittelbar hinter `format` steht die Zeile `fassung: verständlich`; an ihr erkennen Seitenbauer und Workflow das kurze Format (Lesezeit 4 bis 10 Minuten, 3 bis 7 Abschnitte, mindestens 3 Fragen). `kategorie` ist `Gutachten & Recht`, bei Entscheidungen zu Kalkulation, Nachträgen oder Bauablauf `Baubetrieb`. `zielgruppe` nennt die Beteiligten, die der Fall betrifft – etwa `Privat, Hausverwaltung` bei einem Streit um Mängel am Gemeinschaftseigentum, `Gewerblich` bei einem Streit zwischen Unternehmer und Auftraggeber. Für die Sprache gilt **Gruppe A** des Fachartikel-Skills (einfache Sprache, Anrede „Sie“, Fachbegriffe im selben Satz erklärt), obwohl es eine Urteilsbesprechung ist.
 
 ## Keine offenen Prüfpunkte
 

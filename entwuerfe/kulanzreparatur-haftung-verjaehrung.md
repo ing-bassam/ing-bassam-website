@@ -1,7 +1,8 @@
 ---
 titel: "Reparatur aus Kulanz: Wie lange haftet die Firma dafür?"
 kategorie: Gutachten & Recht
-format: Urteil verständlich
+format: Rechtsprechung
+fassung: verständlich
 zielgruppe: Privat, Hausverwaltung
 leistung: Gutachten
 kernfrage: Haftet eine Firma für eine kostenlose Reparatur aus Kulanz, und wie lange?

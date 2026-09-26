@@ -7,8 +7,12 @@ nicht, um den eigenen Entwurf zu erkennen: Ein gleichzeitig laufender Agent
 legt ebenfalls einen Zweig entwurf/… an. Dieses Werkzeug liest deshalb die
 Entwurfsdatei jedes in Frage kommenden Pull Requests und prüft ihren Kopf:
 
-    format      gehört zum Agenten (z. B. „Rechtsprechung“, „Urteil verständlich“,
-                „Vorlage“) bzw. gehört NICHT zu einem anderen
+    format      gehört zum Agenten (z. B. „Rechtsprechung“, „Vorlage“) bzw. gehört
+                NICHT zu einem anderen
+    fassung     unterscheidet innerhalb von „Rechtsprechung“ die ausführliche
+                Besprechung (kein Feld) von der verständlichen (`fassung: verständlich`);
+                ein älterer Entwurf mit dem Format „Urteil verständlich“ zählt als
+                „Rechtsprechung“ mit dieser Fassung
     notion_id   stimmt mit der Notion-Seite des Laufs überein (falls bekannt);
                 ein Entwurf mit einer ANDEREN Notion-Seite gehört nie dazu
 
@@ -74,6 +78,8 @@ def main() -> int:
     p.add_argument("--format", default="", help="erlaubte Formate, kommagetrennt")
     p.add_argument("--ohne-format", default="", help="ausgeschlossene Formate, kommagetrennt")
     p.add_argument("--notion-id", default="", help="Notion-Seite dieses Laufs")
+    p.add_argument("--fassung", default=None,
+                   help="nur Entwürfe mit dieser Fassung; leer (\"\") = nur Entwürfe ohne Fassung")
     p.add_argument("--ausgabe", default="kurz", choices=["kurz", "tab", "url", "json", "anzahl"])
     a = p.parse_args()
 
@@ -108,6 +114,11 @@ def main() -> int:
             continue
         f = kopf(text)
         fmt = f.get("format", "").lower()
+        fassung = f.get("fassung", "").lower()
+        if fmt == "urteil verständlich":          # älteres Format
+            fmt, fassung = "rechtsprechung", "verständlich"
+        if a.fassung is not None and not (fassung.startswith(a.fassung.lower()[:5]) if a.fassung else not fassung):
+            continue
         if erlaubt and fmt not in erlaubt:
             continue
         if verboten and fmt in verboten:
