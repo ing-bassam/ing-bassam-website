@@ -46,26 +46,58 @@
     </nav>
     <header class="uebersicht-kopf">
       <h1>Fachwissen</h1>
-      <p>8 Beiträge zu Bauschäden, Bauphysik, Baubetrieb und baurechtlichen Fragen – zum Eingrenzen ein Thema oder Format antippen.</p>
+      <p>13 Beiträge zu Bauschäden, Bauphysik, Baubetrieb und baurechtlichen Fragen – zum Eingrenzen ein Thema oder Format antippen.</p>
     </header>
           <form class="filter" aria-label="Beiträge eingrenzen">
         <p class="filter-titel">Thema</p>
         <div class="chips">
-          <input type="radio" name="filter" id="filter-alle" checked><label for="filter-alle">#Alle <span>8</span></label>
+          <input type="radio" name="filter" id="filter-alle" checked><label for="filter-alle">#Alle <span>13</span></label>
           <input type="radio" name="filter" id="filter-k-baubetrieb"><label for="filter-k-baubetrieb">#Baubetrieb <span>2</span></label>
+          <input type="radio" name="filter" id="filter-k-bauherrenwissen"><label for="filter-k-bauherrenwissen">#Bauherrenwissen <span>2</span></label>
           <input type="radio" name="filter" id="filter-k-bauschaeden"><label for="filter-k-bauschaeden">#Bauschäden <span>1</span></label>
-          <input type="radio" name="filter" id="filter-k-gutachten-recht"><label for="filter-k-gutachten-recht">#Gutachten &amp; Recht <span>3</span></label>
+          <input type="radio" name="filter" id="filter-k-gutachten-recht"><label for="filter-k-gutachten-recht">#Gutachten &amp; Recht <span>6</span></label>
           <input type="radio" name="filter" id="filter-k-hausverwaltung-bestand"><label for="filter-k-hausverwaltung-bestand">#Hausverwaltung &amp; Bestand <span>2</span></label>
         </div>
         <p class="filter-titel">Format</p>
         <div class="chips">
           <input type="radio" name="filter" id="filter-f-grundlagen"><label for="filter-f-grundlagen">#Grundlagen <span>1</span></label>
-          <input type="radio" name="filter" id="filter-f-ratgeber"><label for="filter-f-ratgeber">#Ratgeber <span>3</span></label>
-          <input type="radio" name="filter" id="filter-f-rechtsprechung"><label for="filter-f-rechtsprechung">#Rechtsprechung <span>4</span></label>
+          <input type="radio" name="filter" id="filter-f-ratgeber"><label for="filter-f-ratgeber">#Ratgeber <span>5</span></label>
+          <input type="radio" name="filter" id="filter-f-rechtsprechung"><label for="filter-f-rechtsprechung">#Rechtsprechung <span>5</span></label>
+          <input type="radio" name="filter" id="filter-f-urteil-verstaendlich"><label for="filter-f-urteil-verstaendlich">#Urteil verständlich <span>2</span></label>
         </div>
       </form>
-      <style>main:has(#filter-k-gutachten-recht:checked) .karte:not([data-kategorie="gutachten-recht"]){display:none}#filter-k-gutachten-recht:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-bauschaeden:checked) .karte:not([data-kategorie="bauschaeden"]){display:none}#filter-k-bauschaeden:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-hausverwaltung-bestand:checked) .karte:not([data-kategorie="hausverwaltung-bestand"]){display:none}#filter-k-hausverwaltung-bestand:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-baubetrieb:checked) .karte:not([data-kategorie="baubetrieb"]){display:none}#filter-k-baubetrieb:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-f-rechtsprechung:checked) .karte:not([data-format="rechtsprechung"]){display:none}main:has(#filter-f-ratgeber:checked) .karte:not([data-format="ratgeber"]){display:none}main:has(#filter-f-grundlagen:checked) .karte:not([data-format="grundlagen"]){display:none}label[for="filter-k-gutachten-recht"]{--kat:var(--kat-gutachten-recht)}label[for="filter-k-bauschaeden"]{--kat:var(--kat-bauschaeden)}label[for="filter-k-hausverwaltung-bestand"]{--kat:var(--kat-hausverwaltung-bestand)}label[for="filter-k-baubetrieb"]{--kat:var(--kat-baubetrieb)}</style>
+      <style>main:has(#filter-k-gutachten-recht:checked) .karte:not([data-kategorie="gutachten-recht"]){display:none}#filter-k-gutachten-recht:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-bauschaeden:checked) .karte:not([data-kategorie="bauschaeden"]){display:none}#filter-k-bauschaeden:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-hausverwaltung-bestand:checked) .karte:not([data-kategorie="hausverwaltung-bestand"]){display:none}#filter-k-hausverwaltung-bestand:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-baubetrieb:checked) .karte:not([data-kategorie="baubetrieb"]){display:none}#filter-k-baubetrieb:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-bauherrenwissen:checked) .karte:not([data-kategorie="bauherrenwissen"]){display:none}#filter-k-bauherrenwissen:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-f-rechtsprechung:checked) .karte:not([data-format="rechtsprechung"]){display:none}main:has(#filter-f-ratgeber:checked) .karte:not([data-format="ratgeber"]){display:none}main:has(#filter-f-grundlagen:checked) .karte:not([data-format="grundlagen"]){display:none}main:has(#filter-f-urteil-verstaendlich:checked) .karte:not([data-format="urteil-verstaendlich"]){display:none}label[for="filter-k-gutachten-recht"]{--kat:var(--kat-gutachten-recht)}label[for="filter-k-bauschaeden"]{--kat:var(--kat-bauschaeden)}label[for="filter-k-hausverwaltung-bestand"]{--kat:var(--kat-hausverwaltung-bestand)}label[for="filter-k-baubetrieb"]{--kat:var(--kat-baubetrieb)}label[for="filter-k-bauherrenwissen"]{--kat:var(--kat-bauherrenwissen)}</style>
       <ul class="karten">
+        <li class="karte" data-kategorie="bauherrenwissen" data-format="ratgeber">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="bauherrenwissen">Bauherrenwissen</span> <span class="marke">Ratgeber</span></div>
+          <h2><a href="sparen-beim-hausbau-ohne-folgekosten/">Wo kann ich beim Hausbau sparen, und wo auf keinen Fall?</a></h2>
+          <p>Beim Hausbau sparen, ohne später draufzuzahlen – wo Einsparungen vertretbar sind und wo sie Folgekosten auslösen.</p>
+          <p class="karte-meta"><time datetime="2026-09-25">25.09.2026</time> · etwa 22 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="gutachten-recht" data-format="urteil-verstaendlich">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="gutachten-recht">Gutachten &amp; Recht</span> <span class="marke">Urteil verständlich</span></div>
+          <h2><a href="fassadenverschmutzung-mangel-gewerbemiete/">Verschmutzte Glasfassade: Wann ist das ein Mangel?</a></h2>
+          <p>Staub und Vogelkot auf der Glasfassade – das Landgericht Berlin II zu fristlosen Kündigungen wegen Verschmutzung und was daraus folgt.</p>
+          <p class="karte-meta"><time datetime="2026-09-25">25.09.2026</time> · etwa 10 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="gutachten-recht" data-format="rechtsprechung">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="gutachten-recht">Gutachten &amp; Recht</span> <span class="marke">Rechtsprechung</span></div>
+          <h2><a href="schweissnaht-beweislast-vor-abnahme/">Schweißnaht einbetoniert: Wer die Mangelfreiheit beweisen muss</a></h2>
+          <p>OLG Brandenburg: Ohne Abnahme beweist der Auftragnehmer die Mangelfreiheit, auch im Abrechnungsverhältnis. Was Röntgen und Ultraschall dabei leisten.</p>
+          <p class="karte-meta"><time datetime="2026-09-25">25.09.2026</time> · etwa 22 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="gutachten-recht" data-format="urteil-verstaendlich">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="gutachten-recht">Gutachten &amp; Recht</span> <span class="marke">Urteil verständlich</span></div>
+          <h2><a href="kulanzreparatur-haftung-verjaehrung/">Reparatur aus Kulanz: Wie lange haftet die Firma dafür?</a></h2>
+          <p>Eine Firma repariert kostenlos aus Kulanz. Ein Urteil zeigt, warum daraus ein Vertrag werden kann und warum die Ansprüche nach zwei Jahren verjährt waren.</p>
+          <p class="karte-meta"><time datetime="2026-09-25">25.09.2026</time> · etwa 10 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="bauherrenwissen" data-format="ratgeber">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="bauherrenwissen">Bauherrenwissen</span> <span class="marke">Ratgeber</span></div>
+          <h2><a href="baubegleitende-qualitaetskontrolle-kosten/">Baubegleitende Qualitätskontrolle: Nutzen, Termine, Kosten</a></h2>
+          <p>Was eine baubegleitende Qualitätskontrolle beim Hausbau leistet, zu welchen Terminen geprüft wird und wovon die Kosten abhängen.</p>
+          <p class="karte-meta"><time datetime="2026-09-25">25.09.2026</time> · etwa 21 Minuten</p>
+        </li>
         <li class="karte" data-kategorie="hausverwaltung-bestand" data-format="ratgeber">
           <div class="marken"><span class="marke marke--kategorie" data-kategorie="hausverwaltung-bestand">Hausverwaltung &amp; Bestand</span> <span class="marke">Ratgeber</span></div>
           <h2><a href="wasserschaden-mehrfamilienhaus-ablauf/">Wasserschaden im Mehrfamilienhaus: Was die Verwaltung zuerst tun muss</a></h2>
