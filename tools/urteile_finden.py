@@ -45,7 +45,10 @@ import html
 import http.cookiejar
 import io
 import json
+import os
 import re
+import shutil
+import subprocess
 import sys
 import time
 import unicodedata
@@ -267,13 +270,58 @@ def themenbezug(text: str) -> tuple[int, list[str]]:
     return len(getroffen), getroffen
 
 
+def texte_offener_entwuerfe() -> list[str]:
+    """Entwürfe, die noch als Pull Request auf die Durchsicht warten.
+
+    Sie liegen nicht im Ordner entwuerfe/ des Hauptzweigs. Ohne diesen Abgleich
+    galt eine Entscheidung so lange als „noch nicht besprochen“, bis ihr
+    Entwurf gemergt war – am 25.09.2026 entstanden so drei Besprechungen
+    desselben Urteils (OLG Brandenburg 10 U 14/24), zwei davon in einem Lauf.
+    Gelesen wird über refs/pull/<n>/head mit der GitHub-CLI (GH_TOKEN).
+    """
+    if not shutil.which("gh"):
+        print("::warning title=Urteilssuche::GitHub-CLI fehlt – Entwürfe in offenen Pull Requests "
+              "werden nicht ausgeschlossen; Doppelbesprechungen sind möglich.")
+        return []
+
+    def gh(*args: str) -> str:
+        return subprocess.run(["gh", *args], capture_output=True, text=True, encoding="utf-8",
+                              check=True, timeout=90).stdout
+
+    try:
+        repo = os.environ.get("GITHUB_REPOSITORY") or gh(
+            "repo", "view", "--json", "nameWithOwner", "--jq", ".nameWithOwner").strip()
+        prs = json.loads(gh("pr", "list", "--repo", repo, "--state", "open", "--limit", "100",
+                            "--json", "number,files"))
+        texte = []
+        for pr in prs:
+            for datei in pr.get("files") or []:
+                pfad = datei["path"]
+                if pfad.startswith("entwuerfe/") and pfad.endswith(".md"):
+                    texte.append(gh("api", "-H", "Accept: application/vnd.github.raw+json",
+                                    f"repos/{repo}/contents/{urllib.parse.quote(pfad)}"
+                                    f"?ref=refs/pull/{pr['number']}/head"))
+        print(f"Offene Entwürfe abgeglichen: {len(texte)}")
+        return texte
+    except (subprocess.SubprocessError, OSError, json.JSONDecodeError, KeyError) as fehler:
+        print(f"::warning title=Urteilssuche::Offene Pull Requests nicht lesbar ({str(fehler)[:200]}) – "
+              "dort liegende Entwürfe werden nicht ausgeschlossen; Doppelbesprechungen sind möglich.")
+        return []
+
+
 def bekannte_aktenzeichen() -> set[str]:
-    """Aktenzeichen, zu denen es schon einen Entwurf gibt."""
+    """Aktenzeichen, zu denen es schon einen Entwurf gibt – gemergt oder als offener Pull Request.
+
+    Gilt für jedes Format: Eine Entscheidung, die schon als „Urteil verständlich“
+    besprochen wird, bekommt keine zweite Besprechung als „Rechtsprechung“ und
+    umgekehrt – zwei Seiten zum selben Urteil würden sich in der Suche gegenseitig
+    Konkurrenz machen.
+    """
     bekannt: set[str] = set()
-    if not ENTWUERFE.is_dir():
-        return bekannt
-    for pfad in ENTWUERFE.glob("*.md"):
-        text = pfad.read_text(encoding="utf-8", errors="replace")
+    texte = [p.read_text(encoding="utf-8", errors="replace")
+             for p in (ENTWUERFE.glob("*.md") if ENTWUERFE.is_dir() else [])]
+    texte += texte_offener_entwuerfe()
+    for text in texte:
         for treffer in re.findall(r"^aktenzeichen:\s*(.+)$", text, re.M):
             bekannt.add(normal_az(treffer))
         # Auch im Fließtext genannte Aktenzeichen zählen als abgedeckt.

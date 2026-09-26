@@ -215,6 +215,8 @@ jobs:
           # Eingaben nie direkt in die Shell schreiben, sondern über die Umgebung.
           MONATE: ${{ inputs.monate }}
           QUELLE: ${{ inputs.quelle }}
+          # Zum Abgleich mit Entwürfen in offenen Pull Requests (keine Doppelbesprechung).
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
 
