@@ -123,15 +123,11 @@ run-name: "Fachartikel-Entwurf: ${{ inputs.notion_seite || inputs.thema || 'näc
 # Nie zwei Läufe gleichzeitig: sonst würden beide dasselbe offene Thema wählen.
 # Ein zweiter Lauf wartet, bis der erste (inkl. Notion-Aktualisierung) fertig ist.
 concurrency:
-  # Gemeinsame Warteschlange für alle Agenten, die einen Entwurf auf einem
-  # Zweig entwurf/… abliefern (Fachartikel, Urteilsbesprechung, Urteil
-  # verständlich). Sie finden ihren Pull Request über „Zweig beginnt mit
-  # entwurf/ und wurde nach dem Start dieses Laufs angelegt“. Liefen zwei
-  # gleichzeitig, könnte ein Lauf den Entwurf des anderen prüfen und in Notion
-  # eintragen. Deshalb läuft immer nur einer; der nächste wartet.
-  # Hinweis: GitHub hält je Gruppe nur EINEN wartenden Lauf. Wer einen dritten
-  # startet, während einer läuft und einer wartet, ersetzt den wartenden.
-  group: entwurf-agenten
+  # Nie zwei Fachartikel-Läufe gleichzeitig (sonst wählen beide dasselbe Thema).
+  # Mit den Urteil- und Vorlagen-Agenten darf dieser Lauf parallel laufen: Jeder
+  # Agent erkennt seinen Entwurf am Format im Dateikopf und – hier – an der
+  # Notion-Seite (tools/eigener_entwurf.py), nicht nur am Zweignamen.
+  group: fachartikel-entwurf
   cancel-in-progress: false
 
 env:
@@ -934,17 +930,14 @@ jobs:
           # Nur PRs, die nach dem Jobstart erstellt wurden. Bevorzugt Branch entwurf/*; hat der Agent
           # den Branch anders benannt, zählt ersatzweise ein PR, dessen Titel mit „Entwurf“ beginnt
           # oder das Thema enthält. Bei mehreren gewinnt der mit dem Thema im Titel, sonst der neueste.
-          thema_klein="$(printf '%s' "$THEMA" | tr '[:upper:]' '[:lower:]')"
-          pr="$(jq -c --arg start "$JOBSTART" --arg thema "$thema_klein" '
-            [ .[] | select(.createdAt >= $start) ] as $neu
-            | [ $neu[] | select((.headRefName // "") | startswith("entwurf/")) ] as $entwurf
-            | [ $neu[] | select(((.title // "") | ascii_downcase) as $t
-                                | ($t | startswith("entwurf")) or ($thema != "" and ($t | contains($thema)))) ] as $ersatz
-            | (if ($entwurf | length) > 0 then $entwurf else $ersatz end)
-            | sort_by(.createdAt) | reverse
-            | ([ .[] | select(((.title // "") | ascii_downcase) | contains($thema)) ] + .)
-            | .[0] // empty
-          ' <<< "$pr_liste")"
+          # Der eigene Entwurf wird am Inhalt erkannt: Format ist kein Urteil- oder Vorlagenformat,
+          # und die Notion-Seite im Dateikopf ist die dieses Laufs (tools/eigener_entwurf.py).
+          # So kann ein gleichzeitig laufender Urteil-Agent nie als dieser Lauf gezählt werden.
+          if ! pr="$(python tools/eigener_entwurf.py --seit "$JOBSTART" --ohne-format "Rechtsprechung,Urteil verständlich,Vorlage" \
+                       --notion-id "$NOTION_ID" --ausgabe json 2>"$FEHLER")"; then
+            echo "::error title=Fachartikel::Der eigene Pull Request ist nicht bestimmbar ($(head -c 300 "$FEHLER" | tr '\r\n' '  ')).${nachtragen}"
+            exit 1
+          fi
 
           if [ -z "$pr" ]; then
             {
@@ -1117,21 +1110,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           JOBSTART: ${{ steps.start.outputs.zeit }}
+          NOTION_ID: ${{ steps.thema.outputs.notion_id }}
         run: |
           set -euo pipefail
           ARBEIT="${RUNNER_TEMP}/schlusspruefung"
           mkdir -p "$ARBEIT"
-          gh pr list --state open --json number,headRefName,createdAt > "$ARBEIT/prs.json"
-          # Nur ein Pull Request, der in diesem Lauf entstanden ist, wird geprüft.
-          ZEILE="$(python - "$JOBSTART" "$ARBEIT/prs.json" <<'PY'
-          import json, sys
-          beginn, datei = sys.argv[1], sys.argv[2]
-          prs = [p for p in json.load(open(datei, encoding="utf-8"))
-                 if p["headRefName"].startswith("entwurf/") and p["createdAt"] >= beginn]
-          prs.sort(key=lambda p: p["createdAt"])
-          print(f'{prs[-1]["number"]} {prs[-1]["headRefName"]}' if prs else "")
-          PY
-          )"
+          # Nur der eigene Entwurf dieses Laufs (Format und Notion-Seite im Dateikopf).
+          ZEILE="$(python tools/eigener_entwurf.py --seit "$JOBSTART" --ohne-format "Rechtsprechung,Urteil verständlich,Vorlage" --notion-id "$NOTION_ID")"
           if [ -z "$ZEILE" ]; then
             echo "::notice title=Schlussprüfung::Kein neuer Entwurf – nichts zu prüfen."
             echo "bereit=false" >> "$GITHUB_OUTPUT"
@@ -1278,7 +1263,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BEGINN: ${{ steps.start.outputs.zeit }}
-          PRAEFIX: "entwurf/"
           RUNDE: ${{ matrix.runde }}
           ANZAHL: ${{ needs.planen.outputs.anzahl }}
         run: |
@@ -1287,8 +1271,9 @@ jobs:
             echo "::error title=Fachartikel::Startzeit dieser Runde unbekannt – die übrigen Runden werden sicherheitshalber abgesagt."
             exit 1
           fi
-          neu="$(gh pr list --state open --limit 100 --json headRefName,createdAt \
-                  --jq '[.[] | select((.headRefName | startswith(env.PRAEFIX)) and .createdAt >= env.BEGINN)] | length')"
+          # Eigene Entwürfe dieser Runde, erkannt am Format im Dateikopf (nicht nur am Zweig):
+          # So zählt ein gleichzeitig laufender anderer Agent nicht als Ergebnis dieser Runde.
+          neu="$(python tools/eigener_entwurf.py --seit "$BEGINN" --ohne-format "Rechtsprechung,Urteil verständlich,Vorlage" --ausgabe anzahl)"
           if [ "${neu:-0}" -eq 0 ]; then
             echo "::error title=Fachartikel::Runde ${RUNDE} von ${ANZAHL} hat keinen neuen Entwurf erzeugt (nichts Passendes mehr gefunden oder Duplikat). Die übrigen Runden werden abgesagt, damit kein Kontingent verpufft."
             exit 1

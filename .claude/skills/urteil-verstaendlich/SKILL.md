@@ -54,9 +54,23 @@ Danach `## Hinweis`, Autorenkasten und `## Quellen und Fußnoten` wie im Fachart
 - **Sätze bis 20 Wörter, ein Gedanke je Satz, Aktiv.** Kein Nominalstil („die Geltendmachung des Anspruchs“ → „den Anspruch geltend machen“ → besser: „das Geld verlangen“).
 - **Jeder Fachbegriff wird im selben Satz erklärt** – auch Abnahme, Nachtrag, Gewährleistung, Werklohn, Vorbehalt, fiktive Abnahme, Beweislast. Danach darfst du ihn verwenden.
 - **Zahlen greifbar machen:** Beträge, Fristen und Zeiträume aus dem Urteil nennst du konkret (mit Randnummer) und ordnest sie ein („rund ein Drittel der Auftragssumme“ – nur wenn die Rechnung aus den Zahlen des Urteils folgt).
-- **Bilder aus dem Bauen, nicht aus dem Gerichtssaal:** Der Leser sieht die Baustelle, das Protokoll, den Brief – nicht den Schriftsatz.
+- **Anschaulich nur mit Tatsachen aus dem Urteil:** Der Leser soll die Baustelle, das Protokoll, den Brief vor Augen haben – aber nur so, wie der Volltext sie beschreibt. Kein Adjektiv, kein Detail, keine Stimmung, die dort nicht steht („mitten im Winter“, „verärgert“, „die Baustelle stand still“ nur mit Randnummer).
 - **Absätze tragen sich selbst** (Zitierfähigkeit): kein Absatz beginnt mit „dabei“, „dies“, „hier“; Pronomen werden aufgelöst; das Thema steht in jedem Absatz.
 - **Fußnoten sparsam:** die Entscheidung als Fußnote 1 bei der ersten Nennung, danach nur Randnummern im Text; jede weitere Norm oder Quelle mit Fußnote nach dem Fachartikel-Skill. Richtwert drei bis sechs Fußnoten. Fachliteratur aus der Fachbibliothek ist willkommen, wenn sie eine Aussage für die Praxis trägt.
+
+## Vereinfachen, ohne zu verfälschen
+
+Einfache Sprache verändert die Form, nie den Inhalt. **Diese Regeln gehen jeder Stilregel dieses Skills vor.** Sie stammen aus den Korrekturen der Faktenprüfung an den ersten Beiträgen dieses Formats (15 und 23 Korrekturen je Beitrag); jede Regel verhindert eine der häufigsten Fehlerarten.
+
+1. **Randnummer aus dem Belegauszug, nicht aus der Erinnerung.** Jeden Satz mit „(Rn. n)“ schreibst du aus der Zeile des Belegauszugs, die diese Randnummer trägt. Fasst ein Satz zwei Stellen zusammen, nennt er beide Randnummern. Findest du die Stelle im Belegauszug nicht, liest du sie im Volltext nach, bevor du den Satz schreibst. *Häufigster Fehler: Die Randnummer steht am Satz, trägt ihn aber nicht.*
+2. **Parteivortrag bleibt Parteivortrag.** Was eine Seite behauptet, schreibst du als Behauptung („nach Darstellung der Vermieterin“, „das Unternehmen meinte“) – auch wenn es für die Geschichte spannender wäre, es als Tatsache zu erzählen. Als Tatsache gilt nur, was das Gericht feststellt oder als unstreitig bezeichnet. Gutachter, Vorinstanz und Gericht werden auseinandergehalten.
+3. **Mehrere Gründe bleiben mehrere Gründe.** Nennt das Gericht zwei Gründe, die *zusammen* tragen („leicht zu erkennen **und** schnell und günstig zu beseitigen“), machst du daraus weder einen einzigen noch zwei austauschbare. Die Reihenfolge des Gerichts und seine Gewichtungswörter („jedenfalls“, „hilfsweise“, „im Übrigen“) bleiben erhalten.
+4. **Der Verfahrensweg ist vollständig.** Welche Instanz hat was entschieden, wer hat Rechtsmittel eingelegt, gab es einen Parteiwechsel (etwa einen Erben, der den Rechtsstreit fortführt), wie endete es? Ein Satz genügt, aber er darf nichts auslassen.
+5. **Keine Verallgemeinerung über den Fall hinaus** – besonders in Titel, `meta_beschreibung`, erstem Absatz und FAQ. „Wann ist eine verschmutzte Fassade ein Mangel?“ beantwortest du mit dem, was das Gericht für *diesen* Vertrag und *diese* Umstände entschieden hat, und sagst das auch so.
+6. **Zahlen, Daten, Beträge, Fristen** übernimmst du wörtlich aus dem Belegauszug; Zeiträume rechnest du aus den Daten aus, statt sie zu schätzen.
+7. **Kein beschreibendes Wort ohne Grundlage.** „Neubau“, „Einfamilienhaus“, „kleiner Betrieb“, „langjähriger Kunde“ nur, wenn der Volltext es sagt.
+
+Bevor du den Entwurf committest, liest du ihn einmal vollständig gegen den Belegauszug und prüfst jeden Satz mit Randnummer auf die Regeln 1 bis 3 – das ist der Schritt, der die meisten späteren Korrekturen erspart.
 
 ## Prüfung vor dem Commit
 
