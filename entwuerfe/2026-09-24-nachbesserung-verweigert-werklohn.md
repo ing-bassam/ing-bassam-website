@@ -75,6 +75,8 @@ Daraus folgt eine sehr praktische Lehre für alle, die bauen. Was später verdec
 
 Das Urteil enthält keinen Tatbestand. Auf die Darstellung der tatsächlichen Feststellungen hat das Gericht ausdrücklich verzichtet (Gründe I.). Alles, was hier steht, stammt deshalb aus den Entscheidungsgründen selbst. Offen blieb auch, ob der Kran in seinem Gebrauch beeinträchtigt war. Darauf kam es nicht mehr an (Gründe II. 1. c cc). Aus der zweitägigen Frist lässt sich keine allgemeine Regel ableiten. Sie war hier angemessen, weil die Schweißarbeiten keine mehreren Tage dauerten (Gründe II. 1. c aa). Die Revision wurde nicht zugelassen. Die Sache hat nach den Gründen keine grundsätzliche Bedeutung, und es wurden bereits geklärte Fragen angewendet (Gründe II. 5.).
 
+Wer den Fall mit allen Gründen des Gerichts nachlesen möchte, auch zur Abrechnung der fünffachen Menge und zur Frage, welches Prüfverfahren im Prozess trug, findet die ausführliche fachliche Besprechung unter [Schweißnaht einbetoniert: Wer die Mangelfreiheit beweisen muss](https://ing-bassam.de/fachwissen/schweissnaht-beweislast-vor-abnahme/).
+
 ## Häufige Fragen
 
 **Gilt das auch für meinen Vertrag mit einem Handwerker zu Hause?**
