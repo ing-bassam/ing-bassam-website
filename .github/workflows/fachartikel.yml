@@ -858,6 +858,18 @@ jobs:
             --add-dir ${{ steps.thema.outputs.auftrag_verzeichnis }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
 
+
+      # Die Claude-Aktion zeigt im Protokoll nur Kennzahlen. Dieser Schritt macht
+      # sichtbar, was der Agent gemeldet hat, welche Befehle abgelehnt wurden und
+      # welche Werkzeuge Fehler hatten – sonst bleibt ein stilles Scheitern
+      # („Erfolg, aber kein Pull Request“) unerklärlich. Nichts aus der
+      # Auftragsdatei gelangt ins Protokoll.
+      - name: Abschlussmeldung des Agenten
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        continue-on-error: true
+        env:
+          VERLAUF: ${{ steps.claude.outputs.execution_file }}
+        run: python tools/agent_bericht.py "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
       # -----------------------------------------------------------------
       # 4. Notion aktualisieren. Läuft auch, wenn der Agent-Schritt scheitert:
       #    Ein bereits geöffneter PR wird dann in Notion vermerkt, der Status
@@ -946,7 +958,7 @@ jobs:
               echo "Kein Pull Request entstanden (Agent-Schritt: ${AGENT_ERGEBNIS}). Notion wurde nicht verändert."
             } >> "$GITHUB_STEP_SUMMARY"
             if [ "$AGENT_ERGEBNIS" = "success" ]; then
-              echo "::error title=Fachartikel::Der Agent meldete Erfolg, aber es existiert kein Pull Request aus diesem Lauf (erstellt nach ${JOBSTART}). Mögliche Ursachen: Text zu kurz und deshalb nicht committet, Push abgelehnt, Duplikat erkannt – die Abschlussmeldung des Agenten im Schritt „Entwurf schreiben lassen“ nennt den Grund. Notion bleibt unverändert."
+              echo "::error title=Fachartikel::Der Agent meldete Erfolg, aber es existiert kein Pull Request aus diesem Lauf (erstellt nach ${JOBSTART}). Mögliche Ursachen: Text zu kurz und deshalb nicht committet, Push abgelehnt, Duplikat erkannt – den Grund zeigt der Schritt „Abschlussmeldung des Agenten“ (auch in der Zusammenfassung des Laufs). Notion bleibt unverändert."
               exit 1
             fi
             echo "::warning title=Fachartikel::Kein Pull Request aus diesem Lauf gefunden (erstellt nach ${JOBSTART}). Agent-Schritt: ${AGENT_ERGEBNIS}. Notion bleibt unverändert."
