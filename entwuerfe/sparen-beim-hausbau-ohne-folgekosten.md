@@ -13,7 +13,7 @@ qualifikation:
 kurzform: sparen-beim-hausbau-ohne-folgekosten
 erstellt: 2026-09-25
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-8147-acaa-de5f3f7c95d6
 notion_url: https://app.notion.com/p/Wo-kann-ich-beim-Hausbau-sparen-und-wo-auf-keinen-Fall-3dfd96ad00b48147acaade5f3f7c95d6
