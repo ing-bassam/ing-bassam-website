@@ -7,7 +7,7 @@ leistung: Bauherrenvertretung
 kernfrage: Wie schütze ich mich davor, dass mein Bauunternehmer nach der Zahlung verschwindet?
 meta_beschreibung: Zahlungsplan und Sicherheiten schützen private Bauherren, wenn der Bauunternehmer insolvent wird oder verschwindet. Was das Gesetz vorsieht.
 schlagwoerter: Verbraucherbauvertrag, Abschlagszahlung, Sicherheitsleistung, Insolvenz, Zahlungsplan, Bautenstand, Bauherrenvertretung
-definition: Ein Verbraucherbauvertrag ist ein Bauvertrag, durch den sich ein Unternehmer gegenüber einem Verbraucher zum Bau eines neuen Gebäudes oder zu erheblichen Umbaumaßnahmen verpflichtet.
+definition: Ein Verbraucherbauvertrag ist ein Bauvertrag, durch den sich ein Unternehmer gegenüber einem Verbraucher zum Bau eines neuen Gebäudes oder zu erheblichen Umbaumaßnahmen an einem bestehenden Gebäude verpflichtet.
 autor: M. Sc. Karim Abu Elkheir
 qualifikation:
 kurzform: bauunternehmer-insolvenz-zahlungsplan-sicherheiten
@@ -30,7 +30,7 @@ regelwerke_bestaetigt: § 632a BGB, § 641 BGB, § 648a BGB, § 650f BGB, § 650
 
 # Bauunternehmer insolvent: Zahlungsplan und Sicherheiten
 
-Die vierte Rate ist überwiesen, der Rohbau steht, das Dach fehlt. Seit zwei Wochen ruft niemand mehr zurück. Davor, dass der Bauunternehmer nach der Zahlung verschwindet, schützt kein Vertrauen, sondern allein die Reihenfolge von Leistung und Geld: Jede Rate darf erst fließen, wenn die zugehörige Leistung auf der Baustelle nachweisbar erbracht ist. Bleibt der Bauherr mit seinen Zahlungen hinter dem Bautenstand, verliert er bei einer Insolvenz nur den kleinen ungesicherten Rest. Zahlt er im Voraus, verliert er den Vorsprung – und muss ihn beim Insolvenzverwalter anmelden.
+Die vierte Rate ist überwiesen, der Rohbau steht, das Dach fehlt. Seit zwei Wochen ruft niemand mehr zurück. Davor, dass der Bauunternehmer nach der Zahlung verschwindet, schützt kein Vertrauen, sondern die Reihenfolge von Leistung und Geld: Jede Rate darf erst fließen, wenn die zugehörige Leistung auf der Baustelle nachweisbar erbracht ist. Zahlt der Bauherr im Voraus, verliert er den Vorsprung – und muss ihn beim Insolvenzverwalter anmelden.
 
 ## Woran Sie erkennen, dass Ihr Zahlungsplan Sie nicht schützt
 
@@ -82,7 +82,7 @@ Umgekehrt ist der private Bauherr davor geschützt, selbst eine Sicherheit stell
 
 ## Welcher Vertrag Sie schützt und welcher nicht
 
-Die Schutzvorschriften des Verbraucherbauvertrags greifen nicht bei jedem Bauvertrag eines Verbrauchers, und diese Unterscheidung wird in der Praxis am häufigsten übersehen. Ein Verbraucherbauvertrag ist ein Bauvertrag, durch den sich ein Unternehmer gegenüber einem Verbraucher zum Bau eines neuen Gebäudes oder zu erheblichen Umbaumaßnahmen verpflichtet. Das Gesetz stellt dabei auf ein Gebäude ab, nicht auf eine einzelne Leistung.[^8] Der Verbraucherbauvertrag bedarf der Textform, muss also lesbar und dauerhaft festgehalten sein.[^8] Von den Regelungen zum Verbraucherbauvertrag kann nicht zum Nachteil des Verbrauchers abgewichen werden.[^8]
+Die Schutzvorschriften des Verbraucherbauvertrags greifen nicht bei jedem Bauvertrag eines Verbrauchers, und diese Unterscheidung wird in der Praxis am häufigsten übersehen. Ein Verbraucherbauvertrag ist ein Bauvertrag, durch den sich ein Unternehmer gegenüber einem Verbraucher zum Bau eines neuen Gebäudes oder zu erheblichen Umbaumaßnahmen an einem bestehenden Gebäude verpflichtet. Das Gesetz stellt dabei auf ein Gebäude ab, nicht auf eine einzelne Leistung.[^8] Der Verbraucherbauvertrag bedarf der Textform.[^8] Von den Regelungen zum Verbraucherbauvertrag kann nicht zum Nachteil des Verbrauchers abgewichen werden.[^8]
 
 Entscheidend ist das Wort „Gebäude“. Der Bundesgerichtshof hat mit Urteil vom 16. März 2023 – VII ZR 94/22 über einen Vertrag über ein einzelnes Gewerk entschieden. Nach dieser Entscheidung liegt kein Verbraucherbauvertrag vor, wenn der Unternehmer nur ein einzelnes Gewerk eines Neubauvorhabens übernimmt. Erforderlich ist, dass er sich zum Bau eines neuen Gebäudes verpflichtet hat.[^9] Diese Linie hat der Senat fortgeführt. Mit Urteil vom 26. Oktober 2023 – VII ZR 25/23 hat er über die sukzessive Beauftragung entschieden. Für die Einordnung als Verbraucherbauvertrag kommt es nicht auf die Gesamtheit aller selbstständigen Aufträge an, die dem Unternehmer im Verlauf der Bauarbeiten nacheinander erteilt worden sind.[^10]
 
@@ -108,7 +108,7 @@ Auch die technische Seite verändert sich mit der Insolvenz. Eine halbfertige Ba
 
 Die zentrale Aufgabe bei einem ausgefallenen Bauunternehmer ist die Trennung zweier Zahlen: dessen, was bezahlt wurde, und dessen, was steht. Für die Abrechnung eines beendeten Bauvertrags wird eine Bestandsaufnahme direkt im Anschluss an die Kündigung empfohlen.[^13] Sie erfasst die bereits erbrachten Leistungen in Anwesenheit beider Parteien, also in Form eines gemeinsamen Aufmaßes.[^13] Genau das leistet ein Sachverständiger, wenn er den Bautenstand feststellt. Er ermittelt nicht, wer schuld ist, sondern was vorhanden ist – und das in einer Form, die auch ein Dritter nachvollziehen kann.
 
-Die Feststellung folgt dem Vertrag. Der Sachverständige nimmt das Leistungsverzeichnis oder die Baubeschreibung zur Hand und geht Position für Position durch, was ausgeführt, teilweise ausgeführt oder nicht begonnen ist. Er misst Mengen auf, also Flächen, Längen und Stückzahlen, und ordnet sie den vertraglichen Positionen zu. Er hält Bauteile fest, die eingebaut aber noch nicht fertiggestellt sind. Solche Teilleistungen haben einen Wert, den man sonst übersieht. Er dokumentiert den Zustand mit Fotos, Skizzen und Lageangaben. So bleibt später erkennbar, welcher Befund zu welchem Bauteil gehört. Und er notiert, was er nicht sehen konnte.
+Die Feststellung folgt dem Vertrag. Der Sachverständige nimmt das Leistungsverzeichnis oder die Baubeschreibung zur Hand und geht Position für Position durch, was ausgeführt, teilweise ausgeführt oder nicht begonnen ist. Er misst Mengen auf, also Flächen, Längen und Stückzahlen, und ordnet sie den vertraglichen Positionen zu. Er hält Bauteile fest, die eingebaut, aber noch nicht fertiggestellt sind. Solche Teilleistungen haben einen Wert, den man sonst übersieht. Er dokumentiert den Zustand mit Fotos, Skizzen und Lageangaben. So bleibt später erkennbar, welcher Befund zu welchem Bauteil gehört. Und er notiert, was er nicht sehen konnte.
 
 Diese Grenze ist wichtig, denn ein großer Teil einer Baustelle ist zum Zeitpunkt des Stillstands schon verdeckt. Estrich liegt über Dämmung und Leitungen, Putz über Installationen, Abdichtung unter Aufbauten. Zerstörungsfrei lassen sich solche Schichten nur eingeschränkt beurteilen. Je nach Fragestellung kommen ergänzende Untersuchungen in Betracht, etwa Feuchtemessungen, thermografische Aufnahmen oder Materialuntersuchungen. Teils werden dafür Fachlabore oder Messdienstleister hinzugezogen. Eine Öffnung von Bauteilen setzt eine Entscheidung darüber voraus, wer sie veranlasst und wer sie wieder verschließt. Sie erfolgt nicht nebenbei und nicht ohne Abstimmung.
 
