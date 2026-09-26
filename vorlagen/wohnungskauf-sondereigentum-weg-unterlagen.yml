@@ -1,0 +1,115 @@
+titel: Checkliste Wohnungskauf
+untertitel: Sondereigentum, Gemeinschaftseigentum und Unterlagen der Eigentuemergemeinschaft
+kurzform: wohnungskauf-sondereigentum-weg-unterlagen
+typ: Checkliste
+stand: 2026-09-26
+dateien: [pdf, pdf-ausfuellbar]
+einleitung: >-
+  Diese Checkliste begleitet Sie von der ersten Besichtigung bis zum Notartermin.
+  Sie fragt die Unterlagen ab, die Verkäufer und Verwaltung herausgeben sollen,
+  und führt Sie beim Rundgang von außen nach innen durch das Gebäude. Füllen Sie
+  die Kopffelder aus, notieren Sie jeden Befund und tragen Sie offene Fragen am
+  Ende ein.
+kopffelder:
+  - Objekt und Anschrift
+  - "Wohnung Nr. laut Aufteilungsplan"
+  - Baujahr des Gebäudes
+  - Datum der Besichtigung
+  - Anwesende
+  - "Verwaltung (Name, Telefon)"
+abschnitte:
+  - titel: Unterlagen von Verkäufer und Verwaltung
+    punkte:
+      - text: Teilungserklärung mit Gemeinschaftsordnung liegt vollständig vor
+        hinweis: Sie legt fest, was zur Wohnung gehört und wer welche Kosten trägt.
+      - text: Aufteilungsplan liegt vor und die angebotene Wohnung ist darin eindeutig zu finden
+        hinweis: Nummer der Wohnung, des Kellerraums und des Stellplatzes vergleichen.
+      - text: Protokolle der Eigentümerversammlungen mehrerer zurückliegender Jahre liegen vollständig vor
+        hinweis: Fehlende Jahrgänge nachfordern, Lücken sind selten ein Zufall.
+      - text: Beschluss-Sammlung der Eigentümergemeinschaft liegt vor
+        hinweis: Sie zeigt, welche Beschlüsse dauerhaft gelten.
+      - text: Wirtschaftsplan für das laufende Jahr liegt vor
+      - text: Letzte Jahresabrechnung liegt vor, einschließlich der Abrechnung für die angebotene Wohnung
+      - text: Höhe der Erhaltungsrücklage ist schriftlich bestätigt
+        hinweis: "Bezeichnung in älteren Unterlagen: Instandhaltungsrücklage."
+      - text: Höhe des monatlichen Hausgeldes und die darin enthaltenen Posten sind bekannt
+        hinweis: Getrennt notieren, was Betriebskosten und was Zuführung zur Rücklage ist.
+      - text: Energieausweis für das Gebäude wurde vorgelegt
+        hinweis: Der Ausweis gilt für das gesamte Gebäude, nicht für die einzelne Wohnung.
+      - text: Aktueller Grundbuchauszug liegt vor und die eingetragenen Lasten sind gelesen
+      - text: Sondernutzungsrechte an Garten, Terrasse, Stellplatz oder Kellerraum sind schriftlich zugeordnet
+  - titel: Was die Zahlen und Beschlüsse über die Gemeinschaft sagen
+    punkte:
+      - text: Beschlossene Erhaltungs- und Modernisierungsmaßnahmen sind mit Umfang und Termin notiert
+      - text: Beschlossene oder absehbare Sonderumlagen sind der Höhe nach bekannt
+        hinweis: Auch Maßnahmen, die in Protokollen nur besprochen wurden, gehören hierher.
+      - text: Die Erhaltungsrücklage passt zu Alter und Zustand des Gebäudes
+        hinweis: Ein niedriger Stand bedeutet, dass künftige Arbeiten aus Umlagen bezahlt werden.
+      - text: Hausgeldrückstände einzelner Eigentümer sind aus Abrechnung oder Protokollen bekannt
+      - text: Laufende Streitigkeiten oder Gerichtsverfahren der Gemeinschaft sind erfragt
+      - text: Der Miteigentumsanteil der Wohnung ist notiert und in einen Anteil an künftigen Kosten umgerechnet
+        hinweis: "Beispiel für die eigene Rechnung: Kosten der Maßnahme mal eigener Anteil."
+  - titel: Gemeinschaftseigentum außen
+    punkte:
+      - text: Dachfläche, Dachrinnen und Anschlüsse sind vom Boden aus betrachtet und ohne erkennbare Schäden
+        hinweis: Verschobene Ziegel, Rost und Pflanzenwuchs in der Rinne notieren.
+      - text: Jahr der letzten Dachsanierung ist erfragt und im Protokoll belegt
+      - text: Fassade zeigt keine durchgehenden Risse, keine hohlliegenden Putzflächen, keine offenen Fugen
+      - text: Balkone und Dachterrassen sind dicht, die Deckenunterseiten darunter sind fleckenfrei
+        hinweis: Wasserflecken mit dunklem Rand und abblätternde Farbe deuten auf eine undichte Abdichtung.
+      - text: Fenster und Außentüren sind nach der Teilungserklärung eindeutig zugeordnet
+        hinweis: Wer die Fenster zahlt, steht in der Teilungserklärung, nicht im Kaufvertrag.
+      - text: Kellerwände sind trocken, ohne Salzausblühungen und ohne muffigen Geruch
+        hinweis: Vorgesetzte Gipskarton- oder Fliesenwände im Keller können Feuchte verdecken.
+      - text: Gelände fällt vom Gebäude weg und die Entwässerung ist frei
+      - text: Tiefgarage und Betonbauteile sind ohne Abplatzungen, freiliegende Bewehrung und durchfeuchtete Decken
+  - titel: Gemeinschaftliche Technik und Innenbereiche
+    punkte:
+      - text: Baujahr, Bauart und Brennstoff der Heizungsanlage sind notiert
+      - text: Wartungsnachweise für Heizung und weitere gemeinschaftliche Anlagen liegen vor
+      - text: Material und Alter der Trinkwasserleitungen im Haus sind erfragt
+        hinweis: Nach längerem Stillstand ablaufendes Wasser auf Färbung prüfen.
+      - text: Abwasserleitungen sind ohne Geruchsbildung und ohne bekannte Rückstauschäden
+      - text: Aufzug hat einen aktuellen Prüfbericht, das Baujahr ist notiert
+      - text: Treppenhaus, Kellergänge und Gemeinschaftsräume sind in gepflegtem Zustand
+        hinweis: Der Pflegezustand zeigt, wie die Gemeinschaft mit dem Gebäude umgeht.
+  - titel: Sondereigentum – die Wohnung
+    punkte:
+      - text: Wände und Decken sind ohne frische Risse, Flecken und Ablösungen
+      - text: Außenwandecken und Flächen hinter Möbeln sind trocken und ohne Schimmelgeruch
+      - text: Fußböden liegen fest, ohne Hohlstellen, Wölbungen und offene Fugen
+      - text: Bad und Gäste-WC sind dicht, Fugen und Anschlüsse an Dusche und Wanne sind unbeschädigt
+        hinweis: Auf Silikon achten, das mehrfach überarbeitet wurde.
+      - text: Bad und Küche werden über Fenster oder eine funktionierende Abluft gelüftet
+      - text: Fenster schließen dicht, Beschläge laufen, Rahmen und Dichtungen sind unbeschädigt
+      - text: Zählerschrank und Elektroinstallation der Wohnung sind besichtigt und das Alter ist erfragt
+      - text: Heizkörper, Thermostate und die Warmwasserversorgung sind funktionsfähig
+      - text: Geräusche aus Nachbarwohnungen, Treppenhaus und Technik sind bei einer stillen Minute bewertet
+  - titel: Wohnung und Pläne vergleichen
+    punkte:
+      - text: Grundriss der Wohnung stimmt mit dem Aufteilungsplan überein
+        hinweis: Versetzte Wände und zusammengelegte Räume notieren.
+      - text: Bauliche Veränderungen früherer Eigentümer sind durch Beschluss oder Genehmigung gedeckt
+      - text: Die tatsächliche Nutzung der Räume entspricht der Bezeichnung in den Plänen
+        hinweis: "Beispiel: ein als Keller genehmigter Raum wird als Wohnraum angeboten."
+      - text: Kellerraum, Stellplatz und Gartenanteil sind vor Ort eindeutig identifiziert
+  - titel: Kosten und offene Fragen zusammenfassen
+    punkte:
+      - text: Alle Befunde sind mit Foto, Datum und Ort in der Wohnung dokumentiert
+      - text: Die Befunde sind nach dringend, mittelfristig und kosmetisch geordnet
+      - text: Der eigene Anteil an den absehbaren Arbeiten am Gemeinschaftseigentum ist überschlagen
+      - text: Offene Fragen an den Verkäufer sind schriftlich gestellt
+      - text: Offene Fragen an die Verwaltung sind schriftlich gestellt
+      - text: Entscheidung ist getroffen, ob vor dem Notartermin ein Sachverständiger hinzugezogen wird
+hinweise:
+  - "Platzhalter in eckigen Klammern durch eigene Angaben ersetzen."
+  - "Diese Checkliste ersetzt keine Begutachtung des Einzelfalls und keine Rechtsberatung. Fragen zum Kaufvertrag, zur Haftung und zu Fristen beurteilt ein Rechtsanwalt oder Notar."
+  - "Prüfen Sie nur, was ohne Eingriff und ohne Gefahr möglich ist. Öffnen Sie keine Bauteile, betreten Sie kein Dach und kein Gerüst, arbeiten Sie nicht an Elektro-, Gas- oder Trinkwasserinstallationen."
+  - "Bei Hinweisen auf Standsicherheit, Schadstoffe, Strom in feuchten Bereichen oder Gasgeruch den Bereich verlassen und eine Fachfirma, den Netzbetreiber oder die Behörde einschalten."
+  - "Was in der Wohnung sichtbar ist, sagt wenig über Dach, Fassade und Leitungen. Die Unterlagen der Gemeinschaft sind für den Kaufpreis oft wichtiger als die Wohnung selbst."
+quellen:
+  - "Wirth/Pfisterer/Schellenberg: Privates Baurecht praxisnah, 3. Aufl. 2021, S. 98 (Abgrenzung von Sonder- und Gemeinschaftseigentum)"
+  - "Rode/Weller: AVA-Handbuch, 11. Aufl. 2025, S. 169 (Mängelrechte am Gemeinschaftseigentum)"
+  - "Schulz: Architektur der Bauschäden, 4. Aufl. 2020, S. 72 und S. 278 (Balkonabdichtung, feuchte Kellerwände)"
+  - "Willems (Hrsg.): Lehrbuch der Bauphysik, 9. Aufl. 2022, S. 187 (Energieausweis beim Verkauf)"
+  - "Stahr (Hrsg.): Bausanierung, 7. Aufl. 2022, S. 31 (Bestandsaufnahme und Sanierungsbedarf)"
