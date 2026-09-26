@@ -119,7 +119,7 @@ Zwischen Entwässerung und Standsicherheit besteht ein Zusammenhang, der die zei
 
 Hinzu kommt die Eigenart von Baumängeln, die in verfüllten oder überschütteten Bereichen liegen. Drainagen, Schächte und Rohrleitungen im Inneren eines Schüttkörpers lassen sich nur mit erheblichem Aufwand prüfen, etwa durch Kamerabefahrung, und ihre Zugänglichkeit verschlechtert sich mit jeder weiteren Lage. Die Klage im entschiedenen Fall führte genau solche Punkte auf, unter anderem Schächte, die im Laufe des Deponieaufbaus nicht erhöht worden seien, sodass Wartung und Kontrolle eingeschränkt oder praktisch unmöglich seien (Rn. 37). Ob diese Vorwürfe zutreffen, hat die Kammer nicht geprüft.
 
-Aus dieser Verzögerung folgt für die Beweisführung eine unangenehme Asymmetrie. Je später ein Befund erhoben wird, desto schwerer lässt sich die Ursache einem Verantwortungsbereich zuordnen, weil Nutzung, Witterung und spätere Eingriffe als alternative Erklärungen hinzutreten. Wer den Zustand zum Zeitpunkt der Übergabe nicht dokumentiert hat, trägt diese Unsicherheit in jedes spätere Verfahren hinein. Eine Zustandsfeststellung zum richtigen Zeitpunkt kostet einen Bruchteil dessen, was die nachträgliche Rekonstruktion eines verdeckten Zustands verursacht.
+Aus dieser Verzögerung folgt für die Beweisführung eine unangenehme Asymmetrie. Je später ein Befund erhoben wird, desto schwerer lässt sich die Ursache einem Verantwortungsbereich zuordnen, weil Nutzung, Witterung und spätere Eingriffe als alternative Erklärungen hinzutreten. Wer den Zustand zum Zeitpunkt der Übergabe nicht dokumentiert hat, trägt diese Unsicherheit in jedes spätere Verfahren hinein.
 
 ## Was die Entscheidung nicht sagt
 
@@ -147,7 +147,7 @@ Die technischen Vorwürfe waren in einem selbständigen Beweisverfahren begutach
 
 **Was ist eine Zustandsfeststellung und wann ist sie sinnvoll?**
 
-Eine Zustandsfeststellung hält den Zustand von Leistungsteilen fest, bevor diese durch die weitere Ausführung der Prüfung entzogen werden; nach § 4 Absatz 10 VOB/B erfolgt sie auf Verlangen gemeinsam und wird schriftlich niedergelegt.[^5] Sie dient der Beweissicherung und hat nicht die Wirkung einer Abnahme.[^6] Sinnvoll ist sie überall dort, wo eine Leistung verdeckt wird oder ein Vertragsverhältnis endet. Im Erdbau betrifft das jede Lage, die überschüttet wird.
+Eine Zustandsfeststellung hält den Zustand von Leistungsteilen fest, bevor diese durch die weitere Ausführung der Prüfung entzogen werden; nach § 4 Absatz 10 VOB/B erfolgt sie auf Verlangen gemeinsam und wird schriftlich niedergelegt.[^5] Sie dient der Beweissicherung und hat nicht die rechtliche Wirkung einer Teilabnahme.[^6] Sinnvoll ist sie überall dort, wo eine Leistung verdeckt wird oder ein Vertragsverhältnis endet. Im Erdbau betrifft das jede Lage, die überschüttet wird.
 
 **Warum fallen Mängel an Verdichtung und Entwässerung so spät auf?**
 
