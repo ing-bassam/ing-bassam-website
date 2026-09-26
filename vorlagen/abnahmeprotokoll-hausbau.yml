@@ -1,0 +1,118 @@
+titel: Checkliste Endabnahme Haus
+untertitel: Abnahmeprotokoll für Bauherren
+kurzform: abnahmeprotokoll-hausbau
+typ: Protokoll
+stand: 2026-09-26
+dateien: [pdf, pdf-ausfuellbar]
+einleitung: >
+  Mit diesem Protokoll halten Sie die Endabnahme Ihres neu gebauten Hauses fest.
+  Gehen Sie den Rundgang von außen nach innen durch, tragen Sie jeden Mangel in die
+  Mängelliste ein und erklären Sie Ihre Vorbehalte, bevor Sie unterschreiben.
+  Jeder Beteiligte erhält eine unterschriebene Kopie.
+kopffelder:
+  - Bauvorhaben und Anschrift
+  - Datum und Uhrzeit
+  - Art der Abnahme (Gesamtabnahme oder Teilabnahme)
+  - Vertragsgrundlage laut Bauvertrag
+  - Bauherr / Auftraggeber
+  - Unternehmer / Auftragnehmer
+  - Weitere Teilnehmer und ihre Rolle
+  - Witterung und Beleuchtung
+abschnitte:
+  - titel: Vor dem Termin vorbereiten
+    punkte:
+      - text: Bauvertrag, Baubeschreibung, Pläne und alle Nachträge liegen beim Termin vor
+        hinweis: Ohne die vereinbarte Beschaffenheit lässt sich nicht beurteilen, ob eine Abweichung ein Mangel ist.
+      - text: Alle während der Bauzeit gerügten Mängel sind in einer Liste zusammengestellt
+        hinweis: Bekannte Mängel gehören in das Protokoll, sonst können Rechte wegen dieser Mängel verloren gehen.
+      - text: Der Termin ist bei Tageslicht angesetzt und es sind mindestens zwei Stunden eingeplant
+        hinweis: Bei Kunstlicht bleiben Risse, Flecken und Unebenheiten leicht unentdeckt.
+      - text: Taschenlampe, Zollstock, Wasserwaage, Kamera und dieses Protokoll sind dabei
+      - text: Eine fachkundige Begleitung ist angefragt, wenn die eigene Beurteilung unsicher ist
+        hinweis: Zum Abnahmetermin kann ein Sachverständiger hinzugezogen werden; das erleichtert später den Beweis.
+  - titel: Rundgang außen
+    punkte:
+      - text: Dacheindeckung, Ortgang und First sind vom Boden aus vollständig und ohne verschobene Teile
+        hinweis: Steigen Sie nicht selbst auf das Dach, sondern prüfen Sie mit Fernglas oder Kamerazoom.
+      - text: Dachrinnen und Fallrohre sind befestigt, sauber und an die Entwässerung angeschlossen
+      - text: Regenwasser läuft vom Gebäude weg, das Gelände fällt rundum vom Haus ab
+        hinweis: Pfützen unmittelbar an der Fassade weisen auf fehlendes Gefälle hin.
+      - text: Fassade und Sockel sind gleichmäßig und frei von Rissen, Fehlstellen und Verschmutzungen
+      - text: Fensterbänke außen haben Gefälle nach außen und dichte seitliche Abschlüsse
+      - text: Lichtschächte, Außentreppen und Kellerzugänge sind sauber, frei und entwässert
+  - titel: Rundgang innen, Raum für Raum
+    punkte:
+      - text: Jeder Raum wird einzeln begangen und im Protokoll mit seiner Bezeichnung benannt
+        hinweis: Eine feste Reihenfolge pro Geschoss verhindert, dass ein Raum vergessen wird.
+      - text: Wände und Decken sind frei von Rissen, Dellen, Flecken und Farbabplatzungen
+      - text: Böden sind unbeschädigt, Fugen und Sockelleisten sind sauber angearbeitet
+      - text: Auffällige Unebenheiten von Wänden, Decken und Böden sind vermerkt
+        hinweis: Ob eine Abweichung noch zulässig ist, klärt eine Messung nach den vereinbarten Toleranzen.
+      - text: Fenster und Türen öffnen, schließen und verriegeln leichtgängig, die Dichtungen liegen an
+      - text: Rollläden und ihre Antriebe laufen in beide Richtungen ohne Klemmen und ohne Schleifen
+      - text: Treppe, Geländer und Handlauf sitzen fest, die Oberflächen sind unbeschädigt
+      - text: Anzahl und Lage von Räumen, Türen, Fenstern und Anschlüssen stimmen mit den Plänen überein
+  - titel: Bad, WC und andere Nassräume
+    punkte:
+      - text: Fliesen sind ohne Risse, Hohlstellen und Versatz verlegt, das Fugenbild ist gleichmäßig
+        hinweis: Hohlliegende Fliesen erkennen Sie am dumpfen Klang beim Klopfen mit dem Fingerknöchel.
+      - text: Silikonfugen an Wanne, Dusche und Sanitärobjekten sind lückenlos, glatt und sauber
+        hinweis: Silikonfugen sind Wartungsfugen und altern; bei der Abnahme müssen sie trotzdem einwandfrei sein.
+      - text: Sanitärobjekte sitzen fest, sind unbeschädigt und laufen frei ab
+      - text: Armaturen laufen dicht, warmes und kaltes Wasser kommen seitenrichtig an
+      - text: Duschtassen und Bodenabläufe haben Gefälle zum Ablauf, es bleibt kein Wasser stehen
+  - titel: Haustechnik und Zählerstände
+    punkte:
+      - text: Die Heizung ist in Betrieb, alle Heizflächen werden warm und sind einzeln regelbar
+      - text: Die Lüftungsanlage läuft, die Ventile sind eingestellt und die Filter sind zugänglich
+      - text: Warmes Wasser kommt an jeder Zapfstelle in angemessener Zeit an
+      - text: Steckdosen, Schalter und Lichtauslässe sind vollständig vorhanden, fest und funktionsfähig
+      - text: Der Verteilerkasten ist vollständig beschriftet und die Prüfprotokolle liegen vor
+        hinweis: Die Prüfung der Elektroanlage selbst bleibt einer Elektrofachkraft vorbehalten.
+      - text: Zählerstände für Strom, Wasser, Gas oder Wärme sind mit Zählernummer notiert
+      - text: Das Abwasser läuft an allen Entnahmestellen ab, die Geruchsverschlüsse sind gefüllt
+  - titel: Unterlagen, Schlüssel und Einweisung
+    punkte:
+      - text: Bedienungs- und Wartungsanleitungen aller technischen Anlagen sind übergeben
+      - text: Prüfprotokolle, Nachweise und Fachunternehmererklärungen sind übergeben
+      - text: Die Unterlagen, die der Unternehmer nach dem Vertrag zu erstellen hat, liegen vollständig vor
+        hinweis: Beim Verbraucherbauvertrag sind bestimmte Unterlagen spätestens mit der Fertigstellung zu erstellen.
+      - text: Bestandspläne und Revisionsunterlagen der Gewerke sind übergeben
+      - text: Schlüssel sind je Schließung mit Anzahl übergeben und im Protokoll quittiert
+      - text: Die Einweisung in Heizung, Lüftung und Steuerung hat stattgefunden
+  - titel: Abschluss, Vorbehalte und Unterschriften
+    punkte:
+      - text: Alle festgestellten Mängel sind einzeln und nummeriert in der Mängelliste eingetragen
+      - text: Zu jedem Mangel ist eine Frist zur Beseitigung eingetragen
+      - text: Der Vorbehalt aller bekannten Mängel ist ausdrücklich erklärt und im Protokoll vermerkt
+        hinweis: Ohne diesen Vorbehalt können die Rechte wegen der bekannten Mängel verloren gehen.
+      - text: Der Vorbehalt einer vereinbarten Vertragsstrafe ist ausdrücklich erklärt und vermerkt
+        hinweis: Wird die Vertragsstrafe bei der Annahme nicht vorbehalten, kann sie nicht mehr verlangt werden.
+      - text: Im Protokoll steht eindeutig, ob die Abnahme erklärt, unter Vorbehalt erklärt oder verweigert wird
+      - text: Bei einer Verweigerung sind die Mängel benannt, die der Abnahme entgegenstehen
+        hinweis: Wegen unwesentlicher Mängel kann die Abnahme nicht verweigert werden.
+      - text: Das Protokoll ist von allen Beteiligten unterschrieben, jeder erhält eine Kopie
+        hinweis: Alle Vorbehalte müssen im Protokoll stehen, bevor es unterschrieben wird.
+tabelle:
+  spalten: [Nr., Ort / Bauteil, Beschreibung des Mangels, Foto-Nr., Frist zur Beseitigung, erledigt am]
+  breiten: [1, 3, 6, 2, 3, 2]
+  leerzeilen: 16
+unterschriften:
+  - Bauherr / Auftraggeber
+  - Unternehmer / Auftragnehmer
+  - Weitere Teilnehmer
+hinweise:
+  - "Diese Vorlage ist eine Arbeitshilfe und keine Rechtsberatung. Ob und wie Mängelrechte bestehen, beurteilt ein Rechtsanwalt."
+  - "Die Vorlage ersetzt keine Begutachtung des Einzelfalls und keine sachverständige Begleitung der Abnahme."
+  - "Erklären Sie alle Vorbehalte, bevor Sie das Protokoll unterschreiben."
+  - "Gilt für Ihren Vertrag die VOB/B in der vereinbarten Fassung, gelten für Termin, Niederschrift und Vorbehalte zusätzliche Regeln. Maßgeblich ist Ihr Bauvertrag."
+  - "Mit der Abnahme beginnt die Verjährung der Mängelansprüche, die Vergütung wird fällig und die Beweislast für Mängel wechselt grundsätzlich zum Bauherrn."
+quellen:
+  - "§ 640 BGB, Abnahme und Vorbehalt wegen bekannter Mängel"
+  - "§ 341 Abs. 3 BGB, Vorbehalt der Vertragsstrafe bei der Annahme"
+  - "§ 634a Abs. 1 Nr. 2 und Abs. 2 BGB, Verjährung der Mängelansprüche ab Abnahme"
+  - "§ 641 Abs. 1 BGB und § 650g Abs. 4 BGB, Fälligkeit der Vergütung"
+  - "§ 650g Abs. 1 BGB, Zustandsfeststellung bei Verweigerung der Abnahme"
+  - "§ 650n Abs. 2 BGB, Unterlagen beim Verbraucherbauvertrag"
+  - "Würfele, Bielefeld, Gralla: Bauobjektüberwachung, 3. Aufl. 2017, S. 94, 102 und 127"
+  - "Zanner: VOB/B nach Ansprüchen, 7. Aufl. 2021, S. 131"
