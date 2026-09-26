@@ -14,7 +14,7 @@ kurzform: hauskauf-besichtigung-unterlagen
 dateien: vorlagen/hauskauf-besichtigung-unterlagen/hauskauf-besichtigung-unterlagen.pdf, vorlagen/hauskauf-besichtigung-unterlagen/hauskauf-besichtigung-unterlagen-ausfuellbar.pdf
 erstellt: 2026-09-26
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-81b3-a15a-c0699f0d7244
 notion_url: https://app.notion.com/p/Checkliste-Hauskauf-Besichtigung-Unterlagen-und-Bauzustand-3e2d96ad00b481b3a15ac0699f0d7244
