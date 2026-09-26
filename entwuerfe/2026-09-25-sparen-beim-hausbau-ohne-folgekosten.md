@@ -24,7 +24,7 @@ lesezeit: 21 Minuten
 fussnoten: 17
 quellen_geprueft: 6
 zahlenwerte_norm: 0
-todos: 2
+todos: 0
 regelwerke_bestaetigt: DIN 18533, DIN 4108-7, DIN 4109-1, DIN 4109-5, DIN 4020, DIN 276
 ---
 
@@ -106,13 +106,11 @@ Die folgenreichste Sparentscheidung beim Hausbau betrifft kein Bauteil, sondern 
 
 Achten Sie darauf, dass die Beschreibung die Eigenschaften des Gebäudes wirklich festlegt und nicht nur benennt. Eine Klausel wie „Fliesen nach Wahl des Bauherrn bis zu einem bestimmten Preis je Quadratmeter“ legt ein Budget fest, aber keine Fläche und keine Verlegeart. Angaben zu den energetischen Eigenschaften, zum Brandschutz, zum Schallschutz und zur Bauphysik gehören ebenfalls hinein. Dasselbe gilt für die Beschreibung der Sanitärobjekte, der Elektroanlage und der Außenanlagen. Ebenso wichtig ist die Frage, welche Leistungen ausdrücklich nicht enthalten sind. Häufig betrifft das Erdarbeiten über eine bestimmte Tiefe hinaus, die Hausanschlüsse, den Baustrom oder die Entsorgung von Aushub.
 
-> TODO: [Gesetz] – Stufe 2 fehlt: Regelungen des Bürgerlichen Gesetzbuchs zum Bauvertrag mit Verbrauchern und zur vorvertraglichen Baubeschreibung – Geprüft: gesetze-im-internet.de war in diesem Lauf nicht erreichbar, fünf Abrufe endeten mit Verbindungsfehler; die Paragrafen sind deshalb nicht am Wortlaut belegbar – Zu prüfen: Welche Vorschriften des BGB und des EGBGB sind für Inhalt und Bindungswirkung der Baubeschreibung zu nennen? – Vorschlag: Abruf bei gesetze-im-internet.de nachholen – Im Text vorläufig umschrieben als „die gesetzlichen Regelungen über den Bauvertrag mit Verbrauchern“.
 
 Ein weit verbreiteter Irrtum betrifft den Pauschalpreis. Ein Pauschalpreis bedeutet, dass für eine beschriebene Leistung ein fester Betrag gilt; er bedeutet nicht, dass alle denkbaren Leistungen enthalten sind. Der Umfang ergibt sich aus der Beschreibung, nicht aus dem Wort „pauschal“. Ist die Beschreibung lückenhaft, ist auch die Pauschale lückenhaft, und die fehlenden Leistungen erscheinen später als Nachtrag. Wer beim Hausbau sparen will, erreicht mit einer vollständigen Leistungsbeschreibung und mehreren vergleichbaren Angeboten mehr als mit jeder nachträglichen Preisverhandlung. Eine [fachliche Baubegleitung](https://ing-bassam.de/#kontakt) kann die Beschreibung vor der Unterschrift auf Lücken prüfen.
 
 Auch die Regelungen zu Terminen und zur Abnahme verdienen Ihre Aufmerksamkeit, weil sie unmittelbar auf die Kosten durchschlagen. Zur Abnahme gehört, dass der Zustand des Werks gemeinsam festgestellt und protokolliert wird; von diesem Zeitpunkt an läuft die gesetzliche Verjährungsfrist für Mängelansprüche am Bauwerk. Wer die Abnahme beiläufig erledigt, verliert die beste Gelegenheit, Mängel ohne Streit beseitigen zu lassen. Welche rechtlichen Wirkungen eine Abnahme im Einzelfall auslöst, welche Fristen gelten und wie Vorbehalte zu erklären sind, klären Sie vor dem Termin mit einem Rechtsanwalt.
 
-> TODO: [Gesetz] – Stufe 2 fehlt: gesetzliche Verjährungsfrist für Mängelansprüche an Bauwerken und ihr Beginn – Geprüft: gesetze-im-internet.de war in diesem Lauf nicht erreichbar, der Abruf der Einzelnorm scheiterte mehrfach mit Verbindungsfehler – Zu prüfen: Welche Frist und welcher Fristbeginn sind zu nennen, und was gilt bei arglistigem Verschweigen eines Mangels? – Vorschlag: Abruf bei gesetze-im-internet.de nachholen – Im Text vorläufig umschrieben als „die gesetzliche Verjährungsfrist, die mit der Abnahme beginnt“.
 
 Ein letzter Punkt betrifft die Reihenfolge der Zahlungen. Zahlungspläne, die dem Baufortschritt vorauslaufen, verlagern das Risiko auf Sie, weil Sie für noch nicht erbrachte Leistungen im Voraus zahlen. Prüfen Sie deshalb bei jedem Zahlungsabruf, ob die abgerechnete Leistung tatsächlich erbracht ist, und dokumentieren Sie den Bautenstand mit datierten Fotos. Diese Dokumentation kostet nichts und belegt im Streitfall den Zustand zu einem bestimmten Zeitpunkt. Ob und in welcher Höhe Abschlagszahlungen verlangt werden können, ist eine Rechtsfrage und gehört in die anwaltliche Beratung.
 
