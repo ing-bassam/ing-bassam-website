@@ -1,0 +1,116 @@
+titel: Checkliste Objektbegehung
+untertitel: Regelbegehung eines Wohngebäudes für Hausverwaltungen
+kurzform: objektbegehung-wohngebaeude-hausverwaltung
+typ: Checkliste
+stand: 2026-09-26
+dateien: [pdf, pdf-ausfuellbar, xlsx]
+einleitung: >
+  Mit dieser Checkliste gehen Sie ein Wohngebäude in einer festen Reihenfolge ab,
+  von außen nach innen und von oben nach unten. Sie halten fest, was Sie sehen,
+  und tragen jede Feststellung mit Dringlichkeit, Zuständigkeit und Frist in die
+  Mängelliste am Ende ein. Prüfpflichten und Intervalle nennt die Liste bewusst
+  nicht, weil sie von Anlage, Nutzung und Landesrecht abhängen.
+kopffelder:
+  - Objekt und Anschrift
+  - Datum und Uhrzeit
+  - Art der Begehung (Regelbegehung oder Anlass)
+  - Letzte Begehung am
+  - Begeher und Rolle
+  - Weitere Beteiligte (Hauswart, Beirat, Fachfirma)
+  - Witterung und Beleuchtung
+  - Verwendete Unterlagen
+abschnitte:
+  - titel: Vor der Begehung vorbereiten
+    punkte:
+      - text: Die Begehung ist angekündigt, soweit Wohnungen oder vermietete Flächen betreten werden sollen
+        hinweis: Für die Gemeinschaftsflächen genügt in der Regel ein Aushang im Haus.
+      - text: Das Protokoll der letzten Begehung liegt vor und die damals offenen Punkte sind markiert
+        hinweis: Erst der Vergleich mit dem letzten Termin zeigt, ob ein Schaden fortschreitet.
+      - text: Die Liste der technischen Anlagen des Objekts ist zur Hand, ergänzt um die letzten Prüfberichte
+      - text: Taschenlampe, Zollstock, Kamera mit Datumsanzeige und alle nötigen Schlüssel sind dabei
+        hinweis: Fotos mit Datum und einem Zollstock als Maßstab sind später der belastbarste Teil der Aufnahme.
+  - titel: Außenanlagen und Verkehrssicherheit
+    punkte:
+      - text: Gehwege, Hofflächen und Zufahrten sind ohne Stolperstellen, gelöste Platten und Absenkungen
+        hinweis: Schon eine einzelne hochstehende Platte genügt für einen Sturz.
+      - text: Außentreppen haben feste, durchgehende Handläufe und unbeschädigte, rutschhemmende Stufen
+      - text: Die Außenbeleuchtung schaltet und leuchtet Wege, Eingänge und Treppen vollständig aus
+        hinweis: Ein zweiter kurzer Termin bei Dunkelheit zeigt Lücken, die tagsüber niemand sieht.
+      - text: Über Wegen, Stellplätzen und Spielflächen hängen keine abgebrochenen oder abgestorbenen Äste
+        hinweis: Auffälligkeiten notieren und den Baum von einer fachkundigen Person kontrollieren lassen.
+      - text: Müllstandplatz, Behälter und Einfriedungen sind unbeschädigt, sauber und zugänglich
+      - text: Spielgeräte sitzen fest, ohne gebrochene Teile, offene Rohrenden oder Fremdkörper im Fallschutz
+        hinweis: Die Begehung ersetzt die gesonderte Fachprüfung der Spielgeräte nicht.
+      - text: Entwässerungsrinnen, Hofabläufe und Schachtabdeckungen sind frei, vollständig und tragfähig
+  - titel: Dach, Fassade und Entwässerung vom Boden aus
+    punkte:
+      - text: Die Dachfläche zeigt vom Boden aus keine verschobenen, gebrochenen oder fehlenden Teile
+        hinweis: Steigen Sie nicht selbst auf das Dach, sondern arbeiten Sie mit Fernglas oder Kamerazoom.
+      - text: Dachrinnen und Fallrohre sind befestigt, dicht und frei von Laub und Pflanzenbewuchs
+        hinweis: Bewuchs in der Rinne zeigt, dass die Wartung länger ausgeblieben ist.
+      - text: An Fassade und Sockel sind keine losen Putzteile, Abplatzungen oder abgesprengten Kanten zu sehen
+        hinweis: Lose Teile über Wegen sofort absperren und eine Fachfirma beauftragen.
+      - text: Risse in der Fassade sind mit Ort, Datum und Foto erfasst und mit der letzten Aufnahme verglichen
+        hinweis: Neue oder breiter gewordene Risse gehören in die Beurteilung eines Fachkundigen.
+      - text: Fensterbänke, Brüstungen, Geländer und Abdeckungen sitzen fest und sind vollständig
+      - text: Balkone und Terrassen entwässern, ohne dass Wasser stehen bleibt oder an der Wand hochsteigt
+  - titel: Treppenhaus und Gemeinschaftsflächen
+    punkte:
+      - text: Die Beleuchtung schaltet in allen Geschossen, Leuchtmittel und Gläser sind vollständig
+      - text: Stufen, Podeste und Bodenbeläge sind ohne gelöste Kanten, Löcher und Rutschstellen
+      - text: Handläufe sind durchgehend, fest verankert und ohne scharfe Kanten
+      - text: Fenster, Türen und Oberlichter im Treppenraum öffnen, schließen und sind unbeschädigt
+      - text: An Wänden und Decken sind keine feuchten Stellen, Ausblühungen oder Schimmelspuren zu sehen
+        hinweis: Feuchte Flecken fotografieren und ihre Ausdehnung beim nächsten Termin vergleichen.
+      - text: Briefkastenanlage, Klingeln, Sprechanlage und Aushänge sind funktionsfähig und aktuell
+  - titel: Flucht- und Rettungswege und Brandschutz
+    punkte:
+      - text: Treppenräume, Flure und Ausgänge sind frei von Fahrrädern, Kinderwagen, Möbeln und Lagergut
+        hinweis: Brennbares Lagergut im Rettungsweg ist eine Feststellung, die sofort abgestellt wird.
+      - text: Türen mit Selbstschließer fallen von allein ins Schloss und sind nicht verkeilt oder festgebunden
+      - text: Ausgangstüren lassen sich von innen ohne Schlüssel öffnen
+      - text: Rauchabzugsöffnungen, ihre Bedienstellen und die Kennzeichnungen sind zugänglich und unbeschädigt
+      - text: Feuerlöscher und Wandhydranten sind vorhanden, zugänglich, gekennzeichnet und geprüft
+  - titel: Keller, Dachboden und Technikräume
+    punkte:
+      - text: Kellergänge und Dachboden sind frei von Lagergut auf den Wegen und ohne brennbare Ansammlungen
+      - text: Kellerwände und Böden sind ohne feuchte Flecken, Ausblühungen, Pfützen und muffigen Geruch
+        hinweis: Feuchte Kellerwände nicht verkleiden; zuerst muss die Ursache geklärt werden.
+      - text: Leitungen, Absperrungen und Anschlüsse sind ohne Tropfspuren, Rost und Kondensat
+        hinweis: Kalkspuren unter einer Verbindung deuten auf eine ältere Undichtigkeit hin.
+      - text: Licht- und Kellerschächte sind frei, entwässern und sind gegen Absturz gesichert
+      - text: Technikräume sind verschlossen, beleuchtet, aufgeräumt und nicht als Lager genutzt
+  - titel: Prüf- und Wartungsnachweise
+    punkte:
+      - text: Für jede technische Anlage des Objekts ist festgehalten, wer sie betreut und wann sie zuletzt geprüft wurde
+        hinweis: Welche Prüfungen vorgeschrieben sind und in welchem Abstand, hängt von Anlage, Nutzung und Landesrecht ab.
+      - text: Die Nachweise für Heizung, Trinkwasseranlage und Lüftung liegen vollständig vor
+      - text: Für den Aufzug liegt die letzte Prüfbescheinigung vor und die Notrufverbindung wird beim Test angenommen
+      - text: Die Nachweise für Brandschutzeinrichtungen, Rauchwarnmelder, Blitzschutz und Elektroanlagen sind vorhanden
+      - text: Verträge, Prüfberichte und gemeldete Mängel sind der jeweiligen Anlage zugeordnet und wiederfindbar abgelegt
+  - titel: Abschluss der Begehung
+    punkte:
+      - text: Jede Feststellung ist mit Ort, Beschreibung und Foto-Nummer in der Mängelliste eingetragen
+      - text: Jeder Punkt der Mängelliste hat eine Dringlichkeit, eine Zuständigkeit und eine Frist
+        hinweis: Feststellungen, die eine fachliche Beurteilung brauchen, kennzeichnen Sie gesondert.
+      - text: Gefahrenstellen sind noch am Tag der Begehung gesichert, abgesperrt oder außer Betrieb genommen
+      - text: Die ausgefüllte Liste ist datiert, abgelegt und den Beteiligten zugeleitet
+      - text: Der nächste Begehungstermin und die Wiedervorlage der offenen Punkte sind eingetragen
+tabelle:
+  spalten: [Nr., Ort und Bauteil, Feststellung, Dringlichkeit, Zuständig, Frist, Foto-Nr.]
+  breiten: [1, 3, 5, 2, 3, 2, 2]
+  leerzeilen: 22
+hinweise:
+  - "Dringlichkeit in drei Stufen eintragen: sofort, kurzfristig, einplanen."
+  - Die Begehung ist eine Sichtprüfung. Bauteile werden dabei nicht geöffnet, Verkleidungen nicht abgenommen und Anlagen nicht zerlegt.
+  - Steigen Sie nicht auf Dächer, Leitern oder Gerüste und betreten Sie keine Flächen, deren Tragfähigkeit unklar ist.
+  - Bei Anzeichen für eine Gefahr für die Standsicherheit, bei Gasgeruch, bei Strom in feuchten Bereichen, bei Absturzgefahr oder bei Verdacht auf Schadstoffe sichern oder räumen Sie den Bereich und schalten Fachfirma, Netzbetreiber oder Behörde ein.
+  - Die Liste ersetzt kein Gutachten und keine vorgeschriebene Prüfung durch eine befähigte Person oder eine Überwachungsstelle.
+  - Diese Liste ist keine Rechtsberatung. Ob und gegen wen Ansprüche bestehen, beurteilt ein Rechtsanwalt.
+quellen:
+  - DIN 31051:2019-06, Grundlagen der Instandhaltung (Begriffe Inspektion, Wartung, Instandsetzung)
+  - Stahr (Hrsg.), Bausanierung, 7. Aufl. 2022, S. 240 und S. 897
+  - Krause/Ulke (Hrsg.), Zahlentafeln für den Baubetrieb, 9. Aufl. 2016, S. 396
+  - Weber/Hafkesbrink (Hrsg.), Bauwerksabdichtung in der Altbausanierung, 7. Aufl. 2026, S. 454
+  - Willems (Hrsg.), Lehrbuch der Bauphysik, 9. Aufl. 2022, S. 990
+  - Schulz, Architektur der Bauschäden, 4. Aufl. 2020, S. 278
