@@ -91,7 +91,7 @@ Wegen unwesentlicher Mängel kann die Abnahme nicht verweigert werden.[^8] Ob ei
 
 **Ab wann läuft die Frist für Mängelansprüche?**
 
-Die Verjährung beginnt bei einem Bauwerk mit der Abnahme und beträgt fünf Jahre.[^2] Das Datum im Protokollkopf ist damit mehr als eine Formalie. Abweichende Vereinbarungen im Bauvertrag sind möglich, ebenso eine Hemmung der Verjährung. Ein konkretes Fristende sollten Sie sich von einem Rechtsanwalt bestätigen lassen.
+Die Verjährung beginnt bei einem Bauwerk mit der Abnahme und beträgt fünf Jahre.[^2] Das Datum im Protokollkopf ist damit mehr als eine Formalie. Ein konkretes Fristende sollten Sie sich von einem Rechtsanwalt bestätigen lassen.
 
 **Brauche ich für die Abnahme einen Sachverständigen?**
 
@@ -121,5 +121,5 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^10]: § 650n Abs. 2 BGB, Erstellung und Herausgabe von Unterlagen. Wortlaut abgerufen bei dejure.org. https://dejure.org/gesetze/BGB/650n.html (abgerufen am 2026-09-26).
 [^11]: Heiermann, Wolfgang u. a.: VOB/B-Musterbriefe für Auftraggeber. Bauherren – Generalunternehmer – Architekten – Bauingenieure. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 181. ISBN 978-3-658-32253-3.
 [^12]: § 640 Abs. 2 BGB, Abnahme. Wortlaut abgerufen bei dejure.org. https://dejure.org/gesetze/BGB/640.html (abgerufen am 2026-09-26).
-[^13]: Schulz, Joachim: Bauschäden in Bädern und Nassräumen. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 2. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 124. ISBN 978-3-658-49195-6.
+[^13]: Schulz, Joachim: Bauschäden in Bädern und Nassräumen. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 2. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 119 und 124. ISBN 978-3-658-49195-6.
 [^14]: Zanner, Christian: VOB/B nach Ansprüchen. Entscheidungshilfen für Auftraggeber, Planer und Bauunternehmen. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 131. ISBN 978-3-658-34025-4.
