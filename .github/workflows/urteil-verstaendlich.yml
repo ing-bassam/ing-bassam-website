@@ -76,8 +76,20 @@ on:
         description: "Optionaler Schwerpunkt, z. B. „Nachtragsmanagement“ (leer = freie Wahl)"
         required: false
         default: ""
+      streitwert:
+        description: "Nur Urteile mit hohem Streitwert (laut Urteil; ohne Angabe im Urteil entfällt es). Hohe Streitwerte sind seltener – am besten mit 36 Monaten kombinieren."
+        required: false
+        default: "egal"
+        type: choice
+        options:
+          - "egal"
+          - "ab 50.000 €"
+          - "ab 100.000 €"
+          - "ab 250.000 €"
+          - "ab 500.000 €"
+          - "ab 1 Mio. €"
 
-run-name: "Urteil verständlich · ${{ inputs.runden || '1' }} Runde(n)"
+run-name: "Urteil verständlich · ${{ inputs.runden || '1' }} Runde(n) · Streitwert ${{ inputs.streitwert || 'egal' }}"
 
 concurrency:
   # Urteilsbesprechung und Urteil verständlich teilen sich diese Warteschlange:
@@ -221,6 +233,9 @@ jobs:
           # Eingaben nie direkt in die Shell schreiben, sondern über die Umgebung.
           MONATE: ${{ inputs.monate }}
           QUELLE: ${{ inputs.quelle }}
+          STREITWERT: ${{ inputs.streitwert }}
+          # Zum Abgleich mit Entwürfen in offenen Pull Requests (keine Doppelbesprechung).
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
 
@@ -247,15 +262,33 @@ jobs:
             ''|*[!0-9]*) MON=18 ;;
           esac
 
+          # Streitwertgrenze: Die Suche liest den Streitwert aus dem Volltext und
+          # behält nur Entscheidungen ab dieser Grenze (tools/urteile_finden.py).
+          case "${STREITWERT:-egal}" in
+            "ab 50.000 €")   SW=50000 ;;
+            "ab 100.000 €")  SW=100000 ;;
+            "ab 250.000 €")  SW=250000 ;;
+            "ab 500.000 €")  SW=500000 ;;
+            "ab 1 Mio. €")   SW=1000000 ;;
+            *)               SW=0 ;;
+          esac
+          SW_ARG=()
+          if [ "$SW" -gt 0 ]; then
+            SW_ARG=(--streitwert-ab "$SW")
+            echo "Nur Entscheidungen mit einem Streitwert ${STREITWERT}."
+          fi
+
           python tools/urteile_finden.py \
             --ziel "$LISTE" \
             --monate "$MON" \
             --max 12 \
             --pause 1.0 \
-            "${NUR[@]}" | tee "$ARBEIT/suche.log"
+            "${NUR[@]}" "${SW_ARG[@]}" | tee "$ARBEIT/suche.log"
 
           if grep -q "## Keine Kandidaten" "$LISTE"; then
-            echo "::warning title=Urteil verständlich::Im Zeitraum der letzten ${MON} Monate wurde keine noch nicht besprochene Entscheidung gefunden. Größeren Zeitraum wählen."
+            SW_TEXT=""; SW_HINWEIS=""
+            if [ "$SW" -gt 0 ]; then SW_TEXT=" mit Streitwert ${STREITWERT}"; SW_HINWEIS=" oder niedrigeren Streitwert"; fi
+            echo "::warning title=Urteil verständlich::Im Zeitraum der letzten ${MON} Monate wurde keine noch nicht besprochene Entscheidung${SW_TEXT} gefunden. Größeren Zeitraum wählen${SW_HINWEIS}."
             echo "gefunden=false" >> "$GITHUB_OUTPUT"
           else
             echo "gefunden=true" >> "$GITHUB_OUTPUT"
