@@ -33,11 +33,26 @@ Aufbau der Beschreibung (YAML):
     dateien: [pdf, pdf-ausfuellbar, docx]              # gewünschte Formate; Tabelle: xlsx
     einleitung: Ein bis drei Sätze, was die Vorlage leistet und wie man sie nutzt.
     kopffelder: [Objekt und Anschrift, Datum, Anwesende]   # Eingabefelder oben (nicht bei Musterschreiben)
+    bewertung:                 # optional: Bewertungsmatrix statt Ja/Nein (Checkliste, Protokoll)
+      stufen:                  # 2 bis 5 Stufen; kurz = Spaltenkopf (höchstens 12 Zeichen)
+        - {kurz: "o. B.", lang: "ohne Befund", beschreibung: "nichts Auffälliges erkennbar"}
+        - {kurz: "gering", lang: "geringer Befund", beschreibung: "vereinzelt, oberflächlich, beobachten"}
+        - {kurz: "deutlich", lang: "deutlicher Befund", beschreibung: "ausgedehnt oder fortschreitend – Fachmann"}
+        - {kurz: "n. p.", lang: "nicht prüfbar", beschreibung: "nicht zugänglich oder verdeckt"}
     abschnitte:                # Checkliste, Protokoll
       - titel: Außenanlagen
+        bewertung: false       # optional: dieser Abschnitt nur Ja/Nein (z. B. Unterlagen)
+        notizen: 3             # optional: so viele Notizzeilen am Ende des Abschnitts
         punkte:
-          - text: Regenwasser läuft vom Gebäude weg
-            hinweis: Gefälle vom Haus weg, keine Pfützen an der Fassade   # optional
+          - text: Risse in der Fassade
+            hinweis: "Woran erkennen: … – gering: … – deutlich: …"    # optional, bis 400 Zeichen
+          - text: Bauart der Innenwände                    # Merkmal statt Bewertung
+            auswahl: [massiv, Trockenbau, gemischt, unbekannt]
+            hinweis: "Klopfprobe: hohl klingende Wände sind meist Trockenbau"
+          - text: Energieausweis liegt vor
+            ja_nein: true      # einzelner Punkt nur Ja/Nein
+    auswertung:                # optional: Regeln für die Gesamtbewertung am Ende
+      - "Ein deutlicher Befund an Dachstuhl, Tragwerk oder Feuchte: vor dem Kauf einen Sachverständigen hinzuziehen."
     unterschriften: [Bauherr, Unternehmer]             # optional, Protokoll
     tabelle:                   # Tabelle (auch als Zusatz zu anderen Typen)
       spalten: [Nr., Bauteil, Intervall, Zuständig, Erledigt am, Bemerkung]
@@ -133,8 +148,26 @@ def beschreibung_pruefen(d: dict) -> list[str]:
             for j, p in enumerate(a.get("punkte") or [], 1):
                 if not (isinstance(p, dict) and p.get("text")):
                     fehler.append(f"abschnitte[{i}].punkte[{j}] braucht ein Feld text")
-                elif len(p["text"]) > 220:
+                    continue
+                if len(p["text"]) > 220:
                     fehler.append(f"abschnitte[{i}].punkte[{j}]: text länger als 220 Zeichen")
+                if len(str(p.get("hinweis") or "")) > 400:
+                    fehler.append(f"abschnitte[{i}].punkte[{j}]: hinweis länger als 400 Zeichen")
+                if p.get("auswahl") is not None:
+                    optionen = p["auswahl"]
+                    if not (isinstance(optionen, list) and 2 <= len(optionen) <= 6):
+                        fehler.append(f"abschnitte[{i}].punkte[{j}]: auswahl braucht 2 bis 6 Optionen")
+                    elif any(len(str(o)) > 30 for o in optionen):
+                        fehler.append(f"abschnitte[{i}].punkte[{j}]: jede auswahl-Option höchstens 30 Zeichen")
+                if p.get("stufen") is not None:
+                    fehler += stufen_pruefen(p["stufen"], f"abschnitte[{i}].punkte[{j}].stufen")
+            if a.get("stufen") is not None:
+                fehler += stufen_pruefen(a["stufen"], f"abschnitte[{i}].stufen")
+        if d.get("bewertung"):
+            fehler += stufen_pruefen((d["bewertung"] or {}).get("stufen"), "bewertung.stufen")
+        for k, regel in enumerate(d.get("auswertung") or [], 1):
+            if not isinstance(regel, str) or len(regel) > 300:
+                fehler.append(f"auswertung[{k}]: Text bis 300 Zeichen")
     if typ == "Tabelle" or d.get("tabelle"):
         t = d.get("tabelle") or {}
         if not t.get("spalten"):
@@ -143,8 +176,9 @@ def beschreibung_pruefen(d: dict) -> list[str]:
             if len(z) != len(t.get("spalten") or []):
                 fehler.append("tabelle.zeilen: jede Zeile braucht so viele Einträge wie Spalten")
                 break
-        if "xlsx" in (d.get("dateien") or []) and typ != "Tabelle" and not d.get("tabelle"):
-            fehler.append("xlsx nur mit einer tabelle")
+        if ("xlsx" in (d.get("dateien") or []) and typ != "Tabelle" and not d.get("tabelle")
+                and not (typ in ("Checkliste", "Protokoll") and d.get("bewertung"))):
+            fehler.append("xlsx nur mit einer tabelle oder einer Bewertungsmatrix")
     if typ == "Musterschreiben":
         b = d.get("brief") or {}
         for feld in ("betreff", "anrede", "absaetze", "gruss"):
@@ -154,7 +188,49 @@ def beschreibung_pruefen(d: dict) -> list[str]:
             fehler.append("Musterschreiben nicht als xlsx")
     if typ != "Tabelle" and "pdf-ausfuellbar" in (d.get("dateien") or []) and typ == "Musterschreiben":
         fehler.append("Musterschreiben nicht als pdf-ausfuellbar – dafür docx")
+    if "xlsx" in (d.get("dateien") or []) and typ in ("Checkliste", "Protokoll") and not d.get("bewertung") \
+            and not d.get("tabelle"):
+        fehler.append("xlsx für Checklisten nur mit bewertung (Bewertungsmatrix)")
     return fehler
+
+
+def stufen_normieren(roh) -> list[dict]:
+    """Stufen als Liste von {kurz, lang, beschreibung}; Zeichenketten werden zu allen drei."""
+    ergebnis = []
+    for s in roh or []:
+        if isinstance(s, dict):
+            kurz = str(s.get("kurz") or s.get("lang") or "")
+            ergebnis.append({"kurz": kurz, "lang": str(s.get("lang") or kurz),
+                             "beschreibung": str(s.get("beschreibung") or "")})
+        else:
+            ergebnis.append({"kurz": str(s), "lang": str(s), "beschreibung": ""})
+    return ergebnis
+
+
+def stufen_pruefen(roh, ort: str) -> list[str]:
+    stufen = stufen_normieren(roh)
+    if not 2 <= len(stufen) <= 5:
+        return [f"{ort}: 2 bis 5 Stufen"]
+    if any(not s["kurz"] or len(s["kurz"]) > 12 for s in stufen):
+        return [f"{ort}: jede Stufe braucht ein kurz (höchstens 12 Zeichen)"]
+    return []
+
+
+def stufen_fuer(d: dict, abschnitt: dict, punkt: dict) -> list[dict] | None:
+    """Die Bewertungsstufen eines Punkts – oder None für einen Ja/Nein- bzw. Merkmalspunkt."""
+    if punkt.get("auswahl") or punkt.get("ja_nein") or abschnitt.get("bewertung") is False:
+        return None
+    roh = punkt.get("stufen") or abschnitt.get("stufen") or (d.get("bewertung") or {}).get("stufen")
+    return stufen_normieren(roh) if roh else None
+
+
+def abschnitt_stufen(d: dict, abschnitt: dict) -> list[dict] | None:
+    """Stufen für den Spaltenkopf eines Abschnitts (die der ersten bewerteten Zeile)."""
+    for punkt in abschnitt.get("punkte") or []:
+        s = stufen_fuer(d, abschnitt, punkt)
+        if s:
+            return s
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -238,6 +314,9 @@ def _schriften_registrieren() -> None:
                         ("SpaceGrotesk", "SpaceGrotesk-600.ttf"), ("FiraSans-Light", "FiraSans-300.ttf")):
         if name not in pdfmetrics.getRegisteredFontNames():
             pdfmetrics.registerFont(TTFont(name, str(SCHRIFTEN / datei)))
+    # <b> in Absätzen soll die halbfette Inter verwenden
+    pdfmetrics.registerFontFamily("Inter", normal="Inter", bold="Inter-SemiBold",
+                                  italic="Inter", boldItalic="Inter-SemiBold")
 
 
 def pdf_bauen(d: dict, ziel: Path, ausfuellbar: bool) -> Path:
@@ -246,6 +325,7 @@ def pdf_bauen(d: dict, ziel: Path, ausfuellbar: bool) -> Path:
     from reportlab.lib.pagesizes import A4, landscape
     from reportlab.lib.styles import ParagraphStyle
     from reportlab.lib.units import mm
+    from reportlab.pdfbase import pdfmetrics
     from reportlab.platypus import (Flowable, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate,
                                     Spacer, Table, TableStyle)
 
@@ -299,30 +379,118 @@ def pdf_bauen(d: dict, ziel: Path, ausfuellbar: bool) -> Path:
                 c.setLineWidth(0.6)
                 c.line(0, 1, self.w, 1)
 
-    class Punkt(Flowable):
-        """Eine Checklisten-Zeile: Kästchen, Text, optionaler Hinweis, Bemerkungsfeld."""
+    SPALTE = 15 * mm      # Breite einer Bewertungsspalte
 
-        def __init__(self, text: str, hinweis: str, mit_bemerkung: bool):
+    def kaestchen(c, x, y, gruppe: str, wert: str):
+        """Ein Ankreuzkästchen; im ausfüllbaren PDF ein Optionsfeld der Gruppe (eine Wahl je Zeile)."""
+        if ausfuellbar:
+            ax, ay = c.absolutePosition(x, y)
+            c.acroForm.radio(name=gruppe, value=wert, selected=False, x=ax, y=ay, size=10,
+                             buttonStyle="check", shape="square", borderWidth=0.6,
+                             borderColor=farbe(TEXT_2), fillColor=colors.white, forceBorder=True)
+        else:
+            c.setStrokeColor(farbe(TEXT_2))
+            c.setLineWidth(0.6)
+            c.rect(x, y, 10, 10, stroke=1, fill=0)
+
+    class MatrixKopf(Flowable):
+        """Spaltenköpfe der Bewertungsstufen über einem Abschnitt."""
+
+        def __init__(self, stufen):
             super().__init__()
-            self.text, self.hinweis, self.mit_bemerkung = text, hinweis, mit_bemerkung
-            self.absatz = Paragraph(text, st_text)
-            self.hinweis_absatz = Paragraph(hinweis, st_hinweis) if hinweis else None
+            self.stufen = stufen
 
         def wrap(self, aw, ah):
             self.w = aw
-            self.textbreite = aw - 22 - (0.32 * aw if self.mit_bemerkung else 0)
+            return aw, 12
+
+        def draw(self):
+            c = self.canv
+            c.setFont("Inter-SemiBold", 7)
+            c.setFillColor(farbe(TEXT_2))
+            start = self.w - len(self.stufen) * SPALTE
+            for k, s in enumerate(self.stufen):
+                c.drawCentredString(start + (k + 0.5) * SPALTE, 3, s["kurz"])
+
+    class Punkt(Flowable):
+        """Eine Zeile: Ja/Nein-Kästchen, Bewertungsmatrix oder Merkmal mit Auswahl."""
+
+        def __init__(self, text: str, hinweis: str, mit_bemerkung: bool,
+                     stufen: list | None = None, auswahl: list | None = None):
+            super().__init__()
+            self.text, self.hinweis = text, hinweis
+            self.stufen, self.auswahl = stufen, auswahl
+            self.mit_bemerkung = mit_bemerkung and not stufen and not auswahl
+            titel = f"<b>{text}</b>" if auswahl else text
+            self.absatz = Paragraph(titel, st_text)
+            self.hinweis_absatz = Paragraph(hinweis, st_hinweis) if hinweis else None
+            feld_nr[0] += 1
+            self.nr = feld_nr[0]
+
+        def auswahl_zeilen(self, breite):
+            """Optionen der Auswahl auf Zeilen verteilen: [(x, text), …] je Zeile."""
+            zeilen, zeile, x = [], [], 0.0
+            for o in self.auswahl or []:
+                w = 14 + pdfmetrics.stringWidth(str(o), "Inter", 8.5) + 12
+                if zeile and x + w > breite:
+                    zeilen.append(zeile)
+                    zeile, x = [], 0.0
+                zeile.append((x, str(o)))
+                x += w
+            if zeile:
+                zeilen.append(zeile)
+            return zeilen
+
+        def wrap(self, aw, ah):
+            self.w = aw
+            links = 0 if (self.stufen or self.auswahl) else 22
+            rechts = len(self.stufen) * SPALTE + 6 if self.stufen else (0.32 * aw if self.mit_bemerkung else 0)
+            self.links = links
+            self.textbreite = aw - links - rechts
             _, h1 = self.absatz.wrap(self.textbreite, ah)
             h2 = 0
             if self.hinweis_absatz:
                 _, h2 = self.hinweis_absatz.wrap(self.textbreite, ah)
                 h2 += 1
-            self.h = max(h1 + h2 + 7, 18)
-            self.h1, self.h2 = h1, h2
+            h3 = 0
+            if self.auswahl:
+                self.optionen = self.auswahl_zeilen(aw - 4)
+                h3 = 15 * len(self.optionen) + 2
+            self.h = max(h1 + h2 + h3 + 7, 18)
+            self.h1, self.h2, self.h3 = h1, h2, h3
             return aw, self.h
 
         def draw(self):
             c = self.canv
             oben = self.h - 3
+            self.absatz.drawOn(c, self.links, self.h - self.h1 - 3)
+            if self.hinweis_absatz:
+                self.hinweis_absatz.drawOn(c, self.links, self.h - self.h1 - self.h2 - 3)
+            if self.stufen:
+                start = self.w - len(self.stufen) * SPALTE
+                for k, s in enumerate(self.stufen):
+                    kaestchen(c, start + (k + 0.5) * SPALTE - 5, oben - 11, f"z{self.nr}", f"s{k}")
+                # zarte Spaltenlinien als Lesehilfe
+                c.setStrokeColor(colors.Color(0.93, 0.92, 0.89))
+                c.setLineWidth(0.3)
+                for k in range(len(self.stufen) + 1):
+                    c.line(start + k * SPALTE, 1, start + k * SPALTE, self.h - 1)
+            elif self.auswahl:
+                y = self.h - self.h1 - self.h2 - 3 - 13
+                for zeile in self.optionen:
+                    for x, o in zeile:
+                        kaestchen(c, x + 2, y, f"z{self.nr}", re.sub(r"\W+", "_", o)[:20] or "o")
+                        c.setFont("Inter", 8.5)
+                        c.setFillColor(farbe(INK_TEXT))
+                        c.drawString(x + 16, y + 1.5, o)
+                    y -= 15
+            else:
+                self.einzeln_zeichnen(c, oben)
+            c.setStrokeColor(colors.Color(0.9, 0.89, 0.86))
+            c.setLineWidth(0.4)
+            c.line(0, 0, self.w, 0)
+
+        def einzeln_zeichnen(self, c, oben):
             if ausfuellbar:
                 feld_nr[0] += 1
                 ax, ay = c.absolutePosition(1, oben - 11)
@@ -333,9 +501,6 @@ def pdf_bauen(d: dict, ziel: Path, ausfuellbar: bool) -> Path:
                 c.setStrokeColor(farbe(TEXT_2))
                 c.setLineWidth(0.6)
                 c.rect(1, oben - 11, 10, 10, stroke=1, fill=0)
-            self.absatz.drawOn(c, 22, self.h - self.h1 - 3)
-            if self.hinweis_absatz:
-                self.hinweis_absatz.drawOn(c, 22, self.h - self.h1 - self.h2 - 3)
             if self.mit_bemerkung:
                 bx = 22 + self.textbreite + 8
                 bw = self.w - bx
@@ -350,9 +515,36 @@ def pdf_bauen(d: dict, ziel: Path, ausfuellbar: bool) -> Path:
                     c.setStrokeColor(farbe(LINIE))
                     c.setLineWidth(0.5)
                     c.line(bx, oben - 12, bx + bw, oben - 12)
-            c.setStrokeColor(colors.Color(0.9, 0.89, 0.86))
-            c.setLineWidth(0.4)
-            c.line(0, 0, self.w, 0)
+
+    class Notizen(Flowable):
+        """Notizzeilen am Ende eines Abschnitts; im ausfüllbaren PDF ein mehrzeiliges Feld."""
+
+        def __init__(self, zeilen: int):
+            super().__init__()
+            self.zeilen = max(1, int(zeilen))
+
+        def wrap(self, aw, ah):
+            self.w = aw
+            return aw, 12 + 15 * self.zeilen
+
+        def draw(self):
+            c = self.canv
+            h = 12 + 15 * self.zeilen
+            c.setFont("Inter", 7.5)
+            c.setFillColor(farbe(TEXT_2))
+            c.drawString(0, h - 9, "Notizen")
+            if ausfuellbar:
+                feld_nr[0] += 1
+                ax, ay = c.absolutePosition(0, 2)
+                c.acroForm.textfield(name=f"notiz{feld_nr[0]}", x=ax, y=ay, width=self.w,
+                                     height=15 * self.zeilen - 2, borderWidth=0.5, borderColor=farbe(LINIE),
+                                     fillColor=colors.Color(0.98, 0.98, 0.97), fontName="Helvetica",
+                                     fontSize=8.5, fieldFlags="multiline", forceBorder=True)
+            else:
+                c.setStrokeColor(farbe(LINIE))
+                c.setLineWidth(0.5)
+                for k in range(self.zeilen):
+                    c.line(0, 2 + 15 * k, self.w, 2 + 15 * k)
 
     def seite_zeichnen(canv, doc):
         canv.saveState()
@@ -407,17 +599,49 @@ def pdf_bauen(d: dict, ziel: Path, ausfuellbar: bool) -> Path:
         teile += [tabelle, Spacer(1, 6)]
 
     typ = d["typ"]
+    if typ in ("Checkliste", "Protokoll") and d.get("bewertung"):
+        # Legende der Bewertungsstufen
+        stufen = stufen_normieren(d["bewertung"].get("stufen"))
+        st_zelle = ParagraphStyle("lz", parent=st_klein, textColor=farbe(INK_TEXT))
+        zeilen = [[Paragraph(f"<b>{s['kurz']}</b>", st_zelle), Paragraph(s["lang"], st_zelle),
+                   Paragraph(s["beschreibung"], st_klein)] for s in stufen]
+        legende = Table(zeilen, colWidths=[22 * mm, 38 * mm, breite - 60 * mm], hAlign="LEFT")
+        legende.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, -1), colors.Color(0.965, 0.96, 0.945)),
+            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ("LINEBELOW", (0, 0), (-1, -2), 0.3, farbe(LINIE)),
+            ("TOPPADDING", (0, 0), (-1, -1), 3), ("BOTTOMPADDING", (0, 0), (-1, -1), 3)]))
+        teile += [Paragraph("So bewerten Sie", st_h2), legende, Spacer(1, 6)]
+
     if typ in ("Checkliste", "Protokoll"):
         mit_bemerkung = typ == "Protokoll"
         for abschnitt in d["abschnitte"]:
+            kopf_stufen = abschnitt_stufen(d, abschnitt)
             block = [Paragraph(abschnitt["titel"], st_h2)]
-            if mit_bemerkung:
+            if kopf_stufen:
+                block.append(MatrixKopf(kopf_stufen))
+            elif mit_bemerkung:
                 block.append(Paragraph("<font size=7.5 color='#475262'>Bemerkung / Befund</font>",
                                        ParagraphStyle("r", parent=st_klein, alignment=2)))
             for p in abschnitt["punkte"]:
-                block.append(Punkt(p["text"], p.get("hinweis", ""), mit_bemerkung))
+                block.append(Punkt(p["text"], p.get("hinweis", ""), mit_bemerkung,
+                                   stufen_fuer(d, abschnitt, p), p.get("auswahl")))
+            notizen = abschnitt.get("notizen") or (2 if (typ == "Protokoll" and kopf_stufen) else 0)
+            if notizen:
+                block.append(Notizen(notizen))
             teile.append(KeepTogether(block[:3]))
             teile += block[3:]
+        if d.get("auswertung"):
+            st_regel = ParagraphStyle("ar", parent=st_text, fontSize=9, leading=12.5)
+            regeln = [[Paragraph("• " + r, st_regel)] for r in d["auswertung"]]
+            box = Table([[Paragraph("<b>So werten Sie Ihre Befunde aus</b>", st_text)]] + regeln,
+                        colWidths=[breite], hAlign="LEFT")
+            box.setStyle(TableStyle([
+                ("BACKGROUND", (0, 0), (-1, -1), colors.Color(0.99, 0.94, 0.91)),
+                ("LINEBEFORE", (0, 0), (0, -1), 3, farbe(AKZENT_DUNKEL)),
+                ("LEFTPADDING", (0, 0), (-1, -1), 10), ("TOPPADDING", (0, 0), (-1, -1), 3),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 3)]))
+            teile += [Spacer(1, 12), KeepTogether([box])]
         if d.get("unterschriften"):
             teile.append(Spacer(1, 22))
             reihe = [Eingabe(f"Ort, Datum, Unterschrift {name}", 30) for name in d["unterschriften"]]
@@ -584,10 +808,79 @@ def docx_bauen(d: dict, ziel: Path, logo: Path) -> Path:
             p.add_run("_" * 26).font.color.rgb = RGBColor(*LINIE)
         doc.add_paragraph()
 
+    def zelle_schreiben(zelle, text, groesse=9, fett=False, farbe=INK_TEXT, hinweis=""):
+        zelle.text = ""
+        par = zelle.paragraphs[0]
+        r = par.add_run(text)
+        r.bold = fett
+        r.font.size = Pt(groesse)
+        r.font.color.rgb = RGBColor(*farbe)
+        if hinweis:
+            h = par.add_run("\n" + hinweis)
+            h.font.size = Pt(7.5)
+            h.font.color.rgb = RGBColor(*TEXT_2)
+
+    def schattieren(zelle, farbwert="F4F3EF"):
+        zelle._tc.get_or_add_tcPr().append(parse_xml(
+            f'<w:shd {nsdecls("w")} w:val="clear" w:color="auto" w:fill="{farbwert}"/>'))
+
+    if typ in ("Checkliste", "Protokoll") and d.get("bewertung"):
+        ueberschrift("So bewerten Sie", 12)
+        stufen = stufen_normieren(d["bewertung"].get("stufen"))
+        leg = doc.add_table(rows=len(stufen), cols=3)
+        leg.style = "Table Grid"
+        for k, s in enumerate(stufen):
+            zelle_schreiben(leg.cell(k, 0), s["kurz"], 9, True)
+            zelle_schreiben(leg.cell(k, 1), s["lang"], 9)
+            zelle_schreiben(leg.cell(k, 2), s["beschreibung"], 8.5, farbe=TEXT_2)
+
     if typ in ("Checkliste", "Protokoll"):
         for a in d["abschnitte"]:
             ueberschrift(a["titel"], 12)
+            kopf_stufen = abschnitt_stufen(d, a)
+            if kopf_stufen:
+                n = len(kopf_stufen)
+                tab = doc.add_table(rows=1 + len(a["punkte"]), cols=1 + n)
+                tab.style = "Table Grid"
+                zelle_schreiben(tab.cell(0, 0), "Prüfpunkt", 8.5, True)
+                schattieren(tab.cell(0, 0))
+                for k, s in enumerate(kopf_stufen):
+                    zelle_schreiben(tab.cell(0, 1 + k), s["kurz"], 8, True)
+                    schattieren(tab.cell(0, 1 + k))
+                for zi, p in enumerate(a["punkte"], 1):
+                    st = stufen_fuer(d, a, p)
+                    if p.get("auswahl"):
+                        zelle_schreiben(tab.cell(zi, 0), p["text"], 9, True, hinweis=p.get("hinweis", ""))
+                        verbund = tab.cell(zi, 1).merge(tab.cell(zi, n))
+                        zelle_schreiben(verbund, "   ".join("☐ " + str(o) for o in p["auswahl"]), 8.5)
+                    elif st:
+                        zelle_schreiben(tab.cell(zi, 0), p["text"], 9, hinweis=p.get("hinweis", ""))
+                        for k in range(n):
+                            zelle_schreiben(tab.cell(zi, 1 + k), "☐", 11)
+                            tab.cell(zi, 1 + k).paragraphs[0].alignment = WD_ALIGN_PARAGRAPH.CENTER
+                    else:
+                        zelle_schreiben(tab.cell(zi, 0), p["text"], 9, hinweis=p.get("hinweis", ""))
+                        verbund = tab.cell(zi, 1).merge(tab.cell(zi, n))
+                        zelle_schreiben(verbund, "☐ ja     ☐ nein", 8.5)
+                breiten = [Cm(9.6)] + [Cm(1.85)] * n
+                for zeile in tab.rows:
+                    for k, zelle in enumerate(zeile.cells[: len(breiten)]):
+                        zelle.width = breiten[k]
+                if a.get("notizen"):
+                    absatz("Notizen: " + "_" * 70, 8.5, LINIE, 2)
+                continue
             for p in a["punkte"]:
+                if p.get("auswahl"):
+                    z = doc.add_paragraph()
+                    z.paragraph_format.space_after = Pt(2)
+                    r = z.add_run(p["text"] + ":  ")
+                    r.bold = True
+                    z.add_run("   ".join("☐ " + str(o) for o in p["auswahl"])).font.size = Pt(9.5)
+                    if p.get("hinweis"):
+                        h = z.add_run("\n" + p["hinweis"])
+                        h.font.size = Pt(8.5)
+                        h.font.color.rgb = RGBColor(*TEXT_2)
+                    continue
                 z = doc.add_paragraph()
                 z.paragraph_format.space_after = Pt(2)
                 z.paragraph_format.left_indent = Cm(0.7)
@@ -605,6 +898,10 @@ def docx_bauen(d: dict, ziel: Path, logo: Path) -> Path:
                     r = b.add_run("Bemerkung: " + "_" * 60)
                     r.font.size = Pt(8.5)
                     r.font.color.rgb = RGBColor(*LINIE)
+        if d.get("auswertung"):
+            ueberschrift("So werten Sie Ihre Befunde aus", 12, farbe=AKZENT_DUNKEL)
+            for regel in d["auswertung"]:
+                absatz("• " + regel, 10, nach=2)
         if d.get("unterschriften"):
             doc.add_paragraph()
             t = doc.add_table(rows=2, cols=len(d["unterschriften"]))
@@ -758,6 +1055,94 @@ def xlsx_bauen(d: dict, ziel: Path, logo: Path) -> Path:
 # Ablauf
 # ---------------------------------------------------------------------------
 
+def checkliste_xlsx_bauen(d: dict, ziel: Path, logo: Path) -> Path:
+    """Bewertungsbogen als Excel: je Prüfpunkt eine Zeile mit Auswahlliste und eine Auszählung."""
+    from openpyxl import Workbook
+    from openpyxl.drawing.image import Image as XlImage
+    from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
+    from openpyxl.worksheet.datavalidation import DataValidation
+
+    stand = datum_deutsch(str(d["stand"]))
+    stufen = stufen_normieren(d["bewertung"].get("stufen"))
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Bewertung"
+    bild = XlImage(str(logo))
+    bild.height, bild.width = 40, int(40 * 5.2)
+    ws.add_image(bild, "A1")
+    ws.row_dimensions[1].height = 34
+    ws["A3"] = d["titel"]
+    ws["A3"].font = Font(size=15, bold=True, color="0F1A28")
+    ws["A4"] = f"Stand {stand} · {FIRMA_KURZ} · {WEBSITE}"
+    ws["A4"].font = Font(size=9, color="475262")
+    duenn = Side(style="thin", color="C9C5BB")
+    rahmen = Border(left=duenn, right=duenn, top=duenn, bottom=duenn)
+    kopf = ["Abschnitt", "Prüfpunkt", "Woran Sie es erkennen", "Bewertung / Merkmal", "Bemerkung"]
+    kz = 6
+    for i, k in enumerate(kopf, 1):
+        z = ws.cell(row=kz, column=i, value=k)
+        z.font = Font(bold=True, size=10)
+        z.fill = PatternFill("solid", fgColor="F4F3EF")
+        z.border = rahmen
+    for spalte, breite in zip("ABCDE", (22, 46, 58, 22, 36)):
+        ws.column_dimensions[spalte].width = breite
+    liste_stufen = ",".join(s["lang"].replace(",", " ") for s in stufen)
+    dv_stufen = DataValidation(type="list", formula1=f'"{liste_stufen}"', allow_blank=True)
+    ws.add_data_validation(dv_stufen)
+    dv_janein = DataValidation(type="list", formula1='"ja,nein"', allow_blank=True)
+    ws.add_data_validation(dv_janein)
+    zeile = kz + 1
+    for a in d["abschnitte"]:
+        for p in a["punkte"]:
+            werte = [a["titel"], p["text"], p.get("hinweis", ""), None, None]
+            for i, w in enumerate(werte, 1):
+                z = ws.cell(row=zeile, column=i, value=w)
+                z.border = rahmen
+                z.alignment = Alignment(vertical="top", wrap_text=True)
+                z.font = Font(size=10)
+            ziel_zelle = f"D{zeile}"
+            if p.get("auswahl"):
+                optionen = ",".join(str(o).replace(",", " ") for o in p["auswahl"])
+                dv = DataValidation(type="list", formula1=f'"{optionen}"', allow_blank=True)
+                ws.add_data_validation(dv)
+                dv.add(ziel_zelle)
+            elif stufen_fuer(d, a, p):
+                dv_stufen.add(ziel_zelle)
+            else:
+                dv_janein.add(ziel_zelle)
+            zeile += 1
+    letzte = zeile - 1
+    ws.freeze_panes = ws.cell(row=kz + 1, column=1)
+    ws.auto_filter.ref = f"A{kz}:E{letzte}"
+    # Auszählung der Bewertungen
+    zeile += 1
+    ws.cell(row=zeile, column=2, value="Auszählung").font = Font(bold=True)
+    for s in stufen:
+        zeile += 1
+        ws.cell(row=zeile, column=2, value=s["lang"])
+        ws.cell(row=zeile, column=4, value=f'=COUNTIF(D{kz + 1}:D{letzte},"{s["lang"]}")')
+    if d.get("auswertung"):
+        zeile += 2
+        ws.cell(row=zeile, column=2, value="So werten Sie Ihre Befunde aus").font = Font(bold=True, color="C2410C")
+        for regel in d["auswertung"]:
+            zeile += 1
+            z = ws.cell(row=zeile, column=2, value="• " + regel)
+            z.alignment = Alignment(wrap_text=True, vertical="top")
+            ws.merge_cells(start_row=zeile, start_column=2, end_row=zeile, end_column=5)
+            ws.row_dimensions[zeile].height = 30
+    ws.page_setup.orientation = "landscape"
+    ws.page_setup.fitToWidth = 1
+    ws.page_setup.fitToHeight = 0
+    ws.sheet_properties.pageSetUpPr.fitToPage = True
+    ws.print_title_rows = f"{kz}:{kz}"
+    ws.oddFooter.left.text = f"{FIRMA_KURZ} · {WEBSITE} · Stand {stand}"
+    ws.oddFooter.right.text = "Seite &P von &N"
+    wb.properties.title = d["titel"]
+    wb.properties.creator = FIRMA_LANG
+    wb.save(str(ziel))
+    return ziel
+
+
 def datum_deutsch(iso: str) -> str:
     j, m, t = iso.split("-")
     return f"{t}.{m}.{j}"
@@ -791,7 +1176,10 @@ def main() -> int:
         elif fmt == "docx":
             erzeugt.append(docx_bauen(d, ziel / f"{basis}.docx", logo))
         elif fmt == "xlsx":
-            erzeugt.append(xlsx_bauen(d, ziel / f"{basis}.xlsx", logo))
+            if d["typ"] in ("Checkliste", "Protokoll") and d.get("bewertung") and not d.get("tabelle"):
+                erzeugt.append(checkliste_xlsx_bauen(d, ziel / f"{basis}.xlsx", logo))
+            else:
+                erzeugt.append(xlsx_bauen(d, ziel / f"{basis}.xlsx", logo))
     for p in erzeugt:
         print(p.relative_to(WURZEL).as_posix() if WURZEL in p.resolve().parents else p)
     return 0
