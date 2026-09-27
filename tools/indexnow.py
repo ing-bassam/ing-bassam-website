@@ -16,6 +16,7 @@ Aufruf:
     python tools/indexnow.py --vorher <alte-sitemap.xml>   neue und geänderte Seiten
     python tools/indexnow.py --seit 8                       Seiten mit Stand der letzten 8 Tage
     python tools/indexnow.py --alle                         alle Seiten der Sitemap
+                                                            und die Weiterleitungen alter Adressen
 
 Zusätzlich:
     --warten <Sekunden>  so lange warten, bis die Website Schlüsseldatei und
@@ -137,6 +138,20 @@ def melden(adressen: list[str], key: str) -> int:
     return 1
 
 
+def weiterleitungen() -> list[str]:
+    """Adressen der Weiterleitungsseiten im Wurzelverzeichnis (frühere Seiten wie
+    impressum.html). Gemeldet, damit Suchmaschinen die Weiterleitung sehen und die
+    tote Adresse durch das Ziel ersetzen."""
+    adressen = []
+    for datei in sorted(WURZEL.glob("*.html")):
+        if datei.name in ("index.html", "404.html"):
+            continue
+        kopf = datei.read_text(encoding="utf-8", errors="replace")[:1500].lower()
+        if 'http-equiv="refresh"' in kopf:
+            adressen.append(f"https://{HOST}/{datei.name}")
+    return adressen
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     auswahl = parser.add_mutually_exclusive_group(required=True)
@@ -166,13 +181,17 @@ def main() -> int:
     print("Zu melden:")
     for url, stand in ziel.items():
         print(f"  {url} (Stand {stand})")
+
+    zusatz = weiterleitungen() if args.alle else []
+    for url in zusatz:
+        print(f"  {url} (Weiterleitung einer früheren Adresse)")
     if args.probe:
         return 0
 
     key = schluessel()
     if args.warten > 0:
         warten_bis_online(ziel, key, args.warten)
-    return melden(list(ziel), key)
+    return melden(list(ziel) + zusatz, key)
 
 
 if __name__ == "__main__":

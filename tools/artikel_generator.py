@@ -61,6 +61,8 @@ ZIEL = WURZEL / "fachwissen"
 SITEMAP = WURZEL / "sitemap.xml"
 
 BASIS_URL = "https://ing-bassam.de"
+VORSCHAUBILD = BASIS_URL + "/vorschau.png"      # erzeugt von tools/vorschaubild.py
+LLMS = WURZEL / "llms.txt"
 FIRMA = "Bassam Ingenieurbüro für Bauwesen GmbH"
 KURZNAME = "BIB Ingenieurbüro für Bauwesen"
 # Autorenname, wie ihn der Auftraggeber festgelegt hat (21.09.2026): überall
@@ -336,7 +338,7 @@ def strukturierte_daten(artikel: "Artikel") -> str:
     # unter abweichendem Namen.
     firma_id = BASIS_URL + "/#organization"
     firma = {"@type": "Organization", "@id": firma_id, "name": FIRMA,
-             "url": BASIS_URL + "/"}
+             "url": BASIS_URL + "/", "logo": VORSCHAUBILD}
     autor = {
         "@type": "Person",
         "name": artikel.autor_name,
@@ -363,6 +365,9 @@ def strukturierte_daten(artikel: "Artikel") -> str:
             "author": autor,
             "publisher": {"@id": firma_id},
             "mainEntityOfPage": {"@type": "WebPage", "@id": artikel.url},
+            # Google empfiehlt für Beiträge ein Bild; bis es eigene Abbildungen gibt,
+            # das Vorschaubild der Website (1200 × 630).
+            "image": VORSCHAUBILD,
             "articleSection": artikel.kategorie or None,
             "keywords": artikel.schlagwoerter or None,
             "abstract": artikel.definition or None,
@@ -758,7 +763,11 @@ def og_block(titel: str, beschreibung: str, url: str, typ: str, zeit: str = "",
         '<meta property="og:title" content="%s">' % html.escape(titel, quote=True),
         '<meta property="og:description" content="%s">' % html.escape(beschreibung, quote=True),
         '<meta property="og:url" content="%s">' % html.escape(url, quote=True),
-        '<meta name="twitter:card" content="summary">',
+        '<meta property="og:image" content="%s">' % VORSCHAUBILD,
+        '<meta property="og:image:width" content="1200">',
+        '<meta property="og:image:height" content="630">',
+        '<meta property="og:image:alt" content="BIB Ingenieurbüro für Bauwesen – Baugutachten und Fachwissen, Berlin">',
+        '<meta name="twitter:card" content="summary_large_image">',
     ]
     if zeit:
         zeilen.append('<meta property="article:published_time" content="%s">' % zeit)
@@ -991,6 +1000,42 @@ def weiterlesen_html(artikel: "Artikel") -> str:
 """ + "\n".join(karten) + """
         </ul>
       </nav>""")
+
+
+def llms_bauen(oeffentlich: list["Artikel"]) -> str:
+    """llms.txt – kompakte Übersicht der Website für KI-Systeme (Vorschlag llmstxt.org).
+
+    Enthält nur Veröffentlichtes, in derselben Form wie die Sitemap: Titel,
+    Adresse und die Meta-Beschreibung des Beitrags, nach Kategorien geordnet.
+    Nichts darin ist neu formuliert – alles steht so auf den Seiten.
+    """
+    zeilen = [
+        "# BIB Ingenieurbüro für Bauwesen",
+        "",
+        "> Bassam Ingenieurbüro für Bauwesen GmbH, Berlin: Versicherungsgutachten, Gerichtsgutachten, "
+        "technische Beweissicherung und Objektüberwachung (LP 8). Fachbeiträge zu Bauschäden, Bauphysik, "
+        "Baubetrieb und baurechtlichen Fragen.",
+        "",
+        f"Kontakt und Impressum: {BASIS_URL}/#kontakt · {BASIS_URL}/#impressum",
+        "",
+        "## Leistungen",
+        "",
+        f"- [Versicherungsgutachten]({BASIS_URL}/#leistung-versicherungsgutachten)",
+        f"- [Gerichtsgutachten]({BASIS_URL}/#leistung-gerichtsgutachten)",
+        f"- [Technische Beweissicherung]({BASIS_URL}/#leistung-beweissicherung)",
+        f"- [Objektüberwachung (LP 8)]({BASIS_URL}/#leistung-objektueberwachung)",
+        "",
+        f"## Fachwissen ({BASIS_URL}/fachwissen/)",
+    ]
+    nach_kategorie: dict[str, list["Artikel"]] = {}
+    for a in oeffentlich:
+        nach_kategorie.setdefault(a.kategorie or "Weitere Beiträge", []).append(a)
+    for kategorie in sorted(nach_kategorie):
+        zeilen += ["", f"### {kategorie}", ""]
+        for a in sorted(nach_kategorie[kategorie], key=lambda x: (x.veroeffentlicht, x.kurzform), reverse=True):
+            beschreibung = " ".join((a.meta_beschreibung or "").split())
+            zeilen.append(f"- [{a.titel}]({a.url}): {beschreibung}" if beschreibung else f"- [{a.titel}]({a.url})")
+    return "\n".join(zeilen) + "\n"
 
 
 def entwuerfe_ordnen(artikel: list["Artikel"]) -> list[str]:
@@ -1300,6 +1345,7 @@ def main() -> int:
         schreiben(ZIEL / a.kurzform / "index.html", artikelseite(a), geaendert, argumente.pruefen)
     schreiben(ZIEL / "index.html", uebersichtsseite(oeffentlich), geaendert, argumente.pruefen)
     schreiben(SITEMAP, sitemap_bauen(oeffentlich, heute), geaendert, argumente.pruefen)
+    schreiben(LLMS, llms_bauen(oeffentlich), geaendert, argumente.pruefen)
 
     # Seiten entfernen, zu denen es keinen Entwurf mehr gibt.
     verwaist: list[str] = []

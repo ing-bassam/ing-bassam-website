@@ -1,0 +1,51 @@
+# BIB Ingenieurbüro für Bauwesen
+
+> Bassam Ingenieurbüro für Bauwesen GmbH, Berlin: Versicherungsgutachten, Gerichtsgutachten, technische Beweissicherung und Objektüberwachung (LP 8). Fachbeiträge zu Bauschäden, Bauphysik, Baubetrieb und baurechtlichen Fragen.
+
+Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#impressum
+
+## Leistungen
+
+- [Versicherungsgutachten](https://ing-bassam.de/#leistung-versicherungsgutachten)
+- [Gerichtsgutachten](https://ing-bassam.de/#leistung-gerichtsgutachten)
+- [Technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung)
+- [Objektüberwachung (LP 8)](https://ing-bassam.de/#leistung-objektueberwachung)
+
+## Fachwissen (https://ing-bassam.de/fachwissen/)
+
+### Baubetrieb
+
+- [Entgangener Gewinn nach Vertragsende: Was nachgewiesen werden muss](https://ing-bassam.de/fachwissen/entgangener-gewinn-wartungsvertrag-nachweis/): KG Berlin: Wer nach vorzeitiger Beendigung eines Wartungsvertrags entgangenen Gewinn verlangt, muss ersparte Kosten aufschlüsseln und belegen.
+- [Baupreissteigerung beim Schallschutz: Wer zahlt die Mehrkosten?](https://ing-bassam.de/fachwissen/schallschutz-kostenerstattung-verzoegerung/): Das OVG Berlin-Brandenburg begrenzt die Erstattung von Schallschutzkosten auf das Preisniveau des Bauwerkvertrags. Was das für die Baupraxis bedeutet.
+
+### Bauherrenwissen
+
+- [Checkliste Wohnungskauf: Sondereigentum, Gemeinschaft, Unterlagen](https://ing-bassam.de/fachwissen/wohnungskauf-sondereigentum-weg-unterlagen/): Checkliste für den Wohnungskauf: Unterlagen der Eigentümergemeinschaft, Gemeinschaftseigentum und Wohnung prüfen. Kostenlos als PDF.
+- [Mängelliste für Abnahme und Gewährleistung](https://ing-bassam.de/fachwissen/maengelliste-abnahme-gewaehrleistung/): Mängelliste als Excel und PDF. Jeden Baumangel mit Ort, Erscheinungsbild, Meldedatum und Frist festhalten, bis zur Nachbesserung.
+- [Checkliste Hauskauf – Besichtigung, Unterlagen und Bauzustand](https://ing-bassam.de/fachwissen/hauskauf-besichtigung-unterlagen/): Checkliste für den Hauskauf: Unterlagen, Besichtigung von außen und innen, Haustechnik und Schadstoffe. Zum Ausdrucken und Ausfüllen.
+- [Die häufigsten Fehler privater Bauherren – und wie Sie sie vermeiden](https://ing-bassam.de/fachwissen/haeufigste-fehler-privater-bauherren/): Die häufigsten Fehler privater Bauherren betreffen Bauvertrag, Baubeschreibung, Zahlungsplan und Abnahme. Worauf Sie vor und während des Baus achten.
+- [Bauunternehmer insolvent: Zahlungsplan und Sicherheiten](https://ing-bassam.de/fachwissen/bauunternehmer-insolvenz-zahlungsplan-sicherheiten/): Zahlungsplan und Sicherheiten schützen private Bauherren, wenn der Bauunternehmer insolvent wird oder verschwindet. Was das Gesetz vorsieht.
+- [Abnahmeprotokoll Hausbau: Checkliste für die Endabnahme](https://ing-bassam.de/fachwissen/abnahmeprotokoll-hausbau/): Abnahmeprotokoll für die Endabnahme des Neubaus: Checkliste für den Rundgang, Mängelliste, Vorbehalte und Unterschriften, kostenlos.
+- [Wo kann ich beim Hausbau sparen, und wo auf keinen Fall?](https://ing-bassam.de/fachwissen/sparen-beim-hausbau-ohne-folgekosten/): Beim Hausbau sparen, ohne später draufzuzahlen – wo Einsparungen vertretbar sind und wo sie Folgekosten auslösen.
+- [Baubegleitende Qualitätskontrolle: Nutzen, Termine, Kosten](https://ing-bassam.de/fachwissen/baubegleitende-qualitaetskontrolle-kosten/): Was eine baubegleitende Qualitätskontrolle beim Hausbau leistet, zu welchen Terminen geprüft wird und wovon die Kosten abhängen.
+
+### Bauschäden
+
+- [Schimmel nach Fassadendämmung: Ursache oder Folge?](https://ing-bassam.de/fachwissen/schimmel-nach-fassadendaemmung/): Nach einer Fassadendämmung tritt Schimmel auf. Wie Sie Wärmebrücken, Luftwechsel und Ausführungsfehler als Ursache sauber voneinander trennen.
+
+### Gutachten & Recht
+
+- [Verzögerte Baugenehmigung: Mangel oder Verzögerungsschaden?](https://ing-bassam.de/fachwissen/baugenehmigung-verzoegerung-architektenvertrag/): Kammergericht Berlin: Schäden aus einer verzögerten Baugenehmigung sind Verzögerungsschaden, nicht Mangelfolgeschaden. Was für die Baupraxis folgt.
+- [Abgeltungsklausel im Aufhebungsvertrag und verdeckte Baumängel](https://ing-bassam.de/fachwissen/abgeltungsklausel-aufhebungsvertrag-baumaengel/): LG Ellwangen 2 O 197/25 - eine Abgeltungsklausel im Aufhebungsvertrag erfasste auch unbekannte Mängelansprüche. Folgen für Beweissicherung.
+- [Schweißnaht einbetoniert: Wer die Mangelfreiheit beweisen muss](https://ing-bassam.de/fachwissen/schweissnaht-beweislast-vor-abnahme/): OLG Brandenburg: Ohne Abnahme beweist der Auftragnehmer die Mangelfreiheit, auch im Abrechnungsverhältnis. Was Röntgen und Ultraschall dabei leisten.
+- [Reparatur aus Kulanz: Wie lange haftet die Firma dafür?](https://ing-bassam.de/fachwissen/kulanzreparatur-haftung-verjaehrung/): Eine Firma repariert kostenlos aus Kulanz. Ein Urteil zeigt, warum daraus ein Vertrag werden kann und warum die Ansprüche nach zwei Jahren verjährt waren.
+- [Verschmutzte Glasfassade: Wann ist das ein Mangel?](https://ing-bassam.de/fachwissen/fassadenverschmutzung-mangel-gewerbemiete/): Staub und Vogelkot auf der Glasfassade – das Landgericht Berlin II zu fristlosen Kündigungen wegen Verschmutzung und was daraus folgt.
+- [Wann der Widerruf den Werklohn für die Wärmepumpe entfallen lässt](https://ing-bassam.de/fachwissen/widerruf-hausbesuch-werklohn/): Widerruf nach dem Hausbesuch: Warum der Werklohn für eine eingebaute Wärmepumpe entfallen kann und was Betriebe dokumentieren müssen.
+- [Technische Beweissicherung: Was sie leistet und wann sie nötig ist](https://ing-bassam.de/fachwissen/technische-beweissicherung-grundlagen/): Technische Beweissicherung: Zustandsfeststellung vor Nachbarbebauung, Sanierung und Abnahme – Ablauf, Beweiswert und Abgrenzung zum Beweisverfahren.
+- [Wer beweist die vertragsgerechte Bauleistung vor der Abnahme?](https://ing-bassam.de/fachwissen/aufmass-messverfahren-nachweis-bausoll/): KG Berlin: Vor der Abnahme beweist der Auftragnehmer die vertragsgerechte Leistung. Ein vertragswidriges Messverfahren trug den Nachweis nicht.
+
+### Hausverwaltung & Bestand
+
+- [Checkliste Objektbegehung für Hausverwaltungen](https://ing-bassam.de/fachwissen/objektbegehung-wohngebaeude-hausverwaltung/): Kostenlose Checkliste für die Objektbegehung eines Wohngebäudes mit Mängelliste, als PDF und Excel, mit Anleitung für Hausverwaltungen.
+- [Wasserschaden im Mehrfamilienhaus: Was die Verwaltung zuerst tun muss](https://ing-bassam.de/fachwissen/wasserschaden-mehrfamilienhaus-ablauf/): Wasserschaden im Mehrfamilienhaus: Was die Hausverwaltung von der Meldung bis zur Regulierung tut, was sie dokumentiert und wann ein Gutachten hilft.
+- [Schimmel in der Wohnung: Baumangel oder Lüftungsverhalten?](https://ing-bassam.de/fachwissen/schimmel-wohnung-baumangel-lueftung/): Schimmel in der Wohnung: Wie sich klären lässt, ob ein Baumangel oder das Lüftungsverhalten die Ursache ist, und was Sie dokumentieren sollten.
