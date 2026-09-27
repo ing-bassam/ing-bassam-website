@@ -155,7 +155,7 @@ Es gilt der Umfang aus dem Fachartikel-Skill: 3.000 bis 5.000 Wörter Haupttext,
 
 ## Dateiname und Branch
 
-Datei: `entwuerfe/JJJJ-MM-TT-<kurzform>.md`, wobei das Datum das des Laufs ist und die Kurzform das Thema beschreibt, nicht das Aktenzeichen. Gut: `bauzeitnachweis-gestoerter-bauablauf`. Schlecht: `olg-brandenburg-10-u-14-24`.
+Datei: `entwuerfe/entwurf/JJJJ-MM-TT-<kurzform>.md`, wobei das Datum das des Laufs ist und die Kurzform das Thema beschreibt, nicht das Aktenzeichen. Gut: `bauzeitnachweis-gestoerter-bauablauf`. Schlecht: `olg-brandenburg-10-u-14-24`.
 
 Branch: `entwurf/<kurzform>`. Titel des Pull Requests: `Entwurf: <Thema>`.
 

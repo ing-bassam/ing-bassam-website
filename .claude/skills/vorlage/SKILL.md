@@ -28,7 +28,7 @@ Leite die **Kurzform** wie im Fachartikel-Skill ab (drei bis sechs Wörter, spre
 
 - Vorlagen-Beschreibung: `vorlagen/<kurzform>.yml`
 - erzeugte Downloads: `vorlagen/<kurzform>/<kurzform>.pdf`, `…-ausfuellbar.pdf`, `….docx`, `….xlsx` (baut das Skript)
-- Begleitseite: `entwuerfe/JJJJ-MM-TT-<kurzform>.md`
+- Begleitseite: `entwuerfe/entwurf/JJJJ-MM-TT-<kurzform>.md` (bei einer Überarbeitung die vorhandene Datei, egal in welchem Unterordner)
 - Branch: `vorlage/<kurzform>`, PR-Titel: `Vorlage: <Titel>`
 
 Die Zuordnung der Notion-Formate: „PDF zum Ausdrucken“ → `pdf`, „PDF ausfüllbar“ → `pdf-ausfuellbar`, „Word“ → `docx`, „Excel“ → `xlsx`. Ein Musterschreiben gibt es als `pdf` und `docx` (ausfüllbar ist dort das Word-Dokument); eine Tabelle immer auch als `xlsx`. Fehlt im Auftrag ein Format, ergänzt du für Checklisten und Protokolle `pdf` und `pdf-ausfuellbar`, für Musterschreiben `docx` und `pdf`, für Tabellen `xlsx` und `pdf`.
@@ -38,7 +38,7 @@ Die Zuordnung der Notion-Formate: „PDF zum Ausdrucken“ → `pdf`, „PDF aus
 Richtwert höchstens 180 Turns – eine Vorlage, die Leser vor Ort in der Hand halten, lohnt die gründliche Recherche. Keine Verkettung von Bash-Befehlen, keine Pipes.
 
 1. **Auftrag lesen** (1 Turn).
-2. **Duplikatprüfung** (1–2 Turns): Glob `vorlagen/*.yml` und `entwuerfe/*.md`, Grep auf `^(titel|kurzform|notion_id):`; `gh pr list --state open --search "Vorlage:"`. Bei gleicher `notion_id` oder sinngleichem Titel:
+2. **Duplikatprüfung** (1–2 Turns): Glob `vorlagen/*.yml` und `entwuerfe/**/*.md`, Grep auf `^(titel|kurzform|notion_id):`; `gh pr list --state open --search "Vorlage:"`. Bei gleicher `notion_id` oder sinngleichem Titel:
    - `modus: automatisch` → `ERGEBNIS: DUPLIKAT`, nichts schreiben.
    - `modus: gezielt` und die vorhandene Vorlage liegt auf dem Hauptzweig → **Überarbeitung**: Der Auftraggeber hat diese Vorlage bewusst noch einmal angestoßen, weil sie gründlicher werden soll. Du liest die vorhandene Beschreibung `vorlagen/<kurzform>.yml` und die Begleitseite, behältst `kurzform`, Dateinamen und `erstellt`, setzt `aktualisiert` auf das heutige Datum und baust Vorlage und Seite nach diesem Skill neu auf – nicht bloß ergänzt, sondern mit Themenlandkarte, Recherche, Bewertungsmatrix und Merkmalen. Branch `vorlage/<kurzform>-ueberarbeitung`, PR-Titel `Vorlage überarbeitet: <Titel>`; im PR eine kurze Liste, was neu dazugekommen ist. Liegt dagegen schon ein **offener** Pull Request zu derselben `notion_id`, ist es ein Duplikat.
 3. **Themenlandkarte** (1–2 Turns, vor jeder Recherche, als Text). Du listest **alles**, was ein Leser für den `zweck` prüfen, festhalten oder entscheiden muss – nicht nur das Naheliegende. Für eine Besichtigung heißt das: jedes Bauteil von Grundstück und Gründung über Keller, Außenwände, Fenster, Dach und Dachstuhl bis Innenausbau, Haustechnik, Schadstoffe und Unterlagen. Zu jedem Thema beantwortest du vier Fragen: **Was ist verbaut?** (Merkmale, die der Leser ankreuzt – Bauart, Material, Baujahr, System), **In welchem Zustand?** (Befunde, die er bewertet), **Woran erkennt man es?** (sichtbare Kennzeichen, einfache Prüfungen wie Klopfprobe, Blick in den Dachboden) und **Wann braucht es einen Fachmann?** (Auswertung). *Beispiel für die erwartete Tiefe – jede Einzelheit recherchierst und belegst du selbst:* Beim Dachstuhl gehören neben der Konstruktion auch Holzschädlinge dazu, und zwar tierische (etwa Hausbock, Gewöhnlicher Nagekäfer) und pilzliche (etwa Echter Hausschwamm), mit ihren Erkennungszeichen; bei den Innenwänden die Frage massiv oder Trockenbau und was das für Umbau und Schallschutz bedeutet; bei der Heizung Art und Alter; beim Baujahr die typischen Schadstoffe dieser Zeit. Die Landkarte hat für eine Checkliste mit Aufwand „Hoch“ mindestens 12 Themen, sonst mindestens 8.
@@ -49,7 +49,7 @@ Richtwert höchstens 180 Turns – eine Vorlage, die Leser vor Ort in der Hand h
 7. **Dateien bauen:** `python tools/vorlage_bauen.py vorlagen/<kurzform>.yml`. Das Skript legt die Downloads unter `vorlagen/<kurzform>/` ab, mit Logo, Stand, Fußzeile und Wasserzeichen. Die ausgegebenen Pfade trägst du ins Frontmatter der Begleitseite ein (`dateien:`).
 8. **Begleitseite schreiben** (2–3 Turns, siehe unten), messen, prüfen.
 9. **Seite bauen:** `python tools/artikel_generator.py`; `FEHLER:` und `PRUEFUNG:` zu deiner Datei beheben. Meldet er „Download-Datei fehlt“, stimmt ein Pfad in `dateien:` nicht.
-10. **Abgabe:** `git add vorlagen/<kurzform>.yml vorlagen/<kurzform> entwuerfe/<datei>.md fachwissen sitemap.xml`, Commit `Vorlage: <Titel>`, Push, `gh pr create --base main --head vorlage/<kurzform> --title "Vorlage: <Titel>" --body-file <pr-body.md>`.
+10. **Abgabe:** `git add vorlagen/<kurzform>.yml vorlagen/<kurzform> entwuerfe/entwurf/<datei>.md fachwissen sitemap.xml`, Commit `Vorlage: <Titel>`, Push, `gh pr create --base main --head vorlage/<kurzform> --title "Vorlage: <Titel>" --body-file <pr-body.md>`.
 11. **Abschlussnachricht** mit dem ERGEBNIS-Block des Fachartikel-Skills.
 
 ## Was in die Vorlage gehört

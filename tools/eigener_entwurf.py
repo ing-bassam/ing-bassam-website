@@ -102,7 +102,8 @@ def main() -> int:
         if pr.get("createdAt", "") < a.seit:
             continue
         entwuerfe = [f["path"] for f in pr.get("files") or []
-                     if f["path"].startswith("entwuerfe/") and f["path"].endswith(".md")]
+                     if f["path"].startswith("entwuerfe/") and f["path"].endswith(".md")
+                     and not f["path"].lower().endswith("readme.md")]
         if not entwuerfe:
             continue
         pfad = entwuerfe[0]

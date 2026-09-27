@@ -45,6 +45,18 @@ except ImportError:  # pragma: no cover
 
 WURZEL = Path(__file__).resolve().parent.parent
 ENTWUERFE = WURZEL / "entwuerfe"
+# Unterordner nach Status. Der Seitenbau auf dem Hauptzweig sortiert jede Datei
+# in den passenden Ordner (--ordnen); gelesen wird immer der ganze Baum.
+ORDNER_ENTWURF = ENTWUERFE / "entwurf"
+ORDNER_VEROEFFENTLICHT = ENTWUERFE / "veroeffentlicht"
+UEBERSICHT = ENTWUERFE / "README.md"
+
+
+def entwurfsdateien() -> list[Path]:
+    """Alle Beiträge unter entwuerfe/ (auch in Unterordnern), ohne die Übersicht README.md."""
+    if not ENTWUERFE.is_dir():
+        return []
+    return sorted(p for p in ENTWUERFE.rglob("*.md") if p.name.lower() != "readme.md")
 ZIEL = WURZEL / "fachwissen"
 SITEMAP = WURZEL / "sitemap.xml"
 
@@ -981,6 +993,74 @@ def weiterlesen_html(artikel: "Artikel") -> str:
       </nav>""")
 
 
+def entwuerfe_ordnen(artikel: list["Artikel"]) -> list[str]:
+    """Sortiert jede Beitragsdatei nach ihrem Status in einen Unterordner und
+    benennt sie einheitlich <erstellt>-<kurzform>.md, damit die Liste auf GitHub
+    chronologisch ist. Adresse und Datum der Seite hängen nicht vom Dateinamen
+    ab (beides steht im Dateikopf) – das Verschieben ändert keine Seite.
+    """
+    verschoben = []
+    for a in artikel:
+        ordner = ORDNER_VEROEFFENTLICHT if a.freigegeben else ORDNER_ENTWURF
+        datum = a.veroeffentlicht if re.fullmatch(r"\d{4}-\d{2}-\d{2}", a.veroeffentlicht or "") else ""
+        name = f"{datum}-{a.kurzform}.md" if datum else f"{a.kurzform}.md"
+        ziel = ordner / name
+        if a.pfad.resolve() == ziel.resolve():
+            continue
+        if ziel.exists():
+            print(f"PRUEFUNG: {a.pfad.relative_to(WURZEL).as_posix()} nicht einsortiert – "
+                  f"{ziel.relative_to(WURZEL).as_posix()} gibt es schon")
+            continue
+        ordner.mkdir(parents=True, exist_ok=True)
+        alt = a.pfad.relative_to(WURZEL).as_posix()
+        a.pfad.rename(ziel)
+        a.pfad = ziel
+        verschoben.append(f"{alt} → {ziel.relative_to(WURZEL).as_posix()}")
+    return verschoben
+
+
+def uebersicht_bauen(artikel: list["Artikel"]) -> str:
+    """entwuerfe/README.md – GitHub zeigt sie unter der Dateiliste des Ordners an."""
+    def zeile(a: "Artikel") -> str:
+        datei = a.pfad.relative_to(ENTWUERFE).as_posix()
+        seite = f"{BASIS_URL}/fachwissen/{a.kurzform}/"
+        titel = a.titel.replace("|", "–")
+        vermerk = " ⚠️ offene Prüfpunkte" if a.todos else ""
+        return (f"| {datum_deutsch(a.veroeffentlicht)} | [{titel}]({datei}){vermerk} | {a.format} | "
+                f"{a.kategorie} | [ansehen]({seite}) |")
+
+    entwurf = sorted([a for a in artikel if not a.freigegeben],
+                     key=lambda a: (a.veroeffentlicht, a.kurzform), reverse=True)
+    fertig = sorted([a for a in artikel if a.freigegeben],
+                    key=lambda a: (a.veroeffentlicht, a.kurzform), reverse=True)
+    kopf = "| Datum | Titel | Format | Kategorie | Seite |\n|---|---|---|---|---|"
+    teile = [
+        "# Beiträge – Übersicht",
+        "",
+        "Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand bearbeiten.",
+        "",
+        "- **`entwurf/`** – noch nicht veröffentlicht (Status „Entwurf“). Die Seite ist schon als Vorschau "
+        "erreichbar, aber für Suchmaschinen gesperrt.",
+        "- **`veroeffentlicht/`** – auf der Website sichtbar (Status „Veröffentlicht“).",
+        "",
+        "**Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und "
+        "speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der "
+        "Seite ändert sich dabei nicht.",
+        "",
+        f"## 🟡 Entwurf ({len(entwurf)})",
+        "",
+        kopf if entwurf else "Zurzeit keine.",
+        *[zeile(a) for a in entwurf],
+        "",
+        f"## 🟢 Veröffentlicht ({len(fertig)})",
+        "",
+        kopf if fertig else "Noch keine.",
+        *[zeile(a) for a in fertig],
+        "",
+    ]
+    return "\n".join(teile)
+
+
 def datum_deutsch(iso: str) -> str:
     try:
         return datetime.strptime(iso, "%Y-%m-%d").strftime("%d.%m.%Y")
@@ -1166,18 +1246,26 @@ def main() -> int:
     zerleger = argparse.ArgumentParser(description="Baut die Fachwissen-Seiten.")
     zerleger.add_argument("--pruefen", action="store_true",
                           help="nichts schreiben, nur melden, ob sich etwas ändern würde")
+    zerleger.add_argument("--ordnen", action="store_true",
+                          help="Beiträge nach Status in entwuerfe/entwurf/ bzw. entwuerfe/veroeffentlicht/ "
+                               "einsortieren, einheitlich benennen und entwuerfe/README.md schreiben "
+                               "(nur auf dem Hauptzweig)")
     argumente = zerleger.parse_args()
 
     heute = als_text(date.today())
     artikel: list[Artikel] = []
     fehler: list[str] = []
 
-    if ENTWUERFE.is_dir():
-        for pfad in sorted(ENTWUERFE.glob("*.md")):
-            try:
-                artikel.append(Artikel(pfad))
-            except Exception as ausnahme:  # eine kaputte Datei stoppt nicht alles
-                fehler.append(f"{pfad.name}: {ausnahme}")
+    for pfad in entwurfsdateien():
+        try:
+            artikel.append(Artikel(pfad))
+        except Exception as ausnahme:  # eine kaputte Datei stoppt nicht alles
+            fehler.append(f"{pfad.name}: {ausnahme}")
+
+    verschoben: list[str] = []
+    if argumente.ordnen and not argumente.pruefen:
+        verschoben = entwuerfe_ordnen(artikel)
+        schreiben(UEBERSICHT, uebersicht_bauen(artikel), [], False)
 
     bekannt: dict[str, Path] = {}
     for a in artikel:
@@ -1230,6 +1318,8 @@ def main() -> int:
               f"Datei gesamt: {a.wortzahl_gesamt}")
         for zeile in entwurf_pruefen(a):
             print(f"      {zeile}")
+    if verschoben:
+        print("Einsortiert: " + ", ".join(verschoben))
     if verwaist:
         print("Entfernt (kein Entwurf mehr vorhanden): " + ", ".join(verwaist))
     if geaendert:

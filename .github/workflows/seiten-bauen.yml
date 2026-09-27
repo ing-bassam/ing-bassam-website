@@ -76,13 +76,21 @@ jobs:
 
       - name: Seiten bauen
         id: bauen
+        env:
+          ZWEIG: ${{ github.ref_name }}
         run: |
           set -uo pipefail
           # Rückgabewert merken statt sofort abzubrechen: Ist ein einzelner
           # Beitrag gesperrt (etwa „Veröffentlicht“ mit offenem Prüfpunkt), bleibt
           # er auf noindex – alle anderen Seiten sollen trotzdem aktuell werden.
           # Der Lauf schlägt erst am Ende fehl, damit die Warnung erhalten bleibt.
-          python tools/artikel_generator.py 2>&1 | tee "$RUNNER_TEMP/generator.log"
+          # Auf dem Hauptzweig werden die Beiträge zusätzlich nach Status in
+          # entwuerfe/entwurf/ bzw. entwuerfe/veroeffentlicht/ einsortiert und die
+          # Übersicht entwuerfe/README.md erneuert. Auf Entwurfszweigen nicht – dort
+          # arbeiten die Agenten und Prüfungen noch mit dem Pfad der Datei.
+          ORDNEN=()
+          if [ "$ZWEIG" = "main" ]; then ORDNEN=(--ordnen); fi
+          python tools/artikel_generator.py "${ORDNEN[@]}" 2>&1 | tee "$RUNNER_TEMP/generator.log"
           RUECKGABE=${PIPESTATUS[0]}
           echo "rueckgabe=$RUECKGABE" >> "$GITHUB_OUTPUT"
           if [ "$RUECKGABE" -ne 0 ] && [ "$RUECKGABE" -ne 2 ]; then
@@ -104,7 +112,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          if [ -z "$(git status --porcelain -- fachwissen sitemap.xml)" ]; then
+          if [ -z "$(git status --porcelain -- fachwissen sitemap.xml entwuerfe)" ]; then
             echo "::notice title=Fachwissen::Die erzeugten Seiten sind bereits aktuell."
             echo "geaendert=false" >> "$GITHUB_OUTPUT"
             exit 0
@@ -113,9 +121,10 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Bewusst nur diese beiden Pfade: Der Lauf fasst weder Entwürfe noch
-          # index.html, robots.txt oder CNAME an.
-          git add -A fachwissen sitemap.xml
+          # Bewusst nur diese Pfade: erzeugte Seiten, Sitemap und – nur auf dem
+          # Hauptzweig – das Einsortieren der Beiträge samt Übersicht. Inhalte der
+          # Beiträge, index.html, robots.txt und CNAME fasst der Lauf nie an.
+          git add -A fachwissen sitemap.xml entwuerfe
           git commit -m "Fachwissen-Seiten neu gebaut" \
                      -m "Automatisch erzeugt aus entwuerfe/ durch tools/artikel_generator.py."
 
@@ -128,6 +137,8 @@ jobs:
 
       - name: Ergebnis prüfen
         if: steps.commit.outputs.geaendert == 'true'
+        env:
+          ZWEIG: ${{ github.ref_name }}
         run: |
           set -euo pipefail
           # Nach dem Schreiben darf ein zweiter Lauf nichts mehr ändern. Tut er
@@ -135,8 +146,10 @@ jobs:
           # jedem Lauf einen neuen Commit erzeugen.
           # Zweiter Lauf und Vergleich über git statt über den Rückgabewert: Der
           # ist bei einem gesperrten Beitrag immer 2 und sagte hier nichts aus.
-          python tools/artikel_generator.py > /dev/null 2>&1 || true
-          if [ -n "$(git status --porcelain -- fachwissen sitemap.xml)" ]; then
+          ORDNEN=()
+          if [ "$ZWEIG" = "main" ]; then ORDNEN=(--ordnen); fi
+          python tools/artikel_generator.py "${ORDNEN[@]}" > /dev/null 2>&1 || true
+          if [ -n "$(git status --porcelain -- fachwissen sitemap.xml entwuerfe)" ]; then
             echo "::error title=Fachwissen::Der Generator liefert bei zwei Läufen unterschiedliche Ergebnisse."
             exit 1
           fi
