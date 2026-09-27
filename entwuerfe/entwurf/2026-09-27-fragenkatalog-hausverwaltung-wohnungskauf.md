@@ -14,7 +14,7 @@ kurzform: fragenkatalog-hausverwaltung-wohnungskauf
 dateien: vorlagen/fragenkatalog-hausverwaltung-wohnungskauf/fragenkatalog-hausverwaltung-wohnungskauf.pdf, vorlagen/fragenkatalog-hausverwaltung-wohnungskauf/fragenkatalog-hausverwaltung-wohnungskauf.docx
 erstellt: 2026-09-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-8117-aa32-d5562a5472ef
 notion_url: https://app.notion.com/p/Fragenkatalog-an-die-Hausverwaltung-vor-dem-Wohnungskauf-3e5d96ad00b48117aa32d5562a5472ef
