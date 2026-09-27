@@ -1,7 +1,8 @@
 ---
 titel: "Verschmutzte Glasfassade: Wann ist das ein Mangel?"
 kategorie: Gutachten & Recht
-format: Urteil verständlich
+format: Rechtsprechung
+fassung: verständlich
 zielgruppe: Gewerblich, Hausverwaltung
 leistung: Beweissicherung
 kernfrage: Wann ist eine verschmutzte Fassade ein Mangel, der eine fristlose Kündigung trägt?

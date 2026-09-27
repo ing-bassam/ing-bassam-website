@@ -360,7 +360,7 @@ jobs:
         run: |
           set -euo pipefail
           # Nur der eigene Entwurf dieses Laufs, erkannt am Format im Dateikopf.
-          ZEILE="$(python tools/eigener_entwurf.py --seit "$BEGINN" --format "Rechtsprechung")"
+          ZEILE="$(python tools/eigener_entwurf.py --seit "$BEGINN" --format "Rechtsprechung" --fassung "")"
           if [ -z "$ZEILE" ]; then
             echo "::notice title=Prüfung::Kein neuer Entwurf – nichts zu prüfen."
             echo "entwurf_da=false" >> "$GITHUB_OUTPUT"
@@ -564,7 +564,7 @@ jobs:
             exit 0
           fi
 
-          PR="$(python tools/eigener_entwurf.py --seit "$BEGINN" --format "Rechtsprechung" --ausgabe url 2>/dev/null || echo "")"
+          PR="$(python tools/eigener_entwurf.py --seit "$BEGINN" --format "Rechtsprechung" --fassung "" --ausgabe url 2>/dev/null || echo "")"
 
           if [ -n "$PR" ]; then
             echo "::notice title=Urteilsbesprechung::Entwurf liegt bereit: $PR"
@@ -594,7 +594,7 @@ jobs:
           fi
           # Eigene Entwürfe dieser Runde, erkannt am Format im Dateikopf (nicht nur am Zweig):
           # So zählt ein gleichzeitig laufender anderer Agent nicht als Ergebnis dieser Runde.
-          neu="$(python tools/eigener_entwurf.py --seit "$BEGINN" --format "Rechtsprechung" --ausgabe anzahl)"
+          neu="$(python tools/eigener_entwurf.py --seit "$BEGINN" --format "Rechtsprechung" --fassung "" --ausgabe anzahl)"
           if [ "${neu:-0}" -eq 0 ]; then
             echo "::error title=Urteilsbesprechung::Runde ${RUNDE} von ${ANZAHL} hat keinen neuen Entwurf erzeugt (nichts Passendes mehr gefunden oder Duplikat). Die übrigen Runden werden abgesagt, damit kein Kontingent verpufft."
             exit 1

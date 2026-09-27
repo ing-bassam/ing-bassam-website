@@ -451,6 +451,14 @@ class Artikel:
         # Der Vorlagen-Agent trägt sie ein; die Seite zeigt daraus den Download-Kasten.
         self.dateien = [als_text(d) for d in als_liste(kopf.get("dateien"))]
         self.aktualisiert = datum_oder_none(als_text(kopf.get("aktualisiert")))
+        # Fassung innerhalb eines Formats: „verständlich“ bei Rechtsprechung = die kurze,
+        # leicht verständliche Besprechung. Sie steht auf der Website unter
+        # „Rechtsprechung“, wird aber mit den Grenzen des kurzen Formats geprüft.
+        self.fassung = als_text(kopf.get("fassung")).strip().lower()
+        if self.format.lower() == "rechtsprechung" and self.fassung.startswith("verst"):
+            self.pruef_format = "urteil verständlich"
+        else:
+            self.pruef_format = self.format.lower()
         geprueft_am = datum_oder_none(als_text(kopf.get("fachlich_geprueft_am")))
         self.geaendert = max(d for d in (erstellt, self.aktualisiert, geprueft_am) if d)
 
@@ -513,6 +521,9 @@ LESEZEIT_MAX = 25
 # Kurze Formate: leicht verständliche Urteilsbesprechung und die Seite zu einer
 # Vorlage. Der Auftraggeber will dort höchstens 10 Minuten Lesezeit, wenige
 # Abschnitte und weniger FAQ. Schlüssel: Format in Kleinschreibung.
+# Die verständliche Urteilsbesprechung erscheint auf der Website seit dem
+# 26.09.2026 unter „Rechtsprechung“; erkannt wird sie am Feld
+# `fassung: verständlich` (siehe Artikel.pruef_format).
 KURZE_FORMATE = {
     "urteil verständlich": {"lesezeit": (4, 10), "h2": (3, 7), "faq": 3},
     "vorlage": {"lesezeit": (5, 10), "h2": (3, 7), "faq": 3},
@@ -525,7 +536,7 @@ URTEILS_FORMATE = {"rechtsprechung", "urteil verständlich"}
 
 def grenzen(a: "Artikel") -> dict:
     """Lesezeit-, Abschnitts- und FAQ-Grenzen für das Format des Beitrags."""
-    kurz = KURZE_FORMATE.get(a.format.lower())
+    kurz = KURZE_FORMATE.get(a.pruef_format)
     if kurz:
         return kurz
     return {"lesezeit": (LESEZEIT_MIN, LESEZEIT_MAX), "h2": (6, 8), "faq": FAQ_MINDEST}
@@ -659,7 +670,7 @@ def entwurf_pruefen(a: "Artikel") -> list[str]:
     # Urteilsbesprechung: Jeder Absatz, der das Gericht nennt, trägt die
     # Randnummer, auf der er beruht. Beim Beitrag zu OVG 6 A 1/25 standen
     # Zuschreibungen an den Senat ohne Randnummer und wurden nie geprüft.
-    if a.format.lower() in URTEILS_FORMATE:
+    if a.pruef_format in URTEILS_FORMATE:
         ohne_rn = []
         for absatz in re.split(r"\n\s*\n", ohne_todo):
             absatz = absatz.strip()
@@ -1065,7 +1076,7 @@ def filter_html(artikel: list[Artikel]) -> str:
 
     def chip(kennung: str, name: str, anzahl: int, zusatz: str = "") -> str:
         return (f'          <input type="radio" name="filter" id="filter-{kennung}"{zusatz}>'
-                f'<label for="filter-{kennung}">#{html.escape(name)} <span>{anzahl}</span></label>')
+                f'<label for="filter-{kennung}">{html.escape(name)} <span>{anzahl}</span></label>')
 
     zeilen = ['      <form class="filter" aria-label="Beiträge eingrenzen">',
               '        <p class="filter-titel">Thema</p>',

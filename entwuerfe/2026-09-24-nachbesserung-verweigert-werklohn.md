@@ -1,7 +1,8 @@
 ---
 titel: "Handwerker lehnt die Nacharbeit ab: Was aus dem Werklohn wird"
 kategorie: Gutachten & Recht
-format: Urteil verständlich
+format: Rechtsprechung
+fassung: verständlich
 zielgruppe: Privat, Gewerblich
 leistung: Beweissicherung
 kernfrage: Was passiert mit dem Werklohn, wenn ein Handwerker die geforderte Nacharbeit ablehnt?
