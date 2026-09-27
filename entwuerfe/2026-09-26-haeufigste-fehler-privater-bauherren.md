@@ -13,7 +13,7 @@ qualifikation:
 kurzform: haeufigste-fehler-privater-bauherren
 erstellt: 2026-09-26
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-81cd-906f-ea31174938c0
 notion_url: https://app.notion.com/p/Die-h-ufigsten-Fehler-privater-Bauherren-3dfd96ad00b481cd906fea31174938c0
