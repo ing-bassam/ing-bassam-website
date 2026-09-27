@@ -1,0 +1,79 @@
+titel: "Bedenkenanzeige nach § 4 Abs. 3 VOB/B"
+untertitel: Musterschreiben für Auftragnehmer
+kurzform: bedenkenanzeige-vob-b-musterschreiben
+typ: Musterschreiben
+stand: 2026-09-27
+dateien: [docx, pdf]
+einleitung: "Mit diesem Musterschreiben melden Sie als Auftragnehmer Bedenken gegen die vorgesehene Art der Ausführung, gegen vom Auftraggeber gelieferte Stoffe oder Bauteile oder gegen die Vorleistung eines anderen Unternehmers an. Ersetzen Sie die Platzhalter in eckigen Klammern durch Ihre Angaben und streichen Sie, was nicht zutrifft. Die Prüfliste am Ende führt durch die Punkte, an denen Bedenkenanzeigen in der Praxis scheitern."
+
+brief:
+  betreff: "Bedenkenanzeige nach § 4 Abs. 3 VOB/B – Bauvorhaben [Bezeichnung], [betroffene Leistung]"
+  anrede: Sehr geehrte Damen und Herren,
+  absaetze:
+    - "zwischen Ihnen als Auftraggeber und uns als Auftragnehmer besteht der Bauvertrag vom [Datum] über [Leistung, z. B. die Estricharbeiten im 2. Obergeschoss]. Nach unseren Unterlagen ist die VOB/B in diesen Vertrag einbezogen. Gegen die vorgesehene Ausführung melden wir hiermit Bedenken an."
+    - "Unsere Bedenken betreffen [Zutreffendes wählen: die vorgesehene Art der Ausführung / die Güte der von Ihnen gelieferten oder vorgeschriebenen Stoffe oder Bauteile / die Leistung eines anderen Unternehmers als Vorleistung]."
+    - "Am [Datum] haben wir Folgendes festgestellt: [Befund sachlich, mit Ort und Maßangaben beschreiben, z. B. der Betonuntergrund im Raum 2.14 ist auf rund 30 Quadratmetern ungleichmäßig saugend und weist Ausblühungen auf]."
+    - "Festgestellt haben wir das durch [Art der Prüfung, z. B. Inaugenscheinnahme, Kratzprobe, Feuchtemessung] am [Datum]. Die Einzelheiten, Lichtbilder und Messwerte finden Sie in der Anlage."
+    - "Aus unserer fachlichen Sicht ist die vorgesehene Ausführung aus folgendem Grund bedenklich: [Grund, z. B. weil der Untergrund für den vorgesehenen Belag nicht ausreichend fest und nicht ausreichend trocken ist]."
+    - "Wird wie vorgesehen weitergearbeitet, drohen konkret folgende Schäden: [Folgen beschreiben, z. B. Ablösungen des Belags, Rissbildung und ein späterer Austausch der gesamten Fläche]. Nach unserer Einschätzung ist mit diesen Schäden [z. B. mit hoher Wahrscheinlichkeit] zu rechnen."
+    - "Wir bitten Sie, uns bis zum [Datum] mitzuteilen, wie Sie auf diese Bedenken reagieren möchten und ob und wie die Ausführung geändert werden soll."
+    - "[Absatz nur bei drohender Verzögerung verwenden:] Solange Ihre Entscheidung aussteht, können wir [betroffene Leistung] nicht ordnungsgemäß ausführen. Für diesen Fall zeigen wir vorsorglich eine Behinderung nach § 6 Abs. 1 VOB/B an. Ob und in welcher Höhe sich daraus Ansprüche ergeben, bleibt einer gesonderten Prüfung vorbehalten."
+    - "Wir sind bereit, die Leistung nach Ihrer Weisung auszuführen. Für Mängel, die auf den hier angezeigten Umständen beruhen, berufen wir uns auf § 13 Abs. 3 VOB/B."
+    - "[Absatz nur verwenden, wenn einschlägig:] Stehen der vorgesehenen Ausführung gesetzliche oder behördliche Bestimmungen entgegen, können wir sie auch auf Anordnung nicht ausführen. Darauf weisen wir vorsorglich hin."
+    - "Für Rückfragen stehen wir Ihnen zur Verfügung. Bitte bestätigen Sie uns den Erhalt dieses Schreibens."
+  gruss: Mit freundlichen Grüßen
+  anlagen:
+    - Lichtbilder mit Datum und Maßstab
+    - Auszug aus Plan oder Leistungsverzeichnis
+    - Mess- oder Prüfprotokoll
+    - Herstellerangaben oder Merkblatt
+
+tabelle:
+  titel: Vor dem Absenden prüfen
+  spalten: ["Nr.", Prüfpunkt, erledigt]
+  breiten: [1, 12, 2]
+  zeilen:
+    - ["1", "Das Schreiben ist an den Auftraggeber selbst gerichtet, nicht nur an Bauleitung oder Architekt.", ""]
+    - ["2", "Richten sich die Bedenken gegen die Planung des bauleitenden Architekten, geht das Schreiben unmittelbar an den Auftraggeber.", ""]
+    - ["3", "Das Schreiben ist unterschrieben und geht als Original oder als unterschriebener Scan hinaus.", ""]
+    - ["4", "Datum des Schreibens und Datum der Feststellung sind eingetragen.", ""]
+    - ["5", "Bauvorhaben, Vertrag und betroffene Leistung sind eindeutig bezeichnet.", ""]
+    - ["6", "Der Gegenstand der Bedenken ist einem der drei Fälle des § 4 Abs. 3 VOB/B zugeordnet.", ""]
+    - ["7", "Der Befund ist konkret beschrieben, nicht nur als mangelhafte Vorleistung oder mangelhafter Untergrund.", ""]
+    - ["8", "Die drohenden Schäden sind benannt, nicht nur die Bedenken als solche.", ""]
+    - ["9", "Die Tragweite ist so beschrieben, dass der Auftraggeber sie ohne eigenes Fachwissen erfassen kann.", ""]
+    - ["10", "Ein eigener Lösungsvorschlag steht nur im Schreiben, wenn er fachlich abgesichert ist.", ""]
+    - ["11", "Eine Frist für die Rückmeldung des Auftraggebers ist gesetzt.", ""]
+    - ["12", "Die Anlagen sind vollständig und im Schreiben genannt.", ""]
+    - ["13", "Die Lichtbilder tragen Datum und einen Maßstab.", ""]
+    - ["14", "Der Zugang ist nachweisbar, etwa durch Einwurfeinschreiben, Boten oder Empfangsbestätigung.", ""]
+    - ["15", "Eine Kopie des Schreibens liegt in der Bauakte.", ""]
+    - ["16", "Die Absendung ist im Bautagebuch vermerkt.", ""]
+    - ["17", "Bei drohender Verzögerung ist die Behinderungsanzeige nach § 6 Abs. 1 VOB/B beigefügt oder folgt gesondert.", ""]
+    - ["18", "Eine Wiedervorlage nach Ablauf der gesetzten Frist ist notiert.", ""]
+    - ["19", "Bei Gefahr für Leib und Leben oder bei Verstoß gegen Vorschriften werden die Arbeiten nicht fortgesetzt.", ""]
+    - ["20", "Für den Fall, dass keine Antwort kommt, ist ein Zweitschreiben zur Klarstellung vorbereitet.", ""]
+  leerzeilen: 2
+
+hinweise:
+  - "Platzhalter in eckigen Klammern durch eigene Angaben ersetzen. Absätze, die nicht zutreffen, ersatzlos streichen."
+  - "§ 4 Abs. 3 VOB/B verlangt die Mitteilung unverzüglich, möglichst schon vor Beginn der Arbeiten, schriftlich und gegenüber dem Auftraggeber."
+  - "Die VOB/B gilt nur, wenn sie im Bauvertrag vereinbart ist. Ohne VOB/B bestehen Prüf- und Hinweispflichten nach der Fachliteratur in gleicher Weise; eine Schriftform ist dann nicht vorgeschrieben, aus Beweisgründen aber zu empfehlen."
+  - "Ein allgemeiner Hinweis auf eine mangelhafte Vorleistung genügt nicht. Der Auftraggeber muss erkennen, welche konkrete Gefahr mit dem beschriebenen Zustand verbunden ist."
+  - "Ein eigener Lösungsvorschlag ist nicht geschuldet. Wer einen unterbreitet, kann für dessen Planung einstehen müssen."
+  - "Richtiger Adressat ist der Auftraggeber. Ein Hinweis allein an den bauleitenden Architekten reicht nicht aus, wenn sich die Bedenken gerade gegen dessen Planung richten."
+  - "Eine einfache, nicht unterschriebene E-Mail kann die vereinbarte Schriftform verfehlen. Ein unterschriebener und eingescannter Brief genügt nach der Fachliteratur."
+  - "Besteht der Auftraggeber nach der Bedenkenanzeige auf seiner Anordnung, ist sie auszuführen, wenn nicht gesetzliche oder behördliche Bestimmungen entgegenstehen."
+  - "Ein allgemeines Recht, die Leistung bis zur Antwort des Auftraggebers zu verweigern, besteht nicht."
+  - "Reagiert der Auftraggeber gar nicht, bleibt die Wirkung der Bedenkenanzeige nach der Fachliteratur erhalten. Ein Zweitschreiben nach Fristablauf sichert den Nachweis."
+  - "Die Bedenkenanzeige ersetzt weder eine Behinderungsanzeige noch einen Nachtrag. Verzögerungen und Mehrkosten sind gesondert anzuzeigen."
+  - "Gegenüber Dritten, etwa späteren Mietern oder Erwerbern, schließt eine Bedenkenanzeige eine Haftung nicht aus."
+  - "Dieses Muster ist keine Rechtsberatung. Bei hohen Schadensrisiken oder Streit über die Ursache sollte ein Rechtsanwalt das Schreiben vor dem Absenden prüfen."
+
+quellen:
+  - "§ 3 Abs. 3, § 4 Abs. 1 Nr. 4, § 4 Abs. 3, § 6 Abs. 1 und § 13 Abs. 3 VOB/B, Ausgabe 2016; Wortlaut nach VOB-Gesamtausgabe 2019, S. 143, 145, 152"
+  - "Zanner: VOB/B nach Ansprüchen, 7. Aufl. 2021, S. 241–243"
+  - "Zanner/Glönkler: Baumangelhaftung nach Ansprüchen, 2. Aufl. 2024, S. 38 f."
+  - "Wirth/Pfisterer/Schellenberg: Privates Baurecht praxisnah, 3. Aufl. 2021, S. 127"
+  - "Weber/Hafkesbrink (Hrsg.): Bauwerksabdichtung in der Altbausanierung, 7. Aufl. 2026, S. 755 f."
+  - "Berner u. a.: Grundlagen der Baubetriebslehre 3, 3. Aufl. 2025, S. 139 f."
