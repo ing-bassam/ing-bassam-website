@@ -22,7 +22,7 @@ on:
   workflow_dispatch:
     inputs:
       entwurf:
-        description: "Entwurfsdatei, z. B. entwuerfe/2026-09-20-aufmass-messverfahren-nachweis-bausoll.md"
+        description: "Entwurfsdatei, z. B. entwuerfe/entwurf/2026-09-24-nachbesserung-verweigert-werklohn.md"
         required: true
         type: string
       umfang:
@@ -127,7 +127,7 @@ jobs:
         run: |
           set -euo pipefail
           # Nur Dateien im Entwurfsordner, nur harmlose Zeichen im Namen.
-          if ! [[ "$ENTWURF" =~ ^entwuerfe/[a-z0-9-]+\.md$ ]] || [ ! -f "$ENTWURF" ]; then
+          if ! [[ "$ENTWURF" =~ ^entwuerfe/(entwurf/|veroeffentlicht/)?[a-z0-9-]+\.md$ ]] || [ ! -f "$ENTWURF" ]; then
             echo "::error title=Entwurf prüfen::„$ENTWURF“ ist keine Datei im Ordner entwuerfe/."
             exit 1
           fi

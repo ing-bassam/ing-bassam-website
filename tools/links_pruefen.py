@@ -78,7 +78,7 @@ def main() -> int:
     ziel = Path(sys.argv[1])
 
     beitraege = []
-    for pfad in sorted((WURZEL / "entwuerfe").glob("*.md")):
+    for pfad in sorted(p for p in (WURZEL / "entwuerfe").rglob("*.md") if p.name.lower() != "readme.md"):
         kopf, _absaetze, fussnoten = ql.zerlegen(pfad.read_text(encoding="utf-8"))
         if kopf.get("status", "").strip().lower() == "veröffentlicht":
             beitraege.append((pfad, kopf, fussnoten))

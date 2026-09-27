@@ -297,7 +297,7 @@ def texte_offener_entwuerfe() -> list[str]:
         for pr in prs:
             for datei in pr.get("files") or []:
                 pfad = datei["path"]
-                if pfad.startswith("entwuerfe/") and pfad.endswith(".md"):
+                if pfad.startswith("entwuerfe/") and pfad.endswith(".md") and not pfad.lower().endswith("readme.md"):
                     texte.append(gh("api", "-H", "Accept: application/vnd.github.raw+json",
                                     f"repos/{repo}/contents/{urllib.parse.quote(pfad)}"
                                     f"?ref=refs/pull/{pr['number']}/head"))
@@ -360,7 +360,8 @@ def bekannte_aktenzeichen() -> set[str]:
     """
     bekannt: set[str] = set()
     texte = [p.read_text(encoding="utf-8", errors="replace")
-             for p in (ENTWUERFE.glob("*.md") if ENTWUERFE.is_dir() else [])]
+             for p in (ENTWUERFE.rglob("*.md") if ENTWUERFE.is_dir() else [])
+             if p.name.lower() != "readme.md"]
     texte += texte_offener_entwuerfe()
     for text in texte:
         for treffer in re.findall(r"^aktenzeichen:\s*(.+)$", text, re.M):
