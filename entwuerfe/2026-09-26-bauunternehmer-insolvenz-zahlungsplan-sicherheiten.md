@@ -13,7 +13,7 @@ qualifikation:
 kurzform: bauunternehmer-insolvenz-zahlungsplan-sicherheiten
 erstellt: 2026-09-26
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-81c4-a057-d0b0f0385690
 notion_url: https://app.notion.com/p/Bauunternehmer-insolvent-oder-verschwunden-Zahlungsplan-und-Sicherheiten-3dfd96ad00b481c4a057d0b0f0385690
