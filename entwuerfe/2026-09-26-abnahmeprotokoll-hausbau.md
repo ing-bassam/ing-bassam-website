@@ -14,7 +14,7 @@ kurzform: abnahmeprotokoll-hausbau
 dateien: vorlagen/abnahmeprotokoll-hausbau/abnahmeprotokoll-hausbau.pdf, vorlagen/abnahmeprotokoll-hausbau/abnahmeprotokoll-hausbau-ausfuellbar.pdf
 erstellt: 2026-09-26
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-8115-9b29-fed7224d32f5
 notion_url: https://app.notion.com/p/Checkliste-Endabnahme-Haus-Abnahmeprotokoll-f-r-Bauherren-3e2d96ad00b481159b29fed7224d32f5
