@@ -61,6 +61,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ing-bassam.de/fachwissen/bedenkenanzeige-vob-b-musterschreiben/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ing-bassam.de/fachwissen/entgangener-gewinn-wartungsvertrag-nachweis/</loc>
     <lastmod>2026-09-24</lastmod>
     <changefreq>yearly</changefreq>
@@ -69,6 +75,18 @@
   <url>
     <loc>https://ing-bassam.de/fachwissen/fassadenverschmutzung-mangel-gewerbemiete/</loc>
     <lastmod>2026-09-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/fachwissen/fragenkatalog-hausverwaltung-wohnungskauf/</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/fachwissen/gestoerter-bauablauf-mehrkosten-nachweis/</loc>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -105,6 +123,12 @@
   <url>
     <loc>https://ing-bassam.de/fachwissen/objektbegehung-wohngebaeude-hausverwaltung/</loc>
     <lastmod>2026-09-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/fachwissen/objektueberwachung-lp8-pflichten-haftung/</loc>
+    <lastmod>2026-09-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

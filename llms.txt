@@ -15,11 +15,15 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Baubetrieb
 
+- [Objektüberwachung nach HOAI: Pflichten, Haftung, Dokumentation](https://ing-bassam.de/fachwissen/objektueberwachung-lp8-pflichten-haftung/): Welche Pflichten die Objektüberwachung nach Leistungsphase 8 der HOAI umfasst, wie weit die Bauüberwachung reicht und welche Dokumentation zählt.
+- [Gestörter Bauablauf: Bauzeit und Mehrkosten nachweisen](https://ing-bassam.de/fachwissen/gestoerter-bauablauf-mehrkosten-nachweis/): Wie Mehrkosten aus einem gestörten Bauablauf nachgewiesen werden: Anspruchsgrundlagen, Soll-Ist-Vergleich, bauablaufbezogene Darstellung und Kostenarten.
+- [Bedenkenanzeige nach § 4 Abs. 3 VOB/B: Musterschreiben](https://ing-bassam.de/fachwissen/bedenkenanzeige-vob-b-musterschreiben/): Musterschreiben Bedenkenanzeige nach § 4 Abs. 3 VOB/B: Inhalt, Form, Adressat und Frist, mit Prüfliste vor dem Absenden, kostenlos als Word und PDF.
 - [Entgangener Gewinn nach Vertragsende: Was nachgewiesen werden muss](https://ing-bassam.de/fachwissen/entgangener-gewinn-wartungsvertrag-nachweis/): KG Berlin: Wer nach vorzeitiger Beendigung eines Wartungsvertrags entgangenen Gewinn verlangt, muss ersparte Kosten aufschlüsseln und belegen.
 - [Baupreissteigerung beim Schallschutz: Wer zahlt die Mehrkosten?](https://ing-bassam.de/fachwissen/schallschutz-kostenerstattung-verzoegerung/): Das OVG Berlin-Brandenburg begrenzt die Erstattung von Schallschutzkosten auf das Preisniveau des Bauwerkvertrags. Was das für die Baupraxis bedeutet.
 
 ### Bauherrenwissen
 
+- [Fragenkatalog an die Hausverwaltung vor dem Wohnungskauf](https://ing-bassam.de/fachwissen/fragenkatalog-hausverwaltung-wohnungskauf/): Welche Fragen Kaufinteressenten der Hausverwaltung vor dem Kauf einer Eigentumswohnung stellen sollten – mit kostenloser Checkliste zum Ausdrucken.
 - [Bauvertrag prüfen vor der Unterschrift: die Checkliste](https://ing-bassam.de/fachwissen/bauvertrag-pruefen-vor-unterschrift/): Checkliste zum Download: Bauvertrag und Verbraucherbauvertrag vor der Unterschrift prüfen – Baubeschreibung, Termine, Zahlungsplan, Sicherheiten.
 - [Checkliste Wohnungskauf: Sondereigentum, Gemeinschaft, Unterlagen](https://ing-bassam.de/fachwissen/wohnungskauf-sondereigentum-weg-unterlagen/): Checkliste für den Wohnungskauf: Unterlagen der Eigentümergemeinschaft, Gemeinschaftseigentum und Wohnung prüfen. Kostenlos als PDF.
 - [Mängelliste für Abnahme und Gewährleistung](https://ing-bassam.de/fachwissen/maengelliste-abnahme-gewaehrleistung/): Mängelliste als Excel und PDF. Jeden Baumangel mit Ort, Erscheinungsbild, Meldedatum und Frist festhalten, bis zur Nachbesserung.

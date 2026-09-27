@@ -7,19 +7,18 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (4)
+## 🟡 Entwurf (0)
+
+Zurzeit keine.
+
+## 🟢 Veröffentlicht (29)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
-| 27.09.2026 | [Objektüberwachung nach HOAI: Pflichten, Haftung, Dokumentation](entwurf/2026-09-27-objektueberwachung-lp8-pflichten-haftung.md) | Grundlagen | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/objektueberwachung-lp8-pflichten-haftung/) |
-| 27.09.2026 | [Gestörter Bauablauf: Bauzeit und Mehrkosten nachweisen](entwurf/2026-09-27-gestoerter-bauablauf-mehrkosten-nachweis.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/gestoerter-bauablauf-mehrkosten-nachweis/) |
-| 27.09.2026 | [Fragenkatalog an die Hausverwaltung vor dem Wohnungskauf](entwurf/2026-09-27-fragenkatalog-hausverwaltung-wohnungskauf.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/fragenkatalog-hausverwaltung-wohnungskauf/) |
-| 27.09.2026 | [Bedenkenanzeige nach § 4 Abs. 3 VOB/B: Musterschreiben](entwurf/2026-09-27-bedenkenanzeige-vob-b-musterschreiben.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/bedenkenanzeige-vob-b-musterschreiben/) |
-
-## 🟢 Veröffentlicht (25)
-
-| Datum | Titel | Format | Kategorie | Seite |
-|---|---|---|---|---|
+| 27.09.2026 | [Objektüberwachung nach HOAI: Pflichten, Haftung, Dokumentation](veroeffentlicht/2026-09-27-objektueberwachung-lp8-pflichten-haftung.md) | Grundlagen | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/objektueberwachung-lp8-pflichten-haftung/) |
+| 27.09.2026 | [Gestörter Bauablauf: Bauzeit und Mehrkosten nachweisen](veroeffentlicht/2026-09-27-gestoerter-bauablauf-mehrkosten-nachweis.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/gestoerter-bauablauf-mehrkosten-nachweis/) |
+| 27.09.2026 | [Fragenkatalog an die Hausverwaltung vor dem Wohnungskauf](veroeffentlicht/2026-09-27-fragenkatalog-hausverwaltung-wohnungskauf.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/fragenkatalog-hausverwaltung-wohnungskauf/) |
+| 27.09.2026 | [Bedenkenanzeige nach § 4 Abs. 3 VOB/B: Musterschreiben](veroeffentlicht/2026-09-27-bedenkenanzeige-vob-b-musterschreiben.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/bedenkenanzeige-vob-b-musterschreiben/) |
 | 27.09.2026 | [Bauvertrag prüfen vor der Unterschrift: die Checkliste](veroeffentlicht/2026-09-27-bauvertrag-pruefen-vor-unterschrift.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauvertrag-pruefen-vor-unterschrift/) |
 | 27.09.2026 | [Bauvertrag ohne Grund gekündigt: 5 Prozent und Zinsen für vier Jahre](veroeffentlicht/2026-09-27-bauvertrag-kuendigung-verguetung-verzugszinsen.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/bauvertrag-kuendigung-verguetung-verzugszinsen/) |
 | 26.09.2026 | [Checkliste Wohnungskauf: Sondereigentum, Gemeinschaft, Unterlagen](veroeffentlicht/2026-09-26-wohnungskauf-sondereigentum-weg-unterlagen.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/wohnungskauf-sondereigentum-weg-unterlagen/) |
