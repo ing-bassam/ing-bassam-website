@@ -14,7 +14,7 @@ kurzform: objektbegehung-wohngebaeude-hausverwaltung
 dateien: vorlagen/objektbegehung-wohngebaeude-hausverwaltung/objektbegehung-wohngebaeude-hausverwaltung.pdf, vorlagen/objektbegehung-wohngebaeude-hausverwaltung/objektbegehung-wohngebaeude-hausverwaltung-ausfuellbar.pdf, vorlagen/objektbegehung-wohngebaeude-hausverwaltung/objektbegehung-wohngebaeude-hausverwaltung.xlsx
 erstellt: 2026-09-26
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-81d3-8398-da230331b3aa
 notion_url: https://app.notion.com/p/Checkliste-Objektbegehung-f-r-Hausverwaltungen-3e2d96ad00b481d38398da230331b3aa
