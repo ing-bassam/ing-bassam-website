@@ -14,7 +14,7 @@ kurzform: bauvertrag-pruefen-vor-unterschrift
 dateien: vorlagen/bauvertrag-pruefen-vor-unterschrift/bauvertrag-pruefen-vor-unterschrift-ausfuellbar.pdf, vorlagen/bauvertrag-pruefen-vor-unterschrift/bauvertrag-pruefen-vor-unterschrift.pdf
 erstellt: 2026-09-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-8160-963b-eacc10b1f025
 notion_url: https://app.notion.com/p/Checkliste-Bauvertrag-pr-fen-vor-Unterschrift-3e5d96ad00b48160963beacc10b1f025
