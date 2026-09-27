@@ -7,10 +7,11 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (1)
+## 🟡 Entwurf (2)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 27.09.2026 | [Objektüberwachung nach HOAI: Pflichten, Haftung, Dokumentation](entwurf/2026-09-27-objektueberwachung-lp8-pflichten-haftung.md) | Grundlagen | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/objektueberwachung-lp8-pflichten-haftung/) |
 | 24.09.2026 | [Handwerker lehnt die Nacharbeit ab: Was aus dem Werklohn wird](entwurf/2026-09-24-nachbesserung-verweigert-werklohn.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/nachbesserung-verweigert-werklohn/) |
 
 ## 🟢 Veröffentlicht (22)
