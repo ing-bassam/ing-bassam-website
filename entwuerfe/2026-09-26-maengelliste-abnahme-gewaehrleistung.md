@@ -14,7 +14,7 @@ kurzform: maengelliste-abnahme-gewaehrleistung
 dateien: vorlagen/maengelliste-abnahme-gewaehrleistung/maengelliste-abnahme-gewaehrleistung.xlsx, vorlagen/maengelliste-abnahme-gewaehrleistung/maengelliste-abnahme-gewaehrleistung.pdf
 erstellt: 2026-09-26
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-81f6-9b13-da6c6370b843
 notion_url: https://app.notion.com/p/M-ngelliste-f-r-Abnahme-und-Gew-hrleistung-3e2d96ad00b481f69b13da6c6370b843
