@@ -14,7 +14,7 @@ kurzform: bedenkenanzeige-vob-b-musterschreiben
 dateien: vorlagen/bedenkenanzeige-vob-b-musterschreiben/bedenkenanzeige-vob-b-musterschreiben.docx, vorlagen/bedenkenanzeige-vob-b-musterschreiben/bedenkenanzeige-vob-b-musterschreiben.pdf
 erstellt: 2026-09-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-8142-a5b1-cf7e33c63166
 notion_url: https://app.notion.com/p/Musterschreiben-Bedenkenanzeige-nach-4-Abs-3-VOB-B-3e5d96ad00b48142a5b1cf7e33c63166
