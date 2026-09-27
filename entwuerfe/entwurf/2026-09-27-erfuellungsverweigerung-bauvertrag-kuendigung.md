@@ -48,13 +48,13 @@ Mit Schreiben vom 2. Februar 2024 kündigte die Auftraggeberin den Bauvertrag fr
 
 Der Streit ging danach über zwei Instanzen. Das Landgericht Berlin II entschied am 4. August 2025 und hielt sein Versäumnisurteil vom 5. Mai 2025 teilweise aufrecht (Rn. 4). Es verurteilte das Bauunternehmen, gezahlte Vorschüsse von 60.606,08 Euro zurückzuzahlen (Rn. 4). Außerdem sollte es für die bis zur Kündigung ausgeführten Leistungen eine Schlussrechnung über 18.350,00 Euro netto legen (Rn. 4). Die Klage auf Ersatz bereits entstandener Mangelbeseitigungskosten und Verzugsschäden wies das Landgericht ab (Rn. 4). Es stellte aber fest, dass das Unternehmen für weitere Schäden aus Verzug, Kündigung und verspäteter Rechnungslegung haftet (Rn. 4).
 
-Gegen dieses Urteil legte das Bauunternehmen Berufung ein (Rn. 4). Es wollte die Klage vollständig abweisen lassen und meinte, ein Grund zur fristlosen Kündigung habe nicht vorgelegen (Rn. 5). Die Auftraggeberin verteidigte das Urteil und legte zusätzlich Anschlussberufung ein (Rn. 10). Mit einer Anschlussberufung greift die Gegenseite das Urteil innerhalb des fremden Rechtsmittels ebenfalls an. Sie wollte damit den Wortlaut des Urteilstenors ändern lassen (Rn. 11 bis 15). Der Senat hatte vorab am 18. Februar 2026 einen Hinweisbeschluss erlassen (Rn. 19). Der Streitwert des Berufungsverfahrens wurde auf bis zu 125.000 Euro festgesetzt (Tenor Ziffer 4, Rn. 28).
+Gegen dieses Urteil legte das Bauunternehmen Berufung ein (Rn. 4). Es wollte die Klage vollständig abweisen lassen und meinte, ein Grund zur fristlosen Kündigung habe nicht vorgelegen (Rn. 5). Die Auftraggeberin verteidigte das Urteil und legte zusätzlich Anschlussberufung ein (Rn. 10). Mit einer Anschlussberufung greift die Gegenseite das Urteil innerhalb des fremden Rechtsmittels ebenfalls an. Damit wollte sie das Versäumnisurteil in seinen Ziffern 1 und 2 in vollem Umfang aufrechterhalten lassen und den Wortlaut des Tenors zu Ziffer 3 ändern (Rn. 11 bis 15). Der Senat hatte vorab am 18. Februar 2026 einen Hinweisbeschluss erlassen (Rn. 19). Der Streitwert des Berufungsverfahrens wurde auf bis zu 125.000 Euro festgesetzt (Tenor Ziffer 4, Rn. 28).
 
 ## Was das Kammergericht entschieden hat und warum
 
 Das Kammergericht wies die Berufung des Bauunternehmens zurück (Rn. 18). Die Zurückweisung beruht auf § 522 Abs. 2 ZPO, also der Regel der Zivilprozessordnung, die eine Zurückweisung der Berufung durch Beschluss erlaubt (Rn. 18). Der Senat war einstimmig davon überzeugt, dass die Berufung offensichtlich keine Aussicht auf Erfolg hat (Rn. 19). Er sah in der Sache auch keine grundsätzliche Bedeutung (Rn. 19). Die Begründung dafür steht in seinem Hinweisbeschluss vom 18. Februar 2026; im Beschluss selbst führt er nur ergänzend aus (Rn. 19).
 
-Bemerkenswert ist, worauf der Senat ausdrücklich nicht abstellt. Dass das Bauunternehmen Ende Januar 2024 nicht weiter tätig wurde, war für ihn nicht entscheidungserheblich (Rn. 20). Ob dort überhaupt Arbeiten möglich gewesen wären, ließ er offen (Rn. 20). Die Kollektoren der Anlage waren unstreitig bauseits zu montieren, also nicht vom Bauunternehmen (Rn. 20). Der Stillstand allein trug die Entscheidung deshalb nicht.
+Bemerkenswert ist, worauf der Senat ausdrücklich nicht abstellt. Dass das Bauunternehmen Ende Januar 2024 nicht weiter tätig wurde, war für ihn nicht entscheidungserheblich (Rn. 20). Ob unmittelbar mit der Montage der Kollektoren Ende Januar 2024 Arbeiten des Unternehmens hätten ausgeführt werden können oder müssen, ließ er dahinstehen (Rn. 20). Die Kollektoren der Anlage waren unstreitig bauseits zu montieren, also nicht vom Bauunternehmen (Rn. 20). Der Stillstand allein trug die Entscheidung deshalb nicht.
 
 Tragend waren zwei andere Punkte, und sie greifen zusammen. Erstens war das Bauunternehmen unzweifelhaft verpflichtet, nach der Montage der Kollektoren weitere Bauarbeiten auszuführen (Rn. 21). Der Vertrag sah unter der Überschrift Ausführungsfristen vor, die Kollektoranlage werde innerhalb von zwei Wochen nach bauseitiger Aufbringung aufs Dach bis in den Heizraum verrohrt (Rn. 21). Es stand also noch Arbeit aus, für die das Unternehmen einstehen musste.
 
@@ -80,7 +80,7 @@ Auch die Geldfolgen des Falls sind aufschlussreich. Das Bauunternehmen trug die 
 
 Der Beschluss trägt seine Begründung nicht allein. Die Begründung für die Erfolglosigkeit der Berufung steht im Hinweisbeschluss vom 18. Februar 2026, der hier nicht vorliegt (Rn. 19). Die Ausführungen im Beschluss selbst bezeichnet der Senat ausdrücklich als ergänzend (Rn. 19). Ob das Baurecht eine Änderungskündigung kennt, entscheidet der Beschluss nicht; das war der Einwand der Auftraggeberin (Rn. 2).
 
-Offen bleibt auch der Rest des Streits. Über die Anschlussberufung der Auftraggeberin wurde nicht mehr entschieden (Rn. 23). Die Höhe einer Vergütung nach der Kündigung behandelt der Beschluss nicht. Mangelbeseitigungskosten und Verzugsschäden hatte das Landgericht abgewiesen, und den Schadensersatz nur festgestellt (Rn. 4). Mit der Zurückweisung der Berufung ist die Berufungsinstanz abgeschlossen (Rn. 18); eine Zulassung der Revision enthält der Text nicht.
+Offen bleibt auch der Rest des Streits. Über die Anschlussberufung der Auftraggeberin wurde nicht mehr entschieden (Rn. 23). Die Höhe einer Vergütung nach der Kündigung behandelt der Beschluss nicht. Mangelbeseitigungskosten und Verzugsschäden hatte das Landgericht abgewiesen, und den Schadensersatz nur festgestellt (Rn. 4). Die Berufung ist durch Beschluss zurückgewiesen worden (Rn. 18); eine Zulassung der Revision enthält der Text nicht.
 
 ## Häufige Fragen
 
@@ -90,7 +90,7 @@ Das lässt sich nicht allgemein beantworten. Ein Nachtrag, also die Forderung na
 
 **Muss ich die Firma vorher abmahnen?**
 
-Der Beschluss sagt dazu nur etwas für diesen Fall. Dort bedurfte es keiner weiteren Abmahnung, weil die Verweigerung ausnahmslos und endgültig war (Rn. 22). Achten Sie auf das Wort weiter: Die Beteiligten hatten sich Anfang Dezember 2023 bereits einmal mit rechtlichem Beistand geeinigt (Rn. 1). Für andere Fälle lässt sich daraus keine Regel ableiten.
+Der Beschluss sagt dazu nur etwas für diesen Fall. Dort bedurfte es keiner weiteren Abmahnung, weil die Verweigerung ausnahmslos und endgültig war (Rn. 22). Für andere Fälle lässt sich daraus keine Regel ableiten.
 
 **Was passiert mit dem Geld, das ich schon gezahlt habe?**
 
@@ -98,7 +98,7 @@ Im entschiedenen Fall musste das Bauunternehmen gezahlte Vorschüsse von 60.606,
 
 **Was sollte ich festhalten, wenn es auf der Baustelle eskaliert?**
 
-Sichern Sie zuerst den Schriftverkehr vollständig, mit Datum, Absender und Anhängen. Halten Sie fest, welche Leistung vereinbart war und welche fehlt. Fotografieren Sie den erreichten Zustand mit Maßstab und Datum, bevor jemand weiterarbeitet. Nach einer Kündigung können beide Seiten die Mitwirkung an einer Feststellung des Leistungsstandes verlangen[^4]. Das Kammergericht hat im besprochenen Fall allein die schriftlichen Erklärungen bewertet (Rn. 21).
+Sichern Sie zuerst den Schriftverkehr vollständig, mit Datum, Absender und Anhängen. Halten Sie fest, welche Leistung vereinbart war und welche fehlt. Fotografieren Sie den erreichten Zustand mit Maßstab und Datum, bevor jemand weiterarbeitet. Nach einer Kündigung können beide Seiten die Mitwirkung an einer Feststellung des Leistungsstandes verlangen[^4]. Das Kammergericht hat im besprochenen Fall die beiden E-Mails des Geschäftsführers und die vertragliche Regelung zu den Ausführungsfristen bewertet (Rn. 21).
 
 ## Hinweis
 
