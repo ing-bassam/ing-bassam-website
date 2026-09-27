@@ -172,7 +172,7 @@ abschnitte:
         hinweis: "Nach der VOB/B muss der Auftraggeber die Beseitigung vor Ablauf der Frist schriftlich verlangen. Bewahren Sie einen Nachweis über den Zugang auf."
       - text: Angemessene Frist zur Beseitigung gesetzt
         ja_nein: true
-        hinweis: "Die Frist muss zum Aufwand der Arbeiten passen und ein festes Datum nennen."
+        hinweis: "Die Frist muss zum Aufwand der Arbeiten passen."
       - text: Anzeige nachweislich vor Ablauf der Frist abgesandt
         ja_nein: true
         hinweis: "Nur was vor Fristablauf zugeht, wirkt. Ob die Verjährung gehemmt ist oder neu beginnt, beurteilt ein Rechtsanwalt."

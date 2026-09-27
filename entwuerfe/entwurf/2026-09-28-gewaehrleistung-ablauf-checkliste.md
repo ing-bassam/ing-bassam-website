@@ -47,7 +47,7 @@ Halten Sie sich bei der Begehung an zwei Grenzen. Erstens steigen Sie nicht auf 
 
 Der Dachraum ist der wichtigste Raum dieser Begehung, weil dort Feuchte und Holzschäden früh sichtbar werden. Gehen Sie mit einer Lampe an Traufe, First und an alle Durchdringungen. Alte, trockene Ränder an Sparren oder Unterspannbahn sind ein geringer Befund und gehören notiert. Frische dunkle Flecken, feuchte Dämmung oder Tropfspuren sind ein deutlicher Befund und gehören in die Anzeige.
 
-Sehen Sie sich im Dachraum auch das Holz selbst an. Ovale Ausfluglöcher mit ausgefranstem Rand deuten auf den Hausbockkäfer hin, dessen Larven das Holz von innen zerstören.[^5] Kleine runde Löcher, aus denen feines Bohrmehl rieselt, sprechen für den Gemeinen Nagekäfer.[^5] Beides beurteilen Sie nicht selbst. Die Abschätzung des Befalls gehört in die Hand eines Sachverständigen oder einer Fachfirma.[^5]
+Sehen Sie sich im Dachraum auch das Holz selbst an. Ovale Ausfluglöcher mit ausgefranstem Rand deuten auf den Hausbockkäfer hin, dessen Larven das Holz von innen zerstören.[^5] Kleine runde Löcher, aus denen feines Bohrmehl rieselt, sprechen für den Gemeinen Nagekäfer.[^5] Beides beurteilen Sie nicht selbst. Die Abschätzung des Befalls gehört in die Hand eines Sachverständigen.[^5]
 
 Beim Dach und beim Balkon gilt ein einfacher Grundsatz: Wasser muss auf einer Abdichtung ablaufen und darf nicht stehen. Bei sehr geringem Gefälle ist mit stehendem Wasser und Pfützen zu rechnen.[^6] Sehen Sie sich Flachdach, Balkon und Terrasse deshalb nach einem Regentag an. Eine feuchte Stelle, die abtrocknet, ist gering. Eine Pfütze, die Tage später noch steht, ist deutlich.
 
@@ -55,7 +55,7 @@ Im Keller arbeiten Sie mit Augen, Hand und Nase. Weiße, pelzige Beläge an Wän
 
 ## Bäder und Fenster verraten früh, was nicht in Ordnung ist
 
-Im Bad schauen Sie zuerst auf die elastischen Fugen an Wanne, Dusche und Bodenanschluss. Solche Fugen aus Dichtstoff haben eine begrenzte Lebensdauer und werden deshalb als Wartungsfugen bezeichnet, die regelmäßig kontrolliert werden müssen.[^9] Das heißt aber nicht, dass jede gelöste Fuge Ihr Problem ist. Eine Wartungsfuge unterliegt nach der Fachinformation des Herstellerverbandes nicht der Gewährleistung üblicher Verfugungsarbeiten, muss dafür aber vor der Ausführung benannt und festgelegt sein.[^10] Nachträglich lässt sich eine Fuge nicht zur Wartungsfuge erklären.
+Im Bad schauen Sie zuerst auf die elastischen Fugen an Wanne, Dusche und Bodenanschluss. Solche Fugen aus Dichtstoff haben eine begrenzte Lebensdauer und werden deshalb als Wartungsfugen bezeichnet, die regelmäßig kontrolliert werden müssen.[^9] Das heißt aber nicht, dass jede gelöste Fuge Ihr Problem ist. Eine Wartungsfuge unterliegt nach der Einschätzung eines Baurechtsanwalts nicht der Gewährleistung üblicher Verfugungsarbeiten, muss dafür aber vor der Ausführung benannt und festgelegt sein.[^10] Nachträglich lässt sich eine Fuge nicht zur Wartungsfuge erklären.
 
 Bei Fliesen unterscheiden Sie zwei Befunde. Hohl klingende Flächen und Risse durch Fliese und Fuge sind ein Hinweis auf die Verlegung und damit ein deutlicher Befund. Höhenversätze zwischen benachbarten Fliesen, im Handwerk Überzähne genannt, sind ein eigenes Thema: Die Norm für Toleranzen im Hochbau gilt für Ebenheitsabweichungen, für solche Versätze zwischen benachbarten Bauteilen aber ausdrücklich nicht.[^11] Notieren Sie den Versatz trotzdem, denn beurteilt wird er nach den Regeln des Fliesenhandwerks.
 
@@ -73,7 +73,7 @@ Auch beim Fußboden hilft das Wissen über den Aufbau. Ein junger Estrich, also 
 
 Für die Anzeige müssen Sie keine Ursache kennen. Es genügt, wenn Sie das äußere Erscheinungsbild beschreiben, also die sichtbaren Symptome.[^14] Schreiben Sie „Feuchter Fleck an der Kellerwand, etwa zwei Handflächen groß, seit Januar“ und nicht „fehlerhafte Abdichtung“. Eine technische Bewertung ist nicht nötig und kann sogar schaden, wenn Sie sich auf die falsche Ursache festlegen.
 
-Danach zählt die Form. Melden Sie Baumängel schriftlich und bewahren Sie einen Nachweis über den Zugang auf.[^15] Nach der VOB/B muss der Auftraggeber die Beseitigung sogar ausdrücklich vor Ablauf der Frist schriftlich verlangen.[^2] Setzen Sie eine angemessene Frist mit festem Datum, die zum Aufwand der Arbeiten passt.[^15] Ob Ihre Ansprüche bestehen und wie sie durchzusetzen sind, beurteilt ein Rechtsanwalt.
+Danach zählt die Form. Melden Sie Baumängel schriftlich.[^15] Nach der VOB/B muss der Auftraggeber die Beseitigung sogar ausdrücklich vor Ablauf der Frist schriftlich verlangen.[^2] Setzen Sie eine angemessene Frist, die zum Aufwand der Arbeiten passt.[^14] Ob Ihre Ansprüche bestehen und wie sie durchzusetzen sind, beurteilt ein Rechtsanwalt.
 
 Die Begehung endet nicht mit der Anzeige. Bessert das Unternehmen nach, verlangen Sie eine Abnahme dieser Leistung und halten Datum und Umfang fest. Mit der Abnahme der Mängelbeseitigung beginnt für die beseitigte Leistung eine neue Frist zu laufen.[^16] Ob die Verjährung in Ihrem Fall gehemmt ist, also stillsteht, ist eine Rechtsfrage für einen Anwalt und keine technische.
 
