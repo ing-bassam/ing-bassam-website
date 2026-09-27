@@ -1,0 +1,177 @@
+titel: Fragenkatalog an die Hausverwaltung
+untertitel: Vor dem Kauf einer Eigentumswohnung
+kurzform: fragenkatalog-hausverwaltung-wohnungskauf
+typ: Checkliste
+stand: 2026-09-27
+dateien: [pdf, docx]
+einleitung: >-
+  Wer eine Eigentumswohnung kauft, kauft einen Anteil am ganzen Haus mit.
+  Stellen Sie diese Fragen der Hausverwaltung, bevor Sie den Kaufpreis
+  verhandeln oder den Notartermin vereinbaren. Bewerten Sie jede Antwort in
+  der Spalte rechts und halten Sie Beträge, Termine und Namen in den
+  Notizzeilen fest. Lassen Sie sich die Antworten zu Geld und beschlossenen
+  Maßnahmen schriftlich geben.
+kopffelder:
+  - Objekt und Anschrift
+  - Wohnungsnummer und Etage
+  - Baujahr des Gebäudes
+  - Zahl der Einheiten
+  - Verwaltung und Ansprechpartner
+  - Datum der Anfrage
+  - Auskunft erteilt von
+bewertung:
+  stufen:
+    - {kurz: "klar", lang: "Antwort klar", beschreibung: "vollständig, belegt, kein Kostenrisiko erkennbar"}
+    - {kurz: "prüfen", lang: "klärungsbedürftig", beschreibung: "unvollständig, nur mündlich oder widersprüchlich – nachfassen"}
+    - {kurz: "kritisch", lang: "kritische Antwort", beschreibung: "erkennbares Kosten- oder Streitrisiko – vor dem Kauf bewerten"}
+    - {kurz: "offen", lang: "keine Auskunft", beschreibung: "Auskunft verweigert oder Unterlage nicht vorgelegt"}
+abschnitte:
+  - titel: Vollmacht und Unterlagen der Gemeinschaft
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Schriftliche Vollmacht der verkaufenden Eigentümerin oder des verkaufenden Eigentümers
+        hinweis: "Bitten Sie um eine Vollmacht, damit die Verwaltung Ihnen Auskunft geben und Einsicht gewähren darf. Ohne sie bleibt vieles Hörensagen des Verkäufers."
+      - text: Art der Verwaltung
+        auswahl: [gewerbliche Verwaltung, zertifizierter Verwalter, Eigentümer als Verwalter, unbekannt]
+        hinweis: "Woran erkennen: Verwaltervertrag und Bestellbeschluss nennen Name, Laufzeit und Vergütung."
+      - text: Teilungserklärung mit Aufteilungsplan und Gemeinschaftsordnung
+        hinweis: "Diese Unterlagen bestimmen, was Sondereigentum ist und nach welchem Schlüssel die Kosten verteilt werden."
+      - text: Wirtschaftsplan des laufenden Jahres
+      - text: Jahresabrechnungen der letzten drei Jahre
+      - text: Vermögensbericht mit dem Stand der Rücklagen
+        hinweis: "Der Verwalter erstellt nach Ablauf eines Kalenderjahres einen Vermögensbericht; er enthält den Stand der Rücklagen und eine Aufstellung des wesentlichen Gemeinschaftsvermögens."
+      - text: Protokolle der Eigentümerversammlungen der letzten drei Jahre
+      - text: Beschluss-Sammlung der Gemeinschaft
+        hinweis: "Einem Wohnungseigentümer oder einem von ihm Bevollmächtigten ist auf Verlangen Einsicht zu geben. Angefochtene oder aufgehobene Beschlüsse sind dort angemerkt."
+      - text: Energieausweis des Gebäudes
+        hinweis: "Der Energieausweis ist spätestens bei der Besichtigung vorzulegen und nach Vertragsschluss zu übergeben."
+  - titel: Erhaltungsrücklage, Hausgeld und Zahlungsverhalten
+    notizen: 2
+    punkte:
+      - text: Höhe der Erhaltungsrücklage zum letzten Stichtag, absolut und je Quadratmeter Wohnfläche
+        hinweis: "Woran erkennen: Der Vermögensbericht weist den Stand aus. Klar: Betrag und Stichtag schriftlich belegt. Kritisch: Die Rücklage ist durch beschlossene Maßnahmen schon weitgehend gebunden. Das Gesetz verlangt die Ansammlung einer angemessenen Erhaltungsrücklage, nennt aber keinen Betrag."
+      - text: Jährliche Zuführung zur Rücklage und Entwicklung des Stands in den letzten drei Jahren
+        hinweis: "Woran erkennen: Vergleich der Wirtschaftspläne. Klar: Zuführung steigt mit den Kosten. Kritisch: Zuführung seit Jahren unverändert, obwohl Bauteile ihr Nutzungsende erreichen."
+      - text: Anlage der Rücklage und Verfügbarkeit des Geldes
+        hinweis: "Woran erkennen: Kontoauszug oder Angabe im Vermögensbericht. Kritisch: lange Bindung, sodass die Gemeinschaft bei einem Schaden nicht kurzfristig zahlen kann."
+      - text: Monatliches Hausgeld für diese Wohnung und die darin enthaltenen Positionen
+        hinweis: "Woran erkennen: Wirtschaftsplan mit Einzelpositionen. Klar: Aufteilung in laufende Kosten und Rücklagenanteil erkennbar. Kritisch: auffällig niedriges Hausgeld bei altem Gebäude."
+      - text: Nachzahlungen aus den Jahresabrechnungen der letzten drei Jahre
+        hinweis: "Woran erkennen: Abrechnungsergebnis je Jahr. Kritisch: wiederkehrende Nachzahlungen, weil der Wirtschaftsplan zu knapp kalkuliert wird."
+      - text: Hausgeldrückstände in der Gemeinschaft, Zwangsverwaltung oder Insolvenz einzelner Eigentümer
+        hinweis: "Woran erkennen: Angabe der Verwaltung zur Summe der Rückstände. Kritisch: hohe Rückstände, weil dann Geld für beschlossene Maßnahmen fehlt."
+  - titel: Beschlossene Maßnahmen und Sonderumlagen
+    notizen: 2
+    punkte:
+      - text: Bereits beschlossene, aber noch nicht ausgeführte Erhaltungs- und Modernisierungsmaßnahmen
+        hinweis: "Woran erkennen: Beschluss-Sammlung und Protokolle. Klar: Maßnahme beschrieben, Kosten beschlossen, Finanzierung gesichert. Kritisch: Beschluss ohne Kostendeckung. Welche Folgen ein Beschluss für Sie hat, beurteilt ein Rechtsanwalt."
+      - text: "Beschlossene oder vorbereitete Sonderumlage: Höhe, Fälligkeit und Verteilung"
+        hinweis: "Woran erkennen: Beschlusstext mit Betrag und Fälligkeit. Kritisch: Umlage steht kurz vor der Beschlussfassung – rechnen Sie den Anteil für diese Wohnung in den Kaufpreis ein."
+      - text: Kostenschätzungen, Angebote oder Fachplanungen für geplante Maßnahmen
+        hinweis: "Woran erkennen: Angebote oder Planungsunterlagen liegen vor. Kritisch: nur mündliche Schätzungen für eine große Maßnahme."
+      - text: Kreditaufnahme der Gemeinschaft sowie beantragte oder bewilligte Fördermittel
+        hinweis: "Woran erkennen: Beschluss und Darlehensvertrag. Kritisch: Finanzierung hängt an einer Förderung, die noch nicht bewilligt ist."
+      - text: Stand der Sanierungsplanung im Gebäude
+        auswahl: [Sanierungsfahrplan vorhanden, Einzelmaßnahmen beschlossen, nichts geplant, unbekannt]
+        hinweis: "Woran erkennen: Ein schriftlicher Fahrplan zeigt, dass die Gemeinschaft vorausplant. Ohne Planung treffen große Kosten die Eigentümer unvorbereitet."
+  - titel: Streit, Anfechtungen und offene Ansprüche
+    notizen: 2
+    punkte:
+      - text: Gerichtlich angefochtene Beschlüsse der letzten Jahre und deren Stand
+        hinweis: "Woran erkennen: In der Beschluss-Sammlung ist eine Anfechtung anzumerken. Die Anfechtungsklage ist innerhalb eines Monats nach der Beschlussfassung zu erheben und innerhalb von zwei Monaten zu begründen. Kritisch: mehrere Anfechtungen in kurzer Zeit."
+      - text: Laufende Rechtsstreitigkeiten der Gemeinschaft
+        hinweis: "Woran erkennen: Angabe der Verwaltung zu Gegenstand, Streitwert und Stand. Kritisch: Verfahren gegen einen Bauträger oder Handwerker zu einem Bauteil, das noch nicht saniert ist."
+      - text: Mehrheitseigentümer mit mehr als der Hälfte der Stimmen
+        hinweis: "Woran erkennen: Eigentümerliste oder Angabe der Verwaltung. Ein Mehrheitseigentümer kann die Entscheidungen der Gemeinschaft bestimmen; das kann sich für die übrigen Eigentümer nachteilig auswirken."
+      - text: Offene Mängelansprüche gegen Bauträger oder Handwerker und Abnahme des Gemeinschaftseigentums
+        hinweis: "Bei Neubauten ist zwischen der Abnahme des Sondereigentums und der des Gemeinschaftseigentums zu unterscheiden; grundsätzlich nimmt jeder Eigentümer das Gemeinschaftseigentum gesondert ab. Lassen Sie das Abnahmeprotokoll anwaltlich prüfen."
+      - text: Streit über Kostenverteilung, Sondernutzungsrechte oder Hausordnung
+        hinweis: "Woran erkennen: Protokolle mit wiederkehrenden Tagesordnungspunkten zum selben Thema. Kritisch: ungeklärte Zuordnung von Kosten, die auch diese Wohnung betrifft."
+  - titel: Dach, Fassade, Keller und Balkone
+    notizen: 2
+    punkte:
+      - text: Dachform und Deckung
+        auswahl: [Steildach mit Ziegeln, Steildach mit anderer Deckung, Flachdach mit Abdichtung, gemischt, unbekannt]
+        hinweis: "Woran erkennen: Blick von außen und in den Dachraum. Die Erwartungswerte der Lebensdauer unterscheiden sich stark – für Dachziegel nennt die Fachliteratur rund 50 Jahre, für Abdichtungen deutlich weniger."
+      - text: Letzte Erneuerung von Dach und Dachentwässerung, bekannte Wassereintritte
+        hinweis: "Woran erkennen: Rechnungen und Protokolle. Klar: Erneuerung dokumentiert. Kritisch: Wassereintritt mehrfach nur ausgebessert, Ursache nie geklärt."
+      - text: Aufbau der Außenwand
+        auswahl: [Sichtmauerwerk, Putz ohne Dämmung, Wärmedämmverbundsystem, vorgehängte Fassade, unbekannt]
+        hinweis: "Woran erkennen: Fensterlaibungen zeigen die Wandstärke; ein Dämmsystem erkennt man an den tiefen Laibungen. Die Bauart bestimmt Aufwand und Kosten einer späteren Fassadensanierung."
+      - text: Letzte Instandsetzung der Fassade, dokumentierte Risse oder Putzschäden
+        hinweis: "Woran erkennen: Fotos und Protokolle der Verwaltung. Klar: Haarrisse im Putz, beobachtet. Kritisch: breite Risse mit Versatz oder abgelöster Putz über größere Flächen."
+      - text: Zustand des Kellers
+        auswahl: [trocken, feuchte Stellen bekannt, nachträglich abgedichtet, unbekannt]
+        hinweis: "Woran erkennen: Feuchteflecken im Sockelbereich, muffiger Geruch. In Altbauten ist eine mehr oder weniger starke Durchfeuchtung erdberührter Wände der Regelfall; entscheidend ist, wofür der Keller genutzt werden soll."
+      - text: Balkone und Loggien im Gemeinschaftseigentum, bekannte Abdichtungs- oder Betonschäden
+        hinweis: "Woran erkennen: Rostfahnen, abplatzender Beton, Feuchtefahnen unter der Platte. Kritisch: Schäden an mehreren Balkonen, weil dann eine Maßnahme für das ganze Haus ansteht."
+  - titel: Heizung, Trinkwasser, Leitungen und Aufzug
+    notizen: 2
+    punkte:
+      - text: Art der Wärmeversorgung
+        auswahl: [Zentralheizung im Gebäude, Fernwärme, Gasetagenheizungen, Wärmepumpe, unbekannt]
+        hinweis: "Woran erkennen: Heizraum, Übergabestation oder Gerät in der Wohnung. Bei Gasetagenheizungen trägt meist jeder Eigentümer sein Gerät selbst, bei einer Zentralheizung zahlt die Gemeinschaft gemeinsam."
+      - text: Alter des Wärmeerzeugers
+        auswahl: [bis 10 Jahre, 11 bis 20 Jahre, älter als 20 Jahre, unbekannt]
+        hinweis: "Woran erkennen: Typenschild am Kessel, Angabe im Energieausweis. Für Kesselanlagen und Wärmeerzeuger nennt die Fachliteratur einen Erwartungswert der Lebensdauer von etwa 20 Jahren."
+      - text: Beschlusslage und Planungen zur künftigen Wärmeversorgung
+        hinweis: "Woran erkennen: Beschlüsse, Angebote, Auskunft zur örtlichen Wärmeplanung. Das Recht für Heizungen ist mehrfach geändert worden, zuletzt zum 29. Juli 2026. Kritisch: Umstellung absehbar, aber weder geplant noch finanziert."
+      - text: Material der Trinkwasserleitungen im Gebäude
+        auswahl: [Kunststoff, Kupfer, verzinkter Stahl, gemischt, unbekannt]
+        hinweis: "Woran erkennen: sichtbare Leitungen im Keller. Bleileitungen kann es nur in Gebäuden mit Baujahr vor 1973 geben; sie waren bis zum 12. Januar 2026 zu entfernen oder stillzulegen. Kritisch: Material unbekannt und Baujahr vor 1973."
+      - text: Letzte Erneuerung der Steig- und Fallleitungen, Wasserschäden der letzten fünf Jahre, letzte Untersuchung auf Legionellen
+        hinweis: "Woran erkennen: Rechnungen, Schadenakten, Prüfbericht. Wird Trinkwasser aus einer Anlage zur Trinkwassererwärmung in einer vorgegebenen Größe im Rahmen einer ausschließlich gewerblichen Tätigkeit abgegeben, etwa in größeren Wohngebäuden, ist es routinemäßig alle drei Jahre zu untersuchen. Kritisch: mehrere Rohrbrüche in kurzer Folge."
+      - text: "Aufzug: letzte Prüfung, Wartungsvertrag und geplante Modernisierung"
+        hinweis: "Woran erkennen: Prüfbericht und Wartungsvertrag im Aufzugsschacht oder bei der Verwaltung. Kritisch: Anlage aus der Bauzeit, Modernisierung angekündigt, aber nicht finanziert."
+  - titel: Schadstoffe, Brandschutz und Feuchte
+    notizen: 2
+    punkte:
+      - text: Bekannte oder untersuchte Schadstoffe im Gebäude
+        hinweis: "Woran erkennen: Untersuchungsberichte der Verwaltung. Verdacht auf Asbest besteht unter anderem bei Fassadenplatten, Spachtelmassen, Fliesenklebern und Bodenbelägen, auf künstliche Mineralfasern bei älteren Dämmungen. Kritisch: Verdacht bei geplanter Sanierung."
+      - text: Baualter des Gebäudes
+        auswahl: [vor 1918, 1919 bis 1948, 1949 bis 1978, 1979 bis 1994, ab 1995, unbekannt]
+        hinweis: "Woran erkennen: Baugenehmigung, Energieausweis, Angabe der Verwaltung. Das Baujahr bestimmt die vorherrschende Bauweise und damit die typischen Schadensbilder und Schadstoffe."
+      - text: Brandschutz, Auflagen der Bauaufsicht und Wartung der Rauchwarnmelder
+        hinweis: "Woran erkennen: Schriftverkehr mit der Bauaufsicht, Wartungsnachweise. Kritisch: offene Auflage zu Fluchtwegen oder Kellerabschlüssen."
+      - text: Schimmel- oder Feuchteschäden in Wohnungen und im Gemeinschaftseigentum
+        hinweis: "Woran erkennen: Schadenakten, Gutachten. Ursache von Schimmel ist immer erhöhte Feuchte; ob sie aus dem Bauwerk oder aus der Nutzung kommt, muss geklärt werden. Kritisch: wiederkehrender Befall an derselben Stelle."
+  - titel: "Diese Wohnung: Sondereigentum, Umbau und Nutzung"
+    notizen: 2
+    punkte:
+      - text: Zuordnung der Fenster und Wohnungstür dieser Wohnung
+        auswahl: [Sondereigentum, Gemeinschaftseigentum, unklar]
+        hinweis: "Woran erkennen: Teilungserklärung und Gemeinschaftsordnung. Die Zuordnung entscheidet, wer Austausch und Instandsetzung bezahlt. Kritisch: unklare oder widersprüchliche Regelung."
+      - text: Durch Beschluss gestattete bauliche Veränderungen in und an dieser Wohnung
+        hinweis: "Maßnahmen, die über die ordnungsmäßige Erhaltung des gemeinschaftlichen Eigentums hinausgehen, können beschlossen oder einem Eigentümer durch Beschluss gestattet werden. Kritisch: Umbau ausgeführt, Beschluss nicht auffindbar – lassen Sie die Folgen anwaltlich klären."
+      - text: Beschwerden zu dieser Wohnung sowie bestehende Sondernutzungsrechte
+        hinweis: "Woran erkennen: Protokolle, Schriftverkehr der Verwaltung. Klar: Sondernutzungsrecht in der Teilungserklärung gesichert. Kritisch: Nutzung seit Jahren geduldet, aber nicht geregelt."
+      - text: Nutzungsbeschränkungen der Gemeinschaftsordnung und bestehendes Mietverhältnis
+        hinweis: "Woran erkennen: Gemeinschaftsordnung und Mietvertrag. Kritisch: geplante Nutzung – etwa Vermietung an Feriengäste oder gewerbliche Nutzung – ist ausgeschlossen."
+  - titel: Versicherung und Schadenhistorie
+    notizen: 2
+    punkte:
+      - text: Bestehende Versicherungen für das Gebäude und eingeschlossene Gefahren
+        hinweis: "Zur ordnungsmäßigen Verwaltung gehört die angemessene Versicherung des gemeinschaftlichen Eigentums zum Neuwert. Kritisch: Elementargefahren wie Starkregen oder Überschwemmung sind nicht eingeschlossen."
+      - text: Höhe des Selbstbehalts und seine Verteilung auf die Eigentümer
+        hinweis: "Woran erkennen: Versicherungsschein und Beschluss zur Verteilung. Kritisch: hoher Selbstbehalt ohne Regelung, wer ihn trägt."
+      - text: Gemeldete Schäden der letzten fünf Jahre, Auflagen oder Kündigung des Versicherers
+        hinweis: "Woran erkennen: Schadenaufstellung der Verwaltung. Kritisch: mehrere Leitungswasserschäden, weil Versicherer dann Beiträge erhöhen, Auflagen machen oder kündigen können."
+auswertung:
+  - "Verweigerte Auskunft ist selbst ein Befund: Mehrere Punkte in der Spalte „keine Auskunft“ sprechen dafür, die Unterlagen vor dem Notartermin vollständig nachzufordern."
+  - "Ein kritischer Befund bei Rücklage, beschlossenen Maßnahmen oder Sonderumlage: Rechnen Sie den Betrag in Ihre Finanzierung ein, bevor Sie ein Angebot abgeben."
+  - "Ein kritischer Befund an Dach, Fassade, Keller, Balkonen oder Haustechnik: Lassen Sie das Gemeinschaftseigentum vor dem Kauf durch einen Bausachverständigen beurteilen."
+  - "Mehrere angefochtene Beschlüsse oder laufende Verfahren: Lassen Sie Teilungserklärung, Beschlüsse und Protokolle durch einen Rechtsanwalt prüfen."
+  - "Unklare Zuordnung von Bauteilen zum Sondereigentum: Klären Sie die Zuordnung vor dem Kauf schriftlich, denn sie bestimmt, wer später zahlt."
+hinweise:
+  - "Lassen Sie sich von der verkaufenden Eigentümerin oder dem verkaufenden Eigentümer schriftlich bevollmächtigen, damit die Verwaltung Ihnen Auskunft geben und Einsicht gewähren darf."
+  - "Antworten zu Beträgen, Fristen und beschlossenen Maßnahmen sollten schriftlich vorliegen; halten Sie Datum und Namen der auskunftgebenden Person fest."
+  - "Dieser Fragenkatalog ersetzt keine Prüfung der Unterlagen, kein Gutachten und keine Rechtsberatung. Rechtliche Folgen einzelner Beschlüsse und Verträge beurteilt ein Rechtsanwalt."
+  - "Die genannten Erwartungswerte für die Lebensdauer von Bauteilen sind Anhaltspunkte aus der Fachliteratur, keine verbindlichen Fristen."
+quellen:
+  - "§ 19 Abs. 2, § 20 Abs. 1, § 24 Abs. 7, § 28 Abs. 4 und § 45 Wohnungseigentumsgesetz, Wortlaut abgerufen am 27.09.2026"
+  - "Schulz, Joachim: Architektur der Bauschäden, 4. Aufl. 2020, S. 586–589 und S. 596 f."
+  - "Vismann (Hrsg.): Wendehorst Bautechnische Zahlentafeln, 37. Aufl. 2021, S. 1612"
+  - "Umweltbundesamt: Bleirohre im Trinkwasser; Bundesministerium für Gesundheit: Trinkwasserverordnung und Legionellen"
+  - "Bundesregierung: Fragen und Antworten zum Gebäudemodernisierungsgesetz, Geltung ab 29.07.2026"
+  - "wohnen im eigentum e. V. und Verband Privater Bauherren e. V.: Hinweise zum Wohnungskauf"
