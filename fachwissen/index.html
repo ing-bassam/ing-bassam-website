@@ -46,28 +46,34 @@
     </nav>
     <header class="uebersicht-kopf">
       <h1>Fachwissen</h1>
-      <p>19 Beiträge zu Bauschäden, Bauphysik, Baubetrieb und baurechtlichen Fragen – zum Eingrenzen ein Thema oder Format antippen.</p>
+      <p>21 Beiträge zu Bauschäden, Bauphysik, Baubetrieb und baurechtlichen Fragen – zum Eingrenzen ein Thema oder Format antippen.</p>
     </header>
           <form class="filter" aria-label="Beiträge eingrenzen">
         <p class="filter-titel">Thema</p>
         <div class="chips">
-          <input type="radio" name="filter" id="filter-alle" checked><label for="filter-alle">Alle <span>19</span></label>
+          <input type="radio" name="filter" id="filter-alle" checked><label for="filter-alle">Alle <span>21</span></label>
           <input type="radio" name="filter" id="filter-k-baubetrieb"><label for="filter-k-baubetrieb">Baubetrieb <span>2</span></label>
-          <input type="radio" name="filter" id="filter-k-bauherrenwissen"><label for="filter-k-bauherrenwissen">Bauherrenwissen <span>7</span></label>
+          <input type="radio" name="filter" id="filter-k-bauherrenwissen"><label for="filter-k-bauherrenwissen">Bauherrenwissen <span>8</span></label>
           <input type="radio" name="filter" id="filter-k-bauschaeden"><label for="filter-k-bauschaeden">Bauschäden <span>1</span></label>
-          <input type="radio" name="filter" id="filter-k-gutachten-recht"><label for="filter-k-gutachten-recht">Gutachten &amp; Recht <span>6</span></label>
+          <input type="radio" name="filter" id="filter-k-gutachten-recht"><label for="filter-k-gutachten-recht">Gutachten &amp; Recht <span>7</span></label>
           <input type="radio" name="filter" id="filter-k-hausverwaltung-bestand"><label for="filter-k-hausverwaltung-bestand">Hausverwaltung &amp; Bestand <span>3</span></label>
         </div>
         <p class="filter-titel">Format</p>
         <div class="chips">
           <input type="radio" name="filter" id="filter-f-grundlagen"><label for="filter-f-grundlagen">Grundlagen <span>1</span></label>
           <input type="radio" name="filter" id="filter-f-ratgeber"><label for="filter-f-ratgeber">Ratgeber <span>7</span></label>
-          <input type="radio" name="filter" id="filter-f-rechtsprechung"><label for="filter-f-rechtsprechung">Rechtsprechung <span>7</span></label>
-          <input type="radio" name="filter" id="filter-f-vorlage"><label for="filter-f-vorlage">Vorlage <span>4</span></label>
+          <input type="radio" name="filter" id="filter-f-rechtsprechung"><label for="filter-f-rechtsprechung">Rechtsprechung <span>8</span></label>
+          <input type="radio" name="filter" id="filter-f-vorlage"><label for="filter-f-vorlage">Vorlage <span>5</span></label>
         </div>
       </form>
       <style>main:has(#filter-k-gutachten-recht:checked) .karte:not([data-kategorie="gutachten-recht"]){display:none}#filter-k-gutachten-recht:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-bauschaeden:checked) .karte:not([data-kategorie="bauschaeden"]){display:none}#filter-k-bauschaeden:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-hausverwaltung-bestand:checked) .karte:not([data-kategorie="hausverwaltung-bestand"]){display:none}#filter-k-hausverwaltung-bestand:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-baubetrieb:checked) .karte:not([data-kategorie="baubetrieb"]){display:none}#filter-k-baubetrieb:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-bauherrenwissen:checked) .karte:not([data-kategorie="bauherrenwissen"]){display:none}#filter-k-bauherrenwissen:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-f-rechtsprechung:checked) .karte:not([data-format="rechtsprechung"]){display:none}main:has(#filter-f-ratgeber:checked) .karte:not([data-format="ratgeber"]){display:none}main:has(#filter-f-grundlagen:checked) .karte:not([data-format="grundlagen"]){display:none}main:has(#filter-f-vorlage:checked) .karte:not([data-format="vorlage"]){display:none}label[for="filter-k-gutachten-recht"]{--kat:var(--kat-gutachten-recht)}label[for="filter-k-bauschaeden"]{--kat:var(--kat-bauschaeden)}label[for="filter-k-hausverwaltung-bestand"]{--kat:var(--kat-hausverwaltung-bestand)}label[for="filter-k-baubetrieb"]{--kat:var(--kat-baubetrieb)}label[for="filter-k-bauherrenwissen"]{--kat:var(--kat-bauherrenwissen)}</style>
       <ul class="karten">
+        <li class="karte" data-kategorie="gutachten-recht" data-format="rechtsprechung">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="gutachten-recht">Gutachten &amp; Recht</span> <span class="marke">Rechtsprechung</span></div>
+          <h2><a href="baugenehmigung-verzoegerung-architektenvertrag/">Verzögerte Baugenehmigung: Mangel oder Verzögerungsschaden?</a></h2>
+          <p>Kammergericht Berlin: Schäden aus einer verzögerten Baugenehmigung sind Verzögerungsschaden, nicht Mangelfolgeschaden. Was für die Baupraxis folgt.</p>
+          <p class="karte-meta"><time datetime="2026-09-26">26.09.2026</time> · etwa 23 Minuten</p>
+        </li>
         <li class="karte" data-kategorie="bauherrenwissen" data-format="vorlage">
           <div class="marken"><span class="marke marke--kategorie" data-kategorie="bauherrenwissen">Bauherrenwissen</span> <span class="marke">Vorlage</span></div>
           <h2><a href="maengelliste-abnahme-gewaehrleistung/">Mängelliste für Abnahme und Gewährleistung</a></h2>
@@ -103,6 +109,12 @@
           <h2><a href="bauunternehmer-insolvenz-zahlungsplan-sicherheiten/">Bauunternehmer insolvent: Zahlungsplan und Sicherheiten</a></h2>
           <p>Zahlungsplan und Sicherheiten schützen private Bauherren, wenn der Bauunternehmer insolvent wird oder verschwindet. Was das Gesetz vorsieht.</p>
           <p class="karte-meta"><time datetime="2026-09-26">26.09.2026</time> · etwa 22 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="bauherrenwissen" data-format="vorlage">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="bauherrenwissen">Bauherrenwissen</span> <span class="marke">Vorlage</span></div>
+          <h2><a href="abnahmeprotokoll-hausbau/">Abnahmeprotokoll Hausbau: Checkliste für die Endabnahme</a></h2>
+          <p>Abnahmeprotokoll für die Endabnahme des Neubaus: Checkliste für den Rundgang, Mängelliste, Vorbehalte und Unterschriften, kostenlos.</p>
+          <p class="karte-meta"><time datetime="2026-09-26">26.09.2026</time> · etwa 7 Minuten</p>
         </li>
         <li class="karte" data-kategorie="bauherrenwissen" data-format="ratgeber">
           <div class="marken"><span class="marke marke--kategorie" data-kategorie="bauherrenwissen">Bauherrenwissen</span> <span class="marke">Ratgeber</span></div>
