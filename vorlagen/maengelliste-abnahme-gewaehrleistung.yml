@@ -1,0 +1,54 @@
+titel: Mängelliste für Abnahme und Gewährleistung
+untertitel: Anlage zum Abnahmeprotokoll und Nachverfolgung in der Gewährleistungszeit
+kurzform: maengelliste-abnahme-gewaehrleistung
+typ: Tabelle
+stand: 2026-09-26
+dateien: [xlsx, pdf]
+einleitung: >-
+  In diese Tabelle tragen Sie jeden Mangel in eine eigene Zeile ein, von der Abnahme
+  bis zur letzten Nachbesserung. Beschreiben Sie das Erscheinungsbild und nicht die
+  vermutete Ursache; die Ursache müssen Sie nicht benennen. Bei einer förmlichen
+  Abnahme legen Sie die ausgefüllte Liste als Anlage zum Abnahmeprotokoll bei und
+  nehmen Ihre Vorbehalte wegen bekannter Mängel in die Niederschrift auf.
+kopffelder:
+  - Objekt und Anschrift
+  - Bauvorhaben oder Bauabschnitt
+  - Bauherr oder Eigentümer
+  - Auftragnehmer
+  - Vertragsgrundlage (BGB oder VOB/B)
+  - Abnahme am
+  - Liste geführt von
+  - Stand der Liste am
+tabelle:
+  spalten:
+    - Nr.
+    - Festgestellt am
+    - Ort / Raum / Bauteil
+    - Beschreibung (Erscheinungsbild)
+    - Foto-Nr.
+    - Gewerk / Firma
+    - Gemeldet am
+    - Frist zur Beseitigung
+    - Stand
+    - Erledigt am
+  breiten: [1, 2, 3.5, 6, 1.2, 2.5, 2, 2, 2, 2]
+  zeilen:
+    - ["B1", "26.09.2026", "Bad 1. OG, Wand an der Dusche", "Silikonfuge zwischen Duschwanne und Wand löst sich von der Wand ab", "17, 18", "Fliesenarbeiten", "26.09.2026", "17.10.2026", "gemeldet", ""]
+    - ["B2", "26.09.2026", "Wohnzimmer, Fenster Südseite", "Farbe am Anschluss der Fensterbank zur Wand blättert ab, Putz liegt frei", "23", "Malerarbeiten", "", "", "offen", ""]
+  leerzeilen: 26
+hinweise:
+  - "Die beiden Zeilen B1 und B2 sind Beispiele und zeigen, wie ausführlich eine Zeile sein sollte. Löschen Sie sie, bevor Sie die Liste weitergeben."
+  - "Ein Mangel pro Zeile. Zeigt sich das gleiche Bild an mehreren Stellen, erhält jede Stelle eine eigene Zeile mit eigener Nummer."
+  - "Beschreiben Sie in der Spalte Beschreibung nur, was Sie sehen, messen oder riechen. Eine pauschale Rüge wie mangelhafte Fliesenarbeiten genügt nicht; die Ursache müssen Sie nicht benennen."
+  - "Nummerieren Sie Ihre Fotos und tragen Sie die Nummer in die Zeile ein. Fotografieren Sie mit Datum und mit einem Maßstab im Bild, etwa einem Zollstock."
+  - "Spalte Stand: offen, gemeldet, Nachbesserung zugesagt, in Arbeit, beseitigt oder streitig."
+  - "Melden Sie Mängel schriftlich und bewahren Sie einen Nachweis über den Zugang auf. Das Datum gehört in die Spalte Gemeldet am."
+  - "Tragen Sie in die Spalte Frist ein festes Datum ein, das dem Aufwand der Arbeiten entspricht. Die Frist muss angemessen sein."
+  - "Bei einer förmlichen Abnahme nach VOB/B sind Vorbehalte wegen bekannter Mängel in die gemeinsame Niederschrift aufzunehmen. Ohne Vorbehalt können Ansprüche auf Mängelbeseitigung verloren gehen."
+  - "Führen Sie die Liste nach der Abnahme weiter. Mängelansprüche bei einem Bauwerk verjähren nach dem BGB in fünf Jahren ab der Abnahme; ist die VOB/B vereinbart, sind es vier Jahre ab der Abnahme der gesamten Leistung, wenn im Vertrag nichts anderes steht."
+  - "Eine unterschriebene Zeile bestätigt nur die Feststellung, nicht das Anerkenntnis des Mangels durch die Firma."
+quellen:
+  - "§ 12 Abs. 4 Nr. 1 und § 13 Abs. 4, Abs. 5 VOB/B, Ausgabe 2019 (VOB, Beuth Verlag 2019, S. 151 bis 153)"
+  - "§ 634a Abs. 1 Nr. 2 BGB, Verjährung beim Bauwerk (Wirth/Pfisterer/Schellenberg: Privates Baurecht praxisnah, 3. Aufl. 2021, S. 162 f.; Zanner/Glönkler: Baumangelhaftung nach Ansprüchen, 2. Aufl. 2024, S. 101)"
+  - "Anforderungen an die Mangelbeschreibung (Rode/Weller: AVA-Handbuch, 11. Aufl. 2025, S. 122; Würfele/Bielefeld/Gralla: Bauobjektüberwachung, 3. Aufl. 2017, S. 125)"
+  - "Folgen des fehlenden Vorbehalts (Zanner/Glönkler: Baumangelhaftung nach Ansprüchen, 2. Aufl. 2024, S. 48)"
