@@ -31,13 +31,13 @@ regelwerke_bestaetigt: BGB Werkvertrags- und Verbraucherbauvertragsrecht, GEG, D
 
 # Bauvertrag prüfen vor der Unterschrift: die Checkliste
 
-Der Termin steht, die Finanzierung ist bewilligt, und der Vertrag liegt seit zwei Tagen auf dem Tisch. Das Bauunternehmen bittet um Unterschrift, weil der Preis nur bis Monatsende gelte. Genau jetzt entscheidet sich, was Sie für Ihr Geld bekommen. Eine Checkliste für die Prüfung des Bauvertrags vor der Unterschrift ist eine geordnete Liste aller Vertragspunkte, die über Leistung, Bauzeit, Preis und Sicherheiten entscheiden. Die Liste zum Download führt Sie in zehn Abschnitten durch 74 Punkte und hält fest, welche davon klar geregelt sind und welche nicht.
+Der Termin steht, die Finanzierung ist bewilligt, und der Vertrag liegt seit zwei Tagen auf dem Tisch. Das Bauunternehmen bittet um Unterschrift, weil der Preis nur bis Monatsende gelte. Genau jetzt entscheidet sich, was Sie für Ihr Geld bekommen. Eine Checkliste für die Prüfung des Bauvertrags vor der Unterschrift ist eine geordnete Liste aller Vertragspunkte, die über Leistung, Bauzeit, Preis und Sicherheiten entscheiden. Die Liste zum Download führt Sie in zehn Abschnitten durch 80 Punkte und hält fest, welche davon klar geregelt sind und welche nicht.
 
 ## So arbeiten Sie die Checkliste ab
 
 Die Checkliste bewertet den Vertragstext, nicht das Bauvorhaben. Sie brauchen dafür den Vertrag in der Fassung, die Sie unterschreiben sollen, dazu die Baubeschreibung und die Pläne. Notieren Sie im Kopf der Liste das Datum dieser Fassung. Später geänderte Anlagen sind ein eigenes Risiko.
 
-Jeder Punkt hat vier Stufen. Der Vermerk „geregelt“ heißt: Der Vertrag legt die Sache eindeutig und nachprüfbar fest. „Unklar“ heißt: Der Punkt kommt vor, bleibt aber unbestimmt oder auslegungsbedürftig. „Fehlt“ heißt: Er ist nicht geregelt oder einseitig zu Ihren Lasten formuliert. „Nicht prüfbar“ setzen Sie, wenn die zugehörige Unterlage nicht vorliegt.
+Die meisten Punkte haben vier Stufen. Der Vermerk „geregelt“ heißt: Der Vertrag legt die Sache eindeutig und nachprüfbar fest. „Unklar“ heißt: Der Punkt kommt vor, bleibt aber unbestimmt oder auslegungsbedürftig. „Fehlt“ heißt: Er ist nicht geregelt oder einseitig zu Ihren Lasten formuliert. „Nicht prüfbar“ setzen Sie, wenn die zugehörige Unterlage nicht vorliegt.
 
 Zwei Arten von Punkten wechseln sich ab. Bei den Merkmalen kreuzen Sie an, was gilt, etwa die Vertragsart oder die Bauweise der tragenden Bauteile. Bei allen anderen Punkten bewerten Sie die Regelung. Die Vertragsart steht bewusst am Anfang, denn sie bestimmt Ihre Rechte. Ein Verbraucherbauvertrag liegt vor, wenn ein Unternehmer für Sie ein neues Gebäude baut oder erheblich umbaut.[^1] Vergeben Sie dagegen einzelne Gewerke getrennt, ist es kein Verbraucherbauvertrag, auch wenn am Ende ein ganzes Haus entsteht.[^2]
 
@@ -55,13 +55,13 @@ Prüfen Sie die Beschreibung mit den Plänen zusammen. Widersprüche zwischen Te
 
 ## Leistungsgrenzen und technische Qualität
 
-Die größten Kostenrisiken im Bauvertrag liegen nicht im Preis, sondern an den Rändern der Leistung. Bau- und Leistungsbeschreibungen enthalten unter der Bezeichnung „Bauherrenleistungen“ oder „bauseits“ Anforderungen, die Sie selbst erfüllen müssen.[^5] Verlangen Sie eine vollständige Liste dieser Leistungen mit Umfang und Termin. Fehlt sie, tragen Sie die Kosten und den Zeitverzug.
+Die größten Kostenrisiken im Bauvertrag liegen nicht im Preis, sondern an den Rändern der Leistung. Bau- und Leistungsbeschreibungen enthalten unter der Bezeichnung „Bauherrenleistungen“ oder „bauseits“ Anforderungen an das Grundstück, die Sie selbst erfüllen müssen.[^5] Verlangen Sie eine vollständige Liste dieser Leistungen mit Umfang und Termin. Fehlt sie, tragen Sie die Kosten und den Zeitverzug.
 
 Vier Positionen fehlen besonders häufig. Erstens die Hausanschlüsse für Wasser, Abwasser, Strom und Wärme, samt der Gebühren der Versorger. Zweitens die Erdarbeiten mit der Entsorgung des ausgehobenen Bodens. Drittens die Baugrundverhältnisse, die dem Preis zugrunde liegen; ohne Angabe wird jede Abweichung zum Nachtrag. Viertens die Gebühren für Baugenehmigung, Vermessung und Prüfstatik. Diese Kosten fallen sicher an. Fehlen sie im Vertrag, fehlen sie meist auch in Ihrer Finanzierung.
 
 Bei der technischen Qualität kommt es auf Zahlen an. Der Schallschutz ist das beste Beispiel. Die Norm DIN 4109-1, die Mindestanforderungen an den Schallschutz im Hochbau festlegt, gilt nach der Rechtsprechung im Regelfall nicht als ausreichend; Fachliteratur empfiehlt deshalb, den geschuldeten Schallschutz und höhere Schutzziele ausdrücklich zu vereinbaren.[^6] Der Satz „Schallschutz nach DIN 4109“ ist also zu wenig. Lassen Sie Werte für Wände, Decken und Treppen eintragen.
 
-Dasselbe gilt für den energetischen Standard. Die Anforderungen an neu errichtete Gebäude regelt das Gebäudeenergiegesetz in seinem zweiten Teil.[^7] Ohne eine weitergehende Vereinbarung schulden Sie und das Bauunternehmen nur diesen gesetzlichen Mindeststandard. Wollen Sie eine Effizienzhaus-Stufe oder einen Förderstandard, muss beides mit dem Nachweis im Vertrag stehen. Liegt gar keine Beschaffenheitsvereinbarung vor, kommt es auf die anerkannten Regeln der Technik an, also auf das, was die Mehrheit der Fachleute als richtig anerkennt und was sich bewährt hat.[^8]
+Dasselbe gilt für den energetischen Standard. Die Anforderungen an neu errichtete Gebäude regelt das Gebäudeenergiegesetz in seinem zweiten Teil.[^7] Ohne eine weitergehende Vereinbarung schuldet das Bauunternehmen nur diesen gesetzlichen Mindeststandard. Wollen Sie eine Effizienzhaus-Stufe oder einen Förderstandard, muss beides mit dem Nachweis im Vertrag stehen. Liegt keine ausdrückliche Beschaffenheitsvereinbarung vor, kommt es auf die anerkannten Regeln der Technik an, also auf das, was in der Praxis erprobt, als richtig anerkannt und bewährt ist.[^8]
 
 ## Termine, Zahlungsplan und Sicherheiten
 
@@ -130,7 +130,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^5]: Bauherren-Schutzbund e. V.: Bau- und Leistungsbeschreibung – Checkliste für Ihren Vertrag. https://www.bsb-ev.de/neubau/bau-und-leistungsbeschreibung-die-checkliste (abgerufen am 2026-09-27).
 [^6]: DIN Media: DIN 4109-1:2018-01, Schallschutz im Hochbau – Teil 1: Mindestanforderungen, Status gültig, ersetzt DIN 4109-1:2016-07. https://www.dinmedia.de/en/standard/din-4109-1/280079001 (abgerufen am 2026-09-27). Inhaltlich bestätigt durch: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. Eine Einführung mit Berechnungsbeispielen. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 480. ISBN 978-3-658-42604-0.
 [^7]: Schmidt, Peter: Das novellierte Gebäudeenergiegesetz (GEG 2024). Grundlagen. Anwendung in der Praxis, Beispiele. Wiesbaden: Springer Vieweg, 2025, S. 103. ISBN 978-3-658-44921-6.
-[^8]: Rode, Bernd; Weller, Wolfgang: AVA-Handbuch. Ausschreibung - Vergabe - Abrechnung - Haftung. 11. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 118. ISBN 978-3-658-48052-3.
+[^8]: Rode, Bernd; Weller, Wolfgang: AVA-Handbuch. Ausschreibung - Vergabe - Abrechnung - Haftung. 11. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 24, 118. ISBN 978-3-658-48052-3.
 [^9]: Bauherren-Schutzbund e. V.: Bauvertrag prüfen – die zwölf wichtigsten Aspekte. https://www.bsb-ev.de/neubau/den-bauvertrag-pruefen-die-zwoelf-wichtigsten-aspekte (abgerufen am 2026-09-27).
 [^10]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 62. ISBN 978-3-658-32822-1.
 [^11]: Bauherren-Schutzbund e. V.: Verbraucherfeindliche Klauseln – Vertragspreis, Zahlungspläne, Zahlungsmodalitäten. https://www.bsb-ev.de/politik-presse/verbraucherfeindliche-klauseln/vertragspreis-zahlungsplaene-zahlungsmodalitaeten (abgerufen am 2026-09-27).

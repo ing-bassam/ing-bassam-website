@@ -100,7 +100,7 @@ abschnitte:
         hinweis: "Geregelt: Der Vertrag nennt Werte für Wände, Decken und Treppen. Unklar: der Satz „Schallschutz nach DIN 4109“ – die Norm enthält Mindestanforderungen, die nach der Rechtsprechung im Regelfall nicht genügen."
       - text: "Energetischer Standard des Gebäudes"
         auswahl: [gesetzlicher Mindeststandard, Effizienzhaus-Stufe, Förderstandard, unbekannt]
-        hinweis: "Woran erkennen: Der Vertrag nennt die Stufe und wer den Nachweis erbringt. Fördermittel setzen einen bestätigten Standard voraus; ohne Vereinbarung schulden Sie und der Unternehmer nur den gesetzlichen Mindeststandard."
+        hinweis: "Woran erkennen: Der Vertrag nennt die Stufe und wer den Nachweis erbringt. Fördermittel setzen einen bestätigten Standard voraus; ohne Vereinbarung schuldet der Unternehmer nur den gesetzlichen Mindeststandard."
       - text: "Luftdichtheit der Gebäudehülle und Messung nach Fertigstellung"
         hinweis: "Geregelt: Die Messung ist als Leistung vereinbart, mit Zeitpunkt und Übergabe des Protokolls."
       - text: "Sommerlicher Wärmeschutz und Verschattung"
