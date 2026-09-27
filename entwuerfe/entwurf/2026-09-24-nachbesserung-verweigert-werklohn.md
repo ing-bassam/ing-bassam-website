@@ -19,7 +19,7 @@ qualifikation:
 kurzform: nachbesserung-verweigert-werklohn
 erstellt: 2026-09-24
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
