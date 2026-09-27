@@ -47,7 +47,7 @@ Die VOB/B kennt noch eine zweite Hinweispflicht. Nach § 3 Abs. 3 VOB/B prüfen 
 
 Die Vorschrift nennt drei Gegenstände einer Bedenkenanzeige. Der erste ist die vorgesehene Art der Ausführung. Dazu zählt ausdrücklich auch die Sicherung gegen Unfallgefahren.[^1] Gemeint sind die Planung, das Leistungsverzeichnis und die Anordnungen des Auftraggebers. Widerspricht das Leistungsverzeichnis dem erkennbaren Verwendungszweck oder den anerkannten Regeln der Technik, müssen Sie reagieren.[^3]
 
-Der zweite Gegenstand ist die Güte der vom Auftraggeber gelieferten oder vorgeschriebenen Stoffe und Bauteile. Auch der Baugrund gilt dabei als Stoff, den der Auftraggeber liefert. Bedenken sind etwa anzumelden, wenn der gelieferte Boden für den vorgesehenen Zweck nicht geeignet ist, weil ihm die nötige Versickerungsfähigkeit oder Frostsicherheit fehlt.[^5]
+Der zweite Gegenstand ist die Güte der vom Auftraggeber gelieferten Stoffe und Bauteile. Auch der Baugrund gilt dabei als Stoff, den der Auftraggeber liefert. Bedenken sind etwa anzumelden, wenn der gelieferte Boden für den vorgesehenen Zweck nicht geeignet ist, weil ihm die nötige Versickerungsfähigkeit oder Frostsicherheit fehlt.[^5]
 
 Der dritte Gegenstand sind die Leistungen anderer Unternehmer, also die Vorleistungen, auf denen Sie aufbauen. Sie müssen sich vergewissern, ob diese Vorleistung eine vertragsgemäße Grundlage für Ihre eigene Arbeit ist. Auf die Ordnungsgemäßheit einer Vorleistung dürfen Sie sich nicht blind verlassen, auch dann nicht, wenn ein Dritter die Bauausführung überwacht.[^5]
 
@@ -69,7 +69,7 @@ Einen eigenen Lösungsvorschlag müssen Sie nicht machen.[^8] Das ist wichtiger,
 
 Die Vorschrift verlangt Schriftform. Bei wirksamer Einbeziehung der VOB/B liegt darin ein vertraglich vereinbartes Formerfordernis. Eine einfache, nicht unterschriebene E-Mail kann diesen Anforderungen nach der Fachliteratur nicht entsprechen. Ein eingescannter und unterzeichneter Brief müsste dagegen ausreichen.[^9]
 
-Richtiger Adressat ist zunächst der Auftraggeber selbst.[^9] Der örtliche Bauleiter gilt regelmäßig als Empfangsvertreter, auch ohne ausdrückliche Vollmacht. Diese Erleichterung hat eine wichtige Grenze. Richten sich Ihre Bedenken gerade gegen einen Fehler des bauleitenden Architekten, der auch die Planung erstellt hat, dürfen Sie nicht darauf vertrauen, dass er sie weiterleitet.[^9] In der Praxis werden Bedenkenanzeigen regelmäßig dem bauüberwachenden Architekten vorgelegt. Verschließt er sich den Bedenken, muss der Auftraggeber unmittelbar damit konfrontiert werden.[^8]
+Richtiger Adressat ist zunächst der Auftraggeber selbst.[^9] Nach der Fachliteratur soll der örtliche Bauleiter regelmäßig auch ohne ausdrückliche Bevollmächtigung als Empfangsvertreter gelten.[^9] Diese Erleichterung hat eine wichtige Grenze. Richten sich Ihre Bedenken gerade gegen einen Fehler des bauleitenden Architekten, der auch die Planung erstellt hat, dürfen Sie nicht darauf vertrauen, dass er sie weiterleitet.[^9] In der Praxis werden Bedenkenanzeigen regelmäßig dem bauüberwachenden Architekten vorgelegt. Verschließt er sich den Bedenken, muss der Auftraggeber unmittelbar damit konfrontiert werden.[^8]
 
 Der Zeitpunkt ist der dritte kritische Punkt. Unverzüglich bedeutet ohne schuldhaftes Zögern, gerechnet ab dem Moment, in dem Sie den Mangel erkannt haben oder hätten erkennen müssen.[^8] Möglichst liegt die Anzeige vor Beginn der Arbeiten.[^1]
 
