@@ -380,7 +380,7 @@ jobs:
           git checkout -q -B "$ZWEIG" "origin/$ZWEIG"
 
           ENTWURF="$(gh pr view "$NR" --json files \
-                      --jq '[.files[].path | select(startswith("entwuerfe/") and endswith(".md"))][0] // ""')"
+                      --jq '[.files[].path | select(startswith("entwuerfe/") and endswith(".md") and (ascii_downcase | endswith("readme.md") | not))][0] // ""')"
           if [ -z "$ENTWURF" ] || [ ! -f "$ENTWURF" ]; then
             echo "::warning title=Prüfung::Im Pull Request #$NR ist keine Entwurfsdatei zu finden."
             echo "entwurf_da=false" >> "$GITHUB_OUTPUT"

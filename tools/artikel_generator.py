@@ -1263,7 +1263,11 @@ def main() -> int:
             fehler.append(f"{pfad.name}: {ausnahme}")
 
     verschoben: list[str] = []
-    if argumente.ordnen and not argumente.pruefen:
+    if argumente.ordnen and os.environ.get("SEITENBAU_ORDNEN") != "1":
+        # Sortieren gehört allein dem Seitenbau auf dem Hauptzweig. Ruft ein Agent
+        # es auf seinem Entwurfszweig auf, würden sich Pfade mitten im Lauf ändern.
+        print("HINWEIS: --ordnen ist dem Seitenbau vorbehalten (SEITENBAU_ORDNEN=1) – übersprungen.")
+    elif argumente.ordnen and not argumente.pruefen:
         verschoben = entwuerfe_ordnen(artikel)
         schreiben(UEBERSICHT, uebersicht_bauen(artikel), [], False)
 
