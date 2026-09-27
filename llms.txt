@@ -20,6 +20,7 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Bauherrenwissen
 
+- [Bauvertrag prüfen vor der Unterschrift: die Checkliste](https://ing-bassam.de/fachwissen/bauvertrag-pruefen-vor-unterschrift/): Checkliste zum Download: Bauvertrag und Verbraucherbauvertrag vor der Unterschrift prüfen – Baubeschreibung, Termine, Zahlungsplan, Sicherheiten.
 - [Checkliste Wohnungskauf: Sondereigentum, Gemeinschaft, Unterlagen](https://ing-bassam.de/fachwissen/wohnungskauf-sondereigentum-weg-unterlagen/): Checkliste für den Wohnungskauf: Unterlagen der Eigentümergemeinschaft, Gemeinschaftseigentum und Wohnung prüfen. Kostenlos als PDF.
 - [Mängelliste für Abnahme und Gewährleistung](https://ing-bassam.de/fachwissen/maengelliste-abnahme-gewaehrleistung/): Mängelliste als Excel und PDF. Jeden Baumangel mit Ort, Erscheinungsbild, Meldedatum und Frist festhalten, bis zur Nachbesserung.
 - [Checkliste Hauskauf – Besichtigung, Unterlagen und Bauzustand](https://ing-bassam.de/fachwissen/hauskauf-besichtigung-unterlagen/): Checkliste für den Hauskauf: Unterlagen, Besichtigung von außen und innen, Haustechnik und Schadstoffe. Zum Ausdrucken und Ausfüllen.
@@ -35,6 +36,7 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Gutachten & Recht
 
+- [Bauvertrag ohne Grund gekündigt: 5 Prozent und Zinsen für vier Jahre](https://ing-bassam.de/fachwissen/bauvertrag-kuendigung-verguetung-verzugszinsen/): Ein Auftraggeber zahlte die vereinbarte Vorauszahlung nie und kündigte Jahre später. Das Gericht sprach 5 Prozent der Vergütung und Zinsen zu.
 - [Verzögerte Baugenehmigung: Mangel oder Verzögerungsschaden?](https://ing-bassam.de/fachwissen/baugenehmigung-verzoegerung-architektenvertrag/): Kammergericht Berlin: Schäden aus einer verzögerten Baugenehmigung sind Verzögerungsschaden, nicht Mangelfolgeschaden. Was für die Baupraxis folgt.
 - [Abgeltungsklausel im Aufhebungsvertrag und verdeckte Baumängel](https://ing-bassam.de/fachwissen/abgeltungsklausel-aufhebungsvertrag-baumaengel/): LG Ellwangen 2 O 197/25 - eine Abgeltungsklausel im Aufhebungsvertrag erfasste auch unbekannte Mängelansprüche. Folgen für Beweissicherung.
 - [Schweißnaht einbetoniert: Wer die Mangelfreiheit beweisen muss](https://ing-bassam.de/fachwissen/schweissnaht-beweislast-vor-abnahme/): OLG Brandenburg: Ohne Abnahme beweist der Auftragnehmer die Mangelfreiheit, auch im Abrechnungsverhältnis. Was Röntgen und Ultraschall dabei leisten.
