@@ -1,0 +1,144 @@
+titel: Wartungs- und Instandhaltungskalender für Wohngebäude
+untertitel: Terminplan für Hausverwaltungen und Wohnungsunternehmen mit Intervall, Grundlage und Nachweis
+kurzform: wartungskalender-instandhaltung-wohngebaeude
+typ: Tabelle
+stand: 2026-09-27
+dateien: [xlsx, pdf]
+einleitung: >-
+  In diesen Kalender tragen Sie für jede Zeile ein, wann die Leistung zuletzt ausgeführt wurde
+  und wann sie wieder fällig ist. Die Spalte Intervall nennt einen Anhaltswert aus Regelwerken
+  und Fachliteratur, die Spalte Grundlage die Fundstelle dazu. Feste Fristen aus Wartungsverträgen,
+  Bescheiden von Behörden und Angaben der Hersteller gehen den Anhaltswerten immer vor.
+  Streichen Sie Zeilen, die es in Ihrem Objekt nicht gibt, und ergänzen Sie am Ende Ihre eigenen Anlagen.
+kopffelder:
+  - Objekt und Anschrift
+  - Baujahr und letzte Modernisierung
+  - Anzahl der Wohnungen
+  - Eigentümer oder Gesellschaft
+  - Verwaltung und Ansprechpartner
+  - Hausmeister oder Dienstleister
+  - Heizungsart und Energieträger
+  - Aufzug vorhanden (ja oder nein)
+  - Kalenderjahr
+  - Plan erstellt am und von
+tabelle:
+  spalten:
+    - Nr.
+    - Bereich
+    - Bauteil oder Anlage
+    - Was zu prüfen oder zu tun ist
+    - Intervall
+    - Grundlage
+    - Wer führt es aus
+    - Letzte Ausführung
+    - Nächster Termin
+    - Befund und Bemerkung
+  breiten: [1, 2.2, 4, 6, 3, 3.4, 2.6, 1.8, 1.8, 3]
+  zeilen:
+    - ["1.1", "Dach", "Flachdach, Abdichtung mit An- und Abschlüssen und Durchdringungen", "Wartung ausführen, Fläche sichten, Verschmutzung und Pflanzenbewuchs entfernen", "zweimal jährlich", "Flachdachrichtlinie, Abschnitt Wartung", "Dachdeckerbetrieb", "", "", ""]
+    - ["1.2", "Dach", "Dachabläufe mit Kies- und Laubfangkörben", "Abläufe freilegen, reinigen und auf Durchgang prüfen", "zweimal jährlich, zusätzlich nach Laubfall und Starkregen", "Flachdachrichtlinie, Abschnitt Details", "Dachdeckerbetrieb oder Hausmeister", "", "", ""]
+    - ["1.3", "Dach", "Notentwässerung mit Notabläufen und Notüberläufen", "Freie Öffnung prüfen, nichts abdecken oder zustellen", "zweimal jährlich", "Flachdachrichtlinie", "Dachdeckerbetrieb", "", "", ""]
+    - ["1.4", "Dach", "Dachabdichtung, Inspektion mit Bericht", "Flächen, An- und Abschlüsse, Details und Entwässerung durch ein Fachunternehmen prüfen lassen, Bericht ablegen", "einmal jährlich", "DIN 18531, Instandhaltung von Dachabdichtungen", "Dachdeckerbetrieb", "", "", ""]
+    - ["1.5", "Dach", "Steildach mit Deckung, First, Kehlen, Anschlüssen, Dachfenstern und Schneefang", "Verschobene und gebrochene Ziegel, Anschlussbleche und Befestigungen sichten", "einmal jährlich und nach jedem Sturm", "Sichtprüfung, Schadensindizien nach VDI 6200", "Dachdeckerbetrieb", "", "", ""]
+    - ["1.6", "Dach", "Dachrinnen, Einlaufbleche und Laubgitter", "Reinigen, Gefälle und Dichtheit prüfen, Korrosion sichten", "zweimal jährlich, im Herbst nach dem Laubfall", "DIN 18531, Wartung", "Dachdeckerbetrieb oder Hausmeister", "", "", ""]
+    - ["1.7", "Dach", "Fallrohre, Standrohre und Reinigungsöffnungen", "Durchgang prüfen, Verstopfungen beseitigen", "zweimal jährlich", "DIN 18531, Wartung", "Hausmeister", "", "", ""]
+    - ["1.8", "Dach", "Anschlagpunkte, Steigleitern und Geländer für Dacharbeiten", "Prüfnachweis vorlegen lassen, Befestigung und Korrosion sichten", "einmal jährlich und vor jeder Nutzung", "DIN 4426, Einrichtungen zur Instandhaltung baulicher Anlagen", "Fachbetrieb", "", "", ""]
+    - ["2.1", "Fassade und Balkone", "Putzfassade und Wärmedämmverbundsystem", "Risse, Hohlstellen, Ablösungen, Algen, Sockelschäden und Fugendichtstoffe sichten und fotografieren", "einmal jährlich", "Verkehrssicherungspflicht, Inspektion nach DIN 31051", "Verwaltung", "", "", ""]
+    - ["2.2", "Fassade und Balkone", "Vorgehängte Fassadenbekleidung und ihre Befestigungen", "Platten, Fugen und sichtbare Befestigungen vom Boden aus sichten", "einmal jährlich", "VDI 6200, exponierte Bauteile", "Verwaltung, bei Auffälligkeiten fachkundige Person", "", "", ""]
+    - ["2.3", "Fassade und Balkone", "Balkone und Loggien, Inspektion der Abdichtung", "Flächen, Anschlüsse, Gefälle und Entwässerung durch ein Fachunternehmen prüfen lassen, Bericht ablegen", "einmal jährlich", "DIN 18531, Balkone, Loggien und Laubengänge", "Fachbetrieb", "", "", ""]
+    - ["2.4", "Fassade und Balkone", "Balkone und Loggien, Wartung", "Entwässerung reinigen, Bewuchs entfernen, Maßnahmen dokumentieren", "einmal jährlich", "DIN 18531, Wartung", "Hausmeister oder Fachbetrieb", "", "", ""]
+    - ["2.5", "Fassade und Balkone", "Balkongeländer und Absturzsicherungen", "Befestigung, Standfestigkeit, Füllungen und Korrosion prüfen", "einmal jährlich", "Verkehrssicherungspflicht", "Verwaltung, Fachbetrieb bei Befund", "", "", ""]
+    - ["2.6", "Fassade und Balkone", "Angehängte Balkone, Vordächer und Auskragungen", "Auflager, Verankerungen und Risse sichten, Veränderungen dokumentieren", "einmal jährlich, eingehende Überprüfung nach VDI 6200", "VDI 6200, exponierte Bauteile", "Fachkundige Person", "", "", ""]
+    - ["2.7", "Fassade und Balkone", "Betonbauteile an Brüstungen, Stützen und Laubengängen", "Risse, Abplatzungen, Rostfahnen und feuchte Stellen sichten", "einmal jährlich", "VDI 6200, Schadensindizien Betonkonstruktionen", "Verwaltung", "", "", ""]
+    - ["2.8", "Fassade und Balkone", "Außentreppen, Podeste und Lichtschächte", "Stufen, Belag, Handlauf, Entwässerung und Abdeckungen prüfen", "zweimal jährlich", "Verkehrssicherungspflicht, DIN 18533 für Lichtschächte", "Hausmeister", "", "", ""]
+    - ["3.1", "Standsicherheit", "Gesamtes Gebäude, Begehung durch Eigentümer oder Verwaltung", "Sichtkontrolle der sicherheitsrelevanten Bauteile, Ergebnis protokollieren", "alle drei bis fünf Jahre bei Wohngebäuden", "VDI 6200, Schadensfolgeklasse CC 1 (Anhaltswert)", "Verwaltung", "", "", ""]
+    - ["3.2", "Standsicherheit", "Tragwerk, Inspektion durch eine fachkundige Person", "Visuelle Überprüfung des Tragwerks nach Checkliste, Bericht ablegen", "bei Wohngebäuden nach Erfordernis", "VDI 6200", "Bauingenieur oder Architekt", "", "", ""]
+    - ["3.3", "Standsicherheit", "Außerplanmäßige Überprüfung", "Nach Sturm, Hochwasser, Brand, ungewöhnlich hoher Schneelast oder Erschütterungen prüfen lassen", "unverzüglich nach dem Ereignis", "VDI 6200, Empfehlung", "Fachkundige Person", "", "", ""]
+    - ["3.4", "Standsicherheit", "Dachstuhl und tragende Holzbauteile", "Feuchtespuren, Pilzbefall, Insektenbefall, Balkenköpfe und Verbindungsmittel prüfen", "einmal jährlich", "VDI 6200, Checkliste Holzkonstruktionen", "Verwaltung, Sachverständiger bei Befund", "", "", ""]
+    - ["3.5", "Standsicherheit", "Keller und Gründung", "Feuchte, Ausblühungen, Risse und Setzungsanzeichen sichten und fotografieren", "einmal jährlich", "VDI 6200, Schadensindizien", "Verwaltung", "", "", ""]
+    - ["3.6", "Standsicherheit", "Nachträgliche Lasten und Umbauten", "Dachbegrünung, zweite Abdichtungslage, entfernte Wände und neue Durchbrüche dokumentieren und statisch prüfen lassen", "bei jeder Maßnahme", "VDI 6200, Einflüsse aus Veränderungen", "Tragwerksplaner", "", "", ""]
+    - ["4.1", "Entwässerung", "Rückstauverschlüsse", "Kontrolle und Prüfung vor Ort, bei Verschlüssen des Typs 3 durch fachkundiges Personal", "zweimal jährlich", "DIN EN 13564-1, Anhang B", "Sachkundiges Personal", "", "", ""]
+    - ["4.2", "Entwässerung", "Abwasserhebeanlage", "Wartung und Funktionsprüfung, Sammelbehälter reinigen, Notlauf testen", "Intervall nach DIN 1986-3 und Herstellerangabe festlegen", "DIN 1986-3, Herstellerangabe", "Fachbetrieb", "", "", ""]
+    - ["4.3", "Entwässerung", "Grundleitungen und Kontrollschächte", "Sichtkontrolle, Reinigung und Dichtheitsnachweis nach örtlicher Satzung", "nach der Entwässerungssatzung der Gemeinde", "DIN 1986-3, Entwässerungssatzung", "Fachbetrieb", "", "", ""]
+    - ["4.4", "Entwässerung", "Bodenabläufe in Keller, Waschküche und Tiefgarage", "Geruchverschluss mit Wasser füllen, Schlamm entfernen, Abdeckung prüfen", "zweimal jährlich, bei Trockenheit häufiger", "DIN 1986-3, Wartungshinweis", "Hausmeister", "", "", ""]
+    - ["4.5", "Entwässerung", "Hofabläufe, Rinnen und Sinkkästen", "Schlammeimer leeren, Roste reinigen", "zweimal jährlich, nach dem Laubfall", "DIN 1986-3", "Hausmeister", "", "", ""]
+    - ["4.6", "Entwässerung", "Pumpensumpf und Tauchpumpe", "Probelauf, Schwimmerschalter und Rückschlagklappe prüfen", "zweimal jährlich, vor der Regenzeit", "Herstellerangabe", "Hausmeister", "", "", ""]
+    - ["5.1", "Trinkwasser", "Untersuchung auf Legionellen bei Großanlagen", "Beprobung an den vorgesehenen Stellen durch ein akkreditiertes Labor veranlassen", "mindestens alle drei Jahre bei Vermietung, jährlich bei Abgabe an die Öffentlichkeit", "Trinkwasserverordnung, Untersuchungspflicht auf Legionellen", "Akkreditiertes Labor", "", "", ""]
+    - ["5.2", "Trinkwasser", "Erstuntersuchung nach Inbetriebnahme oder wesentlicher Änderung", "Beprobung veranlassen und Ergebnis ablegen", "drei bis zwölf Monate nach der Inbetriebnahme", "Trinkwasserverordnung", "Akkreditiertes Labor", "", "", ""]
+    - ["5.3", "Trinkwasser", "Probenahmestellen und Meldung an das Gesundheitsamt", "Entnahmestellen zugänglich halten, Ergebnis fristgerecht melden", "bei jeder Untersuchung, Meldung innerhalb von zwei Wochen", "Trinkwasserverordnung", "Verwaltung", "", "", ""]
+    - ["5.4", "Trinkwasser", "Betriebstemperaturen am Trinkwassererwärmer und in der Zirkulation", "Temperaturen messen und im Betriebsbuch festhalten", "regelmäßig, Intervall im Betriebsbuch festlegen", "Anlagendokumentation, Trinkwasserhygiene", "Hausmeister oder Fachbetrieb", "", "", ""]
+    - ["5.5", "Trinkwasser", "Selten genutzte Entnahmestellen und Wohnungen im Leerstand", "Alle Zapfstellen spülen, Stagnation vermeiden", "nach jedem Stillstand, sonst regelmäßig", "Trinkwasserhygiene", "Hausmeister", "", "", ""]
+    - ["5.6", "Trinkwasser", "Filter, Rückflussverhinderer, Druckminderer und Enthärtung", "Wartung, Filterwechsel und Funktionsprüfung", "nach Herstellerangabe", "Herstellerangabe", "Fachbetrieb", "", "", ""]
+    - ["5.7", "Trinkwasser", "Druckerhöhungsanlage und Wasserzähler", "Funktion und Vordruck prüfen, Eichfrist der Zähler beachten", "Wartung nach Herstellerangabe, Zählertausch vor Ablauf der Eichfrist", "Herstellerangabe, Eichrecht", "Fachbetrieb", "", "", ""]
+    - ["6.1", "Heizung und Lüftung", "Wärmeerzeuger für Gas, Öl oder Fernwärmeübergabe", "Wartung durch einen Fachbetrieb, Wartungsbericht ablegen", "einmal jährlich, möglichst vor der Heizperiode", "GEG § 60, regelmäßige Wartung durch fachkundige Personen", "Heizungsfachbetrieb", "", "", ""]
+    - ["6.2", "Heizung und Lüftung", "Feuerungsanlage und Abgasanlage", "Kehrung, Messung und Überprüfung durchführen lassen, Bescheinigung ablegen", "Termine nach Vorgabe des zuständigen Schornsteinfegerbetriebs", "Schornsteinfegerrecht", "Schornsteinfegerbetrieb", "", "", ""]
+    - ["6.3", "Heizung und Lüftung", "Wärmepumpe in Gebäuden mit mindestens sechs Wohnungen", "Betriebsprüfung und Optimierung durchführen lassen, Ergebnis dokumentieren", "erstmals nach Ablauf der ersten Heizperiode, spätestens zwei Jahre nach Inbetriebnahme, Wiederholung nach spätestens fünf Jahren", "GEG § 60a", "Fachkundige Person", "", "", ""]
+    - ["6.4", "Heizung und Lüftung", "Regelung und energiebedarfssenkende Einrichtungen", "Nachtabsenkung, außentemperaturgeführte Regelung und Zirkulationssteuerung prüfen und nutzen", "laufend, Prüfung vor jeder Heizperiode", "GEG § 58 und § 59", "Hausmeister oder Fachbetrieb", "", "", ""]
+    - ["6.5", "Heizung und Lüftung", "Umwälzpumpen, Ausdehnungsgefäß und Sicherheitsventil", "Anlagendruck, Vordruck und Funktion prüfen", "einmal jährlich mit der Wartung", "GEG § 60, Herstellerangabe", "Heizungsfachbetrieb", "", "", ""]
+    - ["6.6", "Heizung und Lüftung", "Wärmezähler und Heizkostenverteiler", "Ablesen, Eichfrist beachten und Austausch veranlassen", "jährlich zur Abrechnung, Austausch vor Ablauf der Eichfrist", "Eichrecht, Heizkostenabrechnung", "Messdienstleister", "", "", ""]
+    - ["6.7", "Heizung und Lüftung", "Zentrale Lüftungsanlage", "Hygieneinspektion und Wartung durch einen Fachbetrieb, Bericht ablegen", "Intervall nach VDI 6022 Blatt 1 und Anlagenart festlegen", "VDI 6022 Blatt 1", "Fachbetrieb", "", "", ""]
+    - ["6.8", "Heizung und Lüftung", "Luftfilter und Abluftanlagen für innenliegende Bäder und WC", "Filter wechseln, Volumenstrom und Laufruhe prüfen, Gitter reinigen", "nach Herstellerangabe, Sichtprüfung mit der jährlichen Begehung", "Herstellerangabe", "Fachbetrieb oder Hausmeister", "", "", ""]
+    - ["6.9", "Heizung und Lüftung", "Brandschutzklappen in Lüftungsleitungen", "Funktionsprüfung durch einen Fachbetrieb, Nachweis ablegen", "nach Herstellerangabe und Prüfverordnung des Landes", "Herstellerangabe, Prüfverordnung des Landes", "Fachbetrieb", "", "", ""]
+    - ["7.1", "Elektro und Aufzug", "Hausanschlussraum, Verteilungen und Fehlerstromschutzschalter", "Abdeckungen, Kennzeichnung und freien Zugang prüfen, Prüfung durch eine Elektrofachkraft veranlassen, Prüfbericht ablegen", "Intervall mit dem Elektrofachbetrieb festlegen", "Elektrotechnische Regeln, Herstellerangabe", "Elektrofachbetrieb", "", "", ""]
+    - ["7.2", "Elektro und Aufzug", "Treppenhaus- und Außenbeleuchtung", "Funktion, Zeitschalter, Bewegungsmelder und Verschmutzung prüfen", "zweimal jährlich, im Herbst vor der dunklen Jahreszeit", "Verkehrssicherungspflicht", "Hausmeister", "", "", ""]
+    - ["7.3", "Elektro und Aufzug", "Sicherheitsbeleuchtung, sofern vorhanden", "Funktionsprüfung durchführen lassen und Nachweis ablegen", "nach Herstellerangabe und Prüfverordnung des Landes", "Herstellerangabe, Prüfverordnung des Landes", "Fachbetrieb", "", "", ""]
+    - ["7.4", "Elektro und Aufzug", "Blitzschutz- und Erdungsanlage", "Anschlüsse und Ableitungen sichten, Prüfung durch einen Fachbetrieb, Prüfbericht ablegen", "Intervall mit dem Fachbetrieb festlegen", "Blitzschutznormen, Herstellerangabe", "Fachbetrieb", "", "", ""]
+    - ["7.5", "Elektro und Aufzug", "Photovoltaikanlage und Ladepunkte für Elektrofahrzeuge", "Wartung, Sichtprüfung der Module, Leitungen und Anschlüsse, Prüfbericht ablegen", "nach Herstellerangabe", "Herstellerangabe", "Fachbetrieb", "", "", ""]
+    - ["7.6", "Elektro und Aufzug", "Aufzug, wiederkehrende Hauptprüfung", "Prüfung durch eine zugelassene Überwachungsstelle veranlassen, Bescheinigung ablegen", "Prüffrist höchstens zwei Jahre", "Betriebssicherheitsverordnung, Anhang 2 Abschnitt 2", "Zugelassene Überwachungsstelle", "", "", ""]
+    - ["7.7", "Elektro und Aufzug", "Aufzug, Zwischenprüfung und Wartung", "Zwischenprüfung mit der Überwachungsstelle abstimmen, Wartung nach Vertrag ausführen lassen", "Termin mit Überwachungsstelle und Aufzugsbetrieb abstimmen", "Betriebssicherheitsverordnung, Wartungsvertrag", "Überwachungsstelle und Aufzugsbetrieb", "", "", ""]
+    - ["7.8", "Elektro und Aufzug", "Aufzug, Notrufsystem und Unterlagen", "Notruf zum Notdienst testen, Prüfbescheinigungen und Anweisung zur Notbefreiung vollständig halten", "Funktionstest regelmäßig, Unterlagen bei jeder Prüfung ergänzen", "Aufzugsrichtlinie 2014/33/EU, Betriebssicherheitsverordnung", "Verwaltung und Aufzugsbetrieb", "", "", ""]
+    - ["8.1", "Brandschutz", "Rauchwarnmelder in den Wohnungen", "Inspektion vor Ort, Raucheintrittsöffnungen und Umgebung prüfen, Nachweis führen", "alle zwölf Monate, bei Ferninspektion abweichend", "DIN 14676-1", "Fachfirma oder geschulte Kraft", "", "", ""]
+    - ["8.2", "Brandschutz", "Rauchwarnmelder, Zuständigkeit und Nachweis", "Verantwortung für die Betriebsbereitschaft nach Landesbauordnung und Mietvertrag klären und schriftlich festhalten", "einmalig und bei jedem Mieterwechsel", "Landesbauordnung, Mietvertrag", "Verwaltung", "", "", ""]
+    - ["8.3", "Brandschutz", "Rauch- und Wärmeabzug im Treppenraum", "Auslösung, Antrieb, Energieversorgung und Öffnungsweite prüfen lassen, Nachweis ablegen", "nach Herstellerangabe und Prüfverordnung des Landes", "Herstellerangabe, Prüfverordnung des Landes", "Fachbetrieb", "", "", ""]
+    - ["8.4", "Brandschutz", "Brand- und Rauchschutztüren mit Feststellanlagen", "Selbsttätiges Schließen, Dichtungen und Schließmittel prüfen, Keile entfernen, Feststellanlagen durch eine Fachfirma prüfen lassen", "Sichtkontrolle bei jeder Begehung, Prüfung nach Herstellerangabe", "Herstellerangabe, Verkehrssicherungspflicht", "Verwaltung und Fachbetrieb", "", "", ""]
+    - ["8.5", "Brandschutz", "Tragbare Feuerlöscher, sofern vorhanden", "Instandhaltung durch einen Sachkundigen veranlassen, Prüfnachweis am Gerät kontrollieren", "nach dem Prüfnachweis am Gerät", "DIN 14406-4, Instandhaltung tragbarer Feuerlöscher", "Sachkundiger", "", "", ""]
+    - ["8.6", "Brandschutz", "Flucht- und Rettungswege, Treppenräume und Kellergänge", "Frei von Lagerungen halten, Türen und Ausgänge auf Begehbarkeit prüfen", "bei jeder Begehung, Intervall in der Hausordnung festlegen", "Landesbauordnung, Verkehrssicherungspflicht", "Hausmeister", "", "", ""]
+    - ["8.7", "Brandschutz", "Absperrvorrichtungen für Gas, Wasser und Strom", "Zugänglich und gekennzeichnet halten, Gasleitungen auf Geruch und Beschädigung sichten", "einmal jährlich, Prüfung der Gasanlage nach Vorgabe des Netzbetreibers", "Betreiberpflicht, Vorgabe des Netzbetreibers", "Hausmeister und Fachbetrieb", "", "", ""]
+    - ["9.1", "Außenanlagen", "Wege, Zufahrten und Stufen", "Stolperstellen, Absenkungen und Belagschäden prüfen, sichern und melden", "einmal jährlich und nach dem Winter", "Verkehrssicherungspflicht", "Hausmeister", "", "", ""]
+    - ["9.2", "Außenanlagen", "Winterdienst", "Zuständigkeit, Streugut, Geräte und Dokumentation vorbereiten", "vor jedem Winter", "Verkehrssicherungspflicht, Hausordnung", "Verwaltung", "", "", ""]
+    - ["9.3", "Außenanlagen", "Spielplatzgeräte, Sichtkontrolle", "Offensichtliche Gefahren, Vandalismus, Fremdkörper und fehlende Teile erkennen", "laufend, je nach Nutzung täglich bis wöchentlich", "DIN EN 1176-7, Hinweise der Unfallversicherung", "Hausmeister", "", "", ""]
+    - ["9.4", "Außenanlagen", "Spielplatzgeräte, Funktionskontrolle", "Verschleiß, Standfestigkeit und Verbindungen prüfen, einfache Wartung ausführen", "etwa alle drei Monate", "DIN EN 1176-7, Hinweise der Unfallversicherung", "Hausmeister oder Fachbetrieb", "", "", ""]
+    - ["9.5", "Außenanlagen", "Spielplatzgeräte, Hauptinspektion", "Betriebssicherheit, Standsicherheit und Verschleiß durch eine qualifizierte Person beurteilen lassen, Bericht ablegen", "einmal jährlich", "DIN EN 1176-7, Hinweise der Unfallversicherung", "Qualifizierte Person", "", "", ""]
+    - ["9.6", "Außenanlagen", "Fallschutz unter Spielgeräten", "Schicht auflockern und ergänzen, Fremdkörper entfernen", "mit jeder Funktionskontrolle", "Hinweise der Unfallversicherung", "Hausmeister", "", "", ""]
+    - ["9.7", "Außenanlagen", "Bäume auf dem Grundstück", "Regelkontrolle auf Stand- und Bruchsicherheit, Ergebnis dokumentieren", "Häufigkeit nach Art, Alter, Zustand und Standort festlegen, zusätzlich nach Sturm", "FLL-Baumkontrollrichtlinien", "Baumkontrolleur", "", "", ""]
+    - ["9.8", "Außenanlagen", "Einfriedungen, Zäune, Tore und Stützmauern", "Standsicherheit, Korrosion und Beschädigungen prüfen", "einmal jährlich", "Verkehrssicherungspflicht", "Hausmeister", "", "", ""]
+    - ["9.9", "Außenanlagen", "Kraftbetätigte Tore, Garagentore und Schranken", "Funktion, Sicherheitseinrichtungen und Notentriegelung prüfen lassen", "einmal jährlich nach Herstellerangabe", "Herstellerangabe", "Fachbetrieb", "", "", ""]
+    - ["10.1", "Innenbereich", "Treppenhaus und Allgemeinflächen", "Handläufe, Geländer, Stufen, Beläge und Fenster prüfen", "einmal jährlich", "Verkehrssicherungspflicht", "Verwaltung", "", "", ""]
+    - ["10.2", "Innenbereich", "Fenster und Türen der Allgemeinbereiche", "Beschläge, Dichtungen, Anschlussfugen und Schließmittel prüfen und nachstellen", "einmal jährlich", "Herstellerangabe", "Fachbetrieb", "", "", ""]
+    - ["10.3", "Innenbereich", "Keller und Dachboden", "Feuchte, Geruch, Schädlinge und unzulässige Lagerungen prüfen", "zweimal jährlich", "Sichtprüfung, VDI 6200", "Hausmeister", "", "", ""]
+    - ["10.4", "Innenbereich", "Bäder und Küchen in den Wohnungen", "Wartungsfugen, Anschlüsse in Dusche und Wanne sowie Revisionsöffnungen prüfen", "bei Mieterwechsel und nach Anzeige durch den Mieter", "Herstellerangabe, Wartung elastischer Fugen", "Verwaltung oder Fachbetrieb", "", "", ""]
+    - ["10.5", "Innenbereich", "Hinweise an die Mieter", "Merkblatt zu Lüften, Wartungsfugen, Bodenabläufen und Meldewegen aushändigen", "bei Einzug und einmal jährlich", "Hinweispflicht des Vermieters", "Verwaltung", "", "", ""]
+    - ["11.1", "Organisation", "Wartungsverträge", "Leistungsumfang, Intervalle, Reaktionszeiten und Preise prüfen", "einmal jährlich", "Betreiberorganisation", "Verwaltung", "", "", ""]
+    - ["11.2", "Organisation", "Nachweise, Betriebsbuch und Gebäudeakte", "Prüfbescheinigungen, Wartungsberichte, Messwerte und Protokolle vollständig ablegen", "bei jedem Termin", "DIN 31051, Dokumentation der Instandhaltung", "Verwaltung", "", "", ""]
+    - ["11.3", "Organisation", "Objektbegehung mit Protokoll", "Begehung mit Fotos und Mängelliste, Zuständigkeiten und Fristen festlegen", "ein- bis zweimal jährlich", "Betreiberorganisation", "Verwaltung", "", "", ""]
+    - ["11.4", "Organisation", "Instandhaltungsplan und Budget", "Maßnahmen kurz-, mittel- und langfristig einordnen und fortschreiben", "einmal jährlich", "Instandhaltungsplanung nach Fachliteratur", "Verwaltung", "", "", ""]
+    - ["11.5", "Organisation", "Übertragung von Pflichten", "Aufgaben von Hausmeister und Fachbetrieben schriftlich regeln und die Ausführung kontrollieren", "einmal jährlich", "Verkehrssicherungspflicht bei Übertragung und Überwachung", "Verwaltung", "", "", ""]
+    - ["11.6", "Organisation", "Notfallkontakte, Absperrpläne, Schlüssel und Versicherungsdaten", "Aushänge und Listen aktualisieren, Meldewege prüfen", "einmal jährlich", "Betreiberorganisation", "Verwaltung", "", "", ""]
+  leerzeilen: 14
+hinweise:
+  - "Die Spalte Intervall nennt Anhaltswerte. Feste Fristen aus Wartungsverträgen, aus Bescheiden von Behörden und aus den Angaben der Hersteller gehen ihnen vor."
+  - "Nicht jede Zeile passt auf jedes Objekt. Streichen Sie, was es bei Ihnen nicht gibt, und ergänzen Sie Ihre Anlagen in den leeren Zeilen."
+  - "Tragen Sie in die Spalte Nächster Termin ein festes Datum ein und nicht nur den Monat. Nur so lässt sich die Einhaltung später nachweisen."
+  - "Legen Sie zu jeder ausgeführten Leistung den Bericht, die Bescheinigung oder das Protokoll in der Gebäudeakte ab. Eine Leistung ohne Nachweis gilt im Streitfall als nicht erbracht."
+  - "Wartung, Inspektion und Instandsetzung sind verschiedene Leistungen. Die Wartung verzögert den Verschleiß, die Inspektion stellt den Zustand fest, die Instandsetzung beseitigt den Schaden."
+  - "Begehen Sie Dächer, Gerüste und Leitern nicht selbst. Arbeiten auf dem Dach, an der Fassade, an Elektro-, Gas- und Trinkwasseranlagen gehören zu Fachbetrieben mit der passenden Ausrüstung."
+  - "Bei Gasgeruch, freiliegenden elektrischen Leitungen, herabfallenden Fassadenteilen oder Anzeichen für eine Gefahr für die Standsicherheit sichern oder räumen Sie den Bereich und rufen Sie Netzbetreiber, Fachbetrieb oder Behörde."
+  - "Nach Sturm, Starkregen, Hochwasser, Brand oder ungewöhnlich hoher Schneelast ist eine zusätzliche Überprüfung sinnvoll, unabhängig vom Kalender."
+  - "Die Übertragung von Aufgaben an Hausmeister oder Fachbetriebe entlastet nur, wenn sie schriftlich geregelt und die Ausführung kontrolliert wird."
+  - "Der Kalender ersetzt keine Begutachtung des Einzelfalls und keine Rechtsberatung. Fragen zu Pflichten aus Mietvertrag, Verwaltervertrag oder Beschlüssen beurteilt ein Rechtsanwalt."
+quellen:
+  - "Wartung von Dachabdichtungen zweimal jährlich und Schutz der Abläufe durch Laubfangkörbe (Flachdachrichtlinie 2017, Abschnitt 5.4 und 4.1, zitiert bei Schulz: Architektur der Bauschäden, 4. Aufl. 2020, S. 152)"
+  - "Inspektion und Wartung der Abdichtung von Dächern, Balkonen und Terrassen mindestens einmal jährlich durch ein Fachunternehmen, Dokumentation, Reinigung von Gullys, Dachrinnen und Fallrohren (Weber/Hafkesbrink: Bauwerksabdichtung in der Altbausanierung, 7. Aufl. 2026, S. 453 f., zu DIN 18531-4)"
+  - "Wartung von Balkonen, Loggien und Laubengängen mindestens einmal jährlich im Zusammenhang mit einer Inspektion (DIN 18531-5, Abschnitt 11.3, zitiert bei Schulz: Architektur der Bauschäden, 4. Aufl. 2020, S. 151)"
+  - "Kontrolle und Prüfung von Rückstauverschlüssen zweimal im Jahr, bei Typ 3 durch fachkundiges Personal (DIN EN 13564-1, Anhang B, zitiert bei Schulz: Architektur der Bauschäden, 4. Aufl. 2020, S. 192)"
+  - "Zeitintervalle der regelmäßigen Überprüfung der Standsicherheit, Schadensfolgeklassen und Checkliste der Schadensindizien (VDI 6200, wiedergegeben in Wendehorst Bautechnische Zahlentafeln, 37. Aufl. 2021, S. 1085 bis 1091)"
+  - "Pflicht des Betreibers zur regelmäßigen Wartung und Instandhaltung, Fachkunde, Empfehlung der jährlichen Heizungswartung vor der Heizperiode sowie Betriebsprüfung von Wärmepumpen (GEG § 58, § 59, § 60 und § 60a, wiedergegeben bei Schmidt: Das novellierte Gebäudeenergiegesetz, 2025, S. 236 bis 238)"
+  - "Untersuchungspflicht auf Legionellen, betroffene Anlagen, Intervalle und Verantwortung von Vermieter und Hausverwaltung (Landesamt für Gesundheit und Soziales Berlin, Trinkwasserhygiene, Legionellen in Hausinstallationen)"
+  - "Prüffrist der Hauptprüfung von Aufzugsanlagen von höchstens zwei Jahren und Zweiwege-Kommunikationssystem (Deutsche Gesetzliche Unfallversicherung, FAQ zu Aufzügen, zu Anhang 2 Abschnitt 2 der Betriebssicherheitsverordnung)"
+  - "Inspektion von Rauchwarnmeldern alle zwölf Monate, abweichende Fristen bei Ferninspektion (DIN 14676-1 in der Ausgabe 2025-05, DIN Media; Inspektionszeiträume nach BundesBauBlatt)"
+  - "Inspektion, Wartung und Betrieb von Spielplatzgeräten (DIN EN 1176-7 in der Ausgabe 2020-06, DIN Media; Kontrollintervalle nach Hinweisen der Deutschen Gesetzlichen Unfallversicherung)"
+  - "Regelkontrollen zur Überprüfung der Verkehrssicherheit von Bäumen (FLL-Baumkontrollrichtlinien, Ausgabe 2020, Forschungsgesellschaft Landschaftsentwicklung Landschaftsbau)"
+  - "Begriffe Instandhaltung, Wartung, Inspektion und Instandsetzung (DIN 31051 in der Ausgabe 2019-06, DIN Media; zitiert bei Schulz 2020, S. 151, und Schmidt/Windhausen: Lohmeyer Praktische Bauphysik, 10. Aufl. 2024, S. 408)"
+  - "Sicherheitstechnische Anforderungen an Arbeitsplätze und Verkehrswege für die Instandhaltung baulicher Anlagen (DIN 4426 in der Ausgabe 2017-01, DIN Media)"
+  - "Regeln für Betrieb und Wartung von Entwässerungsanlagen (DIN 1986-3 in der Ausgabe 2024-05, DIN Media)"
+  - "Instandhaltungsplanung mit Einordnung in kurz-, mittel- und langfristige Maßnahmen (Schulz: Architektur der Bauschäden, 4. Aufl. 2020, S. 581 bis 584)"
