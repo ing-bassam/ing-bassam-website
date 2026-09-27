@@ -34,7 +34,7 @@ abschnitte:
         hinweis: "Bitten Sie um eine Vollmacht, damit die Verwaltung Ihnen Auskunft geben und Einsicht gewähren darf. Ohne sie bleibt vieles Hörensagen des Verkäufers."
       - text: Art der Verwaltung
         auswahl: [gewerbliche Verwaltung, zertifizierter Verwalter, Eigentümer als Verwalter, unbekannt]
-        hinweis: "Woran erkennen: Verwaltervertrag und Bestellbeschluss nennen Name, Laufzeit und Vergütung. Als zertifizierter Verwalter darf sich bezeichnen, wer eine Prüfung vor einer Industrie- und Handelskammer abgelegt hat."
+        hinweis: "Woran erkennen: Verwaltervertrag und Bestellbeschluss nennen Name, Laufzeit und Vergütung."
       - text: Teilungserklärung mit Aufteilungsplan und Gemeinschaftsordnung
         hinweis: "Diese Unterlagen bestimmen, was Sondereigentum ist und nach welchem Schlüssel die Kosten verteilt werden."
       - text: Wirtschaftsplan des laufenden Jahres
@@ -121,7 +121,7 @@ abschnitte:
         auswahl: [Kunststoff, Kupfer, verzinkter Stahl, gemischt, unbekannt]
         hinweis: "Woran erkennen: sichtbare Leitungen im Keller. Bleileitungen kann es nur in Gebäuden mit Baujahr vor 1973 geben; sie waren bis zum 12. Januar 2026 zu entfernen oder stillzulegen. Kritisch: Material unbekannt und Baujahr vor 1973."
       - text: Letzte Erneuerung der Steig- und Fallleitungen, Wasserschäden der letzten fünf Jahre, letzte Untersuchung auf Legionellen
-        hinweis: "Woran erkennen: Rechnungen, Schadenakten, Prüfbericht. In größeren Wohngebäuden mit gewerblicher Wasserabgabe ist das Trinkwasser routinemäßig alle drei Jahre zu untersuchen. Kritisch: mehrere Rohrbrüche in kurzer Folge."
+        hinweis: "Woran erkennen: Rechnungen, Schadenakten, Prüfbericht. Wird Trinkwasser aus einer Anlage zur Trinkwassererwärmung in einer vorgegebenen Größe im Rahmen einer ausschließlich gewerblichen Tätigkeit abgegeben, etwa in größeren Wohngebäuden, ist es routinemäßig alle drei Jahre zu untersuchen. Kritisch: mehrere Rohrbrüche in kurzer Folge."
       - text: "Aufzug: letzte Prüfung, Wartungsvertrag und geplante Modernisierung"
         hinweis: "Woran erkennen: Prüfbericht und Wartungsvertrag im Aufzugsschacht oder bei der Verwaltung. Kritisch: Anlage aus der Bauzeit, Modernisierung angekündigt, aber nicht finanziert."
   - titel: Schadstoffe, Brandschutz und Feuchte
@@ -143,7 +143,7 @@ abschnitte:
         auswahl: [Sondereigentum, Gemeinschaftseigentum, unklar]
         hinweis: "Woran erkennen: Teilungserklärung und Gemeinschaftsordnung. Die Zuordnung entscheidet, wer Austausch und Instandsetzung bezahlt. Kritisch: unklare oder widersprüchliche Regelung."
       - text: Durch Beschluss gestattete bauliche Veränderungen in und an dieser Wohnung
-        hinweis: "Maßnahmen, die über die ordnungsgemäße Erhaltung des gemeinschaftlichen Eigentums hinausgehen, können beschlossen oder einem Eigentümer durch Beschluss gestattet werden. Kritisch: Umbau ausgeführt, Beschluss nicht auffindbar – lassen Sie die Folgen anwaltlich klären."
+        hinweis: "Maßnahmen, die über die ordnungsmäßige Erhaltung des gemeinschaftlichen Eigentums hinausgehen, können beschlossen oder einem Eigentümer durch Beschluss gestattet werden. Kritisch: Umbau ausgeführt, Beschluss nicht auffindbar – lassen Sie die Folgen anwaltlich klären."
       - text: Beschwerden zu dieser Wohnung sowie bestehende Sondernutzungsrechte
         hinweis: "Woran erkennen: Protokolle, Schriftverkehr der Verwaltung. Klar: Sondernutzungsrecht in der Teilungserklärung gesichert. Kritisch: Nutzung seit Jahren geduldet, aber nicht geregelt."
       - text: Nutzungsbeschränkungen der Gemeinschaftsordnung und bestehendes Mietverhältnis
@@ -158,7 +158,7 @@ abschnitte:
       - text: Gemeldete Schäden der letzten fünf Jahre, Auflagen oder Kündigung des Versicherers
         hinweis: "Woran erkennen: Schadenaufstellung der Verwaltung. Kritisch: mehrere Leitungswasserschäden, weil Versicherer dann Beiträge erhöhen, Auflagen machen oder kündigen können."
 auswertung:
-  - "Verweigerte Auskunft ist selbst ein Befund: Vier oder mehr Punkte in der Spalte „keine Auskunft“ sprechen dafür, die Unterlagen vor dem Notartermin vollständig nachzufordern."
+  - "Verweigerte Auskunft ist selbst ein Befund: Mehrere Punkte in der Spalte „keine Auskunft“ sprechen dafür, die Unterlagen vor dem Notartermin vollständig nachzufordern."
   - "Ein kritischer Befund bei Rücklage, beschlossenen Maßnahmen oder Sonderumlage: Rechnen Sie den Betrag in Ihre Finanzierung ein, bevor Sie ein Angebot abgeben."
   - "Ein kritischer Befund an Dach, Fassade, Keller, Balkonen oder Haustechnik: Lassen Sie das Gemeinschaftseigentum vor dem Kauf durch einen Bausachverständigen beurteilen."
   - "Mehrere angefochtene Beschlüsse oder laufende Verfahren: Lassen Sie Teilungserklärung, Beschlüsse und Protokolle durch einen Rechtsanwalt prüfen."
@@ -169,7 +169,7 @@ hinweise:
   - "Dieser Fragenkatalog ersetzt keine Prüfung der Unterlagen, kein Gutachten und keine Rechtsberatung. Rechtliche Folgen einzelner Beschlüsse und Verträge beurteilt ein Rechtsanwalt."
   - "Die genannten Erwartungswerte für die Lebensdauer von Bauteilen sind Anhaltspunkte aus der Fachliteratur, keine verbindlichen Fristen."
 quellen:
-  - "§ 19 Abs. 2, § 20 Abs. 1, § 24 Abs. 7, § 26a, § 28 Abs. 4 und § 45 Wohnungseigentumsgesetz, Wortlaut abgerufen am 27.09.2026"
+  - "§ 19 Abs. 2, § 20 Abs. 1, § 24 Abs. 7, § 28 Abs. 4 und § 45 Wohnungseigentumsgesetz, Wortlaut abgerufen am 27.09.2026"
   - "Schulz, Joachim: Architektur der Bauschäden, 4. Aufl. 2020, S. 586–589 und S. 596 f."
   - "Vismann (Hrsg.): Wendehorst Bautechnische Zahlentafeln, 37. Aufl. 2021, S. 1612"
   - "Umweltbundesamt: Bleirohre im Trinkwasser; Bundesministerium für Gesundheit: Trinkwasserverordnung und Legionellen"
