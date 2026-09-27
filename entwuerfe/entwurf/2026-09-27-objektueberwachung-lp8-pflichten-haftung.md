@@ -13,7 +13,7 @@ qualifikation:
 kurzform: objektueberwachung-lp8-pflichten-haftung
 erstellt: 2026-09-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-8153-9e1e-dba9cc347612
 notion_url: https://app.notion.com/p/Objekt-berwachung-LP-8-Pflichten-Haftung-Dokumentation-3dfd96ad00b481539e1edba9cc347612
