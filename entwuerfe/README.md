@@ -7,7 +7,7 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (7)
+## 🟡 Entwurf (6)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
@@ -17,9 +17,8 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 | 27.09.2026 | [Bedenkenanzeige nach § 4 Abs. 3 VOB/B: Musterschreiben](entwurf/2026-09-27-bedenkenanzeige-vob-b-musterschreiben.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/bedenkenanzeige-vob-b-musterschreiben/) |
 | 27.09.2026 | [Bauvertrag prüfen vor der Unterschrift: die Checkliste](entwurf/2026-09-27-bauvertrag-pruefen-vor-unterschrift.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauvertrag-pruefen-vor-unterschrift/) |
 | 27.09.2026 | [Bauvertrag ohne Grund gekündigt: 5 Prozent und Zinsen für vier Jahre](entwurf/2026-09-27-bauvertrag-kuendigung-verguetung-verzugszinsen.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/bauvertrag-kuendigung-verguetung-verzugszinsen/) |
-| 24.09.2026 | [Handwerker lehnt die Nacharbeit ab: Was aus dem Werklohn wird](entwurf/2026-09-24-nachbesserung-verweigert-werklohn.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/nachbesserung-verweigert-werklohn/) |
 
-## 🟢 Veröffentlicht (22)
+## 🟢 Veröffentlicht (23)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
@@ -39,6 +38,7 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 | 25.09.2026 | [Baubegleitende Qualitätskontrolle: Nutzen, Termine, Kosten](veroeffentlicht/2026-09-25-baubegleitende-qualitaetskontrolle-kosten.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/baubegleitende-qualitaetskontrolle-kosten/) |
 | 24.09.2026 | [Wann der Widerruf den Werklohn für die Wärmepumpe entfallen lässt](veroeffentlicht/2026-09-24-widerruf-hausbesuch-werklohn.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/widerruf-hausbesuch-werklohn/) |
 | 24.09.2026 | [Wasserschaden im Mehrfamilienhaus: Was die Verwaltung zuerst tun muss](veroeffentlicht/2026-09-24-wasserschaden-mehrfamilienhaus-ablauf.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/wasserschaden-mehrfamilienhaus-ablauf/) |
+| 24.09.2026 | [Handwerker lehnt die Nacharbeit ab: Was aus dem Werklohn wird](veroeffentlicht/2026-09-24-nachbesserung-verweigert-werklohn.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/nachbesserung-verweigert-werklohn/) |
 | 24.09.2026 | [Entgangener Gewinn nach Vertragsende: Was nachgewiesen werden muss](veroeffentlicht/2026-09-24-entgangener-gewinn-wartungsvertrag-nachweis.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/entgangener-gewinn-wartungsvertrag-nachweis/) |
 | 21.09.2026 | [Baupreissteigerung beim Schallschutz: Wer zahlt die Mehrkosten?](veroeffentlicht/2026-09-21-schallschutz-kostenerstattung-verzoegerung.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/schallschutz-kostenerstattung-verzoegerung/) |
 | 20.09.2026 | [Technische Beweissicherung: Was sie leistet und wann sie nötig ist](veroeffentlicht/2026-09-20-technische-beweissicherung-grundlagen.md) | Grundlagen | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/technische-beweissicherung-grundlagen/) |
