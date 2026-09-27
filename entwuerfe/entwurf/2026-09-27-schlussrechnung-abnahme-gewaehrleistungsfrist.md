@@ -12,7 +12,7 @@ ecli: "ECLI:DE:OLGNAUM:2026:0715.2U58.25.00"
 entscheidungsdatum: 2026-07-15
 fundstelle: "https://www.landesrecht.sachsen-anhalt.de/perma?d=NJRE001653647"
 meta_beschreibung: Eine Bauträgerin zahlte die Schlussrechnung des Dachdeckers vollständig. Das Gericht sah darin die Abnahme – mit Folgen für die Frist.
-schlagwoerter: Abnahme, konkludente Abnahme, förmliche Abnahme, Schlussrechnung, Gewährleistungsfrist, Verjährung, Baumangel, Dachabdichtung
+schlagwoerter: Abnahme, konkludente Abnahme, förmliche Abnahme, Schlussrechnung, Gewährleistungsfrist, Verjährung, Mängelansprüche, Dachabdichtung
 definition: Die Abnahme ist die Billigung der Bauleistung durch den Auftraggeber als im Wesentlichen vertragsgerecht.
 autor: M. Sc. Karim Abu Elkheir
 qualifikation:
@@ -40,7 +40,7 @@ Ein Dachdeckerunternehmen führte die Dachdeckungs- und Abdichtungsarbeiten an e
 
 ## Worum die Bauträgerin und das Dachdeckerunternehmen gestritten haben
 
-Die Klägerin ist Bauträgerin, die Beklagte ein Dachdeckerunternehmen (Rn. 1). Eine Bauträgerin lässt Gebäude errichten und verkauft die Wohnungen an Erwerber. Sie beauftragte das Dachdeckerunternehmen im Oktober 2012 mit dem Dachgewerk am ersten Bauabschnitt, im Februar 2013 folgte der zweite (Rn. 3, Rn. 13). Vertragsgrundlage war unter anderem die Vergabe- und Vertragsordnung für Bauleistungen, Teil B, in der Ausgabe 2009 (Rn. 5). Der Vertrag setzte die Frist für Mängelansprüche auf fünf Jahre und sechs Monate (Rn. 5). In den mitgeltenden Vertragsbedingungen des Auftraggebers stand außerdem der Satz, der Auftraggeber verlange die förmliche Abnahme (Rn. 6, Rn. 7). Förmliche Abnahme heißt: ein gemeinsam durchgeführter, schriftlich protokollierter Termin.[^2]
+Die Klägerin ist Bauträgerin, die Beklagte ein Dachdeckerunternehmen (Rn. 1). Eine Bauträgerin lässt Gebäude errichten und verkauft die Wohnungen an Erwerber. Sie beauftragte das Dachdeckerunternehmen im Oktober 2012 mit dem Dachgewerk am ersten Bauabschnitt, im Februar 2013 folgte der zweite (Rn. 3, Rn. 13). Vertragsgrundlage war unter anderem die Vergabe- und Vertragsordnung für Bauleistungen, Teil B, in der Ausgabe 2009 (Rn. 5). Der Vertrag setzte die Frist für Mängelansprüche auf fünf Jahre und sechs Monate (Rn. 5). In den mitgeltenden Vertragsbedingungen stand außerdem der Satz, der Auftraggeber verlange die förmliche Abnahme (Rn. 6, Rn. 7). Förmliche Abnahme heißt: ein gemeinsam durchgeführter, schriftlich protokollierter Termin.[^2]
 
 Zu diesem Termin kam es nie (Rn. 72). Die Erwerber und die Eigentümergemeinschaft nahmen die Wohnanlage im Juli 2013 von der Bauträgerin ab (Rn. 8). Die Bauträgerin forderte das Dachdeckerunternehmen im Juli und im August 2013 auf, Mängel zu beseitigen (Rn. 9, Rn. 10). Das Unternehmen zeigte die Fertigstellung im Dezember 2013 an (Rn. 11). Die Schlussrechnung für den ersten Bauabschnitt zahlte die Bauträgerin am 8. August 2014, die für den zweiten am 18. August 2014 (Rn. 12, Rn. 17).
 
@@ -70,9 +70,9 @@ Für den ersten Bauabschnitt sprach der Senat deshalb 85.250 Euro Vorschuss zu (
 
 Die Schlusszahlung ist mehr als ein Buchungsvorgang. Sie ist ein Verhalten, das die Gegenseite deuten darf. Im entschiedenen Fall genügte sie dem Senat als konkludente Abnahme, weil die gerügten Mängel zuvor beseitigt waren und sich die Parteien über die Nachträge offenbar geeinigt hatten (Rn. 78, Rn. 80). Ob eine Zahlung in Ihrem Vertrag dieselbe Wirkung hätte, ist eine Frage des Einzelfalls; schon die Prüffrist nennt der Senat ausdrücklich so (Rn. 79). Welche Folgen Ihre Zahlung hat, beurteilt ein Rechtsanwalt.
 
-Warum dieser Zeitpunkt zählt, zeigt die Wirkung der Abnahme. Mit ihr kehrt sich die Beweislast um: Vorher muss das Unternehmen die Mängelfreiheit beweisen, danach müssen Sie den Baumangel und die Verantwortung dafür belegen.[^2] Mit ihr beginnt außerdem die Frist für Mängelansprüche.[^2] Rechte, die Sie sich bei der Abnahme nicht vorbehalten, können zudem verloren gehen – und bei einer stillschweigenden Abnahme gibt es keinen Termin, an dem Sie daran denken.[^3]
+Warum dieser Zeitpunkt zählt, zeigt die Wirkung der Abnahme. Mit ihr kehrt sich die Beweislast um: Vorher muss das Unternehmen die Mängelfreiheit beweisen, danach müssen Sie die Verantwortung des Unternehmens für einen Mangel belegen.[^2] Mit ihr beginnt außerdem die Frist für Mängelansprüche.[^2] Rechte, die Sie sich bei der Abnahme nicht vorbehalten, können zudem verloren gehen – und besondere Aufmerksamkeit ist geboten, wenn die Abnahme stillschweigend erfolgt.[^3]
 
-Daraus folgt eine einfache Reihenfolge. Verlangen Sie die vereinbarte förmliche Abnahme schriftlich, und lassen Sie sich einen Termin geben. Nehmen Sie bekannte Mängel in das Protokoll auf, mit Frist zur Beseitigung. Zahlen Sie die Schlussrechnung erst danach, oder mit einem ausdrücklichen schriftlichen Vorbehalt. Verlassen Sie sich nicht auf mündliche Zusagen der Bauleitung: Ein Bauleiter ist regelmäßig nicht befugt, eine Abnahme zu erklären (Rn. 85).
+Daraus folgt eine einfache Reihenfolge. Verlangen Sie die vereinbarte förmliche Abnahme schriftlich, und lassen Sie sich einen Termin geben. Nehmen Sie bekannte Mängel in das Protokoll auf, mit Frist zur Beseitigung. Zahlen Sie die Schlussrechnung erst danach, oder mit einem ausdrücklichen schriftlichen Vorbehalt. Verlassen Sie sich nicht auf mündliche Zusagen der Bauleitung: Ein Bauleiter ist regelmäßig nicht befugt, eine Abnahme rechtsgeschäftlich zu erklären (Rn. 85).
 
 Wer nicht selbst nutzt, sondern weiterverkauft oder verwaltet, hat zwei Ketten zu führen. Die Abnahme durch Käufer oder Eigentümer ist nicht ohne weiteres die Abnahme gegenüber den Firmen am Bau (Rn. 82, Rn. 83). Für jedes Gewerk läuft eine eigene Frist, für die Dachabdichtung ebenso wie für den Innenausbau. Halten Sie diese Fristen in einer Liste, und setzen Sie eine Erinnerung ein halbes Jahr vor dem Ende. Der Fall zeigt auch, wie schnell Gespräche einschlafen und die Zeit weiterläuft (Rn. 125).
 
