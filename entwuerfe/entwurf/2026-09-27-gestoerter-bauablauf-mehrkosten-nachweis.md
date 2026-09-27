@@ -13,7 +13,7 @@ qualifikation:
 kurzform: gestoerter-bauablauf-mehrkosten-nachweis
 erstellt: 2026-09-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-811e-8978-c4df9e62f1f6
 notion_url: https://app.notion.com/p/Gest-rter-Bauablauf-Bauzeit-und-Mehrkosten-nachweisen-3dfd96ad00b4811e8978c4df9e62f1f6
