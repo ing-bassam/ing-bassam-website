@@ -19,7 +19,7 @@ qualifikation:
 kurzform: bauvertrag-kuendigung-verguetung-verzugszinsen
 erstellt: 2026-09-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
