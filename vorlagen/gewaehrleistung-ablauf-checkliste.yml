@@ -1,0 +1,209 @@
+titel: Checkliste vor Ablauf der Gewährleistung
+untertitel: Letzte Begehung vor Ablauf der Frist für Mängelansprüche
+kurzform: gewaehrleistung-ablauf-checkliste
+typ: Checkliste
+stand: 2026-09-28
+dateien: [pdf]
+einleitung: >-
+  Mit dieser Checkliste gehen Sie Ihr Gebäude ab, bevor die Frist für Mängelansprüche
+  abläuft. Tragen Sie zuerst Vertrag, Abnahmedatum und Fristende oben ein, gehen Sie
+  dann von außen nach innen durch die Abschnitte und bewerten Sie jeden Punkt in vier
+  Stufen. Am Ende steht, was Sie mit den Befunden tun: dokumentieren, schriftlich
+  anzeigen, Frist setzen.
+kopffelder:
+  - Objekt und Anschrift
+  - Gebäude oder Gebäudeteil
+  - Eigentümer, Gemeinschaft oder Verwaltung
+  - Bauunternehmen oder Auftragnehmer
+  - Vertragsgrundlage (BGB oder VOB/B)
+  - Abnahme am
+  - Frist endet am
+  - Begehung am, Teilnehmer
+bewertung:
+  stufen:
+    - {kurz: "o. B.", lang: "ohne Befund", beschreibung: "nichts Auffälliges erkennbar"}
+    - {kurz: "gering", lang: "geringer Befund", beschreibung: "vereinzelt und oberflächlich – festhalten und beobachten"}
+    - {kurz: "deutlich", lang: "deutlicher Befund", beschreibung: "ausgedehnt, tiefgehend oder fortschreitend – fachlich prüfen lassen"}
+    - {kurz: "n. p.", lang: "nicht prüfbar", beschreibung: "verdeckt oder nicht zugänglich – nachfragen"}
+abschnitte:
+  - titel: Vertrag, Fristen und Unterlagen
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Vertragsgrundlage des Bauvertrags
+        auswahl: [BGB-Bauvertrag, VOB/B vereinbart, unbekannt]
+        hinweis: "Steht im Bauvertrag. Ohne besondere Vereinbarung verjähren Mängelansprüche bei einem Bauwerk nach dem BGB in fünf Jahren; ist die VOB/B vereinbart, sind es vier Jahre, wenn im Vertrag nichts anderes steht."
+      - text: Abnahmedatum aus dem Abnahmeprotokoll ermittelt
+        ja_nein: true
+        hinweis: "Die Frist beginnt mit der Abnahme der gesamten Leistung, nicht mit Einzug oder Schlussrechnung. Für in sich abgeschlossene Teile, die gesondert abgenommen wurden, läuft eine eigene Frist."
+      - text: Im Vertrag vereinbarte Verjährungsfrist
+        auswahl: ["5 Jahre", "4 Jahre", "andere Frist", "keine Regelung gefunden"]
+        hinweis: "Eine längere Frist kann vereinbart werden und geht der Regelfrist vor. Findet sich keine Regelung, gilt die Frist des Gesetzes oder der VOB/B."
+      - text: Fristende berechnet und Begehung sechs bis zwölf Monate vorher terminiert
+        ja_nein: true
+        hinweis: "Verbraucherschutzverbände empfehlen die Bestandsaufnahme spätestens sechs Monate vor Fristablauf, besser sechs bis zwölf Monate. Dann bleibt Zeit für Anzeige, Nachbesserung und eine zweite Begehung."
+      - text: Sicherheitseinbehalt oder Bürgschaft für Mängelansprüche
+        auswahl: [Sicherheitseinbehalt, Bürgschaft, keine Sicherheit, unbekannt]
+        hinweis: "Steht im Vertrag oder in der Schlussrechnung. Wird die Sicherheit zurückgegeben, bevor alle Mängel beseitigt sind, fehlt später ein Druckmittel."
+      - text: Abnahmeprotokoll und Vorbehalte durchgesehen, offene Punkte am Bauteil geprüft
+        ja_nein: true
+        hinweis: "Mängel, die bei der Abnahme vorbehalten wurden, sind häufig nie beseitigt worden. Gehen Sie jede Zeile des Protokolls am Bauteil durch."
+      - text: Frühere Mängelanzeigen, Antworten und Nachweise der Nachbesserung gesammelt
+        ja_nein: true
+        hinweis: "Nach der Abnahme einer Mängelbeseitigung beginnt für diese Leistung eine neue Frist. Datum und Umfang jeder Nachbesserung sind deshalb wichtig."
+  - titel: Dach, Dachraum und Dachentwässerung
+    notizen: 2
+    punkte:
+      - text: Dachart
+        auswahl: [Steildach, Flachdach, Steil- und Flachdach, unbekannt]
+        hinweis: "Beim Flachdach liegt die Abdichtung unter Kies, Platten oder Begrünung und ist kaum einsehbar. Beim Steildach ist die Deckung von außen sichtbar."
+      - text: Dachfläche und Anschlüsse, vom Grundstück aus betrachtet
+        hinweis: "Woran erkennen: mit dem Fernglas vom Boden. Gering: einzelne verschobene Ziegel, leichte Falten in der Abdichtung. Deutlich: fehlende Ziegel, Blasen oder offene Nähte, lose Anschlussbleche an Schornstein, Gaube oder Attika."
+      - text: Dachrinnen, Fallrohre und Dacheinläufe
+        hinweis: "Woran erkennen: bei Regen beobachten. Gering: Laub in der Rinne, ein tropfender Stoß. Deutlich: Überlauf, Wasserspuren an der Fassade, verstopfter Einlauf mit stehendem Wasser auf dem Dach."
+      - text: "Dachraum: Feuchtespuren an Sparren, Unterspannbahn und Dämmung"
+        hinweis: "Woran erkennen: mit der Lampe an Traufe, First und Durchdringungen. Gering: einzelne alte, trockene Ränder. Deutlich: frische dunkle Flecken, feuchte oder verrutschte Dämmung, Schimmel, Tropfspuren."
+      - text: "Holzbauteile im Dachraum: Fluglöcher, Bohrmehl, weiche Stellen"
+        hinweis: "Woran erkennen: ovale Ausfluglöcher mit ausgefranstem Rand deuten auf den Hausbockkäfer, kleine runde Löcher mit rieselndem Bohrmehl auf den Nagekäfer. Deutlich: frisches Bohrmehl oder Holz, das unter leichtem Druck nachgibt. Befall von einer Fachfirma oder einem Sachverständigen beurteilen lassen."
+  - titel: Fassade, Sockel und Außenwände
+    notizen: 2
+    punkte:
+      - text: Fassadenaufbau
+        auswahl: [Putz auf Mauerwerk, Wärmedämm-Verbundsystem, Verblendmauerwerk, vorgehängte Fassade, unbekannt]
+        hinweis: "Klopfprobe: ein Wärmedämm-Verbundsystem klingt hohl und gibt leicht nach, Putz auf Mauerwerk klingt hart. Der Aufbau steht auch in der Baubeschreibung."
+      - text: Risse in Putz oder Mauerwerk
+        hinweis: "Woran erkennen: im Streiflicht am Morgen oder Abend. Gering: feine Haarrisse im Putz ohne Versatz. Deutlich: Risse, die durch Steine und Fugen laufen, sich zu einem Ende hin öffnen oder einen Versatz haben."
+      - text: Sockel und Spritzwasserbereich
+        hinweis: "Woran erkennen: der Bereich bis etwa kniehoch über dem Gelände. Gering: Verschmutzung und Algen. Deutlich: abplatzender Putz, weiße Ausblühungen, dauerhaft dunkle feuchte Zone."
+      - text: Anschlüsse und Fugen an Fensterbänken, Attika und Dehnfugen
+        hinweis: "Woran erkennen: dort, wo unterschiedliche Bauteile aneinanderstoßen. Gering: gealtertes Dichtmittel. Deutlich: offene Fugen, fehlende seitliche Abschlüsse an Fensterbänken, Wasserspuren darunter."
+  - titel: Keller, Bodenplatte und Abdichtung
+    notizen: 2
+    punkte:
+      - text: Kellerausführung
+        auswahl: ["WU-Beton (weiße Wanne)", "Mauerwerk mit Abdichtung", "nicht unterkellert", unbekannt]
+        hinweis: "Weiße Wanne: Betonwände ohne Putz, Fugenbänder und Schalungsanker erkennbar. Bei Mauerwerk liegt die Abdichtung außen im Erdreich und ist nicht einsehbar."
+      - text: Feuchte Flecken an Kellerwänden und am Boden
+        hinweis: "Woran erkennen: Wand mit der Handfläche prüfen, auf muffigen Geruch achten. Gering: einzelne kleine Stellen, die abtrocknen. Deutlich: großflächig dunkle Zonen, Wasserränder, Pfützen, Tropfen an Wanddurchführungen."
+      - text: Salzausblühungen und Putzabplatzungen
+        hinweis: "Woran erkennen: weiße, pelzige Beläge. Feuchte transportiert Salze an die Oberfläche; die Kristalle können den Putz absprengen. Deutlich: wiederkehrende Beläge und abfallender Putz."
+      - text: Lichtschächte, Kellerfenster und Kellertür
+        hinweis: "Woran erkennen: den Schacht nach einem Regentag ansehen. Gering: Laub im Schacht. Deutlich: stehendes Wasser, verstopfter Ablauf, Wasserspuren innen am Fenster."
+      - text: "Entwässerung: Kontroll- und Spülschächte, Bodeneinläufe, Rückstausicherung"
+        hinweis: "Woran erkennen: Deckel öffnen und auf Ablagerungen sehen. Dränanlagen versagen in der Praxis meist an fehlender Wartung, nicht am Einbau. Deutlich: Schacht steht voll, Schlamm, kein Abfluss."
+  - titel: Fenster, Außentüren und Rollläden
+    notizen: 2
+    punkte:
+      - text: Rahmen und Verglasung
+        auswahl: [Kunststoff, Holz, Holz-Aluminium, Aluminium, unbekannt]
+        hinweis: "Die Angaben zur Verglasung stehen meist auf dem Abstandhalter zwischen den Scheiben oder in den Unterlagen des Herstellers."
+      - text: Anschlussfugen innen und außen
+        hinweis: "Woran erkennen: der Übergang vom Rahmen zur Wand. Gering: feine Risse im Anstrich der Fuge. Deutlich: durchgehend offene Fuge, sichtbarer Montageschaum, spürbare Zugluft bei geschlossenem Fenster."
+      - text: Beschläge, Dichtungen und Rollläden
+        hinweis: "Woran erkennen: jeden Flügel öffnen und schließen, einen Papierstreifen einklemmen. Gering: strammer Lauf, eine Druckstelle. Deutlich: Flügel schleift oder schließt nicht dicht, Dichtung liegt lose, Rollladen klemmt."
+      - text: Tauwasser an Glasrand oder Rahmen
+        hinweis: "Woran erkennen: an kalten Tagen früh am Morgen. Gering: schmaler Beschlag am Glasrand, der tagsüber abtrocknet. Deutlich: Wasser auf der Fensterbank, dauerhaft feuchte Laibung, schwarze Punkte an der Dichtung."
+  - titel: Innenräume, Estrich und Oberflächen
+    notizen: 2
+    punkte:
+      - text: Bauart der Innenwände
+        auswahl: [massiv, Trockenbau, gemischt, unbekannt]
+        hinweis: "Klopfprobe: hohl und leicht klingende Wände sind meist Trockenbau. Das ist kein Mangel, wirkt sich aber auf Schallschutz, Befestigungen und spätere Umbauten aus."
+      - text: Risse an Wänden und Decken
+        hinweis: "Woran erkennen: im Streiflicht, besonders an Anschlüssen. Gering: feine Risse in der Fuge zwischen Wand und Decke. Deutlich: Risse quer durch Bauteile, Risse mit Versatz, Risse, die sich nach der Heizperiode weiter öffnen."
+      - text: Bodenbeläge und Estrich
+        hinweis: "Woran erkennen: Fliesen mit dem Knöchel abklopfen, Ränder betrachten. Gering: eine einzelne hohl klingende Fliese. Deutlich: mehrere hohle Felder, Risse durch Fliesen und Fugen, hochstehende Ränder, federnder Belag."
+      - text: Türen, Zargen und Treppen
+        hinweis: "Woran erkennen: alle Türen öffnen und schließen. Gering: Tür schwingt auf, ungleicher Spalt. Deutlich: Tür schließt nicht, Zarge löst sich, Treppenstufen bewegen sich."
+      - text: Schimmel oder Stockflecken in Raumecken und hinter Möbeln
+        hinweis: "Woran erkennen: Außenecken, Fensterlaibungen und Flächen hinter Schränken. Gering: kleiner, oberflächlicher Befall. Deutlich: größere Flächen oder wiederkehrender Befall – dann gehört die Sanierung in die Hand einer Fachfirma. Die Ursache der Feuchte muss geklärt werden, sonst kommt der Schimmel zurück."
+  - titel: Bäder, Küche und Nassräume
+    notizen: 2
+    punkte:
+      - text: Duschbereich
+        auswahl: [bodengleiche Dusche, Duschwanne, Badewanne, mehrere Varianten, unbekannt]
+        hinweis: "Eine bodengleiche Dusche braucht eine Abdichtung unter den Fliesen und ein Gefälle zum Ablauf. Fehler zeigen sich dort oft erst nach Jahren."
+      - text: Elastische Fugen an Wanne, Dusche und Bodenanschluss
+        hinweis: "Woran erkennen: die Fuge mit dem Finger prüfen. Gering: Verfärbung oder beginnende Ablösung an einer Stelle. Deutlich: Fuge löst sich auf ganzer Länge, Risse, Schimmel. Als Wartungsfuge gilt eine Fuge nur, wenn das vor der Ausführung vereinbart wurde."
+      - text: Fliesen und Fugen im Nassbereich
+        hinweis: "Woran erkennen: abklopfen und ansehen. Gering: einzelne feine Risse im Fugenmörtel. Deutlich: hohl klingende Flächen, gerissene Fliesen, ausgewaschene Fugen, Versatz zwischen den Platten."
+      - text: Feuchtespuren an angrenzenden Wänden und an der Decke darunter
+        hinweis: "Woran erkennen: die Rückseite der Duschwand und den Raum unter dem Bad ansehen. Gering: ein heller Rand. Deutlich: dunkle, größer werdende Flecken, abblätternde Farbe, muffiger Geruch."
+  - titel: Heizung, Lüftung, Wasser und Strom
+    notizen: 2
+    punkte:
+      - text: Heizungsart
+        auswahl: [Gas, Öl, Wärmepumpe, Fernwärme, Holz oder Pellets, unbekannt]
+        hinweis: "Für Teile maschineller und elektrotechnischer Anlagen kann nach der VOB/B eine kürzere Frist von zwei Jahren gelten, wenn die Wartung nicht dem Auftragnehmer übertragen wurde. Prüfen Sie diese Anlagen deshalb früher."
+      - text: Lüftung
+        auswahl: [Fensterlüftung, Abluftanlage, "Anlage mit Wärmerückgewinnung", unbekannt]
+        hinweis: "Eine Lüftungsanlage erkennen Sie an Tellerventilen in Decken oder Wänden und an einem Gerät mit Filtern im Technikraum."
+      - text: "Heizung im Betrieb: Wärmeverteilung, Geräusche, Anlagendruck"
+        hinweis: "Woran erkennen: alle Räume aufheizen lassen. Gering: ein Raum wird langsamer warm, leises Rauschen. Deutlich: Flächen bleiben kalt, lautes Gluckern oder Pfeifen, der Druck fällt immer wieder ab."
+      - text: Wartungen durchgeführt und dokumentiert
+        ja_nein: true
+        hinweis: "Sammeln Sie die Protokolle von Heizung, Lüftung und Dränung. Fehlende Wartung kann Ansprüche schwächen und den Versicherungsschutz berühren."
+      - text: Trinkwasser- und Abwasserleitungen
+        hinweis: "Woran erkennen: alle Zapfstellen schließen und den Wasserzähler beobachten. Gering: ein tropfender Anschluss. Deutlich: der Zähler läuft weiter, feuchte Stellen an Vorwänden, Geruch aus Abläufen."
+      - text: Elektroinstallation
+        hinweis: "Woran erkennen: Schalter und Steckdosen der Reihe nach prüfen, die Prüftaste des Fehlerstromschutzschalters betätigen. Deutlich: der Schutzschalter löst nicht aus oder fällt ohne Anlass, lose Dosen, fehlendes Prüfprotokoll. Arbeiten an der Anlage nur durch eine Elektrofachkraft."
+  - titel: Balkon, Terrasse und Außenanlagen
+    notizen: 2
+    punkte:
+      - text: Belag und Gefälle
+        hinweis: "Woran erkennen: die Fläche nach Regen ansehen. Gering: eine feuchte Stelle, die abtrocknet. Deutlich: stehendes Wasser, Gefälle zur Tür hin, lose oder aufgestellte Platten. Wasser muss auf einer Abdichtung ablaufen und nicht stehen."
+      - text: Abläufe und Rinnen frei
+        hinweis: "Woran erkennen: Wasser aufgießen und beobachten. Deutlich: das Wasser läuft nicht ab, der Ablauf sitzt höher als der Belag, die Rinne ist verstopft."
+      - text: Anschluss an die Balkon- oder Terrassentür
+        hinweis: "Woran erkennen: den Höhenunterschied zwischen Belag und Türschwelle ansehen. Deutlich: die Abdichtung endet auf Höhe des Belages, ohne Rinne oder Gitterrost davor; innen Wasserspuren an der Schwelle."
+      - text: Geländer, Befestigungen und Metallteile
+        hinweis: "Woran erkennen: am Geländer rütteln. Gering: angelaufene Oberfläche. Deutlich: das Geländer bewegt sich, Rost an den Befestigungen, aufgerissener Beton an den Ankern."
+      - text: Wege, Pflaster und Geländeanschluss
+        hinweis: "Woran erkennen: das Gefälle mit einer Wasserwaage prüfen. Gering: eine abgesackte Platte. Deutlich: Gefälle zum Haus hin, Setzungsmulden entlang der Wand, Wasser sammelt sich am Sockel."
+  - titel: "Nach der Begehung: Mängel anzeigen und Fristen sichern"
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Jeder Befund mit Raum, Erscheinungsbild, Datum und Foto festgehalten
+        ja_nein: true
+        hinweis: "Beschreiben Sie, was Sie sehen, nicht die vermutete Ursache. Für eine wirksame Rüge genügt die Beschreibung der sichtbaren Symptome; die Ursache muss der Unternehmer ermitteln."
+      - text: Mängel schriftlich angezeigt, Zugang nachweisbar
+        ja_nein: true
+        hinweis: "Nach der VOB/B muss der Auftraggeber die Beseitigung vor Ablauf der Frist schriftlich verlangen. Bewahren Sie einen Nachweis über den Zugang auf."
+      - text: Angemessene Frist zur Beseitigung gesetzt
+        ja_nein: true
+        hinweis: "Die Frist muss zum Aufwand der Arbeiten passen und ein festes Datum nennen."
+      - text: Anzeige nachweislich vor Ablauf der Frist abgesandt
+        ja_nein: true
+        hinweis: "Nur was vor Fristablauf zugeht, wirkt. Ob die Verjährung gehemmt ist oder neu beginnt, beurteilt ein Rechtsanwalt."
+      - text: Nach der Nachbesserung Abnahme verlangt und dokumentiert
+        ja_nein: true
+        hinweis: "Mit der Abnahme der Mängelbeseitigung beginnt für diese Leistung eine neue Frist. Halten Sie Datum und Umfang fest."
+auswertung:
+  - "Ein deutlicher Befund an Dach, Keller, Abdichtung oder tragenden Bauteilen: vor Ablauf der Frist einen Sachverständigen hinzuziehen."
+  - "Feuchte Flecken, Schimmel oder Salzausblühungen: erst die Ursache klären lassen, dann instand setzen. Überstreichen beseitigt den Befund nicht."
+  - "Fluglöcher oder Bohrmehl an Holzbauteilen: den Befall von einer Fachfirma oder einem Sachverständigen beurteilen lassen, bevor Sie etwas unternehmen."
+  - "Auch ein geringer Befund gehört vor Fristablauf in die schriftliche Anzeige. Was nicht angezeigt ist, lässt sich später nur selten durchsetzen."
+  - "Punkte mit n. p.: beim Unternehmen, beim Planer oder bei der Verwaltung nachfragen und die Antwort schriftlich festhalten."
+  - "Mehrere deutliche Befunde oder Streit über die Ursache: die Begehung mit fachlicher Begleitung wiederholen, solange die Frist läuft."
+hinweise:
+  - "Diese Checkliste ersetzt kein Gutachten und keine Rechtsberatung. Sie hilft, den Zustand zu erfassen und nichts zu übersehen."
+  - "Die Bewertung beschreibt den Zustand, sie stellt keinen Mangel fest. Ob ein Befund ein Mangel ist, richtet sich nach dem Vertrag und nach den anerkannten Regeln der Technik."
+  - "Fristen und ihre Berechnung, die Hemmung der Verjährung und die Formulierung von Ansprüchen beurteilt ein Rechtsanwalt."
+  - "Steigen Sie nicht auf das Dach und betreten Sie keine Flachdachflächen. Das Betreten nicht durchbruchsicherer Dachflächen kann tödlich enden. Sehen Sie sich das Dach vom Boden aus an, am besten mit einem Fernglas."
+  - "Öffnen Sie keine Bauteile, bohren und stemmen Sie nicht. Sie halten nur fest, was ohne Eingriff sichtbar ist."
+  - "Fotografieren Sie jeden Befund mit Datum und mit einem Maßstab im Bild, etwa einem Zollstock."
+  - "Unebenheiten von Wänden, Decken und Böden werden nach DIN 18202, der Norm für Toleranzen im Hochbau, gemessen und nicht nach dem Augenschein beurteilt. Für Höhenversätze zwischen benachbarten Fliesen gilt diese Norm nicht; dafür gibt es eigene Regeln des Fliesenhandwerks."
+  - "Bei Wohnungseigentum verfolgt die Gemeinschaft die Mängel am Gemeinschaftseigentum. Stimmen Sie sich mit der Verwaltung ab, bevor Sie selbst anzeigen."
+quellen:
+  - "§ 13 Abs. 4 und Abs. 5 VOB/B, Ausgabe 2019 (VOB, Beuth Verlag 2019, S. 152 f.)"
+  - "§ 634a Abs. 1 Nr. 2 BGB, Verjährung beim Bauwerk (Rode/Weller: AVA-Handbuch, 11. Aufl. 2025, S. 130; Wirth/Pfisterer/Schellenberg: Privates Baurecht praxisnah, 3. Aufl. 2021, S. 167)"
+  - "Anforderungen an die Mängelrüge, Symptomtheorie (Rode/Weller: AVA-Handbuch, 11. Aufl. 2025, S. 122)"
+  - "Neue Frist nach Abnahme der Mängelbeseitigung (Berner u. a.: Grundlagen der Baubetriebslehre 3, 3. Aufl. 2025, S. 368)"
+  - "Begehung sechs bis zwölf Monate vor Fristablauf (Bauherren-Schutzbund e. V.; Verband Privater Bauherren e. V., abgerufen am 28.09.2026)"
+  - "Wartungsfugen im Nassbereich (Schulz: Bauschäden in Bädern und Nassräumen, 2. Aufl. 2026, S. 270; IVD Industrieverband Dichtstoffe e. V.)"
+  - "Schimmelbefall bewerten und beseitigen (Umweltbundesamt, Häufige Fragen bei Schimmelbefall, abgerufen am 28.09.2026)"
+  - "Holzzerstörende Insekten erkennen (Umweltbundesamt, Hausbockkäfer, abgerufen am 28.09.2026; Stahr/Hinz: Sanierung und Ausbau von Dächern, 2011, S. 44)"
+  - "Stehendes Wasser auf Abdichtungen (Schulz: Architektur der Bauschäden, 4. Aufl. 2020, S. 521)"
+  - "Wartung von Dränanlagen (Weber/Hafkesbrink: Bauwerksabdichtung in der Altbausanierung, 7. Aufl. 2026, S. 470)"
+  - "DIN 18202:2019-07, Toleranzen im Hochbau – Bauwerke"
