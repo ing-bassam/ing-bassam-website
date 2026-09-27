@@ -1,0 +1,221 @@
+titel: Checkliste Bauvertrag
+untertitel: "Vertrag, Baubeschreibung und Zahlungsplan vor der Unterschrift prüfen"
+kurzform: bauvertrag-pruefen-vor-unterschrift
+typ: Checkliste
+stand: 2026-09-27
+dateien: [pdf-ausfuellbar, pdf]
+einleitung: >
+  Mit dieser Checkliste gehen Sie Ihren Bauvertrag Punkt für Punkt durch, bevor Sie
+  unterschreiben. Sie beginnt bei der Vertragsart und den Unterlagen, führt über die
+  Baubeschreibung und den Leistungsumfang zu Terminen, Preis, Sicherheiten und Abnahme.
+  Zu jedem Punkt vermerken Sie, ob er klar geregelt, unklar oder gar nicht geregelt ist.
+  Am Ende zeigt die Auswertung, was Sie vor der Unterschrift klären lassen sollten.
+kopffelder:
+  - Bauvorhaben und Anschrift
+  - Auftragnehmer (Firma und Rechtsform)
+  - Angebots- oder Vertragsdatum
+  - Vertragssumme
+  - Fassung der geprüften Unterlagen
+  - Geprüft von
+  - Datum der Prüfung
+bewertung:
+  stufen:
+    - {kurz: "geregelt", lang: "klar geregelt", beschreibung: "im Vertrag eindeutig, vollständig und nachprüfbar festgelegt"}
+    - {kurz: "unklar", lang: "unklar geregelt", beschreibung: "erwähnt, aber unbestimmt oder auslegungsbedürftig – nachfragen und schriftlich festhalten lassen"}
+    - {kurz: "fehlt", lang: "fehlt oder nachteilig", beschreibung: "nicht geregelt oder einseitig zu Ihren Lasten – vor der Unterschrift klären"}
+    - {kurz: "n. p.", lang: "nicht prüfbar", beschreibung: "die zugehörige Unterlage liegt nicht vor – anfordern"}
+abschnitte:
+  - titel: Vertragsart, Vertragspartner und Vertragsunterlagen
+    notizen: 2
+    punkte:
+      - text: "Vertragsart"
+        auswahl: [Verbraucherbauvertrag, BGB-Bauvertrag, VOB/B-Vertrag, Bauträgervertrag, unbekannt]
+        hinweis: "Woran erkennen: Ein Verbraucherbauvertrag liegt vor, wenn ein Unternehmer für Sie als Privatperson ein neues Gebäude baut oder erheblich umbaut. Beauftragen Sie einzelne Gewerke getrennt, ist es keiner. Der Bauträgervertrag überträgt zusätzlich das Grundstück und wird notariell beurkundet."
+      - text: "Vergabeform"
+        auswahl: [Generalunternehmer, Generalübernehmer, Einzelgewerke, Bauträger, unbekannt]
+        hinweis: "Woran erkennen: Ein Generalunternehmer baut selbst und vergibt Teile weiter, ein Generalübernehmer vergibt alles weiter. Bei Einzelgewerken koordinieren Sie selbst oder über einen Planer."
+      - text: "Vollständige Bezeichnung des Auftragnehmers mit Rechtsform, Anschrift und Registernummer"
+        hinweis: "Geregelt: Firma, Rechtsform, Sitz und Handelsregisternummer stehen im Vertragskopf. Fehlt: nur ein Briefkopf oder ein Markenname ohne Rechtsform – dann wissen Sie nicht, wer haftet."
+      - text: "Vertretungsberechtigung der unterzeichnenden Person"
+        hinweis: "Geregelt: Name und Funktion sind genannt und stimmen mit dem Handelsregister überein. Unklar: eine Unterschrift ohne Namenszusatz."
+      - text: "Textform des Vertrags mit allen Erklärungen und Anlagen"
+        hinweis: "Der Verbraucherbauvertrag bedarf der Textform. Mündliche Zusagen aus dem Verkaufsgespräch sind ohne Aufnahme in den Text kaum durchsetzbar."
+      - text: "Liste aller Vertragsunterlagen im Vertragstext"
+        hinweis: "Geregelt: Baubeschreibung, Pläne, Zahlungsplan und Bedingungen sind mit Datum und Seitenzahl aufgeführt. Fehlt: der Vertrag verweist pauschal auf Anlagen, die niemand benennt."
+      - text: "Rangfolge der Vertragsunterlagen bei Widersprüchen"
+        hinweis: "Widersprüche zwischen Text und Plan werden durch Auslegung aufgelöst; im Zweifel gilt, was genauer beschrieben ist. Eine ausdrückliche Rangfolge erspart diesen Streit."
+      - text: "Aufnahme mündlicher Zusagen aus dem Verkaufsgespräch in den Vertragstext"
+        hinweis: "Notieren Sie vor der Prüfung, was Ihnen zugesagt wurde, und suchen Sie jede Zusage im Text."
+      - text: "Handschriftliche Ergänzungen und Streichungen, von beiden Seiten unterschrieben"
+  - titel: Baubeschreibung – Inhalt und Genauigkeit
+    notizen: 2
+    punkte:
+      - text: "Vorlage der Baubeschreibung rechtzeitig vor Abgabe Ihrer Vertragserklärung"
+        hinweis: "Beim Verbraucherbauvertrag muss die Baubeschreibung vor Ihrer Vertragserklärung vorliegen, damit Sie und eine fachkundige Person sie prüfen können."
+      - text: "Baubeschreibung als Bestandteil des Vertrags"
+        hinweis: "Geregelt: Der Vertrag nennt die Baubeschreibung mit Datum als Anlage. Fehlt: Die Beschreibung stammt aus dem Prospekt und ist im Vertrag nicht erwähnt."
+      - text: "Beschreibung des Gebäudes mit Geschossen, Räumen, Wohnfläche und Maßen"
+        hinweis: "Unklar: Angaben wie „circa“ ohne Bezugsgröße oder eine Wohnfläche ohne genannte Berechnungsgrundlage."
+      - text: "Bauweise der tragenden Bauteile"
+        auswahl: [Mauerwerk, Stahlbeton, Holzbau, Fertigteile, gemischt, unbekannt]
+        hinweis: "Woran erkennen: Die Baubeschreibung nennt Material, Dicke und Festigkeit der Außen- und Innenwände sowie die Deckenart. Die Bauweise bestimmt Schallschutz, Umbaumöglichkeiten und Bauzeit."
+      - text: "Ausbaustandard mit Mengen, Qualitäten und Preisgrenzen für Fliesen, Sanitär, Türen und Böden"
+        hinweis: "Geregelt: Quadratmeter, Stückzahlen und Preisobergrenzen je Gewerk sind genannt. Fehlt: nur Begriffe wie „hochwertig“ oder „marktüblich“ – solche Angaben führen später zu Nachzahlungen."
+      - text: "Heizung und Warmwasserbereitung"
+        auswahl: [Wärmepumpe, Gas, Fernwärme, Holz oder Pellet, offen, unbekannt]
+        hinweis: "Woran erkennen: Die Beschreibung nennt System, Leistung, Speichergröße und Art der Wärmeübergabe. Steht dort nur „Heizungsanlage nach Wahl“, ist die Anlage nicht vereinbart."
+      - text: "Lüftung, Elektroinstallation und Sanitärausstattung nach Art, Anzahl und Lage"
+        hinweis: "Unklar: „Elektroinstallation nach Vorschrift“ ohne Anzahl der Steckdosen, Schalter und Anschlüsse je Raum."
+      - text: "Unbestimmte Formulierungen wie „oder gleichwertig“, „bauseits“ und „nach Wahl des Unternehmers“"
+        hinweis: "Markieren Sie jede solche Stelle. Sie verschiebt die Entscheidung auf später – und damit auf den, der den Vertrag geschrieben hat."
+      - text: "Pläne mit Maßstab, Datum und Planstand als Anlage"
+  - titel: Leistungsumfang – was enthalten ist und was fehlt
+    notizen: 2
+    punkte:
+      - text: "Erdarbeiten, Aushub sowie Abfuhr und Entsorgung des Bodens"
+        hinweis: "Fehlt häufig: die Entsorgung belasteten Bodens. Die Kosten dafür trägt ohne Regelung der Bauherr."
+      - text: "Baugrundverhältnisse, die dem Preis zugrunde liegen, und Bodengutachten"
+        hinweis: "Geregelt: Der Vertrag nennt die angenommene Bodenklasse und den Grundwasserstand und verweist auf ein Gutachten. Fehlt: Der Preis gilt für „normale Verhältnisse“ – jede Abweichung wird zum Nachtrag."
+      - text: "Unterkellerung"
+        auswahl: [Vollkeller, Teilkeller, Bodenplatte, unbekannt]
+        hinweis: "Woran erkennen: Schnitt und Grundriss zeigen es. Ein Keller verlangt eine Abdichtung, die zum Wasserangriff passt."
+      - text: "Abdichtung der erdberührten Bauteile"
+        auswahl: [gegen Bodenfeuchte, gegen drückendes Wasser, wasserundurchlässiger Beton, offen, unbekannt]
+        hinweis: "Woran erkennen: Die Beschreibung nennt den Lastfall und das Verfahren. Unklar: nur das Wort „Kellerabdichtung“ ohne Angabe, gegen welche Art von Wasser abgedichtet wird."
+      - text: "Hausanschlüsse für Wasser, Abwasser, Strom, Wärme und Telekommunikation"
+        hinweis: "Fehlt häufig: die Anschlüsse selbst und die Gebühren der Versorger. Lassen Sie eintragen, wer beantragt, wer zahlt und bis zu welcher Grenze."
+      - text: "Baustrom, Bauwasser, Bauzaun und Zufahrt für die Baustelle"
+      - text: "Gebühren für Baugenehmigung, Vermessung, Prüfstatik und behördliche Nachweise"
+        hinweis: "Diese Kosten fallen sicher an. Fehlen sie im Vertrag, fehlen sie meist auch in Ihrer Finanzierung."
+      - text: "Außenanlagen, Zufahrt, Terrasse, Treppen und Einfriedung"
+      - text: "Bauherrenleistungen, im Vertrag einzeln und vollständig aufgeführt"
+        hinweis: "Geregelt: Jede Leistung, die Sie selbst beibringen müssen, steht mit Umfang und Termin im Vertrag. Fehlt: der Sammelbegriff „bauseits“ ohne Liste."
+      - text: "Eigenleistungen mit Umfang, Termin und Gutschrift getrennt nach Material und Lohn"
+        hinweis: "Unklar: eine Pauschalgutschrift ohne Trennung. Verzögert sich Ihre Eigenleistung, verschiebt sich der Bauablauf – regeln Sie auch das."
+      - text: "Baureinigung und Entsorgung des Bauschutts"
+  - titel: Technische Qualität – was gebaut wird
+    notizen: 2
+    punkte:
+      - text: "Geschuldeter Schallschutz mit Zahlenwerten je Bauteil"
+        hinweis: "Geregelt: Der Vertrag nennt Werte für Wände, Decken und Treppen. Unklar: der Satz „Schallschutz nach DIN 4109“ – die Norm enthält Mindestanforderungen, die nach der Rechtsprechung im Regelfall nicht genügen."
+      - text: "Energetischer Standard des Gebäudes"
+        auswahl: [gesetzlicher Mindeststandard, Effizienzhaus-Stufe, Förderstandard, unbekannt]
+        hinweis: "Woran erkennen: Der Vertrag nennt die Stufe und wer den Nachweis erbringt. Fördermittel setzen einen bestätigten Standard voraus; ohne Vereinbarung schulden Sie und der Unternehmer nur den gesetzlichen Mindeststandard."
+      - text: "Luftdichtheit der Gebäudehülle und Messung nach Fertigstellung"
+        hinweis: "Geregelt: Die Messung ist als Leistung vereinbart, mit Zeitpunkt und Übergabe des Protokolls."
+      - text: "Sommerlicher Wärmeschutz und Verschattung"
+      - text: "Anerkannte Regeln der Technik als Mindeststandard, ohne Abweichung nach unten"
+        hinweis: "Ohne ausdrückliche Vereinbarung schuldet der Unternehmer die anerkannten Regeln der Technik. Klauseln, die davon abweichen, senken den Standard – lesen Sie solche Stellen besonders genau."
+      - text: "Maßtoleranzen und Oberflächenqualität von Wänden, Decken und Böden"
+        hinweis: "Unklar: „übliche Toleranzen“. Geregelt: der Verweis auf eine benannte Regel für Ebenheit und Oberflächengüte."
+      - text: "Nachweise und Prüfungen während der Bauzeit, etwa Dichtheitsprüfung der Leitungen, Feuchtemessung des Estrichs, Einregulierung der Heizung"
+        hinweis: "Geregelt: Prüfung, Zeitpunkt und Übergabe des Protokolls stehen im Vertrag. Diese Nachweise sind später Ihr Beweismaterial."
+  - titel: Termine, Bauzeit und Verzug
+    notizen: 2
+    punkte:
+      - text: "Verbindlicher Fertigstellungszeitpunkt oder verbindliche Dauer der Bauausführung"
+        hinweis: "Beim Verbraucherbauvertrag muss der Vertrag den Fertigstellungszeitpunkt verbindlich nennen; steht der Baubeginn noch nicht fest, mindestens die Dauer der Ausführung. Unklar: „voraussichtlich“ oder „nach Baufortschritt“."
+      - text: "Baubeginn und die Bedingungen, von denen er abhängt"
+        hinweis: "Geregelt: Baugenehmigung, Finanzierungsbestätigung und Freigabe der Pläne sind als Voraussetzung benannt, mit Frist nach ihrem Eintritt."
+      - text: "Zwischenfristen für Rohbau, Dach, Fenster und Ausbau"
+      - text: "Vertragsstrafe bei Verzug mit Höhe je Werktag und Obergrenze"
+        hinweis: "Geregelt: Die Strafe setzt Verschulden voraus, ist je Werktag bemessen und nach oben begrenzt. Fehlt: keine Strafe – dann müssen Sie jeden Verzugsschaden einzeln nachweisen."
+      - text: "Behandlung einvernehmlich verschobener Termine"
+        hinweis: "Verschieben beide Seiten den Termin, entfällt die Vertragsstrafe, wenn nichts anderes vereinbart ist. Eine Klausel, die den neuen Termin ausdrücklich strafbewehrt hält, schließt diese Lücke."
+      - text: "Regelung zu Behinderungen, Fristverlängerung und deren Anzeige"
+  - titel: Preis und Zahlungen
+    notizen: 2
+    punkte:
+      - text: "Gesamtpreis mit Umsatzsteuer und Bindefrist des Angebots"
+        hinweis: "Fehlt: eine Bindefrist. Ohne sie steht der Preis nur so lange, wie der Anbieter will – Zeitdruck ist dann Verhandlungsmittel."
+      - text: "Festpreis mit Geltungsdauer und etwaige Preisanpassungsklauseln"
+        hinweis: "Unklar: eine Festpreisgarantie „bis Baubeginn“ ohne Datum. Nachteilig: Klauseln, die Material- oder Lohnsteigerungen ohne Obergrenze weitergeben."
+      - text: "Zahlungsplan, gekoppelt an tatsächlich fertiggestellte Leistungen"
+        hinweis: "Geregelt: Jede Rate benennt die Leistung, die vorher fertig sein muss. Nachteilig: Raten nach Kalenderdaten oder nach Baufortschritt „nach Einschätzung des Unternehmers“."
+      - text: "Verhältnis jeder Rate zum Wert der zugehörigen Leistung"
+        hinweis: "Nachteilig: Zahlungspläne, nach denen bis zur Rohbaufertigstellung der größte Teil der Summe fällig ist, obwohl der Rohbau nur etwa die Hälfte der Gesamtleistung ausmacht."
+      - text: "Vorauszahlungen und ihre Absicherung durch eine Bürgschaft"
+        hinweis: "Einer Vorauszahlung steht noch keine Leistung gegenüber. Ohne Bürgschaft tragen Sie das Risiko, dass sie nicht abgearbeitet wird."
+      - text: "Gesamtbetrag der Abschlagszahlungen bis zur Abnahme"
+        hinweis: "Beim Verbraucherbauvertrag dürfen die Abschlagszahlungen zusammen 90 Prozent der vereinbarten Gesamtvergütung einschließlich Nachträge nicht übersteigen. Rechnen Sie den Zahlungsplan zusammen und prüfen Sie das."
+      - text: "Prüffristen und Zahlungsfristen für Abschlags- und Schlussrechnungen"
+      - text: "Einbehalt bei Mängeln und Klauseln, die die Aufrechnung ausschließen"
+      - text: "Preisbildung für Sonderwünsche vor deren Ausführung"
+        hinweis: "Geregelt: Der Unternehmer legt vor der Ausführung ein schriftliches Angebot vor. Fehlt: Abrechnung „nach Aufwand“ nach Fertigstellung."
+  - titel: Sicherheiten und Insolvenzrisiko
+    notizen: 2
+    punkte:
+      - text: "Sicherheit von fünf Prozent der Gesamtvergütung bei der ersten Abschlagszahlung"
+        hinweis: "Beim Verbraucherbauvertrag haben Sie darauf einen Anspruch; die Sicherheit dient der rechtzeitigen Herstellung ohne wesentliche Mängel. Fehlt: Der Vertrag erwähnt sie nicht oder verlangt einen Verzicht."
+      - text: "Art der Sicherheit"
+        auswahl: [Bankbürgschaft, Versicherungsbürgschaft, Einbehalt, offen, unbekannt]
+        hinweis: "Woran erkennen: Der Vertrag nennt Bürgen, Text und Laufzeit der Bürgschaft. Eine Bürgschaft eines verbundenen Unternehmens hilft bei einer Insolvenz der Gruppe wenig."
+      - text: "Rückgabe der Sicherheit und die Bedingungen dafür"
+      - text: "Sicherheiten, die Sie selbst stellen sollen, und ihre Obergrenze"
+        hinweis: "Nachteilig: Verlangt der Unternehmer neben Abschlagszahlungen eine Sicherheit, die die nächste Rate oder 20 Prozent der Vergütung übersteigt, ist die Vereinbarung unwirksam."
+      - text: "Gewährleistungssicherheit für die Zeit nach der Abnahme"
+        hinweis: "Das Gesetz sieht dafür keinen Anspruch vor; sie entsteht nur durch Vereinbarung. Geregelt: Höhe, Form und Laufzeit stehen im Vertrag."
+      - text: "Kündigungsrecht bei Zahlungseinstellung oder Insolvenz des Unternehmers"
+        hinweis: "Beim Vertrag nach dem Bürgerlichen Gesetzbuch müssen Sie vor der Kündigung in der Regel eine Frist zur Vertragserfüllung setzen. Eine klare Regelung erspart Zeitverlust im Ernstfall."
+      - text: "Benennung der Nachunternehmer und Zustimmung zu ihrem Einsatz"
+  - titel: Änderungen und Nachträge
+    notizen: 2
+    punkte:
+      - text: "Verfahren für Änderungswünsche und die Frist bis zur Einigung"
+        hinweis: "Nach dem Gesetz ist das Änderungsrecht mehrstufig: Sie äußern den Wunsch, beide Seiten verhandeln die Vergütung, und erst nach 30 Tagen ohne Einigung können Sie anordnen. Planen Sie diese Zeit ein."
+      - text: "Grundlage der Preisermittlung für Nachträge"
+        hinweis: "Geregelt: Der Vertrag nennt die Kalkulationsgrundlage, etwa Einheitspreise oder Stundensätze mit Nachweis. Fehlt: Der Preis wird erst nach der Ausführung ermittelt."
+      - text: "Textform für Nachträge vor Beginn der Ausführung"
+      - text: "Auswirkung von Änderungen auf Termine und Vertragsstrafe"
+        hinweis: "Änderungen verschieben Termine. Ohne Regelung kann damit auch die Vertragsstrafe entfallen."
+      - text: "Änderungen durch den Unternehmer, etwa der Austausch gegen gleichwertige Baustoffe"
+        hinweis: "Nachteilig: eine Klausel, die den Austausch ohne Ihre Zustimmung erlaubt. Ist ein Fabrikat vereinbart, ist es geschuldet."
+  - titel: Abnahme, Mängelrechte und Unterlagen
+    notizen: 2
+    punkte:
+      - text: "Förmliche Abnahme mit gemeinsamer Begehung und Protokoll"
+        hinweis: "Geregelt: Der Vertrag sieht einen Termin, ein Protokoll und Ihre Möglichkeit vor, eine fachkundige Person mitzubringen."
+      - text: "Folgen einer nicht erklärten Abnahme und der Hinweis darauf in Textform"
+        hinweis: "Setzt der Unternehmer nach Fertigstellung eine angemessene Frist und verweigern Sie die Abnahme nicht unter Angabe mindestens eines Mangels, gilt das Werk als abgenommen. Als Verbraucher müssen Sie darauf in Textform hingewiesen werden."
+      - text: "Klauseln, die Einzug, Nutzung oder Zahlung als Abnahme behandeln"
+        hinweis: "Nachteilig: Mit der Abnahme gehen Gefahr und Beweislast auf Sie über und die Verjährung beginnt. Solche Klauseln nehmen Ihnen den Abnahmetermin."
+      - text: "Zustandsfeststellung, wenn Sie die Abnahme wegen Mängeln verweigern"
+        hinweis: "Bleiben Sie einem Termin zur Zustandsfeststellung fern, kann der Unternehmer sie einseitig vornehmen; offenkundige Mängel, die dort nicht stehen, gelten dann als später von Ihnen verursacht."
+      - text: "Verjährungsfrist für Mängelansprüche und ihr Beginn"
+        hinweis: "Bei Bauwerken verjähren die Ansprüche nach dem Bürgerlichen Gesetzbuch in fünf Jahren ab der Abnahme. Nachteilig: jede Klausel, die diese Frist verkürzt."
+      - text: "Fristen für die Mängelbeseitigung und Ihre Rechte bei Verweigerung"
+      - text: "Herausgabe der Planungsunterlagen und Nachweise für Behörden und Kreditgeber"
+        hinweis: "Beim Verbraucherbauvertrag hat der Unternehmer die Unterlagen zu erstellen und herauszugeben, mit denen Sie gegenüber Behörden die Einhaltung öffentlich-rechtlicher Vorschriften nachweisen können."
+      - text: "Übergabe von Bestandsunterlagen, Bedienungsanleitungen und Energieausweis"
+  - titel: Unterlagen und letzte Schritte vor der Unterschrift
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: "Vollständiger Vertragstext mit allen Anlagen, durchgehend nummeriert"
+      - text: "Baubeschreibung mit Datum und Fassung"
+      - text: "Pläne mit Planstand, die zum Vertrag gehören"
+      - text: "Bodengutachten oder eine schriftliche Regelung, wer es beauftragt und bezahlt"
+      - text: "Nachweis der Bauleistungsversicherung und der Bauherrenhaftpflicht"
+      - text: "Widerrufsbelehrung mit Muster-Widerrufsformular"
+        hinweis: "Beim nicht notariell beurkundeten Verbraucherbauvertrag können Sie den Vertrag widerrufen; die Frist beträgt bei ordnungsgemäßer Belehrung 14 Tage ab Vertragsschluss."
+      - text: "Bei einem Bauträgervertrag: Entwurf der notariellen Urkunde rechtzeitig vor dem Termin"
+      - text: "Kostenrahmen mit allen Baunebenkosten und Finanzierungsbestätigung"
+      - text: "Termin für die fachliche Prüfung des Vertrags, vor der Unterschrift"
+auswertung:
+  - "Ein Vermerk „fehlt“ bei Baubeschreibung, Fertigstellungstermin, Zahlungsplan oder Sicherheiten: vor der Unterschrift klären. Diese vier Punkte bestimmen Kosten, Bauzeit und Risiko."
+  - "Mehr als fünf Vermerke „unklar“: den Vertrag mit allen Anlagen fachlich prüfen lassen, bevor Sie unterschreiben."
+  - "Vermerke „n. p.“ im letzten Abschnitt: Der Vertrag ist noch nicht prüfbar. Fordern Sie die Unterlagen an und verlängern Sie die Bindefrist des Angebots."
+  - "Klauseln zu Abnahme, Verjährung, Kündigung oder Sicherheiten mit dem Vermerk „fehlt“: von einem Rechtsanwalt bewerten lassen."
+  - "Zeitdruck des Anbieters ist kein Grund zur Unterschrift. Ein Vertrag, den Sie nicht in Ruhe prüfen konnten, bleibt ungeprüft."
+hinweise:
+  - "Prüfen Sie immer die Fassung, die Sie unterschreiben sollen, und notieren Sie deren Datum im Kopf der Liste."
+  - "Tragen Sie zu jedem Punkt mit dem Vermerk „unklar“ oder „fehlt“ Ihre Frage in die Notizzeilen ein und lassen Sie die Antwort schriftlich in den Vertrag aufnehmen."
+  - "Diese Liste bewertet den Vertragstext, nicht die Bauausführung. Für die Bauzeit ist eine baubegleitende Kontrolle das passende Mittel."
+  - "Ob und wie Ansprüche bestehen, beurteilt ein Rechtsanwalt. Diese Liste ersetzt keine Rechtsberatung."
+quellen:
+  - "§§ 650i bis 650n BGB (Verbraucherbauvertrag), § 650u BGB (Bauträgervertrag), Art. 249 EGBGB (Baubeschreibung)"
+  - "§ 632a BGB (Abschlagszahlungen), § 640 Abs. 2 BGB (Abnahme), § 650g BGB (Zustandsfeststellung), § 634a BGB (Verjährung), § 650b BGB (Änderungen)"
+  - "Wirth/Pfisterer/Schellenberg: Privates Baurecht praxisnah, 3. Aufl. 2021, S. 16 bis 18, 33, 62, 75 bis 76, 162, 188"
+  - "Weber/Hafkesbrink (Hrsg.): Bauwerksabdichtung in der Altbausanierung, 7. Aufl. 2026, S. 657"
+  - "DIN 4109-1:2018-01, Schallschutz im Hochbau, Teil 1: Mindestanforderungen; Schmidt/Windhausen: Lohmeyer Praktische Bauphysik, 10. Aufl. 2024, S. 480"
+  - "Bauherren-Schutzbund und Verband Privater Bauherren, Hinweise für Verbraucherbauherren, abgerufen am 2026-09-27"
