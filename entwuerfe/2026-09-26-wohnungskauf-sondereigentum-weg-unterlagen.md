@@ -14,7 +14,7 @@ kurzform: wohnungskauf-sondereigentum-weg-unterlagen
 dateien: vorlagen/wohnungskauf-sondereigentum-weg-unterlagen/wohnungskauf-sondereigentum-weg-unterlagen.pdf, vorlagen/wohnungskauf-sondereigentum-weg-unterlagen/wohnungskauf-sondereigentum-weg-unterlagen-ausfuellbar.pdf
 erstellt: 2026-09-26
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-8100-9c2c-d869d2578308
 notion_url: https://app.notion.com/p/Checkliste-Wohnungskauf-Sondereigentum-Gemeinschaftseigentum-und-WEG-Unterlagen-3e2d96ad00b481009c2cd869d2578308
