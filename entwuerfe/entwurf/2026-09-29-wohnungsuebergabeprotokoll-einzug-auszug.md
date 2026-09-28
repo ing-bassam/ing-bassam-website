@@ -35,7 +35,7 @@ Der Termin ist auf eine halbe Stunde angesetzt. Ein halbes Jahr später streiten
 
 ## So gehen Sie das Protokoll durch
 
-Nehmen Sie sich für eine Wohnungsübergabe mindestens eine Stunde Zeit. Legen Sie den Termin auf den Tag, nicht auf den Abend. Bei Kunstlicht bleiben Risse und Flecken leicht unentdeckt.[^1] Nehmen Sie eine Taschenlampe mit. Damit sehen Sie Flächen im Streiflicht, also im flach einfallenden Licht.
+Nehmen Sie sich für eine Wohnungsübergabe mindestens eine Stunde Zeit. Legen Sie den Termin auf den Tag, nicht auf den Abend. Nehmen Sie eine Taschenlampe mit. Damit sehen Sie Flächen im Streiflicht, also im flach einfallenden Licht.
 
 Das Protokoll hakt nichts ab, sondern bewertet in vier Stufen. „Ohne Befund“ heißt: nichts zu beanstanden. „Gebrauchsspur“ heißt: oberflächlich, gleichmäßig, voll funktionsfähig. „Schaden oder Fehlstelle“ heißt: beschädigt, unvollständig oder ohne Funktion. „Nicht prüfbar“ heißt: verdeckt, verstellt oder außer Betrieb.
 
@@ -59,7 +59,7 @@ Zählen Sie die Schlüssel getrennt nach Schließung. Haustür, Wohnungstür, Ke
 
 Nicht jede Spur in einer Mietwohnung ist ein Schaden. Der Vermieter muss die Abnutzung hinnehmen, die durch vertragsgemäßen Gebrauch entsteht.[^6] Genau dafür hat die Vorlage die Stufe „Gebrauchsspur“. Sie trennt gleichmäßigen Verschleiß von einer Beschädigung.
 
-Bei Rissen zählt das Erscheinungsbild. Feine Haarrisse in begrenztem Umfang mindern den technischen Wert eines Putzes nicht.[^7] Anders sieht es aus, wenn ein Riss einen Versatz zeigt. Dann liegen die beiden Rissflanken nicht mehr in einer Ebene. Auch Risse, die über Wand und Decke durchlaufen, gehören in fachkundige Hände.
+Bei Rissen zählt das Erscheinungsbild. Haarrisse in begrenztem Umfang mindern den technischen Wert eines Putzes nicht.[^7] Anders sieht es aus, wenn ein Riss einen Versatz zeigt. Dann liegen die beiden Rissflanken nicht mehr in einer Ebene. Auch Risse, die über Wand und Decke durchlaufen, gehören in fachkundige Hände.
 
 Bei Böden sind Laufspuren im Gehbereich üblich. Tiefe Kratzer bis in den Untergrund sind es nicht. Fahren Sie mit der Hand über die Stöße des Bodenbelags. Aufgewölbte Kanten und dunkle Ränder deuten auf Feuchte im Bodenaufbau hin. Notieren Sie außerdem die Bodenart je Raum, denn Parkett, Laminat und Fliesen altern völlig unterschiedlich.
 
@@ -71,11 +71,11 @@ Dübellöcher zählen Sie je Wand. Verschlossene Löcher erkennen Sie am Farbunt
 
 Öffnen, kippen und verriegeln Sie jeden Fensterflügel. Achten Sie darauf, ob die Dichtung im Rahmen anliegt. Beschlägt eine Scheibe zwischen den Gläsern, hilft kein Putzen. Bei Mehrscheiben-Isolierglas hält der Randverbund das Gas im Zwischenraum. Diese Trennung von der Umgebung ist die Voraussetzung dafür, dass kein Tauwasser entsteht.[^8] Ist der Randverbund undicht, muss die Scheibe getauscht werden.
 
-Im Bad prüfen Sie Fugen und Fliesen. Silikonfugen haben eine begrenzte Lebensdauer. Sie gelten deshalb als Wartungsfugen und werden regelmäßig kontrolliert.[^9] Klopfen Sie Fliesen mit dem Fingerknöchel ab. Ein dumpfer Klang zeigt eine Hohlstelle an, also einen fehlenden Verbund zum Untergrund.[^1]
+Im Bad prüfen Sie Fugen und Fliesen. Silikonfugen haben eine begrenzte Lebensdauer. Sie gelten deshalb als Wartungsfugen und werden regelmäßig kontrolliert.[^9] Klopfen Sie Fliesen mit dem Fingerknöchel ab. Ein geübtes Ohr nimmt dabei Hohlstellen wahr.[^1]
 
-Bei der Technik notieren Sie zuerst, was verbaut ist. Sehr wenige Steckdosen, kein Fehlerstromschutzschalter und Leitungen teilweise auf Putz kennzeichnen einen alten Ausstattungsstand.[^10] Öffnen Sie den Verteiler nicht. Prüfen und Messen der Anlage bleibt einer Elektrofachkraft vorbehalten. Halten Sie außerdem Heizungsart und Warmwasserbereitung fest, denn beides bestimmt später die Nebenkosten.
+Bei der Technik notieren Sie zuerst, was verbaut ist. Sehr wenige Steckdosen, kein Fehlerstromschutzschalter und Leitungen teilweise auf Putz kennzeichnen die einfachste Standardstufe der Ausstattung.[^10] Öffnen Sie den Verteiler nicht. Prüfen und Messen der Anlage bleibt einer Elektrofachkraft vorbehalten. Halten Sie außerdem Heizungsart und Warmwasserbereitung fest, denn beides bestimmt später die Nebenkosten.
 
-## Bei Feuchte und Schimmel endet die eigene Prüfung
+## Bei Feuchte und Schimmel entscheidet die Größe des Befalls
 
 Schimmel ist der Punkt, an dem die Stufen wirklich wichtig werden. Als kleiner Befall gilt eine Fläche unter 0,5 Quadratmetern, die nur oberflächlich betroffen ist.[^11] Einen solchen Befall können Nutzer in der Regel selbst beseitigen.[^11] Das Umweltbundesamt nennt dieselbe Grenze.[^12]
 
@@ -107,7 +107,7 @@ Sinnvoll ist das vor allem bei größeren Beträgen. Eine Hausverwaltung mit vie
 
 **Ist ein Wohnungsübergabeprotokoll Pflicht?**
 
-Diese Vorlage beantwortet die Rechtsfrage nicht. In der Praxis empfehlen sowohl Mieter- als auch Vermieterverbände ein Protokoll bei jedem Wechsel.[^3] Ohne Protokoll fehlt beiden Seiten der Nachweis über den Zustand am Übergabetag.[^2] Wer verbindlich wissen will, was in seinem Fall gilt, fragt einen Rechtsanwalt.
+Diese Vorlage beantwortet die Rechtsfrage nicht. In der Praxis empfehlen sowohl Mieter- als auch Vermieterverbände ein Protokoll bei jedem Wechsel.[^2][^3] Wer verbindlich wissen will, was in seinem Fall gilt, fragt einen Rechtsanwalt.
 
 **Was mache ich, wenn ich einen Mangel erst nach der Übergabe entdecke?**
 

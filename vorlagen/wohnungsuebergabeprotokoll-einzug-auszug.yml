@@ -43,7 +43,7 @@ abschnitte:
       - text: Alle Vertragsparteien oder bevollmächtigte Vertreter sind anwesend
         hinweis: "Bei mehreren Mietern eines Vertrags sollten alle unterschreiben oder eine schriftliche Vollmacht vorliegen."
       - text: Fotos sind fortlaufend nummeriert, mit Datum, gleichem Abstand und gleichem Blickwinkel aufgenommen
-        hinweis: "Fotos gehören zur Besichtigung: zur gleichen Zeit, im gleichen Abstand und Winkel zum Bauteil. Notieren Sie die Lichtverhältnisse, denn bei Kunstlicht bleiben Risse und Flecken leicht unentdeckt."
+        hinweis: "Fotos gehören zur Besichtigung: zur gleichen Zeit, im gleichen Abstand und Winkel zum Bauteil. Notieren Sie dazu die Lichtverhältnisse, also Witterung oder Tageszeit."
   - titel: Zähler, Verbrauch und Versorgung
     bewertung: false
     notizen: 2
@@ -125,7 +125,7 @@ abschnitte:
     punkte:
       - text: Art der Absicherung im Verteiler
         auswahl: [Schmelzsicherungen, Leitungsschutzschalter, gemischt, unbekannt]
-        hinweis: "Schmelzsicherungen sind runde Keramikeinsätze zum Schrauben, Leitungsschutzschalter kleine Kippschalter. Sehr wenige Steckdosen, kein Fehlerstromschutzschalter und Leitungen teilweise auf Putz kennzeichnen einen alten Ausstattungsstand."
+        hinweis: "Schmelzsicherungen sind runde Keramikeinsätze zum Schrauben, Leitungsschutzschalter kleine Kippschalter. Sehr wenige Steckdosen, kein Fehlerstromschutzschalter und Leitungen teilweise auf Putz kennzeichnen die einfachste Standardstufe der Ausstattung."
       - text: "Steckdosen, Schalter und Lichtauslässe: Anzahl, Sitz und Abdeckungen"
         hinweis: "Woran erkennen: Nur ansehen, nichts öffnen. Gering: vergilbte oder verkratzte Abdeckungen. Deutlich: lose oder fehlende Abdeckung, angeschmolzene Stellen, lockere Dose. Prüfen und Messen der Anlage bleibt einer Elektrofachkraft vorbehalten."
       - text: Heizungsart
