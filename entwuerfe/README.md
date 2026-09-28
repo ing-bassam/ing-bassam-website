@@ -7,11 +7,13 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (1)
+## 🟡 Entwurf (3)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
 | 27.09.2026 | [Mischkalkulation im Vergaberecht: wann ist sie zulässig?](entwurf/2026-09-27-mischkalkulation-vergaberecht-zulaessigkeit.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/mischkalkulation-vergaberecht-zulaessigkeit/) |
+| 27.09.2026 | [Mehrkosten ankündigen nach § 2 Abs. 6 VOB/B: Musterschreiben](entwurf/2026-09-27-mehrkostenankuendigung-vob-b.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/mehrkostenankuendigung-vob-b/) |
+| 27.09.2026 | [Weiterbau nur gegen mehr Geld: Kammergericht zur Kündigung](entwurf/2026-09-27-erfuellungsverweigerung-bauvertrag-kuendigung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/erfuellungsverweigerung-bauvertrag-kuendigung/) |
 
 ## 🟢 Veröffentlicht (29)
 
