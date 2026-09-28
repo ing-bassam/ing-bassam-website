@@ -33,7 +33,8 @@ abschnitte:
         auswahl: [Privatgutachten, selbständiges Beweisverfahren, Gerichtsgutachten, Schiedsgutachten, Versicherungsgutachten, unbekannt]
         hinweis: >-
           Die Art bestimmt alles Weitere. Beim Gerichtsgutachten und beim
-          selbständigen Beweisverfahren gibt ein Beweisbeschluss die Fragen vor.
+          selbständigen Beweisverfahren gibt in der Regel ein Beweisbeschluss
+          die Fragen vor.
           Beim Privatgutachten vereinbaren Sie den Auftrag selbst.
       - text: Vertragsgrundlage des Vorhabens
         auswahl: [BGB-Bauvertrag, VOB/B vereinbart, Kaufvertrag, Mietvertrag, kein schriftlicher Vertrag, unbekannt]
@@ -191,9 +192,9 @@ abschnitte:
           Mieter rechtzeitig und schriftlich an.
       - text: Schlüssel, Zugangscodes und eine ortskundige Begleitperson sind organisiert
         hinweis: >-
-          Eine Person, die das Gebäude kennt, ersetzt oft eine halbe Stunde
-          Suchen. Bei vermieteten Einheiten stimmen Sie den Termin rechtzeitig mit
-          den Nutzern ab.
+          Eine Person, die das Gebäude kennt, ersetzt oft langes Suchen. Bei
+          vermieteten Einheiten stimmen Sie den Termin rechtzeitig mit den
+          Nutzern ab.
       - text: Betroffene Flächen sind freigeräumt und zugänglich
         hinweis: >-
           Schränke, Teppiche, Verkleidungen und Lagergut vor der betroffenen Wand
@@ -265,8 +266,8 @@ abschnitte:
         ja_nein: true
         hinweis: >-
           Im Versicherungsgutachten werden Anspruchsteller, Versicherungsnehmer
-          sowie Schadens- und Versicherungsscheinnummer auf der ersten Seite
-          angegeben.
+          sowie Schadens- und Versicherungsscheinnummer auf dem Deckblatt oder
+          als Erstinformation angegeben.
       - text: Weisungen des Versicherers sind eingeholt und schriftlich festgehalten
         ja_nein: true
       - text: Es ist geklärt, wer Anspruchsteller und wer Versicherungsnehmer ist
@@ -295,7 +296,7 @@ abschnitte:
           darauf aufbaut.
 auswertung:
   - "Ein Punkt der Abschnitte 1 bis 3 mit fehlt: vor dem Termin bei Bauunternehmen, Planer, Verwaltung oder Bauaufsichtsbehörde anfordern."
-  - "Mehr als drei Punkte mit fehlt: prüfen Sie, ob der Termin verschoben werden sollte – ein zweiter Ortstermin kostet mehr als eine Woche Wartezeit."
+  - "Mehr als drei Punkte mit fehlt: prüfen Sie, ob der Termin verschoben werden sollte – ein zweiter Ortstermin kostet zusätzliche Zeit."
   - "Ist der Zugang zu betroffenen Räumen oder Nachbarobjekten nicht gesichert, sagen Sie das vor dem Termin an – sonst bleiben Feststellungen offen."
   - "Sind Bauteilöffnungen zu erwarten, klären Sie Zustimmung, Wiederherstellung und Kostentragung schriftlich, bevor der Termin beginnt."
   - "Bei einem Gerichtsgutachten oder einem selbständigen Beweisverfahren geht die rechtzeitige Ladung der Gegenseite allem anderen vor."

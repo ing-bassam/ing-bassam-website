@@ -20,7 +20,7 @@ notion_id: 3e2d96ad-00b4-811c-85d8-f50be7ce2cbe
 notion_url: https://app.notion.com/p/Checkliste-Vorbereitung-Gutachter-Ortstermin-3e2d96ad00b4811c85d8f50be7ce2cbe
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1640
+wortzahl: 1688
 lesezeit: 9 Minuten
 fussnoten: 18
 quellen_geprueft: 1
@@ -55,9 +55,9 @@ Ein Punkt verdient eigene Aufmerksamkeit: die Fristen. Bei Bauleistungen beträg
 
 Was Sie selbst festgehalten haben, bestimmt, wie viel am Terminstag noch geklärt werden kann. Die Nachweisbarkeit eines Baumangels wird durch eine Mängeldokumentation gesichert, die entweder eine sachverständige Person erstellt oder der Bauherr durch Fotos vornimmt.[^5] Fotografieren Sie jede Schadensstelle zweimal: einmal als Übersicht, damit der Ort erkennbar bleibt, und einmal als Nahaufnahme. Legen Sie einen Zollstock ins Bild. So bleibt die Größe später nachvollziehbar.
 
-Ein Bauschaden bleibt selten gleich. Zwischen dem Auftreten und dem Ortstermin vergehen oft Monate, und gerade Rissbilder verändern sich in dieser Zeit erkennbar.[^6] Fotografieren Sie dieselbe Stelle deshalb in gleichen Abständen und aus derselben Position. Notieren Sie das Datum. Diese Verlaufsaufnahmen sind häufig das Einzige, was über den Zustand vor Monaten noch Auskunft gibt.
+Ein Bauschaden bleibt selten gleich. Zwischen der Entstehung und dem Ortstermin können mehrere Monate vergehen, und gerade Rissbilder verändern sich in dieser Zeit erkennbar.[^6] Fotografieren Sie dieselbe Stelle deshalb in gleichen Abständen und aus derselben Position. Notieren Sie das Datum. Diese Verlaufsaufnahmen sind häufig das Einzige, was über den Zustand vor Monaten noch Auskunft gibt.
 
-Zur Dokumentation gehört auch eine schriftliche Zeitleiste. Schreiben Sie auf, wann Sie was bemerkt haben und was seither geschehen ist. Eine Seite genügt. Tragen Sie außerdem alle Schadensstellen nummeriert in einen Grundriss oder eine Skizze ein und verwenden Sie dieselben Nummern für Fotos und Notizen. Aus der Fachpresse für Sachverständige stammt der Rat, sich vor dem Termin noch einmal in das Vorhaben hineinzudenken und die Baudokumentation zur Hand zu nehmen; gute Unterlagen können helfen, teure Bauteilöffnungen zu vermeiden.[^7]
+Zur Dokumentation gehört auch eine schriftliche Zeitleiste. Schreiben Sie auf, wann Sie was bemerkt haben und was seither geschehen ist. Eine Seite genügt. Tragen Sie außerdem alle Schadensstellen nummeriert in einen Grundriss oder eine Skizze ein und verwenden Sie dieselben Nummern für Fotos und Notizen. Aus einem Fachbeitrag zu Vor-Ort-Terminen stammt der Rat, sich vor dem Termin noch einmal in das Vorhaben hineinzudenken und die Baudokumentation zur Hand zu nehmen; gute Unterlagen können helfen, Bauteilöffnungen zu vermeiden.[^7]
 
 ## Zugang, Licht und Zeit
 
@@ -65,7 +65,7 @@ An diesen drei Punkten scheitern Ortstermine am häufigsten, und alle drei lasse
 
 Betroffene Nachbarwohnungen und Nachbargrundstücke brauchen mehr Vorlauf als der eigene Keller. Sprechen Sie Nachbarn, Mieter und Nutzer rechtzeitig und schriftlich an. Bei Wohnungseigentum stimmen Sie den Termin zusätzlich mit der Verwaltung ab. Ohne Zutritt bleibt die betreffende Frage offen, und es braucht einen zweiten Termin.
 
-Licht und Witterung sind kein Nebenaspekt: In einer Beweissicherung wird festgehalten, welche Witterungs- und Lichtverhältnisse am Tag der Dokumentation geherrscht haben.[^8] Ein dunkler Kellerraum ohne Strom lässt sich nicht beurteilen. Räumen Sie Schränke, Teppiche und Lagergut vor den betroffenen Flächen weg. Planen Sie eine Stunde mehr ein, als Sie für nötig halten. Und fragen Sie vorher nach, ob Geräte, ein Gerüst oder eine Hubbühne gebraucht werden; solche Einrichtungen werden in der Einladung zum Ortstermin üblicherweise angekündigt.[^9]
+Licht und Witterung sind kein Nebenaspekt: In einer Beweissicherung wird festgehalten, welche Witterungs- und Lichtverhältnisse am Tag der Dokumentation geherrscht haben.[^8] Ein dunkler Kellerraum ohne Strom lässt sich nicht beurteilen. Räumen Sie Schränke, Teppiche und Lagergut vor den betroffenen Flächen weg. Planen Sie eine Stunde mehr ein, als Sie für nötig halten. Und fragen Sie vorher nach, ob Geräte, Gerüste oder sonstige Einrichtungen gebraucht werden; Angaben dazu gehören je nach Auftrag in die Einladung zum Ortstermin.[^9]
 
 ## Was vor dem Termin unterbleiben muss
 
@@ -73,11 +73,11 @@ Der häufigste Vorbereitungsfehler ist kein Versäumnis, sondern zu viel Eifer. 
 
 Öffnen Sie auch keine Bauteile auf eigene Faust. Eine Bauteilöffnung braucht die Einwilligung der Eigentümerseite; selbst ein Gericht darf eine sachverständige Person nicht ermächtigen, Wohn- und Geschäftsräume ohne Einverständnis zu betreten.[^11] Vor der Öffnung ist zu klären, wie das Bauteil wieder verschlossen wird und wer die Kosten dafür trägt.[^12] Klären Sie diese beiden Fragen schriftlich, bevor der Termin beginnt. Steigen Sie nicht selbst auf Dächer oder Gerüste und arbeiten Sie nicht an Elektro-, Gas- oder Trinkwasserinstallationen.
 
-Bei einem versicherten Schaden gilt eine andere Reihenfolge. Die Begrenzung des Schadens geht vor, und die Weisungen des Versicherers sind einzuholen. Dokumentieren Sie die Sofortmaßnahmen vor Beginn und währenddessen, statt sie zu unterlassen. Halten Sie außerdem fest, wer Anspruchsteller und wer Versicherungsnehmer ist, dazu Schadennummer und Versicherungsscheinnummer; diese Angaben stehen in einem Versicherungsgutachten auf der ersten Seite.[^13] Geht es um Schimmel, ist die Feuchteursache Teil der Untersuchung; der Leitfaden des Umweltbundesamtes beschreibt das Vorgehen dazu ausführlich.[^14]
+Bei einem versicherten Schaden gilt eine andere Reihenfolge. Die Begrenzung des Schadens geht vor, und die Weisungen des Versicherers sind einzuholen. Dokumentieren Sie die Sofortmaßnahmen vor Beginn und währenddessen, statt sie zu unterlassen. Halten Sie außerdem fest, wer Anspruchsteller und wer Versicherungsnehmer ist, dazu Schadennummer und Versicherungsscheinnummer; diese Angaben gehören in einem Versicherungsgutachten auf das Deckblatt oder in die Erstinformation.[^13] Geht es um Schimmel, gibt der Leitfaden des Umweltbundesamtes zur Vorbeugung, Erfassung und Sanierung von Schimmelbefall in Gebäuden Hilfestellung; er richtet sich an alle, die Schimmel erkennen, bewerten und Sanierungskonzepte erarbeiten sollen.[^14]
 
 ## Wann ein Bausachverständiger hilft
 
-Ein Bausachverständiger untersucht das Bauteil, hält den Zustand fest und ordnet die Ursache fachlich ein. Welche Form das annimmt, hängt vom Anlass ab. Beim Privatgutachten vereinbaren Sie Aufgabe und Umfang selbst, denn anders als bei Gerichtsaufträgen gibt kein Beweisbeschluss die Fragen vor.[^15] Daneben stehen das Gutachten im selbständigen Beweisverfahren, das Gerichtsgutachten und das Schiedsgutachten, bei dem sich beide Seiten vorab an das Ergebnis binden.[^15]
+Ein Bausachverständiger untersucht das Bauteil, hält den Zustand fest und ordnet die Ursache fachlich ein. Welche Form das annimmt, hängt vom Anlass ab. Beim Privatgutachten vereinbaren Sie Aufgabe und Umfang selbst, denn anders als bei Gerichtsaufträgen gibt in der Regel kein Beweisbeschluss die Fragen vor.[^15] Daneben stehen das Gutachten im selbständigen Beweisverfahren, das Gerichtsgutachten und das Schiedsgutachten, das für die Parteien verbindlich ist und den Streit entscheidet, sofern es nicht offenbar unrichtig ist.[^15]
 
 Steht ein selbständiges Beweisverfahren an, kommt es auf die Förmlichkeiten an. Die Gegenseite ist so rechtzeitig zu laden, dass sie ihre Rechte im Termin wahrnehmen kann; war sie nicht geladen und ist sie nicht erschienen, kann das Ergebnis vom Antragsteller nicht verwendet werden.[^16] Welches Verfahren für Ihren Fall das richtige ist, klären Sie vorher anwaltlich. Die Checkliste hilft Ihnen, die Unterlagen dafür vollständig zu haben.
 
