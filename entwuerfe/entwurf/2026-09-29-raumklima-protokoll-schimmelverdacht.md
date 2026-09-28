@@ -55,7 +55,7 @@ Nicht jeder dunkle Fleck ist Schimmel. Feuchte Ränder, weiße kristalline Belä
 
 ## Warum Ecken, Fensterlaibungen und Rollladenkästen zuerst betroffen sind
 
-Schimmel entsteht dort, wo die Bauteiloberfläche am kältesten ist. Feuchte Luft kondensiert nach Angaben des Bauherren-Schutzbundes zuerst an kalten Außenwandecken, Fensterlaibungen und Rollladenkästen.[^3] Deshalb fragt die Vorlage diese Stellen eigens ab. Bleibt der übrige Raum trocken und ist nur die Ecke betroffen, liegt das selten am Lüften allein.
+Schimmel entsteht dort, wo die Bauteiloberfläche am kältesten ist. Feuchte Luft kondensiert nach Angaben des Bauherren-Schutzbundes zum Beispiel an kalten Außenwandecken, Fensterlaibungen und Rollladenkästen.[^3] Deshalb fragt die Vorlage diese Stellen eigens ab. Bleibt der übrige Raum trocken und ist nur die Ecke betroffen, liegt das selten am Lüften allein.
 
 Für Schimmelwachstum braucht es kein flüssiges Wasser. Es genügt, wenn die relative Luftfeuchte unmittelbar an der Oberfläche etwa 80 Prozent erreicht.[^4] Nach der Fachliteratur reicht das aus, wenn dieser Zustand an mindestens fünf aufeinanderfolgenden Tagen je zwölf Stunden anhält.[^4] Sichtbares Wasser an der Wand ist also kein notwendiges Zeichen.
 
@@ -129,7 +129,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 [^3]: Bauherren-Schutzbund: Schimmelbefall durch richtiges Heizen und Lüften vermeiden. https://www.bsb-ev.de/politik-presse/presseservice/expertentipps/schimmelbefall-durch-richtiges-heizen-und-lueften-vermeiden (abgerufen am 2026-09-29).
 
-[^4]: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. Eine Einführung mit Berechnungsbeispielen. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 363. ISBN 978-3-658-42604-0. Inhaltlich bestätigt durch: Hestermann, Ulf; Rongen, Ludwig: Frick/Knöll Baukonstruktionslehre 1. 37. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 933. ISBN 978-3-658-42179-3.
+[^4]: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. Eine Einführung mit Berechnungsbeispielen. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 363. ISBN 978-3-658-42604-0.
 
 [^5]: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. Eine Einführung mit Berechnungsbeispielen. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 263. ISBN 978-3-658-42604-0. Inhaltlich bestätigt durch: Hestermann, Ulf; Rongen, Ludwig: Frick/Knöll Baukonstruktionslehre 1. 37. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 933. ISBN 978-3-658-42179-3.
 

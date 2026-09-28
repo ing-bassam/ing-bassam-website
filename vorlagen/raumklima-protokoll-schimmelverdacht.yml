@@ -34,8 +34,8 @@ abschnitte:
         hinweis: "Die Höhe über dem Boden im ganzen Zeitraum gleich lassen. Warme Luft steigt auf, deshalb messen Gerät und Vergleichsgerät nur bei gleicher Höhe dasselbe."
       - text: Gerät steht nicht unmittelbar am Heizkörper, am Fenster oder an der Außenwand
         ja_nein: true
-        hinweis: "Am Heizkörper zeigt das Gerät zu warm und zu trocken an, an der kalten Außenwand zu feucht. Beides verfälscht das Protokoll. Ein freier Platz im Raum, etwa einen halben Meter von Wänden entfernt, ist geeignet."
-      - text: Gerät stand vor der ersten Ablesung mindestens zwei Stunden am selben Ort
+        hinweis: "Am Heizkörper zeigt das Gerät zu warm und zu trocken an, an der kalten Außenwand zu feucht. Beides verfälscht das Protokoll. Ein freier Platz im Raum mit Abstand zu den Wänden ist geeignet."
+      - text: Gerät stand vor der ersten Ablesung schon am selben Ort
         ja_nein: true
       - text: Zweites Gerät in einem Vergleichsraum aufgestellt
         ja_nein: true
@@ -73,7 +73,7 @@ abschnitte:
         hinweis: "Neue, dichte Fenster senken den unbeabsichtigten Luftaustausch deutlich. Nach einem Fenstertausch muss in der Regel häufiger gelüftet werden als vorher."
       - text: Rollladenkästen im Raum
         auswahl: [vorhanden, nicht vorhanden, unbekannt]
-        hinweis: "Rollladenkästen zählen neben Außenwandecken und Fensterlaibungen zu den Stellen, an denen sich Feuchte zuerst niederschlägt."
+        hinweis: "Rollladenkästen zählen neben Außenwandecken und Fensterlaibungen zu den Stellen, an denen sich Feuchte niederschlägt."
       - text: Lüftungsanlage
         auswahl: [keine, Abluftanlage, "Zu- und Abluftanlage", "Außenluftdurchlässe", unbekannt]
         hinweis: "Eine Abluftanlage saugt Luft ab, meist in Bad und Küche. Eine Zu- und Abluftanlage führt zusätzlich Frischluft zu, oft mit Wärmerückgewinnung. Außenluftdurchlässe sind kleine Öffnungen im Fensterrahmen oder in der Wand, die dauerhaft Luft nachströmen lassen."
@@ -98,7 +98,7 @@ abschnitte:
     notizen: 2
     punkte:
       - text: Raumtemperatur im Tagesmittel
-        hinweis: "Woran erkennen: Werte der Aufzeichnung vergleichen. Der Verband Privater Bauherren nennt als Anhalt 20 °C für Wohn- und Esszimmer, 24 °C für das Bad und mindestens 16 °C für Schlafzimmer. Deutlich: Werte liegen dauerhaft darunter."
+        hinweis: "Woran erkennen: Werte der Aufzeichnung vergleichen. Der Verband Privater Bauherren nennt als Anhalt 20 °C für Wohn- und Esszimmer, 24 °C für das Bad während der Benutzung und mindestens 16 °C für Schlafzimmer. Deutlich: Werte liegen dauerhaft darunter."
       - text: Heizkörper wird über die ganze Fläche warm
         ja_nein: true
         hinweis: "Bleibt ein Heizkörper unten oder oben kalt, wird der Raum nicht richtig warm. Das ist ein Fall für die Heizungswartung, nicht für das Protokoll."
@@ -140,7 +140,7 @@ abschnitte:
       - text: Zimmerpflanzen, Aquarien oder Luftbefeuchter
         hinweis: "Woran erkennen: Zahl und Größe notieren. Gering: einzelne kleine Pflanzen. Deutlich: viele große Pflanzen, ein offenes Aquarium oder ein betriebener Luftbefeuchter."
       - text: Baurestfeuchte oder Bautrocknung
-        hinweis: "Woran erkennen: Einzug oder Umbau liegt weniger als etwa zwei Jahre zurück. Deutlich: Estrich, Putz oder Mauerwerk wurden zuletzt eingebracht und der Raum wurde seitdem nicht verstärkt gelüftet."
+        hinweis: "Woran erkennen: Einzug oder Umbau liegt noch nicht lange zurück. Deutlich: Estrich, Putz oder Mauerwerk wurden zuletzt eingebracht und der Raum wurde seitdem nicht verstärkt gelüftet."
       - text: Wasserschaden, Rohrbruch oder undichte Stelle in den letzten Monaten
         hinweis: "Woran erkennen: Datum und Ort des Schadens notieren. Deutlich: ein Schaden ist bekannt oder das Bauteil ist an der Stelle bis heute feucht."
   - titel: Möblierung und kalte Stellen
@@ -191,9 +191,9 @@ hinweise:
   - "Bei größerem Befall, bei Allergien oder bei geschwächtem Immunsystem die Reinigung nicht selbst übernehmen, sondern Fachleute beauftragen."
 quellen:
   - "DIN/TS 4108-8:2022-09, Wärmeschutz und Energie-Einsparung in Gebäuden – Teil 8: Vermeidung von Schimmelwachstum in Wohngebäuden"
-  - "Umweltbundesamt: Leitfaden zur Vorbeugung, Erfassung und Sanierung von Schimmelbefall in Gebäuden, Dezember 2017, aktualisiert April 2024"
+  - "Umweltbundesamt: Leitfaden zur Vorbeugung, Erfassung und Sanierung von Schimmelbefall in Gebäuden, Dezember 2017"
   - "Schmidt/Windhausen: Lohmeyer Praktische Bauphysik, 10. Aufl. 2024, S. 263, 363 und 385"
-  - "Vogdt (Hrsg.): Bauphysik. Grundwissen für Architekten, 2022, S. 119 und 129"
+  - "Vogdt (Hrsg.): Bauphysik. Grundwissen für Architekten, 2022, S. 119"
   - "Willems (Hrsg.): Lehrbuch der Bauphysik, 9. Aufl. 2022, S. 481"
   - "Hestermann/Rongen: Frick/Knöll Baukonstruktionslehre 1, 37. Aufl. 2025, S. 933"
   - "Umweltbundesamt: Wie lüfte ich richtig? Tipps und Tricks zur Schimmelvermeidung"
