@@ -1,0 +1,208 @@
+titel: Rissprotokoll zur Rissbeobachtung
+untertitel: Risse nummerieren, messen und über Monate vergleichen
+kurzform: rissprotokoll-rissbeobachtung
+typ: Protokoll
+stand: 2026-09-28
+dateien: [pdf, pdf-ausfuellbar, xlsx]
+einleitung: >-
+  Mit diesem Protokoll halten Sie jeden Riss einzeln fest und messen ihn immer
+  an derselben markierten Stelle nach. Eine einzelne Rissbreite sagt wenig aus;
+  aussagekräftig ist erst die Veränderung über mehrere Monate und über
+  verschiedene Jahreszeiten. Füllen Sie die Abschnitte 1 bis 4 einmal je Riss
+  aus und tragen Sie jede weitere Kontrolle in die Messreihe auf der letzten
+  Seite ein.
+kopffelder:
+  - Objekt und Anschrift
+  - Baujahr
+  - Eigentümer oder Verwaltung
+  - Riss-Nr.
+  - Beobachtung begonnen am
+  - Protokoll geführt von
+bewertung:
+  stufen:
+    - kurz: unverändert
+      lang: keine Veränderung
+      beschreibung: "seit der letzten Kontrolle nichts Erkennbares verändert"
+    - kurz: gering
+      lang: geringe Veränderung
+      beschreibung: "kleine Veränderung, schwankt eher mit der Jahreszeit - weiter beobachten"
+    - kurz: deutlich
+      lang: deutliche Veränderung
+      beschreibung: "wird laufend größer, länger oder versetzt sich - Fachmann einschalten"
+    - kurz: n. p.
+      lang: nicht prüfbar
+      beschreibung: "Stelle nicht zugänglich, verdeckt oder Marke zerstört"
+abschnitte:
+  - titel: Gebäude und Umfeld
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Bauart der Außenwände
+        auswahl: [Mauerwerk, Beton, Fachwerk, Holzbau, gemischt, unbekannt]
+        hinweis: "Woran erkennen: Klopfprobe und Blick in Keller oder Dachboden. Die Bauart bestimmt, welche Rissbilder überhaupt zu erwarten sind."
+      - text: Unterkellerung
+        auswahl: [voll unterkellert, teilweise, nicht unterkellert, unbekannt]
+        hinweis: "Bei teilweise unterkellerten Häusern stehen die Fundamente unterschiedlich tief; das begünstigt Risse."
+      - text: Wandoberfläche am Riss
+        auswahl: [Putz, Sichtmauerwerk, Beton, Tapete, Trockenbau, unbekannt]
+      - text: In den letzten Jahren wurde am Gebäude umgebaut (Wand entfernt, Anbau, Dachausbau)
+        ja_nein: true
+        hinweis: "Nachträgliche Lasten und entfernte Wände verändern den Kraftfluss und können Risse auslösen."
+      - text: Erdarbeiten, Aufschüttung oder Geländeveränderung am Grundstück
+        ja_nein: true
+        hinweis: "Nachträgliche Auflasten und Aufschüttungen zählen zu den bekannten Ursachen von Setzungsrissen."
+      - text: Baustelle, Abbruch oder Baugrube in der Nachbarschaft
+        ja_nein: true
+        hinweis: "Datum des Baubeginns notieren. Erschütterungen und Grundwasserabsenkungen wirken bis in Nachbargebäude."
+      - text: Erschütterungsquelle in der Nähe (Bahn, schwerer Lkw-Verkehr, technische Anlage)
+        ja_nein: true
+      - text: Große Bäume oder Sträucher nah am Haus
+        ja_nein: true
+        hinweis: "Tonige Böden quellen und schrumpfen je nach Feuchte; Wurzeln in der Nähe verstärken diesen Wechsel."
+      - text: Wasserschaden, undichte Leitung oder Rohrbruch in der Nähe des Risses
+        ja_nein: true
+  - titel: Riss beschreiben
+    bewertung: false
+    notizen: 3
+    punkte:
+      - text: Lage
+        auswahl: [innen, außen, beides, unbekannt]
+      - text: Bauteil
+        auswahl: [Außenwand, Innenwand, Decke, Fußboden, Sockel, unbekannt]
+      - text: Verlauf des Risses
+        auswahl: [waagerecht, senkrecht, diagonal, treppenförmig, netzförmig, unbekannt]
+        hinweis: "Woran erkennen: Schräge, abgetreppte Risse gehen in der Regel auf Schubspannungen zurück, netzförmige eher auf die Putzschicht selbst. Risse aus Fenster- und Türecken gesondert vermerken."
+      - text: Riss betrifft
+        auswahl: ["nur die Oberfläche", "geht tiefer hinein", unbekannt]
+        hinweis: "Woran erkennen: Tapete oder Putz vorsichtig an einer kleinen Stelle betrachten. Ein Riss, der sich im Mauerwerk fortsetzt, wiegt schwerer als ein reiner Oberflächenriss."
+      - text: Versatz der Rissflanken (eine Seite steht vor oder ist abgesackt)
+        auswahl: [kein Versatz, leichter Versatz, deutlicher Versatz, unbekannt]
+        hinweis: "Woran erkennen: Fingerkuppe quer über den Riss ziehen. Der Versatz wird zu selten gemessen, ist aber ein wichtiges Indiz für die Ursache."
+      - text: Riss ist bereits früher aufgetreten oder schon einmal verschlossen worden
+        ja_nein: true
+  - titel: Erste Messung und Fotos
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Riss-Nummer am Bauteil dauerhaft vermerkt (Bleistift, Klebepunkt)
+        ja_nein: true
+      - text: Messstelle mit zwei Strichen quer zum Riss markiert
+        ja_nein: true
+        hinweis: "Wichtigster Punkt des Protokolls: Nur wenn Sie immer an derselben Stelle messen, sind die Werte vergleichbar."
+      - text: Rissbreite an der Messstelle mit dem Rissbreitenmaßstab bestimmt
+        ja_nein: true
+        hinweis: "Der Rissbreitenmaßstab trägt Striche in Schritten von 0,1 mm bis 1,0 mm zum Vergleich; er ist im Baustoffhandel erhältlich."
+      - text: Risslänge gemessen und Anfangs- und Endpunkt markiert
+        ja_nein: true
+      - text: Übersichtsfoto vom ganzen Bauteil aufgenommen
+        ja_nein: true
+      - text: Detailfoto mit Maßstab oder Zollstock direkt am Riss aufgenommen
+        ja_nein: true
+        hinweis: "Bei sehr feinen Rissen hat es sich bewährt, einen Hinweispfeil ins Bild zu legen, sonst ist der Riss später nicht zu finden. Standort und Blickrichtung notieren."
+      - text: Lage des Risses in eine einfache Skizze oder einen Grundriss eingetragen
+        ja_nein: true
+        hinweis: "Verteilung und Verlauf aller Risse in einer Skizze oder Ansicht des Gebäudes festzuhalten, ist für die spätere Beurteilung sehr hilfreich."
+  - titel: Marke setzen
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Art der gesetzten Marke
+        auswahl: [Gipsmarke, Rissmonitor, Messmarken für Messschieber, keine]
+        hinweis: "Die Gipsmarke ist die einfachste Form: ein dünner Gipsstreifen quer über den Riss. Ein Rissmonitor besteht aus zwei Plättchen mit Skala und Fadenkreuz und zeigt Bewegungen in zwei Richtungen."
+      - text: Marke nummeriert und mit Datum versehen
+        ja_nein: true
+        hinweis: "Für eine nachvollziehbare Dokumentation werden Marken nummeriert und jede Kontrolle mit Datum, Uhrzeit, Messwert und Wetter protokolliert."
+      - text: Untergrund vor dem Setzen gereinigt und aufgeraut
+        ja_nein: true
+        hinweis: "Die Marke muss an beiden Rissflanken sicher haften, sonst schert sie unbemerkt ab und zeigt nichts mehr an."
+      - text: Gipsmarke dünn und mit schmaler Stelle über dem Riss ausgeführt
+        ja_nein: true
+        hinweis: "Übliche Größe etwa 1 cm dick, 4 bis 6 cm breit und höchstens 20 cm lang. Die schmale Stelle sorgt dafür, dass die Marke dort bricht statt abzuscheren."
+      - text: Marke im Außenbereich gegen Regen und Sonne geschützt
+        ja_nein: true
+        hinweis: "Gips ist witterungsempfindlich und kann sich bei starken Temperaturwechseln vom Putz lösen."
+      - text: Nächster Kontrolltermin festgelegt und notiert
+        ja_nein: true
+        hinweis: "Eine Gipsmarke sollte mindestens ein bis zwei Monate am Riss bleiben, bevor sie etwas aussagt."
+  - titel: Verlaufskontrolle bewerten
+    notizen: 2
+    punkte:
+      - text: Rissbreite an der markierten Messstelle
+        hinweis: "Woran erkennen: gleicher Maßstab, gleiche Stelle, möglichst gleiche Tageszeit. Gering: Wert schwankt hin und her. Deutlich: Wert nimmt über mehrere Kontrollen stetig zu."
+      - text: Risslänge
+        hinweis: "Woran erkennen: Markierung an Anfang und Ende. Gering: Riss endet weiter an der alten Marke. Deutlich: Riss wächst über die Marke hinaus."
+      - text: Versatz der Rissflanken
+        hinweis: "Woran erkennen: quer über den Riss tasten. Gering: nichts oder kaum spürbar. Deutlich: eine Seite steht spürbar vor oder ist abgesackt."
+      - text: Zustand der Gipsmarke oder des Rissmonitors
+        hinweis: "Woran erkennen: Die Gipsmarke reißt, wenn der Riss breiter wird, und löst sich ab, wenn er sich schließt. Deutlich: Marke durchtrennt oder abgelöst."
+      - text: Neue Risse in der Umgebung des beobachteten Risses
+        hinweis: "Woran erkennen: dieselbe Wandfläche absuchen. Deutlich: seit der letzten Kontrolle sind weitere Risse dazugekommen."
+      - text: Riss auf der Rückseite der Wand oder im Nachbarraum
+        hinweis: "Woran erkennen: gegenüberliegende Wandseite prüfen. Deutlich: der Riss zeichnet sich neu auch dort ab."
+  - titel: Begleitende Anzeichen im Gebäude
+    notizen: 2
+    punkte:
+      - text: Türen und Fenster im betroffenen Bereich schließen einwandfrei
+        hinweis: "Woran erkennen: alle Flügel öffnen und schließen. Gering: eine Tür schleift leicht. Deutlich: Türen oder Fenster klemmen neuerdings oder lassen sich nicht mehr schließen."
+      - text: Fugen an Anschlüssen, Sockelleisten und Treppen
+        hinweis: "Woran erkennen: Blick entlang der Anschlussfugen. Deutlich: Fugen reißen auf oder Leisten lösen sich von der Wand."
+      - text: Risse in Fliesen, Estrich oder Bodenbelag
+      - text: Waagerechte Lage von Böden, Fensterbänken und Türstürzen
+        hinweis: "Woran erkennen: Wasserwaage oder eine Kugel auf dem Boden. Deutlich: deutliche Schieflage, die vorher nicht da war."
+      - text: Putz löst sich, Teile fallen ab
+        hinweis: "Deutlich: herabfallende Putzstücke. Bereich sichern und nicht darunter aufhalten."
+  - titel: Feuchte und Wasser am Riss
+    notizen: 2
+    punkte:
+      - text: Dunkle Feuchteränder um den Riss
+        hinweis: "Woran erkennen: Vergleich mit der trockenen Wandfläche daneben. Deutlich: Rand wird nach Regen größer und trocknet nicht ab."
+      - text: Wasser dringt nach Schlagregen durch den Riss ein
+        hinweis: "Woran erkennen: Innenseite nach einem kräftigen Regen mit Wind prüfen. Für den Regenschutz gerissener Putze gibt es keinen allgemeingültigen Grenzwert; entscheidend sind Putzart, Rissbreite und Risstiefe."
+      - text: Weiße Ausblühungen oder Salzkränze am Riss
+      - text: Schimmel oder muffiger Geruch in der Nähe des Risses
+        hinweis: "Größere Schimmelflächen nicht selbst entfernen, sondern fachlich abklären lassen."
+  - titel: Unterlagen und Beteiligte
+    bewertung: false
+    notizen: 3
+    punkte:
+      - text: Alle Fotos mit Datum und Riss-Nummer abgelegt
+        ja_nein: true
+      - text: Skizze oder Grundriss mit allen Riss-Nummern vorhanden
+        ja_nein: true
+      - text: Frühere Gutachten, Bauunterlagen oder Baugrundgutachten gesichtet
+        ja_nein: true
+      - text: Hausverwaltung oder Eigentümergemeinschaft informiert
+        ja_nein: true
+      - text: Bauunternehmen informiert, wenn das Gebäude noch in der Gewährleistung ist
+        ja_nein: true
+      - text: "Bei einer Nachbarbaustelle: Zustand vor Baubeginn dokumentiert"
+        ja_nein: true
+        hinweis: "Wer den Zustand vor Beginn der Nachbarbaustelle festhält, hat später einen Vergleichsstand. Ein Sachverständiger kann das übernehmen."
+tabelle:
+  spalten: ["Riss-Nr.", Datum, Uhrzeit, "Rissbreite in mm", "Risslänge in cm", Versatz, "Zustand der Marke", "Wetter und Temperatur", Veränderung, "Foto-Nr."]
+  breiten: [1, 2, 1, 2, 2, 2, 3, 3, 2, 2]
+  leerzeilen: 22
+auswertung:
+  - "Bleibt die Rissbreite über mehrere Kontrollen und über verschiedene Jahreszeiten hinweg gleich, spricht das für einen beruhigten Riss. Weiter beobachten, aber in größeren Abständen."
+  - "Schwankt die Rissbreite mit Temperatur und Jahreszeit, ohne dass der Riss insgesamt größer wird, deutet das auf eine temperaturabhängige Bewegung hin. Das ist ein Fall für die fachliche Einordnung, aber kein Grund zur Eile."
+  - "Nimmt die Rissbreite oder die Risslänge von Kontrolle zu Kontrolle stetig zu, sollte ein Sachverständiger den Riss beurteilen."
+  - "Zeigt sich ein Versatz der Rissflanken, gehört der Befund fachlich geprüft; der Versatz ist ein wichtiges Indiz für die Ursache."
+  - "Kommen klemmende Türen oder Fenster, schiefe Böden oder mehrere neue Risse hinzu, kurzfristig fachlichen Rat einholen."
+  - "Bei herabfallenden Bauteilen, sichtbarer Durchbiegung oder plötzlich auftretenden breiten Rissen den Bereich sofort sichern und ohne Verzögerung einen Fachmann einschalten."
+unterschriften: [Protokoll geführt von, Eigentümer oder Verwaltung]
+hinweise:
+  - "Messen Sie immer an derselben markierten Stelle, sonst sind die Werte nicht vergleichbar."
+  - "Notieren Sie zu jeder Messung Datum, Uhrzeit sowie Wetter und Temperatur. Risse bewegen sich mit der Witterung."
+  - "Eine einzelne Rissbreite ist nur eine Momentaufnahme. Aussagekraft entsteht erst aus der Reihe mehrerer Messungen."
+  - "Für Risse gibt es keine allgemeingültige Grenze, ab der sie harmlos oder bedenklich sind. Was zählt, ist die Veränderung über die Zeit."
+  - "Fotografieren Sie immer vom gleichen Standort mit Maßstab im Bild."
+  - "Steigen Sie für die Beobachtung nicht auf Leitern oder Gerüste und öffnen Sie keine Bauteile."
+  - "Bei Gefahr für die Standsicherheit, herabfallenden Teilen oder plötzlich auftretenden breiten Rissen den Bereich räumen und sofort fachliche Hilfe holen."
+quellen:
+  - "Frössel: Risse in Gebäuden, 2. Auflage 2025, S. 117-125, 147, 371"
+  - "Schulz: Architektur der Bauschäden, 4. Auflage 2020, S. 479-480"
+  - "Stahr (Hrsg.): Bausanierung, 7. Auflage 2022, S. 258"
+  - "Hestermann/Rongen: Frick/Knöll Baukonstruktionslehre 1, 37. Auflage 2025, S. 64"
+  - "WTA-Merkblatt 2-4-14/D, Beurteilung und Instandsetzung gerissener Putze an Fassaden"
+  - "DIN 4150-3:2016-12, Erschütterungen im Bauwesen - Teil 3: Einwirkungen auf bauliche Anlagen"
+  - "Bayerisches Landesamt für Umwelt, Hinweise zu Rissmonitoren"
