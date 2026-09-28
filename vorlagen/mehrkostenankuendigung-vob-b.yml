@@ -1,0 +1,82 @@
+titel: "Mehrkostenankündigung nach § 2 Abs. 6 VOB/B"
+untertitel: Musterschreiben für Auftragnehmer bei zusätzlichen Leistungen
+kurzform: mehrkostenankuendigung-vob-b
+typ: Musterschreiben
+stand: 2026-09-27
+dateien: [docx, pdf]
+einleitung: "Mit diesem Musterschreiben kündigen Sie als Auftragnehmer an, dass Sie für eine im Vertrag nicht vorgesehene Leistung eine besondere Vergütung verlangen. Das Schreiben muss beim Auftraggeber sein, bevor Sie mit der zusätzlichen Leistung beginnen. Ersetzen Sie die Platzhalter in eckigen Klammern durch Ihre Angaben und streichen Sie, was nicht zutrifft. Die Prüfliste am Ende führt durch die Punkte, an denen Mehrkostenankündigungen in der Praxis scheitern."
+
+brief:
+  betreff: "Ankündigung eines Anspruchs auf besondere Vergütung nach § 2 Abs. 6 VOB/B – Bauvorhaben [Bezeichnung], [betroffene Leistung]"
+  anrede: Sehr geehrte Damen und Herren,
+  absaetze:
+    - "zwischen Ihnen als Auftraggeber und uns als Auftragnehmer besteht der Bauvertrag vom [Datum] über [vertragliche Leistung, z. B. die Rohbauarbeiten für das Bauvorhaben in der Musterstraße]. Nach unseren Unterlagen ist die VOB/B in diesen Vertrag einbezogen."
+    - "[Zutreffendes wählen:] Sie haben am [Datum] durch [z. B. Ihr Schreiben vom …, die Anordnung in der Baubesprechung vom …, die Planänderung Index …] verlangt, dass wir folgende Leistung ausführen: [zusätzliche Leistung mit Ort, Menge und Bauteil beschreiben, z. B. die Herstellung einer Stützmauer entlang der östlichen Grundstücksgrenze auf rund 18 Metern Länge]. / Für die vertragsgerechte Ausführung unserer Leistung ist folgende Leistung erforderlich geworden: [Leistung und Grund beschreiben]."
+    - "Diese Leistung ist in unserem Vertrag nicht vorgesehen. Sie ist weder in der Leistungsbeschreibung noch in den Positionen [Nummern] enthalten und gehört auch nicht als Nebenleistung dazu. Zur Begründung verweisen wir auf [Position, Planstand, Leistungsverzeichnis oder Baubeschreibung]."
+    - "Für diese Leistung kündigen wir Ihnen hiermit vor Beginn der Ausführung unseren Anspruch auf besondere Vergütung nach § 2 Abs. 6 VOB/B an. Wir werden die Leistung nur gegen zusätzliche Vergütung ausführen."
+    - "Die Höhe der Vergütung steht noch nicht abschließend fest. Nach erster Einschätzung liegen die Mehrkosten in der Größenordnung von [Betrag] Euro netto. Ein prüfbares Nachtragsangebot auf Grundlage unserer Kalkulation reichen wir bis zum [Datum] nach."
+    - "Wir bitten Sie, uns bis zum [Datum] zu bestätigen, dass wir die Leistung ausführen sollen, und uns [fehlende Pläne, Freigaben oder Angaben] zur Verfügung zu stellen."
+    - "[Absatz nur verwenden, wenn die Bauzeit betroffen ist:] Die zusätzliche Leistung wirkt sich auf den vereinbarten Bauablauf aus. Eine Behinderungsanzeige nach § 6 Abs. 1 VOB/B [fügen wir bei / lassen wir Ihnen gesondert zugehen]. Ansprüche auf Verlängerung der Ausführungsfristen behalten wir uns vor."
+    - "[Absatz nur verwenden, wenn Stundenlohn in Betracht kommt:] Soweit die Leistung im Stundenlohn ausgeführt werden soll, bitten wir um eine ausdrückliche Vereinbarung über Leistungsumfang und Stundensätze vor Beginn der Arbeiten (§ 2 Abs. 10 VOB/B)."
+    - "Wir sind bereit, die Leistung auszuführen. Mit der zusätzlichen Leistung beginnen wir, sobald uns Ihre Rückmeldung vorliegt oder Sie auf der Ausführung bestehen. Die übrigen vertraglichen Leistungen führen wir unverändert fort."
+    - "Bitte bestätigen Sie uns den Erhalt dieses Schreibens. Für Rückfragen stehen wir Ihnen zur Verfügung."
+  gruss: Mit freundlichen Grüßen
+  anlagen:
+    - Auszug aus Leistungsverzeichnis oder Baubeschreibung
+    - Planauszug mit Kennzeichnung der zusätzlichen Leistung
+    - Lichtbilder mit Datum
+    - Schriftwechsel oder Protokollauszug zur Anordnung
+
+tabelle:
+  titel: Vor dem Absenden prüfen
+  spalten: ["Nr.", Prüfpunkt, erledigt]
+  breiten: [1, 12, 2]
+  zeilen:
+    - ["1", "Das Schreiben ist heraus, bevor die zusätzliche Leistung begonnen wird.", ""]
+    - ["2", "Das Schreiben ist an den Auftraggeber selbst gerichtet, nicht nur an Architekt oder Bauleitung.", ""]
+    - ["3", "Bauvorhaben, Vertrag mit Datum und die betroffene Leistung sind eindeutig bezeichnet.", ""]
+    - ["4", "Im Schreiben steht ausdrücklich, dass für die Leistung eine besondere Vergütung verlangt wird.", ""]
+    - ["5", "Es ist beschrieben, wer die Leistung wann gefordert hat oder warum sie erforderlich geworden ist.", ""]
+    - ["6", "Es ist begründet, warum die Leistung im Vertrag nicht vorgesehen ist.", ""]
+    - ["7", "Geprüft ist, ob eine zusätzliche oder eine geänderte Leistung vorliegt; im Zweifel wird angekündigt.", ""]
+    - ["8", "Die Ankündigung erfolgt dem Grunde nach; eine fertige Berechnung ist dafür nicht nötig.", ""]
+    - ["9", "Ein prüfbares Nachtragsangebot ist angekündigt und mit einem Datum versehen.", ""]
+    - ["10", "Die Kalkulationsgrundlagen für das Nachtragsangebot sind zusammengestellt und nachvollziehbar.", ""]
+    - ["11", "Auswirkungen auf die Bauzeit sind geprüft; wenn ja, wird gesondert eine Behinderungsanzeige erstellt.", ""]
+    - ["12", "Sollen Stundenlohnarbeiten abgerechnet werden, ist die Vereinbarung vor Beginn eingeholt.", ""]
+    - ["13", "Der Vertrag ist daraufhin geprüft, ob er für die Ankündigung eine strengere Form verlangt.", ""]
+    - ["14", "Das Schreiben ist unterschrieben und geht als Original oder als unterschriebener Scan hinaus.", ""]
+    - ["15", "Der Zugang ist nachweisbar, etwa durch Einwurfeinschreiben, Boten oder Empfangsbestätigung.", ""]
+    - ["16", "Eine Kopie liegt in der Bauakte, die Absendung ist im Bautagebuch vermerkt.", ""]
+    - ["17", "Die zusätzliche Leistung wird getrennt aufgemessen und mit Fotos und Stundennachweisen belegt.", ""]
+    - ["18", "Der Vorgang ist im Nachtragsverzeichnis mit Nummer, Grund und Datum erfasst.", ""]
+    - ["19", "Eine Wiedervorlage nach Ablauf der gesetzten Frist ist notiert.", ""]
+    - ["20", "Ist die VOB/B nicht vereinbart, ist geprüft, welche Regeln des Bauvertragsrechts im BGB gelten.", ""]
+  leerzeilen: 2
+
+hinweise:
+  - "Platzhalter in eckigen Klammern durch eigene Angaben ersetzen. Absätze, die nicht zutreffen, ersatzlos streichen."
+  - "Nach § 2 Abs. 6 Nr. 1 Satz 2 VOB/B muss der Auftragnehmer den Anspruch dem Auftraggeber ankündigen, bevor er mit der Ausführung der Leistung beginnt. Die Fachliteratur behandelt diese Ankündigung als echte Anspruchsvoraussetzung."
+  - "Die Ankündigung muss nur dem Grunde nach erfolgen. Eine Berechnung der Höhe ist für die Anspruchsvoraussetzung nicht nötig; sie kann mit dem Nachtragsangebot folgen."
+  - "Die VOB/B schreibt für die Ankündigung keine Schriftform vor. Aus Beweisgründen empfiehlt die Fachliteratur, sie immer schriftlich vorzunehmen. Der Bauvertrag kann eine strengere Form verlangen."
+  - "Richtiger Empfänger ist der Auftraggeber. Der Architekt des Auftraggebers ist nach der Fachliteratur nicht ohne Weiteres bevollmächtigt, zusätzliche Leistungen zu verlangen."
+  - "Ausnahmsweise kann die Ankündigung entbehrlich sein, etwa wenn der Auftraggeber von der Entgeltlichkeit ausgehen musste oder dem Auftragnehmer keine Alternative zur sofortigen Ausführung blieb. Für den Ausnahmefall ist der Auftragnehmer darlegungs- und beweispflichtig."
+  - "Wird eine im Vertrag vorgesehene Leistung nur geändert, gilt § 2 Abs. 5 VOB/B; dort ist keine Ankündigung verlangt. Die Abgrenzung ist im Einzelfall schwierig, deshalb sollte im Zweifel angekündigt werden."
+  - "Zusätzliche Leistungen muss der Auftragnehmer nach § 1 Abs. 4 Satz 1 VOB/B nur ausführen, wenn sie zur Ausführung der vertraglichen Leistung erforderlich werden und sein Betrieb darauf eingerichtet ist."
+  - "Die Höhe bestimmt sich nach § 2 Abs. 6 Nr. 2 VOB/B nach den Grundlagen der Preisermittlung für die vertragliche Leistung und den besonderen Kosten der geforderten Leistung. Die Vergütung ist möglichst vor Beginn der Ausführung zu vereinbaren."
+  - "Ob für die Berechnung die Vertragskalkulation fortzuschreiben ist oder die tatsächlich erforderlichen Kosten maßgeblich sind, wird in der Rechtsprechung unterschiedlich beurteilt. Das Nachtragsangebot sollte beides nachvollziehbar belegen können."
+  - "Ein Nachtragsangebot ohne Rückgriff auf die Kalkulationsgrundlagen kann als nicht prüffähig gelten. Der Anspruch ist dann nach der Fachliteratur noch nicht fällig."
+  - "Leistungen, die ohne Auftrag ausgeführt werden, werden nach § 2 Abs. 8 VOB/B grundsätzlich nicht vergütet. Ausnahmen gelten nur bei nachträglichem Anerkenntnis oder bei Notwendigkeit mit unverzüglicher Anzeige."
+  - "Auch beauftragte Nachtragsleistungen können den Bauablauf behindern. Wer neben der Mehrvergütung eine Verlängerung der Ausführungsfristen will, muss nach der Fachliteratur zusätzlich eine Behinderungsanzeige nach § 6 Abs. 1 VOB/B senden."
+  - "Stundenlohnarbeiten werden nach § 2 Abs. 10 VOB/B nur vergütet, wenn sie als solche vor Beginn ausdrücklich vereinbart worden sind. Vom Bauleiter abgezeichnete Stundenzettel gelten nach der Fachliteratur nicht als solche Vereinbarung."
+  - "Die VOB/B gilt nur, wenn sie im Bauvertrag vereinbart ist. Im Bauvertrag nach BGB richten sich Anordnung und Vergütungsanpassung nach §§ 650b und 650c BGB; dort ist eine vorherige Ankündigung nicht vorgesehen."
+  - "Dieses Muster ist keine Rechtsberatung. Bei hohen Beträgen, bei Streit über die Abgrenzung oder bei drohender Kündigung sollte ein Rechtsanwalt das Schreiben vor dem Absenden prüfen."
+
+quellen:
+  - "§ 1 Abs. 4, § 2 Abs. 5, § 2 Abs. 6, § 2 Abs. 8, § 2 Abs. 10 und § 6 Abs. 1 VOB/B, DIN 1961:2016-09; Wortlaut nach VOB-Gesamtausgabe 2019, S. 139 f."
+  - "Zanner: VOB/B nach Ansprüchen, 7. Aufl. 2021, S. 24–27, S. 32, S. 55"
+  - "Saalbach/Viering/Zanner: Vergütung, Nachträge und Abrechnung nach Ansprüchen, 2023, S. 60–62, S. 70–72"
+  - "Heiermann u. a.: VOB/B-Musterbriefe für Auftraggeber, 9. Aufl. 2021, S. 143–145"
+  - "Würfele/Bielefeld/Gralla: Bauobjektüberwachung, 3. Aufl. 2017, S. 208"
+  - "Berner u. a.: Grundlagen der Baubetriebslehre 3, 3. Aufl. 2025, S. 275–277"
+  - "Wirth/Pfisterer/Schellenberg: Privates Baurecht praxisnah, 3. Aufl. 2021, S. 45 f."
