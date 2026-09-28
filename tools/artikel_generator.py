@@ -642,8 +642,8 @@ def entwurf_pruefen(a: "Artikel") -> list[str]:
         melden("Lesezeit", f"{a.lesezeit} Minuten ({a.wortzahl} Wörter)",
                f"{lz_min} bis {lz_max} Minuten")
 
-    if len(a.titel) > 70:
-        melden("Länge titel", len(a.titel), "höchstens 70 Zeichen")
+    if len(a.titel) > TITEL_HOECHSTENS:
+        melden("Länge titel", len(a.titel), f"höchstens {TITEL_HOECHSTENS} Zeichen")
     if len(a.meta_beschreibung) > 155:
         melden("Länge meta_beschreibung", len(a.meta_beschreibung), "höchstens 155 Zeichen")
 
@@ -812,7 +812,7 @@ def fuss_bauen(*, start: str, fachwissen: str) -> str:
 
 def artikelseite(artikel: Artikel) -> str:
     kopf = kopf_bauen(
-        titel_tag=f"{artikel.titel} | {KURZNAME}",
+        titel_tag=titel_tag(artikel.titel),
         beschreibung=artikel.meta_beschreibung,
         canonical=artikel.url,
         css="../artikel.css",
@@ -945,6 +945,66 @@ def autorenkasten_angleichen(inhalt: str, geaendert: str) -> str:
         return treffer.group(1) + max(treffer.group(2), geaendert)
 
     return re.sub(r"(Kontakt:[^<]*?Stand:\s*)(\d{4}-\d{2}-\d{2})", ersetzen, inhalt)
+
+
+TITEL_HOECHSTENS = 60
+
+
+def titel_tag(titel: str) -> str:
+    """Der <title> einer Beitragsseite: höchstens 60 Zeichen, damit Google ihn
+    vollständig zeigt. Die Marke wird nur angehängt, soweit sie noch passt –
+    zuerst lang, dann kurz, sonst gar nicht. Anlass: Ahrefs meldete am
+    28.09.2026 bei 29 Seiten „Title too long“; der Zusatz „ | BIB
+    Ingenieurbüro für Bauwesen“ allein hat 32 Zeichen."""
+    for zusatz in (f" | {KURZNAME}", " | BIB Ingenieurbüro", " | BIB"):
+        if len(titel) + len(zusatz) <= TITEL_HOECHSTENS:
+            return titel + zusatz
+    return titel
+
+
+def aehnlichkeit(a: "Artikel", b: "Artikel") -> int:
+    """Thematische Nähe zweier Beiträge: je gemeinsames Schlagwort 3, gleiche
+    Kategorie 2, je gemeinsame Zielgruppe 1."""
+    wert = 3 * len({_falten(s) for s in a.schlagwoerter} & {_falten(s) for s in b.schlagwoerter})
+    if a.kategorie and b.kategorie == a.kategorie:
+        wert += 2
+    return wert + len(set(a.zielgruppe) & set(b.zielgruppe))
+
+
+def verlinkung_ausgleichen(oeffentlich: list["Artikel"], mindestens: int = 2,
+                           hoechstens: int = 4) -> list[str]:
+    """Sorgt dafür, dass jeder veröffentlichte Beitrag von mindestens zwei
+    anderen unter „Passende Fachbeiträge“ verlinkt wird.
+
+    Anlass: Ahrefs meldete am 28.09.2026 zwei Beiträge, auf die nur die
+    Übersicht verlinkte – kein anderer Beitrag schlug sie vor. Ein schwach
+    verlinkter Beitrag gilt Suchmaschinen als unwichtig. Ergänzt wird bei den
+    thematisch nächsten Beiträgen, die noch Platz haben (höchstens vier
+    Vorschläge); ist keiner thematisch nah, heißt der Block dort „Weitere
+    Fachbeiträge“. Reihenfolge fest, damit zwei Läufe dasselbe ergeben.
+    """
+    eingehend = {a.kurzform: 0 for a in oeffentlich}
+    for a in oeffentlich:
+        for b in a.passende:
+            if b.kurzform in eingehend:
+                eingehend[b.kurzform] += 1
+    ergaenzt = []
+    for ziel in sorted(oeffentlich, key=lambda x: (x.veroeffentlicht, x.kurzform)):
+        while eingehend[ziel.kurzform] < mindestens:
+            spender = [a for a in oeffentlich
+                       if a is not ziel and ziel not in a.passende and len(a.passende) < hoechstens]
+            if not spender:
+                break
+            spender.sort(key=lambda a: a.kurzform)
+            spender.sort(key=lambda a: a.veroeffentlicht, reverse=True)
+            spender.sort(key=lambda a: aehnlichkeit(ziel, a), reverse=True)
+            geber = spender[0]
+            geber.passende.append(ziel)
+            if aehnlichkeit(ziel, geber) == 0:
+                geber.passend_thematisch = False
+            eingehend[ziel.kurzform] += 1
+            ergaenzt.append(f"{geber.kurzform} → {ziel.kurzform}")
+    return ergaenzt
 
 
 def passende_beitraege(artikel: "Artikel", kandidaten: list["Artikel"],
@@ -1339,6 +1399,7 @@ def main() -> int:
     # Verlinkt wird nur auf Veröffentlichtes – nie auf einen Entwurf mit noindex.
     for a in artikel:
         a.passende, a.passend_thematisch = passende_beitraege(a, oeffentlich)
+    verlinkung_ausgleichen([a for a in artikel if a.oeffentlich])
 
     geaendert: list[str] = []
     for a in artikel:

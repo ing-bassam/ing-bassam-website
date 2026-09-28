@@ -58,7 +58,7 @@ Richtwert: höchstens 120 Turns. Lies keine Datei zweimal, lies `index.html` nic
 
 ```
 ---
-titel: <Überschrift, höchstens 70 Zeichen, Frage oder klare Aussage; identisch mit der H1>
+titel: <Überschrift, höchstens 60 Zeichen (so zeigt Google sie vollständig), Frage oder klare Aussage; identisch mit der H1>
 kategorie: <aus dem Auftrag>
 format: <aus dem Auftrag>
 zielgruppe: <aus dem Auftrag, kommagetrennt>
@@ -389,7 +389,7 @@ Dann gehst du diese Liste durch und behebst jede Abweichung mit Edit:
 9. Gruppe A: Fachbegriffe beim ersten Auftreten erklärt, keine unaufgelösten Abkürzungen, Sätze nie über 25 Wörter, Anrede „Sie“, Normen in Kurzform mit Übersetzung. Gruppe B: Begriffe definiert, Argumentationsketten belegt, kein Satz über 40 Wörter, mindestens vier Fußnoten aus Fachliteratur oder Forschung.
 10. Keine Namen, Adressen, Aktenzeichen oder Firmen realer Aufträge; Fallgeschichte korrekt gekennzeichnet (typisierter Beispielfall beziehungsweise verallgemeinert und anonymisiert).
 11. `## Hinweis` und Autorenkasten wörtlich wie vorgegeben, Leerzeilen um `---`, Datum eingesetzt; Anführungszeichen „so“.
-12. Frontmatter vollständig, `titel` höchstens 70 Zeichen, `meta_beschreibung` höchstens 155 Zeichen (per Grep geprüft, nicht geschätzt), `quelle` gesetzt; `notion_id` und `notion_url` gesetzt, wenn `quelle: notion`; `fachlich_geprueft_von` und `fachlich_geprueft_am` vorhanden und leer.
+12. Frontmatter vollständig, `titel` höchstens 60 Zeichen, `meta_beschreibung` höchstens 155 Zeichen (per Grep geprüft, nicht geschätzt), `quelle` gesetzt; `notion_id` und `notion_url` gesetzt, wenn `quelle: notion`; `fachlich_geprueft_von` und `fachlich_geprueft_am` vorhanden und leer.
 
 Zum Schluss trägst du mit einem einzigen Edit `wortzahl`, `lesezeit`, `fussnoten`, `quellen_geprueft`, `zahlenwerte_norm`, `todos` und `regelwerke_bestaetigt` ein (`old_string` ist der Block der sieben Zeilen mit den Nullwerten).
 

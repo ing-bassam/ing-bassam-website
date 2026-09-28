@@ -78,7 +78,7 @@ Richtwert höchstens 180 Turns – eine Vorlage, die Leser vor Ort in der Hand h
 
 ## Die Begleitseite
 
-`format` ist `Vorlage`; `kategorie`, `zielgruppe`, `leistung` aus dem Auftrag; `kernfrage` ist der `zweck`; `titel` ist der Titel der Vorlage (höchstens 70 Zeichen), `definition` ein Satz der Form „Ein <Typ> für <Zweck> ist …“ – wortgleich im Text. Zusätzliches Frontmatter-Feld unmittelbar hinter `kurzform`:
+`format` ist `Vorlage`; `kategorie`, `zielgruppe`, `leistung` aus dem Auftrag; `kernfrage` ist der `zweck`; `titel` ist der Titel der Vorlage (höchstens 60 Zeichen), `definition` ein Satz der Form „Ein <Typ> für <Zweck> ist …“ – wortgleich im Text. Zusätzliches Frontmatter-Feld unmittelbar hinter `kurzform`:
 
 ```
 dateien: vorlagen/<kurzform>/<kurzform>.pdf, vorlagen/<kurzform>/<kurzform>-ausfuellbar.pdf, vorlagen/<kurzform>/<kurzform>.docx

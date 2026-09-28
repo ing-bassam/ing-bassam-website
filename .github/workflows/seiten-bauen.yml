@@ -163,8 +163,9 @@ jobs:
 
       # IndexNow: Bing und die übrigen teilnehmenden Suchmaschinen erfahren
       # sofort von neuen und geänderten Seiten, statt auf ihren Crawler zu
-      # warten. Gemeldet werden nur Adressen, deren Eintrag in der Sitemap neu
-      # ist oder deren Stand sich geändert hat – Entwürfe stehen dort nie.
+      # warten. Gemeldet werden Adressen, deren Eintrag in der Sitemap neu ist
+      # oder deren Stand sich geändert hat, und jede öffentliche Seite, deren
+      # HTML sich in diesem Push geändert hat – Entwürfe stehen nie in der Sitemap.
       # Nur auf main, denn nur main ist online. Ein Fehler hier färbt den
       # Seitenbau nicht rot; die wöchentliche Prüfung meldet verpasste Seiten
       # nach.
@@ -188,7 +189,18 @@ jobs:
               MODUS=(--alle)
             fi
           fi
-          python tools/indexnow.py "${MODUS[@]}"
+          # Zusätzlich jede Seite, deren HTML sich in diesem Push geändert hat –
+          # auch ohne neues Datum (Gestaltung, Verlinkung, Vorschaubild).
+          GEAENDERT=()
+          if [ -s "$ALT" ]; then
+            mapfile -t GEAENDERT < <(git diff --name-only "$VORHER" HEAD -- index.html fachwissen 2>/dev/null \
+                                     | grep -E '(^index\.html$|index\.html$)' || true)
+          fi
+          if [ "${#GEAENDERT[@]}" -gt 0 ]; then
+            python tools/indexnow.py "${MODUS[@]}" --dateien "${GEAENDERT[@]}"
+          else
+            python tools/indexnow.py "${MODUS[@]}"
+          fi
 
       - name: Gesperrte Beiträge melden
         if: always() && steps.bauen.outputs.rueckgabe == '2'

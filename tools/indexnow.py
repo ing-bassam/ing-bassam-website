@@ -158,6 +158,8 @@ def main() -> int:
     auswahl.add_argument("--vorher", type=Path, help="Sitemap vor der Änderung")
     auswahl.add_argument("--seit", type=int, help="Seiten mit Stand der letzten n Tage")
     auswahl.add_argument("--alle", action="store_true", help="alle Seiten der Sitemap")
+    parser.add_argument("--dateien", nargs="*", default=[],
+                        help="zusätzlich diese geänderten Seiten melden (index.html, fachwissen/<kurz>/index.html)")
     parser.add_argument("--warten", type=int, default=600)
     parser.add_argument("--probe", action="store_true")
     args = parser.parse_args()
@@ -172,6 +174,20 @@ def main() -> int:
         vorher = (eintraege(args.vorher.read_text(encoding="utf-8"))
                   if args.vorher.exists() else {})
         ziel = {url: stand for url, stand in aktuell.items() if vorher.get(url) != stand}
+    # Seiten, deren HTML sich geändert hat, ohne dass ihr Stand in der Sitemap
+    # neu ist (etwa nach einer Gestaltungsänderung). Gemeldet wird nur, was in
+    # der Sitemap steht – Entwürfe mit noindex also nie. Anlass: Ahrefs meldete
+    # am 28.09.2026 „Changed pages not submitted to IndexNow“ (30 Seiten).
+    for pfad in args.dateien:
+        pfad = pfad.replace("\\", "/")
+        if pfad == "index.html":
+            url = f"https://{HOST}/"
+        elif pfad.startswith("fachwissen/") and pfad.endswith("index.html"):
+            url = f"https://{HOST}/" + pfad[: -len("index.html")]
+        else:
+            continue
+        if url in aktuell and url not in ziel:
+            ziel[url] = aktuell[url]
     ziel = {url: stand for url, stand in ziel.items()
             if urllib.parse.urlsplit(url).hostname == HOST}
 
