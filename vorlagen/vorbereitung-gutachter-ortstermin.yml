@@ -1,0 +1,312 @@
+titel: Checkliste Ortstermin mit dem Bausachverständigen
+untertitel: Vorbereitung auf den Termin vor Ort
+kurzform: vorbereitung-gutachter-ortstermin
+typ: Checkliste
+stand: 2026-09-28
+dateien: [pdf, pdf-ausfuellbar]
+einleitung: >-
+  Mit dieser Checkliste bereiten Sie den Termin mit einer Bausachverständigen
+  oder einem Bausachverständigen vor. Gehen Sie die Abschnitte der Reihe nach
+  durch und tragen Sie für jeden Punkt ein, ob die Unterlage oder die
+  Vorbereitung vorliegt, nur teilweise vorliegt, noch fehlt oder für Ihren Fall
+  nicht einschlägig ist. Was am Terminstag fehlt, kostet meist einen zweiten
+  Termin.
+kopffelder:
+  - Objekt und Anschrift
+  - Baujahr
+  - Datum des Ortstermins
+  - Sachverständige oder Sachverständiger
+  - Aktenzeichen oder Schadennummer
+  - Ausgefüllt von
+bewertung:
+  stufen:
+    - {kurz: "liegt vor", lang: "vollständig vorhanden", beschreibung: "vorhanden und für den Termin bereitgelegt"}
+    - {kurz: "teilweise", lang: "teilweise vorhanden", beschreibung: "lückenhaft, nur als Entwurf oder nur digital"}
+    - {kurz: "fehlt", lang: "fehlt noch", beschreibung: "nicht vorhanden – bis zum Termin beschaffen"}
+    - {kurz: "n. e.", lang: "nicht einschlägig", beschreibung: "trifft auf dieses Vorhaben nicht zu"}
+abschnitte:
+  - titel: Anlass, Auftrag und Art des Gutachtens
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Art des Gutachtens
+        auswahl: [Privatgutachten, selbständiges Beweisverfahren, Gerichtsgutachten, Schiedsgutachten, Versicherungsgutachten, unbekannt]
+        hinweis: >-
+          Die Art bestimmt alles Weitere. Beim Gerichtsgutachten und beim
+          selbständigen Beweisverfahren gibt ein Beweisbeschluss die Fragen vor.
+          Beim Privatgutachten vereinbaren Sie den Auftrag selbst.
+      - text: Vertragsgrundlage des Vorhabens
+        auswahl: [BGB-Bauvertrag, VOB/B vereinbart, Kaufvertrag, Mietvertrag, kein schriftlicher Vertrag, unbekannt]
+        hinweis: >-
+          Steht auf der ersten Seite des Vertrages oder in den
+          Vertragsbedingungen. Ist von der Vergabe- und Vertragsordnung für
+          Bauleistungen Teil B die Rede, gilt die VOB/B.
+      - text: Stand des Vorhabens
+        auswahl: [vor der Abnahme, nach der Abnahme, Bestandsgebäude, vor dem Kauf, unbekannt]
+        hinweis: >-
+          Die Abnahme ist die Erklärung, dass die Leistung als vertragsgemäß
+          entgegengenommen wird. Vor und nach der Abnahme gelten unterschiedliche
+          Regeln dafür, wer was beweisen muss.
+      - text: Eigentums- und Nutzungsverhältnis
+        auswahl: [Alleineigentum selbst genutzt, Alleineigentum vermietet, Wohnungseigentum, Mietobjekt, Nachbargebäude, unbekannt]
+        hinweis: >-
+          Bei Wohnungseigentum ist zu klären, ob der Schaden am Sondereigentum
+          oder am Gemeinschaftseigentum liegt. Danach richtet sich, wer den
+          Auftrag erteilt.
+      - text: Die Frage, die geklärt werden soll, ist schriftlich in eigenen Worten notiert
+        ja_nein: true
+        hinweis: >-
+          Beim Privatgutachten werden Aufgabe und Umfang zwischen Ihnen und der
+          sachverständigen Person vereinbart. Je genauer die Frage, desto
+          brauchbarer das Ergebnis.
+      - text: Auftragsumfang und Kosten sind schriftlich vereinbart
+        ja_nein: true
+        hinweis: >-
+          Für Privatgutachten gibt es keine Gebührenordnung. Vereinbaren Sie
+          vorher Stundensatz oder Pauschale, Nebenkosten und was bei zusätzlichen
+          Untersuchungen gilt.
+
+  - titel: Vertrags-, Plan- und Genehmigungsunterlagen
+    notizen: 2
+    punkte:
+      - text: Bauvertrag, Kaufvertrag oder Mietvertrag mit allen Anlagen
+        hinweis: >-
+          Liegt vor heißt: der unterschriebene Vertrag mit allen Anlagen, auf die
+          er verweist. Teilweise: der Vertrag ohne Anlagen. Fehlt: nur der
+          Entwurf oder gar nichts.
+      - text: Bau- und Leistungsbeschreibung, Leistungsverzeichnis, Angebote
+        hinweis: >-
+          Diese Unterlagen sagen, was geschuldet war. Ohne sie lässt sich oft
+          nicht beurteilen, ob überhaupt ein Mangel vorliegt. Teilweise: nur
+          Auszüge oder nur das Angebot ohne Beschreibung.
+      - text: Nachträge, Änderungsvereinbarungen, Bemusterungsprotokolle
+        hinweis: >-
+          Nachträge sind spätere Vereinbarungen über zusätzliche oder geänderte
+          Leistungen. Sie verschieben das geschuldete Ergebnis und werden häufig
+          vergessen.
+      - text: Ausführungs-, Detail- und Bestandspläne, Schnitte, Grundrisse
+        hinweis: >-
+          Bestandspläne zeigen, was gebaut wurde, Ausführungspläne, was gebaut
+          werden sollte. Fehlen die Pläne, fragen Sie beim Planer, beim
+          Bauunternehmen und beim Bauamt an.
+      - text: Statische Berechnung, bauphysikalische Nachweise, Fachgutachten
+        hinweis: >-
+          Dazu gehören Standsicherheitsnachweis, Wärmeschutz- und
+          Schallschutznachweis. Teilweise: nur Deckblätter oder einzelne
+          Positionen ohne Positionsplan.
+      - text: Baugenehmigung, Lageplan, Grundbuchauszug, Vermessungsunterlagen
+        hinweis: >-
+          Bei Fragen zu Grenzen, Nachbarbebauung, Entwässerung oder zur
+          zulässigen Nutzung sind diese Unterlagen die Grundlage. Bei reinen
+          Ausführungsmängeln im Inneren oft nicht einschlägig.
+
+  - titel: Schriftverkehr, Protokolle und Fristen
+    notizen: 2
+    punkte:
+      - text: Mängelrügen mit Datum, Beschreibung und gesetzter Frist
+        hinweis: >-
+          Liegt vor heißt: jede Rüge mit Datum, Beschreibung des Mangels und
+          konkretem Fristdatum, dazu der Nachweis, dass sie zugegangen ist.
+          Teilweise: nur E-Mails ohne Zugangsnachweis.
+      - text: Abnahmeprotokoll mit allen Vorbehalten und Restpunkten
+        hinweis: >-
+          Das Abnahmeprotokoll hält fest, welche Mängel bei der Abnahme bekannt
+          waren. Fehlt es, ist oft strittig, ob und wann abgenommen wurde.
+      - text: Bautagebuch, Baustellen- und Besprechungsprotokolle, Aktenvermerke
+        hinweis: >-
+          Diese Aufzeichnungen zeigen den Bauablauf und wer wann was wusste.
+          Teilweise: nur einzelne Protokolle oder Notizen ohne Datum.
+      - text: Schriftverkehr mit Baufirma, Verkäufer, Vermieter, Verwaltung oder Versicherung
+        hinweis: >-
+          Ordnen Sie den Schriftverkehr nach Datum, nicht nach Absender. Eine
+          Zeitleiste ist für die sachverständige Person schneller lesbar als ein
+          voller Ordner.
+      - text: Liste der Beteiligten und Übersicht der Gewährleistungsfristen
+        hinweis: >-
+          Bei Bauleistungen beträgt die Verjährungsfrist für Mängelansprüche
+          grundsätzlich fünf Jahre. Beginn und Länge hängen vom Vertrag ab und
+          gehören auf die Liste.
+
+  - titel: Eigene Dokumentation des Schadens
+    notizen: 2
+    punkte:
+      - text: Fotos mit Datum, je Schadensstelle eine Übersicht und eine Nahaufnahme
+        hinweis: >-
+          Liegt vor heißt: Übersicht und Detail, Datum im Bild oder in den
+          Dateidaten, ein Zollstock oder Maßstab im Bild. Teilweise: nur
+          Nahaufnahmen ohne erkennbaren Ort.
+      - text: Schriftliche Zeitleiste vom ersten Anzeichen bis heute
+        hinweis: >-
+          Notieren Sie, wann Sie was bemerkt haben, was seither geschehen ist und
+          wer davon wusste. Eine Seite genügt meist.
+      - text: Verlaufsaufnahmen bei fortschreitenden Schäden
+        hinweis: >-
+          Risse und Feuchteflächen verändern sich zwischen Schadenseintritt und
+          Ortstermin oft deutlich. Fotografieren Sie dieselbe Stelle in gleichen
+          Abständen aus gleicher Position.
+      - text: Lage aller Schadensstellen in einem Grundriss oder einer Skizze eingetragen
+        hinweis: >-
+          Eine nummerierte Skizze spart im Termin viel Zeit. Verwenden Sie
+          dieselben Nummern auch für Fotos und Notizen.
+      - text: Angaben zu Nutzung, Heizung und Lüftung der betroffenen Räume
+        hinweis: >-
+          Bei Feuchte- und Schimmelfällen sind Raumnutzung, Heizverhalten und
+          Lüftung Teil der Ursachensuche. Aufzeichnungen über einige Wochen sind
+          wertvoller als eine Momentaufnahme.
+
+  - titel: Vorbefunde, Nachweise und Unterlagen der Technik
+    notizen: 2
+    punkte:
+      - text: Frühere Gutachten, Mess- und Prüfprotokolle, Laborberichte
+        hinweis: >-
+          Auch Gutachten, die Ihnen nicht gefallen, gehören auf den Tisch.
+          Teilweise: nur die Zusammenfassung ohne Anlagen und Messwerte.
+      - text: Rechnungen und Aufträge zu Reparaturen, Umbauten und Sanierungen
+        hinweis: >-
+          Sie zeigen, was am Bauteil bereits verändert wurde. Ohne sie wird ein
+          früherer Eingriff leicht für die Schadensursache gehalten.
+      - text: Wartungsnachweise für Heizung, Lüftung, Dach und Entwässerung
+        hinweis: >-
+          Bei Anlagen- und Feuchteschäden ist die Wartungsgeschichte oft
+          entscheidend. Fehlende Nachweise sind ein Ergebnis, kein Makel – sagen
+          Sie es offen.
+      - text: Energieausweis und Unterlagen zu Dämmung und Fenstern
+        hinweis: >-
+          Beim Verkauf oder bei der Neuvermietung ist der Energieausweis
+          spätestens bei der Besichtigung vorzulegen. Beim reinen Mängelstreit
+          meist nicht einschlägig.
+
+  - titel: Zugang, Technik und Rahmenbedingungen am Termin
+    notizen: 2
+    punkte:
+      - text: Zugang zu allen betroffenen Räumen ist gesichert
+        hinweis: >-
+          Denken Sie an Keller, Spitzboden, Technikraum, Garage und abgeschlossene
+          Nebenräume. Teilweise: Zugang nur zu einem Teil der Räume oder nur zu
+          bestimmten Uhrzeiten.
+      - text: Zugang zu Nachbarwohnung, Nachbargebäude oder Nachbargrundstück ist abgestimmt
+        hinweis: >-
+          In einem Beweissicherungsgutachten wird festgehalten, ob der Zugang zu
+          allen benachbarten Objekten möglich war. Sprechen Sie Nachbarn und
+          Mieter rechtzeitig und schriftlich an.
+      - text: Schlüssel, Zugangscodes und eine ortskundige Begleitperson sind organisiert
+        hinweis: >-
+          Eine Person, die das Gebäude kennt, ersetzt oft eine halbe Stunde
+          Suchen. Bei vermieteten Einheiten stimmen Sie den Termin rechtzeitig mit
+          den Nutzern ab.
+      - text: Betroffene Flächen sind freigeräumt und zugänglich
+        hinweis: >-
+          Schränke, Teppiche, Verkleidungen und Lagergut vor der betroffenen Wand
+          verhindern jede Feststellung. Teilweise: nur die Hauptstelle frei, die
+          Nebenstellen verstellt.
+      - text: Strom, Beleuchtung und ausreichend Zeit stehen zur Verfügung
+        hinweis: >-
+          Witterungs- und Lichtverhältnisse werden im Gutachten festgehalten und
+          begrenzen, was sichtbar ist. Planen Sie lieber eine Stunde zu viel als
+          eine zu wenig ein.
+
+  - titel: Beteiligte am Termin
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Auftraggeberin oder Auftraggeber beziehungsweise Eigentümer ist anwesend
+        ja_nein: true
+      - text: Die Gegenseite ist rechtzeitig geladen oder eingeladen
+        ja_nein: true
+        hinweis: >-
+          Im selbständigen Beweisverfahren ist die Gegenseite so rechtzeitig zu
+          laden, dass sie ihre Rechte wahrnehmen kann. Ohne ordnungsgemäße Ladung
+          kann das Ergebnis unbrauchbar werden.
+      - text: Rechtsanwältin oder Rechtsanwalt nimmt teil oder ist informiert
+        ja_nein: true
+      - text: Planerin, Bauleiter oder ausführende Firma sind eingeladen
+        ja_nein: true
+        hinweis: >-
+          Wer die Ausführung kennt, kann Fragen sofort beantworten. Bei
+          gerichtlichen Terminen lädt allein die sachverständige Person ein.
+      - text: Mieter, Nutzer, Hausverwaltung oder Beirat sind informiert
+        ja_nein: true
+
+  - titel: Was vor dem Termin unterbleiben muss
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Der Schadensbereich wurde nicht renoviert, überstrichen, verputzt oder verfliest
+        ja_nein: true
+        hinweis: >-
+          Wer den Mangel beseitigen lässt, beseitigt damit auch den Beweis, dass
+          er bestanden hat. Warten Sie mit der Instandsetzung, bis der Zustand
+          festgehalten ist.
+      - text: Keine Mängelbeseitigung ohne vorherige Beweissicherung beauftragt
+        ja_nein: true
+        hinweis: >-
+          Ohne Sicherung des Zustands droht, dass Beweismittel verloren gehen,
+          beschädigt werden oder ihre Glaubwürdigkeit verlieren.
+      - text: Keine eigenmächtigen Bauteilöffnungen vorgenommen
+        ja_nein: true
+        hinweis: >-
+          Eine Bauteilöffnung braucht die Zustimmung der Eigentümerseite. Vorher
+          ist zu klären, wer wieder verschließt und wer die Kosten trägt.
+      - text: Ausgebaute Teile, Rohrstücke und Materialreste sind aufbewahrt
+        ja_nein: true
+      - text: Sofortmaßnahmen zur Schadenbegrenzung sind vorher und währenddessen dokumentiert
+        ja_nein: true
+        hinweis: >-
+          Die Begrenzung des Schadens geht vor. Fotografieren Sie vor Beginn und
+          während der Arbeiten und heben Sie Belege auf.
+
+  - titel: Zusätzlich bei einem Versicherungsschaden
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Der Schaden ist dem Versicherer unverzüglich gemeldet
+        ja_nein: true
+      - text: Schadennummer und Versicherungsscheinnummer sind notiert
+        ja_nein: true
+        hinweis: >-
+          Im Versicherungsgutachten werden Anspruchsteller, Versicherungsnehmer
+          sowie Schadens- und Versicherungsscheinnummer auf der ersten Seite
+          angegeben.
+      - text: Weisungen des Versicherers sind eingeholt und schriftlich festgehalten
+        ja_nein: true
+      - text: Es ist geklärt, wer Anspruchsteller und wer Versicherungsnehmer ist
+        ja_nein: true
+
+  - titel: Am Termin und danach
+    bewertung: false
+    notizen: 3
+    punkte:
+      - text: Unterlagen sind sortiert, nummeriert und in Kopie zur Übergabe bereit
+        ja_nein: true
+      - text: Eigene Fragen sind schriftlich notiert und werden im Termin gestellt
+        ja_nein: true
+      - text: Eigene Notizen, Fotos und eine Anwesenheitsliste werden im Termin geführt
+        ja_nein: true
+        hinweis: >-
+          Eine Anwesenheitsliste, die von allen Anwesenden unterschrieben wird,
+          verhindert spätere Streitigkeiten darüber, wer was gesehen hat.
+      - text: Nachgereichte Unterlagen sind nachweisbar übersandt
+        ja_nein: true
+      - text: Terminprotokoll und Gutachten sind geprüft, Ergänzungsfragen notiert
+        ja_nein: true
+        hinweis: >-
+          Ein kurzfristig nach dem Termin erstelltes Protokoll gibt allen Seiten
+          Gelegenheit, auf die Feststellungen einzugehen, bevor das Gutachten
+          darauf aufbaut.
+auswertung:
+  - "Ein Punkt der Abschnitte 1 bis 3 mit fehlt: vor dem Termin bei Bauunternehmen, Planer, Verwaltung oder Bauaufsichtsbehörde anfordern."
+  - "Mehr als drei Punkte mit fehlt: prüfen Sie, ob der Termin verschoben werden sollte – ein zweiter Ortstermin kostet mehr als eine Woche Wartezeit."
+  - "Ist der Zugang zu betroffenen Räumen oder Nachbarobjekten nicht gesichert, sagen Sie das vor dem Termin an – sonst bleiben Feststellungen offen."
+  - "Sind Bauteilöffnungen zu erwarten, klären Sie Zustimmung, Wiederherstellung und Kostentragung schriftlich, bevor der Termin beginnt."
+  - "Bei einem Gerichtsgutachten oder einem selbständigen Beweisverfahren geht die rechtzeitige Ladung der Gegenseite allem anderen vor."
+  - "Bei einem versicherten Schaden gehen Schadenmeldung, Schadenbegrenzung und die Weisungen des Versicherers der Terminvorbereitung vor."
+hinweise:
+  - "Diese Checkliste ist eine Arbeitshilfe zur Vorbereitung. Sie ersetzt weder ein Gutachten noch eine Rechtsberatung."
+  - "Ob und wie Ansprüche bestehen und durchgesetzt werden können, beurteilt eine Rechtsanwältin oder ein Rechtsanwalt."
+  - "Betreten Sie keine Dächer, öffnen Sie keine Bauteile und arbeiten Sie nicht an Elektro-, Gas- oder Trinkwasserinstallationen. Bei Gefahr für die Standsicherheit, bei Gasgeruch oder bei Schadstoffverdacht sichern Sie den Bereich und schalten eine Fachfirma oder die zuständige Behörde ein."
+quellen:
+  - "Keldungs / Ganschow / Arbeiter: Leitfaden für Bausachverständige, 4. Aufl. 2018, S. 16, 26, 32, 43, 59 f., 99 f."
+  - "Frössel: Risse in Gebäuden, 2. Aufl. 2025, S. 111, 169 f."
+  - "Vismann (Hrsg.): Wendehorst Bautechnische Zahlentafeln, 37. Aufl. 2021, S. 1094 f."
+  - "Weber / Hafkesbrink (Hrsg.): Bauwerksabdichtung in der Altbausanierung, 7. Aufl. 2026, S. 88 f."
+  - "Bauherren-Schutzbund e. V. und Verband Privater Bauherren e. V., abgerufen am 28.09.2026"
