@@ -1,0 +1,202 @@
+titel: Raumklima-Protokoll bei Schimmelverdacht
+untertitel: Heizen, Lüften und Raumklima nachvollziehbar festhalten
+kurzform: raumklima-protokoll-schimmelverdacht
+typ: Protokoll
+stand: 2026-09-29
+dateien: [xlsx, pdf]
+einleitung: "Dieses Protokoll hält fest, wie ein Raum beheizt, gelüftet und genutzt wird und welches Raumklima sich dabei einstellt. Es dient Bewohnern, Eigentümern und Hausverwaltungen gleichermaßen und bewertet niemanden. Führen Sie es über mehrere Wochen, damit aus einzelnen Messwerten ein belastbares Bild wird."
+kopffelder:
+  - Objekt und Anschrift
+  - Wohnung, Geschoss
+  - Raum
+  - Grundfläche des Raums in m²
+  - Zahl der Bewohner der Wohnung
+  - Messgerät (Hersteller, Modell)
+  - Aufstellort des Messgeräts
+  - Beginn der Aufzeichnung
+  - Ende der Aufzeichnung
+  - Protokoll geführt von
+bewertung:
+  stufen:
+    - {kurz: "o. B.", lang: "ohne Befund", beschreibung: "nichts Auffälliges festgestellt"}
+    - {kurz: "gering", lang: "geringer Befund", beschreibung: "vereinzelt, oberflächlich oder kurzzeitig – weiter beobachten"}
+    - {kurz: "deutlich", lang: "deutlicher Befund", beschreibung: "ausgedehnt, wiederkehrend oder zunehmend – Fachleute einschalten"}
+    - {kurz: "n. p.", lang: "nicht prüfbar", beschreibung: "nicht zugänglich, verdeckt oder nicht bekannt"}
+abschnitte:
+  - titel: Messgerät und Aufstellort
+    bewertung: false
+    punkte:
+      - text: Art des Messgeräts
+        auswahl: [digitales Thermo-Hygrometer, Datenlogger mit Speicher, analoges Hygrometer, unbekannt]
+        hinweis: "Ein Thermo-Hygrometer zeigt Raumtemperatur und relative Luftfeuchte zugleich an. Ein Datenlogger zeichnet beides selbsttätig auf und ist bei längeren Aufzeichnungen im Vorteil."
+      - text: Aufstellhöhe des Geräts
+        auswahl: [etwa Tischhöhe, etwa Kopfhöhe im Sitzen, in Bodennähe, unbekannt]
+        hinweis: "Die Höhe über dem Boden im ganzen Zeitraum gleich lassen. Warme Luft steigt auf, deshalb messen Gerät und Vergleichsgerät nur bei gleicher Höhe dasselbe."
+      - text: Gerät steht nicht unmittelbar am Heizkörper, am Fenster oder an der Außenwand
+        ja_nein: true
+        hinweis: "Am Heizkörper zeigt das Gerät zu warm und zu trocken an, an der kalten Außenwand zu feucht. Beides verfälscht das Protokoll. Ein freier Platz im Raum, etwa einen halben Meter von Wänden entfernt, ist geeignet."
+      - text: Gerät stand vor der ersten Ablesung mindestens zwei Stunden am selben Ort
+        ja_nein: true
+      - text: Zweites Gerät in einem Vergleichsraum aufgestellt
+        ja_nein: true
+        hinweis: "Ein zweites Gerät in einem Raum ohne Befund zeigt, ob die Feuchte in der ganzen Wohnung hoch ist oder nur an einer Stelle."
+  - titel: Raum und Nutzung
+    bewertung: false
+    punkte:
+      - text: Art des Raums
+        auswahl: [Wohnzimmer, Schlafzimmer, Kinderzimmer, Bad, Küche, sonstiger Raum]
+      - text: Lage im Gebäude
+        auswahl: [Erdgeschoss, Obergeschoss, Dachgeschoss, Souterrain oder Keller, unbekannt]
+      - text: Zahl der Außenwände des Raums
+        auswahl: [eine, zwei, drei oder mehr, unbekannt]
+        hinweis: "Räume mit mehreren Außenwänden und Eckräume kühlen stärker aus. Dort liegen die kältesten Stellen der Wohnung."
+      - text: Der Raum wird beheizt
+        auswahl: [dauerhaft, nur zeitweise, gar nicht, unbekannt]
+      - text: Zahl der Personen, die den Raum regelmäßig nutzen
+        auswahl: [eine, zwei, drei, vier und mehr, wechselnd]
+        hinweis: "Ein ruhender Mensch gibt nach einer Übersicht in der Fachliteratur rund 30 bis 60 g Wasser je Stunde an die Raumluft ab, im Schlaf über acht Stunden etwa 300 g."
+      - text: Tür zu den Nachbarräumen
+        auswahl: [meist offen, meist geschlossen, wechselnd, unbekannt]
+        hinweis: "Eine offene Tür zu einem wärmeren Raum trägt feuchte Luft in den kühleren Raum. Dort schlägt sie sich an den kältesten Stellen nieder."
+  - titel: Gebäude und Bauteile
+    bewertung: false
+    punkte:
+      - text: Baujahr des Gebäudes
+        auswahl: [vor 1949, 1949 bis 1978, 1979 bis 1994, ab 1995, unbekannt]
+      - text: Dämmung der Außenwand
+        auswahl: [außen gedämmt, innen gedämmt, nicht gedämmt, unbekannt]
+        hinweis: "Wie gut die Außenwand gedämmt ist, bestimmt die Temperatur ihrer Innenoberfläche. Die Angabe steht oft im Energieausweis oder in den Bauunterlagen."
+      - text: Verglasung der Fenster
+        auswahl: [Einfachverglasung, Kastenfenster, Zweischeiben-Isolierverglasung, Dreischeiben-Isolierverglasung, unbekannt]
+      - text: Fenster seit dem Bau erneuert
+        auswahl: [ja, nein, unbekannt]
+        hinweis: "Neue, dichte Fenster senken den unbeabsichtigten Luftaustausch deutlich. Nach einem Fenstertausch muss in der Regel häufiger gelüftet werden als vorher."
+      - text: Rollladenkästen im Raum
+        auswahl: [vorhanden, nicht vorhanden, unbekannt]
+        hinweis: "Rollladenkästen zählen neben Außenwandecken und Fensterlaibungen zu den Stellen, an denen sich Feuchte zuerst niederschlägt."
+      - text: Lüftungsanlage
+        auswahl: [keine, Abluftanlage, "Zu- und Abluftanlage", "Außenluftdurchlässe", unbekannt]
+        hinweis: "Eine Abluftanlage saugt Luft ab, meist in Bad und Küche. Eine Zu- und Abluftanlage führt zusätzlich Frischluft zu, oft mit Wärmerückgewinnung. Außenluftdurchlässe sind kleine Öffnungen im Fensterrahmen oder in der Wand, die dauerhaft Luft nachströmen lassen."
+  - titel: Befund am Schimmel
+    notizen: 2
+    punkte:
+      - text: Ausdehnung der befallenen Fläche
+        hinweis: "Woran erkennen: Fläche grob ausmessen und fotografieren. Gering: zusammen weniger als ein halber Quadratmeter und nur oberflächlich. Deutlich: ein halber Quadratmeter oder mehr, oder der Belag sitzt tiefer im Putz, in der Tapete oder im Holz."
+      - text: Lage des Befalls im Raum
+        hinweis: "Woran erkennen: Außenwandecken, Fensterlaibungen, Rollladenkästen und Deckenanschlüsse zuerst ansehen. Gering: eine einzelne Stelle. Deutlich: mehrere Stellen oder ein durchgehender Streifen entlang einer Kante."
+      - text: Befall hinter Möbeln, Vorhängen oder Verkleidungen
+        hinweis: "Woran erkennen: Möbel abrücken und dahinter nachsehen. Gering: kleiner Fleck an einer Stelle. Deutlich: Rückwand oder Wandfläche großflächig betroffen."
+      - text: Veränderung seit der letzten Aufzeichnung
+        hinweis: "Woran erkennen: mit dem vorigen Foto vergleichen. Gering: unverändert. Deutlich: die Fläche wächst oder es kommen neue Stellen hinzu."
+      - text: Geruch im Raum
+        hinweis: "Woran erkennen: beim Betreten des ungelüfteten Raums riechen. Gering: bei geschlossenen Schränken kaum wahrnehmbar. Deutlich: deutlich muffiger oder erdiger Geruch, auch nach dem Lüften."
+      - text: Feuchte Flecken, Abplatzungen oder Ausblühungen ohne sichtbaren Schimmel
+        hinweis: "Woran erkennen: dunkle Ränder, weiße kristalline Beläge oder sich lösende Farbe. Gering: einzelner alter, trockener Fleck. Deutlich: feuchter Fleck, der sich verändert."
+      - text: Tauwasser an Fensterscheibe, Rahmen oder Laibung
+        hinweis: "Woran erkennen: morgens vor dem Lüften nachsehen. Gering: beschlagene Scheibe, die nach dem Lüften abtrocknet. Deutlich: Wasser sammelt sich im Rahmen oder die Laibung bleibt feucht."
+  - titel: Heizen
+    notizen: 2
+    punkte:
+      - text: Raumtemperatur im Tagesmittel
+        hinweis: "Woran erkennen: Werte der Aufzeichnung vergleichen. Der Verband Privater Bauherren nennt als Anhalt 20 °C für Wohn- und Esszimmer, 24 °C für das Bad und mindestens 16 °C für Schlafzimmer. Deutlich: Werte liegen dauerhaft darunter."
+      - text: Heizkörper wird über die ganze Fläche warm
+        ja_nein: true
+        hinweis: "Bleibt ein Heizkörper unten oder oben kalt, wird der Raum nicht richtig warm. Das ist ein Fall für die Heizungswartung, nicht für das Protokoll."
+      - text: Heizkörper ist frei und nicht durch Möbel oder Vorhänge verdeckt
+        ja_nein: true
+      - text: Thermostat bleibt über den Tag auf derselben Stufe
+        hinweis: "Woran erkennen: Stufe beim Ablesen notieren. Gering: gelegentliches Nachregeln. Deutlich: die Heizung wird regelmäßig ganz abgestellt und später wieder aufgedreht."
+      - text: Nachtabsenkung der Temperatur
+        hinweis: "Woran erkennen: Werte der Nacht mit denen des Tages vergleichen. Gering: die Temperatur fällt um wenige Grad. Deutlich: der Raum kühlt nachts stark aus und erreicht tagsüber die Ausgangstemperatur nicht mehr."
+      - text: Der Raum wird nur über offene Türen von Nachbarräumen mitbeheizt
+        ja_nein: true
+        hinweis: "Wer einen kühlen Raum mit der warmen Luft des Nachbarraums heizt, trägt zugleich deren Feuchte hinein. An den kalten Wänden schlägt sie sich nieder."
+  - titel: Lüften
+    notizen: 2
+    punkte:
+      - text: Zahl der Stoßlüftungen je Tag
+        hinweis: "Woran erkennen: in der Tabelle mitzählen. Das Umweltbundesamt empfiehlt in der kalten Jahreszeit 2- bis 3-mal täglich je Raum. Deutlich: an mehreren Tagen wird gar nicht gelüftet."
+      - text: Dauer je Stoßlüftung
+        hinweis: "Woran erkennen: Minuten mitschreiben. Das Umweltbundesamt nennt in der kalten Jahreszeit etwa 5 Minuten je Raum, im Schlafzimmer 5 bis 10 Minuten, in der warmen Jahreszeit 10 bis 20 Minuten. Deutlich: dauerhaft deutlich kürzer."
+      - text: Querlüftung über gegenüberliegende Fenster möglich
+        ja_nein: true
+        hinweis: "Sind Fenster an gegenüberliegenden Seiten gleichzeitig weit offen, wird die Luft am schnellsten ausgetauscht. Die Lüftungsdauer verkürzt sich dadurch spürbar."
+      - text: Dauerlüftung über gekippte Fenster
+        hinweis: "Woran erkennen: Kippstellung in der Spalte Art als K eintragen. Nach der Fachliteratur liegt der Luftwechsel bei gekipptem Fenster bei etwa 0,8 bis 4,0 je Stunde, bei weit geöffnetem Fenster bei 5,0 bis 15,0. Deutlich: das Fenster steht dauerhaft auf Kipp."
+      - text: Lüften während und unmittelbar nach dem Duschen, Baden und Kochen
+        ja_nein: true
+        hinweis: "Das Umweltbundesamt empfiehlt, in Küche und Bad während sowie unmittelbar danach 5 bis 10 Minuten weit zu öffnen."
+      - text: Lüften in der milden Jahreszeit
+        hinweis: "Woran erkennen: Außentemperatur mitschreiben. Nach der Fachliteratur zeigt sich Schimmel oft zuerst in den Übergangszeiten, weil milde Außenluft mehr Wasser enthält. Deutlich: in Frühjahr und Herbst wird kaum gelüftet."
+  - titel: Feuchtequellen im Raum
+    notizen: 2
+    punkte:
+      - text: Wäsche wird im Raum getrocknet
+        hinweis: "Woran erkennen: Trockner oder Wäscheständer notieren. Nach einer Übersicht in der Fachliteratur gibt eine geschleuderte Maschinenfüllung von etwa 4,5 kg insgesamt 1.000 bis 2.000 g Wasser ab. Deutlich: regelmäßig ohne zusätzliches Lüften."
+      - text: Kochen ohne Dunstabzug nach außen oder bei offener Küche
+        hinweis: "Woran erkennen: Abzug prüfen. Nach der Fachliteratur entstehen beim Kochen und Arbeiten in der Küche etwa 600 bis 800 g Wasser am Tag. Deutlich: die Feuchte zieht regelmäßig in andere Räume."
+      - text: Duschen oder Baden im Raum
+        hinweis: "Woran erkennen: Nutzung notieren. Nach der Fachliteratur setzen Baden und Duschen zusammen etwa 800 g Wasser am Tag frei. Deutlich: keine Lüftung und keine Abluft vorhanden."
+      - text: Zimmerpflanzen, Aquarien oder Luftbefeuchter
+        hinweis: "Woran erkennen: Zahl und Größe notieren. Gering: einzelne kleine Pflanzen. Deutlich: viele große Pflanzen, ein offenes Aquarium oder ein betriebener Luftbefeuchter."
+      - text: Baurestfeuchte oder Bautrocknung
+        hinweis: "Woran erkennen: Einzug oder Umbau liegt weniger als etwa zwei Jahre zurück. Deutlich: Estrich, Putz oder Mauerwerk wurden zuletzt eingebracht und der Raum wurde seitdem nicht verstärkt gelüftet."
+      - text: Wasserschaden, Rohrbruch oder undichte Stelle in den letzten Monaten
+        hinweis: "Woran erkennen: Datum und Ort des Schadens notieren. Deutlich: ein Schaden ist bekannt oder das Bauteil ist an der Stelle bis heute feucht."
+  - titel: Möblierung und kalte Stellen
+    notizen: 2
+    punkte:
+      - text: Abstand der Möbel zur Außenwand
+        hinweis: "Woran erkennen: nachmessen. Der Verband Privater Bauherren rät zu mindestens zehn Zentimetern Abstand. Gering: Abstand vorhanden, Luft kann zirkulieren. Deutlich: Schrank oder Sofa steht dicht an der Außenwand."
+      - text: Vorhänge, Verkleidungen oder Dämmtapeten vor der Außenwand
+        hinweis: "Woran erkennen: Wandfläche freilegen. Was die Wand von der Raumluft abschirmt, senkt ihre Oberflächentemperatur. In der Fachliteratur ist die durch Möblierung abgeschirmte Außenwandkante ein bekanntes Schadensbild."
+      - text: Außenwandecken, Fensterlaibungen und Deckenanschlüsse sind einsehbar
+        ja_nein: true
+      - text: Oberflächentemperatur der kältesten Stelle, falls gemessen
+        hinweis: "Woran erkennen: mit einem Infrarot-Thermometer auf die kälteste Stelle zielen. Bei 20 °C Raumluft und 50 % relativer Feuchte nennt die Fachliteratur 12,6 °C als Grenze, unter der Schimmelwachstum möglich wird. Deutlich: die Stelle liegt darunter."
+  - titel: Unterlagen und Nachweise
+    bewertung: false
+    punkte:
+      - text: Fotos mit Datum und Maßstab vorhanden
+        ja_nein: true
+      - text: Befund der anderen Seite schriftlich mitgeteilt
+        ja_nein: true
+        hinweis: "Mieter teilen den Befund der Vermieterseite oder der Verwaltung mit, Eigentümer der Verwaltung oder dem ausführenden Unternehmen. Datum und Weg der Mitteilung festhalten."
+      - text: Antwort oder Rückmeldung erhalten
+        ja_nein: true
+      - text: Grundriss, Bauunterlagen oder frühere Gutachten liegen vor
+        ja_nein: true
+tabelle:
+  spalten: [Datum, Uhrzeit, "Raumtemperatur in °C", "rel. Feuchte in %", "Außentemperatur in °C", "Gelüftet in Minuten", Art, Heizstufe, Besonderheiten, "Schimmel, Foto-Nr."]
+  breiten: [3, 2, 2, 2, 2, 2, 1, 2, 6, 3]
+  zeilen:
+    - ["Beispiel", "07:30", "19,5", "62", "8", "8", "Q", "2", "nach dem Schlafen, 2 Personen", "unverändert, Foto 3"]
+  leerzeilen: 28
+auswertung:
+  - "Ein deutlicher Befund am Schimmel oder eine befallene Fläche ab einem halben Quadratmeter: die Ursache fachlich klären lassen, bevor gereinigt oder überstrichen wird."
+  - "Die relative Luftfeuchte bleibt über Wochen hoch, obwohl der Raum beheizt und mehrmals täglich gelüftet wird: das spricht dafür, bauliche Ursachen prüfen zu lassen."
+  - "Der Schimmel kehrt nach dem Entfernen an derselben Stelle zurück: ein Hinweis darauf, dass die Bauteiloberfläche dort dauerhaft zu kalt oder zu feucht ist."
+  - "Der Befund sitzt an Außenwandecken, Fensterlaibungen oder Rollladenkästen, während der übrige Raum trocken bleibt: auf kalte Stellen im Bauteil prüfen lassen."
+  - "Muffiger Geruch ohne sichtbaren Befall oder Befall hinter Möbeln und Verkleidungen: nachsehen lassen, bevor weitere Arbeiten beginnen."
+  - "Kein deutlicher Befund über mehrere Wochen: die Aufzeichnung fortsetzen, bis möglichst eine ganze Heizperiode erfasst ist."
+unterschriften: [Protokoll geführt von, Zur Kenntnis genommen]
+hinweise:
+  - "Führen Sie das Protokoll über mehrere Wochen, möglichst über eine ganze Heizperiode. Ein einzelner Messwert sagt wenig aus; erst der Verlauf ergibt ein Bild."
+  - "Lesen Sie möglichst zu festen Zeiten ab, etwa morgens nach dem Aufstehen und abends vor dem Schlafengehen."
+  - "Stellen Sie das Messgerät nicht unmittelbar am Heizkörper, am Fenster oder an der Außenwand auf. Sonst zeigt es nicht die Luft des Raums an."
+  - "In der Spalte Art bedeutet S Stoßlüftung, Q Querlüftung und K Kipplüftung."
+  - "Tragen Sie alle Angaben ohne Wertung ein. Das Protokoll hält fest, was war; über die Ursache entscheidet es nicht."
+  - "Fotografieren Sie den Befund mit Datum und einem Maßstab, etwa einem Zollstock, und tragen Sie die Foto-Nummer ein."
+  - "Reinigungsmittel auf Essigbasis sind ungeeignet: Schimmelpilze bevorzugen nach der Fachliteratur ein saures Milieu, Essig fördert das Wachstum eher, als dass er es stoppt."
+  - "Bei größerem Befall, bei Allergien oder bei geschwächtem Immunsystem die Reinigung nicht selbst übernehmen, sondern Fachleute beauftragen."
+quellen:
+  - "DIN/TS 4108-8:2022-09, Wärmeschutz und Energie-Einsparung in Gebäuden – Teil 8: Vermeidung von Schimmelwachstum in Wohngebäuden"
+  - "Umweltbundesamt: Leitfaden zur Vorbeugung, Erfassung und Sanierung von Schimmelbefall in Gebäuden, Dezember 2017, aktualisiert April 2024"
+  - "Schmidt/Windhausen: Lohmeyer Praktische Bauphysik, 10. Aufl. 2024, S. 263, 363 und 385"
+  - "Vogdt (Hrsg.): Bauphysik. Grundwissen für Architekten, 2022, S. 119 und 129"
+  - "Willems (Hrsg.): Lehrbuch der Bauphysik, 9. Aufl. 2022, S. 481"
+  - "Hestermann/Rongen: Frick/Knöll Baukonstruktionslehre 1, 37. Aufl. 2025, S. 933"
+  - "Umweltbundesamt: Wie lüfte ich richtig? Tipps und Tricks zur Schimmelvermeidung"
+  - "Verband Privater Bauherren: Lüften, vpb.de"
+  - "Verbraucherzentrale: Schimmel an der Wand entfernen, verbraucherzentrale.de"
+  - "Bauherren-Schutzbund: Schimmelbefall durch richtiges Heizen und Lüften vermeiden, bsb-ev.de"
