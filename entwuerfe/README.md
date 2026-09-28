@@ -7,7 +7,7 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (9)
+## 🟡 Entwurf (10)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
@@ -15,6 +15,7 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 | 27.09.2026 | [Wartungs- und Instandhaltungskalender für Wohngebäude](entwurf/2026-09-27-wartungskalender-instandhaltung-wohngebaeude.md) | Vorlage | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/wartungskalender-instandhaltung-wohngebaeude/) |
 | 27.09.2026 | [Taupunkt, Oberflächentemperatur und Schimmelkriterium](entwurf/2026-09-27-taupunkt-oberflaechentemperatur-schimmelkriterium.md) | Grundlagen | Bauphysik | [ansehen](https://ing-bassam.de/fachwissen/taupunkt-oberflaechentemperatur-schimmelkriterium/) |
 | 27.09.2026 | [Schlussrechnung bezahlt: Gilt der Bau damit als abgenommen?](entwurf/2026-09-27-schlussrechnung-abnahme-gewaehrleistungsfrist.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/schlussrechnung-abnahme-gewaehrleistungsfrist/) |
+| 27.09.2026 | [Nachträge nach VOB/B: Anspruchsgrundlagen sauber trennen](entwurf/2026-09-27-nachtraege-vob-b-anspruchsgrundlagen.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nachtraege-vob-b-anspruchsgrundlagen/) |
 | 27.09.2026 | [Mischkalkulation im Vergaberecht: wann ist sie zulässig?](entwurf/2026-09-27-mischkalkulation-vergaberecht-zulaessigkeit.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/mischkalkulation-vergaberecht-zulaessigkeit/) |
 | 27.09.2026 | [Mehrkosten ankündigen nach § 2 Abs. 6 VOB/B: Musterschreiben](entwurf/2026-09-27-mehrkostenankuendigung-vob-b.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/mehrkostenankuendigung-vob-b/) |
 | 27.09.2026 | [Mangelhafte Dachsanierung: Geld für die Reparatur im Voraus](entwurf/2026-09-27-kostenvorschuss-mangelhafte-dachsanierung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/kostenvorschuss-mangelhafte-dachsanierung/) |
