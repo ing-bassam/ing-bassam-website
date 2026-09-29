@@ -7,10 +7,11 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (18)
+## 🟡 Entwurf (20)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 29.09.2026 | [Raumklima-Protokoll bei Schimmelverdacht](entwurf/2026-09-29-raumklima-protokoll-schimmelverdacht.md) | Vorlage | Bauphysik | [ansehen](https://ing-bassam.de/fachwissen/raumklima-protokoll-schimmelverdacht/) |
 | 29.09.2026 | [Pfusch am Bau: was Bauherren zuerst tun müssen](entwurf/2026-09-29-pfusch-am-bau-vorgehen-ansprueche.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/pfusch-am-bau-vorgehen-ansprueche/) |
 | 29.09.2026 | [Mängelanzeige mit Fristsetzung: Musterschreiben](entwurf/2026-09-29-maengelanzeige-mit-fristsetzung.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/maengelanzeige-mit-fristsetzung/) |
 | 28.09.2026 | [Was kostet ein Baugutachter? Honorar und Ablauf](entwurf/2026-09-28-was-kostet-ein-baugutachter.md) | Ratgeber | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/was-kostet-ein-baugutachter/) |
@@ -19,6 +20,7 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 | 28.09.2026 | [Rissprotokoll zur Rissbeobachtung](entwurf/2026-09-28-rissprotokoll-rissbeobachtung.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/rissprotokoll-rissbeobachtung/) |
 | 28.09.2026 | [Bauverzug durch Planungsfehler: warum die Klage scheiterte](entwurf/2026-09-28-planungsfehler-bauverzoegerung-nachweis.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/planungsfehler-bauverzoegerung-nachweis/) |
 | 28.09.2026 | [Checkliste vor Ablauf der Gewährleistung](entwurf/2026-09-28-gewaehrleistung-ablauf-checkliste.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/gewaehrleistung-ablauf-checkliste/) |
+| 28.09.2026 | [Bauvertrag: welche Klauseln für Verbraucher riskant sind](entwurf/2026-09-28-bauvertrag-riskante-klauseln-verbraucher.md) | Checkliste | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauvertrag-riskante-klauseln-verbraucher/) |
 | 28.09.2026 | [Baukosten realistisch schätzen: DIN 276 statt m²-Preis](entwurf/2026-09-28-baukosten-schaetzen-din-276.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/baukosten-schaetzen-din-276/) |
 | 27.09.2026 | [Wartungs- und Instandhaltungskalender für Wohngebäude](entwurf/2026-09-27-wartungskalender-instandhaltung-wohngebaeude.md) | Vorlage | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/wartungskalender-instandhaltung-wohngebaeude/) |
 | 27.09.2026 | [Taupunkt, Oberflächentemperatur und Schimmelkriterium](entwurf/2026-09-27-taupunkt-oberflaechentemperatur-schimmelkriterium.md) | Grundlagen | Bauphysik | [ansehen](https://ing-bassam.de/fachwissen/taupunkt-oberflaechentemperatur-schimmelkriterium/) |
