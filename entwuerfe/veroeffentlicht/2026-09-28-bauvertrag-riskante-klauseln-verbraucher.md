@@ -13,7 +13,7 @@ qualifikation:
 kurzform: bauvertrag-riskante-klauseln-verbraucher
 erstellt: 2026-09-28
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e0d96ad-00b4-8140-9edb-e75e16ee36c5
 notion_url: https://app.notion.com/p/Bauvertrag-vor-der-Unterschrift-pr-fen-Baubeschreibung-Fertigstellungstermin-Zahlungsplan-3e0d96ad00b481409edbe75e16ee36c5

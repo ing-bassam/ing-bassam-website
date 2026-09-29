@@ -13,7 +13,7 @@ qualifikation:
 kurzform: schimmel-mietwohnung-ursache-klaeren
 erstellt: 2026-09-28
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e0d96ad-00b4-811a-aca9-e93eb2f9b44b
 notion_url: https://app.notion.com/p/Schimmel-in-der-Mietwohnung-Ursache-kl-ren-bevor-ber-Kosten-und-Mietminderung-gestritten-wird-3e0d96ad00b4811aaca9e93eb2f9b44b

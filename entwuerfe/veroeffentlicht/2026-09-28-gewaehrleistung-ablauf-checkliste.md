@@ -14,7 +14,7 @@ kurzform: gewaehrleistung-ablauf-checkliste
 dateien: vorlagen/gewaehrleistung-ablauf-checkliste/gewaehrleistung-ablauf-checkliste.pdf
 erstellt: 2026-09-28
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-8103-9ea9-f0587902096b
 notion_url: https://app.notion.com/p/Checkliste-vor-Ablauf-der-Gew-hrleistung-3e2d96ad00b481039ea9f0587902096b

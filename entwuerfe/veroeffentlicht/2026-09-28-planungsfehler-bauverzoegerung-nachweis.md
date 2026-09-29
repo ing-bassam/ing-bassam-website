@@ -19,7 +19,7 @@ qualifikation:
 kurzform: planungsfehler-bauverzoegerung-nachweis
 erstellt: 2026-09-28
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:

@@ -14,7 +14,7 @@ kurzform: maengelanzeige-mit-fristsetzung
 dateien: vorlagen/maengelanzeige-mit-fristsetzung/maengelanzeige-mit-fristsetzung.docx, vorlagen/maengelanzeige-mit-fristsetzung/maengelanzeige-mit-fristsetzung.pdf
 erstellt: 2026-09-29
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-81c5-8cc1-f24f39f84bfd
 notion_url: https://app.notion.com/p/Musterschreiben-M-ngelanzeige-mit-Fristsetzung-3e2d96ad00b481c58cc1f24f39f84bfd

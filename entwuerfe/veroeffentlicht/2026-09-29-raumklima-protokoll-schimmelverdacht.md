@@ -14,7 +14,7 @@ kurzform: raumklima-protokoll-schimmelverdacht
 dateien: vorlagen/raumklima-protokoll-schimmelverdacht/raumklima-protokoll-schimmelverdacht.xlsx, vorlagen/raumklima-protokoll-schimmelverdacht/raumklima-protokoll-schimmelverdacht.pdf
 erstellt: 2026-09-29
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-81b3-b4e8-c96f26e14dab
 notion_url: https://app.notion.com/p/Raumklima-Protokoll-bei-Schimmelverdacht-3e2d96ad00b481b3b4e8c96f26e14dab

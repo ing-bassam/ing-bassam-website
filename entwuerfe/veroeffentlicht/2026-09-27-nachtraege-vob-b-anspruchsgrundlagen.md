@@ -13,7 +13,7 @@ qualifikation:
 kurzform: nachtraege-vob-b-anspruchsgrundlagen
 erstellt: 2026-09-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-81d8-b857-f57c7ecd35ac
 notion_url: https://app.notion.com/p/Nachtr-ge-nach-VOB-B-Anspruchsgrundlagen-sauber-trennen-3dfd96ad00b481d8b857f57c7ecd35ac

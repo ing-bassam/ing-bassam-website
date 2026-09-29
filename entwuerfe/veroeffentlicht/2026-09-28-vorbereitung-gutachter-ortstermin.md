@@ -14,7 +14,7 @@ kurzform: vorbereitung-gutachter-ortstermin
 dateien: vorlagen/vorbereitung-gutachter-ortstermin/vorbereitung-gutachter-ortstermin.pdf, vorlagen/vorbereitung-gutachter-ortstermin/vorbereitung-gutachter-ortstermin-ausfuellbar.pdf
 erstellt: 2026-09-28
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-811c-85d8-f50be7ce2cbe
 notion_url: https://app.notion.com/p/Checkliste-Vorbereitung-Gutachter-Ortstermin-3e2d96ad00b4811c85d8f50be7ce2cbe

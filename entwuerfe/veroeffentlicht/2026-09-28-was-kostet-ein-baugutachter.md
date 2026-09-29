@@ -13,7 +13,7 @@ qualifikation:
 kurzform: was-kostet-ein-baugutachter
 erstellt: 2026-09-28
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e0d96ad-00b4-8135-8004-ef78a9ff8b79
 notion_url: https://app.notion.com/p/Was-kostet-ein-Baugutachter-Honorar-Ablauf-und-was-im-Preis-enthalten-ist-3e0d96ad00b481358004ef78a9ff8b79

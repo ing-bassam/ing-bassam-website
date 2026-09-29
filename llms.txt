@@ -15,7 +15,11 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Baubetrieb
 
+- [Bauverzug durch Planungsfehler: warum die Klage scheiterte](https://ing-bassam.de/fachwissen/planungsfehler-bauverzoegerung-nachweis/): Das Oberlandesgericht Stuttgart bestätigte die Abweisung einer Millionenklage gegen einen Tragwerksplaner. Was Bauherren bei Planmängeln sichern sollten.
 - [Objektüberwachung nach HOAI: Pflichten, Haftung, Dokumentation](https://ing-bassam.de/fachwissen/objektueberwachung-lp8-pflichten-haftung/): Welche Pflichten die Objektüberwachung nach Leistungsphase 8 der HOAI umfasst, wie weit die Bauüberwachung reicht und welche Dokumentation zählt.
+- [Nachträge nach VOB/B: Anspruchsgrundlagen sauber trennen](https://ing-bassam.de/fachwissen/nachtraege-vob-b-anspruchsgrundlagen/): Welche Anspruchsgrundlage trägt einen Nachtrag nach VOB/B? Vergütung, Entschädigung und Schadensersatz mit Voraussetzungen und Nachweis.
+- [Mischkalkulation im Vergaberecht: wann ist sie zulässig?](https://ing-bassam.de/fachwissen/mischkalkulation-vergaberecht-zulaessigkeit/): Mischkalkulation im Vergaberecht: Wann die Preisverlagerung zwischen Positionen zum Ausschluss des Angebots führt und wo die Kalkulationsfreiheit endet.
+- [Mehrkosten ankündigen nach § 2 Abs. 6 VOB/B: Musterschreiben](https://ing-bassam.de/fachwissen/mehrkostenankuendigung-vob-b/): Musterschreiben zur Mehrkostenankündigung nach § 2 Abs. 6 VOB/B als Word und PDF, mit Prüfliste für die Zeit vor dem Absenden.
 - [Gestörter Bauablauf: Bauzeit und Mehrkosten nachweisen](https://ing-bassam.de/fachwissen/gestoerter-bauablauf-mehrkosten-nachweis/): Wie Mehrkosten aus einem gestörten Bauablauf nachgewiesen werden: Anspruchsgrundlagen, Soll-Ist-Vergleich, bauablaufbezogene Darstellung und Kostenarten.
 - [Bedenkenanzeige nach § 4 Abs. 3 VOB/B: Musterschreiben](https://ing-bassam.de/fachwissen/bedenkenanzeige-vob-b-musterschreiben/): Musterschreiben Bedenkenanzeige nach § 4 Abs. 3 VOB/B: Inhalt, Form, Adressat und Frist, mit Prüfliste vor dem Absenden, kostenlos als Word und PDF.
 - [Entgangener Gewinn nach Vertragsende: Was nachgewiesen werden muss](https://ing-bassam.de/fachwissen/entgangener-gewinn-wartungsvertrag-nachweis/): KG Berlin: Wer nach vorzeitiger Beendigung eines Wartungsvertrags entgangenen Gewinn verlangt, muss ersparte Kosten aufschlüsseln und belegen.
@@ -23,6 +27,9 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Bauherrenwissen
 
+- [Pfusch am Bau: was Bauherren zuerst tun müssen](https://ing-bassam.de/fachwissen/pfusch-am-bau-vorgehen-ansprueche/): Pfusch am Bau erkannt: wie Bauherren Mängel dokumentieren, anzeigen, Fristen setzen und wann ein Sachverständiger den Verdacht klärt.
+- [Bauvertrag: welche Klauseln für Verbraucher riskant sind](https://ing-bassam.de/fachwissen/bauvertrag-riskante-klauseln-verbraucher/): Welche Klauseln im Bauvertrag für private Bauherren riskant sind: Baubeschreibung, Fertigstellungstermin und Zahlungsplan vor der Unterschrift prüfen.
+- [Baukosten realistisch schätzen: DIN 276 statt m²-Preis](https://ing-bassam.de/fachwissen/baukosten-schaetzen-din-276/): Was kostet ein Hausbau wirklich? Wie die Kostenermittlung nach DIN 276 alle Kostengruppen erfasst und woran Bauherren unrealistische Angebote erkennen.
 - [Fragenkatalog an die Hausverwaltung vor dem Wohnungskauf](https://ing-bassam.de/fachwissen/fragenkatalog-hausverwaltung-wohnungskauf/): Welche Fragen Kaufinteressenten der Hausverwaltung vor dem Kauf einer Eigentumswohnung stellen sollten – mit kostenloser Checkliste zum Ausdrucken.
 - [Bauvertrag prüfen vor der Unterschrift: die Checkliste](https://ing-bassam.de/fachwissen/bauvertrag-pruefen-vor-unterschrift/): Checkliste zum Download: Bauvertrag und Verbraucherbauvertrag vor der Unterschrift prüfen – Baubeschreibung, Termine, Zahlungsplan, Sicherheiten.
 - [Checkliste Wohnungskauf: Sondereigentum, Gemeinschaft, Unterlagen](https://ing-bassam.de/fachwissen/wohnungskauf-sondereigentum-weg-unterlagen/): Checkliste für den Wohnungskauf: Unterlagen der Eigentümergemeinschaft, Gemeinschaftseigentum und Wohnung prüfen. Kostenlos als PDF.
@@ -34,12 +41,25 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 - [Wo kann ich beim Hausbau sparen, und wo auf keinen Fall?](https://ing-bassam.de/fachwissen/sparen-beim-hausbau-ohne-folgekosten/): Beim Hausbau sparen, ohne später draufzuzahlen – wo Einsparungen vertretbar sind und wo sie Folgekosten auslösen.
 - [Baubegleitende Qualitätskontrolle: Nutzen, Termine, Kosten](https://ing-bassam.de/fachwissen/baubegleitende-qualitaetskontrolle-kosten/): Was eine baubegleitende Qualitätskontrolle beim Hausbau leistet, zu welchen Terminen geprüft wird und wovon die Kosten abhängen.
 
+### Bauphysik
+
+- [Raumklima-Protokoll bei Schimmelverdacht](https://ing-bassam.de/fachwissen/raumklima-protokoll-schimmelverdacht/): Raumklima-Protokoll bei Schimmelverdacht: Vorlage zum Herunterladen, um Temperatur, Luftfeuchte, Lüften und Heizen über Wochen festzuhalten.
+- [Taupunkt, Oberflächentemperatur und Schimmelkriterium](https://ing-bassam.de/fachwissen/taupunkt-oberflaechentemperatur-schimmelkriterium/): Ab welcher Oberflächentemperatur Schimmel entsteht, wie der Taupunkt berechnet wird und warum das Schimmelkriterium oberhalb des Taupunkts liegt.
+
 ### Bauschäden
 
+- [Rissprotokoll zur Rissbeobachtung](https://ing-bassam.de/fachwissen/rissprotokoll-rissbeobachtung/): Risse im Haus richtig beobachten: nummerieren, messen, vergleichen. Kostenlose Vorlage als PDF und Excel mit Messreihe und Bewertung.
 - [Schimmel nach Fassadendämmung: Ursache oder Folge?](https://ing-bassam.de/fachwissen/schimmel-nach-fassadendaemmung/): Nach einer Fassadendämmung tritt Schimmel auf. Wie Sie Wärmebrücken, Luftwechsel und Ausführungsfehler als Ursache sauber voneinander trennen.
 
 ### Gutachten & Recht
 
+- [Mängelanzeige mit Fristsetzung: Musterschreiben](https://ing-bassam.de/fachwissen/maengelanzeige-mit-fristsetzung/): Musterschreiben Mängelanzeige mit Fristsetzung: Mangel beschreiben, Frist mit Datum setzen, Zugang nachweisen. Kostenlos als Word und PDF.
+- [Was kostet ein Baugutachter? Honorar und Ablauf](https://ing-bassam.de/fachwissen/was-kostet-ein-baugutachter/): Was ein Baugutachter kostet, wovon das Honorar abhängt, was im Preis enthalten ist und wann sich ein Gutachten rechnet – ein Überblick.
+- [Checkliste Ortstermin mit dem Bausachverständigen](https://ing-bassam.de/fachwissen/vorbereitung-gutachter-ortstermin/): Checkliste für den Ortstermin mit dem Bausachverständigen: welche Unterlagen, Zugänge und Angaben Sie vorbereiten. Kostenlos als PDF.
+- [Checkliste vor Ablauf der Gewährleistung](https://ing-bassam.de/fachwissen/gewaehrleistung-ablauf-checkliste/): Kostenlose Checkliste für die Begehung vor Ablauf der Gewährleistung: Fristen, Bauteile, Bewertung in vier Stufen und die Mängelanzeige.
+- [Schlussrechnung bezahlt: Gilt der Bau damit als abgenommen?](https://ing-bassam.de/fachwissen/schlussrechnung-abnahme-gewaehrleistungsfrist/): Eine Bauträgerin zahlte die Schlussrechnung des Dachdeckers vollständig. Das Gericht sah darin die Abnahme – mit Folgen für die Frist.
+- [Mangelhafte Dachsanierung: Geld für die Reparatur im Voraus](https://ing-bassam.de/fachwissen/kostenvorschuss-mangelhafte-dachsanierung/): Nach einer mangelhaften Dachsanierung sprach das Landgericht Stuttgart 77.300 Euro Kostenvorschuss zu und zog den offenen Werklohn ab.
+- [Weiterbau nur gegen mehr Geld: Kammergericht zur Kündigung](https://ing-bassam.de/fachwissen/erfuellungsverweigerung-bauvertrag-kuendigung/): Ein Bauunternehmen wollte nur gegen mehr Geld weiterbauen. Das Kammergericht sah darin eine Verweigerung und hielt die Kündigung für berechtigt.
 - [Bauvertrag ohne Grund gekündigt: 5 Prozent und Zinsen für vier Jahre](https://ing-bassam.de/fachwissen/bauvertrag-kuendigung-verguetung-verzugszinsen/): Ein Auftraggeber zahlte die vereinbarte Vorauszahlung nie und kündigte Jahre später. Das Gericht sprach 5 Prozent der Vergütung und Zinsen zu.
 - [Verzögerte Baugenehmigung: Mangel oder Verzögerungsschaden?](https://ing-bassam.de/fachwissen/baugenehmigung-verzoegerung-architektenvertrag/): Kammergericht Berlin: Schäden aus einer verzögerten Baugenehmigung sind Verzögerungsschaden, nicht Mangelfolgeschaden. Was für die Baupraxis folgt.
 - [Abgeltungsklausel im Aufhebungsvertrag und verdeckte Baumängel](https://ing-bassam.de/fachwissen/abgeltungsklausel-aufhebungsvertrag-baumaengel/): LG Ellwangen 2 O 197/25 - eine Abgeltungsklausel im Aufhebungsvertrag erfasste auch unbekannte Mängelansprüche. Folgen für Beweissicherung.
@@ -53,6 +73,10 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Hausverwaltung & Bestand
 
+- [Wohnungsübergabeprotokoll für Ein- und Auszug](https://ing-bassam.de/fachwissen/wohnungsuebergabeprotokoll-einzug-auszug/): Was in ein Übergabeprotokoll bei Ein- oder Auszug gehört: Zähler, Schlüssel, Zustand Raum für Raum. Kostenlose Vorlage als PDF.
+- [Schimmel in der Mietwohnung: Ursache klären, dann zahlen](https://ing-bassam.de/fachwissen/schimmel-mietwohnung-ursache-klaeren/): Schimmel in der Mietwohnung: Wie Hausverwaltungen die Ursache belastbar klären lassen, was ein Gutachten leistet und wovon die Kostentragung abhängt.
+- [Wartungs- und Instandhaltungskalender für Wohngebäude](https://ing-bassam.de/fachwissen/wartungskalender-instandhaltung-wohngebaeude/): Wartungskalender für Wohngebäude als Excel und PDF. 79 Zeilen mit Intervall, Grundlage und Nachweis für Dach, Entwässerung, Heizung und Aufzug.
+- [Abnahme vom Bauträger: Sonder- und Gemeinschaftseigentum](https://ing-bassam.de/fachwissen/abnahme-bautraeger-sonder-gemeinschaftseigentum/): Wie die Abnahme einer neuen Eigentumswohnung abläuft, wer das Gemeinschaftseigentum abnimmt und was ins Abnahmeprotokoll gehört.
 - [Checkliste Objektbegehung für Hausverwaltungen](https://ing-bassam.de/fachwissen/objektbegehung-wohngebaeude-hausverwaltung/): Kostenlose Checkliste für die Objektbegehung eines Wohngebäudes mit Mängelliste, als PDF und Excel, mit Anleitung für Hausverwaltungen.
 - [Wasserschaden im Mehrfamilienhaus: Was die Verwaltung zuerst tun muss](https://ing-bassam.de/fachwissen/wasserschaden-mehrfamilienhaus-ablauf/): Wasserschaden im Mehrfamilienhaus: Was die Hausverwaltung von der Meldung bis zur Regulierung tut, was sie dokumentiert und wann ein Gutachten hilft.
 - [Schimmel in der Wohnung: Baumangel oder Lüftungsverhalten?](https://ing-bassam.de/fachwissen/schimmel-wohnung-baumangel-lueftung/): Schimmel in der Wohnung: Wie sich klären lässt, ob ein Baumangel oder das Lüftungsverhalten die Ursache ist, und was Sie dokumentieren sollten.

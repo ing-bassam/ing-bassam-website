@@ -13,7 +13,7 @@ qualifikation:
 kurzform: taupunkt-oberflaechentemperatur-schimmelkriterium
 erstellt: 2026-09-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-8155-8a0c-c2bc2fabdab6
 notion_url: https://app.notion.com/p/Taupunkt-Oberfl-chentemperatur-und-Schimmelkriterium-3dfd96ad00b481558a0cc2bc2fabdab6

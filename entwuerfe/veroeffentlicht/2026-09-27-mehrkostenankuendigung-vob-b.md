@@ -14,7 +14,7 @@ kurzform: mehrkostenankuendigung-vob-b
 dateien: vorlagen/mehrkostenankuendigung-vob-b/mehrkostenankuendigung-vob-b.docx, vorlagen/mehrkostenankuendigung-vob-b/mehrkostenankuendigung-vob-b.pdf
 erstellt: 2026-09-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-8167-8888-e712f266992a
 notion_url: https://app.notion.com/p/Musterschreiben-Mehrkostenank-ndigung-bei-zus-tzlichen-Leistungen-nach-2-Abs-6-VOB-B-3e5d96ad00b481678888e712f266992a

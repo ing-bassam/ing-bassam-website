@@ -7,42 +7,41 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (21)
+## 🟡 Entwurf (0)
+
+Zurzeit keine.
+
+## 🟢 Veröffentlicht (50)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
-| 29.09.2026 | [Wohnungsübergabeprotokoll für Ein- und Auszug](entwurf/2026-09-29-wohnungsuebergabeprotokoll-einzug-auszug.md) | Vorlage | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/wohnungsuebergabeprotokoll-einzug-auszug/) |
-| 29.09.2026 | [Raumklima-Protokoll bei Schimmelverdacht](entwurf/2026-09-29-raumklima-protokoll-schimmelverdacht.md) | Vorlage | Bauphysik | [ansehen](https://ing-bassam.de/fachwissen/raumklima-protokoll-schimmelverdacht/) |
-| 29.09.2026 | [Pfusch am Bau: was Bauherren zuerst tun müssen](entwurf/2026-09-29-pfusch-am-bau-vorgehen-ansprueche.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/pfusch-am-bau-vorgehen-ansprueche/) |
-| 29.09.2026 | [Mängelanzeige mit Fristsetzung: Musterschreiben](entwurf/2026-09-29-maengelanzeige-mit-fristsetzung.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/maengelanzeige-mit-fristsetzung/) |
-| 28.09.2026 | [Was kostet ein Baugutachter? Honorar und Ablauf](entwurf/2026-09-28-was-kostet-ein-baugutachter.md) | Ratgeber | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/was-kostet-ein-baugutachter/) |
-| 28.09.2026 | [Checkliste Ortstermin mit dem Bausachverständigen](entwurf/2026-09-28-vorbereitung-gutachter-ortstermin.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/vorbereitung-gutachter-ortstermin/) |
-| 28.09.2026 | [Schimmel in der Mietwohnung: Ursache klären, dann zahlen](entwurf/2026-09-28-schimmel-mietwohnung-ursache-klaeren.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/schimmel-mietwohnung-ursache-klaeren/) |
-| 28.09.2026 | [Rissprotokoll zur Rissbeobachtung](entwurf/2026-09-28-rissprotokoll-rissbeobachtung.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/rissprotokoll-rissbeobachtung/) |
-| 28.09.2026 | [Bauverzug durch Planungsfehler: warum die Klage scheiterte](entwurf/2026-09-28-planungsfehler-bauverzoegerung-nachweis.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/planungsfehler-bauverzoegerung-nachweis/) |
-| 28.09.2026 | [Checkliste vor Ablauf der Gewährleistung](entwurf/2026-09-28-gewaehrleistung-ablauf-checkliste.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/gewaehrleistung-ablauf-checkliste/) |
-| 28.09.2026 | [Bauvertrag: welche Klauseln für Verbraucher riskant sind](entwurf/2026-09-28-bauvertrag-riskante-klauseln-verbraucher.md) | Checkliste | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauvertrag-riskante-klauseln-verbraucher/) |
-| 28.09.2026 | [Baukosten realistisch schätzen: DIN 276 statt m²-Preis](entwurf/2026-09-28-baukosten-schaetzen-din-276.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/baukosten-schaetzen-din-276/) |
-| 27.09.2026 | [Wartungs- und Instandhaltungskalender für Wohngebäude](entwurf/2026-09-27-wartungskalender-instandhaltung-wohngebaeude.md) | Vorlage | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/wartungskalender-instandhaltung-wohngebaeude/) |
-| 27.09.2026 | [Taupunkt, Oberflächentemperatur und Schimmelkriterium](entwurf/2026-09-27-taupunkt-oberflaechentemperatur-schimmelkriterium.md) | Grundlagen | Bauphysik | [ansehen](https://ing-bassam.de/fachwissen/taupunkt-oberflaechentemperatur-schimmelkriterium/) |
-| 27.09.2026 | [Schlussrechnung bezahlt: Gilt der Bau damit als abgenommen?](entwurf/2026-09-27-schlussrechnung-abnahme-gewaehrleistungsfrist.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/schlussrechnung-abnahme-gewaehrleistungsfrist/) |
-| 27.09.2026 | [Nachträge nach VOB/B: Anspruchsgrundlagen sauber trennen](entwurf/2026-09-27-nachtraege-vob-b-anspruchsgrundlagen.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nachtraege-vob-b-anspruchsgrundlagen/) |
-| 27.09.2026 | [Mischkalkulation im Vergaberecht: wann ist sie zulässig?](entwurf/2026-09-27-mischkalkulation-vergaberecht-zulaessigkeit.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/mischkalkulation-vergaberecht-zulaessigkeit/) |
-| 27.09.2026 | [Mehrkosten ankündigen nach § 2 Abs. 6 VOB/B: Musterschreiben](entwurf/2026-09-27-mehrkostenankuendigung-vob-b.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/mehrkostenankuendigung-vob-b/) |
-| 27.09.2026 | [Mangelhafte Dachsanierung: Geld für die Reparatur im Voraus](entwurf/2026-09-27-kostenvorschuss-mangelhafte-dachsanierung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/kostenvorschuss-mangelhafte-dachsanierung/) |
-| 27.09.2026 | [Weiterbau nur gegen mehr Geld: Kammergericht zur Kündigung](entwurf/2026-09-27-erfuellungsverweigerung-bauvertrag-kuendigung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/erfuellungsverweigerung-bauvertrag-kuendigung/) |
-| 27.09.2026 | [Abnahme vom Bauträger: Sonder- und Gemeinschaftseigentum](entwurf/2026-09-27-abnahme-bautraeger-sonder-gemeinschaftseigentum.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/abnahme-bautraeger-sonder-gemeinschaftseigentum/) |
-
-## 🟢 Veröffentlicht (29)
-
-| Datum | Titel | Format | Kategorie | Seite |
-|---|---|---|---|---|
+| 29.09.2026 | [Wohnungsübergabeprotokoll für Ein- und Auszug](veroeffentlicht/2026-09-29-wohnungsuebergabeprotokoll-einzug-auszug.md) | Vorlage | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/wohnungsuebergabeprotokoll-einzug-auszug/) |
+| 29.09.2026 | [Raumklima-Protokoll bei Schimmelverdacht](veroeffentlicht/2026-09-29-raumklima-protokoll-schimmelverdacht.md) | Vorlage | Bauphysik | [ansehen](https://ing-bassam.de/fachwissen/raumklima-protokoll-schimmelverdacht/) |
+| 29.09.2026 | [Pfusch am Bau: was Bauherren zuerst tun müssen](veroeffentlicht/2026-09-29-pfusch-am-bau-vorgehen-ansprueche.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/pfusch-am-bau-vorgehen-ansprueche/) |
+| 29.09.2026 | [Mängelanzeige mit Fristsetzung: Musterschreiben](veroeffentlicht/2026-09-29-maengelanzeige-mit-fristsetzung.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/maengelanzeige-mit-fristsetzung/) |
+| 28.09.2026 | [Was kostet ein Baugutachter? Honorar und Ablauf](veroeffentlicht/2026-09-28-was-kostet-ein-baugutachter.md) | Ratgeber | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/was-kostet-ein-baugutachter/) |
+| 28.09.2026 | [Checkliste Ortstermin mit dem Bausachverständigen](veroeffentlicht/2026-09-28-vorbereitung-gutachter-ortstermin.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/vorbereitung-gutachter-ortstermin/) |
+| 28.09.2026 | [Schimmel in der Mietwohnung: Ursache klären, dann zahlen](veroeffentlicht/2026-09-28-schimmel-mietwohnung-ursache-klaeren.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/schimmel-mietwohnung-ursache-klaeren/) |
+| 28.09.2026 | [Rissprotokoll zur Rissbeobachtung](veroeffentlicht/2026-09-28-rissprotokoll-rissbeobachtung.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/rissprotokoll-rissbeobachtung/) |
+| 28.09.2026 | [Bauverzug durch Planungsfehler: warum die Klage scheiterte](veroeffentlicht/2026-09-28-planungsfehler-bauverzoegerung-nachweis.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/planungsfehler-bauverzoegerung-nachweis/) |
+| 28.09.2026 | [Checkliste vor Ablauf der Gewährleistung](veroeffentlicht/2026-09-28-gewaehrleistung-ablauf-checkliste.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/gewaehrleistung-ablauf-checkliste/) |
+| 28.09.2026 | [Bauvertrag: welche Klauseln für Verbraucher riskant sind](veroeffentlicht/2026-09-28-bauvertrag-riskante-klauseln-verbraucher.md) | Checkliste | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauvertrag-riskante-klauseln-verbraucher/) |
+| 28.09.2026 | [Baukosten realistisch schätzen: DIN 276 statt m²-Preis](veroeffentlicht/2026-09-28-baukosten-schaetzen-din-276.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/baukosten-schaetzen-din-276/) |
+| 27.09.2026 | [Wartungs- und Instandhaltungskalender für Wohngebäude](veroeffentlicht/2026-09-27-wartungskalender-instandhaltung-wohngebaeude.md) | Vorlage | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/wartungskalender-instandhaltung-wohngebaeude/) |
+| 27.09.2026 | [Taupunkt, Oberflächentemperatur und Schimmelkriterium](veroeffentlicht/2026-09-27-taupunkt-oberflaechentemperatur-schimmelkriterium.md) | Grundlagen | Bauphysik | [ansehen](https://ing-bassam.de/fachwissen/taupunkt-oberflaechentemperatur-schimmelkriterium/) |
+| 27.09.2026 | [Schlussrechnung bezahlt: Gilt der Bau damit als abgenommen?](veroeffentlicht/2026-09-27-schlussrechnung-abnahme-gewaehrleistungsfrist.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/schlussrechnung-abnahme-gewaehrleistungsfrist/) |
 | 27.09.2026 | [Objektüberwachung nach HOAI: Pflichten, Haftung, Dokumentation](veroeffentlicht/2026-09-27-objektueberwachung-lp8-pflichten-haftung.md) | Grundlagen | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/objektueberwachung-lp8-pflichten-haftung/) |
+| 27.09.2026 | [Nachträge nach VOB/B: Anspruchsgrundlagen sauber trennen](veroeffentlicht/2026-09-27-nachtraege-vob-b-anspruchsgrundlagen.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nachtraege-vob-b-anspruchsgrundlagen/) |
+| 27.09.2026 | [Mischkalkulation im Vergaberecht: wann ist sie zulässig?](veroeffentlicht/2026-09-27-mischkalkulation-vergaberecht-zulaessigkeit.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/mischkalkulation-vergaberecht-zulaessigkeit/) |
+| 27.09.2026 | [Mehrkosten ankündigen nach § 2 Abs. 6 VOB/B: Musterschreiben](veroeffentlicht/2026-09-27-mehrkostenankuendigung-vob-b.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/mehrkostenankuendigung-vob-b/) |
+| 27.09.2026 | [Mangelhafte Dachsanierung: Geld für die Reparatur im Voraus](veroeffentlicht/2026-09-27-kostenvorschuss-mangelhafte-dachsanierung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/kostenvorschuss-mangelhafte-dachsanierung/) |
 | 27.09.2026 | [Gestörter Bauablauf: Bauzeit und Mehrkosten nachweisen](veroeffentlicht/2026-09-27-gestoerter-bauablauf-mehrkosten-nachweis.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/gestoerter-bauablauf-mehrkosten-nachweis/) |
 | 27.09.2026 | [Fragenkatalog an die Hausverwaltung vor dem Wohnungskauf](veroeffentlicht/2026-09-27-fragenkatalog-hausverwaltung-wohnungskauf.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/fragenkatalog-hausverwaltung-wohnungskauf/) |
+| 27.09.2026 | [Weiterbau nur gegen mehr Geld: Kammergericht zur Kündigung](veroeffentlicht/2026-09-27-erfuellungsverweigerung-bauvertrag-kuendigung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/erfuellungsverweigerung-bauvertrag-kuendigung/) |
 | 27.09.2026 | [Bedenkenanzeige nach § 4 Abs. 3 VOB/B: Musterschreiben](veroeffentlicht/2026-09-27-bedenkenanzeige-vob-b-musterschreiben.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/bedenkenanzeige-vob-b-musterschreiben/) |
 | 27.09.2026 | [Bauvertrag prüfen vor der Unterschrift: die Checkliste](veroeffentlicht/2026-09-27-bauvertrag-pruefen-vor-unterschrift.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauvertrag-pruefen-vor-unterschrift/) |
 | 27.09.2026 | [Bauvertrag ohne Grund gekündigt: 5 Prozent und Zinsen für vier Jahre](veroeffentlicht/2026-09-27-bauvertrag-kuendigung-verguetung-verzugszinsen.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/bauvertrag-kuendigung-verguetung-verzugszinsen/) |
+| 27.09.2026 | [Abnahme vom Bauträger: Sonder- und Gemeinschaftseigentum](veroeffentlicht/2026-09-27-abnahme-bautraeger-sonder-gemeinschaftseigentum.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/abnahme-bautraeger-sonder-gemeinschaftseigentum/) |
 | 26.09.2026 | [Checkliste Wohnungskauf: Sondereigentum, Gemeinschaft, Unterlagen](veroeffentlicht/2026-09-26-wohnungskauf-sondereigentum-weg-unterlagen.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/wohnungskauf-sondereigentum-weg-unterlagen/) |
 | 26.09.2026 | [Checkliste Objektbegehung für Hausverwaltungen](veroeffentlicht/2026-09-26-objektbegehung-wohngebaeude-hausverwaltung.md) | Vorlage | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/objektbegehung-wohngebaeude-hausverwaltung/) |
 | 26.09.2026 | [Mängelliste für Abnahme und Gewährleistung](veroeffentlicht/2026-09-26-maengelliste-abnahme-gewaehrleistung.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/maengelliste-abnahme-gewaehrleistung/) |

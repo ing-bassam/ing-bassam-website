@@ -13,7 +13,7 @@ qualifikation:
 kurzform: mischkalkulation-vergaberecht-zulaessigkeit
 erstellt: 2026-09-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-8167-a746-f613159d36ca
 notion_url: https://app.notion.com/p/Mischkalkulation-im-Vergaberecht-wann-ist-sie-zul-ssig-3dfd96ad00b48167a746f613159d36ca

@@ -13,7 +13,7 @@ qualifikation:
 kurzform: baukosten-schaetzen-din-276
 erstellt: 2026-09-28
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e0d96ad-00b4-8148-bfc7-e9634bef6b3c
 notion_url: https://app.notion.com/p/Baukosten-realistisch-sch-tzen-Kostenermittlung-nach-DIN-276-statt-Quadratmeterpreis-3e0d96ad00b48148bfc7e9634bef6b3c

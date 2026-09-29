@@ -14,7 +14,7 @@ kurzform: wohnungsuebergabeprotokoll-einzug-auszug
 dateien: vorlagen/wohnungsuebergabeprotokoll-einzug-auszug/wohnungsuebergabeprotokoll-einzug-auszug-ausfuellbar.pdf, vorlagen/wohnungsuebergabeprotokoll-einzug-auszug/wohnungsuebergabeprotokoll-einzug-auszug.pdf
 erstellt: 2026-09-29
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-81bf-a4bb-d135181bc560
 notion_url: https://app.notion.com/p/Wohnungs-bergabeprotokoll-f-r-Ein-und-Auszug-3e2d96ad00b481bfa4bbd135181bc560

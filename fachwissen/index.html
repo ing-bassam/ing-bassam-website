@@ -53,34 +53,156 @@
     </nav>
     <header class="uebersicht-kopf">
       <h1>Fachwissen</h1>
-      <p>29 Beiträge zu Bauschäden, Bauphysik, Baubetrieb und baurechtlichen Fragen – zum Eingrenzen ein Thema oder Format antippen.</p>
+      <p>50 Beiträge zu Bauschäden, Bauphysik, Baubetrieb und baurechtlichen Fragen – zum Eingrenzen ein Thema oder Format antippen.</p>
     </header>
           <form class="filter" aria-label="Beiträge eingrenzen">
         <p class="filter-titel">Thema</p>
         <div class="chips">
-          <input type="radio" name="filter" id="filter-alle" checked><label for="filter-alle">Alle <span>29</span></label>
-          <input type="radio" name="filter" id="filter-k-baubetrieb"><label for="filter-k-baubetrieb">Baubetrieb <span>5</span></label>
-          <input type="radio" name="filter" id="filter-k-bauherrenwissen"><label for="filter-k-bauherrenwissen">Bauherrenwissen <span>10</span></label>
-          <input type="radio" name="filter" id="filter-k-bauschaeden"><label for="filter-k-bauschaeden">Bauschäden <span>1</span></label>
-          <input type="radio" name="filter" id="filter-k-gutachten-recht"><label for="filter-k-gutachten-recht">Gutachten &amp; Recht <span>10</span></label>
-          <input type="radio" name="filter" id="filter-k-hausverwaltung-bestand"><label for="filter-k-hausverwaltung-bestand">Hausverwaltung &amp; Bestand <span>3</span></label>
+          <input type="radio" name="filter" id="filter-alle" checked><label for="filter-alle">Alle <span>50</span></label>
+          <input type="radio" name="filter" id="filter-k-baubetrieb"><label for="filter-k-baubetrieb">Baubetrieb <span>9</span></label>
+          <input type="radio" name="filter" id="filter-k-bauherrenwissen"><label for="filter-k-bauherrenwissen">Bauherrenwissen <span>13</span></label>
+          <input type="radio" name="filter" id="filter-k-bauphysik"><label for="filter-k-bauphysik">Bauphysik <span>2</span></label>
+          <input type="radio" name="filter" id="filter-k-bauschaeden"><label for="filter-k-bauschaeden">Bauschäden <span>2</span></label>
+          <input type="radio" name="filter" id="filter-k-gutachten-recht"><label for="filter-k-gutachten-recht">Gutachten &amp; Recht <span>17</span></label>
+          <input type="radio" name="filter" id="filter-k-hausverwaltung-bestand"><label for="filter-k-hausverwaltung-bestand">Hausverwaltung &amp; Bestand <span>7</span></label>
         </div>
         <p class="filter-titel">Format</p>
         <div class="chips">
-          <input type="radio" name="filter" id="filter-f-fachbeitrag"><label for="filter-f-fachbeitrag">Fachbeitrag <span>1</span></label>
-          <input type="radio" name="filter" id="filter-f-grundlagen"><label for="filter-f-grundlagen">Grundlagen <span>2</span></label>
-          <input type="radio" name="filter" id="filter-f-ratgeber"><label for="filter-f-ratgeber">Ratgeber <span>7</span></label>
-          <input type="radio" name="filter" id="filter-f-rechtsprechung"><label for="filter-f-rechtsprechung">Rechtsprechung <span>11</span></label>
-          <input type="radio" name="filter" id="filter-f-vorlage"><label for="filter-f-vorlage">Vorlage <span>8</span></label>
+          <input type="radio" name="filter" id="filter-f-checkliste"><label for="filter-f-checkliste">Checkliste <span>1</span></label>
+          <input type="radio" name="filter" id="filter-f-fachbeitrag"><label for="filter-f-fachbeitrag">Fachbeitrag <span>3</span></label>
+          <input type="radio" name="filter" id="filter-f-grundlagen"><label for="filter-f-grundlagen">Grundlagen <span>3</span></label>
+          <input type="radio" name="filter" id="filter-f-ratgeber"><label for="filter-f-ratgeber">Ratgeber <span>12</span></label>
+          <input type="radio" name="filter" id="filter-f-rechtsprechung"><label for="filter-f-rechtsprechung">Rechtsprechung <span>15</span></label>
+          <input type="radio" name="filter" id="filter-f-vorlage"><label for="filter-f-vorlage">Vorlage <span>16</span></label>
         </div>
       </form>
-      <style>main:has(#filter-k-baubetrieb:checked) .karte:not([data-kategorie="baubetrieb"]){display:none}#filter-k-baubetrieb:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-bauherrenwissen:checked) .karte:not([data-kategorie="bauherrenwissen"]){display:none}#filter-k-bauherrenwissen:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-bauschaeden:checked) .karte:not([data-kategorie="bauschaeden"]){display:none}#filter-k-bauschaeden:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-gutachten-recht:checked) .karte:not([data-kategorie="gutachten-recht"]){display:none}#filter-k-gutachten-recht:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-hausverwaltung-bestand:checked) .karte:not([data-kategorie="hausverwaltung-bestand"]){display:none}#filter-k-hausverwaltung-bestand:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-f-fachbeitrag:checked) .karte:not([data-format="fachbeitrag"]){display:none}main:has(#filter-f-grundlagen:checked) .karte:not([data-format="grundlagen"]){display:none}main:has(#filter-f-ratgeber:checked) .karte:not([data-format="ratgeber"]){display:none}main:has(#filter-f-rechtsprechung:checked) .karte:not([data-format="rechtsprechung"]){display:none}main:has(#filter-f-vorlage:checked) .karte:not([data-format="vorlage"]){display:none}label[for="filter-k-baubetrieb"]{--kat:var(--kat-baubetrieb)}label[for="filter-k-bauherrenwissen"]{--kat:var(--kat-bauherrenwissen)}label[for="filter-k-bauschaeden"]{--kat:var(--kat-bauschaeden)}label[for="filter-k-gutachten-recht"]{--kat:var(--kat-gutachten-recht)}label[for="filter-k-hausverwaltung-bestand"]{--kat:var(--kat-hausverwaltung-bestand)}</style>
+      <style>main:has(#filter-k-baubetrieb:checked) .karte:not([data-kategorie="baubetrieb"]){display:none}#filter-k-baubetrieb:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-bauherrenwissen:checked) .karte:not([data-kategorie="bauherrenwissen"]){display:none}#filter-k-bauherrenwissen:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-bauphysik:checked) .karte:not([data-kategorie="bauphysik"]){display:none}#filter-k-bauphysik:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-bauschaeden:checked) .karte:not([data-kategorie="bauschaeden"]){display:none}#filter-k-bauschaeden:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-gutachten-recht:checked) .karte:not([data-kategorie="gutachten-recht"]){display:none}#filter-k-gutachten-recht:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-hausverwaltung-bestand:checked) .karte:not([data-kategorie="hausverwaltung-bestand"]){display:none}#filter-k-hausverwaltung-bestand:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-f-checkliste:checked) .karte:not([data-format="checkliste"]){display:none}main:has(#filter-f-fachbeitrag:checked) .karte:not([data-format="fachbeitrag"]){display:none}main:has(#filter-f-grundlagen:checked) .karte:not([data-format="grundlagen"]){display:none}main:has(#filter-f-ratgeber:checked) .karte:not([data-format="ratgeber"]){display:none}main:has(#filter-f-rechtsprechung:checked) .karte:not([data-format="rechtsprechung"]){display:none}main:has(#filter-f-vorlage:checked) .karte:not([data-format="vorlage"]){display:none}label[for="filter-k-baubetrieb"]{--kat:var(--kat-baubetrieb)}label[for="filter-k-bauherrenwissen"]{--kat:var(--kat-bauherrenwissen)}label[for="filter-k-bauphysik"]{--kat:var(--kat-bauphysik)}label[for="filter-k-bauschaeden"]{--kat:var(--kat-bauschaeden)}label[for="filter-k-gutachten-recht"]{--kat:var(--kat-gutachten-recht)}label[for="filter-k-hausverwaltung-bestand"]{--kat:var(--kat-hausverwaltung-bestand)}</style>
       <ul class="karten">
+        <li class="karte" data-kategorie="hausverwaltung-bestand" data-format="vorlage">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="hausverwaltung-bestand">Hausverwaltung &amp; Bestand</span> <span class="marke">Vorlage</span></div>
+          <h2><a href="wohnungsuebergabeprotokoll-einzug-auszug/">Wohnungsübergabeprotokoll für Ein- und Auszug</a></h2>
+          <p>Was in ein Übergabeprotokoll bei Ein- oder Auszug gehört: Zähler, Schlüssel, Zustand Raum für Raum. Kostenlose Vorlage als PDF.</p>
+          <p class="karte-meta"><time datetime="2026-09-29">29.09.2026</time> · etwa 9 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="bauphysik" data-format="vorlage">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="bauphysik">Bauphysik</span> <span class="marke">Vorlage</span></div>
+          <h2><a href="raumklima-protokoll-schimmelverdacht/">Raumklima-Protokoll bei Schimmelverdacht</a></h2>
+          <p>Raumklima-Protokoll bei Schimmelverdacht: Vorlage zum Herunterladen, um Temperatur, Luftfeuchte, Lüften und Heizen über Wochen festzuhalten.</p>
+          <p class="karte-meta"><time datetime="2026-09-29">29.09.2026</time> · etwa 8 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="bauherrenwissen" data-format="ratgeber">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="bauherrenwissen">Bauherrenwissen</span> <span class="marke">Ratgeber</span></div>
+          <h2><a href="pfusch-am-bau-vorgehen-ansprueche/">Pfusch am Bau: was Bauherren zuerst tun müssen</a></h2>
+          <p>Pfusch am Bau erkannt: wie Bauherren Mängel dokumentieren, anzeigen, Fristen setzen und wann ein Sachverständiger den Verdacht klärt.</p>
+          <p class="karte-meta"><time datetime="2026-09-29">29.09.2026</time> · etwa 22 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="gutachten-recht" data-format="vorlage">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="gutachten-recht">Gutachten &amp; Recht</span> <span class="marke">Vorlage</span></div>
+          <h2><a href="maengelanzeige-mit-fristsetzung/">Mängelanzeige mit Fristsetzung: Musterschreiben</a></h2>
+          <p>Musterschreiben Mängelanzeige mit Fristsetzung: Mangel beschreiben, Frist mit Datum setzen, Zugang nachweisen. Kostenlos als Word und PDF.</p>
+          <p class="karte-meta"><time datetime="2026-09-29">29.09.2026</time> · etwa 10 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="gutachten-recht" data-format="ratgeber">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="gutachten-recht">Gutachten &amp; Recht</span> <span class="marke">Ratgeber</span></div>
+          <h2><a href="was-kostet-ein-baugutachter/">Was kostet ein Baugutachter? Honorar und Ablauf</a></h2>
+          <p>Was ein Baugutachter kostet, wovon das Honorar abhängt, was im Preis enthalten ist und wann sich ein Gutachten rechnet – ein Überblick.</p>
+          <p class="karte-meta"><time datetime="2026-09-28">28.09.2026</time> · etwa 22 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="hausverwaltung-bestand" data-format="ratgeber">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="hausverwaltung-bestand">Hausverwaltung &amp; Bestand</span> <span class="marke">Ratgeber</span></div>
+          <h2><a href="schimmel-mietwohnung-ursache-klaeren/">Schimmel in der Mietwohnung: Ursache klären, dann zahlen</a></h2>
+          <p>Schimmel in der Mietwohnung: Wie Hausverwaltungen die Ursache belastbar klären lassen, was ein Gutachten leistet und wovon die Kostentragung abhängt.</p>
+          <p class="karte-meta"><time datetime="2026-09-28">28.09.2026</time> · etwa 24 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="bauschaeden" data-format="vorlage">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="bauschaeden">Bauschäden</span> <span class="marke">Vorlage</span></div>
+          <h2><a href="rissprotokoll-rissbeobachtung/">Rissprotokoll zur Rissbeobachtung</a></h2>
+          <p>Risse im Haus richtig beobachten: nummerieren, messen, vergleichen. Kostenlose Vorlage als PDF und Excel mit Messreihe und Bewertung.</p>
+          <p class="karte-meta"><time datetime="2026-09-28">28.09.2026</time> · etwa 9 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="gutachten-recht" data-format="vorlage">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="gutachten-recht">Gutachten &amp; Recht</span> <span class="marke">Vorlage</span></div>
+          <h2><a href="gewaehrleistung-ablauf-checkliste/">Checkliste vor Ablauf der Gewährleistung</a></h2>
+          <p>Kostenlose Checkliste für die Begehung vor Ablauf der Gewährleistung: Fristen, Bauteile, Bewertung in vier Stufen und die Mängelanzeige.</p>
+          <p class="karte-meta"><time datetime="2026-09-28">28.09.2026</time> · etwa 8 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="gutachten-recht" data-format="vorlage">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="gutachten-recht">Gutachten &amp; Recht</span> <span class="marke">Vorlage</span></div>
+          <h2><a href="vorbereitung-gutachter-ortstermin/">Checkliste Ortstermin mit dem Bausachverständigen</a></h2>
+          <p>Checkliste für den Ortstermin mit dem Bausachverständigen: welche Unterlagen, Zugänge und Angaben Sie vorbereiten. Kostenlos als PDF.</p>
+          <p class="karte-meta"><time datetime="2026-09-28">28.09.2026</time> · etwa 9 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="baubetrieb" data-format="rechtsprechung">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="baubetrieb">Baubetrieb</span> <span class="marke">Rechtsprechung</span></div>
+          <h2><a href="planungsfehler-bauverzoegerung-nachweis/">Bauverzug durch Planungsfehler: warum die Klage scheiterte</a></h2>
+          <p>Das Oberlandesgericht Stuttgart bestätigte die Abweisung einer Millionenklage gegen einen Tragwerksplaner. Was Bauherren bei Planmängeln sichern sollten.</p>
+          <p class="karte-meta"><time datetime="2026-09-28">28.09.2026</time> · etwa 9 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="bauherrenwissen" data-format="checkliste">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="bauherrenwissen">Bauherrenwissen</span> <span class="marke">Checkliste</span></div>
+          <h2><a href="bauvertrag-riskante-klauseln-verbraucher/">Bauvertrag: welche Klauseln für Verbraucher riskant sind</a></h2>
+          <p>Welche Klauseln im Bauvertrag für private Bauherren riskant sind: Baubeschreibung, Fertigstellungstermin und Zahlungsplan vor der Unterschrift prüfen.</p>
+          <p class="karte-meta"><time datetime="2026-09-28">28.09.2026</time> · etwa 24 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="bauherrenwissen" data-format="ratgeber">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="bauherrenwissen">Bauherrenwissen</span> <span class="marke">Ratgeber</span></div>
+          <h2><a href="baukosten-schaetzen-din-276/">Baukosten realistisch schätzen: DIN 276 statt m²-Preis</a></h2>
+          <p>Was kostet ein Hausbau wirklich? Wie die Kostenermittlung nach DIN 276 alle Kostengruppen erfasst und woran Bauherren unrealistische Angebote erkennen.</p>
+          <p class="karte-meta"><time datetime="2026-09-28">28.09.2026</time> · etwa 20 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="gutachten-recht" data-format="rechtsprechung">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="gutachten-recht">Gutachten &amp; Recht</span> <span class="marke">Rechtsprechung</span></div>
+          <h2><a href="erfuellungsverweigerung-bauvertrag-kuendigung/">Weiterbau nur gegen mehr Geld: Kammergericht zur Kündigung</a></h2>
+          <p>Ein Bauunternehmen wollte nur gegen mehr Geld weiterbauen. Das Kammergericht sah darin eine Verweigerung und hielt die Kündigung für berechtigt.</p>
+          <p class="karte-meta"><time datetime="2026-09-27">27.09.2026</time> · etwa 9 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="hausverwaltung-bestand" data-format="vorlage">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="hausverwaltung-bestand">Hausverwaltung &amp; Bestand</span> <span class="marke">Vorlage</span></div>
+          <h2><a href="wartungskalender-instandhaltung-wohngebaeude/">Wartungs- und Instandhaltungskalender für Wohngebäude</a></h2>
+          <p>Wartungskalender für Wohngebäude als Excel und PDF. 79 Zeilen mit Intervall, Grundlage und Nachweis für Dach, Entwässerung, Heizung und Aufzug.</p>
+          <p class="karte-meta"><time datetime="2026-09-27">27.09.2026</time> · etwa 9 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="bauphysik" data-format="grundlagen">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="bauphysik">Bauphysik</span> <span class="marke">Grundlagen</span></div>
+          <h2><a href="taupunkt-oberflaechentemperatur-schimmelkriterium/">Taupunkt, Oberflächentemperatur und Schimmelkriterium</a></h2>
+          <p>Ab welcher Oberflächentemperatur Schimmel entsteht, wie der Taupunkt berechnet wird und warum das Schimmelkriterium oberhalb des Taupunkts liegt.</p>
+          <p class="karte-meta"><time datetime="2026-09-27">27.09.2026</time> · etwa 22 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="gutachten-recht" data-format="rechtsprechung">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="gutachten-recht">Gutachten &amp; Recht</span> <span class="marke">Rechtsprechung</span></div>
+          <h2><a href="schlussrechnung-abnahme-gewaehrleistungsfrist/">Schlussrechnung bezahlt: Gilt der Bau damit als abgenommen?</a></h2>
+          <p>Eine Bauträgerin zahlte die Schlussrechnung des Dachdeckers vollständig. Das Gericht sah darin die Abnahme – mit Folgen für die Frist.</p>
+          <p class="karte-meta"><time datetime="2026-09-27">27.09.2026</time> · etwa 10 Minuten</p>
+        </li>
         <li class="karte" data-kategorie="baubetrieb" data-format="grundlagen">
           <div class="marken"><span class="marke marke--kategorie" data-kategorie="baubetrieb">Baubetrieb</span> <span class="marke">Grundlagen</span></div>
           <h2><a href="objektueberwachung-lp8-pflichten-haftung/">Objektüberwachung nach HOAI: Pflichten, Haftung, Dokumentation</a></h2>
           <p>Welche Pflichten die Objektüberwachung nach Leistungsphase 8 der HOAI umfasst, wie weit die Bauüberwachung reicht und welche Dokumentation zählt.</p>
           <p class="karte-meta"><time datetime="2026-09-27">27.09.2026</time> · etwa 24 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="baubetrieb" data-format="fachbeitrag">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="baubetrieb">Baubetrieb</span> <span class="marke">Fachbeitrag</span></div>
+          <h2><a href="nachtraege-vob-b-anspruchsgrundlagen/">Nachträge nach VOB/B: Anspruchsgrundlagen sauber trennen</a></h2>
+          <p>Welche Anspruchsgrundlage trägt einen Nachtrag nach VOB/B? Vergütung, Entschädigung und Schadensersatz mit Voraussetzungen und Nachweis.</p>
+          <p class="karte-meta"><time datetime="2026-09-27">27.09.2026</time> · etwa 25 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="baubetrieb" data-format="fachbeitrag">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="baubetrieb">Baubetrieb</span> <span class="marke">Fachbeitrag</span></div>
+          <h2><a href="mischkalkulation-vergaberecht-zulaessigkeit/">Mischkalkulation im Vergaberecht: wann ist sie zulässig?</a></h2>
+          <p>Mischkalkulation im Vergaberecht: Wann die Preisverlagerung zwischen Positionen zum Ausschluss des Angebots führt und wo die Kalkulationsfreiheit endet.</p>
+          <p class="karte-meta"><time datetime="2026-09-27">27.09.2026</time> · etwa 22 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="baubetrieb" data-format="vorlage">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="baubetrieb">Baubetrieb</span> <span class="marke">Vorlage</span></div>
+          <h2><a href="mehrkostenankuendigung-vob-b/">Mehrkosten ankündigen nach § 2 Abs. 6 VOB/B: Musterschreiben</a></h2>
+          <p>Musterschreiben zur Mehrkostenankündigung nach § 2 Abs. 6 VOB/B als Word und PDF, mit Prüfliste für die Zeit vor dem Absenden.</p>
+          <p class="karte-meta"><time datetime="2026-09-27">27.09.2026</time> · etwa 8 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="gutachten-recht" data-format="rechtsprechung">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="gutachten-recht">Gutachten &amp; Recht</span> <span class="marke">Rechtsprechung</span></div>
+          <h2><a href="kostenvorschuss-mangelhafte-dachsanierung/">Mangelhafte Dachsanierung: Geld für die Reparatur im Voraus</a></h2>
+          <p>Nach einer mangelhaften Dachsanierung sprach das Landgericht Stuttgart 77.300 Euro Kostenvorschuss zu und zog den offenen Werklohn ab.</p>
+          <p class="karte-meta"><time datetime="2026-09-27">27.09.2026</time> · etwa 10 Minuten</p>
         </li>
         <li class="karte" data-kategorie="baubetrieb" data-format="fachbeitrag">
           <div class="marken"><span class="marke marke--kategorie" data-kategorie="baubetrieb">Baubetrieb</span> <span class="marke">Fachbeitrag</span></div>
@@ -111,6 +233,12 @@
           <h2><a href="bauvertrag-kuendigung-verguetung-verzugszinsen/">Bauvertrag ohne Grund gekündigt: 5 Prozent und Zinsen für vier Jahre</a></h2>
           <p>Ein Auftraggeber zahlte die vereinbarte Vorauszahlung nie und kündigte Jahre später. Das Gericht sprach 5 Prozent der Vergütung und Zinsen zu.</p>
           <p class="karte-meta"><time datetime="2026-09-27">27.09.2026</time> · etwa 10 Minuten</p>
+        </li>
+        <li class="karte" data-kategorie="hausverwaltung-bestand" data-format="ratgeber">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="hausverwaltung-bestand">Hausverwaltung &amp; Bestand</span> <span class="marke">Ratgeber</span></div>
+          <h2><a href="abnahme-bautraeger-sonder-gemeinschaftseigentum/">Abnahme vom Bauträger: Sonder- und Gemeinschaftseigentum</a></h2>
+          <p>Wie die Abnahme einer neuen Eigentumswohnung abläuft, wer das Gemeinschaftseigentum abnimmt und was ins Abnahmeprotokoll gehört.</p>
+          <p class="karte-meta"><time datetime="2026-09-27">27.09.2026</time> · etwa 20 Minuten</p>
         </li>
         <li class="karte" data-kategorie="gutachten-recht" data-format="rechtsprechung">
           <div class="marken"><span class="marke marke--kategorie" data-kategorie="gutachten-recht">Gutachten &amp; Recht</span> <span class="marke">Rechtsprechung</span></div>

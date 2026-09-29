@@ -13,7 +13,7 @@ qualifikation:
 kurzform: abnahme-bautraeger-sonder-gemeinschaftseigentum
 erstellt: 2026-09-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e0d96ad-00b4-8116-b20d-c0b12eef7bba
 notion_url: https://app.notion.com/p/Abnahme-vom-Bautr-ger-Sondereigentum-und-Gemeinschaftseigentum-richtig-abnehmen-3e0d96ad00b48116b20dc0b12eef7bba

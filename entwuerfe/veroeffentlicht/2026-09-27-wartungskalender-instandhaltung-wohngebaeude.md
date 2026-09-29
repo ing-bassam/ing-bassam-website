@@ -14,7 +14,7 @@ kurzform: wartungskalender-instandhaltung-wohngebaeude
 dateien: vorlagen/wartungskalender-instandhaltung-wohngebaeude/wartungskalender-instandhaltung-wohngebaeude.xlsx, vorlagen/wartungskalender-instandhaltung-wohngebaeude/wartungskalender-instandhaltung-wohngebaeude.pdf
 erstellt: 2026-09-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-81b7-8f07-db3a7c5ea761
 notion_url: https://app.notion.com/p/Wartungs-und-Instandhaltungskalender-f-r-Wohngeb-ude-3e5d96ad00b481b78f07db3a7c5ea761

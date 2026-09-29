@@ -13,7 +13,7 @@ qualifikation:
 kurzform: pfusch-am-bau-vorgehen-ansprueche
 erstellt: 2026-09-29
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e0d96ad-00b4-81a0-bd27-db9e58d04da4
 notion_url: https://app.notion.com/p/Pfusch-am-Bau-erkannt-Schritt-f-r-Schritt-vom-Verdacht-bis-zur-Durchsetzung-3e0d96ad00b481a0bd27db9e58d04da4

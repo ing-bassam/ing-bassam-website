@@ -14,7 +14,7 @@ kurzform: rissprotokoll-rissbeobachtung
 dateien: vorlagen/rissprotokoll-rissbeobachtung/rissprotokoll-rissbeobachtung.pdf, vorlagen/rissprotokoll-rissbeobachtung/rissprotokoll-rissbeobachtung-ausfuellbar.pdf, vorlagen/rissprotokoll-rissbeobachtung/rissprotokoll-rissbeobachtung.xlsx
 erstellt: 2026-09-28
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-8155-a533-e604cd0e5f63
 notion_url: https://app.notion.com/p/Rissprotokoll-zur-Rissbeobachtung-3e2d96ad00b48155a533e604cd0e5f63
