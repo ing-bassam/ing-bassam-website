@@ -7,10 +7,11 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (10)
+## 🟡 Entwurf (11)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 29.09.2026 | [Pfusch am Bau: was Bauherren zuerst tun müssen](entwurf/2026-09-29-pfusch-am-bau-vorgehen-ansprueche.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/pfusch-am-bau-vorgehen-ansprueche/) |
 | 28.09.2026 | [Checkliste vor Ablauf der Gewährleistung](entwurf/2026-09-28-gewaehrleistung-ablauf-checkliste.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/gewaehrleistung-ablauf-checkliste/) |
 | 27.09.2026 | [Wartungs- und Instandhaltungskalender für Wohngebäude](entwurf/2026-09-27-wartungskalender-instandhaltung-wohngebaeude.md) | Vorlage | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/wartungskalender-instandhaltung-wohngebaeude/) |
 | 27.09.2026 | [Taupunkt, Oberflächentemperatur und Schimmelkriterium](entwurf/2026-09-27-taupunkt-oberflaechentemperatur-schimmelkriterium.md) | Grundlagen | Bauphysik | [ansehen](https://ing-bassam.de/fachwissen/taupunkt-oberflaechentemperatur-schimmelkriterium/) |
