@@ -1,0 +1,126 @@
+name: Entwürfe veröffentlichen
+
+# -----------------------------------------------------------------------------
+# Ein Klick: Actions → Entwürfe veröffentlichen → Run workflow.
+#
+#   1. Setzt die gewählten Entwürfe (Standard: alle) auf „Veröffentlicht“
+#      (tools/veroeffentlichen.py). Entwürfe mit offenen Prüfpunkten bleiben
+#      Entwurf und werden in der Zusammenfassung genannt.
+#   2. Baut die Seiten, sortiert die Dateien nach entwuerfe/veroeffentlicht/
+#      und erneuert Übersicht, Sitemap und llms.txt.
+#   3. Schreibt alles in einem Commit auf den Hauptzweig.
+#   4. Meldet die neuen Seiten per IndexNow.
+#
+# Warum der Workflow selbst baut und meldet: Was ein Workflow mit dem
+# GITHUB_TOKEN auf den Hauptzweig schreibt, löst bei GitHub keinen weiteren
+# Workflow aus – „Fachwissen-Seiten bauen“ würde also nicht anspringen, und
+# die Seiten blieben gesperrt.
+#
+# Kosten: keine. Kontingent: keines (kein Agent).
+# -----------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+    inputs:
+      auswahl:
+        description: "Welche Entwürfe? „alle“ – oder Kurzformen durch Komma getrennt, z. B. was-kostet-ein-baugutachter, rissprotokoll-rissbeobachtung"
+        required: false
+        default: "alle"
+        type: string
+      probelauf:
+        description: "Nur anzeigen, was veröffentlicht würde – nichts ändern"
+        required: false
+        default: false
+        type: boolean
+
+run-name: "Entwürfe veröffentlichen: ${{ inputs.auswahl || 'alle' }}${{ inputs.probelauf && ' (Probelauf)' || '' }}"
+
+concurrency:
+  group: veroeffentlichen
+  cancel-in-progress: false
+
+jobs:
+  veroeffentlichen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write        # Status, Seiten und Sitemap zurückschreiben
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: true
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Abhängigkeiten installieren
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip --quiet
+          python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2'
+
+      - name: Entwürfe auf „Veröffentlicht“ setzen
+        id: status
+        env:
+          AUSWAHL: ${{ inputs.auswahl }}
+          PROBELAUF: ${{ inputs.probelauf }}
+        run: |
+          set -euo pipefail
+          cp sitemap.xml "$RUNNER_TEMP/sitemap-vorher.xml"
+          PROBE=()
+          if [ "$PROBELAUF" = "true" ]; then PROBE=(--probelauf); fi
+          python tools/veroeffentlichen.py --auswahl "${AUSWAHL:-alle}" "${PROBE[@]}" | tee "$RUNNER_TEMP/veroeffentlichen.log"
+          echo "anzahl=$(tail -n 1 "$RUNNER_TEMP/veroeffentlichen.log")" >> "$GITHUB_OUTPUT"
+          {
+            echo "## Entwürfe veröffentlichen"
+            echo
+            echo '```'
+            head -n -1 "$RUNNER_TEMP/veroeffentlichen.log"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Seiten bauen und einsortieren
+        if: inputs.probelauf != true && steps.status.outputs.anzahl != '0'
+        env:
+          SEITENBAU_ORDNEN: "1"
+        run: |
+          set -uo pipefail
+          python tools/artikel_generator.py --ordnen 2>&1 | tee "$RUNNER_TEMP/generator.log"
+          RUECKGABE=${PIPESTATUS[0]}
+          if [ "$RUECKGABE" -ne 0 ] && [ "$RUECKGABE" -ne 2 ]; then
+            echo "::error title=Veröffentlichen::Der Seitenbau ist unerwartet abgebrochen (Rückgabewert $RUECKGABE) – es wurde nichts geschrieben."
+            exit "$RUECKGABE"
+          fi
+          if [ "$RUECKGABE" -eq 2 ]; then
+            grep "^FEHLER:" "$RUNNER_TEMP/generator.log" | while IFS= read -r zeile; do
+              echo "::warning title=Beitrag gesperrt::${zeile#FEHLER: }"
+            done
+          fi
+
+      - name: Auf den Hauptzweig schreiben
+        if: inputs.probelauf != true && steps.status.outputs.anzahl != '0'
+        env:
+          ZWEIG: ${{ github.ref_name }}
+          ANZAHL: ${{ steps.status.outputs.anzahl }}
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A entwuerfe fachwissen sitemap.xml llms.txt
+          # Die erste Zeile ist fest: tools/hauptzweig_pruefen.py erkennt daran
+          # einen erlaubten Bot-Commit und schlägt bei laufenden Agenten keinen Alarm.
+          git commit -q -m "Entwürfe veröffentlicht" \
+                        -m "$ANZAHL Beitrag/Beiträge über den Workflow „Entwürfe veröffentlichen“ freigegeben; Seiten, Sitemap und Übersicht neu gebaut."
+          git pull -q --rebase --autostash origin "$ZWEIG"
+          git push -q origin "HEAD:$ZWEIG"
+          echo "::notice title=Veröffentlichen::$ANZAHL Beitrag/Beiträge veröffentlicht. Die Seiten sind in wenigen Minuten online."
+
+      - name: Suchmaschinen benachrichtigen (IndexNow)
+        if: inputs.probelauf != true && steps.status.outputs.anzahl != '0'
+        continue-on-error: true
+        timeout-minutes: 15
+        run: python tools/indexnow.py --vorher "$RUNNER_TEMP/sitemap-vorher.xml"

@@ -1278,15 +1278,17 @@ def filter_html(artikel: list[Artikel]) -> str:
     zeilen += ['        </div>', '      </form>']
 
     regeln = []
-    for k in kategorien:
+    # Feste Reihenfolge: sonst hinge sie davon ab, in welchem Ordner die Beiträge liegen,
+    # und der Seitenbau hielte das Einsortieren für eine Änderung.
+    for k in sorted(kategorien):
         regeln.append(f'main:has(#filter-k-{k}:checked) .karte:not([data-kategorie="{k}"])'
                       '{display:none}')
         regeln.append(f'#filter-k-{k}:checked+label{{--chip:var(--kat,var(--accent))}}')
-    for f in formate:
+    for f in sorted(formate):
         regeln.append(f'main:has(#filter-f-{f}:checked) .karte:not([data-format="{f}"])'
                       '{display:none}')
     # Die Kategoriefarbe des Chips kommt aus derselben Zuordnung wie der Punkt auf den Karten.
-    for k, (name, _n) in kategorien.items():
+    for k, (name, _n) in sorted(kategorien.items()):
         regeln.append(f'label[for="filter-k-{k}"]{{--kat:var(--kat-{k})}}')
     stil = "      <style>" + "".join(regeln) + "</style>"
     return "\n".join(zeilen) + "\n" + stil + "\n      "
