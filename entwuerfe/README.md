@@ -7,7 +7,7 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (16)
+## 🟡 Entwurf (17)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
@@ -15,6 +15,7 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 | 29.09.2026 | [Mängelanzeige mit Fristsetzung: Musterschreiben](entwurf/2026-09-29-maengelanzeige-mit-fristsetzung.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/maengelanzeige-mit-fristsetzung/) |
 | 28.09.2026 | [Checkliste Ortstermin mit dem Bausachverständigen](entwurf/2026-09-28-vorbereitung-gutachter-ortstermin.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/vorbereitung-gutachter-ortstermin/) |
 | 28.09.2026 | [Schimmel in der Mietwohnung: Ursache klären, dann zahlen](entwurf/2026-09-28-schimmel-mietwohnung-ursache-klaeren.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/schimmel-mietwohnung-ursache-klaeren/) |
+| 28.09.2026 | [Rissprotokoll zur Rissbeobachtung](entwurf/2026-09-28-rissprotokoll-rissbeobachtung.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/rissprotokoll-rissbeobachtung/) |
 | 28.09.2026 | [Bauverzug durch Planungsfehler: warum die Klage scheiterte](entwurf/2026-09-28-planungsfehler-bauverzoegerung-nachweis.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/planungsfehler-bauverzoegerung-nachweis/) |
 | 28.09.2026 | [Checkliste vor Ablauf der Gewährleistung](entwurf/2026-09-28-gewaehrleistung-ablauf-checkliste.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/gewaehrleistung-ablauf-checkliste/) |
 | 28.09.2026 | [Baukosten realistisch schätzen: DIN 276 statt m²-Preis](entwurf/2026-09-28-baukosten-schaetzen-din-276.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/baukosten-schaetzen-din-276/) |
