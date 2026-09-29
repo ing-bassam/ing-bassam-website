@@ -32,7 +32,8 @@ import os
 import subprocess
 import sys
 
-ERLAUBTE_BOT_COMMITS = {"Fachwissen-Seiten neu gebaut"}
+# Seitenbau und der Workflow „Entwürfe veröffentlichen“
+ERLAUBTE_BOT_COMMITS = {"Fachwissen-Seiten neu gebaut", "Entwürfe veröffentlicht"}
 HOECHSTENS = 60
 
 
