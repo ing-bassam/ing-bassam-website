@@ -7,10 +7,11 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (20)
+## 🟡 Entwurf (21)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 29.09.2026 | [Wohnungsübergabeprotokoll für Ein- und Auszug](entwurf/2026-09-29-wohnungsuebergabeprotokoll-einzug-auszug.md) | Vorlage | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/wohnungsuebergabeprotokoll-einzug-auszug/) |
 | 29.09.2026 | [Raumklima-Protokoll bei Schimmelverdacht](entwurf/2026-09-29-raumklima-protokoll-schimmelverdacht.md) | Vorlage | Bauphysik | [ansehen](https://ing-bassam.de/fachwissen/raumklima-protokoll-schimmelverdacht/) |
 | 29.09.2026 | [Pfusch am Bau: was Bauherren zuerst tun müssen](entwurf/2026-09-29-pfusch-am-bau-vorgehen-ansprueche.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/pfusch-am-bau-vorgehen-ansprueche/) |
 | 29.09.2026 | [Mängelanzeige mit Fristsetzung: Musterschreiben](entwurf/2026-09-29-maengelanzeige-mit-fristsetzung.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/maengelanzeige-mit-fristsetzung/) |
