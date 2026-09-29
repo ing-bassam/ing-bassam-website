@@ -1,0 +1,208 @@
+titel: Wohnungsübergabeprotokoll für Ein- und Auszug
+untertitel: Zustand, Zähler und Schlüssel beim Mieterwechsel festhalten
+kurzform: wohnungsuebergabeprotokoll-einzug-auszug
+typ: Protokoll
+stand: 2026-09-29
+dateien: [pdf-ausfuellbar, pdf]
+einleitung: >
+  Mit diesem Protokoll halten Mieter, Vermieter und Hausverwaltung gemeinsam fest,
+  in welchem Zustand eine Wohnung übergeben wird. Gehen Sie die Abschnitte in der
+  Reihenfolge durch, tragen Sie jeden Befund mit Raum und Foto-Nummer in die
+  Mängelliste ein und bewerten Sie ihn in einer der vier Stufen. Das Protokoll
+  beschreibt den Zustand; wer für einen Befund einzustehen hat, entscheidet es nicht.
+  Beide Seiten unterschreiben zwei gleichlautende Ausfertigungen und erhalten je eine.
+kopffelder:
+  - Objekt und Anschrift
+  - Lage der Wohnung nach Geschoss und Nummer
+  - Wohnfläche und Zimmerzahl laut Mietvertrag
+  - Datum und Uhrzeit der Übergabe
+  - Mietvertrag vom
+  - Beginn oder Ende des Mietverhältnisses am
+  - Vermieter oder Hausverwaltung
+  - Mieter und künftige Anschrift
+  - Weitere Anwesende und ihre Rolle
+  - Beleuchtung und Witterung beim Termin
+bewertung:
+  stufen:
+    - {kurz: "o. B.", lang: "ohne Befund", beschreibung: "nichts zu beanstanden, wie neu oder frisch hergerichtet"}
+    - {kurz: "gering", lang: "Gebrauchsspur", beschreibung: "oberflächlich, gleichmäßig, voll funktionsfähig"}
+    - {kurz: "deutlich", lang: "Schaden oder Fehlstelle", beschreibung: "beschädigt, unvollständig oder nicht funktionsfähig"}
+    - {kurz: "n. p.", lang: "nicht prüfbar", beschreibung: "verdeckt, verstellt oder außer Betrieb – nachfragen"}
+abschnitte:
+  - titel: Anlass, Beteiligte und Unterlagen
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Anlass der Übergabe
+        auswahl: [Einzug, Auszug, Vorabnahme, Zwischenübergabe]
+        hinweis: "Beim Einzug beschreibt das Protokoll den Ausgangszustand, beim Auszug den Vergleich dazu. Eine Vorabnahme einige Wochen vor dem Auszug lässt beiden Seiten Zeit, Befunde noch zu beseitigen."
+      - text: Mietvertrag mit allen Anlagen und die Hausordnung liegen beim Termin vor
+        hinweis: "Nur mit dem Vertrag lässt sich klären, was zur Wohnung gehört: Küche, Keller, Stellplatz, Gartenanteil."
+      - text: Protokoll der letzten Übergabe liegt vor und wird Punkt für Punkt abgeglichen
+        hinweis: "Beim Auszug ist das Einzugsprotokoll der Vergleichsmaßstab. Ohne es lässt sich kaum trennen, was schon vorher da war."
+      - text: Alle Vertragsparteien oder bevollmächtigte Vertreter sind anwesend
+        hinweis: "Bei mehreren Mietern eines Vertrags sollten alle unterschreiben oder eine schriftliche Vollmacht vorliegen."
+      - text: Fotos sind fortlaufend nummeriert, mit Datum, gleichem Abstand und gleichem Blickwinkel aufgenommen
+        hinweis: "Fotos gehören zur Besichtigung: zur gleichen Zeit, im gleichen Abstand und Winkel zum Bauteil. Notieren Sie dazu die Lichtverhältnisse, also Witterung oder Tageszeit."
+  - titel: Zähler, Verbrauch und Versorgung
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: "Strom: Zählernummer und Zählerstand"
+        hinweis: "Die Zählernummer steht auf dem Zähler, meist neben einem Strichcode. Stand mit allen Vorkommastellen notieren, die roten Nachkommastellen entfallen. Fehlen Ablesewerte, darf der Versorger auf Basis von Schätzwerten abrechnen."
+      - text: "Gas: Zählernummer und Zählerstand"
+        hinweis: "Bei Gasgeruch wird nichts geschaltet und nichts abgelesen: Fenster öffnen, Wohnung verlassen, Netzbetreiber anrufen."
+      - text: "Kalt- und Warmwasser: Zählernummer und Zählerstand je Zähler"
+        hinweis: "Eine Wohnung hat oft mehrere Wasserzähler, etwa in Bad und Küche. Jeden Zähler einzeln mit Nummer und Stand aufnehmen und fotografieren."
+      - text: "Wärmezähler oder Heizkostenverteiler: Nummer und Anzeige je Heizkörper"
+        hinweis: "Heizkostenverteiler sitzen am Heizkörper, Wärmezähler meist im Verteilerschrank. Die Anzeige je Gerät getrennt aufnehmen."
+      - text: Zwischenablesung durch den Messdienst ist veranlasst, Zähler und Plomben sind unbeschädigt
+        hinweis: "Nach einem Nutzerwechsel zahlt jede Seite nur für ihre Nutzungszeit. Dafür braucht der Messdienst einen Ablesewert zum Übergabetag."
+  - titel: Schlüssel und Schließung
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Art der Schließung
+        auswahl: [Einzelschlösser, Schließanlage, gemischt, unbekannt]
+        hinweis: "Bei einer Schließanlage passt ein Schlüssel in mehrere Türen, erkennbar an gleichartigen Schlüsseln mit Kennung. Geht ein Schlüssel verloren, kann der Austausch der Anlage aufwendig werden."
+      - text: "Haus- und Hofschlüssel: Anzahl"
+      - text: "Wohnungstürschlüssel: Anzahl"
+        hinweis: "Auch selbst nachgemachte Schlüssel gehören dazu und werden mit übergeben. Anzahl je Schließung getrennt zählen."
+      - text: "Keller-, Dachboden-, Briefkasten- und Garagenschlüssel: Anzahl je Art"
+  - titel: Wände, Decken und Böden
+    notizen: 2
+    punkte:
+      - text: Wandoberfläche in den Wohnräumen
+        auswahl: [Raufaser tapeziert, glatt gestrichen, Putz sichtbar, Dekortapete, gemischt, unbekannt]
+        hinweis: "Die Oberfläche bestimmt, wie stark Löcher und Flecken auffallen und wie aufwendig eine Ausbesserung wird. Im Streiflicht einer Taschenlampe ist die Struktur gut zu erkennen."
+      - text: Risse in Wänden und Decken
+        hinweis: "Woran erkennen: Streiflicht macht Risse sichtbar. Gering: feine Risse in Putz oder Tapete, die sich nur abzeichnen. Deutlich: Risse mit Versatz, Risse, die über Wand und Decke durchlaufen, oder Risse, die sich nachweislich weiten. Deren Ursache klärt eine Fachkraft."
+      - text: Dübellöcher, Bohrlöcher und Befestigungsspuren
+        hinweis: "Woran erkennen: Löcher je Wand zählen, verschlossene Löcher am Farbunterschied erkennen. Gering: einzelne, fachgerecht verschlossene Löcher. Deutlich: viele oder ausgebrochene Löcher, steckengebliebene Dübel, Fehlstellen im Putz."
+      - text: Bodenbelag in den Wohnräumen
+        auswahl: [Parkett oder Dielen, Laminat, Fliesen, Linoleum oder PVC, Teppich, gemischt]
+        hinweis: "Bodenart je Raum notieren. Parkett und Dielen sind aus Holz und arbeiten mit der Feuchte; Laminat klingt beim Klopfen hohler und lässt sich nicht abschleifen."
+      - text: Kratzer, Dellen und Laufspuren im Bodenbelag
+        hinweis: "Woran erkennen: Im flach einfallenden Licht betrachten. Gering: gleichmäßige, oberflächliche Laufspuren in den Gehwegen des Raums. Deutlich: tiefe Kratzer bis in den Untergrund, Löcher, Brandstellen, abgelöste Beschichtung."
+      - text: Fugen, Wölbungen und lose Stellen im Bodenbelag
+        hinweis: "Woran erkennen: Mit der Hand über die Stöße fahren, auf Knarren und Nachgeben achten. Gering: schmale, gleichmäßige Fugen durch Quellen und Schwinden. Deutlich: aufgewölbte Kanten, lose Stellen, dunkle Ränder – das deutet auf Feuchte im Bodenaufbau hin."
+  - titel: Fenster, Rollläden und Türen
+    notizen: 2
+    punkte:
+      - text: Verglasung der Fenster
+        auswahl: [Einfachglas, Zweifachglas, Dreifachglas, Kastenfenster, gemischt, unbekannt]
+        hinweis: "Am Glasrand ist der umlaufende Abstandhalter zu sehen, wenn mehrere Scheiben in einem Rahmen sitzen. Ein Kastenfenster hat zwei getrennte Flügel hintereinander mit offenem Zwischenraum."
+      - text: Rahmenmaterial der Fenster
+        auswahl: [Holz, Kunststoff, Aluminium, Holz-Aluminium, gemischt, unbekannt]
+        hinweis: "Holz zeigt seine Struktur unter dem Lack, Kunststoff hat verschweißte Ecken, Aluminium fühlt sich kühl an und hat schmale Profile."
+      - text: "Fenster und Fenstertüren: Gängigkeit, Verriegelung und Dichtungen"
+        hinweis: "Woran erkennen: Jeden Flügel öffnen, kippen und verriegeln. Gering: leichtes Schleifen, das sich nachstellen lässt. Deutlich: Flügel klemmt oder verriegelt nicht, Dichtung fehlt, ist gerissen oder liegt nicht mehr an."
+      - text: Glasschäden und Feuchtigkeit im Scheibenzwischenraum
+        hinweis: "Woran erkennen: Ein Beschlag zwischen den Scheiben lässt sich nicht wegwischen. Gering: Kratzer in der Oberfläche. Deutlich: Sprung im Glas oder Feuchtigkeit im Zwischenraum – dann ist der Randverbund undicht, der die Scheiben gasdicht verbindet."
+      - text: Rollläden, Jalousien und ihre Antriebe
+        hinweis: "Woran erkennen: Ganz herunter- und wieder hochfahren. Gering: Panzer läuft schwer oder klappert. Deutlich: Gurt oder Antrieb ohne Funktion, Panzer verkantet, Lamellen gebrochen."
+      - text: "Wohnungseingangstür und Innentüren: Schloss, Zarge, Drücker und Dichtung"
+        hinweis: "Woran erkennen: Jede Tür schließen und abschließen. Gering: Oberflächenspuren, nachstellbare Bänder. Deutlich: Schloss ohne Funktion, Türblatt schleift oder ist aufgequollen, Zarge beschädigt."
+  - titel: Bad, WC und Küche
+    notizen: 2
+    punkte:
+      - text: Ausstattung im Bad
+        auswahl: [Badewanne, Dusche, Wanne und Dusche, bodengleiche Dusche, unbekannt]
+        hinweis: "Ausstattung so aufnehmen, wie sie übergeben wird. Eine bodengleiche Dusche hat keinen Wannenrand und stellt höhere Anforderungen an die Abdichtung darunter."
+      - text: "Sanitärobjekte und Armaturen: Sitz, Dichtheit und Funktion"
+        hinweis: "Woran erkennen: Wasser laufen lassen und Anschlüsse mit trockenem Papier abtupfen. Gering: Kalkspuren, leicht gelöste Befestigung. Deutlich: Riss oder Absprung in der Keramik, tropfende Armatur, wackelndes Objekt, nachlaufender Spülkasten."
+      - text: Silikon- und Anschlussfugen an Wanne, Dusche und Waschbecken
+        hinweis: "Woran erkennen: Fuge mit dem Finger prüfen. Gering: leichte Verfärbung. Deutlich: Fuge löst sich, reißt oder hat Lücken. Silikonfugen sind Wartungsfugen mit begrenzter Lebensdauer und werden regelmäßig kontrolliert und erneuert."
+      - text: Fliesen und Fliesenfugen an Wand und Boden
+        hinweis: "Woran erkennen: Mit dem Fingerknöchel abklopfen; hohl klingende Stellen notieren. Gering: einzelne Haarrisse in den Fugen. Deutlich: gerissene oder hohl klingende Fliesen, fehlende Fugen, Versatz – dahinter kann Wasser in den Aufbau laufen."
+      - text: Küche mitvermietet
+        auswahl: [keine Küche, Einbauküche des Vermieters, vom Vormieter übernommen, nur Anschlüsse, unbekannt]
+        hinweis: "Klären, wem die Küche gehört. Eine vom Vormieter abgelöste Küche ist nicht Sache des Vermieters; die Ablösevereinbarung gehört schriftlich zum Protokoll."
+      - text: Küchenmöbel, Arbeitsplatte, Spüle und mitvermietete Geräte
+        hinweis: "Woran erkennen: Alle Türen und Schubladen öffnen, Geräte kurz einschalten, unter die Spüle sehen. Gering: Gebrauchsspuren an Fronten. Deutlich: aufgequollene Arbeitsplatte, defektes Gerät, fehlende Teile, Wasserschaden im Unterschrank."
+  - titel: Elektro, Heizung und Warmwasser
+    notizen: 2
+    punkte:
+      - text: Art der Absicherung im Verteiler
+        auswahl: [Schmelzsicherungen, Leitungsschutzschalter, gemischt, unbekannt]
+        hinweis: "Schmelzsicherungen sind runde Keramikeinsätze zum Schrauben, Leitungsschutzschalter kleine Kippschalter. Sehr wenige Steckdosen, kein Fehlerstromschutzschalter und Leitungen teilweise auf Putz kennzeichnen die einfachste Standardstufe der Ausstattung."
+      - text: "Steckdosen, Schalter und Lichtauslässe: Anzahl, Sitz und Abdeckungen"
+        hinweis: "Woran erkennen: Nur ansehen, nichts öffnen. Gering: vergilbte oder verkratzte Abdeckungen. Deutlich: lose oder fehlende Abdeckung, angeschmolzene Stellen, lockere Dose. Prüfen und Messen der Anlage bleibt einer Elektrofachkraft vorbehalten."
+      - text: Heizungsart
+        auswahl: [Zentralheizung, Gas-Etagenheizung, Fernwärme, Nachtspeicher, Einzelöfen, unbekannt]
+        hinweis: "Eine Gas-Etagenheizung hängt in der Wohnung, meist in Bad oder Küche. Bei Zentralheizung und Fernwärme steht die Erzeugung im Haus. Nachtspeicheröfen sind große, schwere Wandgeräte."
+      - text: Warmwasserbereitung
+        auswahl: [zentral über die Heizung, Durchlauferhitzer, Gastherme, Boiler, unbekannt]
+        hinweis: "Ein Durchlauferhitzer sitzt nahe der Zapfstelle und schaltet beim Öffnen des Hahns ein. Ein Boiler speichert Wasser in einem Behälter und braucht Vorlaufzeit."
+      - text: Heizkörper, Thermostatventile und Entlüftungsventile
+        hinweis: "Woran erkennen: Thermostat auf- und zudrehen, Heizkörper abtasten. Gering: Kalkspuren, schwergängiges Thermostat. Deutlich: Heizkörper bleibt kalt, gluckert dauerhaft, Ventil tropft, Lack blättert flächig ab."
+      - text: Wartungsnachweis für Therme, Kessel oder Durchlauferhitzer liegt vor
+        ja_nein: true
+        hinweis: "Nachweis der letzten Wartung erfragen und, falls vorhanden, das Protokoll des Schornsteinfegers dazu nehmen."
+  - titel: Feuchte, Schimmel und Sicherheitstechnik
+    notizen: 2
+    punkte:
+      - text: Lüftung der Wohnung
+        auswahl: [nur Fensterlüftung, Abluftanlage im Bad, Lüftungsanlage im Gebäude, gemischt, unbekannt]
+        hinweis: "Eine Abluftanlage im Bad erkennen Sie am Gitter mit dahinterliegendem Ventilator; eine Lüftungsanlage des Gebäudes an Zu- und Abluftventilen in mehreren Räumen. Wie gelüftet werden kann, beeinflusst das Risiko von Feuchte und Schimmel deutlich."
+      - text: Feuchteflecken, Ausblühungen und Feuchtegeruch an Wänden, Decken und in Nischen
+        hinweis: "Woran erkennen: Außenecken, Nischen, Sockelbereiche und Flächen hinter Möbeln ansehen und am Geruch prüfen. Gering: einzelner alter, trockener Rand. Deutlich: feuchte oder dunkle Flächen, weißliche Salzausblühungen, weicher Putz, muffiger Geruch."
+      - text: Schimmel an Wänden, Fensterlaibungen und in Fugen
+        hinweis: "Woran erkennen: Dunkle Punkte oder Flecken in Ecken, Laibungen und Fugen. Gering: oberflächlicher Befall unter etwa 0,5 m². Deutlich: Fläche ab etwa 0,5 m² oder Befall, der wiederkehrt – dann saniert eine fachkundige Firma und die Ursache wird geklärt."
+      - text: Rauchwarnmelder in Aufenthaltsräumen und in Fluren mit Rettungsweg
+        hinweis: "Woran erkennen: In Aufenthaltsräumen und Rettungsfluren nachsehen. Gering: verstaubtes Gerät. Deutlich: Melder fehlt, ist abgenommen, überklebt oder abgelaufen. Für Einbau und Betriebsbereitschaft ist das Bauordnungsrecht des Landes maßgebend."
+  - titel: Nebenräume, Balkon und Außenbereiche
+    notizen: 2
+    punkte:
+      - text: "Keller-, Dachboden- oder Abstellraum: Nummer, Zustand und geräumt"
+        hinweis: "Woran erkennen: Wände und Boden im Streiflicht ansehen, Geruch prüfen. Gering: leichte Feuchte in einem unbeheizten Kellerraum. Deutlich: nasse Wände, Salzausblühungen, abplatzender Putz, Wasser auf dem Boden."
+      - text: Balkon, Loggia oder Terrasse mit Bodenbelag, Geländer und Ablauf
+        hinweis: "Woran erkennen: Nach Regen ansehen, Ablauf mit Wasser prüfen. Gering: Verschmutzung, verwitterte Oberfläche. Deutlich: Wasser steht, Ablauf verstopft, Belag lose, Geländer wackelt. Geländer sind Sicherheitsbauteile und werden nicht nur beobachtet."
+      - text: Garten-, Hof- oder Stellplatzfläche laut Mietvertrag
+        hinweis: "Woran erkennen: Fläche nach dem Mietvertrag abgehen. Gering: Bewuchs und Laub. Deutlich: abgestellte Gegenstände, beschädigte Einfriedung, aufgebrochene Beläge, nicht vertragsgemäße Nutzung."
+      - text: Briefkasten, Klingel- und Namensschild
+        hinweis: "Woran erkennen: Schloss, Klappe und Schild prüfen, an der Sprechanlage klingeln. Gering: verblasstes Namensschild. Deutlich: Schloss defekt, Klappe verbogen, Klingel oder Sprechanlage ohne Funktion."
+  - titel: Vereinbarungen, Unterschriften und Kopien
+    bewertung: false
+    notizen: 3
+    punkte:
+      - text: Jeder Befund steht einzeln mit Raum, Bauteil, Stufe und Foto-Nummer in der Mängelliste
+        hinweis: "Ein Befund wird beschrieben, nicht bewertet: Ort, Art, Größe und Foto-Nummer. Die Stufe steht daneben, eine Schuldzuweisung nicht."
+      - text: Zu jedem Befund ist vereinbart, wer ihn beseitigt und bis zu welchem Datum
+        hinweis: "Ohne die Angabe, wer bis wann etwas tut, bleibt eine Vereinbarung im Protokoll wirkungslos."
+      - text: Meinungsverschiedenheiten sind als solche vermerkt und nicht weggelassen
+        hinweis: "Wird ein Punkt unterschiedlich gesehen, werden beide Einschätzungen notiert. Eine Unterschrift heißt nicht, dass man allen Einschätzungen zustimmt."
+      - text: Beide Seiten erhalten eine gleichlautende, unterschriebene Ausfertigung samt Fotoanlage
+        hinweis: "Fotoanlage mit Nummern und Datum beifügen, damit sich die Foto-Nummern im Protokoll später zuordnen lassen."
+auswertung:
+  - "Ohne Befund und geringe Befunde schließen die Übergabe ab; die Stufen bleiben im Protokoll als Vergleichsmaßstab für den nächsten Termin."
+  - "Jeder deutliche Befund wird einzeln beschrieben und mit Foto belegt, bevor beide Seiten unterschreiben."
+  - "Deutliche Befunde an Feuchte, Schimmel oder Bodenaufbau werden nicht überstrichen oder verdeckt, sondern zuerst in ihrer Ursache geklärt."
+  - "Schimmel ab etwa 0,5 m² Fläche und wiederkehrender Befall gehören in die Hände einer fachkundigen Firma."
+  - "Bei Anzeichen für Gefahren an Elektro-, Gas- oder Trinkwasserinstallation wird nichts geöffnet, sondern eine Fachfirma oder der Netzbetreiber eingeschaltet."
+  - "Bleibt offen, ob ein Befund Gebrauchsspur oder Schaden ist, hilft eine fachliche Zustandsfeststellung durch einen Sachverständigen."
+tabelle:
+  spalten: ["Nr.", "Raum", "Bauteil", "Befund und Stufe", "Foto-Nr.", "beseitigt wer bis wann", "erledigt am"]
+  breiten: [1, 2, 3, 6, 2, 3, 2]
+  leerzeilen: 18
+unterschriften:
+  - Vermieter oder Hausverwaltung
+  - Mieter
+  - Weitere Anwesende
+hinweise:
+  - "Diese Vorlage ist eine Arbeitshilfe und keine Rechtsberatung. Ob und welche Ansprüche aus einem Befund folgen, beurteilt ein Rechtsanwalt."
+  - "Das Protokoll beschreibt den Zustand einer Wohnung. Es entscheidet nicht darüber, wer für einen Befund einzustehen hat."
+  - "Die Vorlage ersetzt keine Begutachtung des Einzelfalls und kein Gutachten."
+  - "Prüfen Sie nur, was ohne Werkzeug und ohne Gefahr zugänglich ist. Öffnen Sie keine Bauteile, keine Elektroverteilung und keine Installationen."
+  - "Für Rauchwarnmelder gilt das Bauordnungsrecht des jeweiligen Landes; die Angaben dieser Vorlage beziehen sich auf Berlin."
+  - "Vier Stufen genügen für die Übergabe. Wo eine Stufe nicht passt, beschreiben Sie den Befund in der Mängelliste mit eigenen Worten."
+quellen:
+  - "Umweltbundesamt: Was tun bei Schimmel in meiner Wohnung? Kleiner Befall unter 0,5 m² und nur oberflächlich."
+  - "DIN 14676-1:2025-05, Rauchwarnmelder für Wohnhäuser, Wohnungen und Räume mit wohnungsähnlicher Nutzung, Teil 1."
+  - "§ 48 Abs. 4 Bauordnung für Berlin, wiedergegeben von der Berliner Feuerwehr."
+  - "Verbraucherzentrale Berlin: Zählerstände bei Aus- und Einzug dokumentieren."
+  - "Schmidt, Windhausen: Lohmeyer Praktische Bauphysik. 10. Aufl. 2024, S. 385 f."
+  - "Frössel: Risse in Gebäuden. 2. Aufl. 2025, S. 114."
+  - "Hestermann, Rongen: Frick/Knöll Baukonstruktionslehre 2. 2018, S. 488."
+  - "Schulz: Bauschäden in Bädern und Nassräumen. 2. Aufl. 2026, S. 270."
+  - "Krause, Ulke: Zahlentafeln für den Baubetrieb. 9. Aufl. 2016, S. 401 und 474."
