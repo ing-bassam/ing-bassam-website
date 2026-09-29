@@ -7,12 +7,13 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (17)
+## 🟡 Entwurf (18)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
 | 29.09.2026 | [Pfusch am Bau: was Bauherren zuerst tun müssen](entwurf/2026-09-29-pfusch-am-bau-vorgehen-ansprueche.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/pfusch-am-bau-vorgehen-ansprueche/) |
 | 29.09.2026 | [Mängelanzeige mit Fristsetzung: Musterschreiben](entwurf/2026-09-29-maengelanzeige-mit-fristsetzung.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/maengelanzeige-mit-fristsetzung/) |
+| 28.09.2026 | [Was kostet ein Baugutachter? Honorar und Ablauf](entwurf/2026-09-28-was-kostet-ein-baugutachter.md) | Ratgeber | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/was-kostet-ein-baugutachter/) |
 | 28.09.2026 | [Checkliste Ortstermin mit dem Bausachverständigen](entwurf/2026-09-28-vorbereitung-gutachter-ortstermin.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/vorbereitung-gutachter-ortstermin/) |
 | 28.09.2026 | [Schimmel in der Mietwohnung: Ursache klären, dann zahlen](entwurf/2026-09-28-schimmel-mietwohnung-ursache-klaeren.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/schimmel-mietwohnung-ursache-klaeren/) |
 | 28.09.2026 | [Rissprotokoll zur Rissbeobachtung](entwurf/2026-09-28-rissprotokoll-rissbeobachtung.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/rissprotokoll-rissbeobachtung/) |
