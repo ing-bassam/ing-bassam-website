@@ -41,7 +41,7 @@ Der Brief beginnt mit dem Vertrag. Nennen Sie das Bauvorhaben, das Datum des Bau
 
 Adressat ist immer Ihr Vertragspartner. Das ist das Unternehmen, mit dem Sie den Bauvertrag geschlossen haben. Ein Hinweis an den Architekten, an die Bauleitung oder an den Handwerker vor Ort ersetzt die Anzeige gegenüber dem Unternehmen nicht. Haben Sie mehrere Firmen beauftragt, geht je Vertrag ein eigenes Schreiben hinaus.
 
-Die Form ist nach dem Gesetz nicht vorgeschrieben: Eine besondere Form, etwa Schriftform, ist für das Nacherfüllungsverlangen nicht notwendig.[^1] Verbraucherorganisationen empfehlen trotzdem einheitlich den Brief. Die Anzeige sollte unbedingt schriftlich erfolgen, damit sie später belegt werden kann.[^2] Ist die VOB/B vereinbart, verlangt § 13 Abs. 5 Nr. 1 VOB/B für die Zeit nach der Abnahme ohnehin ein schriftliches Verlangen.[^3]
+Die Form ist nach dem Gesetz nicht vorgeschrieben: Eine besondere Form, etwa Schriftform, ist für das Nacherfüllungsverlangen nicht notwendig.[^1] Verbraucherorganisationen empfehlen trotzdem den Brief. Die Anzeige sollte unbedingt schriftlich erfolgen, damit sie später belegt werden kann.[^2] Ist die VOB/B vereinbart, verlangt § 13 Abs. 5 Nr. 1 VOB/B für die Zeit nach der Abnahme ohnehin ein schriftliches Verlangen.[^3]
 
 ## Warum das Erscheinungsbild genügt und die Ursache nicht
 
@@ -59,7 +59,7 @@ Die Beschreibung wirkt weiter, als sie aussieht. Ist das Nacherfüllungsverlange
 
 Die Frist entscheidet darüber, ob das Schreiben später trägt. „Umgehend“, „unverzüglich“ oder „schnellstmöglich“ ist keine Frist. Nach der Mängeldokumentation wird das Unternehmen aufgefordert, die Mängel in einer angemessenen Frist zu beseitigen. Dabei muss ein konkretes Datum angegeben werden, um das Unternehmen wirksam in Verzug zu setzen.[^5] Tragen Sie also ein Kalenderdatum ein.
 
-Die Frist zielt auf das Ende der Arbeiten. Das Erfordernis der Fristsetzung bezieht sich grundsätzlich nur auf den Abschluss der Nacherfüllungsleistung, also auf die beseitigte Mangelerscheinung.[^6] Es genügt deshalb nicht, das Unternehmen aufzufordern, innerhalb der Frist mit den Arbeiten zu beginnen. Schreiben Sie, dass der Mangel bis zum genannten Datum beseitigt sein soll.
+Die Frist zielt auf das Ende der Arbeiten. Das Erfordernis der Fristsetzung bezieht sich grundsätzlich nur auf den Abschluss der Nacherfüllungsleistung, also auf die Mangelbeseitigung.[^6] Es genügt deshalb nicht, das Unternehmen aufzufordern, innerhalb der Frist mit den Arbeiten zu beginnen. Schreiben Sie, dass der Mangel bis zum genannten Datum beseitigt sein soll.
 
 Wie lang die Frist sein muss, lässt sich nicht pauschal sagen. Feste Zeiträume gelten nicht. Maßgebend ist die Zeit, die für die Arbeiten objektiv nötig ist. Die Frist muss dabei nicht so bemessen sein wie bei der erstmaligen Ausführung. Ein sofortiger Beginn und eine zügige Ausführung unter erhöhter Anstrengung dürfen vorausgesetzt werden.[^6]
 
@@ -67,7 +67,7 @@ Eine zu kurze Frist ist nicht wertlos. Nach der Fachliteratur setzt sie eine ang
 
 ## Vor oder nach der Abnahme ist Ihre Lage verschieden
 
-Die Abnahme ist der Wendepunkt des Bauvertrags. Vor der Abnahme gilt eine klare Pflicht. Leistungen, die schon während der Ausführung als mangelhaft oder vertragswidrig erkannt werden, hat das Unternehmen auf eigene Kosten durch mangelfreie zu ersetzen.[^7] Eine Aufforderung oder Fristsetzung ist dafür nach der Fachliteratur nicht Voraussetzung.[^8] Anzeigen und befristen sollten Sie trotzdem, denn nur so können Sie später belegen, was Sie wann gerügt haben.
+Die Abnahme ist der Wendepunkt des Bauvertrags. Vor der Abnahme gilt eine klare Pflicht. Leistungen, die schon während der Ausführung als mangelhaft oder vertragswidrig erkannt werden, hat das Unternehmen auf eigene Kosten durch mangelfreie zu ersetzen.[^7] Eine Aufforderung oder Fristsetzung ist dafür nach der Fachliteratur nicht Voraussetzung.[^8] Anzeigen und befristen sollten Sie trotzdem.
 
 Mit der Abnahme dreht sich die Beweislast. Ab dem Tag der Bauabnahme muss der Bauherr beweisen, dass spätere, nicht bereits gerügte Mängel vom Bauunternehmer verursacht wurden.[^9] Vor der Abnahme trägt das Unternehmen die Last, die mangelfreie Leistung zu belegen.[^8] Das ist der praktische Grund, jeden Befund vor der Abnahme schriftlich festzuhalten.
 
@@ -87,7 +87,7 @@ Verlangen Sie eine Rückmeldung mit eigenem Termin. Bitten Sie um eine Bestätig
 
 ## Hausverwaltung und Wohnungseigentum brauchen eine Vorprüfung
 
-Verwalter und Erwerber müssen vor dem Schreiben eine Frage klären: Wo tritt der Mangel auf? Alles, was innerhalb der Wohnung liegt, ist Sondereigentum, solange es nicht für die übrigen Wohnungen gebraucht wird. Alles andere ist Gemeinschaftseigentum, etwa Dach, Fassade und Tiefgarage.[^18] Von dieser Zuordnung hängt ab, wer welche Rechte geltend machen kann.
+Verwalter und Erwerber müssen vor dem Schreiben eine Frage klären: Wo tritt der Mangel auf? Alles, was innerhalb der Wohnung liegt, ist Sondereigentum, solange es nicht für die übrigen Wohnungen gebraucht wird. Alles andere ist Gemeinschaftseigentum.[^18] Von dieser Zuordnung hängt ab, wer welche Rechte geltend machen kann.
 
 Beim Sondereigentum ist die Lage einfach. Jeder Erwerber kann Mängelrechte am Sondereigentum uneingeschränkt geltend machen.[^18] Der Brief geht dann an das Unternehmen oder den Bauträger, mit dem der Erwerber den Vertrag geschlossen hat. Eine Abstimmung mit der Verwaltung ist dafür nicht nötig.
 
@@ -138,7 +138,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^1]: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. Entscheidungshilfen für Auftraggeber und Auftragnehmer. 2. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 56. ISBN 978-3-658-44068-8.
 [^2]: Bauherren-Schutzbund e. V.: In der Gewährleistungsfrist Mängelansprüche geltend machen. https://www.bsb-ev.de/neubau/gewaehrleistungszeit/gewaehrleistung-beim-hausbau (abgerufen am 2026-09-29). Inhaltlich bestätigt durch: wohnen im eigentum e. V.: Bauserie Folge 6: Baumängel richtig reklamieren. https://www.wohnen-im-eigentum.de/artikel/bauserie-folge-6-baumaengel-richtig-reklamieren (abgerufen am 2026-09-29).
 [^3]: VOB. Vergabe- und Vertragsordnung für Bauleistungen, § 13 Abs. 5 Nr. 1 VOB/B, Ausgabe 2016. Berlin: Beuth Verlag GmbH, 2019, S. 152. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Zanner, Christian: VOB/B nach Ansprüchen. Entscheidungshilfen für Auftraggeber, Planer und Bauunternehmen. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 205. ISBN 978-3-658-34025-4.
-[^4]: Heiermann, Wolfgang u. a.: VOB/B-Musterbriefe für Auftraggeber. Bauherren – Generalunternehmer – Architekten – Bauingenieure. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 201. ISBN 978-3-658-32253-3.
+[^4]: Heiermann, Wolfgang u. a.: VOB/B-Musterbriefe für Auftraggeber. Bauherren – Generalunternehmer – Architekten – Bauingenieure. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 201 und 214. ISBN 978-3-658-32253-3.
 [^5]: Bauherren-Schutzbund e. V.: Ratgeber zum richtigen Vorgehen bei Baumängeln. https://www.bsb-ev.de/neubau/vorgehen-bei-baumaengeln (abgerufen am 2026-09-29).
 [^6]: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. 2. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 63. ISBN 978-3-658-44068-8. Inhaltlich bestätigt durch: Weber, Jürgen; Hafkesbrink, Volker (Hrsg.): Bauwerksabdichtung in der Altbausanierung. Verfahren und juristische Betrachtungsweise. 7. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 761. ISBN 978-3-658-48094-3.
 [^7]: VOB. Vergabe- und Vertragsordnung für Bauleistungen, § 4 Abs. 7 VOB/B, Ausgabe 2016. Berlin: Beuth Verlag GmbH, 2019, S. 144. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. 2. Aufl. 2024, S. 164 f. ISBN 978-3-658-44068-8.
@@ -154,4 +154,4 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^17]: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. 2. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 57. ISBN 978-3-658-44068-8.
 [^18]: Rode, Bernd; Weller, Wolfgang: AVA-Handbuch. Ausschreibung - Vergabe - Abrechnung - Haftung. 11. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 169. ISBN 978-3-658-48052-3.
 [^19]: Heiermann, Wolfgang u. a.: VOB/B-Musterbriefe für Auftraggeber. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 202. ISBN 978-3-658-32253-3.
-[^20]: Würfele, Falk; Bielefeld, Bert; Gralla, Mike: Bauobjektüberwachung. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2017, S. 16. ISBN 978-3-658-10039-1.
+[^20]: Würfele, Falk; Bielefeld, Bert; Gralla, Mike: Bauobjektüberwachung. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2017, S. 16 und 100. ISBN 978-3-658-10039-1.
