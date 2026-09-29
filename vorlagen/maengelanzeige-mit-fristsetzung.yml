@@ -1,0 +1,83 @@
+titel: Mängelanzeige mit Fristsetzung
+untertitel: Musterschreiben für Bauherren und Hausverwaltungen
+kurzform: maengelanzeige-mit-fristsetzung
+typ: Musterschreiben
+stand: 2026-09-29
+dateien: [docx, pdf]
+einleitung: "Mit diesem Musterschreiben zeigen Sie einem Bauunternehmen einen Mangel an und fordern die Beseitigung bis zu einem bestimmten Datum. Ersetzen Sie die Platzhalter in eckigen Klammern durch Ihre Angaben und streichen Sie, was nicht zutrifft. Die Prüfliste am Ende geht die Punkte durch, an denen Mängelanzeigen in der Praxis scheitern."
+
+brief:
+  betreff: "Mängelanzeige mit Fristsetzung – Bauvorhaben [Bezeichnung], [betroffene Leistung]"
+  anrede: Sehr geehrte Damen und Herren,
+  absaetze:
+    - "zwischen Ihnen als Auftragnehmer und uns als Auftraggeber besteht der Bauvertrag vom [Datum] über [Leistung, z. B. die Fliesenarbeiten im Erdgeschoss]. [Zutreffendes wählen: Für diesen Vertrag gilt das Werkvertragsrecht des Bürgerlichen Gesetzbuchs. / In diesen Vertrag ist die VOB/B einbezogen.] Hiermit zeigen wir Mängel an und fordern Sie zu deren Beseitigung auf."
+    - "[Zutreffendes wählen: Die Leistung ist bisher nicht abgenommen. / Die Abnahme erfolgte am [Datum]. / Die Abnahme erfolgte am [Datum]; der nachstehende Mangel ist im Abnahmeprotokoll unter Nummer [Nummer] vorbehalten.]"
+    - "Am [Datum] haben wir Folgendes festgestellt: [Ort genau bezeichnen, also Gebäude, Geschoss, Raum oder Bauteil] – [Erscheinungsbild beschreiben, z. B. an der Innenseite der Außenwand zeigt sich unterhalb des Fensters auf etwa 80 Zentimetern Breite ein dunkler, feuchter Fleck]."
+    - "[Weiterer Mangel, falls vorhanden: Ort – Erscheinungsbild – Datum der Feststellung. Bei mehr als drei Mängeln eine nummerierte Mängelliste als Anlage beifügen und hier darauf verweisen.]"
+    - "Die Ursache der beschriebenen Erscheinungen benennen wir nicht. Wir beschreiben das Erscheinungsbild und seine Lage; die Untersuchung der Ursache liegt bei Ihnen."
+    - "Lichtbilder mit Datum und einer Maßangabe sowie [weitere Anlagen benennen] finden Sie in der Anlage."
+    - "Wir fordern Sie auf, die vorstehend beschriebenen Mängel bis zum [konkretes Kalenderdatum eintragen] vollständig zu beseitigen. Die Frist bezieht sich auf den Abschluss der Arbeiten, nicht auf deren Beginn."
+    - "Für die Ausführung stehen folgende Zeiten zur Verfügung: [Zeitraum, Wochentage, Uhrzeiten]. Bitte stimmen Sie den Termin vorher mit [Name, Telefonnummer, E-Mail] ab. Den Zugang zu [Räume, Flächen] stellen wir sicher."
+    - "Auf welche Weise Sie den Mangel beseitigen, entscheiden Sie. Das Ergebnis muss der vertraglich vereinbarten Beschaffenheit entsprechen."
+    - "Weitere Rechte behalten wir uns ausdrücklich vor. Nach Ablauf der Frist prüfen wir, welche Mängelrechte uns zustehen."
+    - "Bitte bestätigen Sie uns den Erhalt dieses Schreibens und teilen uns bis zum [Datum, deutlich vor dem Fristende] mit, wann Sie die Arbeiten ausführen."
+    - "[Absatz nur bei Gefahr für Personen oder bei drohendem Folgeschaden verwenden:] Der beschriebene Zustand kann zu weiteren Schäden führen. Wir haben [Sicherungsmaßnahme, z. B. den Bereich abgesperrt] veranlasst und bitten um Rückmeldung bis [Datum]."
+  gruss: Mit freundlichen Grüßen
+  anlagen:
+    - Lichtbilder mit Datum und Maßangabe
+    - Nummerierte Mängelliste mit Ort und Erscheinungsbild
+    - Kopie des Bauvertrags oder des Abnahmeprotokolls
+    - Gutachterliche Stellungnahme, soweit vorhanden
+
+tabelle:
+  titel: Vor dem Absenden prüfen
+  spalten: ["Nr.", Prüfpunkt, erledigt]
+  breiten: [1, 12, 2]
+  zeilen:
+    - ["1", "Das Schreiben ist an das Unternehmen gerichtet, mit dem der Vertrag besteht, nicht an Architekt, Bauleitung oder Nachunternehmer.", ""]
+    - ["2", "Bestehen mehrere Verträge, geht je Vertrag ein eigenes Schreiben hinaus.", ""]
+    - ["3", "Bei Wohnungseigentum ist geklärt, ob der Mangel am Sondereigentum oder am Gemeinschaftseigentum auftritt.", ""]
+    - ["4", "Bauvorhaben, Vertragsdatum und betroffene Leistung sind eindeutig bezeichnet.", ""]
+    - ["5", "Die Vertragsgrundlage ist angegeben: Werkvertragsrecht des Bürgerlichen Gesetzbuchs oder einbezogene VOB/B.", ""]
+    - ["6", "Im Schreiben steht, ob die Leistung schon abgenommen ist.", ""]
+    - ["7", "Jeder Mangel ist einzeln aufgeführt.", ""]
+    - ["8", "Zu jedem Mangel ist der Ort genau bezeichnet: Gebäude, Geschoss, Raum oder Bauteil.", ""]
+    - ["9", "Zu jedem Mangel ist das Erscheinungsbild beschrieben, nicht nur das Wort mangelhaft.", ""]
+    - ["10", "Eine Ursache wird nicht behauptet.", ""]
+    - ["11", "Das Datum der Feststellung ist eingetragen.", ""]
+    - ["12", "Die Lichtbilder tragen Datum, eine Maßangabe und eine erkennbare Lage im Raum.", ""]
+    - ["13", "Die Anlagen sind vollständig und im Schreiben genannt.", ""]
+    - ["14", "Die Frist nennt ein konkretes Kalenderdatum.", ""]
+    - ["15", "Die Frist gilt für den Abschluss der Arbeiten.", ""]
+    - ["16", "Die Frist ist so bemessen, dass die Arbeiten in dieser Zeit tatsächlich abgeschlossen werden können.", ""]
+    - ["17", "Der Vorbehalt weiterer Rechte steht im Schreiben.", ""]
+    - ["18", "Das Schreiben geht vor Ablauf der Verjährungsfrist hinaus.", ""]
+    - ["19", "Der Zugang ist nachweisbar, etwa durch Boten mit Empfangsbestätigung oder Einschreiben mit Rückschein.", ""]
+    - ["20", "Eine Kopie mit Absendedatum liegt in der Bauakte, und eine Wiedervorlage nach Fristablauf ist notiert.", ""]
+  leerzeilen: 2
+
+hinweise:
+  - "Platzhalter in eckigen Klammern durch eigene Angaben ersetzen. Absätze, die nicht zutreffen, ersatzlos streichen. Als Einzelperson schreiben Sie „ich“ statt „wir“."
+  - "Prüfen Sie zuerst Ihren Bauvertrag. Die VOB/B gilt nur, wenn sie vereinbart ist; sonst gilt das Werkvertragsrecht des Bürgerlichen Gesetzbuchs."
+  - "Vor der Abnahme hat das Unternehmen erkannte Mängel nach § 4 Abs. 7 VOB/B auf eigene Kosten zu ersetzen, ohne dass es dafür einer Aufforderung bedarf. Nach der Abnahme verlangt § 13 Abs. 5 Nr. 1 VOB/B ein schriftliches Verlangen vor Ablauf der Verjährungsfrist. Angezeigt und befristet wird in beiden Fällen, schon aus Beweisgründen."
+  - "Richtiger Adressat ist Ihr Vertragspartner. Ein Hinweis an Architekt oder Bauleitung ersetzt die Anzeige gegenüber dem Unternehmen nicht."
+  - "Die Ursache müssen Sie nicht benennen. Nach gefestigter Rechtsprechung genügt es, das Erscheinungsbild des Mangels mit seiner örtlichen Lage zu beschreiben. Es muss aber so konkret beschrieben sein, dass das Unternehmen sofort mit der Untersuchung beginnen kann und die Stelle nicht erst suchen muss."
+  - "Ein konkretes Kalenderdatum ist wichtiger als jede Formulierung. „Unverzüglich“ oder „umgehend“ ist keine Frist."
+  - "Für die Länge der Frist gelten keine festen Zeiträume. Maßgebend ist die Zeit, die für die Arbeiten objektiv nötig ist; dabei darf ein sofortiger Beginn und eine zügige Ausführung vorausgesetzt werden."
+  - "Eine zu kurz bemessene Frist ist nach der Fachliteratur nicht wirkungslos, sondern setzt eine angemessene Frist in Gang. Wer vor Ablauf der angemessenen Frist selbst handelt, riskiert seine Ansprüche."
+  - "Den Weg der Beseitigung wählt nach § 635 Abs. 1 BGB das Unternehmen. Bestimmte Arbeiten können Sie in der Regel nicht verlangen."
+  - "Nach fruchtlosem Ablauf der Frist kommen die in § 634 BGB genannten Rechte in Betracht, etwa die Selbstvornahme mit Aufwendungsersatz und der Kostenvorschuss nach § 637 BGB. Ob sie im Einzelfall bestehen, beurteilt ein Rechtsanwalt."
+  - "Mängelansprüche verjähren bei einem Bauwerk nach § 634a Abs. 1 Nr. 2 BGB in fünf Jahren ab der Abnahme. Ist die VOB/B vereinbart und nichts anderes abgesprochen, beträgt die Frist nach § 13 Abs. 4 Nr. 1 VOB/B vier Jahre."
+  - "Der Zugang zählt, nicht die Absendung. Ein Bote mit Empfangsbestätigung oder ein Einschreiben mit Rückschein sichert den Nachweis; eine einfache E-Mail belegt den Zugang in der Regel nicht."
+  - "Bei Wohnungseigentum ist zu trennen: Am Sondereigentum kann jeder Erwerber Mängelrechte geltend machen; am Gemeinschaftseigentum können nach der Fachliteratur Nacherfüllung oder ein Kostenvorschuss zugunsten der Gemeinschaft verlangt werden, über Minderung oder Schadensersatz entscheidet die Gemeinschaft."
+  - "Dieses Muster ist keine Rechtsberatung. Bei hohen Kosten, bei Streit über die Ursache und vor Kündigung, Rücktritt oder Klage sollte ein Rechtsanwalt das Vorgehen prüfen."
+
+quellen:
+  - "§§ 634, 634a, 635, 637 und 640 BGB, Wortlaut abgerufen am 29.09.2026"
+  - "§ 4 Abs. 7 und § 13 Abs. 4 bis 6 VOB/B, Ausgabe 2016; Wortlaut nach VOB-Gesamtausgabe 2019, S. 144 und S. 151–153"
+  - "Zanner/Glönkler: Baumangelhaftung nach Ansprüchen, 2. Aufl. 2024, S. 56 f., 63, 164–166"
+  - "Zanner: VOB/B nach Ansprüchen, 7. Aufl. 2021, S. 205 f."
+  - "Heiermann u. a.: VOB/B-Musterbriefe für Auftraggeber, 9. Aufl. 2021, S. 83 f., 201 f."
+  - "Würfele/Bielefeld/Gralla: Bauobjektüberwachung, 3. Aufl. 2017, S. 16"
+  - "Rode/Weller: AVA-Handbuch, 11. Aufl. 2025, S. 130, 169"
+  - "Wirth/Pfisterer/Schellenberg: Privates Baurecht praxisnah, 3. Aufl. 2021, S. 90"
