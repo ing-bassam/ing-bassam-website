@@ -12,8 +12,11 @@ name: Urteil verständlich
 #
 # Ablauf:
 #   1. tools/urteile_finden.py stellt eine vorsortierte Kandidatenliste
-#      zusammen – Berlin und Brandenburg zuerst, danach der Bund, jeweils die
-#      jüngsten Entscheidungen zuerst. Schon besprochene Aktenzeichen fallen raus.
+#      zusammen – Berlin und Brandenburg zuerst, danach der Bund. Vorgabe sind
+#      Grundsatzentscheidungen, die 1 bis 15 Jahre zurückliegen: gestreut über
+#      alle Jahrgänge, die gewichtigsten zuerst (Leitsatz des Gerichts, Rang des
+#      Gerichts). Bei „höchstens 1 Jahr“ stehen die jüngsten zuerst.
+#      Schon besprochene Aktenzeichen fallen raus.
 #   2. Der Agent prüft die Kandidaten am Volltext, wählt eine aus und schreibt
 #      den Entwurf nach entwuerfe/. Er baut die HTML-Seite und öffnet einen
 #      Pull Request.
@@ -50,16 +53,16 @@ on:
           - "3"
           - "4"
           - "5"
-      monate:
-        description: "Wie weit zurück gesucht wird (Monate)"
+      alter:
+        description: "Wie alt dürfen die Urteile sein? Ab 1 Jahr sucht der Agent Grundsatzentscheidungen (mit Leitsatz) aus allen Jahrgängen und prüft, ob sie heute noch gelten."
         required: false
-        default: "18"
+        default: "1 bis 15 Jahre"
         type: choice
         options:
-          - "6"
-          - "12"
-          - "18"
-          - "36"
+          - "1 bis 15 Jahre"
+          - "1 bis 10 Jahre"
+          - "1 bis 5 Jahre"
+          - "höchstens 1 Jahr (neueste zuerst)"
       quelle:
         description: "Welche Datenbanken abgefragt werden"
         required: false
@@ -77,7 +80,7 @@ on:
         required: false
         default: ""
       streitwert:
-        description: "Nur Urteile mit hohem Streitwert (laut Urteil; ohne Angabe im Urteil entfällt es). Hohe Streitwerte sind seltener – am besten mit 36 Monaten kombinieren."
+        description: "Nur Urteile mit hohem Streitwert (laut Urteil; ohne Angabe im Urteil entfällt es). Hohe Streitwerte sind seltener."
         required: false
         default: "egal"
         type: choice
@@ -89,7 +92,7 @@ on:
           - "ab 500.000 €"
           - "ab 1 Mio. €"
 
-run-name: "Urteil verständlich · ${{ inputs.runden || '1' }} Runde(n) · Streitwert ${{ inputs.streitwert || 'egal' }}"
+run-name: "Urteil verständlich · ${{ inputs.runden || '1' }} Runde(n) · ${{ inputs.alter || '1 bis 15 Jahre' }} · Streitwert ${{ inputs.streitwert || 'egal' }}"
 
 concurrency:
   # Urteilsbesprechung und Urteil verständlich teilen sich diese Warteschlange:
@@ -231,7 +234,7 @@ jobs:
         id: kandidaten
         env:
           # Eingaben nie direkt in die Shell schreiben, sondern über die Umgebung.
-          MONATE: ${{ inputs.monate }}
+          ALTER: ${{ inputs.alter }}
           QUELLE: ${{ inputs.quelle }}
           STREITWERT: ${{ inputs.streitwert }}
           # Zum Abgleich mit Entwürfen in offenen Pull Requests (keine Doppelbesprechung).
@@ -257,9 +260,14 @@ jobs:
             *)                          NUR=() ;;
           esac
 
-          MON="${MONATE:-18}"
-          case "$MON" in
-            ''|*[!0-9]*) MON=18 ;;
+          # Alter der Entscheidungen. Vorgabe sind Grundsatzentscheidungen, die 1 bis
+          # 15 Jahre zurückliegen; die Suche ordnet sie nach Gewicht (Leitsatz, Gericht)
+          # statt nach Datum. „höchstens 1 Jahr“ liefert wie früher die jüngsten zuerst.
+          case "${ALTER:-1 bis 15 Jahre}" in
+            "1 bis 10 Jahre")     ZEIT=(--alter-von 1 --alter-bis 10); ZEIT_TEXT="1 bis 10 Jahre alt ist" ;;
+            "1 bis 5 Jahre")      ZEIT=(--alter-von 1 --alter-bis 5);  ZEIT_TEXT="1 bis 5 Jahre alt ist" ;;
+            "höchstens 1 Jahr"*)  ZEIT=(--monate 12);                  ZEIT_TEXT="höchstens 1 Jahr alt ist" ;;
+            *)                    ZEIT=(--alter-von 1 --alter-bis 15); ZEIT_TEXT="1 bis 15 Jahre alt ist" ;;
           esac
 
           # Streitwertgrenze: Die Suche liest den Streitwert aus dem Volltext und
@@ -280,7 +288,7 @@ jobs:
 
           python tools/urteile_finden.py \
             --ziel "$LISTE" \
-            --monate "$MON" \
+            "${ZEIT[@]}" \
             --max 12 \
             --pause 1.0 \
             "${NUR[@]}" "${SW_ARG[@]}" | tee "$ARBEIT/suche.log"
@@ -288,7 +296,7 @@ jobs:
           if grep -q "## Keine Kandidaten" "$LISTE"; then
             SW_TEXT=""; SW_HINWEIS=""
             if [ "$SW" -gt 0 ]; then SW_TEXT=" mit Streitwert ${STREITWERT}"; SW_HINWEIS=" oder niedrigeren Streitwert"; fi
-            echo "::warning title=Urteil verständlich::Im Zeitraum der letzten ${MON} Monate wurde keine noch nicht besprochene Entscheidung${SW_TEXT} gefunden. Größeren Zeitraum wählen${SW_HINWEIS}."
+            echo "::warning title=Urteil verständlich::Es wurde keine noch nicht besprochene Entscheidung${SW_TEXT} gefunden, die ${ZEIT_TEXT}. Anderen Zeitraum wählen${SW_HINWEIS}."
             echo "gefunden=false" >> "$GITHUB_OUTPUT"
           else
             echo "gefunden=true" >> "$GITHUB_OUTPUT"

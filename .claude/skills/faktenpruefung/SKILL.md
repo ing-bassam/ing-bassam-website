@@ -28,6 +28,8 @@ Auch eine **allgemeine Regel, die die Entscheidung verallgemeinert,** ist eine A
 
 **Nicht** prüfst du Sätze, die weder das Gericht nennen noch mit ihm verknüpft sind noch die Entscheidung verallgemeinern: Normerläuterungen, Bautechnik, eigene Folgerungen des Verfassers. Die prüft nach dir die Schlussprüfung gegen die Quellen.
 
+Dazu gehören auch Sätze **zum Stand heute** in Besprechungen älterer Entscheidungen: was eine Vorschrift heute regelt oder was ein Gericht später entschieden hat. Sie tragen eine eigene Fußnote und können nicht im Volltext stehen; du streichst sie nicht. Schreibt ein solcher Satz aber der **besprochenen** Entscheidung etwas zu („der Senat hat damit die bis heute geltende Linie begründet“), prüfst du ihn wie jede andere Aussage über sie.
+
 ## Ablauf
 
 1. **Überblick und Verfahrensweg.** Lies den Entwurf vollständig. Lies im Volltext Kopf, Leitsätze, Orientierungssätze und Tenor (die ersten rund 40 Zeilen) sowie die letzten Randnummern (Kosten, Vollstreckbarkeit, Revision). Bestimme den Verfahrensweg: Hat das Gericht in erster Instanz entschieden, über eine Berufung oder über eine Revision? Gibt es eine Vorinstanz, und was hat sie entschieden?
