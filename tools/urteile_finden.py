@@ -35,7 +35,20 @@ Quellen – ausschließlich amtlich:
                 liefert Treffer nach Datum absteigend sowie den Volltext.
                 Damit ist auch das Kammergericht Berlin erfasst.
 
-Aufruf:  python tools/urteile_finden.py --ziel <datei> [--monate 18] [--max 12] [--streitwert-ab 100000]
+Zeitraum – zwei Arten zu suchen:
+
+  Grundsatzentscheidungen (Vorgabe): Entscheidungen, die 1 bis 15 Jahre
+  zurückliegen (--alter-von, --alter-bis). Die Portale werden nach Relevanz
+  statt nach Datum abgefragt, die Treffer über alle Jahrgänge gestreut und
+  nach Gewicht geordnet: Leitsatz des Gerichts, Rang des Gerichts, Urteil
+  statt Beschluss. Das Alter allein macht eine Entscheidung nicht wichtig –
+  der Leitsatz ist das Zeichen, dass das Gericht ihr selbst Bedeutung über
+  den Einzelfall hinaus beimisst.
+
+  Neueste zuerst (--monate N): die letzten N Monate, nach Datum geordnet.
+
+Aufruf:  python tools/urteile_finden.py --ziel <datei> [--alter-von 1] [--alter-bis 15]
+                                        [--monate 12] [--max 12] [--streitwert-ab 100000]
 """
 
 from __future__ import annotations
@@ -46,6 +59,7 @@ import http.cookiejar
 import io
 import json
 import os
+import random
 import re
 import shutil
 import subprocess
@@ -58,6 +72,7 @@ import urllib.request
 import zipfile
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from typing import NamedTuple
 
 WURZEL = Path(__file__).resolve().parent.parent
 ENTWUERFE = WURZEL / "entwuerfe"
@@ -142,6 +157,92 @@ THEMENFELD = [
     "Behinderung", "Bauzeit", "Mangel", "Abnahme", "Werklohn", "Aufmaß",
     "Kalkulation", "Baugrund", "Planungsfehler", "Sachverständige",
 ]
+
+
+class Zeitraum(NamedTuple):
+    von: date            # älteste berücksichtigte Entscheidung
+    bis: date            # jüngste berücksichtigte Entscheidung
+    grundlegend: bool    # True: ältere Entscheidungen, geordnet nach Gewicht statt nach Datum
+
+    def enthaelt(self, iso: str) -> bool:
+        return self.von.isoformat() <= iso <= self.bis.isoformat()
+
+    @property
+    def text(self) -> str:
+        return f"{datum_deutsch(self.von.isoformat())} bis {datum_deutsch(self.bis.isoformat())}"
+
+
+# Brandenburg liefert je Abfrage nur die jüngsten rund 20 Treffer. Über einen
+# Zeitraum von vielen Jahren käme so immer nur dessen jüngstes Ende zum Vorschein.
+# Deshalb fragt jede Abfrage einen zufälligen Abschnitt dieser Länge ab.
+BB_ABSCHNITT_TAGE = 3 * 365
+
+# Überschrift „Leitsatz“ in einer eigenen Zeile vor Tenor und Gründen. Bei juris
+# heißt der Satz der Dokumentationsstelle „Orientierungssatz“ – der zählt nicht.
+LEITSATZ_ZEILE = re.compile(
+    r"(?m)^[ \t\xa0]*(?:Amtliche[rn]? )?Leits(?:atz|ätze)[ \t\xa0]*:?[ \t\xa0]*\r?$")
+
+
+def hat_leitsatz(text: str) -> bool:
+    return bool(LEITSATZ_ZEILE.search(text[:8000]))
+
+
+def gewichten(fund: "Fund") -> None:
+    """Grober Hinweis, wie grundlegend eine Entscheidung ist – keine fachliche Wertung.
+
+    Den Ausschlag gibt der Leitsatz: Ihn formuliert das Gericht selbst, wenn es
+    seiner Entscheidung Bedeutung über den Einzelfall hinaus beimisst.
+    """
+    punkte, gruende = 0, []
+    if fund.leitsatz:
+        punkte += 3
+        gruende.append("Leitsatz des Gerichts")
+    if re.search(r"\b(BGH|Bundesgerichtshof)\b", fund.gericht):
+        punkte += 2
+        gruende.append("Bundesgerichtshof")
+    elif re.search(r"\b(OLG|KG|OVG|Oberlandesgericht|Kammergericht|Oberverwaltungsgericht)\b",
+                   fund.gericht):
+        punkte += 1
+        gruende.append("Obergericht")
+    if "urteil" in fund.art.lower():
+        punkte += 1
+        gruende.append(fund.art)
+    # Der VII. Zivilsenat des BGH hat zeitweise auch Diesel-Verfahren und
+    # Zwangsvollstreckungssachen entschieden: Leitsatz allein genügt deshalb nicht.
+    if fund.treffer >= 8:
+        punkte += 2
+        gruende.append("enger Bezug zum Themenfeld")
+    elif fund.treffer >= 5:
+        punkte += 1
+        gruende.append("Bezug zum Themenfeld")
+    elif fund.treffer <= 2:
+        punkte -= 3
+        gruende.append("kaum Bezug zum Themenfeld")
+    fund.gewicht, fund.gewicht_gruende = punkte, gruende
+
+
+def streuen(funde: list["Fund"], zufall: random.Random) -> list["Fund"]:
+    """Ordnet so, dass alle Jahrgänge reihum drankommen. Innerhalb eines Jahrgangs
+    steht vorn, was unter den meisten Suchbegriffen gefunden wurde; bei Gleichstand
+    entscheidet der Zufall, damit nicht jeder Lauf dieselben Entscheidungen prüft.
+
+    Ohne das stünden bei „jüngste zuerst“ nur die Entscheidungen vom jungen
+    Ende des Zeitraums vorn, und die älteren kämen nie in die Liste.
+    """
+    je_jahr: dict[str, list[Fund]] = {}
+    for fund in sorted(funde, key=lambda f: (f.datum, f.schluessel)):
+        je_jahr.setdefault(fund.datum[:4], []).append(fund)
+    for gruppe in je_jahr.values():
+        zufall.shuffle(gruppe)
+        gruppe.sort(key=lambda f: f.naehe)    # stabil; entnommen wird vom Ende
+    jahre = sorted(je_jahr)
+    zufall.shuffle(jahre)
+    ergebnis: list[Fund] = []
+    while any(je_jahr.values()):
+        for jahr in jahre:
+            if je_jahr[jahr]:
+                ergebnis.append(je_jahr[jahr].pop())
+    return ergebnis
 
 
 def rohabruf(url: str, versuche: int = 3, frist: int = 60) -> bytes:
@@ -236,7 +337,8 @@ def volltext_holen(fund: "Fund") -> tuple[str, str]:
     if fund.juris:
         sitzung = juris_sitzung(fund.juris["basis"], fund.juris["portal"])
         text = sitzung.volltext(fund.juris["docId"], fund.juris.get("docPart", "L"))
-        treffer = re.search(r"ECLI:[A-Z0-9.:]+", text)
+        fund.leitsatz = hat_leitsatz(text)
+        treffer = re.search(r"\bECLI:[A-Z0-9.:]+", text)
         return text, treffer.group(0) if treffer else ""
 
     if fund.link.endswith(".zip"):
@@ -250,10 +352,17 @@ def volltext_holen(fund: "Fund") -> tuple[str, str]:
         treffer = re.search(r"\bECLI:[A-Z0-9.:]+", xml)
         if treffer:
             ecli = treffer.group(0)
+        # Beim Bund sind Leitsatz und Entscheidungsart eigene Felder der XML-Datei.
+        leitsatz = re.search(r"<leitsatz>(.*?)</leitsatz>", xml, re.S)
+        fund.leitsatz = bool(leitsatz and len(nur_text(leitsatz.group(1)).split()) > 5)
+        art = re.search(r"<doktyp>(.*?)</doktyp>", xml, re.S)
+        if art and not fund.art:
+            fund.art = nur_text(art.group(1))
         return nur_text(xml), ecli
 
     seite = abrufen(fund.link)
     text = nur_text(seite)
+    fund.leitsatz = hat_leitsatz(text)
     treffer = re.search(r"\bECLI:[A-Z0-9.:]+", text)
     return text, treffer.group(0) if treffer else ""
 
@@ -396,6 +505,12 @@ class Fund:
         self.juris: dict | None = None
         self.art = ""            # Urteil, Beschluss, …
         self.streitwert: int | None = None   # aus dem Volltext, in Euro
+        self.leitsatz = False    # Leitsatz des Gerichts im Volltext
+        # Nähe zum Themenfeld, bevor der Volltext vorliegt: unter wie vielen
+        # Suchbegriffen die Entscheidung gefunden wurde (Bund: Hauptsache vor Nebenverfahren).
+        self.naehe = 1
+        self.gewicht = 0         # siehe gewichten()
+        self.gewicht_gruende: list[str] = []
 
     @property
     def schluessel(self) -> str:
@@ -414,7 +529,7 @@ class Fund:
 # Bund
 # --------------------------------------------------------------------------
 
-def bund_suchen(stichtag: date, bekannt: set[str]) -> list[Fund]:
+def bund_suchen(zeitraum: Zeitraum, bekannt: set[str]) -> list[Fund]:
     print(f"Bund: Verzeichnis wird geladen ({BUND_INDEX}) …")
     # Das Verzeichnis ist rund 23 MB groß. Auf dem Runner reichen 60 Sekunden
     # nicht; im ersten echten Lauf lief genau das in eine Zeitüberschreitung.
@@ -436,7 +551,7 @@ def bund_suchen(stichtag: date, bekannt: set[str]) -> list[Fund]:
         if not re.fullmatch(r"\d{8}", roh_datum):
             continue
         datum = f"{roh_datum[:4]}-{roh_datum[4:6]}-{roh_datum[6:]}"
-        if datum < stichtag.isoformat():
+        if not zeitraum.enthaelt(datum):
             continue
         if normal_az(az) in bekannt:
             continue
@@ -449,7 +564,9 @@ def bund_suchen(stichtag: date, bekannt: set[str]) -> list[Fund]:
             grund=grund,
             region="Bund",
         ))
-    print(f"Bund: {len(funde)} Entscheidungen der Bausenate seit {stichtag.isoformat()}")
+        # „VII ZR“ ist die Hauptsache, „VII ZB“ ein Nebenverfahren (Rechtsbeschwerde).
+        funde[-1].naehe = 2 if "VII ZR" in az else 1
+    print(f"Bund: {len(funde)} Entscheidungen der Bausenate, {zeitraum.text}")
     return funde
 
 
@@ -457,15 +574,22 @@ def bund_suchen(stichtag: date, bekannt: set[str]) -> list[Fund]:
 # Brandenburg
 # --------------------------------------------------------------------------
 
-def bb_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
+def bb_suchen(zeitraum: Zeitraum, bekannt: set[str], pause: float,
+              zufall: random.Random) -> list[Fund]:
     gefunden: dict[str, Fund] = {}
     versuche = fehlschlaege = 0
     for gericht in BB_GERICHTE:
         for begriff in BB_BEGRIFFE:
+            von, bis = zeitraum.von, zeitraum.bis
+            spanne = (bis - von).days
+            if zeitraum.grundlegend and spanne > BB_ABSCHNITT_TAGE:
+                von += timedelta(days=zufall.randrange(spanne - BB_ABSCHNITT_TAGE + 1))
+                bis = von + timedelta(days=BB_ABSCHNITT_TAGE)
             adresse = BB_SUCHE + "?" + urllib.parse.urlencode({
                 "input_fulltext": begriff,
                 "select_source": gericht,
-                "input_date_promulgation_from": stichtag.strftime("%Y-%m-%d"),
+                "input_date_promulgation_from": von.strftime("%Y-%m-%d"),
+                "input_date_promulgation_to": bis.strftime("%Y-%m-%d"),
             })
             versuche += 1
             try:
@@ -476,9 +600,12 @@ def bb_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
                 continue
             neu = 0
             for fund in bb_treffer_lesen(seite, gericht, begriff):
-                if fund.datum < stichtag.isoformat():
+                if not zeitraum.enthaelt(fund.datum):
                     continue
-                if fund.schluessel in bekannt or fund.schluessel in gefunden:
+                if fund.schluessel in bekannt:
+                    continue
+                if fund.schluessel in gefunden:
+                    gefunden[fund.schluessel].naehe += 1
                     continue
                 gefunden[fund.schluessel] = fund
                 neu += 1
@@ -491,7 +618,7 @@ def bb_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
     if versuche and fehlschlaege == versuche:
         raise RuntimeError(
             f"Brandenburg nicht erreichbar: alle {versuche} Abfragen fehlgeschlagen")
-    print(f"Brandenburg: {len(gefunden)} Entscheidungen seit {stichtag.isoformat()}")
+    print(f"Brandenburg: {len(gefunden)} Entscheidungen, {zeitraum.text}")
     return list(gefunden.values())
 
 
@@ -591,11 +718,12 @@ class JurisSitzung:
             self.anmelden()
             return self.aufrufen(pfad, nutzlast_bauer())
 
-    def suchen(self, wort: str, anzahl: int = 25) -> list[dict]:
+    def suchen(self, wort: str, anzahl: int = 25, sortierung: str = "date") -> list[dict]:
+        """sortierung: „date“ (jüngste zuerst) oder „score“ (Relevanz, alle Jahrgänge gemischt)."""
         def nutzlast() -> dict:
             return {
                 "searchTasks": {"RESULT_LIST": {
-                    "start": 1, "size": anzahl, "sort": "date",
+                    "start": 1, "size": anzahl, "sort": sortierung,
                     "addToHistory": True, "addCategory": True}},
                 "filters": {"CATEGORY": ["Rechtsprechung"]},
                 "searches": [{"id": "FastSearch", "value": wort}],
@@ -627,7 +755,7 @@ def juris_sitzung(basis: str, portal: str) -> JurisSitzung:
     return _JURIS_SITZUNGEN[portal]
 
 
-def juris_suchen(stichtag: date, bekannt: set[str], pause: float,
+def juris_suchen(zeitraum: Zeitraum, bekannt: set[str], pause: float,
                  nur_berlin: bool = False) -> list[Fund]:
     """Durchsucht die juris-Landesportale, Berlin zuerst."""
     gefunden: dict[str, Fund] = {}
@@ -645,7 +773,8 @@ def juris_suchen(stichtag: date, bekannt: set[str], pause: float,
 
         for begriff in BB_BEGRIFFE:
             try:
-                treffer = sitzung.suchen(begriff)
+                treffer = sitzung.suchen(
+                    begriff, sortierung="score" if zeitraum.grundlegend else "date")
             except Exception as fehler:
                 print(f"  {land}: „{begriff}\" übersprungen – {fehler}")
                 time.sleep(pause)
@@ -654,9 +783,12 @@ def juris_suchen(stichtag: date, bekannt: set[str], pause: float,
             neu = 0
             for eintrag in treffer:
                 fund = juris_eintrag_lesen(eintrag, basis, portal, land, region, begriff)
-                if fund is None or fund.datum < stichtag.isoformat():
+                if fund is None or not zeitraum.enthaelt(fund.datum):
                     continue
-                if fund.schluessel in bekannt or fund.schluessel in gefunden:
+                if fund.schluessel in bekannt:
+                    continue
+                if fund.schluessel in gefunden:
+                    gefunden[fund.schluessel].naehe += 1
                     continue
                 gefunden[fund.schluessel] = fund
                 neu += 1
@@ -671,7 +803,7 @@ def juris_suchen(stichtag: date, bekannt: set[str], pause: float,
     if erreichte < len(portale):
         print(f"  Hinweis: {len(portale) - erreichte} von {len(portale)} Portalen "
               f"waren nicht erreichbar.")
-    print(f"juris-Landesportale: {len(gefunden)} Entscheidungen seit {stichtag.isoformat()}")
+    print(f"juris-Landesportale: {len(gefunden)} Entscheidungen, {zeitraum.text}")
     return list(gefunden.values())
 
 
@@ -711,12 +843,14 @@ def juris_eintrag_lesen(eintrag: dict, basis: str, portal: str, land: str,
 # Nordrhein-Westfalen
 # --------------------------------------------------------------------------
 
-def nrw_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
+def nrw_suchen(zeitraum: Zeitraum, bekannt: set[str], pause: float) -> list[Fund]:
     """Durchsucht die NRW-Entscheidungsdatenbank.
 
     Anders als Brandenburg nimmt NRW die Suche nur per POST entgegen; eine
     Adresse allein genügt nicht. Die Trefferliste kommt serverseitig gerendert
-    zurück und nennt je Treffer Gericht, Aktenzeichen, ECLI und Datum.
+    zurück und nennt je Treffer Gericht, Aktenzeichen, ECLI und Datum. Geordnet
+    ist sie nach Relevanz, nicht nach Datum; ohne die Felder „von“ und „bis“
+    (TT.MM.JJJJ) reichen die Treffer bis in die 1980er Jahre zurück.
     """
     gefunden: dict[str, Fund] = {}
     versuche = fehlschlaege = 0
@@ -728,6 +862,8 @@ def nrw_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
                 "absenden": "Suchen",
                 "qSize": "20",
                 "gerichtstyp": gericht,
+                "von": zeitraum.von.strftime("%d.%m.%Y"),
+                "bis": zeitraum.bis.strftime("%d.%m.%Y"),
             }).encode()
             versuche += 1
             try:
@@ -745,9 +881,12 @@ def nrw_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
 
             neu = 0
             for fund in nrw_treffer_lesen(seite, begriff):
-                if fund.datum < stichtag.isoformat():
+                if not zeitraum.enthaelt(fund.datum):
                     continue
-                if fund.schluessel in bekannt or fund.schluessel in gefunden:
+                if fund.schluessel in bekannt:
+                    continue
+                if fund.schluessel in gefunden:
+                    gefunden[fund.schluessel].naehe += 1
                     continue
                 gefunden[fund.schluessel] = fund
                 neu += 1
@@ -757,7 +896,7 @@ def nrw_suchen(stichtag: date, bekannt: set[str], pause: float) -> list[Fund]:
     if versuche and fehlschlaege == versuche:
         raise RuntimeError(
             f"Nordrhein-Westfalen nicht erreichbar: alle {versuche} Abfragen fehlgeschlagen")
-    print(f"Nordrhein-Westfalen: {len(gefunden)} Entscheidungen seit {stichtag.isoformat()}")
+    print(f"Nordrhein-Westfalen: {len(gefunden)} Entscheidungen, {zeitraum.text}")
     return list(gefunden.values())
 
 
@@ -817,14 +956,15 @@ def volltexte_ablegen(auswahl: list["Fund"], ordner: Path, pause: float) -> None
         fund.treffer, begriffe = themenbezug(text)
         fund.begriffe = begriffe
         fund.streitwert = streitwert_lesen(text)
+        gewichten(fund)
         kopf = volltext_kopf(fund.gericht, fund.datum, fund.aktenzeichen, ecli,
                              fund.link, fund.quelle, bool(fund.juris),
                              date.today().isoformat())
         ziel.write_text(kopf + umbrechen(text), encoding="utf-8", newline="\n")
         fund.volltext = ziel
-        print(f"  Volltext: {fund.aktenzeichen} – {fund.woerter} Wörter, "
-              f"{fund.treffer} Themenbegriffe, Streitwert "
-              f"{euro(fund.streitwert) if fund.streitwert else 'nicht genannt'}")
+        print(f"  Volltext: {fund.aktenzeichen} ({fund.datum[:4]}) – {fund.woerter} Wörter, "
+              f"{fund.treffer} Themenbegriffe, Leitsatz {'ja' if fund.leitsatz else 'nein'}, "
+              f"Streitwert {euro(fund.streitwert) if fund.streitwert else 'nicht genannt'}")
         time.sleep(pause)
 
 
@@ -833,7 +973,7 @@ REGIONEN = ("Berlin/Brandenburg", "Bund", "Weitere Länder")
 
 def nach_streitwert_auswaehlen(funde: list["Fund"], grenze: int, mindestens: int,
                                ordner: Path, pause: float, pruefen_hoechstens: int) -> list["Fund"]:
-    """Lädt die Volltexte der jüngsten Treffer und behält nur Entscheidungen,
+    """Lädt die Volltexte in der übergebenen Reihenfolge und behält nur Entscheidungen,
     deren Streitwert laut Volltext mindestens die Grenze erreicht.
 
     Der Streitwert steht nur im Volltext, nicht in den Trefferlisten der
@@ -845,7 +985,7 @@ def nach_streitwert_auswaehlen(funde: list["Fund"], grenze: int, mindestens: int
     geprueft = 0
     ohne_angabe = 0
     treffer: list[Fund] = []
-    for fund in sorted(funde, key=lambda f: f.datum, reverse=True):
+    for fund in funde:
         if geprueft >= pruefen_hoechstens or len(treffer) >= grenze * 2:
             break
         volltexte_ablegen([fund], ordner, pause)
@@ -864,15 +1004,31 @@ def nach_streitwert_auswaehlen(funde: list["Fund"], grenze: int, mindestens: int
     return treffer
 
 
-def auswaehlen(funde: list[Fund], grenze: int) -> dict[str, list[Fund]]:
-    """Verteilt die Plätze auf die Regionen, je das Jüngste zuerst.
+def vorauswahl(funde: list[Fund], grenze: int, zufall: random.Random) -> list[Fund]:
+    """Je Region bis zu `grenze` Entscheidungen, über alle Jahrgänge gestreut.
+
+    Ihr Volltext wird geladen; erst daran zeigt sich, ob ein Leitsatz vorliegt.
+    Beim Bund sind es doppelt so viele: Das Verzeichnis nennt nur Aktenzeichen
+    und Datum, nicht das Thema – dort ist der Ausschuss am größten.
+    """
+    gewaehlt: list[Fund] = []
+    for region in REGIONEN:
+        anzahl = grenze * 2 if region == "Bund" else grenze
+        gewaehlt += streuen([f for f in funde if f.region == region], zufall)[:anzahl]
+    return gewaehlt
+
+
+def auswaehlen(funde: list[Fund], grenze: int, nach_gewicht: bool = False) -> dict[str, list[Fund]]:
+    """Verteilt die Plätze auf die Regionen, je das Jüngste zuerst –
+    bei `nach_gewicht` das Gewichtigste zuerst, bei gleichem Gewicht das Jüngere.
 
     Berlin und Brandenburg bekommen die Hälfte, weil das Büro dort arbeitet.
     Der Bund folgt, weil der BGH bundesweit die Linie vorgibt. Die übrigen
     Länder füllen auf, was übrig bleibt.
     """
     nach_region = {
-        r: sorted([f for f in funde if f.region == r], key=lambda f: f.datum, reverse=True)
+        r: sorted([f for f in funde if f.region == r],
+                  key=lambda f: (f.gewicht if nach_gewicht else 0, f.datum), reverse=True)
         for r in REGIONEN
     }
     anteile = {
@@ -896,20 +1052,34 @@ def auswaehlen(funde: list[Fund], grenze: int) -> dict[str, list[Fund]]:
     return ausgewaehlt
 
 
-def bericht(gruppen: dict[str, list[Fund]], stichtag: date, streitwert_ab: int = 0) -> str:
+def bericht(gruppen: dict[str, list[Fund]], zeitraum: Zeitraum, streitwert_ab: int = 0) -> str:
     auswahl = [f for r in REGIONEN for f in gruppen.get(r, [])]
 
     zeilen = [
         "# Kandidaten für eine Urteilsbesprechung",
         "",
         f"Stand der Recherche: {date.today().isoformat()}",
-        f"Berücksichtigt werden Entscheidungen ab {stichtag.isoformat()}.",
+        f"Berücksichtigt werden Entscheidungen vom {zeitraum.text}.",
         "",
         "Die Liste ist vorsortiert, nicht geprüft. Ob eine Entscheidung das",
         "Bauwesen betrifft und einen Beitrag trägt, entscheidest du am Volltext.",
         "Berlin und Brandenburg stehen zuerst, danach der Bund; innerhalb der",
-        "Gruppen die jüngste Entscheidung zuerst.",
+        "Gruppen " + ("die gewichtigste Entscheidung zuerst." if zeitraum.grundlegend
+                     else "die jüngste Entscheidung zuerst."),
         "",
+        *(["## Grundsatzentscheidungen aus mehreren Jahren",
+           "",
+           "Gesucht sind Entscheidungen, auf denen die spätere Rechtsprechung aufbaut.",
+           "Die Liste ist über die Jahrgänge gestreut. Das **Gewicht** ist ein grober",
+           "Hinweis: Den Ausschlag gibt der Leitsatz, weil das Gericht ihn selbst",
+           "formuliert, wenn es der Entscheidung Bedeutung über den Einzelfall hinaus",
+           "beimisst. Bevorzuge Entscheidungen mit Leitsatz.",
+           "",
+           "**Pflicht bei jeder Entscheidung dieser Liste:** Prüfe vor der Auswahl, ob sie",
+           "heute noch gilt (Urteilsbesprechungs-Skill, Schritt 3, Frage „Gilt sie heute",
+           "noch?“). Eine ältere Entscheidung kann durch eine Gesetzesänderung oder durch",
+           "eine spätere Entscheidung überholt sein.",
+           ""] if zeitraum.grundlegend else []),
         "Die Volltexte liegen bereits als Textdatei neben dieser Liste – öffne sie",
         "mit Read, nicht mit WebFetch. Sie stammen unverändert aus der amtlichen",
         "Quelle; der Kopf jeder Datei nennt Gericht, Datum, Aktenzeichen, ECLI und",
@@ -976,6 +1146,10 @@ def bericht(gruppen: dict[str, list[Fund]], stichtag: date, streitwert_ab: int =
                 zeilen.append(f"- Volltext: {f.link}")
             if f.art:
                 zeilen.append(f"- Entscheidungsart: {f.art}")
+            if zeitraum.grundlegend and f.volltext:
+                zeilen.append(f"- Leitsatz des Gerichts: {'ja' if f.leitsatz else 'nein'}")
+                zeilen.append(f"- Gewicht: {f.gewicht}"
+                              + (f" ({', '.join(f.gewicht_gruende)})" if f.gewicht_gruende else ""))
             if f.ecli:
                 zeilen.append(f"- ECLI: {f.ecli}")
             zeilen.append(f"- Amtliche Fundstelle: {f.link}")
@@ -995,8 +1169,14 @@ def datum_deutsch(iso: str) -> str:
 def main() -> int:
     zerleger = argparse.ArgumentParser(description="Sucht Bau-Entscheidungen.")
     zerleger.add_argument("--ziel", required=True, help="Datei für die Kandidatenliste")
-    zerleger.add_argument("--monate", type=int, default=18,
-                          help="Wie weit zurück gesucht wird (Vorgabe: 18)")
+    zerleger.add_argument("--alter-von", type=int, default=1,
+                          help="Mindestalter der Entscheidungen in Jahren (Vorgabe: 1)")
+    zerleger.add_argument("--alter-bis", type=int, default=15,
+                          help="Höchstalter der Entscheidungen in Jahren (Vorgabe: 15)")
+    zerleger.add_argument("--monate", type=int, default=0,
+                          help="stattdessen die letzten N Monate, jüngste zuerst")
+    zerleger.add_argument("--saat",
+                          help="Startwert für die Streuung über die Jahrgänge (für Tests)")
     zerleger.add_argument("--max", type=int, default=12,
                           help="Höchstzahl der Kandidaten in der Liste")
     zerleger.add_argument("--pause", type=float, default=1.0,
@@ -1010,7 +1190,17 @@ def main() -> int:
                           help="nur eine Quelle abfragen (für Tests)")
     argumente = zerleger.parse_args()
 
-    stichtag = date.today() - timedelta(days=int(argumente.monate * 30.4))
+    heute = date.today()
+    if argumente.monate > 0:
+        zeitraum = Zeitraum(heute - timedelta(days=int(argumente.monate * 30.4)), heute, False)
+    else:
+        if not 0 <= argumente.alter_von < argumente.alter_bis:
+            zerleger.error("--alter-von muss kleiner sein als --alter-bis")
+        zeitraum = Zeitraum(heute - timedelta(days=int(argumente.alter_bis * 365.25)),
+                            heute - timedelta(days=int(argumente.alter_von * 365.25)), True)
+    zufall = random.Random(argumente.saat)
+    print(f"Zeitraum: {zeitraum.text} – "
+          + ("Grundsatzentscheidungen, nach Gewicht" if zeitraum.grundlegend else "jüngste zuerst"))
     bekannt = bekannte_aktenzeichen()
     if bekannt:
         print(f"Bereits besprochen: {len(bekannt)} Aktenzeichen")
@@ -1020,14 +1210,14 @@ def main() -> int:
 
     if argumente.nur in (None, "brandenburg"):
         try:
-            funde += bb_suchen(stichtag, bekannt, argumente.pause)
+            funde += bb_suchen(zeitraum, bekannt, argumente.pause, zufall)
         except Exception as ausnahme:
             fehler = True
             print(f"FEHLER Brandenburg: {ausnahme}", file=sys.stderr)
 
     if argumente.nur in (None, "laender", "berlin"):
         try:
-            funde += juris_suchen(stichtag, bekannt, argumente.pause,
+            funde += juris_suchen(zeitraum, bekannt, argumente.pause,
                                   nur_berlin=(argumente.nur == "berlin"))
         except Exception as ausnahme:
             fehler = True
@@ -1035,14 +1225,14 @@ def main() -> int:
 
     if argumente.nur in (None, "nrw"):
         try:
-            funde += nrw_suchen(stichtag, bekannt, argumente.pause)
+            funde += nrw_suchen(zeitraum, bekannt, argumente.pause)
         except Exception as ausnahme:
             fehler = True
             print(f"FEHLER Nordrhein-Westfalen: {ausnahme}", file=sys.stderr)
 
     if argumente.nur not in ("brandenburg", "nrw"):
         try:
-            funde += bund_suchen(stichtag, bekannt)
+            funde += bund_suchen(zeitraum, bekannt)
         except Exception as ausnahme:
             fehler = True
             print(f"FEHLER Bund: {ausnahme}", file=sys.stderr)
@@ -1051,29 +1241,54 @@ def main() -> int:
         print("FEHLER: Keine Quelle erreichbar.", file=sys.stderr)
         return 2
 
+    # Dasselbe Aktenzeichen aus zwei Quellen nur einmal: Die Volltextdatei heißt
+    # nach dem Aktenzeichen, zwei Treffer würden sich gegenseitig überschreiben.
+    einmalig: dict[str, Fund] = {}
+    for fund in funde:
+        if fund.schluessel in einmalig:
+            einmalig[fund.schluessel].naehe += fund.naehe
+        else:
+            einmalig[fund.schluessel] = fund
+    funde = list(einmalig.values())
+
     ziel = Path(argumente.ziel)
     ziel.parent.mkdir(parents=True, exist_ok=True)
 
+    ordner = ziel.parent / "volltexte"
     if argumente.streitwert_ab > 0:
         print(f"\nStreitwertfilter ab {euro(argumente.streitwert_ab)}: Volltexte werden geprüft …")
-        passende = nach_streitwert_auswaehlen(funde, argumente.max, argumente.streitwert_ab,
-                                              ziel.parent / "volltexte", argumente.pause,
-                                              argumente.pruefen_hoechstens)
-        gruppen = auswaehlen(passende, argumente.max)
-        # Volltexte von Treffern, die über die Höchstzahl hinaus geladen wurden, entfernen.
-        behalten = {id(f) for r in REGIONEN for f in gruppen[r]}
-        for f in passende:
-            if id(f) not in behalten and f.volltext:
-                f.volltext.unlink(missing_ok=True)
-        auswahl = [f for r in REGIONEN for f in gruppen[r]]
+        if zeitraum.grundlegend:
+            # Reihum aus jeder Region, damit Berlin und Brandenburg nicht in der
+            # viel größeren Trefferzahl der übrigen Länder untergehen.
+            je_region = [streuen([f for f in funde if f.region == r], zufall) for r in REGIONEN]
+            reihenfolge = [f for runde in range(max(map(len, je_region), default=0))
+                           for liste in je_region if runde < len(liste) for f in [liste[runde]]]
+        else:
+            reihenfolge = sorted(funde, key=lambda f: f.datum, reverse=True)
+        geladen = nach_streitwert_auswaehlen(reihenfolge, argumente.max, argumente.streitwert_ab,
+                                             ordner, argumente.pause, argumente.pruefen_hoechstens)
+    elif zeitraum.grundlegend:
+        # Ob ein Leitsatz vorliegt, zeigt erst der Volltext: deshalb mehr laden, als in die Liste kommt.
+        geladen = vorauswahl(funde, argumente.max, zufall)
+        if geladen:
+            print(f"\nVolltexte werden geladen und gewichtet ({len(geladen)} Entscheidungen) …")
+            volltexte_ablegen(geladen, ordner, argumente.pause)
     else:
-        gruppen = auswaehlen(funde, argumente.max)
-        auswahl = [f for r in REGIONEN for f in gruppen[r]]
-        if auswahl:
-            print(f"\nVolltexte werden geladen ({len(auswahl)} Entscheidungen) …")
-            volltexte_ablegen(auswahl, ziel.parent / "volltexte", argumente.pause)
+        geladen = [f for r in REGIONEN for f in auswaehlen(funde, argumente.max)[r]]
+        if geladen:
+            print(f"\nVolltexte werden geladen ({len(geladen)} Entscheidungen) …")
+            volltexte_ablegen(geladen, ordner, argumente.pause)
 
-    ziel.write_text(bericht(gruppen, stichtag, argumente.streitwert_ab), encoding="utf-8", newline="\n")
+    gruppen = auswaehlen(geladen, argumente.max, nach_gewicht=zeitraum.grundlegend)
+    auswahl = [f for r in REGIONEN for f in gruppen[r]]
+    # Volltexte von Treffern, die nicht in die Liste kommen, wieder entfernen –
+    # der Agent soll nur die Kandidaten sehen.
+    behalten = {id(f) for f in auswahl}
+    for f in geladen:
+        if id(f) not in behalten and f.volltext:
+            f.volltext.unlink(missing_ok=True)
+
+    ziel.write_text(bericht(gruppen, zeitraum, argumente.streitwert_ab), encoding="utf-8", newline="\n")
     print(f"\nGefunden: {len(funde)} · in der Liste: {len(auswahl)}")
     print(f"Liste geschrieben: {ziel}")
     return 0

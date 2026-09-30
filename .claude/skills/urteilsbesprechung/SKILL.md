@@ -28,11 +28,13 @@ Die Turn-Regel aus dem Fachartikel-Skill gilt: Beende vor der Abschlussnachricht
 
 2. **Vorauswahl.** Nimm die ersten sechs bis acht Kandidaten in der Reihenfolge der Liste. Berlin und Brandenburg stehen bewusst oben; gib ihnen den Vorzug, solange die Entscheidung fachlich trägt.
 
+   Trägt die Liste den Abschnitt „Grundsatzentscheidungen aus mehreren Jahren“, sind die Kandidaten ein bis fünfzehn Jahre alt, über die Jahrgänge gestreut und je Gruppe nach **Gewicht** geordnet. Gesucht ist dann nicht die jüngste Entscheidung, sondern eine, auf der spätere aufbauen. Nimm die zwei bis drei gewichtigsten Kandidaten **jeder** Gruppe, auch die des Bundes, und bevorzuge Entscheidungen mit Leitsatz des Gerichts; bei gleichem Gewicht gehen Berlin und Brandenburg vor. Das Gewicht ist ein grober Hinweis des Suchskripts, keine fachliche Wertung – ob die Entscheidung trägt, entscheidest du am Volltext. Das Alter allein macht eine Entscheidung nicht wichtig.
+
 3. **Volltext prüfen** (Read). Die Volltexte liegen bereits als Textdatei vor; die Liste nennt bei jedem Kandidaten den Pfad. Öffne sie mit **Read**, nicht mit WebFetch. Der Umweg über das Netz ist hier nicht nur unnötig, sondern beim Bund unmöglich: Dort liefert die amtliche Quelle ein ZIP-Archiv, das WebFetch nicht lesen kann. Das Skript hat es bereits entpackt.
 
    Fehlt bei einem Kandidaten der Pfad und steht dort „Achtung: Volltext nicht abrufbar", überspringe ihn und vermerke das im Pull Request.
 
-   Für jeden Kandidaten in der Reihenfolge der Liste beantwortest du drei Fragen.
+   Für jeden Kandidaten in der Reihenfolge der Liste beantwortest du diese Fragen.
    - *Betrifft sie das Themenfeld?* Bauvertrag, Werkvertrag am Bau, Architekten- oder Ingenieurvertrag, Baumangel, Abnahme, Werklohn, Nachtrag, gestörter Bauablauf, Bauzeit, Behinderung, Kalkulation, Planungsfehler, Beweissicherung, Sachverständigenbeweis am Bau. Reine Miet-, Kauf-, Insolvenz-, Vergabe-, Kosten- oder Verfahrensfragen ohne Baubezug scheiden aus, auch wenn ein Suchbegriff vorkommt.
    - *Trägt sie einen Beitrag?* Eine Entscheidung trägt, wenn sie eine Rechtsfrage klärt, eine Abgrenzung schärft, von der bisherigen Linie abweicht oder eine für die Praxis wiederkehrende Konstellation behandelt. Eine Nichtzulassungsbeschwerde ohne Begründung, ein Hinweisbeschluss ohne Aussage oder eine reine Einzelfallwürdigung trägt nicht.
    - *Reicht der Volltext?* Enthält die Entscheidung Tatbestand und Entscheidungsgründe, oder nur einen Tenor? Ohne Gründe kannst du sie nicht besprechen.
@@ -43,6 +45,18 @@ Die Turn-Regel aus dem Fachartikel-Skill gilt: Beende vor der Abschlussnachricht
      **Nicht geeignet:** Teilurteil, Grundurteil, Zwischenurteil, Vorbehaltsurteil und Versäumnisurteil, weil über Grund oder Höhe noch gestritten wird; jedes Urteil, in dem die Revision **zugelassen** wurde, weil der Fall dann beim Bundesgerichtshof weitergeht; Hinweisbeschlüsse; Entscheidungen im einstweiligen Rechtsschutz; Beschlüsse über Prozesskostenhilfe, Streitwert oder Kosten.
 
      Ob die Revision zugelassen wurde, steht am Ende der Entscheidungsgründe. Ob es sich um ein Teil- oder Grundurteil handelt, steht im Tenor oder in der Bezeichnung. Steht dort nichts davon, ist es ein Endurteil. Dass gegen ein Urteil ohne zugelassene Revision noch eine Nichtzulassungsbeschwerde laufen kann, steht der Besprechung nicht entgegen. **Im Text steht dazu nur, was der Volltext sagt:** dass die Revision nicht zugelassen wurde, mit Randnummer. Ob eine Beschwerde eingelegt wurde oder noch möglich ist, bei welchem Gericht und in welcher Frist, schreibst du nicht – das weißt du nicht. Beim Beitrag zu OVG 6 A 1/25 war genau dieser Satz falsch. Im Pull Request steht unter „Abschluss“: „Rechtskraft nicht geprüft“.
+   - *Gilt sie heute noch?* Diese Frage stellst du bei jeder Entscheidung, die am Tag des Laufs älter als ein Jahr ist. Eine ältere Entscheidung ist wertvoll, wenn spätere auf ihr aufbauen – und schädlich, wenn der Beitrag eine Rechtslage erklärt, die nicht mehr gilt. Geprüft wird zweierlei.
+
+     **Hat sich das Gesetz geändert?** Stelle fest, welche Vorschriften das Gericht in welcher Fassung anwendet, und vergleiche sie mit dem heutigen Wortlaut auf gesetze-im-internet.de. Einschnitte, nach denen du gezielt suchst und die du **an der Quelle prüfst, nicht aus dieser Aufzählung übernimmst**: das Bauvertragsrecht im BGB für Verträge ab dem 1. Januar 2018 (§§ 650a ff. BGB, geänderte Paragrafennummern im Werkvertragsrecht), die Fassungen der HOAI (2009, 2013, 2021), die Ausgaben der VOB/B, die WEG-Reform zum 1. Dezember 2020, das Gebäudeenergiegesetz anstelle der Energieeinsparverordnung.
+
+     **Hat die Rechtsprechung die Linie verlassen?** Suche mit WebSearch nach dem Aktenzeichen zusammen mit „aufgegeben“, „Aufgabe der Rechtsprechung“, „hält nicht fest“ und „überholt“ sowie nach späteren Entscheidungen des Bundesgerichtshofs zur selben Frage. Blogs und Portale darfst du dafür lesen; **belegt** wird nur an der amtlichen Fundstelle der späteren Entscheidung (Abschnitt „Quellen“) mit der dreistufigen Absicherung.
+
+     Das Ergebnis ist eines von dreien:
+     - **Gilt unverändert** – du hast die heutige Fassung der tragenden Vorschriften gelesen und keine abweichende spätere Entscheidung gefunden: geeignet.
+     - **Gesetz geändert, Kern trägt weiter** – die Regel steht heute an anderer Stelle oder in anderem Wortlaut, die Aussage der Entscheidung bleibt für heutige Fälle brauchbar: geeignet, wenn du die Fassung des Falls und die heutige Fassung je mit Quelle belegen kannst.
+     - **Überholt oder nicht zu klären** – eine spätere Entscheidung hat die Linie aufgegeben, das Gesetz regelt die Frage heute anders, oder du kannst es nach der Recherche nicht sicher sagen: **nicht geeignet**, nächster Kandidat. Ein offener Prüfpunkt zu dieser Frage ist keine Lösung.
+
+     Im Beitrag steht das Ergebnis im Absatz „Stand heute“ (siehe Aufbau), im Pull Request unter „Aktualität“.
 
    Die Liste nennt je Kandidat die Zahl der gefundenen Begriffe aus dem Themenfeld. Das ist ein grober Hinweis, keine Aussage über die Eignung: Ein hoher Wert kann auch eine Kostenentscheidung in einer Bausache treffen, ein niedriger eine grundlegende Entscheidung. Du liest trotzdem selbst.
 
@@ -95,6 +109,8 @@ Danach folgen diese Funktionen in dieser Reihenfolge. **Es sind Funktionen, kein
 - **Einordnung.** Steht die Entscheidung auf der bisherigen Linie, schärft sie eine Abgrenzung, weicht sie ab? Abweichende Auffassungen benennst du als solche. Grundlage sind die Entscheidungen und Fundstellen, die das Gericht selbst anführt, und Quellen, die du nach dem Fachartikel-Skill abgesichert hast. Für die bautechnische und baubetriebliche Einordnung ist die Fachbibliothek die erste Adresse (Abschnitt „Fachbibliothek“ im Fachartikel-Skill) – etwa Werke zum Sachverständigen-, Bau- und Vergaberecht, zur VOB/B und zur VOB/C. Achte auf ihren Stand: Ein Buch von 2018 kennt keine Rechtsprechung von 2026. Erläuterst du eine Norm, die das Gericht nicht heranzieht, steht sie erkennbar getrennt von der Entscheidung und wird nicht mit ihr verknüpft („spiegelt den Gedanken des Senats“, „der Senat überträgt diese Sicht“). So wurde beim Beitrag zu OVG 6 A 1/25 dem Senat § 649 BGB zugeschrieben, den er nicht zitiert.
 - **Was daraus für die Baupraxis folgt.** Der eigentliche Zweck des Beitrags: Was bedeutet die Entscheidung für Dokumentation, Aufmaß, Nachtragsbegründung, Bauzeitnachweis, Mängelrüge, Beweissicherung oder die Arbeit des Sachverständigen? Dieser Abschnitt ist der längste.
 - **Was die Entscheidung nicht sagt.** Die Grenze des Anwendungsbereichs. Wer sie überdehnt, zieht falsche Schlüsse.
+
+  **Stand heute** – Pflicht, wenn die Entscheidung älter als ein Jahr ist: ein Absatz in diesem Abschnitt, der sagt, wann entschieden wurde, welche Fassung der Vorschriften das Gericht angewandt hat (mit Randnummer) und was davon heute gilt. Jede Aussage über die heutige Rechtslage trägt eine eigene Fußnote auf die amtliche Quelle – den heutigen Gesetzeswortlaut oder die spätere Entscheidung. Der Absatz schreibt dem Gericht nichts zu, was es nicht gesagt hat. *Beispiel:* „Der Senat wendet § 648a BGB in der damaligen Fassung an (Rn. 12). Die Bauhandwerkersicherung ist seit dem 1. Januar 2018 in § 650f BGB geregelt[^n].“ Ein Satz wie „gilt bis heute“ oder „ständige Rechtsprechung“ ohne Fußnote ist verboten: Dass **keine** abweichende Entscheidung ergangen ist, lässt sich nicht belegen. Findest du für die heutige Rechtslage keinen Beleg, nennst du nur das Entscheidungsdatum und die angewandte Fassung.
 
 Danach FAQ, Hinweis, Autorenkasten und Quellenverzeichnis wie im Fachartikel-Skill.
 
@@ -176,6 +192,7 @@ Ebenso gilt der Pflichtschritt `python tools/artikel_generator.py` vor dem Commi
 - Entscheidungsart: <Endurteil / Berufungsurteil ohne zugelassene Revision / BGH-Entscheidung>
 - Verfahrensweg: <erste Instanz / Berufung gegen … / Revision gegen …>
 - Abschluss: <was die Entscheidung erledigt und was nach dem Volltext offen bleibt; Revision zugelassen ja oder nein, mit Randnummer; „Rechtskraft nicht geprüft“>
+- Aktualität: <nur bei Entscheidungen, die älter als ein Jahr sind: „gilt unverändert“ oder „Gesetz geändert, Kern trägt weiter“; welche Vorschriften du mit der heutigen Fassung verglichen hast; mit welchen Suchanfragen du nach späteren abweichenden Entscheidungen gesucht hast und was du gefunden hast>
 
 ### Geprüfte und verworfene Kandidaten
 
