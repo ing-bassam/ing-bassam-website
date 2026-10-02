@@ -68,7 +68,7 @@ abschnitte:
     punkte:
       - text: Bekannte Abdichtung gegen Feuchte aus dem Erdreich
         auswahl: [keine bekannt, bauzeitliche Sperrschicht, nachträglich abgedichtet, unbekannt]
-        hinweis: "Bei Gebäuden aus der Zeit um 1900 fehlt eine waagerechte Sperrschicht im Mauerwerk häufig; Feuchteschäden im Sockelbereich sind dann ein typisches Bild. Fragen Sie nach Verfahren und Jahr einer nachträglichen Abdichtung."
+        hinweis: "Bei Gebäuden aus der Zeit um 1900 kann eine waagerechte Sperrschicht im Mauerwerk fehlen; Feuchteschäden im Sockelbereich sind dann die Folge. Fragen Sie nach Verfahren und Jahr einer nachträglichen Abdichtung."
       - text: Geruch im Keller
         hinweis: "Woran erkennen: bei geschlossenem Fenster riechen. Gering: leicht kühl-muffig in einem Raum. Deutlich: deutlich erdiger oder modriger Geruch im ganzen Keller; das deutet auf dauerhafte Feuchte hin."
       - text: Feuchteränder an Kellerwänden
@@ -86,7 +86,7 @@ abschnitte:
         hinweis: "Woran erkennen: Verlauf und Breite. Gering: feine Risse im Putz unter etwa 0,3 mm. Deutlich: Risse mit Versatz, treppenförmiger Verlauf über die Fugen oder Risse, die sich nach oben fortsetzen."
       - text: "Die Lage des Grundstücks in einem Radon-Vorsorgegebiet ist geprüft."
         ja_nein: true
-        hinweis: "Besonders betroffen sind Gebäude, die vor 1960 errichtet wurden, keine moderne Feuchteabdichtung haben und unterkellert sind. Auskunft geben die Länderbehörden; messen lässt sich Radon nur über mehrere Monate."
+        hinweis: "Besonders betroffen sind Gebäude, die vor 1960 errichtet wurden, keine moderne Feuchteabdichtung haben und unterkellert sind. Die Radon-Vorsorgegebiete weisen die Bundesländer aus; die Radon-Konzentration in Innenräumen lässt sich messen."
   - titel: Außenwände, Fassade und Risse
     notizen: 2
     punkte:
@@ -155,7 +155,7 @@ abschnitte:
         hinweis: "Woran erkennen: weiße Geflechte, strangartige Gebilde, fleischige Fruchtkörper mit rotbrauner Schicht und weißem Rand. Gering: lokale Verfärbung an trockenem Holz. Deutlich: würfelartig gerissenes Holz, Myzel auf Mauerwerk oder Fruchtkörper. Der Echte Hausschwamm greift auch auf trockenes Holz über."
       - text: Dämmung von Dachschräge und oberster Geschossdecke
         auswahl: [keine, nur oberste Geschossdecke, Dachschräge gedämmt, beides gedämmt, unbekannt]
-        hinweis: "Eine ungedämmte oberste Geschossdecke ist nach dem Gebäudeenergierecht in der Regel nicht zulässig; die Pflicht kann den Käufer treffen. Lassen Sie vor dem Kauf klären, was zu tun ist."
+        hinweis: "Eine ungedämmte Dachschräge oder oberste Geschossdecke bedeutet hohe Wärmeverluste und ist ein eigener Kostenpunkt. Lassen Sie vor dem Kauf klären, was hier zu tun ist."
       - text: Dachentwässerung, Kehlen und Anschlüsse am Dach
         hinweis: "Woran erkennen: Kehlbleche, Anschlüsse an Schornstein und Gauben. Gering: Anstrich oder Dichtstoff verwittert. Deutlich: Rost, offene Nähte, provisorisch verschmierte Anschlüsse oder Feuchtespuren darunter im Dachraum."
   - titel: Decken, Innenwände und Treppen
@@ -261,7 +261,7 @@ abschnitte:
       - text: "Elastische Fugendichtmassen aus der Zeit von etwa 1955 bis 1975 sind vorhanden."
         ja_nein: true
         hinweis: "Dichtstoffmassen dieser Jahre können polychlorierte Biphenyle enthalten, die in die Raumluft übergehen. Betroffen sind oft Fugen an Fertigteilen, Fenstern und Treppenhäusern."
-      - text: "Parkettkleber, Teerpappe oder Gussasphaltestrich aus den 1960er bis 1970er Jahren sind vorhanden."
+      - text: "Parkettkleber, Teerpappe oder Teerasphaltestrich aus den 1960er bis 1970er Jahren sind vorhanden."
         ja_nein: true
         hinweis: "Teerhaltige Klebstoffe für Mosaik- und Stabparkett sowie Teerasphaltestriche können polycyclische aromatische Kohlenwasserstoffe enthalten; sie riechen oft deutlich nach Teer."
       - text: "Der Dachstuhl oder sichtbares Bauholz wurde mit Holzschutzmitteln behandelt."

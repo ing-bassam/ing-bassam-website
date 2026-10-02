@@ -20,7 +20,7 @@ notion_id: 3e5d96ad-00b4-8112-bea6-eb068b017c48
 notion_url: https://app.notion.com/p/Checkliste-Altbaukauf-typische-Schwachstellen-nach-Baujahr-3e5d96ad00b48112bea6eb068b017c48
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1950
+wortzahl: 2000
 lesezeit: 10 Minuten
 fussnoten: 18
 quellen_geprueft: 1
@@ -45,7 +45,7 @@ Nehmen Sie Taschenlampe, Zollstock und Handy mit. Fotografieren Sie jeden Befund
 
 ## Feuchte von unten: Keller, Sockel und Außenwände
 
-Feuchte ist der häufigste Grund, aus dem ein Altbaukauf teuer wird. Bei Gebäuden aus der Zeit um 1900 fehlt im Mauerwerk oft eine waagerechte Sperrschicht. Feuchteschäden im Sockelbereich sind dann ein typisches Bild dieser Bauzeit.[^1] Auch der Bauherren-Schutzbund nennt Feuchtigkeitsschäden als Problem Nummer eins; ihre Ursache sind meist undichte Dächer, defekte Abdichtungen oder kapillare Feuchte im Mauerwerk.[^2]
+Feuchte ist der häufigste Grund, aus dem ein Altbaukauf teuer wird. Bei Gebäuden aus der Zeit um 1900 kann im Mauerwerk eine waagerechte Sperrschicht fehlen; Feuchteschäden im Sockelbereich sind dann die Folge.[^1] Auch der Bauherren-Schutzbund nennt Feuchtigkeitsschäden als typische Problemzone von Altbauten; ihre Ursache sind oft undichte Dächer, defekte Abdichtungen oder kapillare Feuchte im Mauerwerk.[^2]
 
 Im Keller entscheiden drei Zeichen. Ein geringer Befund ist eine einzelne dunkle Stelle am Wandfuß bei festem Putz. Ein deutlicher Befund ist ein durchgehender Feuchtesaum, der nach oben ausläuft. Dazu kommen weiße, pelzige Ausblühungen: Sie zeigen, dass Wasser Salze aus dem Mauerwerk gelöst und an der Oberfläche abgelagert hat. Riechen Sie bei geschlossenem Fenster. Ein erdiger Geruch im ganzen Keller spricht für dauerhafte Feuchte.
 
@@ -71,7 +71,7 @@ Die zweite Gruppe sind Dämmstoffe. Bei Mineralwolle, die vor dem Jahr 1996 eing
 
 Die dritte Gruppe hängt an engeren Zeitfenstern. Elastische Fugendichtmassen aus den Jahren 1955 bis etwa 1975 können polychlorierte Biphenyle enthalten. Teerhaltige Klebstoffe für Mosaikparkett und Teerasphaltestriche aus den 1960er Jahren enthalten häufig polycyclische aromatische Kohlenwasserstoffe. Bleileitungen wurden in der Hausinstallation bis 1973 verlegt.[^11] Beim Dachstuhl kommt das Holzschutzmittel hinzu: Lindan wurde auf dem Gebiet der ehemaligen DDR bis 1989 verbreitet in Innenräumen und an Dachbalken eingesetzt.[^12]
 
-Ein Thema, das viele Käufer übersehen, ist Radon. Dieses natürliche Gas tritt aus dem Erdreich in Gebäude ein. Besonders gefährdet sind Häuser, die vor 1960 errichtet wurden und keine moderne Feuchteabdichtung besitzen, sowie unterkellerte Gebäude mit Aufenthaltsräumen im Keller.[^13] Ob Ihr Grundstück in einem Radon-Vorsorgegebiet liegt, sagt Ihnen die zuständige Landesbehörde.
+Ein Thema, das viele Käufer übersehen, ist Radon. Dieses natürliche Gas tritt aus dem Erdreich in Gebäude ein. Besonders gefährdet sind Häuser, die vor 1960 errichtet wurden und keine moderne Feuchteabdichtung besitzen, sowie unterkellerte Gebäude mit Aufenthaltsräumen im Keller.[^13] Gebiete, in denen in vielen Gebäuden eine hohe Radon-Konzentration zu erwarten ist, müssen die Bundesländer als Radon-Vorsorgegebiete ausweisen.[^13]
 
 Für alle Schadstoffe gilt dieselbe Regel bei der Besichtigung. Sie notieren den Verdacht, Sie fotografieren das Bauteil, und Sie fassen es nicht an. Nicht bohren, nicht schleifen, nichts abschlagen. Proben nehmen und bewerten ausschließlich Fachfirmen.
 
@@ -79,7 +79,7 @@ Für alle Schadstoffe gilt dieselbe Regel bei der Besichtigung. Sie notieren den
 
 Die Haustechnik kommt selten einzeln. Heizung, Elektroinstallation und Leitungen stammen oft aus derselben Bauzeit und erreichen das Ende ihrer Nutzungsdauer gemeinsam. Notieren Sie deshalb für jedes der drei Gewerke das Baujahr und den letzten Nachweis einer Erneuerung.
 
-Beim Wärmeerzeuger lesen Sie das Baujahr vom Typenschild ab. Für alte Heizkessel kennt das Gebäudeenergierecht Betriebsverbote. Für Wohngebäude mit höchstens zwei Wohnungen gibt es eine Ausnahme, doch sie endet beim Eigentümerwechsel: Die Pflicht ist dann vom neuen Eigentümer zu erfüllen.[^14] Das betrifft also genau Sie als Käufer. Lassen Sie vor dem Kauf prüfen, welche Frist für dieses Gebäude gilt.
+Beim Wärmeerzeuger lesen Sie das Baujahr vom Typenschild ab. Für alte Heizkessel kennt das Gebäudeenergierecht Betriebsverbote. Für Wohngebäude mit höchstens zwei Wohnungen, von denen eine Wohnung am 1. Februar 2002 vom Eigentümer bewohnt wurde, gibt es eine Ausnahme, doch sie endet beim Eigentümerwechsel: Die Pflicht ist dann vom neuen Eigentümer zu erfüllen.[^14] Das betrifft also genau Sie als Käufer. Lassen Sie vor dem Kauf prüfen, welche Frist für dieses Gebäude gilt.
 
 Bei der Elektroinstallation reicht ein Blick in den Zählerschrank. Fehlerstrom-Schutzschalter sind die breiteren Schalter mit Prüftaste. Fehlen sie und finden Sie zweipolige Steckdosen ohne Schutzkontakt, ist mit einer Erneuerung zu rechnen. Ein historischer Punkt kommt hinzu: Gebäude, die vor 1973 errichtet wurden, nutzten in der Regel die metallenen Wasserleitungen für die Erdung. Seit 1986 ist das nicht mehr erlaubt, und Altanlagen mussten bis spätestens März 2002 umgebaut werden.[^15]
 
@@ -93,7 +93,7 @@ Nach der Besichtigung zählen Sie nicht die Kreuze, sondern Sie gewichten sie. E
 
 Zweitens suchen Sie nach Mustern. Zwei oder mehr deutliche Feuchtebefunde in Keller, Fassade und Dach gehören zusammen betrachtet. Oft steckt eine gemeinsame Ursache dahinter, etwa eine fehlende Abdichtung oder eine defekte Entwässerung. Bauschäden dieser Art hören nicht von selbst auf; sie wandern weiter, solange das Wasser kommt.
 
-Drittens behandeln Sie Schimmel getrennt. Kleineren Schimmelbefall, also etwa unter 0,5 Quadratmetern und nur oberflächlich, können Bewohner selbst entfernen. Größerer Befall sollte immer von einer fachkundigen Firma saniert werden. Entscheidend ist in beiden Fällen: Die Ursache der Feuchtigkeit muss erkannt und beseitigt werden, sonst kommt der Schimmel zurück.[^18]
+Drittens behandeln Sie Schimmel getrennt. Kleineren Schimmelbefall, also etwa unter 0,5 Quadratmetern und nur oberflächlich, können Bewohner selbst entfernen, sofern sie nicht allergisch auf Schimmelpilze reagieren, nicht an chronischen Atemwegserkrankungen leiden und kein geschwächtes Immunsystem haben. Größerer Befall sollte immer von einer fachkundigen Firma saniert werden. Entscheidend ist in beiden Fällen: Die Ursache der Feuchtigkeit muss erkannt und beseitigt werden, sonst kommt der Schimmel zurück.[^18]
 
 Viertens zählen Sie Ihre Punkte mit „nicht prüfbar“. Jeder davon ist eine Frage an den Verkäufer, am besten schriftlich. Ordnen Sie zum Schluss den erkennbaren Sanierungsbedarf nach Dringlichkeit: sofort, in den nächsten fünf Jahren, später. Diese Reihenfolge trägt Ihre Finanzierung, eine Kostenschätzung ohne Ursachenklärung nicht.
 
@@ -111,7 +111,7 @@ Wenn Sie nach der Besichtigung unsicher sind, ist eine [fachliche Kaufberatung v
 
 **Welche Baujahre gelten als besonders problematisch beim Altbaukauf?**
 
-Pauschal gibt es kein schlechtes Baujahr, aber jede Epoche hat ihr Thema. Bei Gebäuden aus der Zeit um 1900 fehlt häufig eine waagerechte Sperrschicht gegen aufsteigende Feuchte.[^1] Bei Bauten der Nachkriegsjahrzehnte stehen Wärmeschutz und Schadstoffe im Vordergrund, denn sie entstanden lange vor dem Asbestverbot von 1993.[^9] Bei Gebäuden der 1980er und 1990er Jahre richtet sich der Blick vor allem auf Heizung, Leitungen und Flachdächer.
+Pauschal gibt es kein schlechtes Baujahr, aber jede Epoche hat ihr Thema. Bei Gebäuden aus der Zeit um 1900 kann eine waagerechte Sperrschicht gegen aufsteigende Feuchte fehlen.[^1] Bei Bauten der Nachkriegsjahrzehnte stehen Wärmeschutz und Schadstoffe im Vordergrund, denn sie entstanden lange vor dem Asbestverbot von 1993.[^9] Bei Gebäuden der 1980er und 1990er Jahre richtet sich der Blick vor allem auf Heizung, Leitungen und Flachdächer.
 
 **Kann ich den Altbau allein beurteilen oder brauche ich Hilfe?**
 
