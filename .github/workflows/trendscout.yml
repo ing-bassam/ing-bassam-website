@@ -1,0 +1,135 @@
+name: Trend-Scout
+# ---------------------------------------------------------------------------
+# Schlägt jeden Montag neue Trendthemen vor und legt sie in Notion an
+# („Trendthemen Bauwesen“, Status „Vorschlag“). Ins Repository schreibt er nichts.
+#
+#   1. Signale sammeln (tools/trend_signale.py, ohne KI und ohne Kosten): Saison,
+#      Wikipedia-Seitenaufrufe zu Bau-Begriffen (tools/trend_begriffe.yml),
+#      vorhandene Beiträge und Notion-Themen gegen Dubletten.
+#   2. Claude Code (Skill /trendscout) sucht aktuelle Anlässe, belegt sie an
+#      Primärquellen und schreibt die Vorschläge als JSON – außerhalb des
+#      Repositorys.
+#   3. tools/trend_notion.py prüft die Vorschläge (erlaubte Werte, Adressen,
+#      Dubletten) und legt sie in Notion an.
+#
+# Freigeben: in Notion den Status eines Vorschlags auf „Freigegeben“ setzen.
+# Am nächsten Morgen schreibt der Workflow „Trend-Entwurf“ Artikel und
+# Shorts-Paket. „Verworfen“ blendet einen Vorschlag aus.
+#
+# Benötigte Secrets: CLAUDE_CODE_OAUTH_TOKEN, NOTION_TOKEN (Integration mit
+# „Trendthemen Bauwesen“ und dem Themenspeicher verbunden; Fähigkeiten
+# „Inhalte lesen“, „Inhalte aktualisieren“, „Inhalte einfügen“).
+# Kosten: keine. Kontingent: ein Agentenlauf pro Woche.
+# Von Hand: Actions → Trend-Scout → Run workflow.
+# ---------------------------------------------------------------------------
+
+on:
+  schedule:
+    - cron: "30 5 * * 1"          # montags 5:30 Uhr deutscher Zeit
+      timezone: "Europe/Berlin"
+  workflow_dispatch:
+    inputs:
+      anzahl:
+        description: "Wie viele neue Vorschläge?"
+        required: false
+        default: "5"
+        type: choice
+        options:
+          - "3"
+          - "5"
+          - "8"
+
+concurrency:
+  group: trendscout
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      id-token: write        # von der Claude-Action benötigt
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Voraussetzungen prüfen
+        env:
+          # Nur Ja/Nein, nie der Wert selbst.
+          CLAUDE_TOKEN_VORHANDEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+          NOTION_TOKEN_VORHANDEN: ${{ secrets.NOTION_TOKEN != '' }}
+        run: |
+          if [ "$CLAUDE_TOKEN_VORHANDEN" != "true" ] || [ "$NOTION_TOKEN_VORHANDEN" != "true" ]; then
+            echo "::error title=Trend-Scout::Secret CLAUDE_CODE_OAUTH_TOKEN oder NOTION_TOKEN fehlt (Settings → Secrets and variables → Actions)."
+            exit 1
+          fi
+
+      - name: Repository auschecken
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Abhängigkeiten installieren
+        run: python -m pip install --quiet 'PyYAML==6.0.2'
+
+      - name: Signale sammeln
+        id: signale
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          set -euo pipefail
+          # Nur die Signaldatei und später die Vorschläge – der Agent bekommt
+          # dieses Verzeichnis per --add-dir, das Repository bleibt unberührt.
+          ORDNER="${RUNNER_TEMP}/trendscout"
+          rm -rf -- "$ORDNER"
+          mkdir -p "$ORDNER"
+          python tools/trend_signale.py --ausgabe "$ORDNER/signale.md"
+          echo "ordner=$ORDNER" >> "$GITHUB_OUTPUT"
+
+      - name: Vorschläge erarbeiten
+        id: claude
+        continue-on-error: true
+        timeout-minutes: 40
+        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /trendscout
+            Signaldatei: ${{ steps.signale.outputs.ordner }}/signale.md
+            Ausgabedatei: ${{ steps.signale.outputs.ordner }}/vorschlaege.json
+            Anzahl: ${{ inputs.anzahl || '5' }}
+          # Kein git, kein gh, keine Shell. Web nur zum Belegen der Anlässe.
+          claude_args: |
+            --max-turns 90
+            --model claude-opus-5
+            --add-dir ${{ steps.signale.outputs.ordner }}
+            --allowedTools "Read,Write,Glob,Grep,TodoWrite,Skill,WebSearch,WebFetch"
+
+      - name: Abschlussmeldung des Agenten
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        continue-on-error: true
+        env:
+          VERLAUF: ${{ steps.claude.outputs.execution_file }}
+        run: python tools/agent_bericht.py "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
+
+      - name: Vorschläge nach Notion
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          ORDNER: ${{ steps.signale.outputs.ordner }}
+          ANZAHL: ${{ inputs.anzahl || '5' }}
+        run: |
+          set -euo pipefail
+          if [ ! -s "$ORDNER/vorschlaege.json" ]; then
+            echo "::error title=Trend-Scout::Der Agent hat keine Vorschläge geschrieben – den Grund zeigt der Schritt „Abschlussmeldung des Agenten“."
+            exit 1
+          fi
+          python tools/trend_notion.py vorschlaege "$ORDNER/vorschlaege.json" --max "$ANZAHL"

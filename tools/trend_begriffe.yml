@@ -1,0 +1,72 @@
+# Begriffe für das Wikipedia-Signal des Trend-Scouts (tools/trend_signale.py).
+#
+# Je Kategorie die Titel deutscher Wikipedia-Artikel, genau wie in der Adresse
+# (Leerzeichen statt Unterstrich). Gezählt werden die Aufrufe der letzten 14 Tage
+# gegenüber den 28 Tagen davor und gegenüber dem Vorjahr. Ein Begriff ohne Artikel
+# wird im Lauf gemeldet und übersprungen. Artikel mit sehr wenigen Aufrufen
+# (unter etwa 100 im Monat) taugen nicht als Signal.
+
+Bauschäden:
+  - Schimmelpilz
+  - Hausschwamm
+  - Hausbock
+  - Bauwerksabdichtung
+  - Wasserschaden
+  - Ausblühung
+  - Salpeter
+  - Asbest
+  - Radon
+  - Rückstausicherung
+  - Starkregen
+  - Hochwasserschutz
+  - Flachdach
+
+Bauphysik:
+  - Wärmebrücke
+  - Taupunkt
+  - Kondensation
+  - Luftfeuchtigkeit
+  - Wärmedämmung
+  - Wärmedämmverbundsystem
+  - Kontrollierte Wohnraumlüftung
+  - Schallschutz
+
+Energie & Förderung:
+  - Gebäudeenergiegesetz
+  - Wärmepumpe
+  - Energieausweis
+  - Fernwärme
+  - Kommunale Wärmeplanung
+  - Bundesförderung für effiziente Gebäude
+  - KfW
+  - Photovoltaikanlage
+  - Balkonkraftwerk
+  - Pelletheizung
+  - Fußbodenheizung
+  - Hydraulischer Abgleich
+  - Solarthermie
+  - Heizkörper
+  - Energetische Sanierung
+  - Energieberater
+
+Gutachten & Recht:
+  - Gewährleistung
+  - Selbständiges Beweisverfahren
+  - Sachverständiger
+  - Werkvertrag
+
+Bauherrenwissen:
+  - Baugenehmigung
+  - Bauträger
+  - Bauherr
+  - Fertighaus
+  - Altbau
+  - Holzbau
+  - Gebäudetyp E
+  - Baukosten
+  - Grundsteuer
+
+Hausverwaltung & Bestand:
+  - Wohnungseigentümergemeinschaft
+  - Heizkostenverordnung
+  - Legionellen
