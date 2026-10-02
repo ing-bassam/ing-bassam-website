@@ -142,7 +142,7 @@ def markdown(heute: date) -> str:
         zeilen += [f"- [{z['quelle']} · {z['status'] or 'ohne Status'}] {z['titel']}" for z in notion] or ["- (keine)"]
     except trend_notion.NotionFehler as fehler:
         zeilen.append(f"- Notion nicht abgefragt: {fehler}")
-        print(f"::warning title=Trend-Scout::Notion nicht abgefragt – Dubletten prüft erst der letzte Schritt ({fehler})")
+        print(f"::warning title=Trend-Agent::Notion nicht abgefragt – Dubletten prüft erst der letzte Schritt ({fehler})")
     return "\n".join(zeilen) + "\n"
 
 
