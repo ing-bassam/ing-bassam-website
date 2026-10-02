@@ -49,7 +49,7 @@ Sechs Fragen muss das Schreiben beantworten. Warum: Ursache und Art der Behinder
 
 Die Anzeige muss alle Tatsachen enthalten, aus denen der Auftraggeber die Hinderungsgründe mit hinreichender Klarheit und erschöpfend erkennen kann.[^7] Entscheidend ist die zweite Hälfte: die Wirkung. Die Auswirkungen gehören konkret an den Soll-Terminablauf, also an den vereinbarten Ablauf nach Bauzeitenplan. Fehlt diese Darstellung, kann die Anzeige nach der Fachliteratur schon unzureichend sein.[^8] Viele Anzeigen scheitern daran, nicht am fehlenden Grund.
 
-Die Höhe eines möglichen Ersatzanspruchs muss in der Anzeige nicht stehen.[^9] Die voraussichtliche Dauer sollte dagegen genannt werden.[^4] Nennen Sie außerdem die gebundenen Kapazitäten: Arbeitskräfte mit Gewerk und Anzahl, Geräte, Nachunternehmer und Lieferungen.[^10] Ein Satz wie der Hinweis, man komme nicht weiter, weil noch Angaben fehlten, ist nach der Fachliteratur zu unbestimmt.[^11] Beschreiben Sie den Zustand, nicht das Gefühl.
+Die Höhe eines möglichen Ersatzanspruchs muss in der Anzeige nicht stehen.[^9] Die voraussichtliche Dauer sollte dagegen genannt werden.[^4] Nennen Sie außerdem die betroffenen Kapazitäten mit der Dauer ihrer Bindung.[^10] Ein Satz wie der Hinweis, man komme nicht weiter, weil noch Angaben fehlten, ist nach der Fachliteratur zu unbestimmt.[^11] Beschreiben Sie den Zustand, nicht das Gefühl.
 
 Die Anzeigepflicht beginnt nicht erst mit dem Eintritt der Behinderung. Sie beginnt, sobald eine Behinderung konkret absehbar ist.[^5] Die Vorschrift setzt schon an, wenn der Auftragnehmer sich behindert glaubt.[^1] Das heißt aber nicht, dass Sie vorsorglich ins Blaue hinein anzeigen dürfen. Eine Anzeige ohne begründete Vermutung oder Gewissheit ist nach der Fachliteratur unzulässig; die Behinderung muss Folge eines gegenwärtigen Zustands sein.[^11] Zeigen Sie jede Behinderung einzeln an, nicht mehrere Sachverhalte in einem Sammelschreiben.[^5]
 
@@ -71,7 +71,7 @@ Beim Geld gibt es zwei Wege. Sind die hindernden Umstände von einem Vertragstei
 
 Die Entschädigung bemisst sich nicht an den tatsächlichen Vorhaltekosten. Maßgeblich ist nach der Rechtsprechung die vereinbarte Vergütung.[^16] Darzulegen ist, welcher Teil der Vergütung auf die unproduktiv bereitgehaltenen Produktionsmittel entfällt, und wie lange sie unproduktiv vorgehalten wurden.[^16] Schon deshalb lohnt es, Arbeitskräfte und Geräte in der Anzeige und in der laufenden Dokumentation zu benennen.
 
-Ohne Anzeige bleibt nur die Offenkundigkeit. Unterlässt der Auftragnehmer die Anzeige, hat er nur dann Anspruch auf Berücksichtigung der hindernden Umstände, wenn dem Auftraggeber die Tatsache und deren hindernde Wirkung offenkundig bekannt waren.[^12] Das ist für den Auftragnehmer in der Praxis schwer zu beweisen.[^15] Die Fachliteratur legt die Vorschrift eng aus und empfiehlt, sich nie darauf zu verlassen.[^4] Die Offenkundigkeit ist ein Notausgang für vergessene Anzeigen, kein Arbeitsweg.
+Ohne Anzeige bleibt nur die Offenkundigkeit. Unterlässt der Auftragnehmer die Anzeige, hat er nur dann Anspruch auf Berücksichtigung der hindernden Umstände, wenn dem Auftraggeber die Tatsache und deren hindernde Wirkung offenkundig bekannt waren.[^12] Das ist für den Auftragnehmer in der Praxis schwer zu beweisen.[^15] Die Fachliteratur legt die Vorschrift eng aus und empfiehlt, sich grundsätzlich nicht darauf zu verlassen.[^4] Die Offenkundigkeit ist ein Notausgang für vergessene Anzeigen, kein Arbeitsweg.
 
 Mit der Anzeige enden die eigenen Pflichten nicht. Nach § 6 Abs. 3 VOB/B ist alles zu tun, was billigerweise zugemutet werden kann, um die Arbeiten weiterzuführen.[^12] Wer im ersten Bauabschnitt behindert ist, im zweiten aber arbeiten kann, muss die Reihenfolge anpassen.[^11] Fallen die hindernden Umstände weg, sind die Arbeiten ohne weiteres und unverzüglich wieder aufzunehmen und der Auftraggeber ist davon zu benachrichtigen.[^12] Die Abmeldung hat noch einen zweiten Nutzen: Sie macht den Zeitraum, in dem die Behinderung gewirkt hat, zweifelsfrei messbar.[^6]
 
@@ -89,7 +89,7 @@ Zum Schluss die unscheinbarste Hürde: der Zugang. Ein Einwurf-Einschreiben reic
 
 Einfache Fälle schreibt Ihre Bauleitung selbst. Enger wird es, wenn mehrere Störungen sich überlappen, wenn die Behinderung Wochen andauert, wenn der Auftraggeber die Anzeige zurückweist oder wenn eine Vertragsstrafe im Raum steht. Dann geht es nicht mehr um ein Schreiben, sondern um den Nachweis eines ganzen Bauablaufs. Für diese Aufarbeitung ist ein störungsmodifizierter Bauablaufplan üblich, in dem sämtliche Behinderungen und die eigenen Anpassungsmaßnahmen eingearbeitet werden.[^5]
 
-Genau an dieser Stelle arbeiten Baubetriebler und Sachverständige. Sie ordnen jeder Behinderung ihre Dauer und ihre Folgen zu, führen Soll- und Ist-Abläufe zusammen und machen die gebundenen Kapazitäten nachvollziehbar.[^14] Wenn Sie dabei Unterstützung brauchen, begleitet das Büro Bauablaufstörungen im [Claim Management](https://ing-bassam.de/#kontakt) von der Anzeige bis zur Aufbereitung der Nachweise. Was ein Gutachten leisten kann, ist die technische Grundlage; die rechtliche Bewertung bleibt beim Anwalt.
+Genau an dieser Stelle arbeiten Baubetriebler und Sachverständige. Sie ordnen jeder Behinderung ihre Dauer und ihre Folgen zu, führen Soll- und Ist-Abläufe zusammen und machen die Leistungsbereitschaft und die beanspruchte Bauzeitverlängerung nachvollziehbar.[^14] Wenn Sie dabei Unterstützung brauchen, begleitet das Büro Bauablaufstörungen im [Claim Management](https://ing-bassam.de/#kontakt) von der Anzeige bis zur Aufbereitung der Nachweise. Was ein Gutachten leisten kann, ist die technische Grundlage; die rechtliche Bewertung bleibt beim Anwalt.
 
 Eine Grenze setzt die Dauer. Dauert eine Unterbrechung länger als drei Monate, kann nach § 6 Abs. 7 VOB/B jeder Vertragsteil den Vertrag schriftlich kündigen.[^12] Die Abrechnung richtet sich dann nach den Absätzen 5 und 6 derselben Vorschrift.[^19] Vor einem solchen Schritt sollten Sie den Sachverhalt von einem Rechtsanwalt prüfen lassen, denn eine Kündigung wirkt in beide Richtungen.
 
@@ -105,7 +105,7 @@ Ja, und das ist der häufigste Irrtum. Die Anzeige hat nach der Fachliteratur ei
 
 **Muss ich die Mehrkosten in der Anzeige beziffern?**
 
-Nein. Die Angabe der Höhe eines etwaigen Ersatzanspruchs muss nicht Inhalt der Behinderungsanzeige sein.[^9] Nennen sollten Sie dagegen die voraussichtliche Dauer und die betroffenen Kapazitäten.[^4] Die Kosten rechnen Sie später ab, auf Grundlage Ihrer Dokumentation.[^10] Ein Vorbehalt im Schreiben hält diesen Weg offen.
+Nein. Die Angabe der Höhe eines etwaigen Ersatzanspruchs muss nicht Inhalt der Behinderungsanzeige sein.[^9] Nennen sollten Sie dagegen die voraussichtliche Dauer[^4] und die betroffenen Kapazitäten.[^10] Die Kosten rechnen Sie später ab, auf Grundlage Ihrer Dokumentation.[^10] Ein Vorbehalt im Schreiben hält diesen Weg offen.
 
 **Was passiert, wenn ich die Anzeige vergessen habe?**
 
