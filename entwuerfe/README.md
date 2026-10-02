@@ -7,12 +7,14 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (3)
+## 🟡 Entwurf (5)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
 | 02.10.2026 | [Checkliste Wasserschaden – erste Schritte](entwurf/2026-10-02-wasserschaden-erste-schritte-dokumentation.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/wasserschaden-erste-schritte-dokumentation/) |
+| 02.10.2026 | [Schlussrechnung prüfen: Prüfliste für Auftraggeber](entwurf/2026-10-02-pruefliste-schlussrechnung.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/pruefliste-schlussrechnung/) |
 | 02.10.2026 | [Nachtrag prüfen: Anspruchsgrund und Höhe bewerten](entwurf/2026-10-02-nachtrag-pruefen-grund-und-hoehe.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nachtrag-pruefen-grund-und-hoehe/) |
+| 02.10.2026 | [Gewährleistung am Bau: Fristen, Beginn, Hemmung](entwurf/2026-10-02-gewaehrleistung-bau-fristen-bgb-vob.md) | Grundlagen | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/gewaehrleistung-bau-fristen-bgb-vob/) |
 | 02.10.2026 | [Behinderungsanzeige nach § 6 Abs. 1 VOB/B: Musterschreiben](entwurf/2026-10-02-behinderungsanzeige-vob-b.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/behinderungsanzeige-vob-b/) |
 
 ## 🟢 Veröffentlicht (50)
