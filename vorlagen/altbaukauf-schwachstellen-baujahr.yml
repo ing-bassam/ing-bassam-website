@@ -1,0 +1,330 @@
+titel: Checkliste Altbaukauf
+untertitel: "Typische Schwachstellen nach Baujahr"
+kurzform: altbaukauf-schwachstellen-baujahr
+typ: Checkliste
+stand: 2026-10-02
+dateien: [pdf, pdf-ausfuellbar]
+einleitung: "Diese Checkliste führt Sie durch die Besichtigung eines Altbaus. Sie halten zuerst fest, was verbaut ist, und bewerten danach den Zustand in vier Stufen. Weil jedes Baualter eigene Schwachstellen und eigene Schadstoffe mitbringt, sagen die Hinweise zu jedem Punkt, woran Sie einen geringen von einem deutlichen Befund unterscheiden."
+kopffelder:
+  - Objekt und Anschrift
+  - Baujahr laut Verkäufer
+  - Datum und Uhrzeit der Besichtigung
+  - Wetter und Außentemperatur
+  - Anwesende Personen
+  - Angebotspreis und Wohnfläche
+bewertung:
+  stufen:
+    - {kurz: "o. B.", lang: "ohne Befund", beschreibung: "nichts Auffälliges erkennbar"}
+    - {kurz: "gering", lang: "geringer Befund", beschreibung: "vereinzelt und oberflächlich; beobachten und fotografieren"}
+    - {kurz: "deutlich", lang: "deutlicher Befund", beschreibung: "ausgedehnt, tiefgehend oder fortschreitend; Fachmann hinzuziehen"}
+    - {kurz: "n. p.", lang: "nicht prüfbar", beschreibung: "verdeckt, verstellt oder nicht zugänglich; nachfragen"}
+abschnitte:
+  - titel: Baualter und Bauweise feststellen
+    bewertung: false
+    punkte:
+      - text: Baualtersklasse des Gebäudes
+        auswahl: [bis 1918, 1919 bis 1948, 1949 bis 1978, 1979 bis 1995, ab 1996, unbekannt]
+        hinweis: "Das Baualter steuert alles Weitere. Gebäude bis 1918 haben meist dicke Vollziegelwände und oft keine Sperrschicht gegen aufsteigende Feuchte. Bauten der Jahre 1949 bis 1978 sind dünnwandiger und fast immer schlecht gedämmt. Lassen Sie sich das Baujahr aus den Unterlagen bestätigen."
+      - text: Bauweise der Außenwände
+        auswahl: [Vollziegel massiv, Hohlblock oder Leichtbeton, zweischalig mit Luftschicht, Fachwerk, Beton-Fertigteile, unbekannt]
+        hinweis: "Messen Sie die Wanddicke in der Fensterlaibung. Um 1900 waren Außenwände aus Vollziegeln von etwa 40 cm Dicke üblich. Dünnere Wände ab den 1950er Jahren bedeuten in der Regel mehr Wärmeverlust und kältere Innenoberflächen."
+      - text: Gemessene Wanddicke in der Fensterlaibung
+        auswahl: [unter 25 cm, 25 bis 36 cm, über 36 cm, nicht messbar]
+      - text: Unterkellerung
+        auswahl: [voll unterkellert, teilweise unterkellert, nicht unterkellert, unbekannt]
+      - text: Dachgeschoss
+        auswahl: [ausgebaut und beheizt, teilweise ausgebaut, nicht ausgebaut, unbekannt]
+      - text: "Umbauten, Anbauten und Aufstockungen sind mit Jahr benannt."
+        ja_nein: true
+        hinweis: "Fragen Sie gezielt nach dem Jahr jedes Eingriffs. Ein Umbau, bei dem Wände entfernt oder Decken geöffnet wurden, verändert Tragwerk, Schall- und Brandschutz."
+      - text: "Modernisierungen an Dach, Fenstern, Heizung, Elektro und Leitungen sind mit Jahresangabe belegt."
+        ja_nein: true
+        hinweis: "Ohne Jahresangabe ist ein Nachweis für die Kostenplanung wenig wert. Lassen Sie sich Rechnungen oder Abnahmeprotokolle zeigen."
+      - text: "Die Grundrisse stimmen mit dem überein, was vor Ort zu sehen ist."
+        ja_nein: true
+      - text: "Der Gebäudetyp ist notiert."
+        auswahl: [freistehendes Einfamilienhaus, Doppelhaushälfte, Reihenhaus, Mehrfamilienhaus, unbekannt]
+  - titel: Grundstück, Sockel und Entwässerung
+    notizen: 2
+    punkte:
+      - text: Geländeverlauf und Gefälle am Gebäude
+        hinweis: "Woran erkennen: Blick auf Pflaster und Erdreich entlang der Fassade. Gering: einzelne flache Stellen ohne Pfützen. Deutlich: Gefälle zum Haus hin, stehendes Wasser oder Erdreich über der Sockelkante."
+      - text: Sockelputz und Spritzwasserzone
+        hinweis: "Woran erkennen: untere 30 cm der Fassade ansehen. Gering: einzelne Abplatzungen, Putz sitzt fest. Deutlich: großflächig hohl klingender Putz, dunkle Feuchteränder oder weiße Salzausblühungen."
+      - text: Dachrinnen, Fallrohre und Einläufe
+        hinweis: "Woran erkennen: von unten entlang des Fallrohrs sehen. Gering: leichte Verschmutzung, Rinne liegt sauber. Deutlich: Rost, Löcher, lose Halter oder sichtbare Nässe an der Wand unterhalb eines Rohrs."
+      - text: Anschluss der Fallrohre an Kanal oder Versickerung
+        hinweis: "Woran erkennen: Übergang vom Rohr ins Erdreich. Gering: Anschluss vorhanden, Abdeckung lose. Deutlich: Rohr endet frei vor der Wand oder das Wasser versickert unmittelbar am Sockel."
+      - text: Lichtschächte, Kellerfenster und Kellerabgang
+        hinweis: "Woran erkennen: Schacht und Ablauf begutachten. Gering: Laub im Schacht. Deutlich: Schacht ohne Ablauf, Wasserränder im Schacht oder eine Türschwelle unterhalb des Geländes."
+      - text: Bewuchs und Bäume in Gebäudenähe
+        hinweis: "Woran erkennen: Abstand und Stammdicke. Gering: Sträucher an der Fassade. Deutlich: große Bäume dicht am Gebäude oder über Leitungstrassen; Wurzeln können erdberührte Bauteile und Leitungen beschädigen."
+      - text: Befestigte Flächen, Terrasse und Außentreppe
+        hinweis: "Woran erkennen: Gefälle und Anschluss an die Wand. Gering: einzelne lose Platten. Deutlich: Gefälle zum Gebäude, Setzungen oder ein Terrassenbelag, der höher liegt als die Abdichtung der Wand."
+      - text: Nebengebäude, Garage und Carport
+        hinweis: "Woran erkennen: Dach, Tor und Gründung ansehen. Gering: Verschleiß an Tor und Anstrich. Deutlich: Risse im Mauerwerk, durchfeuchtetes Dach oder fehlende Genehmigung für einen Anbau."
+  - titel: Keller und erdberührte Bauteile
+    notizen: 2
+    punkte:
+      - text: Bekannte Abdichtung gegen Feuchte aus dem Erdreich
+        auswahl: [keine bekannt, bauzeitliche Sperrschicht, nachträglich abgedichtet, unbekannt]
+        hinweis: "Bei Gebäuden aus der Zeit um 1900 fehlt eine waagerechte Sperrschicht im Mauerwerk häufig; Feuchteschäden im Sockelbereich sind dann ein typisches Bild. Fragen Sie nach Verfahren und Jahr einer nachträglichen Abdichtung."
+      - text: Geruch im Keller
+        hinweis: "Woran erkennen: bei geschlossenem Fenster riechen. Gering: leicht kühl-muffig in einem Raum. Deutlich: deutlich erdiger oder modriger Geruch im ganzen Keller; das deutet auf dauerhafte Feuchte hin."
+      - text: Feuchteränder an Kellerwänden
+        hinweis: "Woran erkennen: Wandfuß und Ecken, auch hinter Regalen. Gering: einzelne dunkle Stellen, Putz fest. Deutlich: durchgehender Feuchtesaum, der nach oben ausläuft, oder nasse Wandflächen."
+      - text: Salzausblühungen und Putzabplatzungen
+        hinweis: "Woran erkennen: weiße, pelzige Beläge und abfallender Putz. Gering: vereinzelte Ausblühungen. Deutlich: flächige Ausblühungen, abgesandeter Putz oder mürbe Fugen; Wasser hat Salze aus dem Mauerwerk gelöst."
+      - text: Kellerboden und Bodenanschluss
+        hinweis: "Woran erkennen: Boden abgehen, auf dunkle Flecken achten. Gering: feuchte Stelle nach starkem Regen. Deutlich: stehendes Wasser, Pfützenränder oder eine Pumpe, die regelmäßig läuft."
+      - text: Art der Kellerdecke
+        auswahl: [Gewölbe oder Kappendecke, Holzbalkendecke, Stahlbetondecke, unbekannt]
+        hinweis: "Bei Gewölben und Kappendecken tragen Stahlträger die Last; sie zeigen oft Korrosion. Eine Holzbalkendecke über einem feuchten Keller ist besonders gefährdet."
+      - text: Holzbauteile im Keller und Balkenköpfe in den Außenwänden
+        hinweis: "Woran erkennen: Treppen, Türstöcke und sichtbare Balkenenden abklopfen. Gering: oberflächlich vergraut. Deutlich: weiches Holz unter dem Daumendruck, würfelartig zerfallene Bruchstücke oder weiße Geflechte."
+      - text: Risse im Kellermauerwerk
+        hinweis: "Woran erkennen: Verlauf und Breite. Gering: feine Risse im Putz unter etwa 0,3 mm. Deutlich: Risse mit Versatz, treppenförmiger Verlauf über die Fugen oder Risse, die sich nach oben fortsetzen."
+      - text: "Die Lage des Grundstücks in einem Radon-Vorsorgegebiet ist geprüft."
+        ja_nein: true
+        hinweis: "Besonders betroffen sind Gebäude, die vor 1960 errichtet wurden, keine moderne Feuchteabdichtung haben und unterkellert sind. Auskunft geben die Länderbehörden; messen lässt sich Radon nur über mehrere Monate."
+  - titel: Außenwände, Fassade und Risse
+    notizen: 2
+    punkte:
+      - text: Risse in Putz und Mauerwerk
+        hinweis: "Woran erkennen: mit Münze oder Maßstab fotografieren. Gering: einzelne Haarrisse, bei Mauerwerk gelten Breiten unter etwa 0,3 mm im Allgemeinen nicht als Mangel. Deutlich: breitere Risse, Risse mit Versatz oder Risse, die durch Fenster- und Türecken laufen."
+      - text: Putzzustand und Hohlstellen
+        hinweis: "Woran erkennen: mit dem Fingerknöchel abklopfen. Gering: einzelne kleine Hohlstellen. Deutlich: großflächig hohl klingender Putz oder Putz, der sich ablöst; dann ist mit einer Fassadeninstandsetzung zu rechnen."
+      - text: Feuchte- und Algenflecken auf der Wetterseite
+        hinweis: "Woran erkennen: Nord- und Westseite ansehen. Gering: grünlicher Belag auf dem Putz. Deutlich: dauerhaft dunkle, feuchte Flächen oder Wasserränder unterhalb von Fenstern und Gesimsen."
+      - text: Vorhandene Fassadendämmung
+        auswahl: [keine, Wärmedämmverbundsystem, hinterlüftete Vorhangfassade, Kerndämmung, Innendämmung, unbekannt]
+        hinweis: "Eine Innendämmung ist bauphysikalisch heikel: Ungeeignet oder schlecht ausgeführt kann sie Holzbalkenköpfe in der Außenwand in kurzer Zeit zerstören. Fragen Sie nach Aufbau, Ausführungsjahr und Planung."
+      - text: Fassaden- oder Dachplatten mit Asbestverdacht
+        hinweis: "Woran erkennen: grau-zementartige Wellplatten oder kleinformatige Platten an Gebäuden mit Baubeginn vor dem 31. Oktober 1993. Gering: Platten unbeschädigt und beschichtet. Deutlich: gebrochene, verwitterte oder bemooste Platten. Nicht anbohren und nicht abschleifen."
+      - text: Fensterstürze, Gesimse und Fensterbänke
+        hinweis: "Woran erkennen: Unterseiten und Anschlüsse. Gering: Anstrich verwittert. Deutlich: Risse über dem Sturz, abgeplatzter Beton mit sichtbarem Rost oder fehlende Tropfkanten an Fensterbänken."
+      - text: Balkone, Loggien und Austritte
+        hinweis: "Woran erkennen: Unterseite und Geländerbefestigung. Gering: Haarrisse im Belag. Deutlich: Betonabplatzungen mit freiliegendem, rostendem Stahl, fehlendes Gefälle oder wackelnde Geländer."
+      - text: Vorhandene Risse sind mit Datum, Ort und Maßstab fotografiert.
+        ja_nein: true
+        hinweis: "Nur eine Verlaufsbeobachtung zeigt, ob ein Riss ruht oder sich weiter öffnet. Ein Foto mit Maßstab ist dafür der Anfang."
+      - text: Schornsteinkopf und Kaminverkleidung über Dach
+        hinweis: "Woran erkennen: vom Boden oder Nachbargrundstück aus. Gering: verwitterte Fugen. Deutlich: schiefer Kopf, lose Steine, abgeplatzter Putz oder fehlende Abdeckung."
+  - titel: Fenster, Türen und Lüftung
+    notizen: 2
+    punkte:
+      - text: Rahmenmaterial der Fenster
+        auswahl: [Holz, Holz-Kastenfenster, Kunststoff, Aluminium, gemischt, unbekannt]
+      - text: Art der Verglasung
+        auswahl: [Einfachglas, Kastenfenster zweischalig, Isolierglas zweifach, Isolierglas dreifach, unbekannt]
+        hinweis: "Das Herstellungsjahr des Glases steht oft als Zahl im Abstandhalter zwischen den Scheiben. Alte Fenster sind meist die kältesten Flächen der Hülle und zeigen Feuchte zuerst an."
+      - text: Zustand der Dichtungen und Beschläge
+        hinweis: "Woran erkennen: Flügel schließen, Dichtung drücken. Gering: Dichtung hart, Flügel schließt. Deutlich: Dichtung fehlt oder ist gerissen, Flügel schleift, Luftzug ist bei geschlossenem Fenster spürbar."
+      - text: Tauwasser und Schimmel an Laibungen, Fensterecken und Außenecken
+        hinweis: "Woran erkennen: Ecken hinter Vorhängen und Möbeln. Gering: punktuelle Stockflecken unter etwa 0,5 m². Deutlich: großflächiger oder wiederkehrender Befall. Nach dem Einbau dichter neuer Fenster verlagert sich der kälteste Punkt oft an die Außenecken des Mauerwerks."
+      - text: Anschlüsse von Fensterbänken und Laibungen außen
+        hinweis: "Woran erkennen: Fuge zwischen Fensterbank und Putz. Gering: Fuge gealtert. Deutlich: offene Fuge, fehlende seitliche Aufkantung oder Feuchtespuren unterhalb der Bank."
+      - text: Rollladenkästen und Rollläden
+        hinweis: "Woran erkennen: Kastendeckel öffnen, soweit er ohne Werkzeug zugänglich ist. Gering: Kasten ungedämmt, Gurt verschlissen. Deutlich: Zugluft, Schimmel im Kasten oder ein Kasten, der nicht geschlossen werden kann."
+      - text: Haustür und Nebeneingänge
+        hinweis: "Woran erkennen: Schließverhalten und Schwelle. Gering: Tür klemmt leicht. Deutlich: verzogenes Blatt, undichte Schwelle oder Feuchtespuren im Bodenbereich."
+      - text: Lüftungsmöglichkeit in Bad, Küche und innen liegenden Räumen
+        auswahl: [Fenster, Schacht ohne Ventilator, Abluftventilator, Lüftungsanlage, keine, unbekannt]
+        hinweis: "Fensterlose Bäder mit stillgelegtem Schacht sind ein bekannter Ausgangspunkt für Feuchteschäden. Prüfen Sie, ob der Ventilator läuft und wohin die Abluft geht."
+  - titel: Dach, Dachstuhl und Holzschädlinge
+    notizen: 2
+    punkte:
+      - text: Art der Dachkonstruktion
+        auswahl: [Sparren- oder Kehlbalkendach, Pfettendach, Flachdach, unbekannt]
+        hinweis: "Beim Sparrendach sehen Sie Sparren, Kehlbalken und Deckenbalken. Beim Pfettendach stehen zusätzlich Stuhlsäulen, Pfetten und Streben im Dachraum; sie stehen oft dort, wo man gern eine Wand entfernen würde."
+      - text: Art der Dacheindeckung
+        auswahl: [Tonziegel, Betondachstein, Faserzementplatten, Schiefer, Bitumen oder Metall, unbekannt]
+        hinweis: "Faserzementplatten an Gebäuden mit Baubeginn vor dem 31. Oktober 1993 sind asbestverdächtig. Platten weder reinigen noch bearbeiten; die Bewertung übernimmt eine Fachfirma."
+      - text: Zustand der Eindeckung von außen
+        hinweis: "Woran erkennen: vom Boden oder Nachbargrundstück, nie vom Dach aus. Gering: einzelne verschobene Ziegel, Moosbewuchs. Deutlich: fehlende Ziegel, durchhängende Flächen oder geflickte Bereiche ohne Nachweis."
+      - text: Unterdeckung oder Unterspannbahn
+        auswahl: [vorhanden und unbeschädigt, vorhanden und brüchig, nicht vorhanden, nicht einsehbar]
+        hinweis: "Bis in die Nachkriegsjahrzehnte wurden Dächer häufig ohne Unterdeckung gebaut. Fehlt sie, gelangt Flugschnee und Schlagregen bis auf die Dämmung."
+      - text: Wasserränder und nasse Stellen auf der Dachunterseite
+        hinweis: "Woran erkennen: Sparren, Schalung und Dämmung im Dachraum. Gering: alte, trockene Ränder ohne Ausdehnung. Deutlich: feuchte Stellen, tropfendes Wasser oder dunkle Verfärbungen an mehreren Sparren."
+      - text: Verformungen und Auflager des Dachtragwerks
+        hinweis: "Woran erkennen: Blick entlang First und Sparren, Auflager an der Außenwand. Gering: leichte Durchbiegung alter Hölzer. Deutlich: sichtbarer Knick, abgesackter First, ausgerissene Verbindungen oder feuchte Auflagerbereiche."
+      - text: Spuren holzzerstörender Insekten
+        hinweis: "Woran erkennen: Löcher, Bohrmehl und Kotballen. Gering: alte, verstaubte Löcher ohne frisches Mehl. Deutlich: ovale Ausschlupflöcher von etwa 4 mal 7 mm, walzenförmige Kotballen und frisches Bohrmehl; der Hausbock frisst dicht unter der Oberfläche und lässt nur dünne Wände stehen."
+      - text: Spuren holzzerstörender Pilze
+        hinweis: "Woran erkennen: weiße Geflechte, strangartige Gebilde, fleischige Fruchtkörper mit rotbrauner Schicht und weißem Rand. Gering: lokale Verfärbung an trockenem Holz. Deutlich: würfelartig gerissenes Holz, Myzel auf Mauerwerk oder Fruchtkörper. Der Echte Hausschwamm greift auch auf trockenes Holz über."
+      - text: Dämmung von Dachschräge und oberster Geschossdecke
+        auswahl: [keine, nur oberste Geschossdecke, Dachschräge gedämmt, beides gedämmt, unbekannt]
+        hinweis: "Eine ungedämmte oberste Geschossdecke ist nach dem Gebäudeenergierecht in der Regel nicht zulässig; die Pflicht kann den Käufer treffen. Lassen Sie vor dem Kauf klären, was zu tun ist."
+      - text: Dachentwässerung, Kehlen und Anschlüsse am Dach
+        hinweis: "Woran erkennen: Kehlbleche, Anschlüsse an Schornstein und Gauben. Gering: Anstrich oder Dichtstoff verwittert. Deutlich: Rost, offene Nähte, provisorisch verschmierte Anschlüsse oder Feuchtespuren darunter im Dachraum."
+  - titel: Decken, Innenwände und Treppen
+    notizen: 2
+    punkte:
+      - text: Art der Geschossdecken
+        auswahl: [Holzbalkendecke mit Schüttung, Einschubdecke mit Fehlboden, Kappendecke mit Stahlträgern, Stahlbetondecke, unbekannt]
+        hinweis: "Die Bauart verrät das Alter: Einschubdecken stammen typischerweise aus den Jahren 1870 bis 1930, Holzträgerdecken aus 1930 bis 1960, Kappendecken kommen ab 1900 vor. Holzbalkendecken tragen weniger Last und übertragen mehr Schall als Betondecken."
+      - text: Bauart der Innenwände
+        auswahl: [massiv, Trockenbau, gemischt, unbekannt]
+        hinweis: "Klopfprobe: Hohl klingende, leichte Wände sind meist Ständerwerk mit Beplankung. Das erleichtert den Umbau, verschlechtert aber den Schallschutz. Massive Wände können tragend sein und dürfen nicht ohne Statiker entfernt werden."
+      - text: Durchbiegung und Schwingen der Böden
+        hinweis: "Woran erkennen: in Raummitte auf- und abwippen. Gering: leichtes Federn bei alten Holzbalkendecken. Deutlich: deutliches Schwingen, klirrende Gläser im Schrank oder ein Boden, der sichtbar zur Mitte abfällt."
+      - text: Knarren, weiche Stellen und Hohlräume im Boden
+        hinweis: "Woran erkennen: Boden systematisch abgehen, auch an Außenwänden. Gering: Knarren an einzelnen Dielen. Deutlich: nachgebende, weiche Stellen, besonders an Wandanschlüssen unter Bädern oder an Außenwänden."
+      - text: Feuchteflecken an Decken und Wandanschlüssen
+        hinweis: "Woran erkennen: Räume unter Bädern, Küchen und Dachflächen. Gering: alter, trockener Rand mit scharfer Grenze. Deutlich: frische, dunkle oder sich ausbreitende Flecken, Blasen im Anstrich oder abgelöster Putz."
+      - text: Risse in Decken und an Wand-Decken-Anschlüssen
+        hinweis: "Woran erkennen: Verlauf im Streiflicht. Gering: feine Risse entlang der Anschlussfuge. Deutlich: lange, breite Risse quer zur Spannrichtung, Risse mit Versatz oder Risse, die sich über mehrere Geschosse fortsetzen."
+      - text: Hellhörigkeit und Trittschall
+        hinweis: "Woran erkennen: eine zweite Person geht im Raum darüber. Gering: Schritte leise hörbar. Deutlich: Sprache verständlich, Schritte dröhnen. Alte Holzbalkendecken erreichen den heutigen Schallschutz in der Regel nicht."
+      - text: Fliesen und starre Beläge auf Holzbalkendecken
+        hinweis: "Woran erkennen: Fugenbild und Klopfprobe. Gering: Haarrisse in einzelnen Fugen. Deutlich: gerissene oder hohl klingende Fliesen, besonders bei großen Spannweiten; starre Beläge auf Holzbalkendecken sind schadensanfällig."
+      - text: Treppen und Geländer
+        hinweis: "Woran erkennen: Stufen betreten, Geländer rütteln. Gering: Knarren, Verschleiß der Trittflächen. Deutlich: ausgetretene oder lose Stufen, wackelndes Geländer, zu niedrige Brüstung oder ausgerissene Befestigungen."
+  - titel: Bäder, Küche und Feuchträume
+    notizen: 2
+    punkte:
+      - text: Fugen an Wanne, Dusche und Bodenanschluss
+        hinweis: "Woran erkennen: Fuge mit dem Finger prüfen. Gering: Fuge vergilbt, aber geschlossen. Deutlich: offene, abgerissene oder schimmelige Fugen. Eine elastische Fuge ist keine Abdichtung; Wasser dahinter sieht man von außen nicht."
+      - text: Fliesen und Wandbeläge in Nassbereichen
+        hinweis: "Woran erkennen: Fliesen abklopfen. Gering: einzelne Haarrisse in der Glasur. Deutlich: hohl klingende oder lose Fliesen, dauerhaft feuchte Fugen, Ausblühungen am Fliesenrand."
+      - text: Vorhandene Abdichtung hinter den Fliesen ist bekannt.
+        ja_nein: true
+        hinweis: "In älteren Bädern fehlt eine Abdichtung unter den Fliesen häufig. Fragen Sie nach dem Jahr der letzten Badsanierung und danach, ob abgedichtet wurde."
+      - text: Feuchtespuren in Nachbarräumen und im Geschoss darunter
+        hinweis: "Woran erkennen: Wand- und Deckenflächen hinter dem Bad. Gering: einzelne alte Flecken. Deutlich: feuchte Wandfüße, abblätternder Putz oder Schimmel an der Rückseite der Badwand."
+      - text: Entlüftung des Bades und der Küche
+        hinweis: "Woran erkennen: Papier an das Lüftungsgitter halten. Gering: schwacher Sog. Deutlich: kein Sog, verschlossener Schacht oder ein Ventilator ohne Funktion."
+      - text: Sichtbare Anschlussleitungen und Eckventile
+        hinweis: "Woran erkennen: unter Waschtisch und Spüle sehen. Gering: Kalkspuren an Verschraubungen. Deutlich: grüne oder weiße Korrosion, feuchter Unterschrank, Wasserränder im Schrankboden."
+  - titel: Heizung, Warmwasser und Schornstein
+    notizen: 2
+    punkte:
+      - text: Art der Wärmeerzeugung
+        auswahl: [Gas, Öl, Holz oder Pellet, Fernwärme oder Wärmepumpe, Einzelöfen oder Nachtspeicher, unbekannt]
+        hinweis: "Notieren Sie zusätzlich, ob der Kessel ein Brennwert- oder ein Niedertemperaturgerät ist. Nachtspeicheröfen älterer Bauart können schwach gebundenen Asbest enthalten; Geräte nicht öffnen."
+      - text: "Das Baujahr des Wärmeerzeugers ist vom Typenschild notiert."
+        ja_nein: true
+        hinweis: "Das Typenschild sitzt meist seitlich oder innen an der Kesselverkleidung. Für alte Heizkessel kennt das Gebäudeenergierecht Betriebsverbote; die Pflicht kann beim Eigentümerwechsel auf den Käufer übergehen. Lassen Sie das vor dem Kauf prüfen."
+      - text: Zustand von Kessel, Brenner und Speicher
+        hinweis: "Woran erkennen: Verkleidung, Anschlüsse und Boden darunter. Gering: Staub und Gebrauchsspuren. Deutlich: Rostfahnen, Wasserspuren am Boden, Geruch nach Abgas oder Öl, provisorische Reparaturen."
+      - text: Wartungsnachweise und Bescheinigung des Schornsteinfegers liegen vor.
+        ja_nein: true
+      - text: Heizkörper, Thermostatventile und Rohrleitungen
+        hinweis: "Woran erkennen: Ventile drehen, Leitungen im Keller ansehen. Gering: alte, aber dichte Ventile. Deutlich: festsitzende Ventile, Rostspuren an Verschraubungen, ungedämmte Leitungen in unbeheizten Räumen."
+      - text: Art der Warmwasserbereitung
+        auswahl: [zentral über die Heizung, Durchlauferhitzer elektrisch, Gas-Durchlauferhitzer, Boiler, unbekannt]
+      - text: "Ein Öltank ist vorhanden; Lage und Zustand sind bekannt."
+        ja_nein: true
+        hinweis: "Fragen Sie nach Baujahr, letzter Prüfung und Auffangwanne. Ein stillgelegter Tank muss fachgerecht entleert und entsorgt werden; das ist ein eigener Kostenpunkt."
+      - text: Schornstein und Abgasanlage im Gebäude
+        hinweis: "Woran erkennen: Schornsteinwangen in Keller und Dachraum. Gering: alter Anstrich, Rußspuren an der Reinigungsöffnung. Deutlich: feuchte, versalzte Schornsteinwangen, Risse oder ein stillgelegter Zug ohne Abdeckung."
+  - titel: Elektro, Trinkwasser und Abwasser
+    notizen: 2
+    punkte:
+      - text: Ausstattung des Zählerschranks
+        auswahl: [alte Schraubsicherungen, Leitungsschutzschalter, Fehlerstrom-Schutzschalter, unbekannt]
+        hinweis: "Fehlerstrom-Schutzschalter sind die breiteren Schalter mit Prüftaste. Fehlen sie ganz, ist mit einer Erneuerung der Elektroinstallation zu rechnen."
+      - text: Steckdosen mit Schutzkontakt
+        hinweis: "Woran erkennen: Steckdosen in allen Räumen ansehen. Gering: einzelne alte Dosen ohne Schutzkontakt in Nebenräumen. Deutlich: durchgehend zweipolige Steckdosen ohne Schutzkontakt, besonders in Küche, Bad und Keller."
+      - text: Anzahl der Steckdosen und Stromkreise je Raum
+        hinweis: "Woran erkennen: Dosen zählen, Verteilerbeschriftung lesen. Gering: wenige Dosen, aber getrennte Kreise. Deutlich: ein Stromkreis für mehrere Räume, Mehrfachsteckdosen überall, sichtbare Aufputzprovisorien."
+      - text: "Die Erdung der Anlage ist bekannt und nicht über die Wasserleitung geführt."
+        ja_nein: true
+        hinweis: "Gebäude, die vor 1973 errichtet wurden, nutzten in der Regel die metallenen Wasserleitungen zur Erdung. Seit 1986 ist das nicht mehr erlaubt; Altanlagen mussten bis spätestens März 2002 umgebaut werden. Ein Elektrofachbetrieb klärt den Zustand."
+      - text: Werkstoff der Trinkwasserleitungen
+        auswahl: [Blei, verzinkter Stahl, Kupfer, Kunststoff, gemischt, unbekannt]
+        hinweis: "Bleileitungen wurden in der Hausinstallation bis 1973 verlegt; sie sind weich, grau und lassen sich mit dem Fingernagel ritzen. Für Blei im Trinkwasser gilt ein Grenzwert von 0,010 mg je Liter, den Bleileitungen in der Regel überschreiten."
+      - text: Wasserbeschaffenheit und Druck nach Stillstand
+        hinweis: "Woran erkennen: Hahn nach längerer Standzeit öffnen. Gering: kurz trübes Wasser. Deutlich: rostbraunes Wasser, deutlich schwacher Strahl oder stark schwankender Druck; das deutet auf verzinkte Stahlleitungen am Ende ihrer Nutzungsdauer hin."
+      - text: Abwasser- und Grundleitungen
+        hinweis: "Woran erkennen: Revisionsschacht, Geruch, Ablaufverhalten. Gering: träger Ablauf an einem Becken. Deutlich: Geruch aus Abläufen, Rückstau, Wasserspuren am Kellerboden. Eine Kamerabefahrung klärt den Zustand der Grundleitungen."
+      - text: "Die Zählerstände von Strom, Gas und Wasser sind mit Datum fotografiert."
+        ja_nein: true
+  - titel: Schadstoffverdacht nach Baujahr
+    bewertung: false
+    punkte:
+      - text: "Der Baubeginn liegt vor dem 31. Oktober 1993."
+        ja_nein: true
+        hinweis: "Seit dem 31. Oktober 1993 sind Herstellung, Inverkehrbringen und Verwendung von Asbest in Deutschland verboten. Liegt der Baubeginn davor, ist mit asbesthaltigen Bauprodukten zu rechnen."
+      - text: "Faserzementplatten an Dach, Fassade, Blumenkästen oder Fallrohren sind vorhanden."
+        ja_nein: true
+        hinweis: "Asbest wurde unter anderem in Platten für den Hochbau, Dach- und Fassadenplatten, Blumenkästen, Fallrohren und Kabelkanälen verwendet."
+      - text: "Alte Bodenbeläge, Fliesenkleber, Spachtelmassen oder Putze sind vorhanden."
+        ja_nein: true
+        hinweis: "Auch Putze, Spachtelmassen und Fliesenkleber können fest gebundenen Asbest enthalten. Vinyl-Asbest-Platten und Vinylbeläge der 1960er Jahre mit Trägerpappe gehören ebenfalls dazu."
+      - text: "Nachtspeicheröfen oder alte Elektroheizgeräte sind vorhanden."
+        ja_nein: true
+      - text: "Mineralwolle-Dämmung ist vorhanden und wurde vor 1996 eingebaut."
+        ja_nein: true
+        hinweis: "Bei Mineralwolle, die vor 1996 eingebaut wurde, ist grundsätzlich vom Verdacht eines krebserzeugenden Potenzials auszugehen. Alte Dämmung nicht ausbauen und nicht aufreißen."
+      - text: "Elastische Fugendichtmassen aus der Zeit von etwa 1955 bis 1975 sind vorhanden."
+        ja_nein: true
+        hinweis: "Dichtstoffmassen dieser Jahre können polychlorierte Biphenyle enthalten, die in die Raumluft übergehen. Betroffen sind oft Fugen an Fertigteilen, Fenstern und Treppenhäusern."
+      - text: "Parkettkleber, Teerpappe oder Gussasphaltestrich aus den 1960er bis 1970er Jahren sind vorhanden."
+        ja_nein: true
+        hinweis: "Teerhaltige Klebstoffe für Mosaik- und Stabparkett sowie Teerasphaltestriche können polycyclische aromatische Kohlenwasserstoffe enthalten; sie riechen oft deutlich nach Teer."
+      - text: "Der Dachstuhl oder sichtbares Bauholz wurde mit Holzschutzmitteln behandelt."
+        ja_nein: true
+        hinweis: "Pentachlorphenol und Lindan wurden früher in Innenräumen eingesetzt; auf dem Gebiet der ehemaligen DDR bis 1989 verbreitet an Dachbalken. Farbige Anstriche und ein typischer Geruch sind Anhaltspunkte."
+      - text: "Bleileitungen in der Hausinstallation sind nicht auszuschließen."
+        ja_nein: true
+      - text: "Verdächtige Bauteile wurden weder beprobt noch beschädigt."
+        ja_nein: true
+        hinweis: "Proben nehmen und bewerten ausschließlich Fachfirmen. Bohren, Schleifen oder Abschlagen setzt Fasern und Stäube frei."
+  - titel: Unterlagen, Nachweise und nächste Schritte
+    bewertung: false
+    punkte:
+      - text: "Der Energieausweis wurde spätestens bei der Besichtigung vorgelegt."
+        ja_nein: true
+        hinweis: "Beim Verkauf ist dem Kaufinteressenten ein Energieausweis spätestens bei der Besichtigung vorzulegen. Der Ausweis bezieht sich auf das gesamte Gebäude, auch beim Kauf einer Eigentumswohnung."
+      - text: "Grundbuchauszug mit der zweiten Abteilung liegt vor und ist gelesen."
+        ja_nein: true
+      - text: "Baugenehmigung, genehmigte Pläne, Baubeschreibung und Statik sind angefordert."
+        ja_nein: true
+      - text: "Nachweise über Modernisierungen liegen mit Jahr und Firma vor."
+        ja_nein: true
+      - text: "Die Wohnflächenberechnung liegt vor, und die Berechnungsgrundlage ist benannt."
+        ja_nein: true
+      - text: "Auskünfte aus Altlastenkataster und Baulastenverzeichnis sind eingeholt."
+        ja_nein: true
+      - text: "Alle Auffälligkeiten sind mit Datum, Raum und Maßstab fotografiert."
+        ja_nein: true
+      - text: "Die offenen Fragen an den Verkäufer sind schriftlich festgehalten."
+        ja_nein: true
+      - text: "Der Sanierungsbedarf ist nach Dringlichkeit geordnet: sofort, in den nächsten fünf Jahren, später."
+        ja_nein: true
+      - text: "Ein zweiter Termin bei Regen oder mit einer Fachperson ist vereinbart."
+        ja_nein: true
+auswertung:
+  - "Ein deutlicher Befund an Dachtragwerk, Decken, tragenden Wänden oder Gründung: vor dem Kauf einen Bausachverständigen hinzuziehen."
+  - "Hinweise auf holzzerstörende Pilze, also Myzel, Fruchtkörper oder würfelartig gerissenes Holz: Bereich nicht beräumen, Holzschutz-Fachfirma und Sachverständigen einschalten."
+  - "Zwei oder mehr deutliche Feuchtebefunde in Keller, Fassade und Dach: die Ursache gehört geklärt, bevor über den Preis gesprochen wird."
+  - "Mehrere Punkte mit nicht prüfbar in tragenden oder feuchtegefährdeten Bereichen: zweiten Termin mit Zugang zu Keller, Dachraum und Technikräumen vereinbaren."
+  - "Schadstoffverdacht bei Baubeginn vor dem 31. Oktober 1993: Umfang vor dem Kauf durch eine Fachfirma einschätzen lassen, weil Entsorgung und Schutzmaßnahmen die Sanierungskosten verändern."
+  - "Heizung, Elektroinstallation und Leitungen jeweils ohne Nachweis einer Erneuerung: diese drei Gewerke gemeinsam bewerten lassen, sie treffen meist zusammen an."
+hinweise:
+  - "Prüfen Sie nur, was ohne Werkzeug und ohne Gefahr zu sehen ist. Öffnen Sie keine Bauteile, bohren und schleifen Sie nicht und steigen Sie nicht auf das Dach oder auf ein Gerüst."
+  - "Bei Gasgeruch, Strom in feuchten Bereichen, Absturzgefahr, Verdacht auf Schadstoffe oder Zweifeln an der Standsicherheit verlassen Sie den Bereich und schalten Fachfirma, Netzbetreiber oder Behörde ein."
+  - "Betreten Sie Dachräume und Kellerbereiche nicht, wenn Holzbauteile weich sind oder Pilzbefall sichtbar ist; befallene Holzbalkendecken sind häufig nicht mehr voll tragfähig."
+  - "Ein zweiter Termin bei Regen zeigt Undichtigkeiten an Dach, Fassade und Sockel, die bei Trockenheit nicht auffallen."
+  - "Was Sie vor dem Kaufvertrag über Mängel erfahren, kann Ihre späteren Rechte beeinflussen. Lassen Sie offene Punkte vor dem Notartermin von einem Rechtsanwalt bewerten."
+  - "Diese Checkliste gibt den fachlichen Kenntnisstand zum Stand-Datum wieder. Sie ist keine Rechtsberatung und ersetzt keine Begutachtung des Einzelfalls."
+quellen:
+  - "Umweltbundesamt: Asbest. Verbot von Herstellung, Inverkehrbringen und Verwendung seit dem 31. Oktober 1993, abgerufen am 02.10.2026"
+  - "Berufsgenossenschaft der Bauwirtschaft: Häufige Fragen zu Asbest, abgerufen am 02.10.2026"
+  - "Umweltbundesamt: Ihr Recht auf bleifreies Trinkwasser, Grenzwert 0,010 mg/l seit dem 1. Dezember 2013, abgerufen am 02.10.2026"
+  - "Umweltbundesamt: Häufige Fragen bei Schimmelbefall, abgerufen am 02.10.2026"
+  - "Umweltbundesamt: Lindan (HCH), abgerufen am 02.10.2026"
+  - "Bundesamt für Strahlenschutz: Wann ist mein Haus besonders gefährdet, abgerufen am 02.10.2026"
+  - "VDE: Bei Umbauten in Gebäuden elektrische Sicherheit beachten, abgerufen am 02.10.2026"
+  - "Vismann, Ulrich (Hrsg.): Wendehorst Bautechnische Zahlentafeln, 37. Aufl. 2021, S. 1099"
+  - "Kaub, Siegmund: Schadstoffe im Bauwesen, 4. Aufl. 2024, S. 45"
+  - "Hestermann, Ulf; Rongen, Ludwig: Frick/Knöll Baukonstruktionslehre 2, 2018, S. 33 und S. 77"
+  - "Stahr, Michael (Hrsg.): Bausanierung, 7. Aufl. 2022, S. 109, S. 321 ff., S. 335 f., S. 472, S. 617 und S. 772"
+  - "Schulz, Joachim: Architektur der Bauschäden, 4. Aufl. 2020, S. 421 und S. 540 f."
+  - "Keldungs, Karl-Heinz u. a.: Leitfaden für Bausachverständige, 4. Aufl. 2018, S. 158"
+  - "Frössel, Frank: Risse in Gebäuden, 2. Aufl. 2025, S. 144 f."
+  - "Willems, Wolfgang M. u. a.: Schallschutz: Bauakustik, 2. Aufl. 2020, S. 413"
+  - "Willems, Wolfgang M. (Hrsg.): Lehrbuch der Bauphysik, 9. Aufl. 2022, S. 187"
+  - "Schmidt, Peter: Das novellierte Gebäudeenergiegesetz, 2025, S. 257"
