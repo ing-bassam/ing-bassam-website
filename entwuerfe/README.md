@@ -7,15 +7,17 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (5)
+## 🟡 Entwurf (7)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
 | 02.10.2026 | [Checkliste Wasserschaden – erste Schritte](entwurf/2026-10-02-wasserschaden-erste-schritte-dokumentation.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/wasserschaden-erste-schritte-dokumentation/) |
 | 02.10.2026 | [Schlussrechnung prüfen: Prüfliste für Auftraggeber](entwurf/2026-10-02-pruefliste-schlussrechnung.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/pruefliste-schlussrechnung/) |
+| 02.10.2026 | [Gebaut wie geplant, aber gegen die Baugenehmigung](entwurf/2026-10-02-planung-weicht-von-baugenehmigung-ab.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/planung-weicht-von-baugenehmigung-ab/) |
 | 02.10.2026 | [Nachtrag prüfen: Anspruchsgrund und Höhe bewerten](entwurf/2026-10-02-nachtrag-pruefen-grund-und-hoehe.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nachtrag-pruefen-grund-und-hoehe/) |
 | 02.10.2026 | [Gewährleistung am Bau: Fristen, Beginn, Hemmung](entwurf/2026-10-02-gewaehrleistung-bau-fristen-bgb-vob.md) | Grundlagen | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/gewaehrleistung-bau-fristen-bgb-vob/) |
 | 02.10.2026 | [Behinderungsanzeige nach § 6 Abs. 1 VOB/B: Musterschreiben](entwurf/2026-10-02-behinderungsanzeige-vob-b.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/behinderungsanzeige-vob-b/) |
+| 02.10.2026 | [Bautagebuch für Bauherren: Vorlage und Anleitung](entwurf/2026-10-02-bautagebuch-bauherren.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bautagebuch-bauherren/) |
 
 ## 🟢 Veröffentlicht (50)
 
