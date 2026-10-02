@@ -139,7 +139,7 @@ abschnitte:
           Abweichende Abrechnungsregeln gelten nur, wenn sie vereinbart sind.
       - text: Übermessungs- und Abzugsregeln sind richtig angewandt
         hinweis: >-
-          Übermessungsregeln bestimmen, welche Öffnungen und Flächen bei der
+          Übermessungsregeln bestimmen, welche Raum-, Flächen- und Längenmaße bei der
           Mengenermittlung nicht abgezogen werden; sie sollen den Abrechnungsaufwand
           verringern. kürzen: Abzüge wurden unterlassen, die die Regel des Gewerks
           ausdrücklich vorsieht.
@@ -148,8 +148,8 @@ abschnitte:
         hinweis: >-
           Weicht die ausgeführte Menge einer Position um nicht mehr als 10 v. H. vom
           Vertrag ab, gilt der vertragliche Einheitspreis. Erst darüber hinaus ist auf
-          Verlangen ein neuer Preis zu vereinbaren, bei Unterschreitung zugunsten des
-          Auftragnehmers, bei Überschreitung zugunsten des Auftraggebers.
+          Verlangen ein neuer Preis unter Berücksichtigung der Mehr- oder Minderkosten
+          zu vereinbaren, bei Überschreitung wie bei Unterschreitung des Mengenansatzes.
       - text: Mengen aus Abschlagsrechnungen sind nicht zusätzlich abgerechnet
       - text: Rechenprüfung der Einzel-, Titel- und Endsummen ist erfolgt
   - titel: 5 Positionen, Preise und Stundenlohn
@@ -259,8 +259,8 @@ abschnitte:
           Kann der Auftraggeber die Beseitigung eines Mangels verlangen, darf er nach der
           Abnahme einen angemessenen Teil der Vergütung zurückbehalten; angemessen ist in
           der Regel das Doppelte der für die Beseitigung erforderlichen Kosten. Die
-          Darlegungs- und Beweislast für die Höhe liegt beim Auftraggeber, deshalb Kosten
-          schätzen lassen und den Einbehalt schriftlich begründen.
+          Darlegungs- und Beweislast für die Höhe trägt der Auftragnehmer; der Auftraggeber
+          muss zunächst nur grob schätzen und den Einbehalt schriftlich begründen.
       - text: Gegenforderungen aus Ersatzvornahme oder Schadensersatz sind getrennt aufgeführt
         hinweis: >-
           Gegenforderungen können einbehalten werden; andere Einbehalte sind nur in den im
@@ -352,7 +352,7 @@ quellen:
   - "VOB/B in der Fassung der VOB-Gesamtausgabe 2019: § 2, § 14, § 15, § 16 und § 17"
   - "VOB/C, Abrechnungsregeln der Allgemeinen Technischen Vertragsbedingungen, ergänzend ATV DIN 18299"
   - "§ 650g Abs. 4 BGB (prüffähige Schlussrechnung), § 641 Abs. 3 BGB (Zurückbehaltung bei Mängeln)"
-  - "§ 14 Abs. 4 UStG (Pflichtangaben), § 13b UStG (Steuerschuldnerschaft des Leistungsempfängers)"
+  - "Umsatzsteuergesetz (Pflichtangaben in Rechnungen), § 13b UStG (Steuerschuldnerschaft des Leistungsempfängers)"
   - "§ 48 und § 48b EStG (Steuerabzug bei Bauleistungen, Freistellungsbescheinigung)"
   - "Saalbach/Viering/Zanner: Vergütung, Nachträge und Abrechnung nach Ansprüchen, 2023, S. 137 und S. 139"
   - "Würfele/Bielefeld/Gralla: Bauobjektüberwachung, 3. Aufl. 2017, S. 141 und S. 149"

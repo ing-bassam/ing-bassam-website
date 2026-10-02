@@ -20,7 +20,7 @@ notion_id: 3e5d96ad-00b4-8101-adb4-c7baa6422a26
 notion_url: https://app.notion.com/p/Pr-fliste-Schlussrechnung-3e5d96ad00b48101adb4c7baa6422a26
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1740
+wortzahl: 1779
 lesezeit: 9 Minuten
 fussnoten: 16
 quellen_geprueft: 5
@@ -55,7 +55,7 @@ Bei einem Vertrag mit VOB/B läuft die Frist parallel. Der Anspruch auf Schlussz
 
 Beim Einheitspreisvertrag liegt das Geld in den Mengen. Die für die Abrechnung notwendigen Feststellungen sind dem Fortgang der Leistung entsprechend möglichst gemeinsam vorzunehmen.[^1] Für Leistungen, die bei Weiterführung der Arbeiten nur schwer feststellbar sind, muss der Auftragnehmer rechtzeitig gemeinsame Feststellungen beantragen. Ein Aufmaß mit Datum und zwei Unterschriften ist deshalb mehr wert als jede spätere Diskussion. Fehlt es, bleiben verdeckte Bauteile dauerhaft nicht prüfbar.
 
-Die Mengen folgen festen Regeln, nicht der Geometrie. Die Allgemeinen Technischen Vertragsbedingungen der VOB/C enthalten je Gewerk eigene Abrechnungsregeln, ergänzend gilt die ATV DIN 18299 für alle Gewerke.[^5] Dazu gehören Übermessungsregeln: Öffnungen und Flächen, die bei der Mengenermittlung nicht abgezogen werden.[^6] Diese Regeln sollen den Abrechnungsaufwand verringern, sie sind kein Zugeständnis an eine Seite. Prüfen Sie deshalb gewerkeweise, ob Abzüge unterblieben sind, die die Regel vorsieht.
+Die Mengen folgen festen Regeln, nicht der Geometrie. Die Allgemeinen Technischen Vertragsbedingungen der VOB/C enthalten je Gewerk eigene Abrechnungsregeln, ergänzend gilt die ATV DIN 18299 für alle Gewerke.[^5] Dazu gehören Übermessungsregeln: Raum-, Flächen- und Längenmaße, die bei der Mengenermittlung nicht abgezogen werden.[^6] Diese Regeln sollen den Abrechnungsaufwand verringern, sie sind kein Zugeständnis an eine Seite. Prüfen Sie deshalb gewerkeweise, ob Abzüge unterblieben sind, die die Regel vorsieht.
 
 Eine Mengenabweichung kann den Preis ändern. Weicht die ausgeführte Menge einer Position um nicht mehr als 10 v. H. vom Vertrag ab, gilt der vertragliche Einheitspreis.[^7] Erst darüber hinaus ist auf Verlangen ein neuer Preis zu vereinbaren, bei Überschreitung wie bei Unterschreitung des Mengenansatzes. Diese Regel wirkt in beide Richtungen und wird von Auftraggebern oft übersehen. Rechnen Sie mindestens die größten Positionen und zwei zufällig gewählte nach, bevor Sie die Summen freigeben.
 
@@ -71,7 +71,7 @@ Stundenlohn ist der zweite Streitpunkt. Stundenlohnarbeiten werden nur vergütet
 
 Der häufigste und teuerste Fehler steckt in den Zahlungen. Legen Sie Ihre Zahlungsübersicht neben die Rechnung und prüfen Sie jede Abschlagszahlung mit Datum und Betrag. Ein Skonto braucht eine Vereinbarung mit berechenbarer Frist und Höhe; nicht vereinbarte Skontoabzüge sind nach der VOB/B unzulässig.[^10] Umlagen für Baustrom, Bauwasser oder Gerüst setzen Sie nur ab, wenn sie vereinbart sind. Gegenforderungen können einbehalten werden, andere Einbehalte nur in vertraglich oder gesetzlich vorgesehenen Fällen.
 
-Mängel und Mengen gehören getrennt. Kann der Auftraggeber die Beseitigung eines Mangels verlangen, darf er nach der Abnahme einen angemessenen Teil der Vergütung zurückbehalten.[^11] Angemessen ist in der Regel das Doppelte der für die Beseitigung erforderlichen Kosten. Die Last, diese Höhe darzulegen, liegt beim Auftraggeber. Lassen Sie die Kosten deshalb schätzen und begründen Sie den Einbehalt schriftlich, am besten nach anwaltlicher Prüfung der Mängelrüge.
+Mängel und Mengen gehören getrennt. Kann der Auftraggeber die Beseitigung eines Mangels verlangen, darf er nach der Abnahme einen angemessenen Teil der Vergütung zurückbehalten.[^11] Angemessen ist in der Regel das Doppelte der für die Beseitigung erforderlichen Kosten. Die Darlegungs- und Beweislast für die Höhe der voraussichtlichen Mangelbeseitigungskosten trägt der Auftragnehmer; der Auftraggeber muss zunächst nur grob schätzen.[^11] Lassen Sie die Kosten deshalb schätzen und begründen Sie den Einbehalt schriftlich, am besten nach anwaltlicher Prüfung der Mängelrüge.
 
 Zwei Posten werden regelmäßig vergessen. Empfängt ein Unternehmer eine Bauleistung, sind 15 Prozent der Gegenleistung einzubehalten und an das Finanzamt abzuführen.[^12] Der Abzug entfällt bei einer gültigen Freistellungsbescheinigung oder unterhalb der Bagatellgrenzen. Beim Sicherheitseinbehalt darf die Zahlung um höchstens 10 v. H. gekürzt werden, bis die vereinbarte Summe erreicht ist.[^13] Der einbehaltene Betrag ist mitzuteilen und binnen 18 Werktagen auf ein Sperrkonto einzuzahlen, über das beide nur gemeinsam verfügen.
 
@@ -87,7 +87,7 @@ Ein Rest bleibt immer korrigierbar. Die Ausschlussfristen gelten nicht für ein 
 
 Eine Schlussrechnung prüfen heißt messen, rechnen und vergleichen. Das kostet Zeit, und der Aufwand steigt mit der Zahl der Gewerke. Eigene Prüfung lohnt bei kleinen Aufträgen mit klaren Positionen und vollständigem Aufmaß. Fachliche Hilfe lohnt, wenn Aufmaße fehlen, wenn Nachträge einen großen Teil der Summe ausmachen oder wenn verdeckte Bauteile im Streit stehen.
 
-Ein Bauingenieur prüft dabei die technische Seite. Er liest Aufmaße gegen Pläne, wendet die Abrechnungsregeln des Gewerks an, rechnet Mengen nach und bewertet, ob eine Nachtragsleistung schon im Bausoll steckt. Für Mängel schätzt er die Beseitigungskosten, die Sie für einen Einbehalt darlegen müssen. Die rechtliche Bewertung von Ansprüchen, Fristen und Klauseln bleibt Sache eines Rechtsanwalts.
+Ein Bauingenieur prüft dabei die technische Seite. Er liest Aufmaße gegen Pläne, wendet die Abrechnungsregeln des Gewerks an, rechnet Mengen nach und bewertet, ob eine Nachtragsleistung schon im Bausoll steckt. Für Mängel schätzt er die Beseitigungskosten. Die rechtliche Bewertung von Ansprüchen, Fristen und Klauseln bleibt Sache eines Rechtsanwalts.
 
 Im laufenden Projekt gehört die Rechnungsprüfung zur [Objektüberwachung in der Leistungsphase 8](https://ing-bassam.de/#leistung-objektueberwachung), also zur Überwachung der Bauausführung. Wer kein eigenes Baumanagement hat, kann die Prüfung auch im Rahmen einer [Bauherrenvertretung](https://ing-bassam.de/#kontakt) vergeben. In beiden Fällen gilt: Wer Aufmaße schon während der Bauzeit gemeinsam feststellt, prüft die Schlussrechnung am Ende in Stunden statt in Wochen.
 
@@ -103,11 +103,11 @@ Fordern Sie die Mengenberechnungen und Abrechnungszeichnungen schriftlich nach u
 
 **Darf ich die Zahlung wegen Mängeln ganz verweigern?**
 
-Nach der Abnahme können Sie einen angemessenen Teil der Vergütung zurückbehalten, in der Regel das Doppelte der Mangelbeseitigungskosten.[^11] Das ist ein Einbehalt und keine Kürzung: Der Betrag entfällt nicht, er wird nur zurückgehalten. Die Höhe müssen Sie darlegen, deshalb gehört eine Kostenschätzung dazu. Ob und in welchem Umfang das Recht im Einzelfall besteht, beurteilt ein Rechtsanwalt.
+Nach der Abnahme können Sie einen angemessenen Teil der Vergütung zurückbehalten, in der Regel das Doppelte der Mangelbeseitigungskosten.[^11] Das ist ein Einbehalt und keine Kürzung: Der Betrag entfällt nicht, er wird nur zurückgehalten. Die Höhe müssen Sie zunächst nur grob schätzen, deshalb gehört eine Kostenschätzung dazu. Ob und in welchem Umfang das Recht im Einzelfall besteht, beurteilt ein Rechtsanwalt.
 
 **Muss der Auftragnehmer die Schlussrechnung in einer bestimmten Zeit stellen?**
 
-Nach der VOB/B muss die Schlussrechnung bei einer vertraglichen Ausführungsfrist von höchstens 3 Monaten spätestens 12 Werktage nach Fertigstellung eingereicht werden. Die Frist verlängert sich um je 6 Werktage für je weitere 3 Monate Ausführungsfrist. Reicht der Auftragnehmer trotz angemessener Fristsetzung keine prüfbare Rechnung ein, kann der Auftraggeber sie auf dessen Kosten selbst aufstellen.[^16]
+Nach der VOB/B muss die Schlussrechnung bei einer vertraglichen Ausführungsfrist von höchstens 3 Monaten spätestens 12 Werktage nach Fertigstellung eingereicht werden, wenn nichts anderes vereinbart ist. Die Frist verlängert sich um je 6 Werktage für je weitere 3 Monate Ausführungsfrist. Reicht der Auftragnehmer trotz angemessener Fristsetzung keine prüfbare Rechnung ein, kann der Auftraggeber sie auf dessen Kosten selbst aufstellen.[^16]
 
 ## Hinweis
 
@@ -123,8 +123,8 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 [^1]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 154. ISBN 978-3-410-61299-5. Zur Ausgabe inhaltlich bestätigt durch: DIN Media: VOB 2019 – All changes at a glance. https://www.dinmedia.de/en/topics/vob-2019 (abgerufen am 2026-10-02).
 [^2]: Würfele, Falk; Bielefeld, Bert; Gralla, Mike: Bauobjektüberwachung. Kosten - Qualitäten - Termine - Organisation - Leistungsinhalt - Rechtsgrundlagen - Haftung - Vergütung. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2017, S. 149. ISBN 978-3-658-10039-1.
-[^3]: Saalbach, Birthe; Viering, Markus G.; Zanner, Christian: Vergütung, Nachträge und Abrechnung nach Ansprüchen. Entscheidungshilfen für Auftraggeber, Planer und Bauunternehmer. Wiesbaden: Springer Fachmedien Wiesbaden, 2023, S. 139. ISBN 978-3-658-21667-2. Inhaltlich bestätigt durch: IHK Pfalz: Neuerungen im Bauvertragsrecht. https://www.ihk.de/pfalz/recht/recht/neuerungen-bauvertragsrecht-3950344 (abgerufen am 2026-10-02).
-[^4]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 156. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: IHK Südlicher Oberrhein: Werkvertragsrecht. https://www.ihk.de/freiburg/unternehmen-beraten/recht-steuern/vertragsrecht/werkvertragsrecht-6797914 (abgerufen am 2026-10-02).
+[^3]: Saalbach, Birthe; Viering, Markus G.; Zanner, Christian: Vergütung, Nachträge und Abrechnung nach Ansprüchen. Entscheidungshilfen für Auftraggeber, Planer und Bauunternehmer. Wiesbaden: Springer Fachmedien Wiesbaden, 2023, S. 139. ISBN 978-3-658-21667-2.
+[^4]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 156. ISBN 978-3-410-61299-5.
 [^5]: Wellner, Kristin; Scholz, Stefan (Hrsg.): Architekturpraxis Bauökonomie. Grundlagenwissen für die Planungs-, Bau- und Nutzungsphase sowie Wirtschaftlichkeit im Planungsbüro. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2023, S. 155. ISBN 978-3-658-41249-4.
 [^6]: Bielefeld, Bert; Becker, Pecco (Hrsg.): Kommentar zur VOB/C. mit Bildbeispielen für Ausschreibung und Abrechnung. 20. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 742. ISBN 978-3-658-47881-0.
 [^7]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 140. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Jürgens, Frederic: Bildung des Einheitspreises bei Mengenminderung. BauPortal 1/2022, Berufsgenossenschaft der Bauwirtschaft. https://bauportal.bgbau.de/bauportal-12022/service/recht/bildung-des-einheitspreises-bei-mengenminderung (abgerufen am 2026-10-02).
@@ -133,7 +133,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^10]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 156 f. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Rode, Bernd; Weller, Wolfgang: AVA-Handbuch. Ausschreibung - Vergabe - Abrechnung - Haftung. 11. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 99. ISBN 978-3-658-48052-3.
 [^11]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 149. ISBN 978-3-658-32822-1. Inhaltlich bestätigt durch: Bauherren-Schutzbund: Bei Baumängeln dürfen Bauherren Zahlungen verweigern. https://www.bsb-ev.de/politik-presse/presseservice/expertentipps/bei-baumaengeln-duerfen-bauherren-zahlungen-verweigern (abgerufen am 2026-10-02).
 [^12]: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 152. ISBN 978-3-658-47553-6. Inhaltlich bestätigt durch: IHK Region Stuttgart: Bauabzugsbesteuerung – Hinweise zur Funktionsweise. https://www.ihk.de/stuttgart/fuer-unternehmen/recht-und-steuern/steuerrecht/einkommen-und-koerperschaftssteuer/bauabzugsbesteuerung-676426 (abgerufen am 2026-10-02).
-[^13]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 158. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Zanner, Christian: VOB/B nach Ansprüchen. Entscheidungshilfen für Auftraggeber, Planer und Bauunternehmen. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 185. ISBN 978-3-658-34025-4.
+[^13]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 158. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Zanner, Christian: VOB/B nach Ansprüchen. Entscheidungshilfen für Auftraggeber, Planer und Bauunternehmen. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 272. ISBN 978-3-658-34025-4.
 [^14]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 156. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 115. ISBN 978-3-658-32822-1.
 [^15]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 157. ISBN 978-3-410-61299-5.
 [^16]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 154. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 346. ISBN 978-3-658-47553-6.
