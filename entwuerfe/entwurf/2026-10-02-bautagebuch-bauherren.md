@@ -45,9 +45,9 @@ Zwei Abschnitte der Vorlage bewerten Sie in Stufen. Ohne Befund heißt, dass nic
 
 Alle übrigen Abschnitte sind Eintragsfelder mit Platz für Bemerkungen und Notizzeilen. Unterschreiben Sie das Blatt am Ende selbst. Lässt sich die Bauleitung oder das Unternehmen zur Gegenzeichnung bewegen, gewinnt der Eintrag an Gewicht. In der klassischen Baustellenpraxis wird das Bautagebuch dem Bauherrn zur Prüfung übergeben und in der Regel von beiden Seiten unterschrieben.[^5] Genau daraus bezieht es seine Bedeutung für die Beweissicherung.
 
-## Verdeckte Leistungen sind der letzte Tag mit Einsicht
+## Verdeckte Leistungen: der letzte Tag mit Einsicht
 
-Ein verdeckter Mangel ist ein Mangel, der bei der Abnahme durch den Baufortschritt verdeckt und deshalb nicht mehr zugänglich ist. Für den Bauherrn liegt darin ein erhebliches Risiko, wenn vor der Überbauung niemand den Zustand gemeinsam geprüft hat.[^6] Der Grund ist einfach: Nach dem Verfüllen oder Verputzen lässt sich der Mangel nur unter erschwerten Bedingungen oder gar nicht mehr feststellen. Deshalb hat die Vorlage für diese Leistungen einen eigenen Abschnitt.
+Ein verdeckter Mangel ist ein Mangel, der bei der Abnahme durch den Baufortschritt verdeckt und deshalb nicht mehr zugänglich ist. Für den Bauherrn liegt darin ein nicht unerhebliches Risiko, wenn vor der Überbauung niemand den Zustand gemeinsam geprüft hat.[^6] Der Grund ist einfach: Nach dem Verfüllen oder Verputzen lässt sich der Mangel nur unter erschwerten Bedingungen oder gar nicht mehr feststellen. Deshalb hat die Vorlage für diese Leistungen einen eigenen Abschnitt.
 
 Ist die VOB/B vereinbart, können Sie verlangen, dass der Zustand von Teilen der Leistung gemeinsam festgestellt wird, bevor die weitere Ausführung sie der Prüfung entzieht. Das Ergebnis wird schriftlich festgehalten.[^2] Gedacht ist das für Fälle wie Betondecken vor dem Aufbringen des Estrichs oder Rohrleitungen vor dem Wiederverfüllen. Ob dieses Recht in Ihrem Vertrag gilt und wie Sie es geltend machen, beurteilt ein Rechtsanwalt. Ohne VOB/B bleibt Ihnen der eigene Eintrag mit Fotos, und der ist besser als nichts.
 
@@ -85,7 +85,7 @@ Mit der Abnahme kehrt sich die Beweislast für Mängel grundsätzlich um, sofern
 
 Ein Bautagebuch ersetzt keine Bauüberwachung. Wer eine Objektüberwachung beauftragt, kauft die Dokumentation des Bauablaufs als Grundleistung mit ein; die Honorarordnung für Architekten und Ingenieure nennt dort ausdrücklich das Bautagebuch als Beispiel.[^14] Als Bauherr dürfen Sie dieses Bautagebuch jederzeit einsehen und bei Streitfragen als Beweismittel heranziehen.[^15] Fragen Sie früh danach, nicht erst im Streit.
 
-Es gibt Punkte, an denen das Beobachten nicht mehr genügt. Dazu gehören Risse mit Versatz, Wasser in Dämmschichten, verletzte Abdichtungen und Zweifel am Tragwerk. Dazu gehört auch der Verdacht, dass eine Leistung nicht der Baubeschreibung entspricht. Eine [baubegleitende Qualitätskontrolle](https://ing-bassam.de/#kontakt) sieht sich solche Bauabschnitte an, bevor sie geschlossen werden. Verbraucherschutzverbände dokumentieren dabei jeden Termin mit Text und Bild.[^16] Ein Sachverständiger öffnet keine Bauteile ohne Auftrag, ordnet aber ein, was Sie gesehen haben.
+Es gibt Punkte, an denen das Beobachten nicht mehr genügt. Dazu gehören Risse mit Versatz, Wasser in Dämmschichten, verletzte Abdichtungen und Zweifel am Tragwerk. Dazu gehört auch der Verdacht, dass eine Leistung nicht der Baubeschreibung entspricht. Eine [baubegleitende Qualitätskontrolle](https://ing-bassam.de/#kontakt) sieht sich solche Bauabschnitte an, bevor sie geschlossen werden. Der Bauherren-Schutzbund dokumentiert dabei jeden Termin mit Text und Bild.[^16] Ein Sachverständiger öffnet keine Bauteile ohne Auftrag, ordnet aber ein, was Sie gesehen haben.
 
 ## Häufige Fragen
 
