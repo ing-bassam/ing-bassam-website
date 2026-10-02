@@ -1,0 +1,226 @@
+titel: Checkliste Wasserschaden
+untertitel: Erste Schritte, Schadenumfang und Dokumentation für die Versicherung
+kurzform: wasserschaden-erste-schritte-dokumentation
+typ: Checkliste
+stand: 2026-10-02
+dateien: [pdf]
+einleitung: >-
+  Mit dieser Checkliste arbeiten Sie einen Wasserschaden in der Reihenfolge ab, in der
+  es darauf ankommt: zuerst Gefahr abwenden und Wasser stoppen, dann den Schaden
+  begrenzen, fotografieren und Raum für Raum erfassen, danach melden, trocknen und
+  belegen. Tragen Sie oben Objekt, Versicherung und Zeitpunkte ein. Die Bauteile
+  bewerten Sie in vier Stufen; am Ende steht, was die Befunde bedeuten.
+kopffelder:
+  - Objekt und Anschrift
+  - Wohnung, Einheit oder Gebäudeteil
+  - Eigentümer, Mieter oder Verwaltung
+  - Versicherung und Nummer des Versicherungsscheins
+  - Schadennummer des Versicherers
+  - Schaden entdeckt am, Uhrzeit
+  - Wasser abgesperrt am, Uhrzeit
+  - Ausgefüllt von, Datum
+bewertung:
+  stufen:
+    - {kurz: "o. B.", lang: "ohne Befund", beschreibung: "trocken, nichts Auffälliges erkennbar"}
+    - {kurz: "gering", lang: "geringer Befund", beschreibung: "oberflächlich feucht, kleine Fläche – festhalten und beobachten"}
+    - {kurz: "deutlich", lang: "deutlicher Befund", beschreibung: "nass, durchfeuchtet oder großflächig – fachlich prüfen lassen"}
+    - {kurz: "n. p.", lang: "nicht prüfbar", beschreibung: "verdeckt oder nicht zugänglich – Fachfirma oder Sachverständigen einbeziehen"}
+abschnitte:
+  - titel: "Sofort: Gefahr abwenden und Wasser stoppen"
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Wasserzufuhr abgesperrt
+        auswahl: [Haupthahn, Eckventil oder Teilstrang, Heizungsnachspeisung, noch nicht abgesperrt]
+        hinweis: "Bei einem Leitungswasserschaden zuerst den Haupthahn schließen. Er sitzt meist im Keller oder im Hausanschlussraum neben dem Wasserzähler. Lässt sich das Ventil nicht bewegen, nicht mit Werkzeug nachhelfen, sondern Installateur oder Verwaltung rufen."
+      - text: Strom in den betroffenen Bereichen abgeschaltet
+        ja_nein: true
+        hinweis: "Nasse Räume nur betreten, wenn Strom und Gas abgeschaltet sind. Wasser an Steckdosen, Verteilern oder Leuchten bedeutet Lebensgefahr. Schalten Sie den betroffenen Stromkreis ab, arbeiten Sie aber nie selbst an der Anlage; das gehört in die Hand einer Elektrofachkraft."
+      - text: Personen und Tiere aus dem Gefahrenbereich gebracht, Räume gesichert
+        ja_nein: true
+        hinweis: "Durchnässte Decken können sich absenken oder herabfallen. Bei Gasgeruch, Wasser in Elektroverteilern oder durchhängenden Decken verlassen Sie den Bereich und rufen Feuerwehr, Netzbetreiber oder Fachfirma."
+      - text: Wasseraustritt steht still
+        auswahl: [vollständig gestoppt, läuft noch, unklar]
+        hinweis: "Prüfen Sie nach dem Absperren, ob der Wasserzähler stillsteht, wenn alle Zapfstellen geschlossen sind. Läuft er weiter, fließt noch Wasser in der Installation."
+      - text: Notdienst, Installateur oder Verwaltung verständigt, Zeitpunkt notiert
+        ja_nein: true
+        hinweis: "Halten Sie fest, wen Sie wann erreicht haben und was vereinbart wurde. Diese Zeiten braucht später jeder, der den Ablauf nachvollziehen soll."
+  - titel: Schaden begrenzen und Werte sichern
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Stehendes Wasser aufgenommen oder abgepumpt
+        ja_nein: true
+        hinweis: "Die Schadenminderung geht der Dokumentation vor. Fotografieren Sie dabei, soweit es ohne Zeitverlust geht, und spätestens unmittelbar danach."
+      - text: Möbel, Hausrat, Unterlagen und Elektrogeräte aus dem Nassbereich gebracht
+        ja_nein: true
+        hinweis: "Holzmöbel und Kartons saugen Wasser aus dem Boden hoch. Stellen Sie Möbel auf Klötze oder tragen Sie sie heraus. Nass gewordene Elektrogeräte nicht wieder einschalten."
+      - text: Betroffene Räume gelüftet und, soweit möglich, beheizt
+        ja_nein: true
+        hinweis: "Warme Luft nimmt mehr Feuchte auf als kalte. Lüften und Heizen ist eine erste Maßnahme, ersetzt aber keine technische Trocknung."
+      - text: Jede Sofortmaßnahme mit Datum, Uhrzeit und Beteiligten notiert
+        ja_nein: true
+        hinweis: "Sie müssen dafür sorgen, dass der Schaden so gering wie möglich bleibt. Was Sie dafür getan haben, sollten Sie belegen können."
+  - titel: Woher kam das Wasser
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Herkunft des Wassers
+        auswahl: [Leitungswasser, Abwasser oder Rückstau, Niederschlag oder Starkregen, Löschwasser, Grundwasser, unbekannt]
+        hinweis: "Die Herkunft entscheidet über die Zuständigkeit. Leitungswasser ist Wasser, das bestimmungswidrig aus Rohren, Schläuchen oder angeschlossenen Einrichtungen austritt. Schäden durch Starkregen, Überschwemmung und Rückstau sind nur mit zusätzlichem Elementarschutz versichert. Abwasser bringt zusätzlich eine Hygienefrage mit."
+      - text: Austrittsstelle liegt
+        auswahl: [in der eigenen Einheit, in einer anderen Einheit, im Gemeinschaftsbereich, außerhalb des Gebäudes, unbekannt]
+        hinweis: "Halten Sie den Ort des Wasseraustritts fest, auch wenn die Ursache noch offen ist."
+      - text: Betroffene Leitungsart
+        auswahl: [Trinkwasser, Heizung, Abwasser, Regenwasser, unbekannt]
+        hinweis: "Heizungswasser ist oft gefärbt und riecht metallisch. Abwasser erkennen Sie am Geruch und an Rückständen; hier gehört die Reinigung in fachkundige Hände."
+      - text: Leitungsmaterial und Verlegung, soweit sichtbar
+        auswahl: [sichtbar verlegt, unter Putz, im Fußboden, in Schacht oder Vorwand, unbekannt]
+        hinweis: "Offen verlegte Leitungen lassen sich schnell prüfen. Verdeckte Leitungen sind der Grund, dass eine Leckage oft erst spät entdeckt wird; dann ist meist schon viel Wasser in den Bauteilen."
+      - text: Alter der Installation
+        auswahl: ["unter 10 Jahre", "10 bis 30 Jahre", "über 30 Jahre", unbekannt]
+        hinweis: "Installationsfehler gelten als häufigste Ursache von Leitungswasserschäden. Nach mehreren Jahrzehnten Betrieb kommen Alterungsschäden hinzu. Das Alter steht in den Bauunterlagen oder in Rechnungen früherer Arbeiten."
+  - titel: Schaden dokumentieren, bevor aufgeräumt wird
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Übersichtsfotos jedes betroffenen Raumes vor dem Aufräumen
+        ja_nein: true
+        hinweis: "Machen Sie die Fotos, bevor Sie weitere Maßnahmen einleiten oder mit den Aufräumarbeiten beginnen. Später lässt sich der Zustand nicht wiederherstellen."
+      - text: Detailfotos der Austrittsstelle und der nassen Bauteile mit Maßstab im Bild
+        ja_nein: true
+        hinweis: "Legen Sie einen Zollstock oder ein Lineal daneben. Fotografieren Sie auch die Höhe, bis zu der Wände sichtbar feucht sind, und markieren Sie diese Linie mit Bleistift."
+      - text: Datum und Uhrzeit der Aufnahmen gesichert
+        ja_nein: true
+        hinweis: "Prüfen Sie, dass die Kamera oder das Telefon Datum und Uhrzeit richtig stellt. Ein Rundgang per Video mit gesprochenem Kommentar ergänzt die Einzelbilder gut."
+      - text: Beschädigte Gegenstände aufgelistet und aufbewahrt
+        ja_nein: true
+        hinweis: "Werfen Sie nichts vorschnell weg. Notieren Sie je Gegenstand Bezeichnung, Alter und Anschaffungswert und fotografieren Sie ihn, bevor er entsorgt wird."
+      - text: Zählerstände von Wasser und Strom notiert
+        ja_nein: true
+        hinweis: "Der Wasserzähler zeigt, wie viel Wasser ausgetreten ist; viele Versorger erstatten die Abwassergebühr dafür auf Antrag. Der Stromzählerstand dient später der Abrechnung der Trocknungsgeräte."
+  - titel: Schadenumfang je Raum und Bauteil
+    notizen: 2
+    punkte:
+      - text: Bodenaufbau in den betroffenen Räumen
+        auswahl: [Estrich auf Dämmschicht, Estrich im Verbund, Holzbalkendecke, unbekannt]
+        hinweis: "Ein schwimmender Estrich liegt auf einer Dämmschicht; an der Randfuge sehen Sie den Aufbau. Steht Wasser in dieser Dämmschicht, genügen aufgestellte Entfeuchtungsgeräte nicht – die Schicht muss gezielt durchströmt werden."
+      - text: Wandbauart in den betroffenen Räumen
+        auswahl: [massiv mit Putz, Trockenbau mit Gipskarton, gemischt, unbekannt]
+        hinweis: "Klopfprobe: hohl und leicht klingende Wände sind meist Trockenbau. Durchnässte Gipskartonplatten und ökologische Dämmstoffe gelten als anfällig für mikrobiellen Befall und werden häufig ausgebaut statt getrocknet."
+      - text: Bodenbelag und Estrich
+        hinweis: "Woran erkennen: Belag ansehen, Fliesen mit dem Knöchel abklopfen, Randfuge prüfen. Gering: einzelne feuchte Stellen, die abtrocknen. Deutlich: aufgewölbtes Parkett, hohl klingende Flächen, Wasser tritt an der Randfuge aus."
+      - text: Dämmschicht unter dem Estrich
+        hinweis: "Woran erkennen: an der geöffneten Randfuge oder an einem Revisionspunkt. Gering: feuchte Fuge ohne stehendes Wasser. Deutlich: Wasser läuft heraus, Geräusch beim Gehen, dauerhaft feuchte Sockelbereiche. Oft nicht prüfbar – dann messen lassen."
+      - text: Wandflächen im Sockelbereich und Wandanschlüsse
+        hinweis: "Woran erkennen: Handfläche an die Wand legen, auf dunkle Säume achten. Gering: schmaler feuchter Streifen über dem Boden. Deutlich: Feuchte steigt mehrere Dezimeter hoch, Putz löst sich, Tapete wirft Blasen."
+      - text: Decke und Wände im Raum unter dem Schaden
+        hinweis: "Woran erkennen: den Raum darunter betreten und die Decke ansehen. Gering: einzelner heller Rand, trocken und scharf begrenzt. Deutlich: nasse Flecken, Tropfwasser, abfallender Putz, durchhängende Platten – Bereich räumen."
+      - text: Holzbauteile, Balkenlagen, Dielen und Treppen
+        hinweis: "Woran erkennen: Geruch, weiche Stellen, Verformungen. Gering: oberflächlich feuchtes Holz, das abtrocknet. Deutlich: dauerhaft nasses Holz, weißliches oder bräunliches Geflecht, nachgebende Bretter. Von Pilzen befallene Holzbalkendecken sind oft nicht mehr voll tragfähig und müssen unverzüglich abgestützt werden."
+  - titel: Melden und Weisungen einholen
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Schaden dem Versicherer gemeldet, Schadennummer notiert
+        ja_nein: true
+        hinweis: "Melden Sie den Schaden sofort und wahrheitsgemäß. Notieren Sie Datum, Uhrzeit, Weg der Meldung und die Schadennummer."
+      - text: Nächste Schritte mit dem Versicherer besprochen, bevor Bauteile ausgebaut oder entsorgt werden
+        ja_nein: true
+        hinweis: "Besprechen Sie zeitnah, wer Leckortung, Trocknung und Sanierung beauftragt und was dokumentiert werden soll. Maßnahmen gegen eine Ausweitung des Schadens warten nicht auf diese Abstimmung."
+      - text: Zuständige Versicherung geklärt
+        auswahl: [Wohngebäudeversicherung, Hausratversicherung, Haftpflicht eines Verursachers, Elementarbaustein, noch offen]
+        hinweis: "Das Gebäude und fest Verbautes gehören zur Wohngebäudeversicherung, beweglicher Hausrat zur Hausratversicherung. Rückstau, Starkregen und Überschwemmung sind nur mit Elementarschutz gedeckt. Was Ihr Vertrag abdeckt, steht im Versicherungsschein."
+      - text: Vermieter, Hausverwaltung und betroffene Nachbarn informiert
+        ja_nein: true
+        hinweis: "Informieren Sie Vermieter oder Hausverwaltung sofort und schriftlich, etwa per E-Mail mit Fotos, damit der Zeitpunkt feststeht."
+  - titel: Ursache klären und beseitigen lassen
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Leckortung beauftragt
+        auswahl: [durch den Versicherer, durch Eigentümer, durch die Verwaltung, nicht erforderlich, noch offen]
+        hinweis: "Bei verdeckten Leitungen suchen Fachbetriebe das Leck mit Feuchtemessung, Thermografie, Druckprüfung oder Gasspürverfahren. Stemmen Sie nicht auf Verdacht auf."
+      - text: Befund der Leckortung schriftlich erhalten
+        ja_nein: true
+        hinweis: "Der Befund benennt Ort und Ursache. Er ist die Grundlage dafür, wer den Schaden trägt, und gehört in jede Schadenakte."
+      - text: Ursache beseitigt und die Reparatur dokumentiert
+        ja_nein: true
+        hinweis: "Fotografieren Sie die offene Stelle vor dem Verschließen. Ohne beseitigte Ursache ist jede Trocknung vergeblich."
+      - text: Bei Abwasser oder Rückstau die Rückstausicherung geprüft
+        ja_nein: true
+        hinweis: "Ablaufstellen unterhalb der Rückstauebene werden durch Hebeanlagen oder Rückstauverschlüsse gesichert. Diese Einrichtungen müssen regelmäßig geprüft und gewartet werden; ohne Nachweis kann der Versicherungsschutz berührt sein."
+  - titel: Trocknung und Feuchtemessung
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Trocknung zeitnah begonnen
+        ja_nein: true
+        hinweis: "Durchnässte Materialien sollten möglichst schnell getrocknet werden, damit sich kein Schimmel bildet. Jeder Tag Verzug vergrößert den Schaden."
+      - text: Gewähltes Trocknungsverfahren
+        auswahl: [Raumlufttrocknung, Dämmschichttrocknung, Hohlraum- oder Saugverfahren, noch offen]
+        hinweis: "Raumlufttrockner entziehen der Luft Feuchte und trocknen so die Oberflächen. Dämmschicht- und Hohlraumverfahren führen Luft gezielt in verdeckte Schichten. Bei Verdacht auf Schimmel wird abgesaugt, damit keine Sporen verteilt werden."
+      - text: Nicht trocknungsfähige Baustoffe ausgebaut
+        ja_nein: true
+        hinweis: "Durchnässte Gipskartonplatten, Schüttungen und ökologische Dämmstoffe werden in der Regel entfernt, weil sie ein hohes Risiko mikrobiellen Befalls tragen."
+      - text: Raumtemperatur für die Geräte ausreichend
+        ja_nein: true
+        hinweis: "Kondensationstrockner arbeiten in geschlossenen Räumen am besten zwischen 15 und 25 Grad Celsius; unter 10 Grad Celsius ist eine Bautrocknung nicht zweckmäßig. In kalten Kellern werden deshalb Adsorptionsgeräte eingesetzt."
+      - text: Messprotokoll zu jedem Kontrolltermin vorhanden
+        ja_nein: true
+        hinweis: "Das Protokoll nennt Datum und Uhrzeit, anwesende Personen, Art der Messung, Messort, Oberflächentemperatur und Ergebnis; dazu gehört eine Skizze der Messpunkte. Messgerät und Messprinzip sollen während der ganzen Trocknung gleich bleiben."
+      - text: Wiederherstellung erst nach dokumentierter Restfeuchte begonnen
+        ja_nein: true
+        hinweis: "Entscheidend ist nicht das Gefühl trockener Luft, sondern die gemessene Restfeuchte in Wänden, Böden und Dämmstoffen. Handmessgeräte liefern nur qualitative Hinweise; genaue Werte brauchen Proben oder kalibrierte Verfahren."
+  - titel: Schimmel und Schadstoffe im Blick behalten
+    notizen: 2
+    punkte:
+      - text: Sichtbarer Schimmel auf Oberflächen
+        hinweis: "Woran erkennen: dunkle oder pelzige Flecken an Wand, Sockel und hinter Möbeln. Gering: kleine oberflächliche Stelle unter etwa einem halben Quadratmeter, die Sie selbst entfernen können. Deutlich: größere oder wiederkehrende Flächen – das gehört zu einer fachkundigen Firma."
+      - text: Verdeckter Befall hinter Tapete, Sockelleisten und in Hohlräumen
+        hinweis: "Woran erkennen: Tapetenkanten, Leisten und Einbauten. Gering: einzelne Stockflecken an der Tapetenrückseite. Deutlich: viele stecknadelkopfgroße schwarze Punkte zwischen Tapete und Putz; das tatsächliche Ausmaß zeigt sich oft erst beim Ausbau."
+      - text: Geruch in Räumen, Schränken und Hohlräumen
+        hinweis: "Woran erkennen: morgens bei geschlossenen Fenstern prüfen. Gering: leichter muffiger Geruch, der nach dem Lüften verschwindet. Deutlich: anhaltender Kellergeruch oder erdiger Geruch aus Hohlräumen trotz Trocknung."
+      - text: Baubeginn des Gebäudes
+        auswahl: ["vor dem 31. Oktober 1993", "danach", unbekannt]
+        hinweis: "Seit dem 31. Oktober 1993 sind Herstellung und Verwendung von Asbest in Deutschland verboten. In älteren Gebäuden können Bodenbelagskleber, Vinylplatten, Spachtelmassen und Fliesenkleber Asbest enthalten. Stemmen, schleifen oder bohren Sie dort nichts selbst, sondern lassen Sie vor dem Ausbau prüfen; Arbeiten daran dürfen nur Fachbetriebe mit Sachkunde ausführen."
+  - titel: Belege, Kosten und Wiederherstellung
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Alle Angebote, Rechnungen und Lieferscheine gesammelt
+        ja_nein: true
+        hinweis: "Legen Sie eine Akte an, geordnet nach Leckortung, Trocknung, Ausbau, Wiederherstellung und Ersatz von Hausrat. Eigene Arbeitsstunden notieren Sie mit Datum und Tätigkeit."
+      - text: Trocknungs- und Messprotokolle vollständig zur Akte genommen
+        ja_nein: true
+        hinweis: "Diese Protokolle belegen, dass trocken war, was wieder verschlossen wurde. Ohne sie lässt sich ein Folgeschaden Jahre später kaum zuordnen."
+      - text: Umfang der Wiederherstellung schriftlich vereinbart und nach Abschluss abgenommen
+        ja_nein: true
+        hinweis: "Halten Sie fest, welche Flächen neu aufgebaut, verputzt und gestrichen werden. Gehen Sie die Arbeiten nach Abschluss ab und fotografieren Sie das Ergebnis."
+auswertung:
+  - "Ein deutlicher Befund an Boden, Dämmschicht, Decke oder Holzbauteilen: vor dem Wiederaufbau fachlich prüfen und messen lassen."
+  - "Nasse oder nachgebende Holzbauteile und durchhängende Decken: Bereich räumen und sofort Fachfirma oder Sachverständigen einschalten."
+  - "Punkte mit n. p.: nicht aufstemmen, sondern von einer Fachfirma oder einem Sachverständigen prüfen lassen und die Antwort schriftlich festhalten."
+  - "Streit über Ursache, Umfang oder Höhe des Schadens oder ein unklarer Befund der Leckortung: eigene fachliche Begleitung in Betracht ziehen."
+  - "Schimmel über etwa einem halben Quadratmeter, verdeckter Befall oder Schadstoffverdacht: ohne eigene Eingriffe eine fachkundige Firma beauftragen."
+hinweise:
+  - "Diese Checkliste ersetzt kein Gutachten und keine Rechtsberatung. Sie hilft, in den ersten Stunden nichts zu übersehen und den Schaden nachvollziehbar festzuhalten."
+  - "Die Bewertung beschreibt den Zustand. Ob und in welcher Höhe ein Anspruch besteht, beurteilen Versicherer, im Streitfall ein Rechtsanwalt."
+  - "Betreten Sie nasse Räume nur, wenn Strom und Gas abgeschaltet sind. Arbeiten an Elektro-, Gas- und Trinkwasserinstallationen gehören zu Fachkräften."
+  - "Öffnen Sie keine Bauteile, stemmen und bohren Sie nicht. Sie halten nur fest, was ohne Eingriff sichtbar ist."
+  - "Maßnahmen gegen eine weitere Ausbreitung des Wassers gehen vor. Dokumentieren Sie währenddessen und unmittelbar danach, nicht stattdessen."
+  - "Bei Abwasser, Heizöl oder Verdacht auf Schadstoffe räumen Sie nicht selbst auf, sondern lassen die Reinigung von Fachbetrieben ausführen."
+  - "Fotografieren Sie jeden Befund mit Datum und mit einem Maßstab im Bild, etwa einem Zollstock."
+quellen:
+  - "Pflicht zur Schadenminderung, sofortige Meldung und Absperren des Haupthahns (Verbraucherzentrale, Wohngebäudeversicherung, abgerufen am 02.10.2026)"
+  - "Dokumentation vor dem Aufräumen (Verbraucherzentrale, Hochwasserschäden am Haus, abgerufen am 02.10.2026)"
+  - "Strom und Gas abschalten, gemessene Restfeuchte vor der Wiederherstellung (Verbraucherzentrale, Hochwasserschäden – Sanierung, abgerufen am 02.10.2026)"
+  - "Rückstau nur mit Elementarschutz versichert (Gesamtverband der Deutschen Versicherungswirtschaft, abgerufen am 02.10.2026)"
+  - "Sicherung von Ablaufstellen unterhalb der Rückstauebene, Wartung (Schulz: Architektur der Bauschäden, 4. Aufl. 2020, S. 267; Verbraucherzentrale, Starkregen und Rückstau, abgerufen am 02.10.2026)"
+  - "Leitungswasser als bestimmungswidrig ausgetretenes Wasser (Krause/Ulke: Zahlentafeln für den Baubetrieb, 9. Aufl. 2016, S. 261)"
+  - "Installationsfehler als häufigste Ursache, verdeckte Leitungen (Institut für Schadenverhütung und Schadenforschung der öffentlichen Versicherer, abgerufen am 02.10.2026)"
+  - "Trocknung schwimmender Estriche, Ausbau nicht trocknungsfähiger Baustoffe, Messprotokoll (Weber/Hafkesbrink: Bauwerksabdichtung in der Altbausanierung, 7. Aufl. 2026, S. 97, 106 f., 160)"
+  - "Holzbalkendecken bei langer Feuchteeinwirkung, Abstützung (Weber/Hafkesbrink, 7. Aufl. 2026, S. 491; Stahr: Bausanierung, 7. Aufl. 2022, S. 380)"
+  - "Schnelles Trocknen nach Havarien, kleiner Schimmelbefall unter 0,5 Quadratmetern (Umweltbundesamt, Häufige Fragen bei Schimmelbefall, abgerufen am 02.10.2026; Schmidt/Windhausen: Lohmeyer Praktische Bauphysik, 10. Aufl. 2024, S. 385)"
+  - "Verdeckter Befall zwischen Tapete und Putz (Keldungs u. a.: Leitfaden für Bausachverständige, 4. Aufl. 2018, S. 164)"
+  - "Asbestverbot seit 31. Oktober 1993, Asbest in Klebern und Spachtelmassen (Umweltbundesamt, Asbest, abgerufen am 02.10.2026; Vismann: Wendehorst Bautechnische Zahlentafeln, 37. Aufl. 2021, S. 1613)"
