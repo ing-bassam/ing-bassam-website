@@ -1,0 +1,358 @@
+titel: Prüfliste Schlussrechnung
+untertitel: Schlussrechnung eines Bauunternehmens prüfen – Prüffähigkeit, Mengen, Nachträge, Abzüge, Sicherheiten
+kurzform: pruefliste-schlussrechnung
+typ: Checkliste
+stand: 2026-10-02
+dateien: [pdf, pdf-ausfuellbar]
+einleitung: >-
+  Mit dieser Prüfliste gehen Sie eine Schlussrechnung in der Reihenfolge durch,
+  in der sie entsteht: zuerst der Vertrag, dann Form und Prüffähigkeit, dann
+  Mengen, Positionen, Nachträge und entfallene Leistungen, am Ende Abzüge,
+  Sicherheiten und Fristen. Tragen Sie je Punkt ein, ob die Angabe in Ordnung
+  ist, ob Sie eine Unterlage nachfordern, ob Sie kürzen oder ob sich der Punkt
+  nicht prüfen lässt. Der Prüfvermerk am Ende hält Ergebnis und Begründung fest.
+kopffelder:
+  - Bauvorhaben und Anschrift
+  - Auftragnehmer
+  - Vertrag vom
+  - Rechnungsnummer und Rechnungsdatum
+  - Rechnung eingegangen am
+  - Abnahme am
+  - Schlussrechnungssumme brutto
+  - Prüfer und Datum der Prüfung
+bewertung:
+  stufen:
+    - {kurz: "i. O.", lang: "in Ordnung", beschreibung: "geprüft und durch Vertrag, Aufmaß oder Nachweis gedeckt"}
+    - {kurz: "klären", lang: "Rückfrage offen", beschreibung: "Angabe unklar oder Unterlage fehlt – schriftlich nachfordern"}
+    - {kurz: "kürzen", lang: "Abzug begründet", beschreibung: "ganz oder teilweise nicht geschuldet – Kürzung mit Begründung notieren"}
+    - {kurz: "n. p.", lang: "nicht prüfbar", beschreibung: "Leistung verdeckt oder Nachweis endgültig nicht vorhanden"}
+abschnitte:
+  - titel: 1 Vertrag und Prüfgrundlagen
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Vertragsart
+        auswahl: [BGB-Bauvertrag, VOB/B-Vertrag, Verbraucherbauvertrag, unbekannt]
+        hinweis: >-
+          Steht in den Vertragsunterlagen ausdrücklich, dass die VOB/B gilt, richten sich
+          Fristen und Abrechnung nach ihr. Ohne diese Einbeziehung gelten die Regeln des
+          Bürgerlichen Gesetzbuchs. Ist der Auftraggeber ein Verbraucher und baut er neu
+          oder saniert er erheblich, gelten zusätzliche Schutzvorschriften.
+      - text: Vergütungsart
+        auswahl: [Einheitspreise, Detail-Pauschalpreis, Global-Pauschalpreis, Stundenlohn, gemischt, unbekannt]
+        hinweis: >-
+          Beim Einheitspreisvertrag wird nach vereinbarten Preisen und tatsächlich
+          ausgeführten Mengen abgerechnet, das Aufmaß ist dafür notwendig. Beim
+          Pauschalpreisvertrag bleibt die Summe grundsätzlich unverändert, ein Aufmaß
+          zur Mengenprüfung entfällt.
+      - text: Art der vereinbarten Sicherheit
+        auswahl: [Bareinbehalt, Bürgschaft, Hinterlegung, keine, unbekannt]
+        hinweis: >-
+          Ohne vertragliche Vereinbarung besteht kein Anspruch auf eine Sicherheit, auch
+          wenn die VOB/B einbezogen ist. Prüfen Sie Höhe, Zweck und den Zeitpunkt der
+          Rückgabe im Vertrag.
+      - text: Vertrag mit allen Anlagen und Vertragsbedingungen liegt vor
+      - text: Leistungsverzeichnis mit Mengen und Einheitspreisen liegt vor
+      - text: Abnahmeprotokoll mit Mängelliste liegt vor
+      - text: Alle Nachtragsvereinbarungen und Anordnungen liegen vor
+      - text: Aufmaße, Abrechnungszeichnungen und Stundenlohnzettel liegen vor
+      - text: Übersicht aller Abschlags- und Vorauszahlungen liegt vor
+  - titel: 2 Form und Kennzeichnung der Rechnung
+    notizen: 2
+    punkte:
+      - text: Rechnung ist als Schlussrechnung gekennzeichnet und nennt Bauvorhaben und Vertrag
+        hinweis: >-
+          Woran erkennen: Überschrift, Bezug auf den Vertrag und die Zusammenstellung
+          aller Leistungen. i. O.: eindeutig als Schlussrechnung bezeichnet. klären: nur
+          als Rechnung bezeichnet, obwohl alle Leistungen abgerechnet sind – die Einordnung
+          entscheidet über Fristen und Ausschlusswirkung.
+      - text: Eingangsdatum der Rechnung ist festgehalten
+        hinweis: >-
+          Das Eingangsdatum bestimmt den Beginn der Prüf- und Zahlungsfrist. Halten Sie es
+          auf der Rechnung oder im Posteingang fest, bevor die Prüfung beginnt.
+      - text: Rechnungsdatum und fortlaufende Rechnungsnummer sind angegeben
+      - text: Name und Anschrift von Auftragnehmer und Auftraggeber sind vollständig
+      - text: Steuernummer oder Umsatzsteuer-Identifikationsnummer ist angegeben
+      - text: Zeitpunkt oder Zeitraum der Leistung ist angegeben
+      - text: Entgelt ist nach Steuersätzen aufgeschlüsselt, Steuersatz und Steuerbetrag sind ausgewiesen
+        hinweis: >-
+          Woran erkennen: getrennte Nettosummen je Steuersatz und ein ausgewiesener
+          Steuerbetrag. kürzen: ist die Umsatzsteuer falsch berechnet, wird nicht die
+          Leistung gekürzt, sondern eine berichtigte Rechnung verlangt.
+      - text: Bei Steuerschuldnerschaft des Leistungsempfängers ist die Rechnung ohne Umsatzsteuer gestellt und enthält den Hinweis darauf
+        hinweis: >-
+          Bei Bauleistungen an einen Unternehmer, der selbst nachhaltig Bauleistungen
+          erbringt, schuldet der Leistungsempfänger die Umsatzsteuer nach § 13b
+          Umsatzsteuergesetz. Die Rechnung weist dann keine Umsatzsteuer aus, sondern den
+          Hinweis auf die Steuerschuld des Leistungsempfängers.
+  - titel: 3 Prüffähigkeit der Abrechnung
+    notizen: 2
+    punkte:
+      - text: Reihenfolge der Posten entspricht den Vertragsunterlagen
+        hinweis: >-
+          Woran erkennen: Titel und Ordnungszahlen der Rechnung lassen sich Zeile für Zeile
+          dem Leistungsverzeichnis zuordnen. klären: eigene Gliederung des Auftragnehmers,
+          die ein Nachrechnen erschwert – Umstellung verlangen.
+      - text: Bezeichnungen der Positionen sind die des Vertrags
+      - text: Mengenberechnungen zum Nachweis von Art und Umfang sind beigefügt
+        hinweis: >-
+          Woran erkennen: nachvollziehbare Rechenwege mit Maßen, nicht nur Endmengen.
+          i. O.: jede Menge lässt sich aus der Berechnung herleiten. n. p.: nur Summen
+          ohne Rechenweg – die Rechnung ist insoweit nicht prüffähig.
+      - text: Abrechnungszeichnungen sind beigefügt und mit den Berechnungen abgestimmt
+        hinweis: >-
+          Abrechnungszeichnungen stellen den Bezug zwischen den abgerechneten Werten und
+          den Plänen her. Grundlage sind in der Regel die Ausführungspläne, ergänzt um die
+          Maße, die dort nicht enthalten sind.
+      - text: Belege sind beigefügt, etwa Lieferscheine, Wiegekarten oder Nachunternehmerrechnungen
+      - text: Änderungen und Ergänzungen des Vertrags sind in der Rechnung besonders kenntlich gemacht
+        hinweis: >-
+          Woran erkennen: Nachträge stehen in eigenen Titeln oder sind deutlich markiert.
+          klären: Nachtragsleistungen sind in den Hauptpositionen versteckt – getrennte
+          Abrechnung verlangen, sonst bleibt unklar, was auf welcher Grundlage bezahlt wird.
+      - text: Anlagen sind gekennzeichnet und den Positionen eindeutig zuzuordnen
+      - text: "Falls erforderlich: Einwendungen gegen die Prüffähigkeit sind schriftlich und begründet erhoben"
+        hinweis: >-
+          Nach der VOB/B kann sich der Auftraggeber auf eine fehlende Prüfbarkeit nicht
+          mehr berufen, wenn er die Einwendungen nicht bis zum Ablauf der Prüffrist unter
+          Angabe der Gründe erhebt. Im BGB-Bauvertrag gilt die Schlussrechnung als
+          prüffähig, wenn innerhalb von 30 Tagen nach Zugang keine begründeten
+          Einwendungen erhoben werden.
+  - titel: 4 Mengen und Aufmaß
+    notizen: 2
+    punkte:
+      - text: Gemeinsames Aufmaß ist durchgeführt und von beiden Seiten unterschrieben
+        hinweis: >-
+          Woran erkennen: Aufmaßblätter mit Datum und zwei Unterschriften. i. O.:
+          gemeinsam festgestellt, möglichst während der Ausführung. klären: einseitiges
+          Aufmaß des Auftragnehmers – nachmessen oder gemeinsam wiederholen.
+      - text: Leistungen, die später verdeckt waren, wurden rechtzeitig festgestellt
+        hinweis: >-
+          Bauteile, die nach dem Schließen nicht mehr zugänglich sind, lassen sich nur
+          während der Ausführung erfassen. Fehlt die Feststellung, ist die Menge später
+          nicht prüfbar und muss aus Plänen und Bautagebuch hergeleitet werden.
+      - text: Abgerechnete Mengen stimmen mit Aufmaß und Abrechnungszeichnung überein
+      - text: Abrechnungsregeln der VOB/C für das jeweilige Gewerk sind angewendet
+        hinweis: >-
+          Die Allgemeinen Technischen Vertragsbedingungen der VOB/C enthalten je Gewerk
+          eigene Abrechnungsregeln; ergänzend gilt die ATV DIN 18299 für alle Gewerke.
+          Abweichende Abrechnungsregeln gelten nur, wenn sie vereinbart sind.
+      - text: Übermessungs- und Abzugsregeln sind richtig angewandt
+        hinweis: >-
+          Übermessungsregeln bestimmen, welche Raum-, Flächen- und Längenmaße bei der
+          Mengenermittlung nicht abgezogen werden; sie sollen den Abrechnungsaufwand
+          verringern. kürzen: Abzüge wurden unterlassen, die die Regel des Gewerks
+          ausdrücklich vorsieht.
+      - text: "Stichprobe: die größten Positionen und zwei zufällig gewählte sind nachgerechnet"
+      - text: Mengenabweichung gegenüber dem Leistungsverzeichnis ist je Position geprüft
+        hinweis: >-
+          Weicht die ausgeführte Menge einer Position um nicht mehr als 10 v. H. vom
+          Vertrag ab, gilt der vertragliche Einheitspreis. Erst darüber hinaus ist auf
+          Verlangen ein neuer Preis unter Berücksichtigung der Mehr- oder Minderkosten
+          zu vereinbaren, bei Überschreitung wie bei Unterschreitung des Mengenansatzes.
+      - text: Mengen aus Abschlagsrechnungen sind nicht zusätzlich abgerechnet
+      - text: Rechenprüfung der Einzel-, Titel- und Endsummen ist erfolgt
+  - titel: 5 Positionen, Preise und Stundenlohn
+    notizen: 2
+    punkte:
+      - text: Einheitspreise stimmen mit dem Leistungsverzeichnis überein
+        hinweis: >-
+          Woran erkennen: Preisspalte der Rechnung neben das Leistungsverzeichnis legen.
+          kürzen: abweichender Preis ohne Nachtragsvereinbarung – auf den vertraglichen
+          Preis zurückführen.
+      - text: Keine Position abgerechnet, die nicht beauftragt war
+      - text: Eventual- und Bedarfspositionen sind nur abgerechnet, wenn sie abgerufen wurden
+      - text: Vereinbarter Nachlass oder Rabatt ist vollständig berücksichtigt
+        hinweis: >-
+          Ein Nachlass braucht einen klaren Bezug: auf Einzelpreise oder auf die
+          Gesamtsumme. kürzen: Nachlass fehlt oder ist nur auf einen Teil der Summe
+          angewendet, obwohl er für den ganzen Auftrag vereinbart war.
+      - text: Preisgleitung
+        auswahl: [keine vereinbart, Lohngleitklausel, Stoffpreisgleitklausel, unbekannt]
+        hinweis: >-
+          Ohne besondere Vereinbarung sind die Angebotspreise Festpreise; höhere Lohn- oder
+          Materialkosten nach Angebotsabgabe können dann nicht nachgefordert werden. Ist
+          eine Gleitklausel vereinbart, verlangen Sie den Nachweis der Berechnung.
+      - text: Stundenlohnarbeiten waren vor ihrem Beginn ausdrücklich als solche vereinbart
+        hinweis: >-
+          Stundenlohnarbeiten werden nur vergütet, wenn sie vor Beginn ausdrücklich
+          vereinbart wurden. kürzen: Stundenlohn ohne Vereinbarung abgerechnet, obwohl die
+          Leistung von einer Position des Leistungsverzeichnisses erfasst ist.
+      - text: Stundenlohnzettel sind unterschrieben und waren fristgerecht eingereicht
+        hinweis: >-
+          Der Auftraggeber hat bescheinigte Stundenlohnzettel unverzüglich, spätestens
+          innerhalb von 6 Werktagen nach Zugang zurückzugeben; nicht fristgemäß
+          zurückgegebene Zettel gelten als anerkannt. Prüfen Sie Stunden, Qualifikation,
+          Tätigkeit und Ort.
+      - text: Stundenlohnarbeiten sind als eigener Titel ausgewiesen
+  - titel: 6 Nachträge
+    notizen: 2
+    punkte:
+      - text: Anspruchsgrundlage je Nachtrag
+        auswahl: [geänderte Leistung, zusätzliche Leistung, Mengenänderung, Stundenlohn, ohne Auftrag ausgeführt, unklar]
+        hinweis: >-
+          Die Grundlage entscheidet über die Preisbildung und darüber, ob eine Ankündigung
+          nötig war. Ordnen Sie jeden Nachtrag zuerst zu, bevor Sie die Höhe prüfen.
+      - text: Nachträge sind gesondert ausgewiesen und eindeutig bezeichnet
+      - text: Nachtrag war vor der Ausführung vereinbart
+        hinweis: >-
+          Woran erkennen: unterschriebene Nachtragsvereinbarung mit Datum vor der
+          Ausführung. i. O.: Vereinbarung liegt vor, Verweis darauf genügt in der
+          Rechnung. klären: Nachtrag erscheint erstmals in der Schlussrechnung – Grund,
+          Höhe und Anordnung vollständig belegen lassen.
+      - text: Bei zusätzlicher Leistung war der Vergütungsanspruch vor Beginn angekündigt
+      - text: Leistung war nicht schon im vertraglichen Bausoll enthalten
+        hinweis: >-
+          Woran erkennen: Leistungsbeschreibung, Pläne und Vorbemerkungen durchsuchen.
+          kürzen: die Leistung ist von einer Position oder von den Nebenleistungen des
+          Gewerks erfasst, also kein Nachtrag.
+      - text: Preis ist aus den Preisermittlungsgrundlagen des Vertrags entwickelt
+        hinweis: >-
+          Maßgeblich sind die Grundlagen der Preisermittlung für die vertragliche Leistung
+          und die besonderen Kosten der geforderten Leistung. klären: freie Preisbildung
+          ohne Bezug zur Urkalkulation – Kalkulationsnachweis verlangen.
+      - text: Leistungen ohne Auftrag sind erkannt und gesondert bewertet
+        hinweis: >-
+          Leistungen, die ohne Auftrag oder in eigenmächtiger Abweichung ausgeführt wurden,
+          werden grundsätzlich nicht vergütet. Eine Vergütung kommt in Betracht, wenn der
+          Auftraggeber sie nachträglich anerkennt oder sie für die Erfüllung notwendig
+          waren, dem mutmaßlichen Willen entsprachen und unverzüglich angezeigt wurden.
+      - text: Mehrkosten aus Bauzeitverlängerung sind gesondert ausgewiesen und dem Grunde nach geprüft
+  - titel: 7 Entfallene und geminderte Leistungen
+    notizen: 2
+    punkte:
+      - text: Nicht erbrachte Positionen sind aus der Rechnung herausgenommen
+        hinweis: >-
+          Woran erkennen: Positionen mit Vordermenge, aber ohne Leistung vor Ort.
+          kürzen: abgerechnete Position, die nachweislich nicht ausgeführt wurde –
+          Bautagebuch, Fotos und Abnahmeprotokoll als Nachweis beilegen.
+      - text: Mindermengen sind geprüft und eine Preisanpassung ist bewertet
+      - text: Vom Auftraggeber selbst übernommene Leistungen und Lieferungen sind abgesetzt
+      - text: Beim Pauschalvertrag sind entfallene oder erheblich geänderte Leistungen bewertet
+        hinweis: >-
+          Beim Pauschalvertrag bleibt die Vergütung grundsätzlich unverändert. Weicht die
+          ausgeführte Leistung so erheblich ab, dass ein Festhalten an der Pauschalsumme
+          nicht zumutbar ist, ist auf Verlangen ein Ausgleich zu gewähren; Grundlage sind
+          die Preisermittlungsgrundlagen.
+  - titel: 8 Abzüge und Einbehalte
+    notizen: 2
+    punkte:
+      - text: Alle Abschlags- und Vorauszahlungen sind vollständig und mit richtigem Betrag abgesetzt
+        hinweis: >-
+          Woran erkennen: Zahlungsübersicht mit Datum und Betrag neben die Rechnung legen.
+          kürzen: eine geleistete Zahlung fehlt in der Zusammenstellung – häufigster und
+          teuerster Fehler in Schlussrechnungen.
+      - text: Skonto ist nur abgezogen, wenn es vereinbart war und die Frist eingehalten wird
+        hinweis: >-
+          Zu einer Skontovereinbarung gehören eine eindeutig berechenbare Frist und die
+          Höhe des Abzugs. Nicht vereinbarte Skontoabzüge sind nach der VOB/B unzulässig.
+      - text: Umlagen für Baustrom, Bauwasser, Abfall oder Gerüst sind nur nach Vereinbarung abgezogen
+      - text: "Vertragsstrafe: Vereinbarung, Verzug und die vertragliche Obergrenze sind geprüft"
+        hinweis: >-
+          Eine Vertragsstrafe setzt eine wirksame Vereinbarung, die Verknüpfung mit einer
+          Frist und Verzug des Auftragnehmers voraus. Höhe und Obergrenze sind in
+          vorformulierten Verträgen rechtlich begrenzt; lassen Sie die Klausel vor dem
+          Abzug anwaltlich prüfen und beachten Sie einen erforderlichen Vorbehalt bei der
+          Abnahme.
+      - text: Einbehalt wegen gerügter Mängel ist gesondert ausgewiesen und der Höhe nach begründet
+        hinweis: >-
+          Kann der Auftraggeber die Beseitigung eines Mangels verlangen, darf er nach der
+          Abnahme einen angemessenen Teil der Vergütung zurückbehalten; angemessen ist in
+          der Regel das Doppelte der für die Beseitigung erforderlichen Kosten. Die
+          Darlegungs- und Beweislast für die Höhe trägt der Auftragnehmer; der Auftraggeber
+          muss zunächst nur grob schätzen und den Einbehalt schriftlich begründen.
+      - text: Gegenforderungen aus Ersatzvornahme oder Schadensersatz sind getrennt aufgeführt
+        hinweis: >-
+          Gegenforderungen können einbehalten werden; andere Einbehalte sind nur in den im
+          Vertrag und in den gesetzlichen Bestimmungen vorgesehenen Fällen zulässig.
+          Trennen Sie Kürzungen der Leistung von Gegenforderungen, sonst wird die
+          Zahlungsabrechnung unklar.
+      - text: Steuerabzug bei Bauleistungen ist einbehalten oder eine gültige Freistellungsbescheinigung liegt vor
+        hinweis: >-
+          Empfängt ein Unternehmer oder eine juristische Person des öffentlichen Rechts
+          eine Bauleistung, sind 15 Prozent der Gegenleistung einzubehalten und an das
+          Finanzamt abzuführen. Der Abzug entfällt, wenn im Zeitpunkt der Zahlung eine
+          gültige Freistellungsbescheinigung vorliegt oder eine Bagatellgrenze nicht
+          überschritten wird.
+      - text: Umsatzsteuer auf die Schlussrechnungssumme ist richtig berechnet
+      - text: Verzugszinsen des Auftragnehmers sind gesondert ausgewiesen und der Höhe nach nachvollziehbar
+  - titel: 9 Sicherheiten und Rückgabe
+    notizen: 2
+    punkte:
+      - text: Vereinbarte Sicherheitssumme stimmt mit der Abrechnungssumme überein
+      - text: Vertragserfüllungssicherheit ist nach Abnahme und Schlusszahlung zurückzugeben
+        hinweis: >-
+          Die Sicherheit dient der vertragsgemäßen Ausführung und den Mängelansprüchen.
+          Prüfen Sie, welcher Teil mit der Abnahme frei wird und welcher Teil für die
+          Mängelansprüche stehen bleibt.
+      - text: Bareinbehalt ist auf ein Sperrkonto eingezahlt, über das beide nur gemeinsam verfügen
+        hinweis: >-
+          Soll die Sicherheit in Teilbeträgen von den Zahlungen einbehalten werden, darf
+          die Zahlung um höchstens 10 v. H. gekürzt werden; der einbehaltene Betrag ist
+          mitzuteilen und binnen 18 Werktagen auf ein Sperrkonto einzuzahlen. Bleibt die
+          Einzahlung aus, kann der Anspruch auf die Sicherheit entfallen.
+      - text: Wahl- und Austauschrecht des Auftragnehmers ist beachtet
+        hinweis: >-
+          Der Auftragnehmer hat grundsätzlich die Wahl unter den Arten der Sicherheit und
+          kann eine Sicherheit durch eine andere ersetzen. Etwas anderes gilt, wenn der
+          Vertrag einen Einbehalt vorsieht, der nur gegen eine Bürgschaft für
+          Mängelansprüche abgelöst werden darf.
+      - text: Bürgschaftsurkunde ist geprüft – unbefristet, mit Verzicht auf die Einrede der Vorausklage, nicht auf erstes Anfordern
+        hinweis: >-
+          Die Bürgschaftserklärung ist schriftlich unter Verzicht auf die Einrede der
+          Vorausklage abzugeben, darf nicht auf bestimmte Zeit begrenzt sein und muss nach
+          Vorschrift des Auftraggebers ausgestellt sein. Eine Bürgschaft auf erstes
+          Anfordern kann der Auftraggeber nicht fordern.
+  - titel: 10 Fristen, Prüfvermerk und Freigabe
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Prüffrist ist aus dem Eingangsdatum berechnet und notiert
+      - text: Verlängerte Zahlungsfrist ist nur angesetzt, wenn sie ausdrücklich vereinbart und sachlich gerechtfertigt ist
+      - text: Einwendungen gegen die Prüffähigkeit sind innerhalb der Frist erhoben
+      - text: Unbestrittenes Guthaben ist als Abschlagszahlung ausgezahlt, wenn sich die Prüfung verzögert
+      - text: Jede Kürzung ist je Position schriftlich begründet
+      - text: Mitteilung über die Schlusszahlung ist erteilt, bei VOB/B-Verträgen mit Hinweis auf die Ausschlusswirkung
+      - text: Vorbehalt des Auftragnehmers ist erfasst und die weitere Rechnung ist abgewartet
+      - text: Prüfvermerk mit Ergebnis, Kürzungssumme und Zahlungsempfehlung ist erstellt
+      - text: Prüfliste, Aufmaße und Begründungen sind zur Rechnung abgelegt
+auswertung:
+  - >-
+    Fehlen Mengenberechnungen, Abrechnungszeichnungen oder Belege, ist die Rechnung insoweit
+    nicht prüffähig: Einwendungen schriftlich, begründet und innerhalb der Prüffrist erheben.
+  - >-
+    Mehr als ein Punkt mit „n. p.“ in den Abschnitten 4 oder 6: Prüfung nicht abschließen,
+    sondern die fehlenden Nachweise schriftlich nachfordern und die Frist im Blick behalten.
+  - >-
+    Jede Kürzung braucht eine Begründung aus Vertrag, Aufmaß oder Nachweis. Eine Kürzung ohne
+    Begründung führt zum Streit darüber, ob und in welcher Höhe die Vergütung fällig ist.
+  - >-
+    Einbehalte wegen Mängeln getrennt von Kürzungen der Mengen ausweisen, damit erkennbar
+    bleibt, welcher Betrag endgültig entfällt und welcher nur zurückgehalten wird.
+  - >-
+    Streit über Mengen, Aufmaß, Nachträge oder die Höhe von Mangelbeseitigungskosten:
+    die technische Prüfung einem Bauingenieur oder Sachverständigen übertragen, die
+    rechtliche Bewertung einem Rechtsanwalt.
+  - >-
+    Vor der Schlusszahlung prüfen, welche Sicherheiten zurückzugeben sind und welcher Teil
+    für die Mängelansprüche stehen bleibt.
+hinweise:
+  - "Platzhalter in eckigen Klammern durch eigene Angaben ersetzen."
+  - >-
+    Die genannten Fristen und Abrechnungsregeln gelten für Verträge, in die die VOB/B
+    einbezogen ist. Im Bauvertrag nach dem Bürgerlichen Gesetzbuch gelten eigene Regeln;
+    prüfen Sie zuerst Abschnitt 1 dieser Liste.
+  - >-
+    Ein Verlangen nach Richtigstellung wegen Aufmaß-, Rechen- und Übertragungsfehlern bleibt
+    auch dann möglich, wenn Ausschlussfristen abgelaufen sind.
+  - >-
+    Diese Prüfliste ist eine fachliche Arbeitshilfe und keine Rechtsberatung. Ob und in
+    welcher Höhe Ansprüche bestehen, beurteilt ein Rechtsanwalt.
+quellen:
+  - "VOB/B in der Fassung der VOB-Gesamtausgabe 2019: § 2, § 14, § 15, § 16 und § 17"
+  - "VOB/C, Abrechnungsregeln der Allgemeinen Technischen Vertragsbedingungen, ergänzend ATV DIN 18299"
+  - "§ 650g Abs. 4 BGB (prüffähige Schlussrechnung), § 641 Abs. 3 BGB (Zurückbehaltung bei Mängeln)"
+  - "Umsatzsteuergesetz (Pflichtangaben in Rechnungen), § 13b UStG (Steuerschuldnerschaft des Leistungsempfängers)"
+  - "§ 48 und § 48b EStG (Steuerabzug bei Bauleistungen, Freistellungsbescheinigung)"
+  - "Saalbach/Viering/Zanner: Vergütung, Nachträge und Abrechnung nach Ansprüchen, 2023, S. 137 und S. 139"
+  - "Würfele/Bielefeld/Gralla: Bauobjektüberwachung, 3. Aufl. 2017, S. 141 und S. 149"
