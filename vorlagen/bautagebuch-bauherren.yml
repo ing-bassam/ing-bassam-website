@@ -1,0 +1,190 @@
+titel: Bautagebuch für Bauherren
+untertitel: Tagesblatt für einen Baustellentag
+kurzform: bautagebuch-bauherren
+typ: Protokoll
+stand: 2026-10-02
+dateien:
+  - pdf
+  - pdf-ausfuellbar
+  - docx
+  - xlsx
+einleitung: >-
+  Mit diesem Tagesblatt halten Sie einen einzelnen Baustellentag fest. Füllen Sie
+  es noch am selben Tag aus und legen Sie die Blätter fortlaufend ab. Zwei
+  Abschnitte bewerten Sie in Stufen: die Auffälligkeiten am Bauwerk und die
+  Leistungen, die bald unter Beton, Estrich oder Putz verschwinden.
+kopffelder:
+  - Bauvorhaben und Anschrift
+  - Blatt-Nr.
+  - Datum und Wochentag
+  - Uhrzeit von / bis
+  - Bauherrin oder Bauherr
+  - Vertragsgrundlage (BGB-Bauvertrag / Verbraucherbauvertrag / VOB/B)
+  - Bauleitung oder Objektüberwachung
+  - Blatt ausgefüllt von
+bewertung:
+  stufen:
+    - kurz: "o. B."
+      lang: ohne Befund
+      beschreibung: nichts Auffälliges erkennbar
+    - kurz: gering
+      lang: geringer Befund
+      beschreibung: vereinzelt oder oberflächlich – notieren und erneut ansehen
+    - kurz: deutlich
+      lang: deutlicher Befund
+      beschreibung: ausgedehnt, tiefgehend oder sicherheitsrelevant – anzeigen und Fachmann
+    - kurz: "n. p."
+      lang: nicht prüfbar
+      beschreibung: nicht zugänglich, schon verdeckt oder niemand vor Ort
+abschnitte:
+  - titel: Wetter und Bedingungen am Bautag
+    bewertung: false
+    notizen: 1
+    punkte:
+      - text: Witterung vormittags
+        auswahl: [trocken, Regen, Schnee, Frost, Hitze, unbekannt]
+        hinweis: "Viele Baustoffe reagieren empfindlich auf Frost oder große Hitze. Halten Sie das Wetter fest, auch wenn an diesem Tag nichts Auffälliges passiert."
+      - text: Witterung nachmittags
+        auswahl: [trocken, Regen, Schnee, Frost, Hitze, unbekannt]
+      - text: Lufttemperatur morgens und mittags in Grad Celsius
+        hinweis: "Zwei Werte genügen. Wer bei Frost betoniert, mauert oder putzt, braucht Schutzmaßnahmen – ohne Eintrag lässt sich der Tag später nicht mehr belegen."
+      - text: Witterungsschutz für Baustoffe und offene Bauteile war vorhanden
+        ja_nein: true
+        hinweis: "Gemeint sind Abdeckungen, Planen und beheizte Bereiche. Notieren Sie auch, wenn Material ungeschützt im Regen lag."
+  - titel: Wer heute auf der Baustelle war
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Firmen auf der Baustelle mit Gewerk
+      - text: Anzahl der Arbeitskräfte je Firma
+        hinweis: "Die Mannschaftsstärke ist der einfachste Nachweis dafür, ob zügig gearbeitet wurde. Zählen Sie, was Sie sehen, und schreiben Sie „geschätzt“ dazu."
+      - text: Eingesetzte Geräte, etwa Kran, Betonpumpe, Gerüst, Bagger
+      - text: Bauleitung oder Objektüberwachung war vor Ort
+        ja_nein: true
+      - text: Besucher auf der Baustelle mit Name, Funktion und Anlass
+        hinweis: "Dazu zählen Planer, Prüfer, Behörden und die Berufsgenossenschaft. Halten Sie Hinweise und Anordnungen von Besuchern mit fest."
+      - text: Eigenleistung – Helferinnen und Helfer mit geleisteten Stunden je Person
+        hinweis: "Wer mit Helfern baut, meldet das Bauvorhaben der BG BAU und weist die Helferstunden nach. Ein Eintrag je Tag und Person erspart später das Schätzen."
+  - titel: Welche Arbeiten ausgeführt wurden
+    bewertung: false
+    notizen: 3
+    punkte:
+      - text: Gewerk und Tätigkeit
+        hinweis: "Schreiben Sie die Arbeit so auf, dass ein Fremder sie wiedererkennt, etwa „Decke über Erdgeschoss geschalt und bewehrt“."
+      - text: Ort im Gebäude – Geschoss, Raum, Achse oder Himmelsrichtung
+        hinweis: "Ohne Ortsangabe ist ein Eintrag später wertlos, weil niemand mehr weiß, welche Wand gemeint war."
+      - text: Bautenstand gegenüber dem Terminplan
+        auswahl: [im Plan, Vorsprung, Rückstand, kein Plan vorhanden, unbekannt]
+      - text: Die Arbeiten ruhten heute ganz oder in Teilen
+        ja_nein: true
+      - text: Grund des Stillstands, etwa Wetter, fehlendes Material, fehlender Plan, keine Leute
+        hinweis: "Notieren Sie Ursache, Dauer und betroffenes Gewerk. Ein Eintrag im Tagebuch ersetzt keine förmliche Behinderungsanzeige des Unternehmens."
+  - titel: Lieferungen und eingebaute Produkte
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Angelieferte Baustoffe und Bauteile mit Bezeichnung und Menge
+      - text: Lieferschein erhalten und abgelegt
+        ja_nein: true
+        hinweis: "Der Lieferschein ist der Nachweis, welches Produkt wirklich auf die Baustelle kam. Fotografieren Sie ihn, wenn Sie ihn nicht behalten dürfen."
+      - text: Produkt stimmt mit der Bau- oder Leistungsbeschreibung überein
+        auswahl: [ja, Abweichung, nicht prüfbar, unbekannt]
+        hinweis: "Vergleichen Sie Hersteller, Typ, Dicke oder Klasse mit Ihrer Baubeschreibung. Eine Abweichung kann vereinbart sein – dann gehört sie schriftlich bestätigt."
+      - text: Lagerung auf der Baustelle – geschützt, offen, beschädigt
+      - text: Heute übergebene Unterlagen, etwa Datenblatt, Prüfzeugnis, Anleitung
+  - titel: Auffälligkeiten am Bauwerk
+    notizen: 2
+    punkte:
+      - text: Risse an Mauerwerk, Beton oder Putz
+        hinweis: "Woran erkennen: Linien im Bauteil, oft an Öffnungen und Materialwechseln. Gering: einzelne feine Haarrisse ohne Versatz. Deutlich: breite oder lange Risse, Versatz der Rissflanken, Risse, die sich von Woche zu Woche verlängern."
+      - text: Feuchte Stellen, Wasser im Keller, auf der Bodenplatte oder unter Fenstern
+        hinweis: "Woran erkennen: dunkle Ränder, Pfützen, Tropfspuren, muffiger Geruch. Gering: einzelne feuchte Stellen nach Regen, die abtrocknen. Deutlich: stehendes Wasser, nasse Flächen, die nicht abtrocknen, Wasser in Dämmschichten."
+      - text: Maßabweichungen und Schiefstellungen bei Wänden, Öffnungen und Höhen
+        hinweis: "Woran erkennen: Wasserwaage und Zollstock, Vergleich mit dem Plan. Gering: kleine Abweichung ohne Folge für Einbauteile. Deutlich: Öffnung passt nicht zum vorgesehenen Fenster, Wand sichtbar aus dem Lot, Höhen stimmen nicht."
+      - text: Beschädigungen an fertigen Bauteilen durch nachfolgende Gewerke
+        hinweis: "Woran erkennen: Kratzer, Abplatzungen, Löcher, verbogene Profile. Gering: oberflächlich, mit Nacharbeit zu beheben. Deutlich: Dämmung, Abdichtung, Fensterrahmen oder Leitungen verletzt – dann fotografieren, bevor weitergearbeitet wird."
+      - text: Verschmutzung, Bauschutt und nicht gesicherte Öffnungen oder Absturzkanten
+        hinweis: "Woran erkennen: Rundblick vom Rand der Baustelle. Gering: Unordnung ohne Gefahr. Deutlich: offene Schächte, fehlende Geländer, Stolperstellen – melden Sie das sofort und betreten Sie den Bereich nicht."
+  - titel: Verdeckte Leistungen vor dem Schließen
+    notizen: 2
+    punkte:
+      - text: Abdichtung der erdberührten Bauteile vor dem Verfüllen der Baugrube
+        hinweis: "Woran erkennen: durchgehende Schicht, saubere Anschlüsse an Durchführungen und Sockel. Gering: einzelne Fehlstellen, die nachgearbeitet werden. Deutlich: Lücken, Falten, Beschädigungen, abgelöste Ränder – vor dem Verfüllen klären lassen."
+      - text: Bewehrung vor dem Betonieren
+        hinweis: "Woran erkennen: Lage, Abstände und Abstandhalter sind sichtbar. Gering: einzelne verschobene Stäbe. Deutlich: Bewehrung liegt auf der Schalung, Abstandhalter fehlen, Stäbe fehlen gegenüber dem Plan. Fotografieren Sie jede Decke und jede Wand."
+      - text: Leitungen für Wasser, Heizung und Strom vor Putz und Estrich
+        hinweis: "Woran erkennen: Verläufe sind offen zu sehen. Gering: Kleinigkeiten an der Befestigung. Deutlich: gequetschte oder beschädigte Rohre, fehlende Dämmung, Leitungen in Bereichen, in die später gebohrt wird. Fotos mit Maßstab sind hier wichtiger als Worte."
+      - text: Dämmung und Folien wie die Dampfbremse vor der Verkleidung
+        hinweis: "Woran erkennen: lückenlose Lage, verklebte Stöße und Anschlüsse. Gering: einzelne offene Stöße. Deutlich: zusammengedrückte Dämmung, große Lücken, aufgerissene oder nicht angeschlossene Folie."
+      - text: Dachkonstruktion und Lage der Sparren vor der Innenverkleidung
+        hinweis: "Woran erkennen: Blick in den offenen Dachraum. Gering: kleine Ausbesserungen am Holz. Deutlich: Risse im tragenden Holz, dunkle oder weiche Stellen, Bohrlöcher von Insekten, fehlende Verbindungen."
+      - text: Gemeinsame Zustandsfeststellung mit dem Unternehmen wurde verlangt
+        ja_nein: true
+        hinweis: "In einem Vertrag mit der VOB/B können Sie die gemeinsame Feststellung des Zustands verlangen, bevor Teile der Leistung durch die weitere Ausführung verdeckt werden. Das Ergebnis wird schriftlich festgehalten."
+  - titel: Fotos von diesem Tag
+    bewertung: false
+    notizen: 3
+    punkte:
+      - text: Foto-Nummern von heute, Beginn bis Ende
+      - text: Übersichtsfoto der Baustelle aufgenommen
+        ja_nein: true
+        hinweis: "Fotografieren Sie zuerst das Ganze, möglichst vom gleichen Standort wie an den Tagen davor. So lässt sich der Fortschritt vergleichen."
+      - text: Detailfoto mit Maßstab im Bild, etwa Zollstock oder Rissmaßstab
+        ja_nein: true
+        hinweis: "Gehen Sie für das Detail näher heran, statt zu zoomen. Ohne Maßstab im Bild lässt sich später keine Größe mehr bestimmen."
+      - text: Ort und Blickrichtung je Foto notiert
+        ja_nein: true
+        hinweis: "Zu jedem Foto gehört die Angabe, wo es aufgenommen wurde und wohin die Kamera zeigte. Sonst ist die Stelle später nicht wiederzufinden."
+      - text: Datum und Uhrzeit der Kamera oder des Telefons stimmen
+        ja_nein: true
+      - text: Fotos noch heute gesichert und beschriftet
+        ja_nein: true
+        hinweis: "Legen Sie die Bilder am selben Tag ab und ergänzen Sie die Angaben. Am nächsten Tag weiß niemand mehr, welche Wand auf dem Bild zu sehen ist."
+  - titel: Besprechungen, Anweisungen und Zusagen
+    bewertung: false
+    notizen: 3
+    punkte:
+      - text: Besprechung auf der Baustelle mit Uhrzeit und Teilnehmern
+      - text: Getroffene Entscheidungen mit Zuständigkeit und Termin
+        hinweis: "Zu jedem Punkt gehören eine Person und ein Datum. Offene Punkte der letzten Besprechung fragen Sie zuerst ab."
+      - text: Mündliche Zusage oder Anweisung erhalten – wer, was, wann
+      - text: Wer hat die Anweisung erteilt und war dazu befugt
+        hinweis: "Eine Bauleitung darf den Vertrag in der Regel nicht ändern. Halten Sie fest, wer eine Anweisung gegeben hat, die Geld, Termine oder die Ausführung betrifft."
+      - text: Schriftliche Bestätigung der Absprache versendet
+        ja_nein: true
+  - titel: Offene Punkte und eigene Schritte
+    bewertung: false
+    notizen: 3
+    punkte:
+      - text: Mangel schriftlich angezeigt – Datum, Empfänger, gesetzte Frist
+        hinweis: "Mängel zeigen Sie am besten schriftlich an und belegen sie mit Foto. Nennen Sie die Stelle genau und setzen Sie eine Frist zur Beseitigung."
+      - text: Nachweis des Zugangs vorhanden
+        ja_nein: true
+      - text: Offene Punkte der letzten Tage erledigt
+        ja_nein: true
+      - text: Nächster eigener Schritt mit Datum
+auswertung:
+  - "Ein deutlicher Befund an Abdichtung, Bewehrung, Tragwerk, Dachholz oder Feuchte: nicht schließen lassen, noch am selben Tag schriftlich anzeigen und fachlichen Rat einholen."
+  - "Mehrere geringe Befunde am selben Bauteil: Fotos mit Maßstab ergänzen, Stelle am Folgetag erneut ansehen und den Verlauf im Blatt vermerken."
+  - "Nicht prüfbar, weil bereits verdeckt: schriftlich festhalten, dass die Prüfung nicht mehr möglich war, und eine Zustandsfeststellung verlangen."
+  - "Jede mündliche Zusage zu Geld, Terminen oder Ausführung noch am selben Tag schriftlich bestätigen und die Bestätigung ablegen."
+  - "Vor dem Verfüllen, Betonieren, Verputzen und Estricheinbau ist der letzte Zeitpunkt für Fotos und Einträge; danach ist der Zustand nicht mehr nachweisbar."
+unterschriften:
+  - Bauherrin oder Bauherr
+  - Bauleitung oder Unternehmen
+hinweise:
+  - "Ein Bautagebuch ist für private Bauherren nicht vorgeschrieben. Es dient Ihrer eigenen Dokumentation und ist freiwillig."
+  - "Je Baustellentag ein Blatt, ausgefüllt am selben Tag und nicht später aus dem Gedächtnis."
+  - "Unterschreiben beide Seiten das Blatt, hat der Eintrag mehr Gewicht. Verlangen können Sie das nur, wenn es vereinbart ist."
+  - "Bleiben Sie beim Beobachten und Festhalten. Öffnen Sie keine Bauteile, besteigen Sie keine Leitern und kein Gerüst und betreten Sie keine ungesicherten Bereiche."
+  - "Bei Gefahr für die Standsicherheit, bei Strom in feuchten Bereichen, bei Gasgeruch oder Absturzgefahr verlassen Sie den Bereich und rufen Fachfirma oder Behörde."
+  - "Eigenleistung mit Helfern: Bauvorhaben bei der BG BAU melden und die Helferstunden je Person festhalten."
+quellen:
+  - "Anlage 10 zu § 34 Absatz 4 HOAI, Leistungsphase 8, Grundleistung e) Dokumentation des Bauablaufs (zum Beispiel Bautagebuch)"
+  - "§ 4 Absatz 10 VOB/B, VOB Gesamtausgabe 2019 – gemeinsame Feststellung des Zustands von Teilen der Leistung"
+  - "§ 650g Absatz 1 und 3 BGB – Zustandsfeststellung bei Verweigerung der Abnahme"
+  - "Würfele/Bielefeld/Gralla: Bauobjektüberwachung, 3. Aufl. 2017, S. 8–11 und S. 19 f."
+  - "Berner u. a.: Grundlagen der Baubetriebslehre 3, 3. Aufl. 2025, S. 35, S. 49 und S. 353"
+  - "Zanner/Glönkler: Baumangelhaftung nach Ansprüchen, 2. Aufl. 2024, S. 32"
+  - "Krause/Ulke: Zahlentafeln für den Baubetrieb, 9. Aufl. 2016, S. 1383 f."
+  - "Verband Privater Bauherren, Bauherren-Schutzbund, Verbraucherzentrale und BG BAU, abgerufen am 2026-10-02"
