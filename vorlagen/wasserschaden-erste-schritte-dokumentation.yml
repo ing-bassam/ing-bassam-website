@@ -70,7 +70,7 @@ abschnitte:
         hinweis: "Die Herkunft entscheidet über die Zuständigkeit. Leitungswasser ist Wasser, das bestimmungswidrig aus Rohren, Schläuchen oder angeschlossenen Einrichtungen austritt. Schäden durch Starkregen, Überschwemmung und Rückstau sind nur mit zusätzlichem Elementarschutz versichert. Abwasser bringt zusätzlich eine Hygienefrage mit."
       - text: Austrittsstelle liegt
         auswahl: [in der eigenen Einheit, in einer anderen Einheit, im Gemeinschaftsbereich, außerhalb des Gebäudes, unbekannt]
-        hinweis: "Bei Wohnungseigentum und in Mietshäusern entscheidet der Ort darüber, wer den Schaden melden und beauftragen muss. Halten Sie den Ort fest, auch wenn die Ursache noch offen ist."
+        hinweis: "Halten Sie den Ort des Wasseraustritts fest, auch wenn die Ursache noch offen ist."
       - text: Betroffene Leitungsart
         auswahl: [Trinkwasser, Heizung, Abwasser, Regenwasser, unbekannt]
         hinweis: "Heizungswasser ist oft gefärbt und riecht metallisch. Abwasser erkennen Sie am Geruch und an Rückständen; hier gehört die Reinigung in fachkundige Hände."
@@ -133,7 +133,7 @@ abschnitte:
         hinweis: "Das Gebäude und fest Verbautes gehören zur Wohngebäudeversicherung, beweglicher Hausrat zur Hausratversicherung. Rückstau, Starkregen und Überschwemmung sind nur mit Elementarschutz gedeckt. Was Ihr Vertrag abdeckt, steht im Versicherungsschein."
       - text: Vermieter, Hausverwaltung und betroffene Nachbarn informiert
         ja_nein: true
-        hinweis: "Mieter müssen einen Wasserschaden unverzüglich melden. Informieren Sie schriftlich, etwa per E-Mail mit Fotos, damit der Zeitpunkt feststeht. Betrifft der Schaden Gemeinschaftseigentum, übernimmt die Verwaltung die Abwicklung."
+        hinweis: "Informieren Sie Vermieter oder Hausverwaltung sofort und schriftlich, etwa per E-Mail mit Fotos, damit der Zeitpunkt feststeht."
   - titel: Ursache klären und beseitigen lassen
     bewertung: false
     notizen: 2

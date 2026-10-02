@@ -5,7 +5,7 @@ format: Vorlage
 zielgruppe: Privat, Hausverwaltung, Mieter
 leistung: Gutachten
 kernfrage: Was muss ich bei einem Wasserschaden sofort tun, und wie dokumentiere ich ihn für die Versicherung?
-meta_beschreibung: Was bei einem Wasserschaden sofort zu tun ist und wie Sie ihn für die Versicherung festhalten - mit kostenloser Checkliste zum Ausdrucken.
+meta_beschreibung: Was bei einem Wasserschaden sofort zu tun ist und wie Sie ihn für die Versicherung festhalten – mit kostenloser Checkliste zum Ausdrucken.
 schlagwoerter: Wasserschaden, Leitungswasser, Schadendokumentation, Trocknung, Feuchtemessung, Schimmel, Versicherung
 definition: Eine Checkliste für den Wasserschaden ist eine Arbeitshilfe, die die ersten Maßnahmen und die Dokumentation in eine feste Reihenfolge bringt.
 autor: M. Sc. Karim Abu Elkheir
@@ -31,7 +31,7 @@ regelwerke_bestaetigt:
 
 # Checkliste Wasserschaden – erste Schritte
 
-Der Fleck an der Decke war am Morgen handtellergroß. Mittags tropft es auf das Parkett. In dieser Lage entscheidet die Reihenfolge über den Umfang des Schadens. Bei einem Wasserschaden schließen Sie zuerst den Haupthahn und schalten den Strom im nassen Bereich ab.[^1] Erst danach räumen Sie auf, und vorher fotografieren Sie alles.[^2] Diese kostenlose Checkliste führt Sie durch beide Schritte und durch die Erfassung Raum für Raum. Eine Checkliste für den Wasserschaden ist eine Arbeitshilfe, die die ersten Maßnahmen und die Dokumentation in eine feste Reihenfolge bringt.
+Der Fleck an der Decke war am Morgen handtellergroß. Mittags tropft es auf das Parkett. In dieser Lage entscheidet die Reihenfolge über den Umfang des Schadens. Bei einem Leitungswasserschaden schließen Sie zuerst den Haupthahn.[^1] Erst danach räumen Sie auf, und vorher fotografieren Sie alles.[^2] Diese kostenlose Checkliste führt Sie durch beide Schritte und durch die Erfassung Raum für Raum. Eine Checkliste für den Wasserschaden ist eine Arbeitshilfe, die die ersten Maßnahmen und die Dokumentation in eine feste Reihenfolge bringt.
 
 ## So arbeiten Sie die Checkliste ab
 
@@ -47,7 +47,7 @@ Die Herkunft des Wassers ist bei einem Wasserschaden die erste Sachfrage. Leitun
 
 Niederschlag und Kanalwasser folgen anderen Regeln. Schäden durch Starkregen, Überschwemmung und Rückstau sind nur mit zusätzlichem Elementarschutz versichert.[^5] Rückstau bedeutet, dass bei überlasteter Kanalisation Wasser durch die Ableitungsrohre in das Haus gelangt.[^5] Hebeanlagen und Rückstauverschlüsse schützen davor, müssen aber regelmäßig geprüft und gewartet werden.[^6] Fehlt dieser Nachweis, kann der Versicherungsschutz berührt sein. Was Ihr Vertrag abdeckt, steht im Versicherungsschein, nicht in einer Checkliste.
 
-Oft bleibt die Austrittsstelle zunächst verborgen. Installationsfehler gelten als häufigste Ursache von Leitungswasserschäden.[^7] Leitungen liegen heute meist verdeckt, und gerade das führt dazu, dass eine Leckage erst spät entdeckt wird.[^7] Eine einfache Probe hilft weiter: Schließen Sie alle Zapfstellen und beobachten Sie den Wasserzähler. Läuft er weiter, fließt noch Wasser in der Installation, und der Notdienst hat Vorrang vor jeder Dokumentation.
+Oft bleibt die Austrittsstelle zunächst verborgen. Installationsfehler gelten als häufigste Ursache von Leitungswasserschäden.[^7] Leitungen liegen heute häufig in verdeckten Bereichen, und gerade das führt dazu, dass eine Leckage erst spät entdeckt wird.[^7] Eine einfache Probe hilft weiter: Schließen Sie alle Zapfstellen und beobachten Sie den Wasserzähler. Läuft er weiter, fließt noch Wasser in der Installation, und der Notdienst hat Vorrang vor jeder Dokumentation.
 
 ## Boden und Dämmschicht entscheiden über die Trocknung
 
@@ -69,7 +69,7 @@ Vor jedem Ausbau im Bestand steht noch eine Frage. Seit dem 31. Oktober 1993 sin
 
 ## Trocknung und Feuchtemessung bis zum Nachweis
 
-Die Trocknung ist der längste Abschnitt nach einem Wasserschaden und der am häufigsten unterschätzte. Für die Raumluft kommen Kondensationstrockner und Adsorptionsgeräte in Betracht. Kondensationstrockner arbeiten in geschlossenen Räumen am besten zwischen 15 und 25 Grad Celsius.[^14] Unter 10 Grad Celsius ist eine Bautrocknung nicht zweckmäßig, weil das Dampfdruckgefälle fehlt.[^14] In kalten Kellern werden deshalb Adsorptionsgeräte eingesetzt, die auch ohne Wärme arbeiten.[^14] Notieren Sie in der Checkliste das Verfahren und den Stromzählerstand, denn die Geräte laufen wochenlang.
+Die Trocknung ist der längste Abschnitt nach einem Wasserschaden und der am häufigsten unterschätzte. Für die Raumluft kommen Kondensationstrockner und Adsorptionsgeräte in Betracht. Kondensationstrockner arbeiten in geschlossenen Räumen am besten zwischen 15 und 25 Grad Celsius.[^14] Unter 10 Grad Celsius ist eine Bautrocknung nicht zweckmäßig, weil das Dampfdruckgefälle fehlt.[^14] In kalten Kellern werden deshalb Adsorptionsgeräte eingesetzt, die keine hohen Raumlufttemperaturen benötigen.[^14] Notieren Sie in der Checkliste das Verfahren und den Stromzählerstand, denn die Geräte laufen wochenlang.
 
 Die Feuchtemessung macht aus der Trocknung einen Nachweis. In der Abtrocknungsphase sind Kontrollmessungen in Intervallen durchzuführen, um den Verlauf zu dokumentieren und das Ende festzulegen.[^15] Das Messprotokoll nennt Datum und Uhrzeit, anwesende Personen, Art der Messung, Messort, Oberflächentemperaturen und Ergebnisse, dazu eine Skizze der Messpunkte.[^15] Messgeräte mit demselben Messprinzip bleiben während der ganzen Trocknung im Einsatz, sonst werden die Verläufe verfälscht.[^15] Diese Angaben stehen in der Checkliste als Prüfpunkte, damit Sie das Protokoll einfordern können.
 
@@ -91,7 +91,7 @@ Bei einem Leitungswasserschaden schließen Sie sofort den Haupthahn.[^1] Schalte
 
 **Darf ich nach einem Wasserschaden sofort aufräumen?**
 
-Maßnahmen gegen eine Ausweitung des Schadens haben Vorrang, denn Sie müssen dafür sorgen, dass der Schaden so gering wie möglich bleibt.[^1] Fotografieren Sie aber, bevor Sie weitere Maßnahmen einleiten oder mit den Aufräumarbeiten beginnen.[^2] Beschädigte Sachen werfen Sie nicht vorschnell weg, sondern halten sie mit Bild und Liste fest. Besprechen Sie zeitnah mit dem Versicherer die nächsten Schritte, bevor Bauteile ausgebaut werden.[^2]
+Maßnahmen gegen eine Ausweitung des Schadens haben Vorrang, denn Sie müssen dafür sorgen, dass der Schaden so gering wie möglich bleibt.[^1] Fotografieren Sie aber, bevor Sie weitere Maßnahmen einleiten oder mit den Aufräumarbeiten beginnen.[^2] Beschädigte Sachen werfen Sie nicht vorschnell weg, sondern halten sie mit Bild und Liste fest. Besprechen Sie zeitnah mit dem Versicherer die nächsten Schritte.[^2]
 
 **Wie erkenne ich, dass der Wasserschaden trocken ist?**
 
@@ -99,7 +99,7 @@ Nicht am Gefühl, sondern am Messprotokoll. Kontrollmessungen in Intervallen dok
 
 **Wer meldet den Wasserschaden in einer Mietwohnung?**
 
-Mieter müssen einen Wasserschaden unverzüglich dem Vermieter oder der Hausverwaltung melden, am besten schriftlich mit Fotos. Der eigene Hausrat ist Sache der Hausratversicherung, das Gebäude Sache der Wohngebäudeversicherung.[^1] Betrifft der Schaden Gemeinschaftseigentum, übernimmt die Verwaltung die weitere Abwicklung. Fragen zu Mietminderung, Haftung und Kostentragung beurteilt ein Rechtsanwalt.
+Melden Sie einen Wasserschaden in einer Mietwohnung sofort dem Vermieter oder der Hausverwaltung, am besten schriftlich mit Fotos. Der eigene Hausrat ist Sache der Hausratversicherung, das Gebäude Sache der Wohngebäudeversicherung.[^1] Fragen zu Mietminderung, Haftung und Kostentragung beurteilt ein Rechtsanwalt.
 
 ## Hinweis
 
@@ -127,7 +127,7 @@ Dieser Beitrag nennt keine Normen, Gesetze oder Urteile. Die Aussagen stützen s
 [^10]: Stahr, Michael (Hrsg.): Bausanierung. Erkennen und Beheben von Bauschäden. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 380. ISBN 978-3-658-28148-9.
 [^11]: Umweltbundesamt: Häufige Fragen bei Schimmelbefall. https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/schimmel/haeufige-fragen-bei-schimmelbefall (abgerufen am 2026-10-02). Inhaltlich bestätigt durch: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 385. ISBN 978-3-658-42604-0.
 [^12]: Keldungs, Karl-Heinz; Ganschow, Joachim; Arbeiter, Norbert: Leitfaden für Bausachverständige. Rechtsgrundlagen – Gutachten – Haftung. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2018, S. 164. ISBN 978-3-658-20269-9.
-[^13]: Umweltbundesamt: Asbest. https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/chemische-stoffe/asbest (abgerufen am 2026-10-02). Inhaltlich bestätigt durch: Vismann, Ulrich (Hrsg.): Wendehorst Bautechnische Zahlentafeln. 37. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 1613. ISBN 978-3-658-32218-2.
+[^13]: Umweltbundesamt: Asbest. https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/chemische-stoffe/asbest (abgerufen am 2026-10-02).
 [^14]: Weber, Jürgen; Hafkesbrink, Volker (Hrsg.): Bauwerksabdichtung in der Altbausanierung. Verfahren und juristische Betrachtungsweise. 7. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 97. ISBN 978-3-658-48094-3.
 [^15]: Weber, Jürgen; Hafkesbrink, Volker (Hrsg.): Bauwerksabdichtung in der Altbausanierung. Verfahren und juristische Betrachtungsweise. 7. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 107. ISBN 978-3-658-48094-3.
 [^16]: Weber, Jürgen; Hafkesbrink, Volker (Hrsg.): Bauwerksabdichtung in der Altbausanierung. Verfahren und juristische Betrachtungsweise. 7. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 160. ISBN 978-3-658-48094-3.
