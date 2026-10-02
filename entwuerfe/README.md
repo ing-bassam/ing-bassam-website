@@ -7,7 +7,7 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (12)
+## 🟡 Entwurf (13)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
@@ -19,6 +19,7 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 | 02.10.2026 | [Pauschalpreis im Bauvertrag: Was ist wirklich enthalten?](entwurf/2026-10-02-pauschalpreis-bauvertrag-leistungsbeschreibung.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/pauschalpreis-bauvertrag-leistungsbeschreibung/) |
 | 02.10.2026 | [Nachtrag prüfen: Anspruchsgrund und Höhe bewerten](entwurf/2026-10-02-nachtrag-pruefen-grund-und-hoehe.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nachtrag-pruefen-grund-und-hoehe/) |
 | 02.10.2026 | [Gewährleistung am Bau: Fristen, Beginn, Hemmung](entwurf/2026-10-02-gewaehrleistung-bau-fristen-bgb-vob.md) | Grundlagen | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/gewaehrleistung-bau-fristen-bgb-vob/) |
+| 02.10.2026 | [DIN eingehalten, Regeln der Technik verfehlt](entwurf/2026-10-02-din-anerkannte-regeln-technik-warmdach.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/din-anerkannte-regeln-technik-warmdach/) |
 | 02.10.2026 | [Beweisverfahren: Wann die Verjährung wieder läuft](entwurf/2026-10-02-beweisverfahren-verjaehrung-baumaengel.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/beweisverfahren-verjaehrung-baumaengel/) |
 | 02.10.2026 | [Behinderungsanzeige nach § 6 Abs. 1 VOB/B: Musterschreiben](entwurf/2026-10-02-behinderungsanzeige-vob-b.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/behinderungsanzeige-vob-b/) |
 | 02.10.2026 | [Bautagebuch für Bauherren: Vorlage und Anleitung](entwurf/2026-10-02-bautagebuch-bauherren.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bautagebuch-bauherren/) |
