@@ -25,7 +25,7 @@ notion_id:
 notion_url:
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1950
+wortzahl: 1920
 lesezeit: 10 Minuten
 fussnoten: 8
 quellen_geprueft: 2
@@ -54,7 +54,7 @@ Berufung legte nicht die Bauherrin ein, sondern der Planer, der dem Rechtsstreit
 
 Der 10. Zivilsenat gab der Berufung des Planers statt (Rn. 21). Er verurteilte die Baufirma zur Zahlung von 42.380,00 Euro statt der 21.190 Euro aus der ersten Instanz (Tenor Nr. 1).
 
-Zuerst prüfte der Senat, ob ein Planungsfehler bei einer Vorschussklage überhaupt zählt. Diese Frage bejahte er: Die Zurechnung eines Mitverschuldens des Planers scheidet nicht schon aus Rechtsgründen aus (Rn. 22). Ein Planungsfehler, den sich der Auftraggeber zurechnen lassen muss, ist auch bei einem Vorschuss auf die Sanierungskosten zu berücksichtigen (Rn. 25). Der Senat hat die Regel also nicht aufgegeben, sondern bestätigt.
+Zuerst prüfte der Senat, ob ein Planungsfehler bei einer Vorschussklage überhaupt zählt. Diese Frage bejahte er: Die Zurechnung eines Mitverschuldens des Planers scheidet nicht schon aus Rechtsgründen aus (Rn. 22). Ein Planungsfehler, den sich der Auftraggeber zurechnen lassen muss, ist auch bei einem Vorschuss auf die Sanierungskosten zu berücksichtigen (Rn. 25).
 
 Danach stellte er fest, dass das Dach mangelhaft errichtet wurde (Rn. 26). Die Luftdichtheit war im Bereich der Doppelsparren und am Übergang zwischen Sparren und Holzschalung nicht hergestellt (Rn. 27).
 
@@ -80,11 +80,11 @@ Wenn ein Dach Luft oder Wasser durchlässt, entscheidet oft die Dokumentation ü
 
 ## Was das Urteil nicht sagt
 
-Das Urteil betrifft einen Vertrag über Zimmer- und Dachdeckerarbeiten (Rn. 1). Das Landgericht hat die Mängel nach § 13 VOB/B beurteilt (Rn. 3, Rn. 4). VOB/B steht für die Vergabe- und Vertragsordnung für Bauleistungen, Teil B mit den Allgemeinen Vertragsbedingungen für die Ausführung von Bauleistungen[^6]. Dieses Regelwerk gilt nur, wenn die Vertragsparteien es vereinbaren. Welche Ausgabe hier galt, nennt das Urteil nicht.
+Das Urteil betrifft einen Vertrag über Zimmer- und Dachdeckerarbeiten (Rn. 1). Das Landgericht hat die Mängel nach § 13 VOB/B beurteilt (Rn. 3, Rn. 4). VOB/B steht für die Vergabe- und Vertragsordnung für Bauleistungen, Teil B mit den Allgemeinen Vertragsbedingungen für die Ausführung von Bauleistungen[^6]. Welche Ausgabe hier galt, nennt das Urteil nicht.
 
-Eine Frage hat der Senat ausdrücklich offengelassen (Rn. 38). Unentschieden blieb, ob ein Unternehmer auch dann voll haftet, wenn sein Ausführungsfehler den ganzen Schaden selbständig verursacht hätte (Rn. 38). Im Fall lag das anders, weil Planungs- und Ausführungsfehler denselben Mangel betrafen (Rn. 39). Ebenfalls nicht entschieden ist, was die Baufirma im Innenverhältnis vom Planer zurückfordern kann (Rn. 44). Der Senat hat die Revision zum Bundesgerichtshof nicht zugelassen (Rn. 46).
+Eine Frage hat der Senat ausdrücklich offengelassen (Rn. 38). Unentschieden blieb, ob ein Unternehmer auch dann voll haftet, wenn sein Ausführungsfehler den ganzen Schaden selbständig verursacht hätte (Rn. 38). Im Fall lag das anders, weil Planungs- und Ausführungsfehler denselben Mangel betrafen (Rn. 39). Ebenfalls nicht entschieden ist, was die Baufirma im Innenverhältnis vom Planer zurückfordern kann (Rn. 44). Der Senat hat die Revision nicht zugelassen (Rn. 46).
 
-Das Urteil ist von 2014, und seither hat sich das Gesetz verändert. Der Senat wendet zwei Vorschriften des Bürgerlichen Gesetzbuchs an, § 254 und § 278 BGB (Rn. 40). Die erste betrifft das Mitverschulden, die zweite die Zurechnung fremden Verschuldens. Als Erfüllungsgehilfe gilt, wer für eine Vertragspartei deren Pflichten erfüllt; dazu zählt der Senat den Planer (Rn. 41). Den Ausgleich zwischen Baufirma und Planer verortet er in § 426 BGB (Rn. 44). Zum 1. Januar 2018 wurde das Bauvertragsrecht im Bürgerlichen Gesetzbuch reformiert[^7]. Die Regeln der §§ 631 bis 650 BGB gelten weiterhin auch für Bauverträge, soweit die §§ 650a bis 650h BGB nichts Abweichendes bestimmen[^7]. Ein Fachbuch von 2024 gibt den Gedanken des Senats unverändert wieder[^8]. Ist ein Planungsfehler offenkundig und verletzt der Unternehmer seine Hinweispflicht, kann dies das Mitverschulden des Auftraggebers völlig überlagern[^8].
+Das Urteil ist von 2014, und seither hat sich das Gesetz verändert. Der Senat wendet zwei Vorschriften des Bürgerlichen Gesetzbuchs an, § 254 und § 278 BGB (Rn. 40). Die erste betrifft das Mitverschulden, die zweite die Zurechnung fremden Verschuldens. Als Erfüllungsgehilfe gilt, wer für eine Vertragspartei deren Pflichten erfüllt; dazu zählt der Senat den Planer (Rn. 41). Den Ausgleich zwischen Baufirma und Planer verortet er in § 426 BGB (Rn. 44). Zum 1. Januar 2018 wurde das Bauvertragsrecht im Bürgerlichen Gesetzbuch reformiert[^7]. Die Regeln der §§ 631 bis 650 BGB gelten weiterhin auch für Bauverträge, soweit die §§ 650a bis 650h BGB nichts Abweichendes bestimmen[^7]. Nach der Fachliteratur kann die Verletzung der Prüf- und Hinweispflicht bei einem offenkundigen Planungsfehler das Mitverschulden des Auftraggebers völlig überlagern[^8].
 
 ## Häufige Fragen
 
@@ -100,7 +100,7 @@ Der Senat hat die Zurechnung bejaht. Ein Planungsfehler, den sich der Auftraggeb
 
 In diesem Verfahren trug die Baufirma vor, sie habe mündlich Bedenken angemeldet (Rn. 42). Das Landgericht hat bindend festgestellt, dass dieser Bedenkenhinweis nicht nachgewiesen ist (Rn. 43). Der Senat hat sich dieser Feststellung angeschlossen (Rn. 43). Ein Fachbuch empfiehlt aus Beweisgründen die schriftliche Form und den Hinweis an den Auftraggeber selbst[^3].
 
-**Was ist ein Kostenvorschuss, und warum war er hier so hoch?**
+**Was ist ein Kostenvorschuss, und wie kam der Betrag zustande?**
 
 Der Kostenvorschuss ist eine vorläufige Zahlung auf die zu erwartenden Mängelbeseitigungskosten[^2]. Das Landgericht hatte die Mangelbeseitigung mit 45.810 Euro brutto bewertet und Sowiesokosten abgezogen (Rn. 5). Von dem verbleibenden Betrag sprach es der Bauherrin die Hälfte zu, also 21.190 Euro (Rn. 5). Der Senat hat die Kürzung aufgehoben und 42.380,00 Euro zugesprochen (Tenor Nr. 1).
 
@@ -120,7 +120,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^2]: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. Entscheidungshilfen für Auftraggeber und Auftragnehmer. 2. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 65. ISBN 978-3-658-44068-8.
 [^3]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 127. ISBN 978-3-658-32822-1.
 [^4]: Willems, Wolfgang M. (Hrsg.): Lehrbuch der Bauphysik. Wärme – Feuchte – Klima – Schall – Licht – Brand. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 68. ISBN 978-3-658-34093-3.
-[^5]: DIN Media: DIN 4108-7:2026-04, Wärmeschutz und Energie-Einsparung in Gebäuden – Teil 7: Luftdichtheit von Gebäuden – Anforderungen, Planungs- und Ausführungsempfehlungen sowie -beispiele. Ausgabe 2026-04, Status aktuell, ersetzt DIN 4108-7:2011-01. https://www.dinmedia.de/de/norm/din-4108-7/398456216 (abgerufen am 2026-10-02). Inhaltlich bestätigt durch: Willems, Wolfgang M. (Hrsg.): Lehrbuch der Bauphysik. Wärme – Feuchte – Klima – Schall – Licht – Brand. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 68. ISBN 978-3-658-34093-3.
+[^5]: DIN Media: DIN 4108-7:2026-04, Wärmeschutz und Energie-Einsparung in Gebäuden – Teil 7: Luftdichtheit von Gebäuden – Anforderungen, Planungs- und Ausführungsempfehlungen sowie -beispiele. Ausgabe 2026-04, Status aktuell, ersetzt DIN 4108-7:2011-01. https://www.dinmedia.de/de/norm/din-4108-7/398456216 (abgerufen am 2026-10-02).
 [^6]: Malkwitz, Alexander u. a.: Kostenermittlung und -kalkulation im Bauprojekt. Grundlagen und Anwendung. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 209. ISBN 978-3-658-38927-7.
 [^7]: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 74. ISBN 978-3-658-47553-6.
 [^8]: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. Entscheidungshilfen für Auftraggeber und Auftragnehmer. 2. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 188. ISBN 978-3-658-44068-8.
