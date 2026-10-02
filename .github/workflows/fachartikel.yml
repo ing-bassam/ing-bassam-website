@@ -180,9 +180,10 @@ jobs:
       matrix:
         runde: ${{ fromJSON(needs.planen.outputs.liste) }}
     runs-on: ubuntu-latest
-    # Schreiben bis 60 Minuten, Schlussprüfung bis 35, dazu Bibliothek, Notion,
+    # Schreiben bis 60 Minuten (bei einem Fehlalarm des Sicherheitsfilters ein
+    # zweiter Versuch bis 60), Schlussprüfung bis 35, dazu Bibliothek, Notion,
     # Quellenabruf und Abschluss.
-    timeout-minutes: 115
+    timeout-minutes: 175
 
     permissions:
       contents: write        # Entwurfsdatei anlegen und Branch pushen
@@ -820,9 +821,19 @@ jobs:
       #    Auf Commit-SHA festgelegt (v1.0.231 = Stand des Tags v1 am
       #    19.09.2026). Aktualisierung über Dependabot.
       # -----------------------------------------------------------------
+      # Für einen möglichen zweiten Versuch: Stand des Arbeitsverzeichnisses
+      # vor dem Agenten merken.
+      - name: Stand vor dem Agenten merken
+        id: vorher
+        run: |
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "zweig=$(git rev-parse --abbrev-ref HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Entwurf schreiben lassen
         id: claude
-        timeout-minutes: 60   # lässt Notion und Schlussprüfung Zeit innerhalb der 115 Job-Minuten
+        # Ein Fehlschlag wird unten ausgewertet (Fehlalarm → zweiter Versuch).
+        continue-on-error: true
+        timeout-minutes: 60   # lässt Notion und Schlussprüfung Zeit innerhalb der 175 Job-Minuten
         uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -858,6 +869,91 @@ jobs:
             --add-dir ${{ steps.thema.outputs.auftrag_verzeichnis }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
 
+      # Fehlalarm des Sicherheitsfilters (02.10.2026, Fachartikel Runde 3): Die
+      # API bricht mit „safeguards flagged this message“ ab und empfiehlt eine
+      # neue Sitzung oder ein anderes Modell. Dann folgt ein zweiter Versuch mit
+      # Opus 5.5 – aber nur, wenn der erste noch nichts veröffentlicht hat
+      # (tools/zweiter_versuch.py). Andere Fehler bekommen keinen zweiten Versuch.
+      - name: Zweiter Versuch nötig?
+        id: fehlalarm
+        if: steps.claude.outcome == 'failure'
+        env:
+          VERLAUF: ${{ steps.claude.outputs.execution_file }}
+          START_SHA: ${{ steps.vorher.outputs.sha }}
+          START_ZWEIG: ${{ steps.vorher.outputs.zweig }}
+        run: |
+          set -euo pipefail
+          VERLAUF="${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
+          python tools/agent_bericht.py "$VERLAUF" --titel "Erster Versuch"
+          python tools/zweiter_versuch.py "$VERLAUF"
+          if grep -q "^zweiter_versuch=true" "$GITHUB_OUTPUT"; then
+            # Was der erste Versuch lokal angelegt hat, verwerfen (veröffentlicht hat er nichts).
+            git checkout -q -f "$START_ZWEIG" 2>/dev/null || git checkout -q -f "$START_SHA"
+            git reset -q --hard "$START_SHA"
+            git clean -q -fd -- entwuerfe fachwissen vorlagen
+            echo "::warning title=Agent::Fehlalarm des Sicherheitsfilters im ersten Versuch – zweiter Versuch mit Opus 5.5."
+          fi
+
+      - name: Entwurf schreiben lassen (zweiter Versuch, Opus 5.5)
+        id: claude2
+        continue-on-error: true
+        if: steps.fehlalarm.outputs.zweiter_versuch == 'true'
+        timeout-minutes: 60   # lässt Notion und Schlussprüfung Zeit innerhalb der 175 Job-Minuten
+        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Ausdrücke unter with: sind kein Shell-Kontext – die Werte werden als Text übergeben.
+          prompt: |
+            /fachartikel
+            Auftragsdatei: ${{ steps.thema.outputs.auftrag_pfad }}
+            Lies die Auftragsdatei zuerst vollständig; sie enthält die Notizen/Gliederung aus Notion, die als Vorgabe gelten.
+            Thema: ${{ steps.thema.outputs.thema }}
+            Kernfrage: ${{ steps.thema.outputs.kernfrage }}
+            Kategorie: ${{ steps.thema.outputs.kategorie }}
+            Format: ${{ steps.thema.outputs.format }}
+            Zielgruppe: ${{ steps.thema.outputs.zielgruppe }}
+            Leistung: ${{ steps.thema.outputs.leistung }}
+            Priorität: ${{ steps.thema.outputs.prioritaet }}
+            Notion-ID: ${{ steps.thema.outputs.notion_id }}
+            Notion-URL: ${{ steps.thema.outputs.notion_url }}
+            Quelle: ${{ steps.thema.outputs.quelle }}
+            Bibliothek: ${{ steps.bibindex.outputs.ordner || 'nicht verfügbar' }}
+          # --add-dir: Zugriff auf das Verzeichnis der Auftragsdatei außerhalb des Repos. Es enthält
+          #   nur auftrag.md (und später pr-body.md des Agenten), keine Zwischenstände aus Notion.
+          #   Pfad des Runners, ohne Leerzeichen, daher ohne Anführungszeichen; die nächste Option
+          #   beendet die Pfadliste.
+          # --allowedTools: bewusst redundant zur SKILL.md (Frontmatter allowed-tools), damit der
+          #   Workflow auch dann läuft, wenn die Skill-Datei einmal abweicht. Web nur zur Quellenprüfung.
+          #   „git config“ fehlt absichtlich (siehe Schritt „Git-Identität setzen“) und darf auch in
+          #   der SKILL.md nicht freigegeben werden.
+          claude_args: |
+            --max-turns 170
+            --model claude-opus-5-5
+            --add-dir ${{ steps.thema.outputs.auftrag_verzeichnis }}
+            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
+
+      # Ein Ergebnis für alle folgenden Schritte: Erfolg, wenn einer der beiden
+      # Versuche erfolgreich war. Sonst scheitert die Runde hier – genau wie
+      # früher am Schreibschritt selbst.
+      - name: Ergebnis des Agenten
+        id: agent
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        env:
+          ERSTER: ${{ steps.claude.outcome }}
+          ZWEITER: ${{ steps.claude2.outcome }}
+        run: |
+          if [ "$ERSTER" = "success" ] || [ "$ZWEITER" = "success" ]; then
+            echo "ergebnis=success" >> "$GITHUB_OUTPUT"
+            if [ "$ZWEITER" = "success" ]; then
+              echo "::notice title=Agent::Der zweite Versuch mit Opus 5.5 war erfolgreich."
+            fi
+            exit 0
+          fi
+          echo "ergebnis=failure" >> "$GITHUB_OUTPUT"
+          exit 1
+
 
       # Die Claude-Aktion zeigt im Protokoll nur Kennzahlen. Dieser Schritt macht
       # sichtbar, was der Agent gemeldet hat, welche Befehle abgelehnt wurden und
@@ -868,7 +964,7 @@ jobs:
         if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
         continue-on-error: true
         env:
-          VERLAUF: ${{ steps.claude.outputs.execution_file }}
+          VERLAUF: ${{ steps.claude2.outputs.execution_file || steps.claude.outputs.execution_file }}
         run: python tools/agent_bericht.py "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
       # -----------------------------------------------------------------
       # 4. Notion aktualisieren. Läuft auch, wenn der Agent-Schritt scheitert:
@@ -887,7 +983,7 @@ jobs:
           NOTION_URL: ${{ steps.thema.outputs.notion_url }}
           NOTION_STATUS_VORHER: ${{ steps.thema.outputs.notion_status }}
           JOBSTART: ${{ steps.start.outputs.zeit }}
-          AGENT_ERGEBNIS: ${{ steps.claude.outcome }}
+          AGENT_ERGEBNIS: ${{ steps.agent.outputs.ergebnis || steps.claude.outcome }}
         # ACHTUNG: Auch hier keine Ausdrücke in doppelten geschweiften Klammern ins Skript – nur über env:.
         run: |
           set -euo pipefail
@@ -1118,7 +1214,7 @@ jobs:
       # -----------------------------------------------------------------
       - name: Entwurf für die Schlussprüfung bestimmen
         id: ziel
-        if: ${{ !cancelled() && steps.claude.outcome == 'success' }}
+        if: ${{ !cancelled() && steps.agent.outputs.ergebnis == 'success' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           JOBSTART: ${{ steps.start.outputs.zeit }}

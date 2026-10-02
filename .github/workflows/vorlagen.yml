@@ -101,8 +101,9 @@ jobs:
       matrix:
         runde: ${{ fromJSON(needs.planen.outputs.liste) }}
     runs-on: ubuntu-latest
-    # Gründliche Recherche, Schreiben und Bauen bis 90 Minuten, Schlussprüfung bis 35, dazu Notion und Abschluss.
-    timeout-minutes: 150
+    # Gründliche Recherche, Schreiben und Bauen bis 90 Minuten (bei einem Fehlalarm des
+    # Sicherheitsfilters ein zweiter Versuch bis 90), Schlussprüfung bis 35, dazu Notion und Abschluss.
+    timeout-minutes: 240
 
     permissions:
       contents: write
@@ -373,8 +374,18 @@ jobs:
       # -----------------------------------------------------------------
       # Vorlage und Begleitseite schreiben lassen
       # -----------------------------------------------------------------
+      # Für einen möglichen zweiten Versuch: Stand des Arbeitsverzeichnisses
+      # vor dem Agenten merken.
+      - name: Stand vor dem Agenten merken
+        id: vorher
+        run: |
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "zweig=$(git rev-parse --abbrev-ref HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Vorlage erstellen lassen
         id: claude
+        # Ein Fehlschlag wird unten ausgewertet (Fehlalarm → zweiter Versuch).
+        continue-on-error: true
         timeout-minutes: 90
         uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
         env:
@@ -397,6 +408,77 @@ jobs:
             --add-dir ${{ steps.auftrag.outputs.auftrag_verzeichnis }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/vorlage_bauen.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
 
+      # Fehlalarm des Sicherheitsfilters (02.10.2026, Fachartikel Runde 3): Die
+      # API bricht mit „safeguards flagged this message“ ab und empfiehlt eine
+      # neue Sitzung oder ein anderes Modell. Dann folgt ein zweiter Versuch mit
+      # Opus 5.5 – aber nur, wenn der erste noch nichts veröffentlicht hat
+      # (tools/zweiter_versuch.py). Andere Fehler bekommen keinen zweiten Versuch.
+      - name: Zweiter Versuch nötig?
+        id: fehlalarm
+        if: steps.claude.outcome == 'failure'
+        env:
+          VERLAUF: ${{ steps.claude.outputs.execution_file }}
+          START_SHA: ${{ steps.vorher.outputs.sha }}
+          START_ZWEIG: ${{ steps.vorher.outputs.zweig }}
+        run: |
+          set -euo pipefail
+          VERLAUF="${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
+          python tools/agent_bericht.py "$VERLAUF" --titel "Erster Versuch"
+          python tools/zweiter_versuch.py "$VERLAUF"
+          if grep -q "^zweiter_versuch=true" "$GITHUB_OUTPUT"; then
+            # Was der erste Versuch lokal angelegt hat, verwerfen (veröffentlicht hat er nichts).
+            git checkout -q -f "$START_ZWEIG" 2>/dev/null || git checkout -q -f "$START_SHA"
+            git reset -q --hard "$START_SHA"
+            git clean -q -fd -- entwuerfe fachwissen vorlagen
+            echo "::warning title=Agent::Fehlalarm des Sicherheitsfilters im ersten Versuch – zweiter Versuch mit Opus 5.5."
+          fi
+
+      - name: Vorlage erstellen lassen (zweiter Versuch, Opus 5.5)
+        id: claude2
+        continue-on-error: true
+        if: steps.fehlalarm.outputs.zweiter_versuch == 'true'
+        timeout-minutes: 90
+        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /vorlage
+            Auftragsdatei: ${{ steps.auftrag.outputs.auftrag_pfad }}
+            Vorlage: ${{ steps.auftrag.outputs.vorlage }}
+            Typ: ${{ steps.auftrag.outputs.typ }}
+            Notion-URL: ${{ steps.auftrag.outputs.notion_url }}
+            Bibliothek: ${{ steps.bibindex.outputs.ordner || 'nicht verfügbar' }}
+
+            Lies zuerst .claude/skills/fachartikel/SKILL.md vollständig, dann die
+            Auftragsdatei.
+          claude_args: |
+            --max-turns 200
+            --model claude-opus-5-5
+            --add-dir ${{ steps.auftrag.outputs.auftrag_verzeichnis }}
+            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/vorlage_bauen.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
+
+      # Ein Ergebnis für alle folgenden Schritte: Erfolg, wenn einer der beiden
+      # Versuche erfolgreich war. Sonst scheitert die Runde hier – genau wie
+      # früher am Schreibschritt selbst.
+      - name: Ergebnis des Agenten
+        id: agent
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        env:
+          ERSTER: ${{ steps.claude.outcome }}
+          ZWEITER: ${{ steps.claude2.outcome }}
+        run: |
+          if [ "$ERSTER" = "success" ] || [ "$ZWEITER" = "success" ]; then
+            echo "ergebnis=success" >> "$GITHUB_OUTPUT"
+            if [ "$ZWEITER" = "success" ]; then
+              echo "::notice title=Agent::Der zweite Versuch mit Opus 5.5 war erfolgreich."
+            fi
+            exit 0
+          fi
+          echo "ergebnis=failure" >> "$GITHUB_OUTPUT"
+          exit 1
+
 
       # Die Claude-Aktion zeigt im Protokoll nur Kennzahlen. Dieser Schritt macht
       # sichtbar, was der Agent gemeldet hat, welche Befehle abgelehnt wurden und
@@ -407,7 +489,7 @@ jobs:
         if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
         continue-on-error: true
         env:
-          VERLAUF: ${{ steps.claude.outputs.execution_file }}
+          VERLAUF: ${{ steps.claude2.outputs.execution_file || steps.claude.outputs.execution_file }}
         run: python tools/agent_bericht.py "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
       # -----------------------------------------------------------------
       # Pull Request dieses Laufs bestimmen, Notion aktualisieren
@@ -421,7 +503,7 @@ jobs:
           NOTION_ID: ${{ steps.auftrag.outputs.notion_id }}
           NOTION_URL: ${{ steps.auftrag.outputs.notion_url }}
           JOBSTART: ${{ steps.start.outputs.zeit }}
-          AGENT: ${{ steps.claude.outcome }}
+          AGENT: ${{ steps.agent.outputs.ergebnis || steps.claude.outcome }}
         run: |
           set -euo pipefail
           NOTION_TOKEN="$(printf '%s' "${NOTION_TOKEN:-}" | tr -d '[:space:]')"

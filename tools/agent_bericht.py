@@ -79,7 +79,11 @@ def main() -> int:
     werkzeuge: dict[str, str] = {}
     fehler: list[str] = []
     for m in liste:
-        inhalt = (m.get("message") or {}).get("content")
+        # Nicht jeder Eintrag trägt ein Nachrichtenobjekt: Die Startmeldung hat
+        # „message“: „Claude Code initialized“ als Text. Daran stürzte dieses
+        # Werkzeug am 02.10.2026 ab (Urteil verständlich, Runde 1).
+        nachricht = m.get("message")
+        inhalt = nachricht.get("content") if isinstance(nachricht, dict) else None
         if not isinstance(inhalt, list):
             continue
         for teil in inhalt:
