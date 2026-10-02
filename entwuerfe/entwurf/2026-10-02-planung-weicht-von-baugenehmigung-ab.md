@@ -70,7 +70,7 @@ Die Kosten der Lochbleche und des Gutachtens muss der Planer ersetzen (Rn. 108, 
 
 ## Was Bauherren und Eigentümer daraus mitnehmen
 
-Die wichtigste Lehre aus dem Fall betrifft die Baugenehmigung. Sie ist nicht nur eine behördliche Erlaubnis. In Musterbauverträgen wird sie als Vertragsbestandteil aufgeführt[^2]. Steht sie im Vertrag, beschreibt sie mit, was gebaut werden soll. Im entschiedenen Fall ging sie der Leistungsbeschreibung sogar im Rang vor (Rn. 128). Prüfen Sie deshalb, ob Ihre Baugenehmigung samt Auflagen zu den Vertragsunterlagen gehört.
+Die wichtigste Lehre aus dem Fall betrifft die Baugenehmigung. Sie ist nicht nur eine behördliche Erlaubnis. In einem Musterbauvertrag der Fachliteratur wird sie als Vertragsbestandteil aufgeführt[^2]. Steht sie im Vertrag, beschreibt sie mit, was gebaut werden soll. Im entschiedenen Fall ging sie der Leistungsbeschreibung sogar im Rang vor (Rn. 128). Prüfen Sie deshalb, ob Ihre Baugenehmigung samt Auflagen zu den Vertragsunterlagen gehört.
 
 Entscheidend war hier eine Anlage zu einer Nebenbestimmung der Genehmigung (Rn. 73). Nebenbestimmungen sind die Bedingungen, die die Behörde mit der Genehmigung verbindet. Sie stehen oft in Anlagen, die beim Lesen untergehen. Für Bauherren, Eigentümer und Hausverwaltungen heißt das: Die Auflagen zum Brandschutz gehören in die Hand der Planer, und ihre Umsetzung sollte dokumentiert werden.
 
@@ -84,13 +84,13 @@ Das Urteil betrifft eine Fassadenentwässerung an einem Büro- und Ladenkomplex 
 
 Offen bleibt nach dem Volltext mehreres. Was ein vollständiger Austausch der Rohre kosten würde, hat das Gericht nicht festgestellt. Ob die Behörde ihn tatsächlich anordnet, ist nicht entschieden (Rn. 104). Auch die Frage, ob der Planer zusätzlich seine Pflichten zur Objektüberwachung verletzt hat, musste der Senat nicht beantworten (Rn. 107). Die Revision hat das Gericht nicht zugelassen (Rn. 170).
 
-Ein Wort zum Stand heute: Das Urteil ist vom Dezember 2024. Der Senat wendet das Bürgerliche Gesetzbuch in der Fassung an, die für Verträge bis zum 31. Dezember 2017 gilt (Rn. 67, Rn. 123), dazu die VOB/B in der Ausgabe 2009 (Rn. 120). Die VOB/B ist die Vergabe- und Vertragsordnung für Bauleistungen, Teil B; sie erscheint als DIN 1961[^4]. Für Bauverträge ab dem 1. Januar 2018 gilt zusätzlich das Bauvertragsrecht der §§ 650a bis 650o BGB; die allgemeinen Regeln der §§ 631 bis 650 BGB gelten weiter, soweit dort nichts Abweichendes bestimmt ist[^5].
+Ein Wort zum Stand heute: Das Urteil ist vom Dezember 2024. Der Senat wendet das Bürgerliche Gesetzbuch in der Fassung an, die für Verträge bis zum 31. Dezember 2017 gilt (Rn. 67, Rn. 123), dazu die VOB/B in der Ausgabe 2009 (Rn. 120). Die VOB/B ist die Vergabe- und Vertragsordnung für Bauleistungen, Teil B; sie erscheint als DIN 1961[^4]. Für Bauverträge ab dem 1. Januar 2018 gilt zusätzlich das Bauvertragsrecht der §§ 650a bis 650o BGB; die allgemeinen Regeln der §§ 631 bis 650 BGB gelten weiter, soweit die §§ 650a bis 650h BGB nichts Abweichendes bestimmen[^5].
 
 ## Häufige Fragen
 
 **Gilt das auch für mein Einfamilienhaus?**
 
-Das Urteil betrifft einen Büro- und Ladenkomplex und eine Baugenehmigung mit besonderen Brandschutzauflagen (Rn. 1, Rn. 73). Übertragbar ist der Gedanke, dass eine Ausführungsplanung die dem Planer bekannte Baugenehmigung einhalten muss, wenn nichts anderes vereinbart ist (Rn. 71, Rn. 79). Ob Ihre Baugenehmigung Vertragsbestandteil ist, ergibt sich aus Ihrem Bauvertrag; in Musterbauverträgen wird sie als Bestandteil aufgeführt[^2]. Was daraus in Ihrem Fall folgt, beurteilt ein Rechtsanwalt.
+Das Urteil betrifft einen Büro- und Ladenkomplex und eine Baugenehmigung mit besonderen Brandschutzauflagen (Rn. 1, Rn. 73). Übertragbar ist der Gedanke, dass eine Ausführungsplanung die dem Planer bekannte Baugenehmigung einhalten muss, wenn nichts anderes vereinbart ist (Rn. 71, Rn. 79). Ob Ihre Baugenehmigung Vertragsbestandteil ist, ergibt sich aus Ihrem Bauvertrag; in einem Musterbauvertrag der Fachliteratur wird sie als Bestandteil aufgeführt[^2]. Was daraus in Ihrem Fall folgt, beurteilt ein Rechtsanwalt.
 
 **Mein Bau ist abgenommen und alles funktioniert. Ist die Sache damit erledigt?**
 
