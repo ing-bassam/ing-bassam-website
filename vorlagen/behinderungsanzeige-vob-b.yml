@@ -1,0 +1,90 @@
+titel: "Behinderungsanzeige nach § 6 Abs. 1 VOB/B"
+untertitel: Musterschreiben für Auftragnehmer
+kurzform: behinderungsanzeige-vob-b
+typ: Musterschreiben
+stand: 2026-10-02
+dateien: [docx, pdf]
+einleitung: "Mit diesem Musterschreiben zeigen Sie als Auftragnehmer eine Behinderung der Bauausführung an. Das Schreiben führt durch die Angaben, auf die es ankommt: Ursache, Ort, betroffene Arbeiten, Beginn, voraussichtliche Dauer, Auswirkung auf die Termine und die Aufforderung an den Auftraggeber. Ersetzen Sie die Platzhalter in eckigen Klammern durch Ihre Angaben und streichen Sie, was nicht zutrifft. Die Prüfliste am Ende geht die Punkte durch, an denen Behinderungsanzeigen in der Praxis scheitern."
+
+brief:
+  betreff: "Behinderungsanzeige nach § 6 Abs. 1 VOB/B – Bauvorhaben [Bezeichnung], [betroffene Leistung]"
+  anrede: Sehr geehrte Damen und Herren,
+  absaetze:
+    - "zwischen Ihnen als Auftraggeber und uns als Auftragnehmer besteht der Bauvertrag vom [Datum] über [Leistung, z. B. die Rohbauarbeiten für das Gebäude B]. Nach unseren Unterlagen ist die VOB/B in diesen Vertrag einbezogen. Hiermit zeigen wir Ihnen an, dass wir uns in der ordnungsgemäßen Ausführung unserer Leistung behindert glauben."
+    - "Behindert sind wir bei [betroffene Arbeiten, z. B. den Mauerarbeiten im 1. Obergeschoss, Achsen 4 bis 9] im Bereich [Ort auf der Baustelle]. Diese Arbeiten sind im Bauzeitenplan vom [Datum] als Vorgang [Nummer oder Bezeichnung] für den Zeitraum [von] bis [bis] vorgesehen. Die Behinderung besteht seit dem [Datum]."
+    - "Ursache ist folgender Umstand: [Sachverhalt sachlich mit Ort und Datum beschreiben, z. B. die freigegebenen Ausführungspläne für die Achsen 4 bis 9 liegen uns bis heute nicht vor; angefordert haben wir sie mit Schreiben vom …]."
+    - "Dieser Umstand stammt aus [Zutreffendes wählen: Ihrem Risikobereich als Auftraggeber / einem Streik oder einer von der Berufsvertretung der Arbeitgeber angeordneten Aussperrung in unserem Betrieb oder in einem unmittelbar für uns arbeitenden Betrieb / höherer Gewalt oder einem anderen für uns unabwendbaren Umstand]."
+    - "Festgestellt haben wir das am [Datum] durch [Art der Feststellung, z. B. Abgleich mit dem Planeingangsbuch, Begehung, Aufmaß]. Der Sachverhalt ist im Bautagesbericht vom [Datum] vermerkt."
+    - "Von der Behinderung sind folgende Kapazitäten betroffen: [Anzahl] Arbeitskräfte des Gewerks [Bezeichnung], [Geräte, z. B. ein Turmdrehkran und eine Betonpumpe] sowie [Nachunternehmer oder Lieferungen]. Diese Kapazitäten sind seit dem [Datum] gebunden, ohne dass wir sie wie geplant einsetzen können."
+    - "Die hindernde Wirkung besteht darin, dass wir [Wirkung beschreiben, z. B. die Mauerarbeiten in diesem Bereich nicht beginnen und die anschließende Decke nicht einschalen können]. Ein Ausweichen auf andere Bauabschnitte ist [möglich / nicht möglich], weil [Begründung]."
+    - "Nach unserer Einschätzung dauert die Behinderung voraussichtlich bis zum [Datum] an. Damit verschieben sich die Ausführungsfristen um die Dauer der Behinderung, zuzüglich eines Zuschlags für die Wiederaufnahme der Arbeiten und für eine etwaige Verschiebung in eine ungünstigere Jahreszeit. Die genaue Verschiebung teilen wir Ihnen mit, sobald die Behinderung endet."
+    - "Wir bitten Sie, die hindernden Umstände bis zum [Datum] zu beseitigen oder uns mitzuteilen, wie weiter verfahren werden soll. Erforderlich ist dafür aus unserer Sicht [konkrete Mitwirkung, z. B. die Freigabe der Ausführungspläne für die Achsen 4 bis 9]."
+    - "Ansprüche auf Verlängerung der Ausführungsfristen und auf Ausgleich der Mehrkosten, die uns aus dieser Behinderung entstehen, behalten wir uns vor. Die Höhe können wir heute nicht benennen; wir rechnen sie nach dem Ende der Behinderung gesondert ab."
+    - "Als Grundlage kommen für die Bauzeit § 6 Abs. 2 bis 4 VOB/B und für die Kosten § 6 Abs. 6 VOB/B oder § 642 BGB in Betracht. Welche Grundlage im Einzelfall trägt, bleibt einer gesonderten Prüfung vorbehalten."
+    - "Wir tun weiterhin alles, was uns billigerweise zugemutet werden kann, um die Arbeiten weiterzuführen. Veranlasst haben wir dazu [Maßnahmen, z. B. das Vorziehen der Arbeiten in Achse 1 bis 3 und die Umstellung der Reihenfolge]. Sobald die hindernden Umstände wegfallen, nehmen wir die Arbeiten unverzüglich wieder auf und benachrichtigen Sie davon."
+    - "Die Anlagen zu diesem Schreiben sind unten aufgeführt. Bitte bestätigen Sie uns den Erhalt. Für Rückfragen stehen wir Ihnen zur Verfügung."
+  gruss: Mit freundlichen Grüßen
+  anlagen:
+    - Bautagesberichte des Behinderungszeitraums
+    - Auszug aus dem Bauzeitenplan mit dem betroffenen Vorgang
+    - Lichtbilder mit Datum
+    - Schriftverkehr zur Ursache, etwa Planabruf und Protokolle
+    - Übersicht der gebundenen Arbeitskräfte und Geräte
+
+tabelle:
+  titel: Vor dem Absenden prüfen
+  spalten: ["Nr.", Prüfpunkt, erledigt]
+  breiten: [1, 12, 2]
+  zeilen:
+    - ["1", "Der Bauvertrag ist daraufhin geprüft, ob die VOB/B einbezogen ist.", ""]
+    - ["2", "Das Schreiben ist an den Auftraggeber selbst gerichtet, nicht nur an Bauleitung oder Architekt.", ""]
+    - ["3", "Ist eine für Erklärungen bevollmächtigte Stelle benannt, geht eine Kopie auch dorthin.", ""]
+    - ["4", "Das Schreiben ist unterschrieben und geht als Original oder als unterschriebener Scan hinaus.", ""]
+    - ["5", "Die Anzeige geht ohne schuldhaftes Zögern hinaus, nicht erst mit der Schlussrechnung.", ""]
+    - ["6", "Die Anzeige beruht auf einer begründeten Vermutung oder auf Gewissheit, nicht auf einem bloßen Vorbehalt.", ""]
+    - ["7", "Ursache und Art der Behinderung sind als Tatsache beschrieben, nicht als Vorwurf.", ""]
+    - ["8", "Der Bereich der Behinderung auf der Baustelle ist benannt.", ""]
+    - ["9", "Datum des Schreibens, Datum der Feststellung und Beginn der Behinderung sind eingetragen.", ""]
+    - ["10", "Die betroffenen Arbeiten sind mit dem Vorgang aus dem Bauzeitenplan bezeichnet.", ""]
+    - ["11", "Betroffene Arbeitskräfte, Geräte und Nachunternehmer sind benannt, mit der Dauer der Bindung.", ""]
+    - ["12", "Die Auswirkung auf die vereinbarten Termine ist konkret dargestellt, nicht nur allgemein behauptet.", ""]
+    - ["13", "Die voraussichtliche Dauer der Behinderung ist angegeben.", ""]
+    - ["14", "Eine Aufforderung an den Auftraggeber mit Frist für Beseitigung oder Rückmeldung steht im Schreiben.", ""]
+    - ["15", "Ansprüche auf Bauzeit und Mehrkosten sind vorbehalten, eine Höhe ist nicht genannt.", ""]
+    - ["16", "Die eigenen Maßnahmen zur Begrenzung der Auswirkungen sind benannt.", ""]
+    - ["17", "Jede Behinderung ist einzeln angezeigt, nicht mehrere Sachverhalte in einem Sammelschreiben.", ""]
+    - ["18", "Der Behinderungszeitraum ist im Bautagesbericht fortlaufend vermerkt, auch für jeden weiteren Tag.", ""]
+    - ["19", "Neben den Störungen sind auch die produktiv erbrachten Leistungen dokumentiert.", ""]
+    - ["20", "Die Anlagen sind vollständig, im Schreiben genannt und tragen ein Datum.", ""]
+    - ["21", "Der Zugang ist nachweisbar, etwa durch persönliche Übergabe gegen Empfangsbestätigung oder durch einen Boten, der den Einwurf bezeugen kann.", ""]
+    - ["22", "Eine Kopie liegt in der Bauakte, und eine Wiedervorlage zum Ablauf der gesetzten Frist ist notiert.", ""]
+  leerzeilen: 2
+
+hinweise:
+  - "Platzhalter in eckigen Klammern durch eigene Angaben ersetzen. Absätze, die nicht zutreffen, ersatzlos streichen."
+  - "§ 6 Abs. 1 Satz 1 VOB/B verlangt die Anzeige unverzüglich, schriftlich und gegenüber dem Auftraggeber. Unverzüglich heißt ohne schuldhaftes Zögern."
+  - "Die VOB/B gilt nur, wenn sie im Bauvertrag vereinbart ist. Prüfen Sie das zuerst; ohne VOB/B richten sich Pflichten und Ansprüche nach dem Bauvertrag und dem Bürgerlichen Gesetzbuch."
+  - "Richtiger Empfänger ist der Auftraggeber selbst oder die von ihm für Erklärungen bevollmächtigte Stelle. Eine Anzeige nur an den bauleitenden Architekten genügt nach der Fachliteratur in der Regel nicht."
+  - "Eine Anzeige an den objektüberwachenden Planer kann nach der Fachliteratur genügen, wenn dieser die Behinderung selbst verursacht hat und sie unverzüglich und vollständig beseitigt."
+  - "Die Anzeigepflicht beginnt nicht erst mit dem Eintritt der Behinderung, sondern sobald eine Behinderung konkret absehbar ist."
+  - "Eine rein vorsorgliche Anzeige ohne begründete Vermutung ist nach der Fachliteratur unzulässig. Die Behinderung muss Folge eines gegenwärtigen Zustands sein."
+  - "Allgemeine Formulierungen tragen nicht. Sätze wie wir kommen nicht weiter, weil uns noch Ihre Angaben fehlen, sind nach der Fachliteratur zu unbestimmt; die Auswirkungen gehören konkret an den Soll-Terminablauf."
+  - "Witterungseinflüsse, mit denen bei Abgabe des Angebots normalerweise gerechnet werden musste, gelten nach § 6 Abs. 2 Nr. 2 VOB/B nicht als Behinderung."
+  - "Die Höhe eines möglichen Ersatzanspruchs muss die Anzeige nach der Fachliteratur nicht nennen. Die Fristverlängerung bemisst sich nach § 6 Abs. 4 VOB/B nach der Dauer der Behinderung, mit einem Zuschlag für die Wiederaufnahme der Arbeiten und für eine etwaige Verschiebung in eine ungünstigere Jahreszeit."
+  - "Nach § 6 Abs. 3 VOB/B ist alles zu tun, was billigerweise zugemutet werden kann, um die Arbeiten weiterzuführen. Fallen die hindernden Umstände weg, sind die Arbeiten ohne weiteres und unverzüglich wieder aufzunehmen und der Auftraggeber ist davon zu benachrichtigen."
+  - "Erfassen Sie während der Behinderung laufend: Dauer, Verschiebung der Vorgänge, gebundene Kapazitäten mit der Dauer der Bindung, eigene Dispositionsmaßnahmen und deren Aufwand. Davon hängt ab, ob sich die Folgen später darstellen lassen."
+  - "Zweites Muster für das Ende der Behinderung, als eigenes kurzes Schreiben. Betreff: Ende der Behinderung – Bauvorhaben [Bezeichnung], [betroffene Leistung], Bezug: unsere Behinderungsanzeige vom [Datum]."
+  - "Text des zweiten Schreibens: Die mit Schreiben vom [Datum] angezeigte Behinderung ist am [Datum] entfallen. Die Arbeiten an [Leistung] haben wir am [Datum] wieder aufgenommen. Die Behinderung hat damit [Anzahl] Arbeitstage angedauert. Eine Verlängerung der Ausführungsfristen um [Anzahl] Arbeitstage sowie den Ausgleich der Mehrkosten behalten wir uns vor und rechnen beides gesondert ab."
+  - "Dauert eine Unterbrechung länger als drei Monate, kann nach § 6 Abs. 7 VOB/B jeder Vertragsteil den Vertrag schriftlich kündigen. Vor einem solchen Schritt sollte ein Rechtsanwalt den Sachverhalt prüfen."
+  - "Dieses Muster ist keine Rechtsberatung. Bei hohen Mehrkosten, bei Streit über die Ursache oder vor einer Kündigung sollte ein Rechtsanwalt das Schreiben vor dem Absenden prüfen."
+
+quellen:
+  - "§ 5 Abs. 1, § 6 Abs. 1 bis 7 VOB/B, Ausgabe 2016 (DIN 1961:2016-09); Wortlaut nach VOB-Gesamtausgabe 2019, S. 145 f."
+  - "Zanner: VOB/B nach Ansprüchen, 7. Aufl. 2021, S. 54–57"
+  - "Wirth/Pfisterer/Schellenberg: Privates Baurecht praxisnah, 3. Aufl. 2021, S. 55–57 und S. 60"
+  - "Berner u. a.: Grundlagen der Baubetriebslehre 3, 3. Aufl. 2025, S. 142 f."
+  - "Linnemann: Baubetrieb, 2025, S. 16"
+  - "Ahting: Nachtragsmanagement bei gestörten Bauabläufen, 2020, S. 19 f."
+  - "Malkwitz u. a.: Kostenermittlung und -kalkulation im Bauprojekt, 2022, S. 171 f."
+  - "Würfele/Bielefeld/Gralla: Bauobjektüberwachung, 3. Aufl. 2017, S. 217"
+  - "Heiermann u. a.: VOB/B-Musterbriefe für Auftraggeber, 9. Aufl. 2021, S. 95 f."
