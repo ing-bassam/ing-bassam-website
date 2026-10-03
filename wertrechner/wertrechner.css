@@ -91,7 +91,8 @@ p{margin:0;}
 .schritt-kopf h2{font-size:clamp(1.5rem, 2.8vw, 2rem);}
 .schritt-kopf p{margin-top:10px; color:var(--text-2); max-width:64ch;}
 
-.block{display:grid; gap:10px; margin-bottom:26px;}
+.block{display:grid; gap:10px; align-content:start; margin-bottom:26px;}
+#schritt-titel:focus{outline:none;}
 .block > label, .block > .legende{font-size:.9375rem; font-weight:500; color:var(--text);}
 .block .optional{font-weight:400; color:var(--text-3);}
 .hilfe{font-size:.8125rem; line-height:1.55; color:var(--text-3);}
@@ -118,16 +119,26 @@ legend{padding:0;}
 .ergebnis-verfahren{margin:-16px 0 18px; color:var(--text-3); font-size:.8125rem;}
 .kein-wert .gruende.neutral{background:var(--paper); border-color:var(--line);}
 
-/* Auswahlkarten (Radio) */
-.wahl{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin:0; padding:0; list-style:none;}
-.wahl.kompakt{grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));}
-.wahl label{position:relative; display:flex; flex-direction:column; gap:4px; min-height:64px; padding:16px 18px 16px 48px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); cursor:pointer; transition:border-color var(--dur) var(--ease), background-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);}
+/* Auswahlkarten (Radio): feste Spaltenzahl je Gruppe (data-spalten), alle
+   Karten einer Gruppe gleich hoch, Radio an der ersten Textzeile ausgerichtet. */
+.wahl{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); grid-auto-rows:1fr; gap:12px; margin:0; padding:0; list-style:none;}
+.wahl[data-spalten="3"]{grid-template-columns:repeat(3, minmax(0, 1fr));}
+.wahl[data-spalten="4"]{grid-template-columns:repeat(4, minmax(0, 1fr));}
+.wahl li{min-width:0; display:flex;}
+.wahl label{flex:1 1 auto; display:grid; grid-template-columns:18px minmax(0, 1fr); column-gap:12px; row-gap:3px; align-items:start; align-content:center; min-height:64px; padding:14px 16px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); cursor:pointer; transition:border-color var(--dur) var(--ease), background-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);}
 .wahl label:hover{border-color:var(--line-strong); background:#fff;}
-.wahl input{position:absolute; left:18px; top:19px; width:18px; height:18px; margin:0; accent-color:var(--accent);}
+.wahl input{grid-row:1 / span 2; width:18px; height:18px; margin:2px 0 0; accent-color:var(--accent);}
+.wahl input:focus-visible{outline:none;}
 .wahl label:has(input:checked){border-color:var(--accent); background:#fff; box-shadow:0 0 0 3px var(--accent-soft);}
 .wahl label:has(input:focus-visible){outline:2px solid var(--accent-bright); outline-offset:2px;}
-.wahl .titel{font-weight:500; line-height:1.3;}
-.wahl .text{font-size:.8125rem; line-height:1.45; color:var(--text-3);}
+.wahl .titel{grid-column:2; font-weight:500; line-height:1.3; overflow-wrap:break-word; hyphens:auto;}
+.wahl .text{grid-column:2; font-size:.8125rem; line-height:1.45; color:var(--text-3); overflow-wrap:break-word; hyphens:auto;}
+@media (max-width:860px){
+  .wahl[data-spalten="4"]{grid-template-columns:repeat(2, minmax(0, 1fr));}
+}
+@media (max-width:520px){
+  .wahl, .wahl[data-spalten]{grid-template-columns:1fr;}
+}
 
 /* Ja/Nein/Weiß nicht */
 .dreier{display:inline-flex; border:1px solid var(--line); border-radius:999px; overflow:hidden; background:var(--paper);}

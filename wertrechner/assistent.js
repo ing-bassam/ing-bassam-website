@@ -65,8 +65,8 @@ function aktuellerSchritt() {
   return schritte()[zustand.schritt];
 }
 
-function wahl(name, optionen, ausgewaehlt, kompakt = false) {
-  return `<ul class="wahl${kompakt ? ' kompakt' : ''}">${optionen.map((o) => `
+function wahl(name, optionen, ausgewaehlt, spalten = 2) {
+  return `<ul class="wahl" data-spalten="${spalten}">${optionen.map((o) => `
     <li><label><input type="radio" name="${name}" value="${h(o.wert)}"${o.wert === ausgewaehlt ? ' checked' : ''}>
       <span class="titel">${h(o.titel)}</span>${o.text ? `<span class="text">${h(o.text)}</span>` : ''}</label></li>`).join('')}</ul>`;
 }
@@ -209,27 +209,23 @@ const ANSICHTEN = {
       titel: t('gebaeudeTitel'), text: t('gebaeudeText'),
       html: `
         <fieldset class="block"><legend class="legende">${h(t('gebaeudestellung'))}</legend>
-          ${wahl('gebaeudestellung', ['freistehend', 'doppelhaushaelfte', 'reihenendhaus', 'reihenmittelhaus'].map((s) => ({ wert: s, titel: t(`stellung_${s}`) })), g.gebaeudestellung, true)}</fieldset>
-        <div class="zeile">
-          <fieldset class="block"><legend class="legende">${h(t('keller'))}</legend>
-            ${wahl('unterkellert', [{ wert: 'ja', titel: t('keller_ja') }, { wert: 'nein', titel: t('keller_nein') }], g.unterkellert, true)}
-            ${erklaerung(t('kellerErklaerung'))}</fieldset>
-          <fieldset class="block"><legend class="legende">${h(t('geschosse'))}</legend>
-            ${wahl('geschosse', ['1', '2', '3'].map((n) => ({ wert: n, titel: t(`geschosse_${n}`) })), g.geschosse, true)}</fieldset>
-        </div>
+          ${wahl('gebaeudestellung', ['freistehend', 'doppelhaushaelfte', 'reihenendhaus', 'reihenmittelhaus'].map((s) => ({ wert: s, titel: t(`stellung_${s}`) })), g.gebaeudestellung, 2)}</fieldset>
+        <fieldset class="block"><legend class="legende">${h(t('keller'))}</legend>
+          ${wahl('unterkellert', [{ wert: 'ja', titel: t('keller_ja') }, { wert: 'nein', titel: t('keller_nein') }], g.unterkellert, 2)}
+          ${erklaerung(t('kellerErklaerung'))}</fieldset>
+        <fieldset class="block"><legend class="legende">${h(t('geschosse'))}</legend>
+          ${wahl('geschosse', ['1', '2', '3'].map((n) => ({ wert: n, titel: t(`geschosse_${n}`) })), g.geschosse, 3)}</fieldset>
         <fieldset class="block"><legend class="legende">${h(t('dachgeschoss'))}</legend>
-          ${wahl('dachgeschoss', ['voll_ausgebaut', 'nicht_ausgebaut', 'flachdach'].map((d) => ({ wert: d, titel: t(`dach_${d}`), text: t(`dach_${d}_text`) })), g.dachgeschoss, true)}</fieldset>
-        <div class="zeile">
-          <div>${feld({ name: 'baujahr', label: t('baujahr'), wert: g.baujahr, inputmode: 'numeric', max: 220 })}${erklaerung(t('baujahrErklaerung'))}</div>
-          <fieldset class="block"><legend class="legende">${h(t('konstruktion'))}</legend>
-            ${wahl('konstruktion', ['massiv', 'fertighaus_massiv', 'fertighaus_holz'].map((k) => ({ wert: k, titel: t(`konstruktion_${k}`) })), g.konstruktion, true)}</fieldset>
-        </div>
+          ${wahl('dachgeschoss', ['voll_ausgebaut', 'nicht_ausgebaut', 'flachdach'].map((d) => ({ wert: d, titel: t(`dach_${d}`), text: t(`dach_${d}_text`) })), g.dachgeschoss, 3)}</fieldset>
+        <div>${feld({ name: 'baujahr', label: t('baujahr'), wert: g.baujahr, inputmode: 'numeric', max: 220 })}${erklaerung(t('baujahrErklaerung'))}</div>
+        <fieldset class="block"><legend class="legende">${h(t('konstruktion'))}</legend>
+          ${wahl('konstruktion', ['massiv', 'fertighaus_massiv', 'fertighaus_holz'].map((k) => ({ wert: k, titel: t(`konstruktion_${k}`) })), g.konstruktion, 3)}</fieldset>
         <fieldset class="block"><legend class="legende">${h(t('bauzustand'))}</legend>
-          ${wahl('bauzustand', ['gut', 'normal', 'schlecht'].map((z) => ({ wert: z, titel: t(`zustand_${z}`), text: t(`zustand_${z}_text`) })), g.bauzustand)}
+          ${wahl('bauzustand', ['gut', 'normal', 'schlecht'].map((z) => ({ wert: z, titel: t(`zustand_${z}`), text: t(`zustand_${z}_text`) })), g.bauzustand, 3)}
           ${erklaerung(t('zustandErklaerung'))}</fieldset>
         <fieldset class="block"><legend class="legende">${h(t('flaecheTitel'))}</legend>
           <p class="hilfe">${h(t('flaecheText'))}</p>
-          ${wahl('flaechenart', ['grundflaeche', 'bgf', 'wohnflaeche'].map((f) => ({ wert: f, titel: t(`flaeche_${f}`) })), g.flaechenart, true)}
+          ${wahl('flaechenart', ['grundflaeche', 'bgf', 'wohnflaeche'].map((f) => ({ wert: f, titel: t(`flaeche_${f}`) })), g.flaechenart, 3)}
           ${feld({ name: 'flaeche', label: t(`flaeche_${g.flaechenart}`), wert: g.flaeche, einheit: t('m2'), hilfe: flaechenHilfe[g.flaechenart], max: 260 })}
         </fieldset>
         ${feld({ name: 'nebenanlagen', label: t('nebenanlagen'), wert: g.nebenanlagen, einheit: t('euro'), hilfe: t('nebenanlagenHilfe'), optional: true, max: 260 })}
@@ -251,12 +247,10 @@ const ANSICHTEN = {
     return {
       titel: t('mietobjektTitel'), text: t('mietobjektText'),
       html: `
-        <div class="zeile">
-          <div>${feld({ name: 'baujahr', label: t('baujahr'), wert: o.baujahr, inputmode: 'numeric', max: 220 })}${erklaerung(t('baujahrErklaerung'))}</div>
-          <fieldset class="block"><legend class="legende">${h(t('bauzustand'))}</legend>
-            ${wahl('bauzustand', ['gut', 'normal', 'schlecht'].map((z) => ({ wert: z, titel: t(`zustand_${z}`), text: t(`zustand_${z}_text`) })), o.bauzustand, true)}
-            ${erklaerung(t('zustandErklaerung'))}</fieldset>
-        </div>
+        <div>${feld({ name: 'baujahr', label: t('baujahr'), wert: o.baujahr, inputmode: 'numeric', max: 220 })}${erklaerung(t('baujahrErklaerung'))}</div>
+        <fieldset class="block"><legend class="legende">${h(t('bauzustand'))}</legend>
+          ${wahl('bauzustand', ['gut', 'normal', 'schlecht'].map((z) => ({ wert: z, titel: t(`zustand_${z}`), text: t(`zustand_${z}_text`) })), o.bauzustand, 3)}
+          ${erklaerung(t('zustandErklaerung'))}</fieldset>
         <fieldset class="block" id="ausstattung" ${altbau ? '' : 'hidden'}><legend class="legende">${h(t('ausstattungTitel'))}</legend>
           <label class="haken"><input type="checkbox" name="zentralheizung"${o.zentralheizung ? ' checked' : ''}> ${h(t('zentralheizung'))}</label>
           <label class="haken"><input type="checkbox" name="baeder"${o.baeder ? ' checked' : ''}> ${h(t('baeder'))}</label></fieldset>
@@ -274,7 +268,7 @@ const ANSICHTEN = {
             ${feld({ name: 'mieteGewerbe', label: t('mieteGewerbe'), wert: o.mieteGewerbe, einheit: t('euro') })}
           </div>
           <fieldset class="block"><legend class="legende">${h(t('gewerbeart'))}</legend>
-            ${wahl('gewerbeart', ['buero_laden', 'nebennutzung'].map((a) => ({ wert: a, titel: t(`gewerbe_${a}`) })), o.gewerbeart, true)}</fieldset>
+            ${wahl('gewerbeart', ['buero_laden', 'nebennutzung'].map((a) => ({ wert: a, titel: t(`gewerbe_${a}`) })), o.gewerbeart, 2)}</fieldset>
         </div>
         <h3 class="gruppe-titel">${h(t('sonstiges'))} <span class="optional">(${h(t('optional'))})</span></h3>
         <div class="zeile">
