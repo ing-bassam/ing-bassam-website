@@ -75,6 +75,12 @@ def normiere_id(wert: str) -> str:
     return re.sub(r"[^0-9a-f]", "", (wert or "").lower())
 
 
+def sprache_von(wert: str) -> str:
+    """Sprachkürzel aus Dateikopf (`sprache: en`) oder Notion-Auswahl („Englisch“); leer = Deutsch."""
+    w = (wert or "").strip().lower()
+    return "en" if w in ("en", "englisch", "english") else "de"
+
+
 def eintrag_aus_entwurf(text: str, pfad: str, quelle: str, pr: dict | None = None) -> dict | None:
     """Ein Beitrag aus seiner Markdown-Datei (nur die Felder des Kopfs)."""
     k = kopf(text)
@@ -98,6 +104,7 @@ def eintrag_aus_entwurf(text: str, pfad: str, quelle: str, pr: dict | None = Non
         "gericht": k.get("gericht", ""),
         "notion_id": normiere_id(k.get("notion_id", "")),
         "status": "veröffentlicht" if veroeffentlicht else "entwurf",
+        "sprache": sprache_von(k.get("sprache", "")),
         "erstellt": k.get("erstellt", ""),
         "pfad": pfad,
         "pr": (pr or {}).get("number"),
@@ -268,6 +275,7 @@ def notion_eintrag(seite: dict, liste: str) -> dict | None:
         "notion_id": normiere_id(seite.get("id", "")),
         "notion_url": seite.get("url", ""),
         "status": status,
+        "sprache": sprache_von(((e.get("Sprache") or {}).get("select") or {}).get("name", "")),
         "prioritaet": ((e.get("Priorität") or {}).get("select") or {}).get("name", ""),
         "erstellt": seite.get("created_time", ""),
         "oeffentlich": False,

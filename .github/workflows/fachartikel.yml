@@ -403,7 +403,7 @@ jobs:
           notion_hinweis() {
             local status="$1" kontext="$2"
             case "$status" in
-              400) echo "::error title=Fachartikel::Notion: Anfrage abgelehnt (HTTP 400) bei „${kontext}“ – meist fehlt eine Eigenschaft oder sie heißt anders als erwartet (Thema, Status, Priorität, Entwurf (PR), Entwurf erstellt). Details in der Log-Gruppe darüber." ;;
+              400) echo "::error title=Fachartikel::Notion: Anfrage abgelehnt (HTTP 400) bei „${kontext}“ – meist fehlt eine Eigenschaft oder sie heißt anders als erwartet (Thema, Status, Priorität, Sprache, Entwurf (PR), Entwurf erstellt). Details in der Log-Gruppe darüber." ;;
               401) echo "::error title=Fachartikel::Notion: Nicht autorisiert (HTTP 401) bei „${kontext}“ – NOTION_TOKEN ungültig, widerrufen oder unvollständig eingefügt." ;;
               403) echo "::error title=Fachartikel::Notion: Zugriff verweigert (HTTP 403) bei „${kontext}“ – die Integration ist nicht mit dem Themenspeicher verbunden (Notion: Datenbank → ··· → Verbindungen), oder ihr fehlen die Fähigkeiten „Inhalte lesen“ bzw. „Inhalte aktualisieren“ (notion.so/profile/integrations)." ;;
               404) echo "::error title=Fachartikel::Notion: Nicht gefunden (HTTP 404) bei „${kontext}“ – Seite/Datenbank existiert nicht oder ist für die Integration nicht freigegeben." ;;
@@ -591,8 +591,10 @@ jobs:
               # ----- Nächstes offenes Thema: Status Idee oder Gliederung, noch ohne Entwurfs-PR -----
               # Die Bedingung „Entwurf (PR) ist leer“ verhindert doppelte Artikel: Scheitert der Agent,
               # nachdem der PR schon offen ist, bleibt der Status auf „Idee“, aber der PR-Link steht drin.
-              echo "Frage offene Themen (Status Idee/Gliederung, ohne Entwurfs-PR) ab …"
-              abfrage='{"filter":{"and":[{"or":[{"property":"Status","select":{"equals":"Idee"}},{"property":"Status","select":{"equals":"Gliederung"}}]},{"property":"Entwurf (PR)","url":{"is_empty":true}}]},"sorts":[{"timestamp":"created_time","direction":"ascending"}],"page_size":100}'
+              # Nur deutsche Themen (Eigenschaft „Sprache“ leer oder „Deutsch“): Englische Themen
+              # warten, bis die englische Ausgabe der Website eingerichtet ist.
+              echo "Frage offene Themen (Status Idee/Gliederung, deutsch, ohne Entwurfs-PR) ab …"
+              abfrage='{"filter":{"and":[{"or":[{"property":"Status","select":{"equals":"Idee"}},{"property":"Status","select":{"equals":"Gliederung"}}]},{"property":"Entwurf (PR)","url":{"is_empty":true}},{"or":[{"property":"Sprache","select":{"is_empty":true}},{"property":"Sprache","select":{"equals":"Deutsch"}}]}]},"sorts":[{"timestamp":"created_time","direction":"ascending"}],"page_size":100}'
               cursor=""
               seiten_zaehler=0
               while :; do

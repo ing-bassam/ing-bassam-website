@@ -91,6 +91,11 @@ class Agenten(unittest.TestCase):
                 self.assertRegex(text(name), rf'RUNDEN_GEPLANT: "{runden}"')
                 self.assertIn("needs.planen.outputs.anzahl != '0'", text(name))
 
+    def test_nur_deutsche_themen_bis_die_englische_ausgabe_steht(self):
+        abfrage = re.search(r"abfrage='(\{.*?\})'\n", text("fachartikel.yml")).group(1)
+        self.assertIn('"property":"Sprache","select":{"is_empty":true}', abfrage)
+        self.assertIn('"property":"Sprache","select":{"equals":"Deutsch"}', abfrage)
+
     def test_doppelungspruefung_vor_der_themenwahl(self):
         self.assertIn("doppelungen.py auswahl --kandidaten", text("fachartikel.yml"))
         self.assertIn("--liste vorlagen", text("vorlagen.yml"))

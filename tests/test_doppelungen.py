@@ -102,6 +102,28 @@ class Urteile(unittest.TestCase):
         self.assertNotEqual(d.Vergleich([self.ERSTER, anderes]).urteil(anderes, self.ERSTER)[0], "doppelung")
 
 
+class Sprachen(unittest.TestCase):
+    DEUTSCH = entwurf("technische-due-diligence-immobilienkauf", "Technische Due Diligence beim Immobilienkauf",
+                      status="veröffentlicht", kernfrage="Was prüft eine technische Due Diligence vor dem Kauf?")
+
+    def test_uebersetzung_ist_keine_doppelung(self):
+        englisch = thema("Technical Due Diligence for Real Estate in Germany",
+                         "What does a technical due diligence cover before buying a property?", sprache="en")
+        self.assertEqual(d.Vergleich([self.DEUTSCH, englisch]).urteil(englisch, self.DEUTSCH)[0], "neu")
+
+    def test_gleiche_sprache_bleibt_doppelung(self):
+        deutsch = thema("Technische Due Diligence beim Kauf einer Immobilie",
+                        "Was prüft eine technische Due Diligence vor dem Kauf?")
+        self.assertEqual(d.Vergleich([self.DEUTSCH, deutsch]).urteil(deutsch, self.DEUTSCH)[0], "doppelung")
+
+    def test_sprache_aus_dateikopf_und_notion(self):
+        self.assertEqual(bestand.sprache_von("Englisch"), "en")
+        self.assertEqual(bestand.sprache_von("en"), "en")
+        self.assertEqual(bestand.sprache_von(""), "de")
+        text = "---\ntitel: \"X\"\nsprache: en\nkurzform: x\n---\n"
+        self.assertEqual(bestand.eintrag_aus_entwurf(text, "entwuerfe/entwurf/x.md", "hauptzweig")["sprache"], "en")
+
+
 class EchterBestand(unittest.TestCase):
     """Die Schwellen dürfen keinen der vorhandenen Beiträge zur Doppelung eines anderen machen."""
 
