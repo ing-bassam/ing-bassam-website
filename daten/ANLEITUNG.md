@@ -46,6 +46,25 @@ Wichtig: Baupreisindex und Bodenrichtwert-Stichtag gehören zum Modell. Beide
 **immer zusammen mit den Sachwertfaktoren** umstellen – nie einzeln „aktualisieren“,
 sonst stimmt das Modell nicht mehr (§ 10 ImmoWertV, siehe `fachliteratur/MODELL-BERLIN.md`).
 
+## Jahres-Checkliste (Wartung in Kürze)
+
+1. **Februar/März** – neue Bodenrichtwerte (01.01.) sind online: in `tools/adressdaten_bauen.py`
+   die Konstante `BRW_AKTUELL` auf den neuen Dienst stellen (z. B. `brw2027`), in der Excel
+   `brw_stichtag_aktuell` anpassen, Skript laufen lassen. `BRW_MODELL` **nicht** ändern.
+2. **Juli–September** – neue Sachwertfaktoren: Blätter `Sachwertfaktoren`, `SWF_Korrekturen`,
+   `RND` (sachwert), `Gueltigkeit`, `Baupreisindex`, `Modellparameter` (`stichtag_faktoren`,
+   `bpi_*`, `brw_stichtag_modell`) nach der neuen Broschüre füllen. Nennt sie einen neuen
+   Bodenrichtwert-Stichtag, zusätzlich `BRW_MODELL` im Skript umstellen und Adressen neu bauen.
+3. **September–Oktober** – neue Liegenschaftszinssätze: Blätter `Liegenschaftszinssaetze`,
+   `Bewirtschaftungskosten`, `RND` (ertragswert), `Gueltigkeit`, ggf. `Ortsteile`.
+4. **Alle zwei Jahre (neuer Mietspiegel)** – `WOHNLAGEN` und `WOHNLAGEN_STAND` im Skript auf den
+   neuen Dienst stellen, Adressen neu bauen.
+5. **Nach jeder Änderung** – `python tools/marktdaten_bauen.py`, `node --test "tests/**/*.test.mjs"`
+   (die Tests mit festen Berliner Tabellenwerten müssen dann an die neuen Werte angepasst werden),
+   `node tools/beispiele_rechnen.mjs` für neue Vergleichsrechnungen, Pull Request, Merge.
+6. **Fundstellen pflegen** – `fachliteratur/MODELL-BERLIN.md` und `fachliteratur/README.md` mit
+   Stand und Seitenzahlen der neuen Broschüren aktualisieren; die PDFs in `fachliteratur/` ablegen.
+
 ## Adressen und Bodenrichtwerte neu bauen
 
 ```bash
