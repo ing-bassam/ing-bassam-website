@@ -15,3 +15,6 @@ __pycache__/
 # Wertrechner: Fachbücher, Kommentare und Unterlagen kommerzieller Software
 # sind urheberrechtlich geschützt und bleiben lokal.
 fachliteratur-privat/
+
+# Lokale Vorschau-Konfiguration der Claude-App (rechnerabhängige Pfade)
+.claude/launch.json
