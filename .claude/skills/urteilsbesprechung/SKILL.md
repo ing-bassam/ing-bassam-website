@@ -12,6 +12,8 @@ Du schreibst die Besprechung einer Gerichtsentscheidung für den Blog der Bassam
 
 **Lies `.claude/skills/fachartikel/SKILL.md` vollständig, bevor du irgendetwas anderes tust.** Alles dort gilt unverändert: die harten Regeln, der Aufbau, die Fließtext-Regel, die Zitierfähigkeit, die Fußnoten, die Prüfung vor dem Commit, die Abgabe, der Frontmatter-Kopf. Dieser Skill ändert nur die unten genannten Punkte und ergänzt sie. Bei Widerspruch gilt der jeweils strengere Satz.
 
+Ist die Fachbibliothek geladen, liest du danach `.bibliothek/erfahrungen.md` – vor der Kandidatenauswahl. Für Besprechungen zählt besonders Abschnitt 2: die Klassen, in denen die Faktenprüfung frühere Besprechungen am häufigsten korrigieren musste, mit Beispielen. Schreibe so, dass sie gar nicht erst entstehen.
+
 Das Format ist immer `Rechtsprechung`, damit Gruppe B gilt: wissenschaftlicher Aufbau, dichte Argumentation, Fachsprache ohne Vereinfachung.
 
 ## Was diesen Lauf unterscheidet
