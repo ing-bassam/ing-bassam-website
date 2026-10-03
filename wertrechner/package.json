@@ -1,0 +1,6 @@
+{
+  "name": "wertrechner",
+  "private": true,
+  "type": "module",
+  "description": "Rechenkern des Wertrechners (ImmoWertV 2021) – ES-Module ohne Abhängigkeiten; diese Datei sorgt nur dafür, dass Node die .js-Dateien als Module lädt."
+}

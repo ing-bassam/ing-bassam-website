@@ -63,6 +63,14 @@ SITEMAP = WURZEL / "sitemap.xml"
 BASIS_URL = "https://ing-bassam.de"
 VORSCHAUBILD = BASIS_URL + "/vorschau.png"      # erzeugt von tools/vorschaubild.py
 LLMS = WURZEL / "llms.txt"
+
+# Seiten, die nicht aus entwuerfe/ entstehen, aber in Sitemap und llms.txt
+# gehören: (Adresse, changefreq, priority). Der Wertrechner liegt unter
+# wertrechner/ (Deutsch) und en/property-valuation/ (Englisch).
+WEITERE_SEITEN = [
+    ("https://ing-bassam.de/wertrechner/", "monthly", "0.8"),
+    ("https://ing-bassam.de/en/property-valuation/", "monthly", "0.7"),
+]
 FIRMA = "Bassam Ingenieurbüro für Bauwesen GmbH"
 KURZNAME = "BIB Ingenieurbüro für Bauwesen"
 # Autorenname, wie ihn der Auftraggeber festgelegt hat (21.09.2026): überall
@@ -1088,6 +1096,14 @@ def llms_bauen(oeffentlich: list["Artikel"]) -> str:
         f"- [Technische Beweissicherung]({BASIS_URL}/#leistung-beweissicherung)",
         f"- [Objektüberwachung (LP 8)]({BASIS_URL}/#leistung-objektueberwachung)",
         "",
+        "## Wertrechner",
+        "",
+        f"- [Wertrechner Berlin]({BASIS_URL}/wertrechner/): Kostenlose, unverbindliche Wertindikation für "
+        "Ein-, Zweifamilien- und Mietshäuser in Berlin nach der ImmoWertV 2021 mit den Sachwertfaktoren und "
+        "Liegenschaftszinssätzen des Gutachterausschusses; Bodenrichtwert automatisch aus der Adresse, "
+        "Berechnung vollständig im Browser.",
+        f"- [Property Value Calculator Berlin]({BASIS_URL}/en/property-valuation/): English version of the calculator.",
+        "",
         f"## Fachwissen ({BASIS_URL}/fachwissen/)",
     ]
     nach_kategorie: dict[str, list["Artikel"]] = {}
@@ -1319,6 +1335,11 @@ def sitemap_bauen(artikel: list[Artikel], heute: str) -> str:
         (start_url, stand(start_url), "monthly", "1.0"),
         (uebersicht_url, stand(uebersicht_url), "weekly", "0.8"),
     ]
+    # Eigenständige Seiten außerhalb des Fachwissens (z. B. der Wertrechner).
+    # Ihr lastmod bleibt erhalten, solange sich nichts ändert; beim ersten Lauf
+    # gilt das Datum des Laufs.
+    for url, takt, gewicht in WEITERE_SEITEN:
+        eintraege.append((url, alt.get(url) or heute, takt, gewicht))
     for a in sorted(artikel, key=lambda x: x.kurzform):
         eintraege.append((a.url, a.geaendert, "yearly", "0.7"))
 

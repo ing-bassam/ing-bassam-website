@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wertrechner Berlin – kostenlose Wertindikation für Häuser und Mietshäuser | BIB Ingenieurbüro für Bauwesen</title>
+<meta name="description" content="Kostenlose, unverbindliche Wertindikation für Ein-, Zweifamilien- und Mietshäuser in Berlin nach der ImmoWertV 2021 mit den Marktdaten des Gutachterausschusses. Bodenrichtwert automatisch aus der Adresse, alles im Browser, ohne Datenübertragung.">
+<meta name="theme-color" content="#0a121d">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://ing-bassam.de/wertrechner/">
+<link rel="alternate" hreflang="de" href="https://ing-bassam.de/wertrechner/">
+<link rel="alternate" hreflang="en" href="https://ing-bassam.de/en/property-valuation/">
+<link rel="alternate" hreflang="x-default" href="https://ing-bassam.de/wertrechner/">
+<!--
+  DATENSCHUTZ: Diese Richtlinie erlaubt nur Dateien von dieser Website selbst.
+  Der Rechner lädt seine Marktdaten (JSON) von ing-bassam.de und sonst nichts;
+  fremde Domains sind gesperrt (connect-src 'self'). Kein Inline-Skript.
+-->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-v22-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/wertrechner/wertrechner.css">
+<link rel="modulepreload" href="/wertrechner/assistent.js">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:site_name" content="BIB Ingenieurbüro für Bauwesen">
+<meta property="og:title" content="Wertrechner Berlin – unverbindliche Wertindikation nach ImmoWertV">
+<meta property="og:description" content="Wertspanne für Häuser und Mietshäuser in Berlin nach dem Modell des Gutachterausschusses. Bodenrichtwert automatisch aus der Adresse, ohne Datenübertragung.">
+<meta property="og:url" content="https://ing-bassam.de/wertrechner/">
+<meta property="og:image" content="https://ing-bassam.de/vorschau.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Strukturierte Daten (werden nicht ausgeführt, nur gelesen) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://ing-bassam.de/wertrechner/#app",
+      "name": "Wertrechner Berlin",
+      "alternateName": "Property Value Calculator Berlin",
+      "url": "https://ing-bassam.de/wertrechner/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": ["de", "en"],
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "description": "Unverbindliche Wertindikation für Ein-, Zweifamilien- und Mietshäuser in Berlin nach der ImmoWertV 2021 mit den Sachwertfaktoren und Liegenschaftszinssätzen des Gutachterausschusses für Grundstückswerte in Berlin.",
+      "provider": { "@id": "https://ing-bassam.de/#organization" },
+      "areaServed": { "@type": "City", "name": "Berlin" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://ing-bassam.de/wertrechner/#service",
+      "name": "Vor-Ort-Prüfung und technische Due Diligence",
+      "serviceType": "Technische Immobilienprüfung",
+      "provider": { "@id": "https://ing-bassam.de/#organization" },
+      "areaServed": { "@type": "City", "name": "Berlin" },
+      "url": "https://ing-bassam.de/#kontakt"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="seiten-kopf">
+  <div class="wrap kopf-innen">
+    <a href="/" class="logo" aria-label="BIB Ingenieurbüro für Bauwesen – zur Startseite"><b>BIB</b><span>Ingenieurbüro für Bauwesen</span></a>
+    <nav aria-label="Bereiche">
+      <a href="/#leistungen">Leistungen</a>
+      <a href="/fachwissen/">Fachwissen</a>
+      <a href="/wertrechner/" aria-current="page">Wertrechner</a>
+      <a href="/#kontakt">Kontakt</a>
+      <a href="/en/property-valuation/" class="sprache" lang="en" hreflang="en">English</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+  <section class="hero" aria-labelledby="titel">
+    <div class="wrap">
+      <span class="eyebrow">Kostenlos · Berliner Modell · ImmoWertV 2021</span>
+      <h1 id="titel">Was ist Ihr Haus in Berlin <span class="accent">wert?</span></h1>
+      <p class="hero-lead">Unverbindliche Wertindikation für Ein- und Zweifamilienhäuser sowie Mietshäuser – nach dem Sachwert- bzw. Ertragswertverfahren mit den aktuellen Marktdaten des Gutachterausschusses. Der Bodenrichtwert kommt automatisch aus der Adresse.</p>
+      <ul class="vertrauen">
+        <li>Keine Datenübertragung</li>
+        <li>Keine Cookies, kein Tracking</li>
+        <li>Rechenweg Schritt für Schritt</li>
+        <li>Deutsch · English</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="assistent" aria-label="Wertrechner">
+    <div class="wrap schmal">
+      <div class="karte" id="app">
+        <div class="karte-inhalt">
+          <noscript>
+            <p class="meldung warnung"><strong>JavaScript ist ausgeschaltet.</strong> Der Wertrechner rechnet ausschließlich in Ihrem Browser und braucht dafür JavaScript. Es werden keine Daten an uns oder Dritte übertragen.</p>
+          </noscript>
+          <p class="hilfe" data-laden>Daten werden geladen …</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="seiten-fuss">
+  <div class="wrap">
+    <p><strong>Bassam Ingenieurbüro für Bauwesen GmbH</strong> · Straße am Flugplatz 6a, 12487 Berlin · <a href="tel:+4917623581339">+49 176 23581339</a> · <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a></p>
+    <p><a href="/#impressum">Impressum</a> · <a href="/#datenschutz">Datenschutzerklärung</a> · <a href="/">Zur Startseite</a> · <a href="/en/property-valuation/" lang="en">English version</a></p>
+    <p class="klein">Datenschutz: Alle Eingaben bleiben in Ihrem Browser. Diese Seite setzt keine Cookies, nutzt kein Tracking und lädt ausschließlich Dateien von ing-bassam.de. Bodenrichtwerte: Gutachterausschuss für Grundstückswerte in Berlin, Geoportal Berlin (dl-de/zero-2.0).</p>
+  </div>
+</footer>
+
+<script type="module" src="/wertrechner/assistent.js"></script>
+</body>
+</html>

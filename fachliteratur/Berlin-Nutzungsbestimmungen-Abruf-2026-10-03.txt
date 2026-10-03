@@ -1,0 +1,28 @@
+Nutzungsbestimmungen des Gutachterausschusses für Grundstückswerte in Berlin
+Quelle: https://www.berlin.de/gutachterausschuss/marktinformationen/artikel.163608.php
+Abgerufen am 03.10.2026 (Auszug des maßgeblichen Textes)
+
+Nutzungsbestimmungen
+
+Für die in GAA Online abgerufenen Fachdaten (z.B. Bodenrichtwerte, Immobilienmarktberichte,
+Daten der Wertermittlung etc.) gilt seit dem 01.03.2025 die Datenlizenz Deutschland – Zero – Version 2.
+
+Die Datenlizenz Deutschland Zero kann unter folgendem Link eingesehen werden:
+Datenlizenz Deutschland Zero 2.0 – https://www.govdata.de/dl-de/zero-2-0
+
+Für das automatisierte Abrufverfahren AKS Online gelten jedoch datenschutzrechtlich bedingte
+Einschränkungen (siehe Antrag zu AKS Online).
+
+Haftungshinweis
+
+Die im Angebot veröffentlichten Inhalte sind mit größter Sorgfalt recherchiert. Dennoch kann die
+Senatsverwaltung für Stadtentwicklung, Bauen und Wohnen keine Gewähr für die Aktualität, Korrektheit
+oder Vollständigkeit der bereitgestellten Informationen übernehmen. Alle Angaben erfolgen ohne Gewähr.
+Aus der Nutzung dieser Informationen abgeleitete Haftungsansprüche gegen die Senatsverwaltung für
+Stadtentwicklung, Bauen und Wohnen oder dem Land Berlin sind ausgeschlossen.
+
+Bedeutung für den Wertrechner: Die Veröffentlichungen „Sachwertfaktoren“, „Liegenschaftszinssätze“,
+„Vergleichsfaktoren“, „GFZ-Umrechnungskoeffizienten“ und die Bodenrichtwerte dürfen unter dl-de/zero-2.0
+ohne Einschränkung genutzt, vervielfältigt und weitergegeben werden. Auf der Website wird die Quelle
+dennoch genannt (Gutachterausschuss für Grundstückswerte in Berlin, Stand/Stichtag), weil das für die
+Nachvollziehbarkeit der Wertindikation notwendig ist.
