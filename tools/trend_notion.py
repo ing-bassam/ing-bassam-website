@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Notion-Anbindung für die Trendthemen (Workflows „Trend-Scout“ und „Trend-Entwurf“).
+"""Notion-Anbindung für die Trendthemen (Workflow „Trend-Agent“: Themensuche und Entwurf).
 
 Befehle:
-    offene                       Zahl der freigegebenen Trendthemen ohne Entwurf (Rundenplanung)
+    offene                       Zahl der freigegebenen Trendthemen ohne Entwurf
+    staerkstes                   das stärkste offene Thema („seite=<id>“, „titel=<Titel>“) – oder nichts
     bestand                      Titel aller Trendthemen und aller Themen des Themenspeichers
     vorschlaege DATEI [--max N]  legt die Vorschläge des Trend-Scouts (JSON) als Seiten mit
                                  Status „Vorschlag“ an – geprüft und ohne Dubletten
@@ -149,6 +150,34 @@ def offene() -> int:
     filter_ = {"and": [{"property": "Status", "select": {"equals": "Freigegeben"}},
                        {"property": "Entwurf (PR)", "url": {"is_empty": True}}]}
     return len(abfragen(TRENDTHEMEN, filter_))
+
+
+RANG = {"Hoch": 0, "Mittel": 1, "Später": 2}
+
+
+def auswaehlen(seiten: list[dict], heute: date) -> dict | None:
+    """Das stärkste Thema: von Hand freigegebene zuerst, dann nach Priorität (Hoch → Mittel →
+    Später), dann das, dessen Aktualität am frühesten endet („Gültig bis“), dann das älteste.
+    Themen, deren „Gültig bis“ vorbei ist, zählen nicht mehr."""
+    kandidaten = []
+    for seite in seiten:
+        eigenschaften = seite.get("properties") or {}
+        gueltig = ((((eigenschaften.get("Gültig bis") or {}).get("date") or {}).get("start")) or "9999-12-31")[:10]
+        if gueltig < heute.isoformat():
+            continue
+        status = ((eigenschaften.get("Status") or {}).get("select") or {}).get("name", "")
+        prioritaet = ((eigenschaften.get("Priorität") or {}).get("select") or {}).get("name", "")
+        rang = (status != "Freigegeben", RANG.get(prioritaet, 3), gueltig, seite.get("created_time", ""))
+        kandidaten.append((rang, seite))
+    return min(kandidaten, key=lambda k: k[0])[1] if kandidaten else None
+
+
+def staerkstes(heute: date | None = None) -> dict | None:
+    """Das stärkste offene Trendthema (Status „Vorschlag“ oder „Freigegeben“, noch ohne Entwurf)."""
+    filter_ = {"and": [{"or": [{"property": "Status", "select": {"equals": "Freigegeben"}},
+                               {"property": "Status", "select": {"equals": "Vorschlag"}}]},
+                       {"property": "Entwurf (PR)", "url": {"is_empty": True}}]}
+    return auswaehlen(abfragen(TRENDTHEMEN, filter_), heute or heute_berlin())
 
 
 def bestand() -> list[dict]:
@@ -373,6 +402,7 @@ def main(argumente: list[str] | None = None) -> int:
     zerleger = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     unter = zerleger.add_subparsers(dest="befehl", required=True)
     unter.add_parser("offene")
+    unter.add_parser("staerkstes")
     unter.add_parser("bestand")
     p = unter.add_parser("vorschlaege")
     p.add_argument("datei", type=Path)
@@ -387,6 +417,13 @@ def main(argumente: list[str] | None = None) -> int:
     try:
         if a.befehl == "offene":
             print(offene())
+        elif a.befehl == "staerkstes":
+            # Ausgabe für $GITHUB_OUTPUT; ohne offenes Thema bleibt sie leer.
+            seite = staerkstes()
+            if seite:
+                titel = " ".join(klartext((seite.get("properties") or {}).get("Thema")).split())
+                print(f"seite={seite['id']}")
+                print(f"titel={titel}")
         elif a.befehl == "bestand":
             for zeile in bestand():
                 print(f"{zeile['quelle']}\t{zeile['status']}\t{zeile['titel']}")
@@ -394,17 +431,17 @@ def main(argumente: list[str] | None = None) -> int:
             try:
                 daten = json.loads(a.datei.read_text(encoding="utf-8"))
             except (OSError, ValueError) as fehler:
-                print(f"::error title=Trend-Scout::Keine lesbare Vorschlagsdatei ({fehler}).")
+                print(f"::error title=Trend-Agent::Keine lesbare Vorschlagsdatei ({fehler}).")
                 return 1
             vorhanden = [z["titel"] for z in bestand()]
             angelegt, uebersprungen = vorschlaege_anlegen(daten, vorhanden, max(a.max, 1))
-            bericht = f"## Trend-Scout: {len(angelegt)} neue Vorschläge in Notion\n\n"
+            bericht = f"## Trend-Agent: {len(angelegt)} neue Vorschläge in Notion\n\n"
             bericht += "\n".join(f"- {z}" for z in angelegt) or "_Keine neuen Vorschläge._"
             if uebersprungen:
                 bericht += "\n\n**Nicht übernommen:**\n\n" + "\n".join(f"- {z}" for z in uebersprungen)
             zusammenfassung(bericht + "\n")
             if not angelegt:
-                print("::warning title=Trend-Scout::Kein neuer Vorschlag angelegt – Einzelheiten in der Zusammenfassung.")
+                print("::warning title=Trend-Agent::Kein neuer Vorschlag angelegt – Einzelheiten in der Zusammenfassung.")
         else:
             anzahl = shorts_anhaengen(a.seite, a.datei.read_text(encoding="utf-8"), a.pr, a.warnung)
             print(f"Shorts-Paket mit {anzahl} Blöcken an die Notion-Seite angehängt.")

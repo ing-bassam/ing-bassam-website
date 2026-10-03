@@ -1,6 +1,6 @@
 ---
 name: shorts
-description: Macht aus einem geprüften Fachartikel-Entwurf ein Shorts-Paket – drei Skripte für kurze Videos (30 bis 45 Sekunden) mit Einstieg, Kernaussagen, Schlusssatz, Einblendungen, Bildideen, Titel, Beschreibung und Hashtags. Jede Sachaussage stammt aus dem Artikel und nennt ihre Fußnote. Wird vom Workflow „Trend-Entwurf“ per /shorts aufgerufen und läuft ohne Rückfragen.
+description: Macht aus einem geprüften Fachartikel-Entwurf ein Shorts-Paket – drei Skripte für kurze Videos (30 bis 45 Sekunden) mit Einstieg, Kernaussagen, Schlusssatz, Einblendungen, Bildideen, Titel, Beschreibung und Hashtags. Jede Sachaussage stammt aus dem Artikel und nennt ihre Fußnote. Wird vom Workflow „Trend-Agent“ per /shorts aufgerufen und läuft ohne Rückfragen.
 allowed-tools: Read, Glob, Grep, Write, Bash(wc:*)
 ---
 

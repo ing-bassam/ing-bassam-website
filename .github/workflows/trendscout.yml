@@ -1,26 +1,39 @@
-name: Trend-Scout
+name: Trend-Agent
 # ---------------------------------------------------------------------------
-# Schlägt jeden Montag neue Trendthemen vor und legt sie in Notion an
-# („Trendthemen Bauwesen“, Status „Vorschlag“). Ins Repository schreibt er nichts.
+# Trend-Agent – sucht aktuelle Bauthemen und schreibt jede Woche das stärkste
+# als Fachartikel-Entwurf mit Shorts-Paket. Vollautomatisch, ohne Freigabe.
 #
-#   1. Signale sammeln (tools/trend_signale.py, ohne KI und ohne Kosten): Saison,
-#      Wikipedia-Seitenaufrufe zu Bau-Begriffen (tools/trend_begriffe.yml),
-#      vorhandene Beiträge und Notion-Themen gegen Dubletten.
-#   2. Claude Code (Skill /trendscout) sucht aktuelle Anlässe, belegt sie an
-#      Primärquellen und schreibt die Vorschläge als JSON – außerhalb des
-#      Repositorys.
-#   3. tools/trend_notion.py prüft die Vorschläge (erlaubte Werte, Adressen,
-#      Dubletten) und legt sie in Notion an.
+# Ablauf (montags 5:30 Uhr, oder von Hand):
+#   1. Themen suchen (Job „scout“): Signale ohne KI (Saison, Wikipedia-Aufrufe,
+#      vorhandene Beiträge und Notion-Themen), dann Claude (Skill /trendscout):
+#      aktuelle Anlässe an Primärquellen belegen, Vorschläge als Seiten in
+#      Notion „Trendthemen Bauwesen“ (Status „Vorschlag“).
+#   2. Thema wählen (Job „planen“, ohne KI): das stärkste offene Thema – von
+#      Hand freigegebene zuerst, dann Priorität Hoch → Mittel → Später, dann
+#      das, dessen Aktualität am frühesten endet („Gültig bis“). Themen, deren
+#      „Gültig bis“ vorbei ist, zählen nicht mehr.
+#   3. Entwurf schreiben (Job „entwurf“, wie der Fachartikel-Agent): Artikel
+#      nach entwuerfe/ mit Pull Request, Notion „Entwurf“, Schlussprüfung gegen
+#      die Quellen, danach das Shorts-Paket aus dem geprüften Entwurf auf der
+#      Notion-Seite des Themas – nicht im öffentlichen Repository.
 #
-# Freigeben: in Notion den Status eines Vorschlags auf „Freigegeben“ setzen.
-# Am nächsten Morgen schreibt der Workflow „Trend-Entwurf“ Artikel und
-# Shorts-Paket. „Verworfen“ blendet einen Vorschlag aus.
+# Steuerung in Notion: „Freigegeben“ zieht ein Thema beim nächsten Lauf vor,
+# „Verworfen“ schließt es aus. Von Hand: Actions → Trend-Agent → Run workflow –
+# auch „Nur Themen suchen“ oder ein bestimmtes Thema (Link der Notion-Seite).
 #
-# Benötigte Secrets: CLAUDE_CODE_OAUTH_TOKEN, NOTION_TOKEN (Integration mit
-# „Trendthemen Bauwesen“ und dem Themenspeicher verbunden; Fähigkeiten
-# „Inhalte lesen“, „Inhalte aktualisieren“, „Inhalte einfügen“).
-# Kosten: keine. Kontingent: ein Agentenlauf pro Woche.
-# Von Hand: Actions → Trend-Scout → Run workflow.
+# Die Datei heißt aus historischen Gründen trendscout.yml: So bleibt der Agent
+# in der Actions-Liste ein einziger Eintrag mit seinen bisherigen Läufen.
+#
+# Benötigte Secrets: CLAUDE_CODE_OAUTH_TOKEN, NOTION_TOKEN (Integration
+# „Fachartikel-Agent“, verbunden mit „Trendthemen Bauwesen“ und dem
+# Themenspeicher; Fähigkeiten „Inhalte lesen“, „Inhalte aktualisieren“,
+# „Inhalte einfügen“), optional BIBLIOTHEK_TOKEN.
+# Kosten: keine. Kontingent: ein Lauf pro Woche (Suche, Entwurf,
+# Schlussprüfung, Shorts-Paket).
+#
+# Sicherheitsregeln wie im Fachartikel-Agenten (fachartikel.yml, Kopf): Werte
+# nur über env: in Shell-Schritte, NOTION_TOKEN nie im Log, Fremdinhalt nur mit
+# dem Präfix „| “, kein „git config“ für den Agenten, Actions auf Commit-SHA.
 # ---------------------------------------------------------------------------
 
 on:
@@ -29,8 +42,21 @@ on:
       timezone: "Europe/Berlin"
   workflow_dispatch:
     inputs:
+      aufgabe:
+        description: "Was soll der Trend-Agent tun?"
+        required: false
+        default: "Themen suchen und das stärkste schreiben"
+        type: choice
+        options:
+          - "Themen suchen und das stärkste schreiben"
+          - "Nur Themen suchen"
+          - "Nur das stärkste vorhandene Thema schreiben"
+      notion_seite:
+        description: "Optional: genau dieses Thema schreiben – Link der Notion-Seite oder exakter Titel (dann ohne neue Suche)"
+        required: false
+        type: string
       anzahl:
-        description: "Wie viele neue Vorschläge?"
+        description: "Wie viele neue Vorschläge sucht der Agent?"
         required: false
         default: "5"
         type: choice
@@ -39,15 +65,31 @@ on:
           - "5"
           - "8"
 
+# Name des Laufs in der Actions-Übersicht: zeigt sofort, womit gestartet wurde.
+run-name: "Trend-Agent: ${{ inputs.notion_seite || inputs.aufgabe || 'Wochenlauf – Themen suchen und das stärkste schreiben' }}"
+
+# Nie zwei Läufe gleichzeitig: sonst würden beide dasselbe offene Thema wählen.
+# Ein zweiter Lauf wartet, bis der erste (inkl. Notion-Aktualisierung) fertig ist.
 concurrency:
-  group: trendscout
+  # Nie zwei Trend-Läufe gleichzeitig (sonst wählen beide dasselbe Thema).
+  # Mit den anderen Agenten darf dieser Lauf parallel laufen: Er erkennt seinen
+  # Entwurf an der Notion-Seite im Dateikopf (tools/eigener_entwurf.py).
+  group: trend-agent
   cancel-in-progress: false
 
-permissions:
-  contents: read
+env:
+  NOTION_VERSION: "2025-09-03"
+  NOTION_DATA_SOURCE_ID: "a744bdd5-1831-423c-8bb4-3c354fdaf149"   # Data Source „Trendthemen Bauwesen“
+  NOTION_DATABASE_ID: "0e84ebbd-eec4-4aad-90da-dc544553c5a5"      # zugehörige Datenbank-ID
 
 jobs:
+  # -----------------------------------------------------------------
+  # 1. Themen suchen. Entfällt, wenn ein bestimmtes Thema angegeben ist oder
+  #    nur geschrieben werden soll. Scheitert die Suche, wählt Schritt 2 aus
+  #    den vorhandenen Vorschlägen.
+  # -----------------------------------------------------------------
   scout:
+    if: ${{ !inputs.notion_seite && inputs.aufgabe != 'Nur das stärkste vorhandene Thema schreiben' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
@@ -64,7 +106,7 @@ jobs:
           NOTION_TOKEN_VORHANDEN: ${{ secrets.NOTION_TOKEN != '' }}
         run: |
           if [ "$CLAUDE_TOKEN_VORHANDEN" != "true" ] || [ "$NOTION_TOKEN_VORHANDEN" != "true" ]; then
-            echo "::error title=Trend-Scout::Secret CLAUDE_CODE_OAUTH_TOKEN oder NOTION_TOKEN fehlt (Settings → Secrets and variables → Actions)."
+            echo "::error title=Trend-Agent::Secret CLAUDE_CODE_OAUTH_TOKEN oder NOTION_TOKEN fehlt (Settings → Secrets and variables → Actions)."
             exit 1
           fi
 
@@ -129,7 +171,1340 @@ jobs:
         run: |
           set -euo pipefail
           if [ ! -s "$ORDNER/vorschlaege.json" ]; then
-            echo "::error title=Trend-Scout::Der Agent hat keine Vorschläge geschrieben – den Grund zeigt der Schritt „Abschlussmeldung des Agenten“."
+            echo "::error title=Trend-Agent::Der Agent hat keine Vorschläge geschrieben – den Grund zeigt der Schritt „Abschlussmeldung des Agenten“. Geschrieben wird trotzdem, aus den vorhandenen Vorschlägen."
             exit 1
           fi
           python tools/trend_notion.py vorschlaege "$ORDNER/vorschlaege.json" --max "$ANZAHL"
+
+  # -----------------------------------------------------------------
+  # 2. Das stärkste offene Thema wählen (ohne KI): von Hand freigegebene
+  #    zuerst, dann Priorität, dann das, dessen Aktualität am frühesten endet.
+  #    Läuft auch, wenn die Suche entfallen oder gescheitert ist.
+  # -----------------------------------------------------------------
+  planen:
+    needs: scout
+    if: ${{ always() && !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    outputs:
+      liste: ${{ steps.plan.outputs.liste }}
+      anzahl: ${{ steps.plan.outputs.anzahl }}
+      seite: ${{ steps.plan.outputs.seite }}
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Stärkstes Thema wählen
+        id: plan
+        env:
+          AUFGABE: ${{ inputs.aufgabe }}
+          EINZELN: ${{ inputs.notion_seite }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          set -euo pipefail
+          keins() {
+            { echo "liste=[]"; echo "anzahl=0"; } >> "$GITHUB_OUTPUT"
+            echo "::notice title=Trend-Agent::$1"
+            exit 0
+          }
+          if [ "${AUFGABE:-}" = "Nur Themen suchen" ]; then
+            keins "Nur Themen gesucht – in diesem Lauf entsteht kein Entwurf."
+          fi
+          # Ein von Hand angegebenes Thema: einzeilig, sonst unverändert (die Prüfung folgt beim Laden).
+          seite="$(printf '%s' "${EINZELN:-}" | tr -d '\r\n' | sed -e 's/^ *//' -e 's/ *$//')"
+          if [ -z "$seite" ]; then
+            if ! wahl="$(python3 tools/trend_notion.py staerkstes)"; then
+              printf '%s\n' "$wahl"
+              exit 1
+            fi
+            seite="$(printf '%s\n' "$wahl" | sed -n 's/^seite=//p')"
+            if [ -z "$seite" ]; then
+              keins "Kein offenes Trendthema in Notion – nichts zu schreiben."
+            fi
+            echo "Stärkstes Thema: $(printf '%s\n' "$wahl" | sed -n 's/^titel=//p')"
+          fi
+          { echo "liste=[1]"; echo "anzahl=1"; echo "seite=$seite"; } >> "$GITHUB_OUTPUT"
+
+  entwurf:
+    needs: planen
+    # !cancelled() statt des stillen success(): Auch wenn die Themensuche
+    # scheitert, wird aus den vorhandenen Vorschlägen geschrieben.
+    if: ${{ !cancelled() && needs.planen.result == 'success' && needs.planen.outputs.anzahl == '1' }}
+    name: "Entwurf und Shorts-Paket"
+    strategy:
+      # Nacheinander, nie gleichzeitig; ein Fehlschlag sagt die übrigen Runden ab.
+      max-parallel: 1
+      fail-fast: true
+      matrix:
+        runde: ${{ fromJSON(needs.planen.outputs.liste) }}
+    runs-on: ubuntu-latest
+    # Schreiben bis 60 Minuten (bei einem Fehlalarm des Sicherheitsfilters ein
+    # zweiter Versuch bis 60), Schlussprüfung bis 35, Shorts-Paket bis 20, dazu
+    # Bibliothek, Notion, Quellenabruf und Abschluss.
+    timeout-minutes: 200
+
+    permissions:
+      contents: write        # Entwurfsdatei anlegen und Branch pushen
+      pull-requests: write   # Pull Request öffnen
+      id-token: write        # von der Claude-Action benötigt
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      # -----------------------------------------------------------------
+      # 1. Voraussetzungen prüfen und Startzeit merken
+      # -----------------------------------------------------------------
+      - name: Voraussetzungen prüfen
+        id: start
+        env:
+          # Nur Ja/Nein, nie der Wert selbst – Secrets bleiben außerhalb des Logs.
+          CLAUDE_TOKEN_VORHANDEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN != '' }}
+          NOTION_TOKEN_VORHANDEN: ${{ secrets.NOTION_TOKEN != '' }}
+        run: |
+          set -euo pipefail
+
+          if [ "$CLAUDE_TOKEN_VORHANDEN" != "true" ]; then
+            echo "::error title=Trend-Agent::Secret CLAUDE_CODE_OAUTH_TOKEN fehlt. Unter Settings → Secrets and variables → Actions anlegen."
+            exit 1
+          fi
+          if [ "$NOTION_TOKEN_VORHANDEN" != "true" ]; then
+            echo "::error title=Trend-Agent::Secret NOTION_TOKEN fehlt – Trendthemen kommen immer aus Notion."
+            exit 1
+          fi
+
+          # Zeitstempel (UTC, ISO 8601) mit einer Minute Toleranz gegen Uhrenabweichung.
+          # Damit wird am Ende nur der Pull Request gezählt, der in diesem Lauf entstanden ist.
+          zeit="$(date -u -d '-1 minute' +%Y-%m-%dT%H:%M:%SZ)"
+          echo "zeit=${zeit}" >> "$GITHUB_OUTPUT"
+          echo "Jobstart (minus Toleranz): ${zeit}"
+
+      # Auf Commit-SHA festgelegt (v6.1.0). Aktualisierung über Dependabot.
+      # persist-credentials bleibt bewusst eingeschaltet: Der Agent muss den Entwurfs-Branch pushen.
+      - name: Repository auschecken
+        id: checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: true
+
+      # Die Git-Identität setzt der Workflow, nicht der Agent: „git config“ ist dem Agenten
+      # nicht erlaubt, weil sich darüber beliebige Befehle ausführen ließen (core.fsmonitor,
+      # core.pager, credential.helper …). Hooks werden aus demselben Grund abgeschaltet.
+      - name: Git-Identität setzen
+        id: git
+        env:
+          STANDARDZWEIG: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config core.hooksPath /dev/null
+
+          # Stand des Hauptzweigs merken (für die Kontrolle in Schritt 5). Ein Fehler hier ist nicht fatal.
+          zweig="${STANDARDZWEIG:-main}"
+          sha="$(git ls-remote origin "refs/heads/${zweig}" 2>/dev/null | cut -f1 | head -n 1 || true)"
+          echo "zweig=${zweig}" >> "$GITHUB_OUTPUT"
+          echo "sha=${sha}" >> "$GITHUB_OUTPUT"
+          echo "Hauptzweig ${zweig} steht bei ${sha:-unbekannt}"
+
+      # -----------------------------------------------------------------
+      # 2. Thema laden (Notion oder manuell) und Auftragsdatei schreiben
+      # -----------------------------------------------------------------
+      - name: Thema aus Notion laden und Auftragsdatei schreiben
+        id: thema
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          INPUT_NOTION_SEITE: ${{ needs.planen.outputs.seite }}
+          # Trendthemen kommen immer aus Notion: kein manuelles Thema, keine Übersteuerung.
+          INPUT_THEMA: ""
+          INPUT_KATEGORIE: ""
+          INPUT_FORMAT: ""
+          INPUT_ZIELGRUPPE: ""
+        # ACHTUNG: In dieses Skript keine Ausdrücke in doppelten geschweiften Klammern einfügen,
+        # auch nicht in Bash-Kommentaren – Werte nur über env: hereinreichen. Sobald ein run-Block
+        # einen solchen Ausdruck enthält, gilt für den ganzen Block das GitHub-Limit von
+        # 21.000 Zeichen, und dieses Skript ist länger. Wer es stark erweitern will, lagert es
+        # besser nach .github/scripts/ aus und ruft es hier mit bash auf.
+        run: |
+          set -euo pipefail
+
+          # ---------- Verzeichnisse außerhalb des Repos ----------
+          # AGENTDIR wird dem Agenten per --add-dir freigegeben und enthält nur die Auftragsdatei.
+          # ARBEIT enthält Zwischenstände (API-Antworten, Kandidatenliste) und wird am Ende gelöscht.
+          AGENTDIR="${RUNNER_TEMP}/fachartikel"
+          ARBEIT="${RUNNER_TEMP}/fachartikel-arbeit"
+          rm -rf -- "$AGENTDIR" "$ARBEIT"
+          mkdir -p "$AGENTDIR" "$ARBEIT"
+          trap 'rm -rf -- "$ARBEIT"' EXIT
+          AUFTRAG="${AGENTDIR}/auftrag.md"
+          ANTWORT="${ARBEIT}/notion-antwort.json"     # letzte API-Antwort
+          CURLFEHLER="${ARBEIT}/curl-fehler.txt"      # stderr von curl (enthält nie Header)
+          JQFEHLER="${ARBEIT}/jq-fehler.txt"          # stderr von jq bei der Block-Konvertierung
+          KANDIDATEN="${ARBEIT}/kandidaten.jsonl"     # offene Themen, eine Seite pro Zeile
+          BLOECKE="${ARBEIT}/bloecke.jsonl"           # Blöcke des Seitenkörpers, einer pro Zeile
+          SEITE="${ARBEIT}/seite.json"                # gewählte Seite
+          : > "$KANDIDATEN"; : > "$BLOECKE"; : > "$ANTWORT"; : > "$CURLFEHLER"
+
+          # Häufiger Fehler beim Einfügen des Secrets: Leerzeichen oder Zeilenumbruch am Ende.
+          NOTION_TOKEN="$(printf '%s' "${NOTION_TOKEN:-}" | tr -d '[:space:]')"
+
+          # ---------- Hilfsfunktionen ----------
+
+          # Schreibt eine Step-Ausgabe, auch mehrzeilig und mit Sonderzeichen sicher.
+          ausgabe() {
+            local trenner="AUSGABE_${RANDOM}${RANDOM}${RANDOM}"
+            printf '%s<<%s\n%s\n%s\n' "$1" "$trenner" "$2" "$trenner" >> "$GITHUB_OUTPUT"
+          }
+
+          # Whitespace vorn/hinten entfernen, Zeilenumbrüche zu Leerzeichen (für einzeilige Felder).
+          einzeilig() {
+            printf '%s' "$1" | tr '\r\n\t' '   ' | sed -e 's/  */ /g' -e 's/^ //' -e 's/ $//'
+          }
+
+          # Fremdinhalt nie roh ausgeben: Der Runner wertet Zeilen, die mit „::“ beginnen, als
+          # Workflow-Befehl aus. Das Präfix „| “ verhindert das.
+          fremd() { sed 's/^/| /'; }
+
+          # Notion-API aufrufen: notion_api METHODE PFAD [JSON-BODY]
+          # Gibt den HTTP-Status auf stdout aus; die Antwort liegt danach in $ANTWORT.
+          # Vorübergehende Fehler (Netz, 429, 5xx) werden von curl bis zu 3-mal wiederholt.
+          # Der Authorization-Header kommt über stdin (-K -), damit der Token nicht in der
+          # Prozessliste steht. $ANTWORT wird vorher geleert, damit nach einem Netzfehler nicht
+          # die Antwort des vorherigen Aufrufs unter falschem Etikett im Log landet.
+          notion_api() {
+            local methode="$1" pfad="$2" body="${3:-}"
+            local -a args=( -sS --max-time 60 --retry 3 --retry-delay 3
+                            -o "$ANTWORT" -w '%{http_code}' -X "$methode"
+                            -H "Notion-Version: ${NOTION_VERSION}"
+                            -H "Content-Type: application/json" )
+            if [ -n "$body" ]; then args+=( --data "$body" ); fi
+            : > "$ANTWORT"
+            local status
+            status="$(curl "${args[@]}" -K - "https://api.notion.com/v1${pfad}" 2>"$CURLFEHLER" \
+                        <<< "header = \"Authorization: Bearer ${NOTION_TOKEN}\"")" || true
+            status="${status: -3}"
+            printf '%s' "${status:-000}"
+          }
+
+          # Fehlerantwort knapp zeigen: von Notion nur code und message, sonst die ersten Zeichen.
+          # Wird nur bei Fehlerstatus aufgerufen – dann enthält die Antwort keine Seiteninhalte.
+          antwort_zeigen() {
+            if [ -s "$ANTWORT" ]; then
+              if jq -e 'type == "object" and has("code")' "$ANTWORT" >/dev/null 2>&1; then
+                jq -r '"code: \(.code // "?")", "message: \(.message // "?")"' "$ANTWORT" | fremd
+              else
+                echo "| $(head -c 500 "$ANTWORT" | tr '\r\n' '  ')"
+              fi
+            fi
+            if [ -s "$CURLFEHLER" ]; then echo "| curl: $(head -c 1000 "$CURLFEHLER" | tr '\r\n' '  ')"; fi
+          }
+
+          # Verständlicher Hinweis je HTTP-Status.
+          notion_hinweis() {
+            local status="$1" kontext="$2"
+            case "$status" in
+              400) echo "::error title=Trend-Agent::Notion: Anfrage abgelehnt (HTTP 400) bei „${kontext}“ – meist fehlt eine Eigenschaft oder sie heißt anders als erwartet (Thema, Status, Priorität, Entwurf (PR), Entwurf erstellt). Details in der Log-Gruppe darüber." ;;
+              401) echo "::error title=Trend-Agent::Notion: Nicht autorisiert (HTTP 401) bei „${kontext}“ – NOTION_TOKEN ungültig, widerrufen oder unvollständig eingefügt." ;;
+              403) echo "::error title=Trend-Agent::Notion: Zugriff verweigert (HTTP 403) bei „${kontext}“ – die Integration ist nicht mit den Trendthemen verbunden (Notion: Datenbank → ··· → Verbindungen), oder ihr fehlen die Fähigkeiten „Inhalte lesen“ bzw. „Inhalte aktualisieren“ (notion.so/profile/integrations)." ;;
+              404) echo "::error title=Trend-Agent::Notion: Nicht gefunden (HTTP 404) bei „${kontext}“ – Seite/Datenbank existiert nicht oder ist für die Integration nicht freigegeben." ;;
+              409) echo "::error title=Trend-Agent::Notion: Konflikt (HTTP 409) bei „${kontext}“ – die Seite wurde gleichzeitig bearbeitet. Später erneut starten." ;;
+              429) echo "::error title=Trend-Agent::Notion: Rate-Limit (HTTP 429) bei „${kontext}“ – auch nach Wiederholungen. Später erneut starten." ;;
+              000) echo "::error title=Trend-Agent::Notion: keine Verbindung (Netzwerk/Timeout) bei „${kontext}“." ;;
+              *)   echo "::error title=Trend-Agent::Notion: HTTP ${status} bei „${kontext}“." ;;
+            esac
+          }
+
+          # Prüft HTTP-Status und JSON-Form. Bei Fehler: knappe Antwort ohne Secrets ins Log, Abbruch.
+          notion_pruefen() {
+            local status="$1" kontext="$2"
+            case "$status" in
+              2[0-9][0-9])
+                if jq -e . "$ANTWORT" >/dev/null 2>&1; then return 0; fi
+                # Eine 2xx-Antwort kann Seiteninhalt enthalten – deshalb nur die Größe nennen.
+                echo "::error title=Trend-Agent::Notion: Antwort bei „${kontext}“ ist kein gültiges JSON (HTTP ${status}, $(wc -c < "$ANTWORT" | tr -d ' ') Bytes)."
+                exit 1
+                ;;
+            esac
+            echo "::group::Notion-Antwort (${kontext}, HTTP ${status})"
+            antwort_zeigen
+            echo "::endgroup::"
+            notion_hinweis "$status" "$kontext"
+            exit 1
+          }
+
+          # Priorität als Rang für die Sortierung: Hoch → Mittel → Später → (leer)
+          JQ_RANG='def rang: (.properties["Priorität"].select.name // "") as $p
+                     | if $p == "Hoch" then 0 elif $p == "Mittel" then 1 elif $p == "Später" then 2 else 3 end;'
+
+          # ---------- Eingaben normalisieren ----------
+          INPUT_NOTION_SEITE="$(einzeilig "$INPUT_NOTION_SEITE")"
+          INPUT_THEMA="$(einzeilig "$INPUT_THEMA")"
+
+          # Eingabe notion_seite einordnen:
+          #   - URL oder Seiten-ID          → 32 Hex-Zeichen (mit oder ohne Bindestriche) herausziehen
+          #   - URL/ID der Datenbank selbst → Abbruch mit Hinweis (keine stille Automatik-Auswahl)
+          #   - alles andere                → als Titel in den Trendthemen suchen
+          # Reihenfolge bei URLs:
+          #   1. Parameter „p=“ auswerten. Öffnet man ein Thema aus der Datenbankansicht (Seitenleiste
+          #      oder zentriert), lautet die Adresse …/<Datenbank-ID>?v=<Ansicht>&p=<Seiten-ID>&pm=s –
+          #      die Seiten-ID steht dann nur in „p=“.
+          #   2. Sonst den Query-String abschneiden („?v=…“ enthält die View-ID, ebenfalls 32 Hex-Zeichen)
+          #      und die letzte ID im Pfad nehmen. Die Bindestriche bleiben beim Suchen stehen: Sie trennen
+          #      die ID vom Titel-Anfang der URL (sonst würde z. B. „…-im-Bad-<id>“ zu 35 Hex-Zeichen
+          #      verschmelzen und die falsche ID liefern).
+          re_uuid='[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}'
+          re_id="${re_uuid}|[0-9a-fA-F]{32}"
+          re_p="[?&]p=(${re_uuid}|[0-9a-fA-F]{32})([&#]|\$)"
+          seite_id=""
+          seite_titel=""
+          if [ -n "$INPUT_NOTION_SEITE" ]; then
+            if [[ "$INPUT_NOTION_SEITE" =~ ^https?:// ]] || [[ "$INPUT_NOTION_SEITE" == *notion.so/* ]] \
+               || [[ "$INPUT_NOTION_SEITE" == *notion.site/* ]] || [[ "$INPUT_NOTION_SEITE" =~ ^[0-9a-fA-F-]{32,36}$ ]]; then
+              if [[ "$INPUT_NOTION_SEITE" =~ $re_p ]]; then
+                hex="${BASH_REMATCH[1]}"
+                echo "Link aus der Datenbankansicht erkannt – die Seiten-ID stammt aus dem Parameter „p=“."
+              else
+                roh="${INPUT_NOTION_SEITE%%\?*}"
+                roh="${roh%%#*}"
+                hex="$(printf '%s' "$roh" | grep -oE "$re_id" | tail -n 1 || true)"
+              fi
+              if [ -z "$hex" ]; then
+                echo "::error title=Trend-Agent::Eingabe notion_seite enthält keine Notion-Seiten-ID (32 Hex-Zeichen): „${INPUT_NOTION_SEITE}“"
+                exit 1
+              fi
+              hex="$(printf '%s' "$hex" | tr -d '-' | tr 'A-F' 'a-f')"
+              seite_id="${hex:0:8}-${hex:8:4}-${hex:12:4}-${hex:16:4}-${hex:20:12}"
+              if [ "$seite_id" = "$NOTION_DATABASE_ID" ] || [ "$seite_id" = "$NOTION_DATA_SOURCE_ID" ]; then
+                echo "::error title=Trend-Agent::Die Eingabe notion_seite zeigt auf die Datenbank „Trendthemen Bauwesen“ selbst, nicht auf eine Themenseite. Bitte den Link der Themenseite angeben (Seite öffnen → ··· → Link kopieren) oder das Feld leer lassen – dann wird das nächste offene Thema gewählt."
+                exit 1
+              fi
+            else
+              seite_titel="$INPUT_NOTION_SEITE"
+            fi
+          fi
+
+          # Modus bestimmen (Vorrang: Notion-Seite/-Titel vor manuellem Thema vor automatischer Auswahl)
+          if [ -n "$seite_id" ] || [ -n "$seite_titel" ]; then
+            if [ -n "$seite_id" ]; then modus="notion_seite"; else modus="notion_titel"; fi
+            if [ -n "$INPUT_THEMA" ]; then
+              echo "::warning title=Trend-Agent::Sowohl notion_seite als auch thema angegeben – die Notion-Seite hat Vorrang, das manuelle Thema „${INPUT_THEMA}“ wird ignoriert."
+            fi
+          elif [ -n "$INPUT_THEMA" ]; then
+            modus="manuell"
+          else
+            modus="notion_auto"
+          fi
+          echo "Modus: ${modus}"
+
+          # ---------- Felder befüllen ----------
+          thema=""; kernfrage=""; kategorie=""; format=""; zielgruppe=""; leistung=""
+          prioritaet=""; notion_id=""; notion_url=""; notion_status=""; notizen=""; quelle=""
+          anlass=""; trendsignal=""; hook=""; quellen_anlass=""; gueltig_bis=""
+          bloecke_anzahl=0; notizen_woerter=0
+
+          if [ "$modus" = "manuell" ]; then
+            # ----- Manueller Fallback: keine Notion-Abfrage -----
+            quelle="manuell"
+            thema="$INPUT_THEMA"
+            if [ "$INPUT_KATEGORIE" = "aus Notion" ] || [ "$INPUT_FORMAT" = "aus Notion" ] || [ "$INPUT_ZIELGRUPPE" = "aus Notion" ]; then
+              echo "::error title=Trend-Agent::Bei manuellem Thema müssen Kategorie, Format und Zielgruppe im Formular gewählt werden – „aus Notion“ ist ohne Notion-Seite nicht möglich."
+              exit 1
+            fi
+            kategorie="$INPUT_KATEGORIE"; format="$INPUT_FORMAT"; zielgruppe="$INPUT_ZIELGRUPPE"
+            echo "::notice title=Trend-Agent::Manuelles Thema – Notion wird weder abgefragt noch am Ende aktualisiert."
+
+          else
+            # ----- Notion -----
+            quelle="notion"
+            if [ -z "$NOTION_TOKEN" ]; then
+              echo "::error title=Trend-Agent::Secret NOTION_TOKEN fehlt. Unter Settings → Secrets and variables → Actions anlegen (interne Notion-Integration mit Lese-/Schreibzugriff, mit „Trendthemen Bauwesen“ verbunden) – oder ein manuelles Thema mit Kategorie, Format und Zielgruppe eingeben."
+              exit 1
+            fi
+            if [[ ! "$NOTION_TOKEN" =~ ^[A-Za-z0-9_-]+$ ]]; then
+              echo "::error title=Trend-Agent::Secret NOTION_TOKEN enthält unerwartete Zeichen (erlaubt sind Buchstaben, Ziffern, „_“ und „-“). Bitte den Token in Notion neu kopieren und das Secret ersetzen."
+              exit 1
+            fi
+
+            if [ "$modus" = "notion_seite" ]; then
+              # ----- Explizit angegebene Seite -----
+              echo "Lade Notion-Seite ${seite_id} …"
+              status="$(notion_api GET "/pages/${seite_id}")"
+              if [ "$status" = "404" ]; then
+                echo "::error title=Trend-Agent::Notion-Seite „${INPUT_NOTION_SEITE}“ (ID ${seite_id}) nicht gefunden – falsche ID/URL, Seite gelöscht oder für die Integration nicht freigegeben."
+                exit 1
+              fi
+              notion_pruefen "$status" "Seite ${seite_id} lesen"
+              cp "$ANTWORT" "$SEITE"
+
+              # Gehört die Seite wirklich zu den Trendthemen? Streng prüfen: Auch eine Seite ohne
+              # übergeordnete Datenbank (normale Unterseite, Workspace-Seite) wird abgewiesen – sonst
+              # würde Schritt 4 am Ende eine fremde Seite verändern. Mit Notion-Version 2025-09-03
+              # nennt parent bei Datenbankseiten immer data_source_id und database_id.
+              elternteil="$(jq -r '.parent.data_source_id // .parent.database_id // ""' "$SEITE")"
+              elterntyp="$(jq -r '.parent.type // "unbekannt"' "$SEITE")"
+              if [ "$elternteil" != "$NOTION_DATA_SOURCE_ID" ] && [ "$elternteil" != "$NOTION_DATABASE_ID" ]; then
+                echo "::error title=Trend-Agent::Die Notion-Seite ${seite_id} gehört nicht zum Trendthemen Bauwesen (übergeordnet: ${elternteil:-keine Datenbank}, Typ ${elterntyp}). Bitte den Link einer Themenseite aus den Trendthemen angeben."
+                exit 1
+              fi
+              if [ "$(jq -r '.archived // false' "$SEITE")" = "true" ] || [ "$(jq -r '.in_trash // false' "$SEITE")" = "true" ]; then
+                echo "::error title=Trend-Agent::Die Notion-Seite ${seite_id} ist archiviert bzw. im Papierkorb."
+                exit 1
+              fi
+
+            elif [ "$modus" = "notion_titel" ]; then
+              # ----- Seite über den Titel suchen: erst exakt, dann eindeutiger Teiltreffer -----
+              echo "Suche in den Trendthemen nach dem Titel „${seite_titel}“ …"
+              body="$(jq -cn --arg t "$seite_titel" '{filter: {property: "Thema", title: {equals: $t}}, page_size: 25}')"
+              status="$(notion_api POST "/data_sources/${NOTION_DATA_SOURCE_ID}/query" "$body")"
+              notion_pruefen "$status" "Thema per Titel suchen (exakt)"
+              anzahl="$(jq -r '(.results // []) | length' "$ANTWORT")"
+              trefferart="exakt"
+              if [ "$anzahl" -eq 0 ]; then
+                body="$(jq -cn --arg t "$seite_titel" '{filter: {property: "Thema", title: {contains: $t}}, page_size: 25}')"
+                status="$(notion_api POST "/data_sources/${NOTION_DATA_SOURCE_ID}/query" "$body")"
+                notion_pruefen "$status" "Thema per Titel suchen (Teiltreffer)"
+                anzahl="$(jq -r '(.results // []) | length' "$ANTWORT")"
+                trefferart="Teiltreffer"
+              fi
+              if [ "$anzahl" -eq 0 ]; then
+                echo "::error title=Trend-Agent::Kein Thema mit dem Titel „${seite_titel}“ in den Trendthemen gefunden. Tipp: in Notion die Seite des Themas öffnen und deren Link in notion_seite einfügen."
+                exit 1
+              fi
+              if [ "$anzahl" -gt 1 ]; then
+                # Die Trefferliste gehört zum Redaktionsplan und steht deshalb nur im Debug-Log.
+                if [ "${RUNNER_DEBUG:-}" = "1" ]; then
+                  echo "::group::Treffer für „${seite_titel}“ (${trefferart})"
+                  jq -r '.results[] | "\([.properties.Thema.title[]?.plain_text] | join("")) [\(.properties.Status.select.name // "ohne Status")]"' "$ANTWORT" | fremd
+                  echo "::endgroup::"
+                fi
+                echo "::error title=Trend-Agent::Der Titel „${seite_titel}“ ist nicht eindeutig (${trefferart}, mindestens ${anzahl} Seiten). Bitte den exakten Titel oder – am sichersten – den Notion-Link der Seite angeben."
+                exit 1
+              fi
+              jq -c '.results[0]' "$ANTWORT" > "$SEITE"
+              seite_id="$(jq -r '.id' "$SEITE")"
+              if [ "$trefferart" = "Teiltreffer" ]; then
+                gefunden="$(einzeilig "$(jq -r '[.properties.Thema.title[]?.plain_text] | join("")' "$SEITE")")"
+                echo "::warning title=Trend-Agent::Kein exakter Titel „${seite_titel}“ – genau ein Thema enthält den Text und wird verwendet: „${gefunden}“"
+              fi
+              echo "Gefunden: Seite ${seite_id} (${trefferart})"
+
+            else
+              # ----- Nächstes freigegebenes Thema: Status Freigegeben, noch ohne Entwurfs-PR -----
+              # Die Bedingung „Entwurf (PR) ist leer“ verhindert doppelte Artikel: Scheitert der Agent,
+              # nachdem der PR schon offen ist, bleibt der Status auf „Freigegeben“, aber der PR-Link steht drin.
+              echo "Frage freigegebene Trendthemen (ohne Entwurfs-PR) ab …"
+              abfrage='{"filter":{"and":[{"property":"Status","select":{"equals":"Freigegeben"}},{"property":"Entwurf (PR)","url":{"is_empty":true}}]},"sorts":[{"timestamp":"created_time","direction":"ascending"}],"page_size":100}'
+              cursor=""
+              seiten_zaehler=0
+              while :; do
+                if [ -n "$cursor" ]; then
+                  body="$(jq -c --arg c "$cursor" '. + {start_cursor: $c}' <<< "$abfrage")"
+                else
+                  body="$abfrage"
+                fi
+                status="$(notion_api POST "/data_sources/${NOTION_DATA_SOURCE_ID}/query" "$body")"
+                notion_pruefen "$status" "Trendthemen abfragen"
+                jq -c '.results[]?' "$ANTWORT" >> "$KANDIDATEN"
+                seiten_zaehler=$((seiten_zaehler + 1))
+                if [ "$(jq -r '.has_more // false' "$ANTWORT")" != "true" ]; then break; fi
+                cursor="$(jq -r '.next_cursor // ""' "$ANTWORT")"
+                if [ -z "$cursor" ] || [ "$seiten_zaehler" -ge 20 ]; then break; fi
+              done
+
+              anzahl="$(jq -s 'length' "$KANDIDATEN")"
+              if [ "$anzahl" -eq 0 ]; then
+                echo "::error title=Trend-Agent::Kein freigegebenes Trendthema (Status „Freigegeben“ und Feld „Entwurf (PR)“ leer). In Notion ein Thema auf „Freigegeben“ setzen."
+                exit 1
+              fi
+
+              # Die vollständige Reihenfolge ist der Redaktionsplan – im öffentlichen Log nur bei
+              # eingeschaltetem Debug-Logging („Re-run jobs“ → „Enable debug logging“).
+              if [ "${RUNNER_DEBUG:-}" = "1" ]; then
+                echo "::group::Offene Themen in Auswahlreihenfolge (nur im Debug-Log, max. 15)"
+                jq -r -s "$JQ_RANG"'
+                  sort_by(rang, .created_time)
+                  | to_entries
+                  | (.[:15][] | "\(.key + 1). [\(.value.properties["Priorität"].select.name // "ohne Priorität")] \(.value.properties.Status.select.name // "?") – \([.value.properties.Thema.title[]?.plain_text] | join(""))"),
+                    (if length > 15 then "… und \(length - 15) weitere" else empty end)
+                ' "$KANDIDATEN" | fremd
+                echo "::endgroup::"
+              fi
+
+              jq -c -s "$JQ_RANG"' sort_by(rang, .created_time) | .[0]' "$KANDIDATEN" > "$SEITE"
+              seite_id="$(jq -r '.id' "$SEITE")"
+              echo "Gewählt: Seite ${seite_id} – 1 von ${anzahl} offenen Themen (Priorität Hoch → Mittel → Später, dann älteste zuerst)"
+            fi
+
+            # ----- Eigenschaften der gewählten Seite auslesen -----
+            notion_id="$(jq -r '.id' "$SEITE")"
+            notion_url="$(einzeilig "$(jq -r '.url // ""' "$SEITE")")"
+            thema="$(einzeilig "$(jq -r '[.properties.Thema.title[]?.plain_text] | join("")' "$SEITE")")"
+            kernfrage="$(einzeilig "$(jq -r '[.properties.Kernfrage.rich_text[]?.plain_text] | join("")' "$SEITE")")"
+            format="$(jq -r '.properties.Format.select.name // ""' "$SEITE")"
+            kategorie="$(jq -r '.properties.Kategorie.select.name // ""' "$SEITE")"
+            zielgruppe="$(jq -r '[.properties.Zielgruppe.multi_select[]?.name] | join(", ")' "$SEITE")"
+            leistung="$(jq -r '[.properties.Leistung.multi_select[]?.name] | join(", ")' "$SEITE")"
+            prioritaet="$(jq -r '.properties["Priorität"].select.name // ""' "$SEITE")"
+            notion_status="$(jq -r '.properties.Status.select.name // ""' "$SEITE")"
+            vorhandener_pr="$(einzeilig "$(jq -r '.properties["Entwurf (PR)"].url // ""' "$SEITE")")"
+            # Trendfelder: Anlass, Signal, Einstiegsvorschlag, Quellen (Links), Gültigkeit
+            anlass="$(einzeilig "$(jq -r '[.properties.Anlass.rich_text[]?.plain_text] | join("")' "$SEITE")")"
+            trendsignal="$(einzeilig "$(jq -r '[.properties.Trendsignal.rich_text[]?.plain_text] | join("")' "$SEITE")")"
+            hook="$(einzeilig "$(jq -r '[.properties.Hook.rich_text[]?.plain_text] | join("")' "$SEITE")")"
+            quellen_anlass="$(einzeilig "$(jq -r '[.properties.Quellen.rich_text[]? | (.href // .plain_text // "")] | map(select(test("^https?://"))) | unique | join(" ")' "$SEITE")")"
+            gueltig_bis="$(jq -r '.properties["Gültig bis"].date.start // ""' "$SEITE")"
+
+            if [ -z "$thema" ]; then
+              echo "::error title=Trend-Agent::Die Notion-Seite ${notion_id} hat keinen Titel (Eigenschaft „Thema“ leer)."
+              exit 1
+            fi
+            case "$notion_status" in
+              Vorschlag|Freigegeben) ;;
+              "") echo "::warning title=Trend-Agent::Die Seite hat keinen Status. Es wird trotzdem ein Entwurf erstellt." ;;
+              *)  echo "::warning title=Trend-Agent::Die Seite hat den Status „${notion_status}“ (weder Vorschlag noch Freigegeben). Auf ausdrücklichen Wunsch wird trotzdem ein Entwurf erstellt; der Status wird am Ende nicht zurückgesetzt." ;;
+            esac
+            if [ -n "$vorhandener_pr" ]; then
+              echo "::warning title=Trend-Agent::Für diese Seite ist bereits ein Entwurfs-PR eingetragen (${vorhandener_pr}). Es entsteht ein weiterer Entwurf; der Eintrag in Notion wird am Ende überschrieben."
+            fi
+
+            # ----- Übersteuerung durch Formulareingaben -----
+            if [ -n "$INPUT_KATEGORIE" ] && [ "$INPUT_KATEGORIE" != "aus Notion" ] && [ "$INPUT_KATEGORIE" != "$kategorie" ]; then
+              echo "::notice title=Trend-Agent::Kategorie übersteuert: Notion „${kategorie:-leer}“ → Formular „${INPUT_KATEGORIE}“"
+              kategorie="$INPUT_KATEGORIE"
+            fi
+            if [ -n "$INPUT_FORMAT" ] && [ "$INPUT_FORMAT" != "aus Notion" ] && [ "$INPUT_FORMAT" != "$format" ]; then
+              echo "::notice title=Trend-Agent::Format übersteuert: Notion „${format:-leer}“ → Formular „${INPUT_FORMAT}“"
+              format="$INPUT_FORMAT"
+            fi
+            if [ -n "$INPUT_ZIELGRUPPE" ] && [ "$INPUT_ZIELGRUPPE" != "aus Notion" ] && [ "$INPUT_ZIELGRUPPE" != "$zielgruppe" ]; then
+              echo "::notice title=Trend-Agent::Zielgruppe übersteuert: Notion „${zielgruppe:-leer}“ → Formular „${INPUT_ZIELGRUPPE}“"
+              zielgruppe="$INPUT_ZIELGRUPPE"
+            fi
+
+            # ----- Seitenkörper (Notizen/Gliederung) als Klartext lesen -----
+            echo "Lese Seiteninhalt von ${notion_id} …"
+            cursor=""
+            seiten_zaehler=0
+            while :; do
+              pfad="/blocks/${notion_id}/children?page_size=100"
+              if [ -n "$cursor" ]; then pfad="${pfad}&start_cursor=${cursor}"; fi
+              status="$(notion_api GET "$pfad")"
+              notion_pruefen "$status" "Seiteninhalt lesen"
+              jq -c '.results[]?' "$ANTWORT" >> "$BLOECKE"
+              seiten_zaehler=$((seiten_zaehler + 1))
+              if [ "$(jq -r '.has_more // false' "$ANTWORT")" != "true" ]; then break; fi
+              cursor="$(jq -r '.next_cursor // ""' "$ANTWORT")"
+              if [ -z "$cursor" ] || [ "$seiten_zaehler" -ge 20 ]; then break; fi
+            done
+
+            # Blöcke der obersten Ebene zu Markdown-ähnlichem Klartext. Unterblöcke (eingerückte
+            # Aufzählungen, Inhalt von Aufklappern, Tabellenzeilen, Spalten) werden nicht gelesen;
+            # betroffene Zeilen bekommen einen sichtbaren Vermerk, und unten folgt eine Warnung.
+            # Link-Ziele aus dem Text bleiben erhalten („Text (https://…)“).
+            if ! notizen="$(jq -r '
+              def txt: . as $b
+                | [ ($b[$b.type].rich_text // [])[]
+                    | (.plain_text // "") as $p
+                    | (.href // "") as $h
+                    | if $h != "" and $h != $p then $p + " (" + $h + ")" else $p end ]
+                | join("");
+              def marke: if .has_children == true then " […Unterpunkte in Notion, nicht übernommen]" else "" end;
+              def zeile(p): p + txt + marke;
+              .type as $t
+              | if   $t == "heading_1"          then zeile("# ")
+                elif $t == "heading_2"          then zeile("## ")
+                elif $t == "heading_3"          then zeile("### ")
+                elif $t == "bulleted_list_item" then zeile("- ")
+                elif $t == "numbered_list_item" then zeile("1. ")
+                elif $t == "toggle"             then zeile("- ")
+                elif $t == "to_do"              then zeile(if .to_do.checked == true then "- [x] " else "- [ ] " end)
+                elif $t == "quote"              then zeile("> ")
+                elif $t == "callout"            then zeile("> ")
+                elif $t == "paragraph"          then zeile("")
+                elif $t == "code"               then "```\n" + txt + "\n```"
+                elif $t == "divider"            then "---"
+                elif $t == "child_page"         then "[Unterseite: " + (.child_page.title // "") + "]"
+                elif $t == "child_database"     then "[Eingebettete Datenbank: " + (.child_database.title // "") + " – nicht übernommen]"
+                elif $t == "table"              then "[Tabelle in Notion – nicht übernommen]"
+                elif ($t == "bookmark" or $t == "embed" or $t == "link_preview") then (.[$t].url // "")
+                elif .has_children == true      then "[" + $t + " in Notion – Inhalt liegt in Unterblöcken und wird nicht übernommen]"
+                else empty
+                end
+            ' "$BLOECKE" 2>"$JQFEHLER")"; then
+              echo "::warning title=Trend-Agent::Seiteninhalt konnte nicht konvertiert werden (jq-Fehler) – die Notizen aus Notion fehlen in der Auftragsdatei. Bitte die Notion-Seite prüfen."
+              echo "| jq: $(head -c 1000 "$JQFEHLER" 2>/dev/null | tr '\r\n' '  ' || true)"
+              notizen=""
+            fi
+            bloecke_anzahl="$(jq -s 'length' "$BLOECKE")"
+            notizen_woerter="$(printf '%s' "$notizen" | wc -w | tr -d ' ')"
+            mit_unterpunkten="$(jq -s '[ .[] | select(.has_children == true and .type != "child_page" and .type != "child_database") ] | length' "$BLOECKE")"
+            if [ "$mit_unterpunkten" -gt 0 ]; then
+              echo "::warning title=Trend-Agent::${mit_unterpunkten} Block/Blöcke der Notion-Seite haben Unterpunkte (eingerückte Aufzählungen, Aufklapper, Tabellen, Spalten). Unterpunkte werden nicht übernommen – bitte in Notion auf die oberste Ebene ziehen, wenn sie in den Artikel einfließen sollen."
+            fi
+          fi
+
+          # ---------- Pflichtfelder prüfen ----------
+          fehlt=""
+          [ -n "$kategorie" ]  || fehlt="${fehlt} Kategorie"
+          [ -n "$format" ]     || fehlt="${fehlt} Format"
+          [ -n "$zielgruppe" ] || fehlt="${fehlt} Zielgruppe"
+          if [ -n "$fehlt" ]; then
+            echo "::error title=Trend-Agent::Pflichtfeld(er) leer:${fehlt}. In Notion an der Seite pflegen oder im Formular wählen (Übersteuerung)."
+            exit 1
+          fi
+          if [ -z "$notizen" ]; then notizen="(keine)"; fi
+
+          # ---------- Auftragsdatei exakt nach Vertrag schreiben ----------
+          {
+            printf '# Auftrag Fachartikel\n'
+            printf 'thema: %s\n'      "$thema"
+            printf 'kernfrage: %s\n'  "$kernfrage"
+            printf 'kategorie: %s\n'  "$kategorie"
+            printf 'format: %s\n'     "$format"
+            printf 'zielgruppe: %s\n' "$zielgruppe"
+            printf 'leistung: %s\n'   "$leistung"
+            printf 'prioritaet: %s\n' "$prioritaet"
+            printf 'notion_id: %s\n'  "$notion_id"
+            printf 'notion_url: %s\n' "$notion_url"
+            printf 'quelle: %s\n'     "$quelle"
+            printf '\n## Aktueller Anlass (Trendthema)\n'
+            printf 'anlass: %s\n'         "${anlass:-nicht angegeben}"
+            printf 'trendsignal: %s\n'    "${trendsignal:-nicht angegeben}"
+            printf 'hook: %s\n'           "${hook:-nicht angegeben}"
+            printf 'quellen_anlass: %s\n' "${quellen_anlass:-keine}"
+            printf 'aktuell_bis: %s\n'    "${gueltig_bis:-offen}"
+            printf '%s\n' "Inhaltsvorgabe: Der Beitrag greift den Anlass im ersten Absatz oder im ersten H2-Abschnitt auf und belegt ihn mit einer Fußnote auf eine Primärquelle; die Adressen oben sind Hinweise und werden wie jede Quelle geprüft. Zeitabhängige Angaben (Förderung, Fristen, Gesetzesstand) erhalten einen Stand (Stand: Monat Jahr). Verbreitete Irrtümer zum Thema werden benannt und richtiggestellt, soweit sie belegt sind. Aus dem Beitrag entstehen anschließend kurze Videos; jede Kernaussage soll deshalb in einem Satz für sich verständlich sein."
+            printf '\n## Notizen aus Notion\n'
+            printf '%s\n' "$notizen"
+          } > "$AUFTRAG"
+
+          # ---------- Zusammenfassung ins Log (ohne Token, ohne Notizen) ----------
+          # Jede Zeile beginnt mit einem festen Etikett; die Werte sind einzeilig.
+          echo "::group::Gewähltes Thema"
+          printf '%-12s %s\n' "Quelle:"     "$quelle"
+          printf '%-12s %s\n' "Thema:"      "$thema"
+          printf '%-12s %s\n' "Kernfrage:"  "${kernfrage:--}"
+          printf '%-12s %s\n' "Kategorie:"  "$kategorie"
+          printf '%-12s %s\n' "Format:"     "$format"
+          printf '%-12s %s\n' "Zielgruppe:" "$zielgruppe"
+          printf '%-12s %s\n' "Leistung:"   "${leistung:--}"
+          printf '%-12s %s\n' "Priorität:"  "${prioritaet:--}"
+          printf '%-12s %s\n' "Anlass:"     "${anlass:--}"
+          printf '%-12s %s\n' "Status:"     "${notion_status:--}"
+          printf '%-12s %s\n' "Notion-ID:"  "${notion_id:--}"
+          printf '%-12s %s\n' "Notion-URL:" "${notion_url:--}"
+          printf '%-12s %s\n' "Auftrag:"    "$AUFTRAG"
+          printf '%-12s %s\n' "Notizen:"    "${bloecke_anzahl} Block/Blöcke, ${notizen_woerter} Wörter – stehen nur in der Auftragsdatei, nicht im Log"
+          echo "::endgroup::"
+
+          # Kurzfassung in die Job-Zusammenfassung (Pipes maskieren, damit die Tabelle hält)
+          m() { printf '%s' "$1" | sed 's/|/\\|/g'; }
+          {
+            echo "## Trend-Agent – gewähltes Thema"
+            echo ""
+            echo "| Feld | Wert |"
+            echo "|---|---|"
+            echo "| Quelle | $(m "$quelle") |"
+            echo "| Thema | $(m "$thema") |"
+            echo "| Kernfrage | $(m "${kernfrage:--}") |"
+            echo "| Kategorie | $(m "$kategorie") |"
+            echo "| Format | $(m "$format") |"
+            echo "| Zielgruppe | $(m "$zielgruppe") |"
+            echo "| Leistung | $(m "${leistung:--}") |"
+            echo "| Priorität | $(m "${prioritaet:--}") |"
+            echo "| Anlass | $(m "${anlass:--}") |"
+            if [ -n "$notion_url" ]; then echo "| Notion | [Seite öffnen](${notion_url}) |"; fi
+            echo ""
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          # ---------- Outputs für die folgenden Schritte ----------
+          ausgabe thema               "$thema"
+          ausgabe kernfrage           "$kernfrage"
+          ausgabe kategorie           "$kategorie"
+          ausgabe format              "$format"
+          ausgabe zielgruppe          "$zielgruppe"
+          ausgabe leistung            "$leistung"
+          ausgabe prioritaet          "$prioritaet"
+          ausgabe notion_id           "$notion_id"
+          ausgabe notion_url          "$notion_url"
+          ausgabe notion_status       "$notion_status"
+          ausgabe quelle              "$quelle"
+          ausgabe auftrag_pfad        "$AUFTRAG"
+          ausgabe auftrag_verzeichnis "$AGENTDIR"
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Seitenbauer vorbereiten
+        run: |
+          set -euo pipefail
+          # Der Agent baut die Artikelseite selbst, damit sie im selben Pull
+          # Request landet. markdown wandelt den Entwurf in HTML, PyYAML liest
+          # das Frontmatter. Versionen wie in seiten-bauen.yml. pypdf liest
+          # PDF-Quellen für die Schlussprüfung.
+          python -m pip install --upgrade pip --quiet
+          python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2' 'pypdf==6.19.0'
+
+      # -----------------------------------------------------------------
+      # Fachbibliothek des Büros: Textauszüge der Fachbücher aus dem privaten
+      # Repository FachwissenAgent, mit gedruckten Seitenzahlen und Katalog.
+      # Ohne das Secret BIBLIOTHEK_TOKEN oder bei einem Fehler arbeitet der
+      # Agent wie bisher ohne Bibliothek; der Lauf bricht deswegen nicht ab.
+      # -----------------------------------------------------------------
+      - name: Fachbibliothek prüfen
+        id: bib
+        env:
+          # Nur Ja/Nein, nie der Wert selbst.
+          TOKEN_DA: ${{ secrets.BIBLIOTHEK_TOKEN != '' }}
+        run: |
+          echo "vorhanden=$TOKEN_DA" >> "$GITHUB_OUTPUT"
+          if [ "$TOKEN_DA" != "true" ]; then
+            echo "::notice title=Fachbibliothek::Secret BIBLIOTHEK_TOKEN fehlt – der Agent arbeitet ohne Fachbibliothek."
+          fi
+
+      - name: Fachbibliothek laden
+        id: bibladen
+        if: steps.bib.outputs.vorhanden == 'true'
+        continue-on-error: true
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ing-bassam/FachwissenAgent
+          token: ${{ secrets.BIBLIOTHEK_TOKEN }}
+          path: .bibliothek
+          # Der Zugangsschlüssel bleibt nicht im Arbeitsverzeichnis liegen,
+          # das der Agent lesen kann.
+          persist-credentials: false
+
+      - name: Suchindex der Fachbibliothek bauen
+        id: bibindex
+        if: steps.bibladen.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          python tools/bibliothek_suchen.py .bibliothek --index
+          echo "ordner=.bibliothek" >> "$GITHUB_OUTPUT"
+
+      - name: Fachbibliothek nicht ladbar
+        if: steps.bibladen.outcome == 'failure'
+        run: |
+          echo "::warning title=Fachbibliothek::Die Fachbibliothek konnte nicht geladen werden. Meist ist der Zugangsschlüssel BIBLIOTHEK_TOKEN abgelaufen – bitte erneuern. Der Agent arbeitet in diesem Lauf ohne Bibliothek."
+
+      # -----------------------------------------------------------------
+      # 3. Entwurf schreiben lassen (Claude Code, Skill /fachartikel)
+      #    Auf Commit-SHA festgelegt (v1.0.231 = Stand des Tags v1 am
+      #    19.09.2026). Aktualisierung über Dependabot.
+      # -----------------------------------------------------------------
+      # Für einen möglichen zweiten Versuch: Stand des Arbeitsverzeichnisses
+      # vor dem Agenten merken.
+      - name: Stand vor dem Agenten merken
+        id: vorher
+        run: |
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "zweig=$(git rev-parse --abbrev-ref HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Entwurf schreiben lassen
+        id: claude
+        # Ein Fehlschlag wird unten ausgewertet (Fehlalarm → zweiter Versuch).
+        continue-on-error: true
+        timeout-minutes: 60   # lässt Notion und Schlussprüfung Zeit innerhalb der 175 Job-Minuten
+        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Ausdrücke unter with: sind kein Shell-Kontext – die Werte werden als Text übergeben.
+          prompt: |
+            /fachartikel
+            Auftragsdatei: ${{ steps.thema.outputs.auftrag_pfad }}
+            Lies die Auftragsdatei zuerst vollständig; sie enthält die Notizen/Gliederung aus Notion, die als Vorgabe gelten.
+            Trendthema: Der Abschnitt „Aktueller Anlass (Trendthema)“ der Auftragsdatei ist Inhaltsvorgabe.
+            Thema: ${{ steps.thema.outputs.thema }}
+            Kernfrage: ${{ steps.thema.outputs.kernfrage }}
+            Kategorie: ${{ steps.thema.outputs.kategorie }}
+            Format: ${{ steps.thema.outputs.format }}
+            Zielgruppe: ${{ steps.thema.outputs.zielgruppe }}
+            Leistung: ${{ steps.thema.outputs.leistung }}
+            Priorität: ${{ steps.thema.outputs.prioritaet }}
+            Notion-ID: ${{ steps.thema.outputs.notion_id }}
+            Notion-URL: ${{ steps.thema.outputs.notion_url }}
+            Quelle: ${{ steps.thema.outputs.quelle }}
+            Bibliothek: ${{ steps.bibindex.outputs.ordner || 'nicht verfügbar' }}
+          # --add-dir: Zugriff auf das Verzeichnis der Auftragsdatei außerhalb des Repos. Es enthält
+          #   nur auftrag.md (und später pr-body.md des Agenten), keine Zwischenstände aus Notion.
+          #   Pfad des Runners, ohne Leerzeichen, daher ohne Anführungszeichen; die nächste Option
+          #   beendet die Pfadliste.
+          # --allowedTools: bewusst redundant zur SKILL.md (Frontmatter allowed-tools), damit der
+          #   Workflow auch dann läuft, wenn die Skill-Datei einmal abweicht. Web nur zur Quellenprüfung.
+          #   „git config“ fehlt absichtlich (siehe Schritt „Git-Identität setzen“) und darf auch in
+          #   der SKILL.md nicht freigegeben werden.
+          claude_args: |
+            --max-turns 170
+            --model claude-opus-5
+            --add-dir ${{ steps.thema.outputs.auftrag_verzeichnis }}
+            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
+
+      # Fehlalarm des Sicherheitsfilters (02.10.2026, Fachartikel Runde 3): Die
+      # API bricht mit „safeguards flagged this message“ ab und empfiehlt eine
+      # neue Sitzung oder ein anderes Modell. Dann folgt ein zweiter Versuch mit
+      # Opus 5.5 – aber nur, wenn der erste noch nichts veröffentlicht hat
+      # (tools/zweiter_versuch.py). Andere Fehler bekommen keinen zweiten Versuch.
+      - name: Zweiter Versuch nötig?
+        id: fehlalarm
+        if: steps.claude.outcome == 'failure'
+        env:
+          VERLAUF: ${{ steps.claude.outputs.execution_file }}
+          START_SHA: ${{ steps.vorher.outputs.sha }}
+          START_ZWEIG: ${{ steps.vorher.outputs.zweig }}
+        run: |
+          set -euo pipefail
+          VERLAUF="${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
+          python tools/agent_bericht.py "$VERLAUF" --titel "Erster Versuch"
+          python tools/zweiter_versuch.py "$VERLAUF"
+          if grep -q "^zweiter_versuch=true" "$GITHUB_OUTPUT"; then
+            # Was der erste Versuch lokal angelegt hat, verwerfen (veröffentlicht hat er nichts).
+            git checkout -q -f "$START_ZWEIG" 2>/dev/null || git checkout -q -f "$START_SHA"
+            git reset -q --hard "$START_SHA"
+            git clean -q -fd -- entwuerfe fachwissen vorlagen
+            echo "::warning title=Agent::Fehlalarm des Sicherheitsfilters im ersten Versuch – zweiter Versuch mit Opus 5.5."
+          fi
+
+      - name: Entwurf schreiben lassen (zweiter Versuch, Opus 5.5)
+        id: claude2
+        continue-on-error: true
+        if: steps.fehlalarm.outputs.zweiter_versuch == 'true'
+        timeout-minutes: 60   # lässt Notion und Schlussprüfung Zeit innerhalb der 175 Job-Minuten
+        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Ausdrücke unter with: sind kein Shell-Kontext – die Werte werden als Text übergeben.
+          prompt: |
+            /fachartikel
+            Auftragsdatei: ${{ steps.thema.outputs.auftrag_pfad }}
+            Lies die Auftragsdatei zuerst vollständig; sie enthält die Notizen/Gliederung aus Notion, die als Vorgabe gelten.
+            Trendthema: Der Abschnitt „Aktueller Anlass (Trendthema)“ der Auftragsdatei ist Inhaltsvorgabe.
+            Thema: ${{ steps.thema.outputs.thema }}
+            Kernfrage: ${{ steps.thema.outputs.kernfrage }}
+            Kategorie: ${{ steps.thema.outputs.kategorie }}
+            Format: ${{ steps.thema.outputs.format }}
+            Zielgruppe: ${{ steps.thema.outputs.zielgruppe }}
+            Leistung: ${{ steps.thema.outputs.leistung }}
+            Priorität: ${{ steps.thema.outputs.prioritaet }}
+            Notion-ID: ${{ steps.thema.outputs.notion_id }}
+            Notion-URL: ${{ steps.thema.outputs.notion_url }}
+            Quelle: ${{ steps.thema.outputs.quelle }}
+            Bibliothek: ${{ steps.bibindex.outputs.ordner || 'nicht verfügbar' }}
+          # --add-dir: Zugriff auf das Verzeichnis der Auftragsdatei außerhalb des Repos. Es enthält
+          #   nur auftrag.md (und später pr-body.md des Agenten), keine Zwischenstände aus Notion.
+          #   Pfad des Runners, ohne Leerzeichen, daher ohne Anführungszeichen; die nächste Option
+          #   beendet die Pfadliste.
+          # --allowedTools: bewusst redundant zur SKILL.md (Frontmatter allowed-tools), damit der
+          #   Workflow auch dann läuft, wenn die Skill-Datei einmal abweicht. Web nur zur Quellenprüfung.
+          #   „git config“ fehlt absichtlich (siehe Schritt „Git-Identität setzen“) und darf auch in
+          #   der SKILL.md nicht freigegeben werden.
+          claude_args: |
+            --max-turns 170
+            --model claude-opus-5-5
+            --add-dir ${{ steps.thema.outputs.auftrag_verzeichnis }}
+            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
+
+      # Ein Ergebnis für alle folgenden Schritte: Erfolg, wenn einer der beiden
+      # Versuche erfolgreich war. Sonst scheitert die Runde hier – genau wie
+      # früher am Schreibschritt selbst.
+      - name: Ergebnis des Agenten
+        id: agent
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        env:
+          ERSTER: ${{ steps.claude.outcome }}
+          ZWEITER: ${{ steps.claude2.outcome }}
+        run: |
+          if [ "$ERSTER" = "success" ] || [ "$ZWEITER" = "success" ]; then
+            echo "ergebnis=success" >> "$GITHUB_OUTPUT"
+            if [ "$ZWEITER" = "success" ]; then
+              echo "::notice title=Agent::Der zweite Versuch mit Opus 5.5 war erfolgreich."
+            fi
+            exit 0
+          fi
+          echo "ergebnis=failure" >> "$GITHUB_OUTPUT"
+          exit 1
+
+
+      # Die Claude-Aktion zeigt im Protokoll nur Kennzahlen. Dieser Schritt macht
+      # sichtbar, was der Agent gemeldet hat, welche Befehle abgelehnt wurden und
+      # welche Werkzeuge Fehler hatten – sonst bleibt ein stilles Scheitern
+      # („Erfolg, aber kein Pull Request“) unerklärlich. Nichts aus der
+      # Auftragsdatei gelangt ins Protokoll.
+      - name: Abschlussmeldung des Agenten
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        continue-on-error: true
+        env:
+          VERLAUF: ${{ steps.claude2.outputs.execution_file || steps.claude.outputs.execution_file }}
+        run: python tools/agent_bericht.py "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
+      # -----------------------------------------------------------------
+      # 4. Notion aktualisieren. Läuft auch, wenn der Agent-Schritt scheitert:
+      #    Ein bereits geöffneter PR wird dann in Notion vermerkt, der Status
+      #    aber NICHT auf „Entwurf“ gesetzt (der Entwurf kann unvollständig sein).
+      # -----------------------------------------------------------------
+      - name: Notion aktualisieren (PR-Link, bei Erfolg Status Entwurf)
+        id: notion
+        if: always() && steps.thema.outcome == 'success'
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          QUELLE: ${{ steps.thema.outputs.quelle }}
+          THEMA: ${{ steps.thema.outputs.thema }}
+          NOTION_ID: ${{ steps.thema.outputs.notion_id }}
+          NOTION_URL: ${{ steps.thema.outputs.notion_url }}
+          NOTION_STATUS_VORHER: ${{ steps.thema.outputs.notion_status }}
+          JOBSTART: ${{ steps.start.outputs.zeit }}
+          AGENT_ERGEBNIS: ${{ steps.agent.outputs.ergebnis || steps.claude.outcome }}
+        # ACHTUNG: Auch hier keine Ausdrücke in doppelten geschweiften Klammern ins Skript – nur über env:.
+        run: |
+          set -euo pipefail
+
+          ARBEIT="${RUNNER_TEMP}/fachartikel-abschluss"
+          rm -rf -- "$ARBEIT"
+          mkdir -p "$ARBEIT"
+          trap 'rm -rf -- "$ARBEIT"' EXIT
+          ANTWORT="${ARBEIT}/notion-update-antwort.json"
+          FEHLER="${ARBEIT}/fehler.txt"
+          : > "$ANTWORT"; : > "$FEHLER"
+
+          NOTION_TOKEN="$(printf '%s' "${NOTION_TOKEN:-}" | tr -d '[:space:]')"
+
+          # Fremdinhalt nie roh ausgeben (siehe Schritt 2).
+          fremd() { sed 's/^/| /'; }
+
+          # Hinweis für das manuelle Nachtragen – nur, wenn es eine Notion-Seite gibt.
+          nachtragen=""
+          if [ "$QUELLE" = "notion" ] && [ -n "$NOTION_ID" ]; then
+            nachtragen=" Notion wurde nicht verändert – bitte die Seite ${NOTION_URL:-$NOTION_ID} von Hand nachtragen."
+          fi
+
+          echo "Ergebnis des Agent-Schritts: ${AGENT_ERGEBNIS}"
+
+          # ---------- Pull-Request-Liste abrufen (mit Wiederholung) ----------
+          # Ein Fehler von gh ist etwas anderes als „kein PR“: Sonst bliebe Notion auf „Idee“,
+          # der Lauf wäre grün, und der nächste Lauf würde dasselbe Thema noch einmal schreiben.
+          pr_liste=""
+          gh_ok="false"
+          for versuch in 1 2 3; do
+            if pr_liste="$(gh pr list --repo "$GITHUB_REPOSITORY" --state all --limit 100 \
+                             --json number,url,title,headRefName,createdAt 2>"$FEHLER")" \
+               && jq -e 'type == "array"' >/dev/null 2>&1 <<< "$pr_liste"; then
+              gh_ok="true"
+              break
+            fi
+            echo "gh pr list fehlgeschlagen (Versuch ${versuch} von 3)."
+            if [ "$versuch" -lt 3 ]; then sleep 5; fi
+          done
+          if [ "$gh_ok" != "true" ]; then
+            echo "::error title=Trend-Agent::Die Liste der Pull Requests ist nicht abrufbar ($(head -c 300 "$FEHLER" | tr '\r\n' '  ')). Bitte unter „Pull requests“ nachsehen, ob ein Entwurf entstanden ist.${nachtragen}"
+            {
+              echo "## Ergebnis"
+              echo ""
+              echo "Die Liste der Pull Requests war nicht abrufbar (Agent-Schritt: ${AGENT_ERGEBNIS}).${nachtragen}"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+          # ---------- Pull Request dieses Laufs suchen ----------
+          # Nur PRs, die nach dem Jobstart erstellt wurden. Bevorzugt Branch entwurf/*; hat der Agent
+          # den Branch anders benannt, zählt ersatzweise ein PR, dessen Titel mit „Entwurf“ beginnt
+          # oder das Thema enthält. Bei mehreren gewinnt der mit dem Thema im Titel, sonst der neueste.
+          # Der eigene Entwurf wird am Inhalt erkannt: Format ist kein Urteil- oder Vorlagenformat,
+          # und die Notion-Seite im Dateikopf ist die dieses Laufs (tools/eigener_entwurf.py).
+          # So kann ein gleichzeitig laufender Urteil-Agent nie als dieser Lauf gezählt werden.
+          if ! pr="$(python tools/eigener_entwurf.py --seit "$JOBSTART" --ohne-format "Rechtsprechung,Urteil verständlich,Vorlage" \
+                       --notion-id "$NOTION_ID" --ausgabe json 2>"$FEHLER")"; then
+            echo "::error title=Trend-Agent::Der eigene Pull Request ist nicht bestimmbar ($(head -c 300 "$FEHLER" | tr '\r\n' '  ')).${nachtragen}"
+            exit 1
+          fi
+
+          if [ -z "$pr" ]; then
+            {
+              echo "## Ergebnis"
+              echo ""
+              echo "Kein Pull Request entstanden (Agent-Schritt: ${AGENT_ERGEBNIS}). Notion wurde nicht verändert."
+            } >> "$GITHUB_STEP_SUMMARY"
+            if [ "$AGENT_ERGEBNIS" = "success" ]; then
+              echo "::error title=Trend-Agent::Der Agent meldete Erfolg, aber es existiert kein Pull Request aus diesem Lauf (erstellt nach ${JOBSTART}). Mögliche Ursachen: Text zu kurz und deshalb nicht committet, Push abgelehnt, Duplikat erkannt – den Grund zeigt der Schritt „Abschlussmeldung des Agenten“ (auch in der Zusammenfassung des Laufs). Notion bleibt unverändert."
+              exit 1
+            fi
+            echo "::warning title=Trend-Agent::Kein Pull Request aus diesem Lauf gefunden (erstellt nach ${JOBSTART}). Agent-Schritt: ${AGENT_ERGEBNIS}. Notion bleibt unverändert."
+            exit 0
+          fi
+
+          pr_nummer="$(jq -r '.number' <<< "$pr")"
+          pr_url="$(jq -r '.url' <<< "$pr")"
+          pr_branch="$(jq -r '.headRefName' <<< "$pr")"
+          pr_titel="$(jq -r '.title' <<< "$pr" | tr '\r\n' '  ')"
+          echo "Pull Request gefunden: #${pr_nummer} „${pr_titel}“ (Branch ${pr_branch}) – ${pr_url}"
+          case "$pr_branch" in
+            entwurf/*) ;;
+            *) echo "::warning title=Trend-Agent::Der Pull Request #${pr_nummer} liegt nicht auf einem Branch entwurf/* (sondern „${pr_branch}“). Er wurde über Titel und Zeitpunkt zugeordnet – bitte prüfen, ob es der richtige ist." ;;
+          esac
+
+          # ---------- Manuelles Thema: nichts zu aktualisieren ----------
+          if [ "$QUELLE" != "notion" ] || [ -z "$NOTION_ID" ]; then
+            echo "::notice title=Trend-Agent::Manuelles Thema – keine Notion-Seite zu aktualisieren. PR: ${pr_url}"
+            {
+              echo "## Ergebnis"
+              echo ""
+              echo "- Pull Request: [#${pr_nummer} ${pr_titel}](${pr_url})"
+              echo "- Notion: nicht aktualisiert (manuelles Thema)"
+              echo "- Agent-Schritt: ${AGENT_ERGEBNIS}"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # ---------- Was wird in Notion gesetzt? ----------
+          # Datum in Berliner Zeit (Datum ohne Uhrzeit, wie das Notion-Feld).
+          heute="$(TZ=Europe/Berlin date +%F)"
+          status_setzen="true"
+          datum_setzen="true"
+          case "$NOTION_STATUS_VORHER" in
+            Vorschlag|Freigegeben|Entwurf|"") ;;
+            *)
+              # Status wie „Fachlich geprüft“ oder „Veröffentlicht“ nicht zurücksetzen.
+              status_setzen="false"
+              echo "::warning title=Trend-Agent::Status der Notion-Seite bleibt „${NOTION_STATUS_VORHER}“ (wird nicht auf „Entwurf“ zurückgesetzt)." ;;
+          esac
+          # Gescheiterter Agent (max-turns, Timeout, Abbruch, API-Fehler): Der PR kann einen halbfertigen
+          # Text enthalten. Dann weder Status noch Datum setzen, nur den PR-Link als Spur.
+          if [ "$AGENT_ERGEBNIS" != "success" ]; then
+            status_setzen="false"
+            datum_setzen="false"
+            echo "::warning title=Trend-Agent::Der Agent-Schritt endete mit „${AGENT_ERGEBNIS}“ – der Status in Notion bleibt „${NOTION_STATUS_VORHER:-leer}“, eingetragen wird nur der PR-Link. Bitte den PR ${pr_url} prüfen: Ist der Entwurf brauchbar, den Status in Notion von Hand auf „Entwurf“ setzen. Soll das Thema neu geschrieben werden, den PR schließen und in Notion das Feld „Entwurf (PR)“ leeren – erst dann wählt die Automatik das Thema wieder."
+          fi
+
+          # Text für das manuelle Nachtragen, passend zu dem, was gesetzt werden sollte.
+          soll="Entwurf (PR) = ${pr_url}"
+          if [ "$datum_setzen" = "true" ]; then soll="${soll}, Entwurf erstellt = ${heute}"; fi
+          if [ "$status_setzen" = "true" ]; then soll="Status „Entwurf“, ${soll}"; fi
+
+          if [ -z "$NOTION_TOKEN" ]; then
+            echo "::error title=Trend-Agent::NOTION_TOKEN fehlt – Notion-Seite ${NOTION_ID} kann nicht aktualisiert werden. Der Pull Request existiert: ${pr_url}. Bitte in Notion von Hand setzen: ${soll}."
+            exit 1
+          fi
+          if [[ ! "$NOTION_TOKEN" =~ ^[A-Za-z0-9_-]+$ ]]; then
+            echo "::error title=Trend-Agent::Secret NOTION_TOKEN enthält unerwartete Zeichen – Notion-Seite ${NOTION_ID} kann nicht aktualisiert werden. Bitte in Notion von Hand setzen: ${soll}."
+            exit 1
+          fi
+
+          body="$(jq -n -c --arg url "$pr_url" --arg datum "$heute" \
+                    --argjson s "$status_setzen" --argjson d "$datum_setzen" '
+            { properties: (
+                { "Entwurf (PR)": { url: $url } }
+                + (if $d then { "Entwurf erstellt": { date: { start: $datum } } } else {} end)
+                + (if $s then { "Status": { select: { name: "Entwurf" } } } else {} end)
+              ) }
+          ')"
+
+          # ---------- Notion-Seite aktualisieren ----------
+          # curl wiederholt 429/5xx selbst. 409 (Konflikt, bei PATCH gelegentlich) und Verbindungsabbrüche
+          # werden hier bis zu zweimal nachgeholt – der PATCH ist idempotent.
+          # Der Authorization-Header kommt über stdin, damit der Token nicht in der Prozessliste steht.
+          status="000"
+          for versuch in 1 2 3; do
+            : > "$ANTWORT"
+            status="$(curl -sS --max-time 60 --retry 3 --retry-delay 3 \
+                        -o "$ANTWORT" -w '%{http_code}' -X PATCH \
+                        -H "Notion-Version: ${NOTION_VERSION}" \
+                        -H "Content-Type: application/json" \
+                        --data "$body" -K - \
+                        "https://api.notion.com/v1/pages/${NOTION_ID}" 2>"$FEHLER" \
+                        <<< "header = \"Authorization: Bearer ${NOTION_TOKEN}\"")" || true
+            status="${status: -3}"
+            status="${status:-000}"
+            if [ "$status" = "409" ] || [ "$status" = "000" ]; then
+              if [ "$versuch" -lt 3 ]; then
+                echo "Notion antwortete mit HTTP ${status} – neuer Versuch in 3 Sekunden (${versuch} von 3)."
+                sleep 3
+                continue
+              fi
+            fi
+            break
+          done
+
+          case "$status" in
+            2[0-9][0-9])
+              neuer_status="$(jq -r '.properties.Status.select.name // "?"' "$ANTWORT" 2>/dev/null | tr '\r\n' '  ' || echo "?")"
+              gesetzt="PR-Link"
+              if [ "$datum_setzen" = "true" ]; then gesetzt="${gesetzt} und Datum ${heute}"; fi
+              echo "::notice title=Trend-Agent::Notion aktualisiert: ${gesetzt} eingetragen, Status jetzt „${neuer_status}“. PR: ${pr_url}"
+              {
+                echo "## Ergebnis"
+                echo ""
+                echo "- Pull Request: [#${pr_nummer} ${pr_titel}](${pr_url})"
+                echo "- Notion: [Seite](${NOTION_URL}) – ${gesetzt} eingetragen, Status „${neuer_status}“"
+                echo "- Agent-Schritt: ${AGENT_ERGEBNIS}"
+                if [ "$AGENT_ERGEBNIS" != "success" ]; then
+                  echo "- **Achtung:** Der Agent ist nicht sauber fertig geworden. Der Entwurf kann unvollständig sein; der Status in Notion wurde deshalb nicht auf „Entwurf“ gesetzt."
+                fi
+              } >> "$GITHUB_STEP_SUMMARY"
+              ;;
+            *)
+              echo "::group::Notion-Antwort (Seite aktualisieren, HTTP ${status})"
+              if [ -s "$ANTWORT" ]; then
+                if jq -e 'type == "object" and has("code")' "$ANTWORT" >/dev/null 2>&1; then
+                  jq -r '"code: \(.code // "?")", "message: \(.message // "?")"' "$ANTWORT" | fremd
+                else
+                  echo "| $(head -c 500 "$ANTWORT" | tr '\r\n' '  ')"
+                fi
+              fi
+              if [ -s "$FEHLER" ]; then echo "| curl: $(head -c 1000 "$FEHLER" | tr '\r\n' '  ')"; fi
+              echo "::endgroup::"
+              case "$status" in
+                400) grund="Anfrage abgelehnt – meist fehlt in Notion die Eigenschaft „Entwurf (PR)“, „Entwurf erstellt“ oder „Status“, oder sie heißt anders" ;;
+                401) grund="NOTION_TOKEN ungültig, widerrufen oder unvollständig eingefügt" ;;
+                403) grund="die Integration ist nicht mit den Trendthemen verbunden, oder ihr fehlt die Fähigkeit „Inhalte aktualisieren“ (notion.so/profile/integrations)" ;;
+                404) grund="Seite gelöscht oder für die Integration nicht freigegeben" ;;
+                409) grund="Konflikt – die Seite wurde gleichzeitig bearbeitet" ;;
+                429) grund="Rate-Limit, auch nach Wiederholungen" ;;
+                000) grund="keine Verbindung zu Notion (Netzwerk/Timeout)" ;;
+                *)   grund="unerwarteter Fehler" ;;
+              esac
+              echo "::error title=Trend-Agent::Notion-Seite ${NOTION_ID} konnte nicht aktualisiert werden (HTTP ${status}: ${grund}). Der Pull Request existiert: ${pr_url}. Bitte in Notion von Hand setzen: ${soll}."
+              {
+                echo "## Ergebnis"
+                echo ""
+                echo "- Pull Request: [#${pr_nummer} ${pr_titel}](${pr_url})"
+                echo "- Notion: **Aktualisierung fehlgeschlagen** (HTTP ${status}: ${grund}) – bitte von Hand nachtragen: ${soll}"
+                echo "- Agent-Schritt: ${AGENT_ERGEBNIS}"
+              } >> "$GITHUB_STEP_SUMMARY"
+              exit 1
+              ;;
+          esac
+
+      # -----------------------------------------------------------------
+      # 5. Schlussprüfung. Ein Skript lädt jede Quelle aus dem Fußnoten-
+      #    verzeichnis herunter; ein unabhängiger Agent vergleicht jeden
+      #    belegten Satz mit dem Quelltext, streicht Unbelegtes und liest
+      #    Korrektur. Anlass: Beim Beitrag zu OVG 6 A 1/25 standen Fußnoten
+      #    mit „Inhaltlich bestätigt durch …“, deren Quelle die Zahlen gar
+      #    nicht enthielt. Läuft nach Notion, damit ein Abbruch hier die
+      #    Notion-Pflege nicht verhindert.
+      # -----------------------------------------------------------------
+      - name: Entwurf für die Schlussprüfung bestimmen
+        id: ziel
+        if: ${{ !cancelled() && steps.agent.outputs.ergebnis == 'success' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JOBSTART: ${{ steps.start.outputs.zeit }}
+          NOTION_ID: ${{ steps.thema.outputs.notion_id }}
+        run: |
+          set -euo pipefail
+          ARBEIT="${RUNNER_TEMP}/schlusspruefung"
+          mkdir -p "$ARBEIT"
+          # Nur der eigene Entwurf dieses Laufs (Format und Notion-Seite im Dateikopf).
+          ZEILE="$(python tools/eigener_entwurf.py --seit "$JOBSTART" --ohne-format "Rechtsprechung,Urteil verständlich,Vorlage" --notion-id "$NOTION_ID")"
+          if [ -z "$ZEILE" ]; then
+            echo "::notice title=Schlussprüfung::Kein neuer Entwurf – nichts zu prüfen."
+            echo "bereit=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          NR="${ZEILE%% *}"
+          ZWEIG="${ZEILE#* }"
+          git fetch -q origin "$ZWEIG"
+          git checkout -q -B "$ZWEIG" "origin/$ZWEIG"
+          ENTWURF="$(gh pr view "$NR" --json files \
+                      --jq '[.files[].path | select(startswith("entwuerfe/") and endswith(".md") and (ascii_downcase | endswith("readme.md") | not))][0] // ""')"
+          if [ -z "$ENTWURF" ] || [ ! -f "$ENTWURF" ]; then
+            echo "::warning title=Schlussprüfung::Im Pull Request #$NR ist keine Entwurfsdatei zu finden."
+            echo "bereit=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          {
+            echo "bereit=true"
+            echo "nummer=$NR"
+            echo "zweig=$ZWEIG"
+            echo "entwurf=$ENTWURF"
+            echo "arbeit=$ARBEIT"
+            echo "bericht=$ARBEIT/schlusspruefung.md"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Quellen für die Schlussprüfung laden
+        id: quellen
+        if: ${{ !cancelled() && steps.ziel.outputs.bereit == 'true' }}
+        env:
+          ENTWURF: ${{ steps.ziel.outputs.entwurf }}
+          ARBEIT: ${{ steps.ziel.outputs.arbeit }}
+        run: |
+          set -euo pipefail
+          BIB=()
+          if [ -f .bibliothek/katalog.yml ]; then BIB=(--bibliothek .bibliothek); fi
+          if ! AUSGABE="$(python tools/quellen_laden.py "$ENTWURF" "$ARBEIT" "${BIB[@]}")"; then
+            echo "::warning title=Schlussprüfung::Quellen nicht ladbar – $(printf '%s\n' "$AUSGABE" | tail -n 1)"
+            echo "bereit=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          printf '%s\n' "$AUSGABE"
+          echo "pruefliste=$(printf '%s\n' "$AUSGABE" | tail -n 1)" >> "$GITHUB_OUTPUT"
+          echo "bereit=true" >> "$GITHUB_OUTPUT"
+
+      - name: Schlussprüfung gegen die Quellen
+        id: schluss
+        if: ${{ !cancelled() && steps.quellen.outputs.bereit == 'true' }}
+        # Scheitert die Prüfung, bleibt der Entwurf bestehen; der nächste Schritt
+        # vermerkt das im Pull Request.
+        continue-on-error: true
+        timeout-minutes: 35
+        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /schlusspruefung
+            Entwurf: ${{ steps.ziel.outputs.entwurf }}
+            Prüfliste: ${{ steps.quellen.outputs.pruefliste }}
+            Bericht: ${{ steps.ziel.outputs.bericht }}
+            Bibliothek: ${{ steps.bibindex.outputs.ordner || 'nicht verfügbar' }}
+          # Kein git, kein gh. Web nur, um eine tote Adresse desselben Dokuments
+          # zu ersetzen oder eine nicht ladbare Quelle einmal nachzulesen
+          # (höchstens zwölf Aufrufe laut Skill).
+          claude_args: |
+            --max-turns 80
+            --model claude-opus-5
+            --add-dir ${{ steps.ziel.outputs.arbeit }}
+            --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,WebFetch,WebSearch,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*),Bash(wc:*)"
+
+      - name: Ergebnis der Schlussprüfung übernehmen
+        if: ${{ !cancelled() && steps.quellen.outputs.bereit == 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ steps.ziel.outputs.nummer }}
+          ZWEIG: ${{ steps.ziel.outputs.zweig }}
+          BERICHT: ${{ steps.ziel.outputs.bericht }}
+          PRUEFUNG: ${{ steps.schluss.outcome }}
+        run: |
+          set -euo pipefail
+          # Fehler in fremden Entwürfen dürfen hier nicht stoppen.
+          python tools/artikel_generator.py > /dev/null || true
+          if ! git diff --quiet -- entwuerfe fachwissen sitemap.xml; then
+            git add entwuerfe fachwissen sitemap.xml
+            git commit -q -m "Schlusspruefung: Korrekturen gegen die Quellen" \
+                          -m "Automatisch nach dem Schreiben geprueft. Einzelheiten im Kommentar des Pull Requests."
+            git push -q origin "HEAD:$ZWEIG"
+          fi
+          if [ -s "$BERICHT" ]; then
+            gh pr comment "$NR" --body-file "$BERICHT"
+          else
+            gh pr comment "$NR" --body "⚠️ Die Schlussprüfung gegen die Quellen ist nicht vollständig durchgelaufen (Ergebnis: ${PRUEFUNG}). Bitte Zahlen und Fußnoten vor dem Merge selbst an den Quellen prüfen."
+          fi
+
+      # -----------------------------------------------------------------
+      # 6. Shorts-Paket: aus dem GEPRÜFTEN Entwurf (nach der Schlussprüfung).
+      #    Der Agent liest nur Entwurf und Auftragsdatei – kein Web, keine
+      #    neuen Fakten; jede Aussage nennt ihre Fußnote. Das Paket liegt
+      #    außerhalb des Repositorys und kommt auf die Notion-Seite des Themas.
+      #    Ein Fehler hier lässt den Artikelentwurf unberührt.
+      # -----------------------------------------------------------------
+      - name: Shorts-Paket schreiben
+        id: shorts
+        if: ${{ !cancelled() && steps.ziel.outputs.bereit == 'true' }}
+        continue-on-error: true
+        timeout-minutes: 20
+        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /shorts
+            Entwurf: ${{ steps.ziel.outputs.entwurf }}
+            Auftragsdatei: ${{ steps.thema.outputs.auftrag_pfad }}
+            Ausgabe: ${{ steps.thema.outputs.auftrag_verzeichnis }}/shorts.md
+          # Nur lesen und die eine Ausgabedatei schreiben – kein git, kein gh, kein Web.
+          claude_args: |
+            --max-turns 40
+            --model claude-opus-5
+            --add-dir ${{ steps.thema.outputs.auftrag_verzeichnis }}
+            --allowedTools "Read,Write,Glob,Grep,TodoWrite,Skill,Bash(wc:*)"
+
+      - name: Shorts-Paket nach Notion
+        if: ${{ !cancelled() && steps.ziel.outputs.bereit == 'true' }}
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_ID: ${{ steps.thema.outputs.notion_id }}
+          ORDNER: ${{ steps.thema.outputs.auftrag_verzeichnis }}
+          NR: ${{ steps.ziel.outputs.nummer }}
+          SHORTS: ${{ steps.shorts.outcome }}
+          PRUEFUNG: ${{ steps.schluss.outcome }}
+        run: |
+          set -euo pipefail
+          DATEI="${ORDNER}/shorts.md"
+          if [ "$SHORTS" != "success" ] || [ ! -s "$DATEI" ]; then
+            echo "::warning title=Trend-Agent::Kein Shorts-Paket entstanden (Schritt: ${SHORTS:-übersprungen}). Der Artikelentwurf ist davon nicht betroffen."
+            exit 0
+          fi
+          WARNUNG=()
+          if [ "$PRUEFUNG" != "success" ]; then
+            WARNUNG=(--warnung "Die Schlussprüfung des Artikels ist nicht vollständig durchgelaufen. Zahlen und Aussagen vor dem Dreh selbst an den Quellen prüfen.")
+          fi
+          python tools/trend_notion.py shorts --seite "$NOTION_ID" --datei "$DATEI" \
+            --pr "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/pull/${NR}" "${WARNUNG[@]}"
+          echo "- Shorts-Paket: auf der Notion-Seite des Themas" >> "$GITHUB_STEP_SUMMARY"
+
+      # -----------------------------------------------------------------
+      # 7. Kontrolle: Wurde der Hauptzweig während des Laufs verändert?
+      #    Der Agent darf nie auf main pushen. Solange keine Branch-Protection
+      #    aktiv ist, sichert das nur der Prompt – diese Kontrolle macht einen
+      #    Verstoß wenigstens sofort sichtbar.
+      # -----------------------------------------------------------------
+      - name: Hauptzweig unverändert?
+        id: hauptzweig
+        if: always() && steps.git.outcome == 'success' && steps.git.outputs.sha != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ZWEIG: ${{ steps.git.outputs.zweig }}
+          SHA_VORHER: ${{ steps.git.outputs.sha }}
+        run: |
+          set -euo pipefail
+
+          sha_nachher="$(git ls-remote origin "refs/heads/${ZWEIG}" 2>/dev/null | cut -f1 | head -n 1 || true)"
+          if [ -z "$sha_nachher" ]; then
+            echo "Stand von ${ZWEIG} nicht abrufbar – Kontrolle übersprungen."
+            exit 0
+          fi
+          if [ "$sha_nachher" = "$SHA_VORHER" ]; then
+            echo "${ZWEIG} ist unverändert (${SHA_VORHER})."
+            exit 0
+          fi
+
+          # Die direkte Commit-Kette des Hauptzweigs prüfen: Merges über GitHub und der Seitenbau
+          # sind unbedenklich, ein direkter Bot-Commit (Agent) nicht (tools/hauptzweig_pruefen.py).
+          python tools/hauptzweig_pruefen.py "$SHA_VORHER" "$sha_nachher" --titel Trend-Agent
+
+      # -----------------------------------------------------------------
+      # Mehrere Runden: Die nächste Runde startet nur, wenn diese einen neuen
+      # Entwurf hervorgebracht hat. Sonst (Liste leer, kein passender Fall,
+      # Duplikat) würde sie dieselbe vergebliche Suche wiederholen und
+      # Kontingent verbrauchen. Der Fehler hier sagt die übrigen Runden ab.
+      # -----------------------------------------------------------------
+      - name: Weitere Runden nur nach einem neuen Entwurf
+        if: success() && matrix.runde < fromJSON(needs.planen.outputs.anzahl)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BEGINN: ${{ steps.start.outputs.zeit }}
+          RUNDE: ${{ matrix.runde }}
+          ANZAHL: ${{ needs.planen.outputs.anzahl }}
+        run: |
+          set -euo pipefail
+          if [ -z "${BEGINN:-}" ]; then
+            echo "::error title=Trend-Agent::Startzeit dieser Runde unbekannt – die übrigen Runden werden sicherheitshalber abgesagt."
+            exit 1
+          fi
+          # Eigene Entwürfe dieser Runde, erkannt am Format im Dateikopf (nicht nur am Zweig):
+          # So zählt ein gleichzeitig laufender anderer Agent nicht als Ergebnis dieser Runde.
+          neu="$(python tools/eigener_entwurf.py --seit "$BEGINN" --ohne-format "Rechtsprechung,Urteil verständlich,Vorlage" --ausgabe anzahl)"
+          if [ "${neu:-0}" -eq 0 ]; then
+            echo "::error title=Trend-Agent::Runde ${RUNDE} von ${ANZAHL} hat keinen neuen Entwurf erzeugt (nichts Passendes mehr gefunden oder Duplikat). Die übrigen Runden werden abgesagt, damit kein Kontingent verpufft."
+            exit 1
+          fi
+          echo "::notice title=Trend-Agent::Runde ${RUNDE} von ${ANZAHL} fertig – weiter mit der nächsten."
