@@ -372,14 +372,14 @@ jobs:
           #   wenn die Skill-Datei einmal abweicht. „git config“ fehlt absichtlich.
           claude_args: |
             --max-turns 170
-            --model claude-opus-5
+            --model claude-opus-5-5
             --add-dir ${{ steps.kandidaten.outputs.verzeichnis }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
 
       # Fehlalarm des Sicherheitsfilters (02.10.2026, Fachartikel Runde 3): Die
       # API bricht mit „safeguards flagged this message“ ab und empfiehlt eine
       # neue Sitzung oder ein anderes Modell. Dann folgt ein zweiter Versuch mit
-      # Opus 5.5 – aber nur, wenn der erste noch nichts veröffentlicht hat
+      # Opus 5 – aber nur, wenn der erste noch nichts veröffentlicht hat
       # (tools/zweiter_versuch.py). Andere Fehler bekommen keinen zweiten Versuch.
       - name: Zweiter Versuch nötig?
         id: fehlalarm
@@ -398,10 +398,10 @@ jobs:
             git checkout -q -f "$START_ZWEIG" 2>/dev/null || git checkout -q -f "$START_SHA"
             git reset -q --hard "$START_SHA"
             git clean -q -fd -- entwuerfe fachwissen vorlagen
-            echo "::warning title=Agent::Fehlalarm des Sicherheitsfilters im ersten Versuch – zweiter Versuch mit Opus 5.5."
+            echo "::warning title=Agent::Fehlalarm des Sicherheitsfilters im ersten Versuch – zweiter Versuch mit Opus 5."
           fi
 
-      - name: Besprechung schreiben lassen (zweiter Versuch, Opus 5.5)
+      - name: Besprechung schreiben lassen (zweiter Versuch, Opus 5)
         id: claude2
         continue-on-error: true
         if: steps.fehlalarm.outputs.zweiter_versuch == 'true'
@@ -429,7 +429,7 @@ jobs:
           #   wenn die Skill-Datei einmal abweicht. „git config“ fehlt absichtlich.
           claude_args: |
             --max-turns 170
-            --model claude-opus-5-5
+            --model claude-opus-5
             --add-dir ${{ steps.kandidaten.outputs.verzeichnis }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
 
@@ -446,7 +446,7 @@ jobs:
           if [ "$ERSTER" = "success" ] || [ "$ZWEITER" = "success" ]; then
             echo "ergebnis=success" >> "$GITHUB_OUTPUT"
             if [ "$ZWEITER" = "success" ]; then
-              echo "::notice title=Agent::Der zweite Versuch mit Opus 5.5 war erfolgreich."
+              echo "::notice title=Agent::Der zweite Versuch mit Opus 5 war erfolgreich."
             fi
             exit 0
           fi
@@ -554,7 +554,7 @@ jobs:
           # nächste Schritt.
           claude_args: |
             --max-turns 110
-            --model claude-opus-5
+            --model claude-opus-5-5
             --add-dir ${{ steps.kandidaten.outputs.verzeichnis }}
             --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(wc:*)"
 
@@ -639,7 +639,7 @@ jobs:
           # (höchstens zwölf Aufrufe laut Skill).
           claude_args: |
             --max-turns 80
-            --model claude-opus-5
+            --model claude-opus-5-5
             --add-dir ${{ steps.kandidaten.outputs.verzeichnis }}
             --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,WebFetch,WebSearch,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*),Bash(wc:*)"
 
