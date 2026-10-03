@@ -270,6 +270,30 @@ dl.parameter dd{margin:0; font-weight:500; color:var(--text);}
 .kein-wert .gruende{margin:0; padding:18px 20px 18px 38px; background:var(--warn-soft); border:1px solid rgba(138,90,47,.25); border-radius:var(--radius); color:var(--text);}
 .kein-wert .gruende li{margin-bottom:6px;}
 
+/* -------------------------------------------------- Feste Erläuterungen */
+.infos{padding:clamp(48px, 7vw, 88px) 0 clamp(56px, 8vw, 96px); background:var(--surface); border-top:1px solid var(--line);}
+.infos h2{font-size:clamp(1.5rem, 2.8vw, 2rem); margin-bottom:22px;}
+.infos h3{font-size:1.125rem; margin-bottom:10px;}
+.infos p{color:var(--text-2); line-height:1.7;}
+.infos strong{color:var(--text); font-weight:600;}
+.ablauf{counter-reset:schritt; list-style:none; margin:0 0 44px; padding:0; display:grid; gap:16px;}
+.ablauf li{position:relative; padding:18px 22px 18px 66px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); color:var(--text-2); line-height:1.65;}
+.ablauf li::before{counter-increment:schritt; content:counter(schritt); position:absolute; left:20px; top:16px; width:30px; height:30px; display:grid; place-items:center; border-radius:50%; background:var(--accent); color:#fff; font-family:var(--font-display); font-weight:600; font-size:.9375rem;}
+.ablauf li b{color:var(--text); font-weight:600;}
+.info-raster{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:28px 40px; margin-bottom:48px;}
+.leistung{padding:clamp(26px, 4vw, 40px); margin-bottom:48px; background:var(--ink-950); color:var(--on-ink); border-radius:var(--radius-lg);}
+.leistung .eyebrow.dunkel{color:var(--on-ink-2);}
+.leistung h2{color:#fff; margin-bottom:16px;}
+.leistung p{color:var(--on-ink-2); max-width:70ch;}
+.leistung-liste{margin:18px 0 24px; padding:0; list-style:none; display:grid; gap:10px;}
+.leistung-liste li{position:relative; padding-left:26px; color:var(--on-ink-2); line-height:1.55;}
+.leistung-liste li::before{content:""; position:absolute; left:0; top:.6em; width:14px; height:2px; background:var(--accent-bright);}
+.leistung .aktionen{display:flex; flex-wrap:wrap; gap:12px;}
+.leistung .btn-outline{border-color:var(--ink-line-2); color:var(--on-ink);}
+.leistung .btn-outline:hover{border-color:rgba(255,255,255,.5); color:#fff;}
+.faq .abschnitt{margin-top:12px;}
+.faq .abschnitt-inhalt p{margin:14px 0 0;}
+
 /* ------------------------------------------------------------------ Fuß */
 .seiten-fuss{background:var(--ink-950); color:var(--on-ink-2); padding:48px 0 40px; font-size:.9375rem;}
 .seiten-fuss p{margin:0 0 10px;}
