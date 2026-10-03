@@ -13,6 +13,11 @@ Befehle:
     shorts --seite ID --datei MD [--pr URL] [--warnung TEXT]
                                  hängt das Shorts-Paket (Markdown) an die Seite des Themas an
                                  und setzt das Häkchen „Shorts-Paket“
+    stichwortzettel --datei MD --titel T --link URL --kurzform K [--format F] [--datum JJJJ-MM-TT]
+                                 legt den Stichwortzettel eines veröffentlichten Beitrags als
+                                 Seite in der Liste „Stichwortzettel Videos“ an (Workflow
+                                 „Entwürfe veröffentlichen“); gibt es zur Kurzform schon eine
+                                 Seite, passiert nichts
 
 Protokoll und Zusammenfassung des Laufs sind öffentlich: Titel neuer oder
 übersprungener Vorschläge stehen dort nicht (Redaktionsplan), nur Nummern,
@@ -39,6 +44,7 @@ from pathlib import Path
 NOTION_VERSION = "2025-09-03"
 TRENDTHEMEN = "a744bdd5-1831-423c-8bb4-3c354fdaf149"        # Data Source „Trendthemen Bauwesen“
 THEMENSPEICHER = "532c3c18-5d73-4312-89f6-a2a4035b981d"     # Data Source „Themenspeicher Fachartikel“
+STICHWORTZETTEL = "9ce6eae3-edc2-4cb4-bb0a-6680bbf90c94"    # Data Source „Stichwortzettel Videos“
 
 # Erlaubte Werte – wie in den Notion-Datenbanken
 KATEGORIEN = ("Bauphysik", "Bauschäden", "Gutachten & Recht", "Baubetrieb", "Bauherrenwissen",
@@ -450,6 +456,31 @@ def shorts_anhaengen(seite: str, markdown: str, pr: str = "", warnung: str = "",
     return len(alle)
 
 
+def stichwortzettel_anlegen(markdown: str, titel: str, link: str, kurzform: str, format_: str = "",
+                            datum: str = "", senden=None) -> str:
+    """Legt den Stichwortzettel eines Beitrags als Seite in „Stichwortzettel Videos“ an.
+    Ergebnis: Adresse der Seite – oder "", wenn es zur Kurzform schon eine gibt."""
+    senden = senden or anfrage
+    vorhanden = senden("POST", f"/data_sources/{STICHWORTZETTEL}/query",
+                       {"filter": {"property": "Kurzform", "rich_text": {"equals": kurzform}}, "page_size": 1})
+    if vorhanden.get("results"):
+        return ""
+    eigenschaften = {
+        "Beitrag": {"title": [text(titel)]},
+        "Link": {"url": link or None},
+        "Kurzform": {"rich_text": [text(kurzform)]},
+        "Veröffentlicht": {"date": {"start": datum or heute_berlin().isoformat()}},
+    }
+    if format_:
+        eigenschaften["Format"] = {"select": {"name": format_}}
+    bloecke = bloecke_aus_markdown(markdown)
+    seite = senden("POST", "/pages", {"parent": {"type": "data_source_id", "data_source_id": STICHWORTZETTEL},
+                                      "properties": eigenschaften, "children": bloecke[:100]})
+    for anfang in range(100, len(bloecke), 100):
+        senden("PATCH", f"/blocks/{seite['id']}/children", {"children": bloecke[anfang:anfang + 100]})
+    return seite.get("url", "")
+
+
 # --------------------------------------------------------------------------
 
 def main(argumente: list[str] | None = None) -> int:
@@ -466,6 +497,13 @@ def main(argumente: list[str] | None = None) -> int:
     p.add_argument("--datei", type=Path, required=True)
     p.add_argument("--pr", default="")
     p.add_argument("--warnung", default="")
+    p = unter.add_parser("stichwortzettel")
+    p.add_argument("--datei", type=Path, required=True)
+    p.add_argument("--titel", required=True)
+    p.add_argument("--link", required=True)
+    p.add_argument("--kurzform", required=True)
+    p.add_argument("--format", default="")
+    p.add_argument("--datum", default="")
     a = zerleger.parse_args(argumente)
 
     try:
@@ -501,9 +539,13 @@ def main(argumente: list[str] | None = None) -> int:
             zusammenfassung(bericht + "\n")
             if not angelegt:
                 print("::warning title=Trend-Agent::Kein neuer Vorschlag angelegt – Einzelheiten in der Zusammenfassung.")
-        else:
+        elif a.befehl == "shorts":
             anzahl = shorts_anhaengen(a.seite, a.datei.read_text(encoding="utf-8"), a.pr, a.warnung)
             print(f"Shorts-Paket mit {anzahl} Blöcken an die Notion-Seite angehängt.")
+        else:
+            adresse = stichwortzettel_anlegen(a.datei.read_text(encoding="utf-8"), a.titel, a.link, a.kurzform,
+                                              a.format, a.datum)
+            print(f"Stichwortzettel angelegt: {adresse}" if adresse else "Stichwortzettel gibt es schon – nichts geändert.")
     except NotionFehler as fehler:
         print(f"::error title=Notion::{fehler}")
         return 1

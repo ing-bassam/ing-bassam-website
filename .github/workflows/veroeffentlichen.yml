@@ -15,7 +15,9 @@ name: Entwürfe veröffentlichen
 #      und erneuert Übersicht, Sitemap und llms.txt.
 #   3. Schreibt alles in einem Commit auf den Hauptzweig.
 #   4. Meldet die neuen Seiten per IndexNow.
-#   5. Gleicht die Notion-Listen ab (tools/notion_abgleich.py): online →
+#   5. Schreibt je Beitrag einen Stichwortzettel für die Videos (Agent, Skill
+#      /stichwortzettel) in die Notion-Liste „Stichwortzettel Videos“.
+#   6. Gleicht die Notion-Listen ab (tools/notion_abgleich.py): online →
 #      „Veröffentlicht“ bzw. „Online“, mit Link.
 #
 # Warum der Workflow selbst baut und meldet: Was ein Workflow mit dem
@@ -58,6 +60,8 @@ jobs:
     permissions:
       contents: write        # Status, Seiten und Sitemap zurückschreiben
       pull-requests: read    # prüfen, ob Prüfkorrekturen noch auf ihrem Zweig liegen
+      issues: write          # Kontingent-Pause als Issue (tools/kontingent.py)
+      id-token: write        # Stichwortzettel: von der Claude-Action benötigt
 
     steps:
       - name: Repository auschecken
@@ -93,7 +97,7 @@ jobs:
           else
             WAHL=(--auswahl "$AUSWAHL")
           fi
-          python tools/veroeffentlichen.py "${WAHL[@]}" "${PROBE[@]}" | tee "$RUNNER_TEMP/veroeffentlichen.log"
+          python tools/veroeffentlichen.py "${WAHL[@]}" "${PROBE[@]}" --bericht "$RUNNER_TEMP/veroeffentlichen.json" | tee "$RUNNER_TEMP/veroeffentlichen.log"
           echo "anzahl=$(tail -n 1 "$RUNNER_TEMP/veroeffentlichen.log")" >> "$GITHUB_OUTPUT"
           {
             echo "## Entwürfe veröffentlichen"
@@ -144,6 +148,51 @@ jobs:
         continue-on-error: true
         timeout-minutes: 15
         run: python tools/indexnow.py --vorher "$RUNNER_TEMP/sitemap-vorher.xml"
+
+      # -----------------------------------------------------------------
+      # Stichwortzettel für die Videos: Zu jedem gerade veröffentlichten
+      # Beitrag schreibt ein Agent (Skill /stichwortzettel) die drei stärksten
+      # Kernaussagen mit Fußnote; das Ergebnis landet in der Notion-Liste
+      # „Stichwortzettel Videos“. Kostet wenig Kontingent (höchstens 2 je Tag,
+      # je etwa 25 Züge). Der Beitrag selbst bleibt unberührt.
+      # -----------------------------------------------------------------
+      - name: Beiträge für den Stichwortzettel bestimmen
+        id: zettel
+        if: inputs.probelauf != true && steps.status.outputs.anzahl != '0'
+        run: python tools/stichwortzettel.py auftrag --bericht "$RUNNER_TEMP/veroeffentlichen.json" --ordner "$RUNNER_TEMP/stichwortzettel"
+
+      - name: Stichwortzettel schreiben lassen
+        id: zettel_agent
+        if: steps.zettel.outputs.anzahl != '' && steps.zettel.outputs.anzahl != '0'
+        continue-on-error: true
+        timeout-minutes: 15
+        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /stichwortzettel
+            ${{ steps.zettel.outputs.auftrag }}
+          # Nur lesen und die Zetteldateien schreiben – kein git, kein gh, kein Web.
+          claude_args: |
+            --max-turns 25
+            --model claude-opus-5-5
+            --add-dir ${{ steps.zettel.outputs.ordner }}
+            --allowedTools "Read,Write,Glob,Grep,TodoWrite,Skill"
+
+      - name: Kontingent prüfen
+        if: steps.zettel_agent.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERLAUF: ${{ steps.zettel_agent.outputs.execution_file }}
+        run: python3 tools/kontingent.py erkennen "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
+
+      - name: Stichwortzettel nach Notion
+        if: steps.zettel.outputs.anzahl != '' && steps.zettel.outputs.anzahl != '0'
+        continue-on-error: true
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python tools/stichwortzettel.py ablegen --bericht "$RUNNER_TEMP/veroeffentlichen.json" --ordner "$RUNNER_TEMP/stichwortzettel"
 
       # Notion auf den Stand der Website bringen – auch ohne neue Veröffentlichung,
       # weil inzwischen Entwürfe dazugekommen sein können. Ändert nur, was nicht stimmt.

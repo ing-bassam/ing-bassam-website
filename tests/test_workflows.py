@@ -59,18 +59,25 @@ class Zeitplaene(unittest.TestCase):
                     self.assertTrue(minute.isdigit(), "feste Minute erwartet")
                     self.assertNotIn(int(minute), (0, 30))
 
-    def test_agenten_an_verschiedenen_tagen(self):
-        belegt: dict[int, str] = {}
+    def test_agenten_nur_montag_bis_donnerstag(self):
+        """Freitag bis Sonntag entstehen keine Entwürfe: Der Wochenbericht kommt freitags,
+        das Wochenende gehört den Videos des Auftraggebers."""
+        tage: dict[int, list[str]] = {}
         for name in AGENTEN:
             for cron, _ in zeitplaene(text(name)):
                 for tag in wochentage(cron):
-                    with self.subTest(workflow=name, tag=tag):
-                        self.assertNotIn(tag, belegt, f"Tag {tag} schon belegt von {belegt.get(tag)}")
-                    belegt[tag] = name
-        self.assertEqual(set(belegt), {0, 1, 3, 4, 5, 6})   # dienstags Pause vor dem Neustart des Kontingents
+                    tage.setdefault(tag, []).append(name)
+        self.assertTrue(set(tage) <= {1, 2, 3, 4}, tage)
+        self.assertEqual(set(tage), {1, 2, 3, 4})
+        # Die beiden Urteils-Agenten teilen sich eine Warteschlange – nie am selben Tag.
+        for tag, namen in tage.items():
+            self.assertFalse({"urteil.yml", "urteil-verstaendlich.yml"} <= set(namen), tage)
 
     def test_trend_agent_nach_dem_neustart(self):
         self.assertEqual(zeitplaene(text("trendscout.yml")), [("17 4 * * 3", "Europe/Berlin")])
+
+    def test_wochenbericht_freitags(self):
+        self.assertEqual(zeitplaene(text("wochenpruefung.yml")), [("7 8 * * 5", "Europe/Berlin")])
 
 
 class Agenten(unittest.TestCase):
@@ -117,6 +124,14 @@ class Veroeffentlichen(unittest.TestCase):
         self.assertIn("inputs.auswahl || 'automatisch'", inhalt)
         self.assertIn("--automatisch --max 2", inhalt)
         self.assertEqual(zeitplaene(inhalt), [("43 7 * * 1-5", "Europe/Berlin")])
+
+    def test_stichwortzettel_nach_der_veroeffentlichung(self):
+        inhalt = text("veroeffentlichen.yml")
+        self.assertIn("/stichwortzettel", inhalt)
+        self.assertIn("stichwortzettel.py auftrag", inhalt)
+        self.assertIn("stichwortzettel.py ablegen", inhalt)
+        self.assertIn("id-token: write", inhalt)
+        self.assertTrue((WURZEL / ".claude" / "skills" / "stichwortzettel" / "SKILL.md").is_file())
 
     def test_commit_ist_fuer_die_hauptzweig_kontrolle_erlaubt(self):
         erste_zeile = re.search(r'git commit -q -m "([^"]+)"', text("veroeffentlichen.yml")).group(1)

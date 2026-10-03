@@ -1,7 +1,7 @@
 name: Wöchentliche Prüfung
 
 # -----------------------------------------------------------------------------
-# Läuft jeden Montag um 08:07 Uhr – ohne KI und ohne Kontingent:
+# Läuft jeden Freitag um 08:07 Uhr – ohne KI und ohne Kontingent:
 #
 #   0. Wochenbericht der Agenten als Issue (tools/wochenbericht.py): was zur
 #      Freigabe bereitliegt, was online ging, was zurückgehalten oder als
@@ -27,10 +27,11 @@ name: Wöchentliche Prüfung
 
 on:
   schedule:
-    # Montag 08:07 Uhr deutscher Zeit – nach der Veröffentlichung um 07:43, damit der
-    # Wochenbericht sie schon enthält. Krumme Minute: Geplante Läufe zur vollen Stunde
+    # Freitag 08:07 Uhr deutscher Zeit – nach der Veröffentlichung um 07:43, damit der
+    # Wochenbericht sie schon enthält; die Agenten arbeiten Montag bis Donnerstag, das
+    # Wochenende gehört den Videos. Krumme Minute: Geplante Läufe zur vollen Stunde
     # fallen bei GitHub öfter aus.
-    - cron: "7 8 * * 1"
+    - cron: "7 8 * * 5"
       timezone: "Europe/Berlin"
   workflow_dispatch:
     inputs:
