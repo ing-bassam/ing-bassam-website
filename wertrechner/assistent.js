@@ -7,10 +7,12 @@
  * die jeweils eine Datei /wertrechner/data/adressen/<PLZ>.json.
  */
 import { modell, berlinSachwert, berlinErtragswert } from './berlin.js';
+import { setzeZahlenformat } from './rechenkern.js';
 import { uebersetzer } from './texte.js';
 
 const SPRACHE = document.documentElement.lang === 'en' ? 'en' : 'de';
 const t = uebersetzer(SPRACHE);
+setzeZahlenformat(t('sprache'));   // Zahlen im Rechenweg im Format der Seitensprache
 const DATEN = new URL('./data/', import.meta.url);
 const KONTAKT = 'info@ing-bassam.de';
 const app = document.getElementById('app');

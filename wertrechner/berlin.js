@@ -8,7 +8,7 @@
  * Gültigkeitsprüfungen. Nichts wird geschätzt oder erfunden – fehlt ein Wert,
  * gibt es keinen Wert, sondern einen Grund.
  */
-import { sachwert, ertragswert, runde, rundeAuf, fmt } from './rechenkern.js';
+import { sachwert, ertragswert, runde, rundeAuf, fmt, fmtKoeff } from './rechenkern.js';
 
 const WOHNLAGE = { 0: null, 1: 'einfach', 2: 'mittel', 3: 'gut' };
 const BAULAND_SACHWERT = new Set(['W', 'W-EFH', 'M1', 'M2']);
@@ -123,8 +123,8 @@ export function modell(daten) {
       const f = daten.sachwertfaktor;
       const bestandteile = [
         { text: 'Konstante', wert: f.konstante },
-        { text: `${fmt(f.koeff_sachwert)} × vorläufiger Sachwert ${fmt(vorlaeufigerSachwert)} €`, wert: f.koeff_sachwert * vorlaeufigerSachwert },
-        { text: `${fmt(f.koeff_tag)} × ${fmt(f.tage)} Tage (31.12.2021 bis 31.12.2024)`, wert: f.koeff_tag * f.tage },
+        { text: `${fmtKoeff(f.koeff_sachwert)} × vorläufiger Sachwert ${fmt(vorlaeufigerSachwert)} €`, wert: f.koeff_sachwert * vorlaeufigerSachwert },
+        { text: `${fmtKoeff(f.koeff_tag)} × ${fmt(f.tage)} Tage (31.12.2021 bis 31.12.2024)`, wert: f.koeff_tag * f.tage },
         { text: `Altbezirksgruppe ${swfGruppe}`, wert: f[`gruppe_${swfGruppe}`] },
       ];
       const merkmale = [
@@ -154,8 +154,8 @@ export function modell(daten) {
       const gruppe = normName(gebietsgruppe).replace('ü', 'ue');
       const bestandteile = [
         { text: 'Konstante', wert: f.konstante },
-        { text: `${fmt(f.koeff_miete)} × Objektkaltmiete ${fmt(objektmiete)} €/m²`, wert: f.koeff_miete * objektmiete },
-        { text: `${fmt(f.koeff_tag)} × ${fmt(f.tage)} Tage (01.01.2022 bis 31.12.2024)`, wert: f.koeff_tag * f.tage },
+        { text: `${fmtKoeff(f.koeff_miete)} × Objektkaltmiete ${fmt(objektmiete)} €/m²`, wert: f.koeff_miete * objektmiete },
+        { text: `${fmtKoeff(f.koeff_tag)} × ${fmt(f.tage)} Tage (01.01.2022 bis 31.12.2024)`, wert: f.koeff_tag * f.tage },
         { text: `Gebietsgruppe ${gebietsgruppe}`, wert: f[`zuschlag_${gruppe}`] ?? 0 },
       ];
       const alt = f[`altbezirk_${normName(altbezirk)}`];
@@ -164,7 +164,7 @@ export function modell(daten) {
         bestandteile.push({ text: 'Baujahre 1973–1990 im Westteil', wert: f.baujahr_1973_1990_west });
       }
       if (gewerbeanteilProzent > 0) {
-        bestandteile.push({ text: `Gewerblicher Anteil ${fmt(runde(gewerbeanteilProzent, 1))} % × ${fmt(f.gewerbe_je_prozentpunkt)}`,
+        bestandteile.push({ text: `Gewerblicher Anteil ${fmt(runde(gewerbeanteilProzent, 1))} % × ${fmtKoeff(f.gewerbe_je_prozentpunkt)}`,
           wert: f.gewerbe_je_prozentpunkt * gewerbeanteilProzent });
       }
       const ungerundet = bestandteile.reduce((s, t) => s + t.wert, 0);

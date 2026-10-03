@@ -16,11 +16,23 @@
  * einheit, grundlage}), damit die Oberfläche den Rechenweg zeigen kann.
  */
 
-const zahlDE = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 4 });
+let zahlFormat = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 4 });
+let koeffFormat = new Intl.NumberFormat('de-DE', { maximumSignificantDigits: 6 });
 
-/** Zahl für die Formeltexte (deutsches Format, bis 4 Nachkommastellen). */
+/** Stellt das Zahlenformat der Formeltexte um (z. B. 'en-GB' für die englische Seite). */
+export function setzeZahlenformat(sprache) {
+  zahlFormat = new Intl.NumberFormat(sprache, { maximumFractionDigits: 4 });
+  koeffFormat = new Intl.NumberFormat(sprache, { maximumSignificantDigits: 6 });
+}
+
+/** Zahl für die Formeltexte (bis 4 Nachkommastellen). */
 export function fmt(wert) {
-  return Number.isFinite(wert) ? zahlDE.format(wert) : String(wert);
+  return Number.isFinite(wert) ? zahlFormat.format(wert) : String(wert);
+}
+
+/** Regressionskoeffizienten mit allen signifikanten Stellen (z. B. −0,00000028). */
+export function fmtKoeff(wert) {
+  return Number.isFinite(wert) ? koeffFormat.format(wert) : String(wert);
 }
 
 /** Kaufmännisches Runden auf `stellen` Nachkommastellen, ohne Gleitkommafehler (1,005 → 1,01). */
