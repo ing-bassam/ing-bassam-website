@@ -194,17 +194,17 @@ def main() -> int:
             gruende.append(korrekturen[datei.name])
         if gruende:
             uebersprungen.append(f"{name}: " + "; ".join(gruende))
-            bericht.append({"kurzform": kurz, "datei": datei.name, "ergebnis": "zurückgehalten", "gruende": gruende})
+            bericht.append({"kurzform": kurz, "datei": datei.name, "titel": titel, "format": feld(kopf, "format"), "ergebnis": "zurückgehalten", "gruende": gruende})
             continue
         if a.automatisch and len(veroeffentlicht) >= a.max:
-            bericht.append({"kurzform": kurz, "datei": datei.name, "ergebnis": "wartet"})
+            bericht.append({"kurzform": kurz, "datei": datei.name, "titel": titel, "format": feld(kopf, "format"), "ergebnis": "wartet"})
             continue
         neuer_kopf = re.sub(r"(?m)^status:.*$", "status: Veröffentlicht", kopf, count=1) \
             if re.search(r"(?m)^status:", kopf) else kopf + "\nstatus: Veröffentlicht"
         if not a.probelauf:
             datei.write_bytes((text[:m.start(1)] + neuer_kopf + text[m.end(1):]).encode("utf-8"))
         veroeffentlicht.append(name)
-        bericht.append({"kurzform": kurz, "datei": datei.name, "ergebnis": "veröffentlicht"})
+        bericht.append({"kurzform": kurz, "datei": datei.name, "titel": titel, "format": feld(kopf, "format"), "ergebnis": "veröffentlicht"})
 
     if not alle:
         for w in sorted(wunsch - gefunden):

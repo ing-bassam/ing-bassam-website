@@ -33,7 +33,7 @@ name: Urteilsbesprechung
 # liefern kein auswertbares Trefferformat.
 # -----------------------------------------------------------------------------
 
-# Wochenplan: Sonntag um 00:37 Uhr (deutsche Zeit) eine Runde, mit
+# Wochenplan: Mittwoch um 00:37 Uhr (deutsche Zeit) eine Runde, mit
 # Kontingent-Bremse (tools/kontingent.py). Schon besprochene Urteile –
 # veröffentlicht, auf main oder in einem Pull Request, auch einem gerade erst
 # zusammengeführten – erkennt die Suche am Aktenzeichen und an der ECLI
@@ -42,7 +42,7 @@ name: Urteilsbesprechung
 on:
   schedule:
     # Krumme Minute: Geplante Läufe zur vollen Stunde fallen bei GitHub öfter aus.
-    - cron: "37 0 * * 0"
+    - cron: "37 0 * * 3"
       timezone: "Europe/Berlin"
   workflow_dispatch:
     inputs:
