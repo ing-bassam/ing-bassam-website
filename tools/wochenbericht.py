@@ -40,9 +40,10 @@ import kontingent  # noqa: E402
 LABEL = "wochenbericht"
 AGENTEN = ("Fachartikel-Entwurf", "Vorlagen und Checklisten", "Urteilsbesprechung", "Urteil verständlich", "Trend-Agent",
            "Entwürfe veröffentlichen")
-ZEITPLAN = ("Mi 04:17 Trend-Agent · Do 00:37 Fachartikel (2) · Fr 00:37 Vorlagen (2) · Sa 00:37 Urteil "
-            "verständlich · So 00:37 Urteilsbesprechung · Mo 00:37 Fachartikel (2) · Mo–Fr 07:43 freigegebene "
-            "Entwürfe online (höchstens 2 je Tag)")
+ZEITPLAN = ("Mo 00:37 Fachartikel (2) · Di 00:37 Vorlagen (2) und Urteil verständlich (1) · Mi 00:37 "
+            "Urteilsbesprechung (1) · Mi 04:17 Trend-Agent (1) · Do 00:37 Fachartikel (2) · Mo–Fr 07:43 "
+            "freigegebene Entwürfe online (höchstens 2 je Tag), danach der Stichwortzettel in Notion · "
+            "Fr 08:07 dieser Bericht · Samstag und Sonntag: Zeit für Ihre Videos")
 
 
 def gh_json(*args: str):
@@ -90,6 +91,19 @@ def doppelungen_seit(seit: datetime) -> list[str]:
     return adressen
 
 
+def stichwortzettel_seit(seit: datetime) -> list[tuple[str, str, str]]:
+    """(Titel, Notion-Adresse, Beitragsadresse) der Stichwortzettel, die seit `seit` entstanden sind."""
+    if not os.environ.get("NOTION_TOKEN", "").strip():
+        return []
+    from trend_notion import STICHWORTZETTEL, abfragen, klartext
+    filter_ = {"timestamp": "created_time", "created_time": {"on_or_after": kontingent.iso(seit)}}
+    ergebnis = []
+    for seite in abfragen(STICHWORTZETTEL, filter_):
+        e = seite.get("properties") or {}
+        ergebnis.append((klartext(e.get("Beitrag")), seite.get("url", ""), (e.get("Link") or {}).get("url") or ""))
+    return ergebnis
+
+
 def laeufe(repo: str, seit: datetime) -> dict[str, dict]:
     """Je Agent: Zahl der Läufe nach Ausgang, und Adressen der fehlgeschlagenen."""
     runs = gh_json("run", "list", "--repo", repo, "--limit", "300", "--created", f">={seit:%Y-%m-%d}",
@@ -113,13 +127,15 @@ def laeufe(repo: str, seit: datetime) -> dict[str, dict]:
 
 def bericht_bauen(*, jetzt: datetime, bereit: list[dict], in_pruefung: list[dict], online: list[tuple[str, str]],
                   veroeffentlichen: dict, doppelt: list[str], tabelle: dict[str, dict], neue: int | None,
-                  pause: list[dict]) -> tuple[str, str]:
+                  pause: list[dict], zettel: list[tuple[str, str, str]] = ()) -> tuple[str, str]:
     seit = jetzt - timedelta(days=7)
     titel = f"Wochenbericht der Agenten {datum(seit)}–{datum(jetzt - timedelta(days=1))}{kontingent.berlin(jetzt):%Y}"
     zurueck = [e for e in veroeffentlichen.get("eintraege", []) if e.get("ergebnis") == "zurückgehalten"]
     wartend = sum(1 for e in veroeffentlichen.get("eintraege", []) if e.get("ergebnis") in ("wartet", "veröffentlicht"))
     fehlgeschlagen = sum(z["failure"] for z in tabelle.values())
-    z = [f"# {titel}", "", "## Auf einen Blick", ""]
+    fazit = (f"**Fazit der Woche:** {len(online)} Beitrag/Beiträge online gegangen, {len(bereit)} warten auf Ihre "
+             f"Freigabe, {len(zettel)} Stichwortzettel für das Wochenende, {fehlgeschlagen} fehlgeschlagene(r) Lauf/Läufe.")
+    z = [f"# {titel}", "", fazit, "", "## Auf einen Blick", ""]
     z.append(f"- **Bitte lesen und freigeben:** {len(bereit)} Entwurf/Entwürfe" if bereit
              else "- **Bitte lesen und freigeben:** nichts")
     z.append(f"- **Noch in Prüfung:** {len(in_pruefung)}")
@@ -150,6 +166,11 @@ def bericht_bauen(*, jetzt: datetime, bereit: list[dict], in_pruefung: list[dict
     if online:
         z += ["", "## Online gegangen", ""]
         z += [f"- [{t}]({link})" for t, link in online]
+    if zettel:
+        z += ["", "## Stichwortzettel für Ihre Videos", "",
+              "Je Beitrag die drei stärksten Kernaussagen mit Fußnote – in Notion, Liste „Stichwortzettel Videos“. "
+              "Das Häkchen „Video erstellt“ setzen Sie dort selbst.", ""]
+        z += [f"- [{t}]({n}) – [Beitrag]({l})" for t, n, l in zettel]
     if zurueck:
         z += ["", "## Zurückgehalten", "",
               "Diese Entwürfe sind freigegeben, gehen aber nicht automatisch online:", ""]
@@ -218,7 +239,8 @@ def main() -> int:
         doppelt=versuch("Notion", lambda: doppelungen_seit(seit), []),
         tabelle=versuch("Agentenläufe", lambda: laeufe(repo, seit), {}),
         neue=versuch("Kontingent", lambda: kontingent.entwuerfe_seit(kontingent.wochenbeginn(jetzt)), None),
-        pause=versuch("Pause", lambda: [i for i in kontingent.pausen() if i["bis"] and i["bis"] > jetzt], []))
+        pause=versuch("Pause", lambda: [i for i in kontingent.pausen() if i["bis"] and i["bis"] > jetzt], []),
+        zettel=versuch("Stichwortzettel", lambda: stichwortzettel_seit(seit), []))
     if warnungen:
         koerper += "\n_Nicht vollständig: " + "; ".join(warnungen) + "_\n"
     if re.search(r"@claude", koerper, re.I):          # löst sonst den Workflow „Claude Code“ aus

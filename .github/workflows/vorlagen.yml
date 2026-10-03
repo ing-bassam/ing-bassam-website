@@ -17,7 +17,7 @@ name: Vorlagen und Checklisten
 #      Paragrafen in der Vorlage müssen dort belegt sein.
 #   5. Kontrolle, ob der Hauptzweig unverändert blieb.
 #
-# Wochenplan: freitags um 00:37 Uhr (deutsche Zeit) zwei Runden, mit
+# Wochenplan: dienstags um 00:37 Uhr (deutsche Zeit) zwei Runden, mit
 # Kontingent-Bremse wie im Fachartikel-Agenten (tools/kontingent.py). Vor der
 # Auswahl prüft tools/doppelungen.py jede offene Vorlage gegen Website und
 # Pull Requests; eine Doppelung bekommt in Notion den Status „Doppelung“. Der
@@ -34,9 +34,9 @@ name: Vorlagen und Checklisten
 
 on:
   schedule:
-    # Freitag 00:37 Uhr deutscher Zeit (krumme Minute: geplante Läufe zur vollen
+    # Dienstag 00:37 Uhr deutscher Zeit (krumme Minute: geplante Läufe zur vollen
     # Stunde fallen bei GitHub öfter aus). Runden: RUNDEN_GEPLANT im Job „planen“.
-    - cron: "37 0 * * 5"
+    - cron: "37 0 * * 2"
       timezone: "Europe/Berlin"
   workflow_dispatch:
     inputs:
