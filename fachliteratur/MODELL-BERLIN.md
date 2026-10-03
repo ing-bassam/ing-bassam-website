@@ -313,18 +313,36 @@ dem 95 %-Perzentil der Grundstücksfläche).
 
 ---
 
-## 7 Offene Punkte zur Entscheidung
+## 7 Entscheidungen (03.10.2026, vom Auftraggeber delegiert)
 
-1. **Rundung der Faktoren**: Sachwertfaktor auf 2 und Liegenschaftszinssatz auf 1
-   Nachkommastelle (wie in den Tabellen) oder ungerundet aus der Formel? Die
-   professionelle Software des Auftraggebers gibt die Praxis vor.
-2. **GFZ außerhalb der Koeffiziententabellen** (W: < 0,8; Büro: < 2,0): ohne Anpassung
-   rechnen und kennzeichnen – oder keinen Wert ausgeben?
-3. **Wohnlage „sehr gut“**: wie „gut“ behandeln (Vorschlag) oder keinen Sachwert ausgeben?
-4. **Sachwert in den Altbezirken ohne Faktoren** (Mitte, Tiergarten, Wedding, Prenzlauer
-   Berg, Friedrichshain, Kreuzberg, Schöneberg): kein Wert (Vorschlag) – dort gibt es
-   praktisch keine Eigenheime in der Stichprobe.
-5. **Wertspanne**: ±15 % als Startwert; die 5 %-/95 %-Perzentile des Verhältnisses
-   Kaufpreis/Sachwert (0,635 – 1,627 um den Mittelwert 1,06) zeigen, dass die reale
-   Streuung größer ist. Vorschlag: Spanne ±15 % anzeigen und zusätzlich den Satz
-   „Einzelne Kaufpreise weichen deutlich stärker ab“.
+1. **Rundung der Faktoren**: Der Sachwertfaktor wird auf 2, der Liegenschaftszinssatz
+   auf 1 Nachkommastelle gerundet angewendet – so, wie der Gutachterausschuss sie in
+   seinen Tabellen veröffentlicht. Der ungerundete Formelwert steht im Rechenweg daneben.
+   (`Modellparameter`: `swf_rundung_nachkommastellen`, `lz_rundung_nachkommastellen`.)
+2. **GFZ außerhalb der Koeffiziententabellen** (Wohn-04: 0,8–5,0; Dienst-04: 2,0–7,0):
+   Der Bodenrichtwert wird **ohne Anpassung** übernommen, mit Hinweis. In gemischten
+   Zonen (M1, M2, G, Gp) wird nach dem Nutzflächenanteil des Gewerbes zwischen beiden
+   Tabellen gewichtet (Empfehlung des GAA für M2-Gebiete, sinngemäß übertragen).
+3. **Wohnlage „sehr gut“** wird wie „gut“ behandelt (+0,075); fehlt die Wohnlage im
+   Datensatz, gilt „mittel“ (±0) mit Hinweis.
+4. **Altbezirke ohne Sachwertfaktoren** (Mitte, Tiergarten, Wedding, Prenzlauer Berg,
+   Friedrichshain, Kreuzberg, Schöneberg): kein Sachwert, Hinweis mit Anfrageknopf.
+5. **Gültigkeitsbereiche**: Außerhalb der 5 %-/95 %-Perzentile von vorläufigem Sachwert,
+   Grundstücksfläche, BGF und Bodenrichtwert (Sachwert) bzw. Objektmiete (Tabellenbereich
+   4,00–20,00 €/m²), Grundstücksfläche, Wohn-/Nutzfläche, Bodenrichtwert und Alter
+   (Ertragswert) erscheint **kein Wert**. Alle übrigen Größen (NHK, GFZ, Gewerbeanteil,
+   Bodenwert je m², Restnutzungsdauer, Objektmiete 5,60–12,10) erzeugen nur einen Hinweis.
+6. **Wertspanne**: ±15 % um den gerundeten Wert, ergänzt um den Satz, dass einzelne
+   Kaufpreise laut Gutachterausschuss deutlich stärker streuen (Kaufpreis/Sachwert
+   0,635–1,627 um den Mittelwert 1,06).
+7. **Brutto-Grundfläche**: Bevorzugt gibt der Besucher die BGF oder die Grundfläche
+   nach Außenmaßen an (BGF = Grundfläche × anrechenbare Ebenen: Keller 1,0, jedes
+   Vollgeschoss 1,0, nutzbares Dachgeschoss 0,8, Flachdach 0). Nur ersatzweise wird
+   aus der Wohnfläche geschätzt (Wohnfläche je Vollgeschoss 80 %, je ausgebautem
+   Dachgeschoss 55 % der Grundfläche). Die Anteile stehen als Annahmen im Blatt
+   `Modellparameter` und werden in Phase 4 am Vergleich mit der Bewertungssoftware
+   des Büros kalibriert. Amtliche Umrechnungsfaktoren (NHK 1995, OFD Rheinland vom
+   08.11.2010, S 3300) konnten nur auszugsweise eingesehen werden und beruhen auf
+   älteren BGF-Regeln.
+8. **Alter** = Jahr des Aufrufs − Baujahr (der Rechner wird in der Gegenwart genutzt);
+   die Faktoren selbst bleiben auf den Stichtag 31.12.2024 bezogen.

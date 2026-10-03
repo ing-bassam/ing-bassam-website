@@ -67,7 +67,7 @@ jobs:
           node-version: '22'
       - name: Tests ausführen
         if: hashFiles('tests/*.test.mjs') != ''
-        run: node --test tests/
+        run: node --test "tests/**/*.test.mjs"
 
       - name: Pull Request öffnen
         env:

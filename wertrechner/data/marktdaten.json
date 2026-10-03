@@ -19,8 +19,9 @@
   "alterswertminderung_nachkommastellen": 4,
   "ergebnis_rundung_euro": 1000,
   "spanne_prozent": 15,
-  "bgf_faktor_unterkellert": 1.55,
-  "bgf_faktor_nicht_unterkellert": 1.3,
+  "wohnflaeche_anteil_vollgeschoss": 0.8,
+  "wohnflaeche_anteil_dachgeschoss": 0.55,
+  "bgf_anteil_dachgeschoss": 0.8,
   "ertragswert_mindest_mieteinheiten": 4,
   "ertragswert_max_gewerbeanteil_prozent": 80,
   "ertragswert_baujahr_min": 1865,
@@ -186,18 +187,25 @@
     "Quelle/Stand": "Annahme BIB – bitte prüfen (MODELL-BERLIN.md Abschnitt 7); Streuung Kaufpreis/Sachwert 0,635–1,627 lt. Sachwertfaktoren 2025 (Stand 04.02.2026) Tabelle 2"
    },
    {
-    "Schlüssel": "bgf_faktor_unterkellert",
-    "Wert": 1.55,
-    "Einheit": "Faktor",
-    "Beschreibung": "Schätzung BGF = Wohnfläche × Faktor, wenn nur die Wohnfläche bekannt ist (unterkellert)",
+    "Schlüssel": "wohnflaeche_anteil_vollgeschoss",
+    "Wert": 0.8,
+    "Einheit": "Anteil",
+    "Beschreibung": "Schätzung der BGF aus der Wohnfläche: Wohnfläche eines Vollgeschosses im Verhältnis zur Grundfläche nach Außenmaßen",
+    "Quelle/Stand": "Annahme BIB – bitte prüfen (MODELL-BERLIN.md Abschnitt 7); Erfahrungswert 70–80 % (Wandanteile, Treppe)"
+   },
+   {
+    "Schlüssel": "wohnflaeche_anteil_dachgeschoss",
+    "Wert": 0.55,
+    "Einheit": "Anteil",
+    "Beschreibung": "Schätzung der BGF aus der Wohnfläche: Wohnfläche eines voll ausgebauten Dachgeschosses im Verhältnis zur Grundfläche",
     "Quelle/Stand": "Annahme BIB – bitte prüfen (MODELL-BERLIN.md Abschnitt 7)"
    },
    {
-    "Schlüssel": "bgf_faktor_nicht_unterkellert",
-    "Wert": 1.3,
-    "Einheit": "Faktor",
-    "Beschreibung": "Schätzung BGF = Wohnfläche × Faktor (nicht unterkellert)",
-    "Quelle/Stand": "Annahme BIB – bitte prüfen (MODELL-BERLIN.md Abschnitt 7)"
+    "Schlüssel": "bgf_anteil_dachgeschoss",
+    "Wert": 0.8,
+    "Einheit": "Anteil",
+    "Beschreibung": "Anrechenbare Dachgeschossfläche (nutzbar, Giebelhöhe > 1,50 m) im Verhältnis zur Grundfläche – für die Ableitung der BGF aus Grundfläche oder Wohnfläche",
+    "Quelle/Stand": "Annahme BIB – bitte prüfen (MODELL-BERLIN.md Abschnitt 7); BGF-Regeln Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3"
    },
    {
     "Schlüssel": "ertragswert_mindest_mieteinheiten",
