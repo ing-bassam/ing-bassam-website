@@ -70,6 +70,8 @@ LLMS = WURZEL / "llms.txt"
 WEITERE_SEITEN = [
     ("https://ing-bassam.de/wertrechner/", "monthly", "0.8"),
     ("https://ing-bassam.de/en/property-valuation/", "monthly", "0.7"),
+    ("https://ing-bassam.de/leistungen/technische-due-diligence/", "monthly", "0.8"),
+    ("https://ing-bassam.de/en/technical-due-diligence-berlin/", "monthly", "0.8"),
 ]
 FIRMA = "Bassam Ingenieurbüro für Bauwesen GmbH"
 KURZNAME = "BIB Ingenieurbüro für Bauwesen"
@@ -1103,6 +1105,14 @@ def llms_bauen(oeffentlich: list["Artikel"]) -> str:
         "Liegenschaftszinssätzen des Gutachterausschusses; Bodenrichtwert automatisch aus der Adresse, "
         "Berechnung vollständig im Browser.",
         f"- [Property Value Calculator Berlin]({BASIS_URL}/en/property-valuation/): English version of the calculator.",
+        "",
+        "## Technische Due Diligence",
+        "",
+        f"- [Technische Due Diligence Berlin]({BASIS_URL}/leistungen/technische-due-diligence/): Ankaufsprüfung und "
+        "Unterlagenprüfung durch unabhängige Bauingenieure – Kaufberatung vor Ort, technischer Kurzbericht und "
+        "technische Due Diligence für Mietwohnhäuser zu Festpreisen; Berichte auf Deutsch und Englisch.",
+        f"- [Technical Due Diligence Berlin]({BASIS_URL}/en/technical-due-diligence-berlin/): pre-purchase building "
+        "inspection and document review for international investors and private buyers; fixed prices, reports in English.",
         "",
         f"## Fachwissen ({BASIS_URL}/fachwissen/)",
     ]
