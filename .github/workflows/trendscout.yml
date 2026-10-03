@@ -3,7 +3,8 @@ name: Trend-Agent
 # Trend-Agent – sucht aktuelle Bauthemen und schreibt jede Woche das stärkste
 # als Fachartikel-Entwurf mit Shorts-Paket. Vollautomatisch, ohne Freigabe.
 #
-# Ablauf (montags 5:30 Uhr, oder von Hand):
+# Ablauf (mittwochs 4:17 Uhr – direkt nach dem Neustart des Claude-Kontingents –
+# oder von Hand):
 #   1. Themen suchen (Job „scout“): Signale ohne KI (Saison, Wikipedia-Aufrufe,
 #      vorhandene Beiträge und Notion-Themen), dann Claude (Skill /trendscout):
 #      aktuelle Anlässe an Primärquellen belegen, Vorschläge als Seiten in
@@ -16,6 +17,13 @@ name: Trend-Agent
 #      nach entwuerfe/ mit Pull Request, Notion „Entwurf“, Schlussprüfung gegen
 #      die Quellen, danach das Shorts-Paket aus dem geprüften Entwurf auf der
 #      Notion-Seite des Themas – nicht im öffentlichen Repository.
+#
+# Kontingent-Bremse (tools/kontingent.py): Pausiert das Abo oder ist die
+# Wochengrenze erreicht, entfällt der geplante Lauf ganz (Job „bremse“).
+# Doppelungen: Neue Vorschläge und das zu schreibende Thema werden ohne KI
+# gegen Website und Pull Requests geprüft (tools/doppelungen.py); ein schon
+# abgedecktes Thema bekommt in Notion den Status „Doppelung“. Der Pull Request
+# bleibt bis zum Ende der Schlussprüfung ein Entwurf.
 #
 # Steuerung in Notion: „Freigegeben“ zieht ein Thema beim nächsten Lauf vor,
 # „Verworfen“ schließt es aus. Von Hand: Actions → Trend-Agent → Run workflow –
@@ -38,7 +46,10 @@ name: Trend-Agent
 
 on:
   schedule:
-    - cron: "30 5 * * 1"          # montags 5:30 Uhr deutscher Zeit
+    # Mittwoch 04:17 Uhr deutscher Zeit: kurz nach dem wöchentlichen Neustart des
+    # Claude-Kontingents (04:00 Uhr Sommerzeit, 03:00 Uhr Winterzeit). Krumme
+    # Minute: Geplante Läufe zur vollen Stunde fallen bei GitHub öfter aus.
+    - cron: "17 4 * * 3"
       timezone: "Europe/Berlin"
   workflow_dispatch:
     inputs:
@@ -84,16 +95,52 @@ env:
 
 jobs:
   # -----------------------------------------------------------------
+  # 0. Kontingent-Bremse: nur für geplante Läufe. Von Hand gestartete Läufe
+  #    sind nie gesperrt.
+  # -----------------------------------------------------------------
+  bremse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read         # tools/kontingent.py auschecken
+      issues: write          # abgelaufene Kontingent-Pause schließen
+      pull-requests: read    # Entwürfe der Woche zählen
+    outputs:
+      laufen: ${{ steps.pruefen.outputs.laufen || 'ja' }}
+    steps:
+      - name: Repository auschecken
+        if: github.event_name == 'schedule'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: tools
+
+      - name: Kontingent prüfen (nur geplante Läufe)
+        id: pruefen
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python3 tools/kontingent.py pruefen | tee -a "$GITHUB_OUTPUT"
+          if grep -q "^laufen=nein" "$GITHUB_OUTPUT"; then
+            echo "::notice title=Trend-Agent::Geplanter Lauf entfällt – $(sed -n 's/^grund=//p' "$GITHUB_OUTPUT" | tail -n 1)."
+          fi
+
+  # -----------------------------------------------------------------
   # 1. Themen suchen. Entfällt, wenn ein bestimmtes Thema angegeben ist oder
   #    nur geschrieben werden soll. Scheitert die Suche, wählt Schritt 2 aus
   #    den vorhandenen Vorschlägen.
   # -----------------------------------------------------------------
   scout:
-    if: ${{ !inputs.notion_seite && inputs.aufgabe != 'Nur das stärkste vorhandene Thema schreiben' }}
+    needs: bremse
+    if: ${{ needs.bremse.outputs.laufen == 'ja' && !inputs.notion_seite && inputs.aufgabe != 'Nur das stärkste vorhandene Thema schreiben' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
       contents: read
+      pull-requests: read    # Doppelungsprüfung der Vorschläge (Entwürfe in Pull Requests)
+      issues: write          # Kontingent-Pause als Issue (tools/kontingent.py)
       id-token: write        # von der Claude-Action benötigt
     defaults:
       run:
@@ -163,9 +210,19 @@ jobs:
           VERLAUF: ${{ steps.claude.outputs.execution_file }}
         run: python tools/agent_bericht.py "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
 
+      # Wochenlimit des Claude-Abos erreicht? Dann pausieren die geplanten Läufe.
+      - name: Kontingent prüfen
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERLAUF: ${{ steps.claude.outputs.execution_file }}
+        run: python3 tools/kontingent.py erkennen "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
+
       - name: Vorschläge nach Notion
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}    # Doppelungsprüfung gegen Entwürfe in Pull Requests
           ORDNER: ${{ steps.signale.outputs.ordner }}
           ANZAHL: ${{ inputs.anzahl || '5' }}
         run: |
@@ -182,12 +239,13 @@ jobs:
   #    Läuft auch, wenn die Suche entfallen oder gescheitert ist.
   # -----------------------------------------------------------------
   planen:
-    needs: scout
-    if: ${{ always() && !cancelled() }}
+    needs: [bremse, scout]
+    if: ${{ always() && !cancelled() && needs.bremse.outputs.laufen == 'ja' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     permissions:
       contents: read
+      pull-requests: read    # Doppelungsprüfung (Entwürfe in Pull Requests)
     outputs:
       liste: ${{ steps.plan.outputs.liste }}
       anzahl: ${{ steps.plan.outputs.anzahl }}
@@ -204,6 +262,7 @@ jobs:
           AUFGABE: ${{ inputs.aufgabe }}
           EINZELN: ${{ inputs.notion_seite }}
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          GH_TOKEN: ${{ github.token }}      # Doppelungsprüfung (tools/doppelungen.py)
         run: |
           set -euo pipefail
           keins() {
@@ -222,8 +281,9 @@ jobs:
               exit 1
             fi
             seite="$(printf '%s\n' "$wahl" | sed -n 's/^seite=//p')"
+            printf '%s\n' "$wahl" | grep -v '^seite=\|^titel=' || true
             if [ -z "$seite" ]; then
-              keins "Kein offenes Trendthema in Notion – nichts zu schreiben."
+              keins "Kein offenes Trendthema ohne Doppelung in Notion – nichts zu schreiben."
             fi
             echo "Stärkstes Thema: $(printf '%s\n' "$wahl" | sed -n 's/^titel=//p')"
           fi
@@ -249,7 +309,8 @@ jobs:
 
     permissions:
       contents: write        # Entwurfsdatei anlegen und Branch pushen
-      pull-requests: write   # Pull Request öffnen
+      pull-requests: write   # Pull Request öffnen, als Entwurf markieren und freigeben
+      issues: write          # Kontingent-Pause als Issue (tools/kontingent.py)
       id-token: write        # von der Claude-Action benötigt
 
     defaults:
@@ -319,7 +380,10 @@ jobs:
         id: thema
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          GH_TOKEN: ${{ github.token }}      # verwandte Beiträge: Pull Requests lesen
           INPUT_NOTION_SEITE: ${{ needs.planen.outputs.seite }}
+          # Von Hand angegebenes Thema („gezielt“) oder vom Job „planen“ gewähltes („automatisch“).
+          INPUT_GEZIELT: ${{ inputs.notion_seite }}
           # Trendthemen kommen immer aus Notion: kein manuelles Thema, keine Übersteuerung.
           INPUT_THEMA: ""
           INPUT_KATEGORIE: ""
@@ -759,6 +823,18 @@ jobs:
           fi
           if [ -z "$notizen" ]; then notizen="(keine)"; fi
 
+          # ---------- Verwandte Beiträge (Doppelungsprüfung ohne KI) ----------
+          # Die Doppelungen hat der Job „planen“ schon aussortiert; hier geht es um die
+          # Abgrenzung von ähnlichen Beiträgen.
+          VERWANDT="${ARBEIT}/verwandt.md"
+          : > "$VERWANDT"
+          if [ -n "$(einzeilig "${INPUT_GEZIELT:-}")" ]; then auftrag_modus="gezielt"; else auftrag_modus="automatisch"; fi
+          GEZIELT=()
+          if [ "$auftrag_modus" = "gezielt" ]; then GEZIELT=(--gezielt); fi
+          python3 tools/doppelungen.py verwandt --titel "$thema" --kernfrage "$kernfrage" --format "$format" \
+            --notion-id "$notion_id" --verwandt "$VERWANDT" "${GEZIELT[@]}" > /dev/null 2>&1 \
+            || echo "::warning title=Trend-Agent::Verwandte Beiträge nicht ermittelt – der Agent prüft selbst."
+
           # ---------- Auftragsdatei exakt nach Vertrag schreiben ----------
           {
             printf '# Auftrag Fachartikel\n'
@@ -772,6 +848,7 @@ jobs:
             printf 'notion_id: %s\n'  "$notion_id"
             printf 'notion_url: %s\n' "$notion_url"
             printf 'quelle: %s\n'     "$quelle"
+            printf 'modus: %s\n'      "$auftrag_modus"
             printf '\n## Aktueller Anlass (Trendthema)\n'
             printf 'anlass: %s\n'         "${anlass:-nicht angegeben}"
             printf 'trendsignal: %s\n'    "${trendsignal:-nicht angegeben}"
@@ -781,6 +858,7 @@ jobs:
             printf '%s\n' "Inhaltsvorgabe: Der Beitrag greift den Anlass im ersten Absatz oder im ersten H2-Abschnitt auf und belegt ihn mit einer Fußnote auf eine Primärquelle; die Adressen oben sind Hinweise und werden wie jede Quelle geprüft. Zeitabhängige Angaben (Förderung, Fristen, Gesetzesstand) erhalten einen Stand (Stand: Monat Jahr). Verbreitete Irrtümer zum Thema werden benannt und richtiggestellt, soweit sie belegt sind. Aus dem Beitrag entstehen anschließend kurze Videos; jede Kernaussage soll deshalb in einem Satz für sich verständlich sein."
             printf '\n## Notizen aus Notion\n'
             printf '%s\n' "$notizen"
+            cat "$VERWANDT"
           } > "$AUFTRAG"
 
           # ---------- Zusammenfassung ins Log (ohne Token, ohne Notizen) ----------
@@ -1016,6 +1094,26 @@ jobs:
             --add-dir ${{ steps.thema.outputs.auftrag_verzeichnis }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
 
+      # Wochenlimit des Claude-Abos erreicht? Dann pausieren die geplanten Läufe
+      # bis zum Neustart (Issue „Agenten pausieren bis …“, tools/kontingent.py).
+      - name: Kontingent prüfen
+        id: limit
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERLAUF: ${{ steps.claude2.outputs.execution_file || steps.claude.outputs.execution_file }}
+        run: python3 tools/kontingent.py erkennen "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}" | tee -a "$GITHUB_OUTPUT"
+
+      # ERGEBNIS-Block des Agenten (OK, DUPLIKAT …); der Grund bleibt aus dem Protokoll.
+      - name: Ergebnis-Block lesen
+        id: block
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        continue-on-error: true
+        env:
+          VERLAUF: ${{ steps.claude2.outputs.execution_file || steps.claude.outputs.execution_file }}
+        run: python3 tools/agent_bericht.py "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}" --nur-ergebnis >> "$GITHUB_OUTPUT"
+
       # Ein Ergebnis für alle folgenden Schritte: Erfolg, wenn einer der beiden
       # Versuche erfolgreich war. Sonst scheitert die Runde hier – genau wie
       # früher am Schreibschritt selbst.
@@ -1066,6 +1164,8 @@ jobs:
           NOTION_STATUS_VORHER: ${{ steps.thema.outputs.notion_status }}
           JOBSTART: ${{ steps.start.outputs.zeit }}
           AGENT_ERGEBNIS: ${{ steps.agent.outputs.ergebnis || steps.claude.outcome }}
+          AGENT_BLOCK: ${{ steps.block.outputs.ergebnis }}
+          AGENT_GRUND: ${{ steps.block.outputs.grund }}
         # ACHTUNG: Auch hier keine Ausdrücke in doppelten geschweiften Klammern ins Skript – nur über env:.
         run: |
           set -euo pipefail
@@ -1130,13 +1230,25 @@ jobs:
           fi
 
           if [ -z "$pr" ]; then
+            # Doppelung, die erst der Agent erkannt hat: Notion „Doppelung“ mit seinem Grund.
+            # Der Grund bleibt aus dem Protokoll (er kann Titel nennen).
+            if [ "$AGENT_ERGEBNIS" = "success" ] && [ "${AGENT_BLOCK:-}" = "DUPLIKAT" ] && [ -n "$NOTION_ID" ]; then
+              if NOTION_TOKEN="$NOTION_TOKEN" python3 tools/doppelungen.py markieren --seite "$NOTION_ID" \
+                   --grund "${AGENT_GRUND:-vom Agenten beim Abgleich mit dem Bestand erkannt}"; then
+                echo "::notice title=Trend-Agent::Der Agent hat eine Doppelung erkannt – das Thema steht in Notion jetzt auf „Doppelung“, mit Hinweis."
+              else
+                echo "::warning title=Trend-Agent::Der Agent hat eine Doppelung erkannt, die Notion-Seite ließ sich aber nicht markieren – bitte von Hand auf „Doppelung“ setzen: ${NOTION_URL:-$NOTION_ID}"
+              fi
+              echo "Doppelung erkannt – kein neuer Entwurf. In Notion als „Doppelung“ markiert." >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
             {
               echo "## Ergebnis"
               echo ""
               echo "Kein Pull Request entstanden (Agent-Schritt: ${AGENT_ERGEBNIS}). Notion wurde nicht verändert."
             } >> "$GITHUB_STEP_SUMMARY"
             if [ "$AGENT_ERGEBNIS" = "success" ]; then
-              echo "::error title=Trend-Agent::Der Agent meldete Erfolg, aber es existiert kein Pull Request aus diesem Lauf (erstellt nach ${JOBSTART}). Mögliche Ursachen: Text zu kurz und deshalb nicht committet, Push abgelehnt, Duplikat erkannt – den Grund zeigt der Schritt „Abschlussmeldung des Agenten“ (auch in der Zusammenfassung des Laufs). Notion bleibt unverändert."
+              echo "::error title=Trend-Agent::Der Agent meldete Erfolg, aber es existiert kein Pull Request aus diesem Lauf (erstellt nach ${JOBSTART}). Mögliche Ursachen: Text zu kurz und deshalb nicht committet, Push abgelehnt – den Grund zeigt der Schritt „Abschlussmeldung des Agenten“ (auch in der Zusammenfassung des Laufs). Notion bleibt unverändert."
               exit 1
             fi
             echo "::warning title=Trend-Agent::Kein Pull Request aus diesem Lauf gefunden (erstellt nach ${JOBSTART}). Agent-Schritt: ${AGENT_ERGEBNIS}. Notion bleibt unverändert."
@@ -1314,6 +1426,13 @@ jobs:
           fi
           NR="${ZEILE%% *}"
           ZWEIG="${ZEILE#* }"
+          # Bis die Schlussprüfung fertig ist, bleibt der Pull Request ein Entwurf: Der Merge-Knopf
+          # ist gesperrt (Anlass: 02.10.2026, Korrekturen kamen nach dem Zusammenführen).
+          if [ "$(gh pr view "$NR" --json isDraft --jq '.isDraft')" != "true" ]; then
+            gh pr ready "$NR" --undo > /dev/null 2>&1 \
+              || echo "::warning title=Schlussprüfung::Pull Request #$NR ließ sich nicht als Entwurf markieren – bitte erst nach dem Prüfkommentar zusammenführen."
+          fi
+          echo "nummer=$NR" >> "$GITHUB_OUTPUT"
           git fetch -q origin "$ZWEIG"
           git checkout -q -B "$ZWEIG" "origin/$ZWEIG"
           ENTWURF="$(gh pr view "$NR" --json files \
@@ -1325,7 +1444,6 @@ jobs:
           fi
           {
             echo "bereit=true"
-            echo "nummer=$NR"
             echo "zweig=$ZWEIG"
             echo "entwurf=$ENTWURF"
             echo "arbeit=$ARBEIT"
@@ -1398,6 +1516,27 @@ jobs:
             gh pr comment "$NR" --body-file "$BERICHT"
           else
             gh pr comment "$NR" --body "⚠️ Die Schlussprüfung gegen die Quellen ist nicht vollständig durchgelaufen (Ergebnis: ${PRUEFUNG}). Bitte Zahlen und Fußnoten vor dem Merge selbst an den Quellen prüfen."
+          fi
+
+      # Erst jetzt – nach der Schlussprüfung und ihren Korrekturen – wird der Pull
+      # Request zum Zusammenführen freigegeben. GitHub benachrichtigt dabei.
+      - name: Zum Mergen freigeben
+        if: ${{ !cancelled() && steps.ziel.outputs.nummer != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ steps.ziel.outputs.nummer }}
+          PRUEFUNG: ${{ steps.schluss.outcome }}
+        run: |
+          set -euo pipefail
+          if gh pr ready "$NR" > /dev/null 2>&1; then
+            case "$PRUEFUNG" in
+              success) gh pr comment "$NR" --body "✅ Schlussprüfung abgeschlossen, Korrekturen sind eingearbeitet – bereit zur Freigabe. Bitte lesen und zusammenführen (oder schließen, wenn der Beitrag nicht erscheinen soll)." ;;
+              skipped|"") gh pr comment "$NR" --body "⚠️ Die Schlussprüfung konnte nicht laufen (Entwurf oder Quellen nicht ladbar). Bitte Zahlen und Fußnoten vor dem Merge selbst an den Quellen prüfen." ;;
+            esac
+            echo "::notice title=Trend-Agent::Pull Request #$NR ist bereit zur Freigabe."
+          else
+            gh pr comment "$NR" --body "Die Prüfungen sind fertig. Bitte oben auf „Ready for review“ klicken, dann lesen und zusammenführen." || true
+            echo "::warning title=Trend-Agent::Pull Request #$NR ließ sich nicht automatisch freigeben – Hinweis im Pull Request."
           fi
 
       # -----------------------------------------------------------------

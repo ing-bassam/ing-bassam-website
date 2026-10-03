@@ -1,15 +1,22 @@
 name: Entwürfe veröffentlichen
 
 # -----------------------------------------------------------------------------
-# Ein Klick: Actions → Entwürfe veröffentlichen → Run workflow.
+# Läuft montags bis freitags um 07:43 Uhr von selbst und stellt dann höchstens
+# zwei freigegebene (zusammengeführte) Entwürfe online, die ältesten zuerst.
+# Von Hand: Actions → Entwürfe veröffentlichen → Run workflow (Standard: alle).
 #
-#   1. Setzt die gewählten Entwürfe (Standard: alle) auf „Veröffentlicht“
-#      (tools/veroeffentlichen.py). Entwürfe mit offenen Prüfpunkten bleiben
-#      Entwurf und werden in der Zusammenfassung genannt.
+#   1. Setzt die gewählten Entwürfe auf „Veröffentlicht“
+#      (tools/veroeffentlichen.py). Zurück bleiben – mit Grund in der
+#      Zusammenfassung – Entwürfe mit offenen Prüfpunkten, mit
+#      „zurueckhalten: ja“, Doppelungen (dasselbe Urteil oder Thema wie ein
+#      anderer Beitrag) und Entwürfe, deren Prüfkorrekturen noch nicht auf main
+#      sind.
 #   2. Baut die Seiten, sortiert die Dateien nach entwuerfe/veroeffentlicht/
 #      und erneuert Übersicht, Sitemap und llms.txt.
 #   3. Schreibt alles in einem Commit auf den Hauptzweig.
 #   4. Meldet die neuen Seiten per IndexNow.
+#   5. Gleicht die Notion-Listen ab (tools/notion_abgleich.py): online →
+#      „Veröffentlicht“ bzw. „Online“, mit Link.
 #
 # Warum der Workflow selbst baut und meldet: Was ein Workflow mit dem
 # GITHUB_TOKEN auf den Hauptzweig schreibt, löst bei GitHub keinen weiteren
@@ -20,10 +27,15 @@ name: Entwürfe veröffentlichen
 # -----------------------------------------------------------------------------
 
 on:
+  schedule:
+    # Montag bis Freitag 07:43 Uhr deutscher Zeit (krumme Minute: geplante Läufe
+    # zur vollen Stunde fallen bei GitHub öfter aus).
+    - cron: "43 7 * * 1-5"
+      timezone: "Europe/Berlin"
   workflow_dispatch:
     inputs:
       auswahl:
-        description: "Welche Entwürfe? „alle“ – oder Kurzformen durch Komma getrennt, z. B. was-kostet-ein-baugutachter, rissprotokoll-rissbeobachtung"
+        description: "Welche Entwürfe? „alle“, „automatisch“ (die zwei ältesten) – oder Kurzformen durch Komma getrennt, z. B. was-kostet-ein-baugutachter, rissprotokoll-rissbeobachtung"
         required: false
         default: "alle"
         type: string
@@ -33,7 +45,7 @@ on:
         default: false
         type: boolean
 
-run-name: "Entwürfe veröffentlichen: ${{ inputs.auswahl || 'alle' }}${{ inputs.probelauf && ' (Probelauf)' || '' }}"
+run-name: "Entwürfe veröffentlichen: ${{ inputs.auswahl || 'automatisch, höchstens 2' }}${{ inputs.probelauf && ' (Probelauf)' || '' }}"
 
 concurrency:
   group: veroeffentlichen
@@ -45,6 +57,7 @@ jobs:
     timeout-minutes: 25
     permissions:
       contents: write        # Status, Seiten und Sitemap zurückschreiben
+      pull-requests: read    # prüfen, ob Prüfkorrekturen noch auf ihrem Zweig liegen
 
     steps:
       - name: Repository auschecken
@@ -66,14 +79,21 @@ jobs:
       - name: Entwürfe auf „Veröffentlicht“ setzen
         id: status
         env:
-          AUSWAHL: ${{ inputs.auswahl }}
+          # Geplante Läufe haben keine Eingaben: dann automatisch, höchstens zwei.
+          AUSWAHL: ${{ inputs.auswahl || 'automatisch' }}
           PROBELAUF: ${{ inputs.probelauf }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           cp sitemap.xml "$RUNNER_TEMP/sitemap-vorher.xml"
           PROBE=()
           if [ "$PROBELAUF" = "true" ]; then PROBE=(--probelauf); fi
-          python tools/veroeffentlichen.py --auswahl "${AUSWAHL:-alle}" "${PROBE[@]}" | tee "$RUNNER_TEMP/veroeffentlichen.log"
+          if [ "$AUSWAHL" = "automatisch" ]; then
+            WAHL=(--automatisch --max 2)
+          else
+            WAHL=(--auswahl "$AUSWAHL")
+          fi
+          python tools/veroeffentlichen.py "${WAHL[@]}" "${PROBE[@]}" | tee "$RUNNER_TEMP/veroeffentlichen.log"
           echo "anzahl=$(tail -n 1 "$RUNNER_TEMP/veroeffentlichen.log")" >> "$GITHUB_OUTPUT"
           {
             echo "## Entwürfe veröffentlichen"
@@ -124,3 +144,19 @@ jobs:
         continue-on-error: true
         timeout-minutes: 15
         run: python tools/indexnow.py --vorher "$RUNNER_TEMP/sitemap-vorher.xml"
+
+      # Notion auf den Stand der Website bringen – auch ohne neue Veröffentlichung,
+      # weil inzwischen Entwürfe dazugekommen sein können. Ändert nur, was nicht stimmt.
+      - name: Notion abgleichen
+        if: always() && steps.status.outcome == 'success'
+        continue-on-error: true
+        timeout-minutes: 10
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROBELAUF: ${{ inputs.probelauf }}
+        run: |
+          set -euo pipefail
+          PROBE=()
+          if [ "$PROBELAUF" = "true" ]; then PROBE=(--probelauf); fi
+          python tools/notion_abgleich.py "${PROBE[@]}" | tee -a "$GITHUB_STEP_SUMMARY"

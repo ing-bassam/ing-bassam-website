@@ -1,0 +1,54 @@
+name: Werkzeuge testen
+
+# -----------------------------------------------------------------------------
+# Prüft die Python-Werkzeuge der Agenten (tests/test_*.py), sobald sich an
+# Werkzeugen, Tests, Workflows oder Skills etwas ändert: Doppelungsprüfung,
+# Kontingent-Bremse, Veröffentlichung, Zeitpläne. Ohne KI, ohne Kontingent,
+# ohne Secrets. Bei den Entwürfen der Agenten läuft er nicht.
+# Kosten: keine (GitHub Actions ist für öffentliche Repositorys frei).
+# -----------------------------------------------------------------------------
+
+on:
+  pull_request:
+    paths:
+      - "tools/**"
+      - "tests/**"
+      - ".github/workflows/**"
+      - ".claude/skills/**"
+  push:
+    branches: [main]
+    paths:
+      - "tools/**"
+      - "tests/**"
+      - ".github/workflows/**"
+      - ".claude/skills/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: werkzeuge-testen-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  testen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      # Nur für die Prüfung der Workflow-Dateien; die Werkzeuge selbst brauchen nur die Standardbibliothek.
+      - name: Abhängigkeiten installieren
+        run: python -m pip install --quiet 'PyYAML==6.0.2'
+
+      - name: Tests
+        run: python -m unittest discover -s tests -v

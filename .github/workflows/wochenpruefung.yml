@@ -1,8 +1,12 @@
 name: Wöchentliche Prüfung
 
 # -----------------------------------------------------------------------------
-# Läuft jeden Montag früh – ohne KI und ohne Kontingent:
+# Läuft jeden Montag um 08:07 Uhr – ohne KI und ohne Kontingent:
 #
+#   0. Wochenbericht der Agenten als Issue (tools/wochenbericht.py): was zur
+#      Freigabe bereitliegt, was online ging, was zurückgehalten oder als
+#      Doppelung übersprungen wurde, wie die Läufe ausgingen. GitHub schickt
+#      dazu eine E-Mail. Der Bericht der Vorwoche wird geschlossen.
 #   1. Prüft die Quellen-Links aller veröffentlichten Beiträge
 #      (tools/links_pruefen.py). Führt eine Adresse nicht mehr zur Quelle –
 #      Seite gelöscht oder nur noch Umleitung auf eine Startseite –, entsteht
@@ -23,7 +27,11 @@ name: Wöchentliche Prüfung
 
 on:
   schedule:
-    - cron: "0 5 * * 1"   # montags 05:00 UTC = 07:00 Uhr Sommerzeit, 06:00 Uhr Winterzeit
+    # Montag 08:07 Uhr deutscher Zeit – nach der Veröffentlichung um 07:43, damit der
+    # Wochenbericht sie schon enthält. Krumme Minute: Geplante Läufe zur vollen Stunde
+    # fallen bei GitHub öfter aus.
+    - cron: "7 8 * * 1"
+      timezone: "Europe/Berlin"
   workflow_dispatch:
     inputs:
       alle_melden:
@@ -43,19 +51,36 @@ jobs:
     timeout-minutes: 25
 
     permissions:
-      contents: read   # Entwürfe lesen
-      issues: write    # Befunde als Issue festhalten
+      contents: read        # Entwürfe lesen
+      issues: write         # Befunde und Wochenbericht als Issue
+      pull-requests: read   # Wochenbericht: Entwürfe zur Freigabe
+      actions: read         # Wochenbericht: Ausgang der Agentenläufe
 
     steps:
       - name: Repository auschecken
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          # Ganze Historie: Der Wochenbericht vergleicht mit dem Stand vor sieben Tagen.
+          fetch-depth: 0
 
       - name: Python bereitstellen
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.12'
+
+      # Zuerst, damit der lange Link-Check ihn nie verdrängt. Ohne KI; nennt nur
+      # Öffentliches (Pull Requests, Beiträge, Läufe), keine Titel aus Notion.
+      - name: Wochenbericht der Agenten
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: |
+          set -euo pipefail
+          python tools/veroeffentlichen.py --automatisch --probelauf --bericht "$RUNNER_TEMP/veroeffentlichen.json" > /dev/null
+          python tools/wochenbericht.py --veroeffentlichen "$RUNNER_TEMP/veroeffentlichen.json" > "$RUNNER_TEMP/wochenbericht.log"
+          tail -n 1 "$RUNNER_TEMP/wochenbericht.log"
+          head -n -1 "$RUNNER_TEMP/wochenbericht.log" >> "$GITHUB_STEP_SUMMARY"
 
       # Zugangsschlüssel für die Fachbibliothek laufen ab. Ohne Warnung würden
       # die Agenten dann still ohne Bibliothek schreiben. Dieser Block steht

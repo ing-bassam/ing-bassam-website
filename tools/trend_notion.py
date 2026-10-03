@@ -3,13 +3,20 @@
 
 Befehle:
     offene                       Zahl der freigegebenen Trendthemen ohne Entwurf
-    staerkstes                   das stärkste offene Thema („seite=<id>“, „titel=<Titel>“) – oder nichts
+    staerkstes                   das stärkste offene Thema ohne Doppelung („seite=<id>“,
+                                 „titel=<Titel>“) – oder nichts; Doppelungen bekommen in
+                                 Notion den Status „Doppelung“ (tools/doppelungen.py)
     bestand                      Titel aller Trendthemen und aller Themen des Themenspeichers
     vorschlaege DATEI [--max N]  legt die Vorschläge des Trend-Scouts (JSON) als Seiten mit
-                                 Status „Vorschlag“ an – geprüft und ohne Dubletten
+                                 Status „Vorschlag“ an – geprüft und ohne Dubletten, auch
+                                 nicht zu vorhandenen Beiträgen und Entwürfen
     shorts --seite ID --datei MD [--pr URL] [--warnung TEXT]
                                  hängt das Shorts-Paket (Markdown) an die Seite des Themas an
                                  und setzt das Häkchen „Shorts-Paket“
+
+Protokoll und Zusammenfassung des Laufs sind öffentlich: Titel neuer oder
+übersprungener Vorschläge stehen dort nicht (Redaktionsplan), nur Nummern,
+Gründe und Notion-Adressen ohne Titel.
 
 Das Secret NOTION_TOKEN kommt aus der Umgebung und wird nie ausgegeben. Die
 Integration braucht die Fähigkeiten „Inhalte lesen“, „Inhalte aktualisieren“
@@ -155,10 +162,10 @@ def offene() -> int:
 RANG = {"Hoch": 0, "Mittel": 1, "Später": 2}
 
 
-def auswaehlen(seiten: list[dict], heute: date) -> dict | None:
-    """Das stärkste Thema: von Hand freigegebene zuerst, dann nach Priorität (Hoch → Mittel →
-    Später), dann das, dessen Aktualität am frühesten endet („Gültig bis“), dann das älteste.
-    Themen, deren „Gültig bis“ vorbei ist, zählen nicht mehr."""
+def reihenfolge(seiten: list[dict], heute: date) -> list[dict]:
+    """Die offenen Themen vom stärksten zum schwächsten: von Hand freigegebene zuerst, dann nach
+    Priorität (Hoch → Mittel → Später), dann das, dessen Aktualität am frühesten endet („Gültig
+    bis“), dann das älteste. Themen, deren „Gültig bis“ vorbei ist, zählen nicht mehr."""
     kandidaten = []
     for seite in seiten:
         eigenschaften = seite.get("properties") or {}
@@ -169,15 +176,34 @@ def auswaehlen(seiten: list[dict], heute: date) -> dict | None:
         prioritaet = ((eigenschaften.get("Priorität") or {}).get("select") or {}).get("name", "")
         rang = (status != "Freigegeben", RANG.get(prioritaet, 3), gueltig, seite.get("created_time", ""))
         kandidaten.append((rang, seite))
-    return min(kandidaten, key=lambda k: k[0])[1] if kandidaten else None
+    return [seite for _, seite in sorted(kandidaten, key=lambda k: k[0])]
 
 
-def staerkstes(heute: date | None = None) -> dict | None:
-    """Das stärkste offene Trendthema (Status „Vorschlag“ oder „Freigegeben“, noch ohne Entwurf)."""
+def auswaehlen(seiten: list[dict], heute: date) -> dict | None:
+    """Das stärkste Thema (siehe reihenfolge)."""
+    geordnet = reihenfolge(seiten, heute)
+    return geordnet[0] if geordnet else None
+
+
+def staerkstes(heute: date | None = None, zeilen: list[str] | None = None) -> dict | None:
+    """Das stärkste offene Trendthema (Status „Vorschlag“ oder „Freigegeben“, noch ohne Entwurf),
+    das kein vorhandener Beitrag und kein Entwurf schon abdeckt. Doppelungen bekommen in Notion
+    den Status „Doppelung“ (tools/doppelungen.py). Ist der Bestand nicht lesbar, gilt die
+    Reihenfolge allein – der Agent prüft dann selbst."""
     filter_ = {"and": [{"or": [{"property": "Status", "select": {"equals": "Freigegeben"}},
                                {"property": "Status", "select": {"equals": "Vorschlag"}}]},
                        {"property": "Entwurf (PR)", "url": {"is_empty": True}}]}
-    return auswaehlen(abfragen(TRENDTHEMEN, filter_), heute or heute_berlin())
+    geordnet = reihenfolge(abfragen(TRENDTHEMEN, filter_), heute or heute_berlin())
+    zeilen = zeilen if zeilen is not None else []
+    try:
+        import doppelungen
+        seite, _, protokoll = doppelungen.auswaehlen(geordnet, "trendthemen", doppelungen.bestand_holen(None))
+        zeilen += protokoll
+        return seite
+    except (RuntimeError, OSError, ValueError) as fehler:
+        zeilen.append(f"::warning title=Trend-Agent::Doppelungsprüfung nicht möglich ({str(fehler)[:160]}) – "
+                      "gewählt wird nach Reihenfolge, der Agent prüft selbst.")
+        return geordnet[0] if geordnet else None
 
 
 def bestand() -> list[dict]:
@@ -281,29 +307,57 @@ def eigenschaften_fuer(v: dict, heute: date) -> dict:
 
 
 def vorschlaege_anlegen(vorschlaege, vorhanden: list[str], maximal: int,
-                        anlegen=None) -> tuple[list[str], list[str]]:
-    """Legt bis zu `maximal` neue Vorschläge an. Ergebnis: (angelegt, übersprungen mit Grund)."""
+                        anlegen=None, doppelt_zu=None) -> tuple[list[str], list[str]]:
+    """Legt bis zu `maximal` neue Vorschläge an. Ergebnis: (angelegt, übersprungen mit Grund) –
+    ohne Titel, weil die Zeilen in die öffentliche Zusammenfassung des Laufs gehen.
+
+    vorhanden: Titel der Notion-Themen (grober Titelvergleich, aehnlich).
+    doppelt_zu: Prüfung gegen Website und Entwürfe (tools/doppelungen.py) – Funktion, die
+    für einen Vorschlag (thema, kernfrage, format) den abdeckenden Beitrag nennt oder "".
+    """
     anlegen = anlegen or (lambda props: anfrage("POST", "/pages", {
         "parent": {"type": "data_source_id", "data_source_id": TRENDTHEMEN}, "properties": props}))
     angelegt, uebersprungen = [], []
     titel = list(vorhanden)
     heute = heute_berlin()
-    for roh in vorschlaege if isinstance(vorschlaege, list) else []:
+    for nummer, roh in enumerate(vorschlaege if isinstance(vorschlaege, list) else [], start=1):
         v, grund = pruefen(roh)
         if v is None:
-            uebersprungen.append(grund)
+            uebersprungen.append(f"Vorschlag {nummer}: {re.sub(r'^„[^“]*“: ', '', grund)}")
             continue
-        doppelt = next((t for t in titel if aehnlich(v["thema"], t)), None)
-        if doppelt:
-            uebersprungen.append(f"„{v['thema']}“: ähnelt „{doppelt}“")
+        if any(aehnlich(v["thema"], t) for t in titel):
+            uebersprungen.append(f"Vorschlag {nummer}: ähnelt einem vorhandenen Notion-Thema")
+            continue
+        abgedeckt = doppelt_zu(v) if doppelt_zu else ""
+        if abgedeckt:
+            uebersprungen.append(f"Vorschlag {nummer}: Doppelung zu {abgedeckt}")
             continue
         if len(angelegt) >= maximal:
-            uebersprungen.append(f"„{v['thema']}“: mehr als {maximal} Vorschläge")
+            uebersprungen.append(f"Vorschlag {nummer}: mehr als {maximal} Vorschläge")
             continue
-        anlegen(eigenschaften_fuer(v, heute))
-        angelegt.append(f"[{v['prioritaet']}] {v['thema']} – {v['anlass']}")
+        seite = anlegen(eigenschaften_fuer(v, heute)) or {}
+        adresse = ("https://www.notion.so/" + re.sub(r"[^0-9a-f]", "", seite["id"])) if seite.get("id") else "angelegt"
+        angelegt.append(f"[{v['prioritaet']}] {adresse}")
         titel.append(v["thema"])
     return angelegt, uebersprungen
+
+
+def doppelung_zum_bestand():
+    """Prüffunktion für vorschlaege_anlegen: Website und Entwürfe (tools/doppelungen.py).
+    Ohne lesbaren Bestand: keine Prüfung (Rückgabe None) – der Titelvergleich bleibt."""
+    try:
+        import doppelungen
+        vorhanden = doppelungen.bestand_holen(None)
+    except (RuntimeError, OSError, ValueError) as fehler:
+        print(f"::warning title=Trend-Agent::Doppelungsprüfung der Vorschläge nicht möglich ({str(fehler)[:160]}).")
+        return None
+
+    def pruefen_(v: dict) -> str:
+        thema = {"quelle": "vorschlag", "art": "urteil" if v.get("format") == "Rechtsprechung" else "beitrag",
+                 "titel": v["thema"], "kernfrage": v.get("kernfrage", "")}
+        ergebnis = doppelungen.Vergleich(vorhanden + [thema]).pruefen(thema, vorhanden)
+        return doppelungen.beschreibung(ergebnis["doppelungen"][0][0]) if ergebnis["urteil"] == "doppelung" else ""
+    return pruefen_
 
 
 # --------------------------------------------------------------------------
@@ -418,8 +472,12 @@ def main(argumente: list[str] | None = None) -> int:
         if a.befehl == "offene":
             print(offene())
         elif a.befehl == "staerkstes":
-            # Ausgabe für $GITHUB_OUTPUT; ohne offenes Thema bleibt sie leer.
-            seite = staerkstes()
+            # Ausgabe für $GITHUB_OUTPUT; ohne offenes Thema bleibt sie leer. Die Protokollzeilen
+            # der Doppelungsprüfung nennen nur Seiten-IDs.
+            zeilen: list[str] = []
+            seite = staerkstes(zeilen=zeilen)
+            for zeile in zeilen:
+                print(zeile)
             if seite:
                 titel = " ".join(klartext((seite.get("properties") or {}).get("Thema")).split())
                 print(f"seite={seite['id']}")
@@ -434,7 +492,8 @@ def main(argumente: list[str] | None = None) -> int:
                 print(f"::error title=Trend-Agent::Keine lesbare Vorschlagsdatei ({fehler}).")
                 return 1
             vorhanden = [z["titel"] for z in bestand()]
-            angelegt, uebersprungen = vorschlaege_anlegen(daten, vorhanden, max(a.max, 1))
+            angelegt, uebersprungen = vorschlaege_anlegen(daten, vorhanden, max(a.max, 1),
+                                                          doppelt_zu=doppelung_zum_bestand())
             bericht = f"## Trend-Agent: {len(angelegt)} neue Vorschläge in Notion\n\n"
             bericht += "\n".join(f"- {z}" for z in angelegt) or "_Keine neuen Vorschläge._"
             if uebersprungen:

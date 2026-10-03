@@ -18,6 +18,11 @@ gesetzt – in die Job-Zusammenfassung ($GITHUB_STEP_SUMMARY). Inhalte aus der
 Auftragsdatei (Notion-Notizen) werden nicht ausgegeben.
 
 Aufruf: python tools/agent_bericht.py [<pfad zur execution-output.json>] [--titel „…“]
+        python tools/agent_bericht.py [<pfad>] --nur-ergebnis >> "$GITHUB_OUTPUT"
+Mit --nur-ergebnis gibt es nur zwei Zeilen für die folgenden Schritte aus:
+„ergebnis=<Wert aus dem ERGEBNIS-Block>“ (z. B. OK, DUPLIKAT, ABBRUCH; leer, wenn
+keiner da ist) und „grund=<Grund-Zeile, einzeilig>“. Der Grund kann Titel
+nennen und gehört deshalb nicht ins öffentliche Protokoll.
 Rückgabewert immer 0 – das Werkzeug erklärt, es entscheidet nichts.
 """
 from __future__ import annotations
@@ -25,6 +30,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -54,13 +60,49 @@ def nachrichten(daten) -> list[dict]:
     return []
 
 
+def abschlussmeldung(liste: list[dict]) -> str:
+    """Die Abschlussmeldung: das Ergebnis des Laufs oder die letzte Textnachricht des Agenten."""
+    ergebnis = next((m for m in reversed(liste) if m.get("type") == "result"), {})
+    letzter_text = ""
+    for m in liste:
+        nachricht = m.get("message")
+        inhalt = nachricht.get("content") if isinstance(nachricht, dict) else None
+        for teil in inhalt if isinstance(inhalt, list) else []:
+            if (isinstance(teil, dict) and m.get("type") == "assistant" and teil.get("type") == "text"
+                    and teil.get("text", "").strip()):
+                letzter_text = teil["text"]
+    return ergebnis.get("result") or letzter_text or ""
+
+
+def ergebnis_block(meldung: str) -> tuple[str, str]:
+    """(Wert, Grund) aus dem ERGEBNIS-Block der Abschlussmeldung, etwa („DUPLIKAT“,
+    „gleiche Kernfrage wie …“). Ohne Block: („“, „“). Es gilt der letzte Block."""
+    werte = re.findall(r"(?m)^\W{0,4}ERGEBNIS:\s*\**\s*([A-ZÄÖÜ][A-ZÄÖÜ ]*[A-ZÄÖÜ])", meldung)
+    if not werte:
+        return "", ""
+    rest = meldung[meldung.rfind("ERGEBNIS:"):]
+    grund = re.search(r"(?m)^\W{0,4}Grund:\s*\**\s*(.+)$", rest)
+    return werte[-1].strip(), " ".join((grund.group(1) if grund else "").replace("*", "").split())[:400]
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     p.add_argument("datei", nargs="?", default="")
     p.add_argument("--titel", default="Abschlussmeldung des Agenten")
+    p.add_argument("--nur-ergebnis", action="store_true",
+                   help="nur ergebnis=… und grund=… ausgeben (für $GITHUB_OUTPUT)")
     a = p.parse_args()
 
     pfad = Path(a.datei or Path(os.environ.get("RUNNER_TEMP", ".")) / "claude-execution-output.json")
+    if a.nur_ergebnis:
+        try:
+            meldung = abschlussmeldung(nachrichten(json.loads(pfad.read_text(encoding="utf-8", errors="replace"))))
+        except (OSError, json.JSONDecodeError):
+            meldung = ""
+        wert, grund = ergebnis_block(meldung)
+        print(f"ergebnis={wert}")
+        print(f"grund={grund}")
+        return 0
     zeilen: list[str] = [f"## {a.titel}", ""]
     if not pfad.is_file():
         zeilen.append(f"Kein Verlauf gefunden ({pfad.name}) – der Agent ist vermutlich nicht gestartet.")
