@@ -13,7 +13,7 @@ qualifikation:
 kurzform: nachtrag-pruefen-grund-und-hoehe
 erstellt: 2026-10-02
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e0d96ad-00b4-81ad-a394-c2ecfd725e13
 notion_url: https://app.notion.com/p/Nachtrag-erhalten-Grund-und-H-he-aus-Auftraggebersicht-pr-fen-3e0d96ad00b481ada394c2ecfd725e13

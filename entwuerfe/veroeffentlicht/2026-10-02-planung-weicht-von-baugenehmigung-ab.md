@@ -19,7 +19,7 @@ qualifikation:
 kurzform: planung-weicht-von-baugenehmigung-ab
 erstellt: 2026-10-02
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:

@@ -14,7 +14,7 @@ kurzform: behinderungsanzeige-vob-b
 dateien: vorlagen/behinderungsanzeige-vob-b/behinderungsanzeige-vob-b.docx, vorlagen/behinderungsanzeige-vob-b/behinderungsanzeige-vob-b.pdf
 erstellt: 2026-10-02
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-81fc-99fa-f7974e2f7431
 notion_url: https://app.notion.com/p/Musterschreiben-Behinderungsanzeige-nach-VOB-B-3e2d96ad00b481fc99faf7974e2f7431

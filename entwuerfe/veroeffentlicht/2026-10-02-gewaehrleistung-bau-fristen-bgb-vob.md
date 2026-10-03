@@ -13,7 +13,7 @@ qualifikation:
 kurzform: gewaehrleistung-bau-fristen-bgb-vob
 erstellt: 2026-10-02
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e0d96ad-00b4-81d9-a5f5-c777573a6118
 notion_url: https://app.notion.com/p/Gew-hrleistung-am-Bau-Fristen-nach-BGB-und-VOB-B-Fristbeginn-und-Hemmung-3e0d96ad00b481d9a5f5c777573a6118
