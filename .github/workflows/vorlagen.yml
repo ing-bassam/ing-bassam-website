@@ -17,6 +17,12 @@ name: Vorlagen und Checklisten
 #      Paragrafen in der Vorlage müssen dort belegt sein.
 #   5. Kontrolle, ob der Hauptzweig unverändert blieb.
 #
+# Wochenplan: freitags um 00:37 Uhr (deutsche Zeit) zwei Runden, mit
+# Kontingent-Bremse wie im Fachartikel-Agenten (tools/kontingent.py). Vor der
+# Auswahl prüft tools/doppelungen.py jede offene Vorlage gegen Website und
+# Pull Requests; eine Doppelung bekommt in Notion den Status „Doppelung“. Der
+# Pull Request bleibt bis zum Ende der Schlussprüfung ein Entwurf.
+#
 # Benötigte Secrets: CLAUDE_CODE_OAUTH_TOKEN, NOTION_TOKEN (Integration muss
 # mit der Datenbank „Kostenlose Vorlagen & Checklisten“ verbunden sein),
 # optional BIBLIOTHEK_TOKEN für die Fachbibliothek.
@@ -27,6 +33,11 @@ name: Vorlagen und Checklisten
 # ---------------------------------------------------------------------------
 
 on:
+  schedule:
+    # Freitag 00:37 Uhr deutscher Zeit (krumme Minute: geplante Läufe zur vollen
+    # Stunde fallen bei GitHub öfter aus). Runden: RUNDEN_GEPLANT im Job „planen“.
+    - cron: "37 0 * * 5"
+      timezone: "Europe/Berlin"
   workflow_dispatch:
     inputs:
       runden:
@@ -45,7 +56,7 @@ on:
         required: false
         type: string
 
-run-name: "Vorlage: ${{ inputs.notion_seite || 'nächste Vorlage aus Notion' }} · ${{ inputs.runden || '1' }} Runde(n)"
+run-name: "Vorlage: ${{ github.event_name == 'schedule' && 'Wochenplan' || inputs.notion_seite || 'nächste Vorlage aus Notion' }} · ${{ inputs.runden || '2' }} Runde(n)"
 
 concurrency:
   group: vorlagen
@@ -63,23 +74,56 @@ jobs:
   # Runde startet erst, wenn die vorige samt Prüfungen und Notion fertig ist –
   # so wählt sie automatisch das nächste offene Thema. Ist ein bestimmtes
   # Thema oder eine bestimmte Seite angegeben, gibt es nur eine Runde.
+  # Geplante Läufe prüfen vorher die Kontingent-Bremse (tools/kontingent.py).
   # -----------------------------------------------------------------
   planen:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
-    permissions: {}
+    timeout-minutes: 5
+    permissions:
+      contents: read         # tools/kontingent.py auschecken
+      issues: write          # abgelaufene Kontingent-Pause schließen
+      pull-requests: read    # Entwürfe der Woche zählen
     outputs:
       liste: ${{ steps.plan.outputs.liste }}
       anzahl: ${{ steps.plan.outputs.anzahl }}
     steps:
+      - name: Repository auschecken
+        if: github.event_name == 'schedule'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: tools
+
+      - name: Kontingent prüfen (nur geplante Läufe)
+        id: kontingent
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/kontingent.py pruefen | tee -a "$GITHUB_OUTPUT"
+
       - name: Runden planen
         id: plan
         env:
           RUNDEN: ${{ inputs.runden }}
+          RUNDEN_GEPLANT: "2"      # Runden je geplantem Lauf (Wochenplan)
+          GEPLANT: ${{ github.event_name == 'schedule' }}
+          LAUFEN: ${{ steps.kontingent.outputs.laufen }}
+          FREI: ${{ steps.kontingent.outputs.frei }}
+          GRUND: ${{ steps.kontingent.outputs.grund }}
           EINZELN: "${{ inputs.notion_seite }}"
         run: |
           set -euo pipefail
-          N="${RUNDEN:-1}"
+          if [ "$GEPLANT" = "true" ]; then
+            if [ "${LAUFEN:-ja}" = "nein" ]; then
+              echo "::notice title=Vorlagen::Geplanter Lauf entfällt – ${GRUND}."
+              { echo "liste=[]"; echo "anzahl=0"; } >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            N="$RUNDEN_GEPLANT"
+            case "${FREI:-}" in ''|*[!0-9]*) ;; *) if [ "$FREI" -lt "$N" ]; then N="$FREI"; fi ;; esac
+          else
+            N="${RUNDEN:-1}"
+          fi
           case "$N" in ''|*[!0-9]*) N=1 ;; esac
           if [ "$N" -lt 1 ]; then N=1; fi
           if [ "$N" -gt 5 ]; then N=5; fi
@@ -93,6 +137,8 @@ jobs:
 
   vorlage:
     needs: planen
+    # Null Runden (Kontingent-Bremse): Job entfällt, ohne die leere Liste auszuwerten.
+    if: needs.planen.outputs.anzahl != '0'
     name: "Runde ${{ matrix.runde }} von ${{ needs.planen.outputs.anzahl }}"
     strategy:
       # Nacheinander, nie gleichzeitig; ein Fehlschlag sagt die übrigen Runden ab.
@@ -107,7 +153,8 @@ jobs:
 
     permissions:
       contents: write
-      pull-requests: write
+      pull-requests: write   # Pull Request öffnen, als Entwurf markieren und freigeben
+      issues: write          # Kontingent-Pause als Issue (tools/kontingent.py)
       id-token: write
 
     defaults:
@@ -158,6 +205,7 @@ jobs:
         id: auftrag
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          GH_TOKEN: ${{ github.token }}      # Doppelungsprüfung: Pull Requests lesen
           INPUT_NOTION_SEITE: ${{ inputs.notion_seite }}
           HEUTE: ${{ github.run_started_at }}
         # Keine Ausdrücke in doppelten geschweiften Klammern in diesem Skript (21.000-Zeichen-Grenze).
@@ -173,7 +221,9 @@ jobs:
           CURLFEHLER="${ARBEIT}/curl.txt"
           SEITE="${ARBEIT}/seite.json"
           BLOECKE="${ARBEIT}/bloecke.jsonl"
-          : > "$BLOECKE"
+          VERWANDT="${ARBEIT}/verwandt.md"           # Abschnitt „Verwandte Beiträge“ für die Auftragsdatei
+          BESTAND="${ARBEIT}/bestand.json"           # Website und Pull Requests, einmal gelesen
+          : > "$BLOECKE"; : > "$VERWANDT"
           NOTION_TOKEN="$(printf '%s' "${NOTION_TOKEN:-}" | tr -d '[:space:]')"
           if [[ ! "$NOTION_TOKEN" =~ ^[A-Za-z0-9_-]+$ ]]; then
             echo "::error title=Vorlagen::Secret NOTION_TOKEN enthält unerwartete Zeichen."
@@ -238,11 +288,25 @@ jobs:
               echo "::error title=Vorlagen::Keine Vorlage mit Status „Idee“ und leerem Download-Link in der Notion-Liste."
               exit 1
             fi
+            # Reihenfolge nach Priorität, dann die Doppelungsprüfung ohne KI (tools/doppelungen.py):
+            # Eine Vorlage, die ein vorhandener Beitrag schon abdeckt, wird in Notion als
+            # „Doppelung“ markiert, und die nächste rückt nach. Im Log nur Seiten-IDs.
+            KANDIDATEN="${ARBEIT}/kandidaten.jsonl"
             jq -c '
               def rang: (.properties["Priorität"].select.name // "") as $p
                 | if $p == "Hoch" then 0 elif $p == "Mittel" then 1 elif $p == "Später" then 2 else 3 end;
-              .results | sort_by(rang, .created_time) | .[0]' "$ANTWORT" > "$SEITE"
-            echo "Gewählt: 1 von ${anzahl} offenen Vorlagen (Priorität Hoch → Mittel → Später, dann älteste zuerst)"
+              .results | sort_by(rang, .created_time) | .[]' "$ANTWORT" > "$KANDIDATEN"
+            rc=0
+            python3 tools/doppelungen.py auswahl --kandidaten "$KANDIDATEN" --liste vorlagen \
+              --seite "$SEITE" --verwandt "$VERWANDT" --bestand-datei "$BESTAND" || rc=$?
+            if [ "$rc" -eq 3 ]; then
+              echo "::error title=Vorlagen::Alle ${anzahl} offenen Vorlagen decken vorhandene Beiträge schon ab (in Notion als „Doppelung“ markiert). Bitte neue Vorlagen anlegen."
+              exit 1
+            elif [ "$rc" -ne 0 ]; then
+              echo "::warning title=Vorlagen::Doppelungsprüfung nicht möglich (Rückgabewert ${rc}) – gewählt wird ohne sie, der Agent prüft selbst."
+              head -n 1 "$KANDIDATEN" > "$SEITE"
+            fi
+            echo "Gewählt aus ${anzahl} offenen Vorlagen (Priorität Hoch → Mittel → Später, dann älteste zuerst, ohne Doppelungen)"
           fi
 
           notion_id="$(jq -r '.id' "$SEITE")"
@@ -279,6 +343,13 @@ jobs:
           if [ -z "$notizen" ]; then notizen="(keine)"; fi
           heute="$(TZ=Europe/Berlin date +%F)"
 
+          # Gezielt gestartet: nicht überspringen, aber verwandte Beiträge für die Abgrenzung nennen.
+          if [ -n "$eingabe" ]; then
+            python3 tools/doppelungen.py verwandt --titel "$vorlage" --kernfrage "$zweck" --format Vorlage \
+              --notion-id "$notion_id" --verwandt "$VERWANDT" --bestand-datei "$BESTAND" --gezielt > /dev/null 2>&1 \
+              || echo "::warning title=Vorlagen::Verwandte Beiträge nicht ermittelt – der Agent prüft selbst."
+          fi
+
           {
             printf '# Auftrag Vorlage\n'
             printf 'vorlage: %s\n'     "$vorlage"
@@ -297,6 +368,7 @@ jobs:
             # gezielt = eine bestimmte Seite wurde angegeben; dann darf eine vorhandene Vorlage überarbeitet werden
             if [ -n "$eingabe" ]; then printf 'modus: gezielt\n'; else printf 'modus: automatisch\n'; fi
             printf '\n## Notizen aus Notion\n%s\n' "$notizen"
+            cat "$VERWANDT"
           } > "$AUFTRAG"
 
           echo "::group::Gewählte Vorlage"
@@ -459,6 +531,26 @@ jobs:
             --add-dir ${{ steps.auftrag.outputs.auftrag_verzeichnis }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/vorlage_bauen.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
 
+      # Wochenlimit des Claude-Abos erreicht? Dann pausieren die geplanten Läufe
+      # bis zum Neustart (Issue „Agenten pausieren bis …“, tools/kontingent.py).
+      - name: Kontingent prüfen
+        id: limit
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERLAUF: ${{ steps.claude2.outputs.execution_file || steps.claude.outputs.execution_file }}
+        run: python3 tools/kontingent.py erkennen "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}" | tee -a "$GITHUB_OUTPUT"
+
+      # ERGEBNIS-Block des Agenten (OK, DUPLIKAT …); der Grund bleibt aus dem Protokoll.
+      - name: Ergebnis-Block lesen
+        id: block
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        continue-on-error: true
+        env:
+          VERLAUF: ${{ steps.claude2.outputs.execution_file || steps.claude.outputs.execution_file }}
+        run: python3 tools/agent_bericht.py "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}" --nur-ergebnis >> "$GITHUB_OUTPUT"
+
       # Ein Ergebnis für alle folgenden Schritte: Erfolg, wenn einer der beiden
       # Versuche erfolgreich war. Sonst scheitert die Runde hier – genau wie
       # früher am Schreibschritt selbst.
@@ -504,6 +596,8 @@ jobs:
           NOTION_URL: ${{ steps.auftrag.outputs.notion_url }}
           JOBSTART: ${{ steps.start.outputs.zeit }}
           AGENT: ${{ steps.agent.outputs.ergebnis || steps.claude.outcome }}
+          AGENT_BLOCK: ${{ steps.block.outputs.ergebnis }}
+          AGENT_GRUND: ${{ steps.block.outputs.grund }}
         run: |
           set -euo pipefail
           NOTION_TOKEN="$(printf '%s' "${NOTION_TOKEN:-}" | tr -d '[:space:]')"
@@ -512,6 +606,18 @@ jobs:
           # Nur der eigene Entwurf dieses Laufs: Format „Vorlage“ und dieselbe Notion-Seite.
           ZEILE="$(python tools/eigener_entwurf.py --seit "$JOBSTART" --format "Vorlage" --notion-id "$NOTION_ID" --ausgabe tab)"
           if [ -z "$ZEILE" ]; then
+            # Doppelung, die erst der Agent erkannt hat: Notion „Doppelung“ mit seinem Grund,
+            # die übrigen Runden laufen weiter. Der Grund bleibt aus dem Protokoll.
+            if [ "$AGENT" = "success" ] && [ "${AGENT_BLOCK:-}" = "DUPLIKAT" ]; then
+              if NOTION_TOKEN="$NOTION_TOKEN" python3 tools/doppelungen.py markieren --seite "$NOTION_ID" \
+                   --grund "${AGENT_GRUND:-vom Agenten beim Abgleich mit dem Bestand erkannt}"; then
+                echo "::notice title=Vorlagen::Der Agent hat eine Doppelung erkannt – die Vorlage steht in Notion jetzt auf „Doppelung“, mit Hinweis."
+              else
+                echo "::warning title=Vorlagen::Der Agent hat eine Doppelung erkannt, die Notion-Seite ließ sich aber nicht markieren – bitte von Hand auf „Doppelung“ setzen: ${NOTION_URL:-$NOTION_ID}"
+              fi
+              echo "bereit=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
             if [ "$AGENT" = "success" ]; then
               echo "::error title=Vorlagen::Der Agent meldete Erfolg, aber es gibt keinen Pull Request aus diesem Lauf (Branch vorlage/*). Den Grund zeigt der Schritt „Abschlussmeldung des Agenten“ (auch in der Zusammenfassung des Laufs). Notion bleibt unverändert."
               echo "bereit=false" >> "$GITHUB_OUTPUT"
@@ -526,6 +632,11 @@ jobs:
           SEITEN_URL="https://ing-bassam.de/fachwissen/${KURZ}/"
           echo "Pull Request #${NR} (${ZWEIG}) – ${PR_URL}"
           echo "- Pull Request: ${PR_URL}" >> "$GITHUB_STEP_SUMMARY"
+          # Bis zum Ende der Schlussprüfung bleibt der Pull Request ein Entwurf (Merge gesperrt).
+          if [ "$(gh pr view "$NR" --json isDraft --jq '.isDraft')" != "true" ]; then
+            gh pr ready "$NR" --undo > /dev/null 2>&1 \
+              || echo "::warning title=Vorlagen::Pull Request #$NR ließ sich nicht als Entwurf markieren – bitte erst nach dem Prüfkommentar zusammenführen."
+          fi
 
           git fetch -q origin "$ZWEIG"
           git checkout -q -B "$ZWEIG" "origin/$ZWEIG"
@@ -614,6 +725,27 @@ jobs:
             gh pr comment "$NR" --body "⚠️ Die Schlussprüfung ist nicht vollständig durchgelaufen (Ergebnis: ${PRUEFUNG}). Bitte Vorlage und Begleitseite vor dem Merge selbst prüfen."
           fi
 
+      # Erst jetzt – nach der Schlussprüfung und ihren Korrekturen – wird der Pull
+      # Request zum Zusammenführen freigegeben. GitHub benachrichtigt dabei.
+      - name: Zum Mergen freigeben
+        if: ${{ !cancelled() && steps.ziel.outputs.nummer != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ steps.ziel.outputs.nummer }}
+          PRUEFUNG: ${{ steps.schluss.outcome }}
+        run: |
+          set -euo pipefail
+          if gh pr ready "$NR" > /dev/null 2>&1; then
+            case "$PRUEFUNG" in
+              success) gh pr comment "$NR" --body "✅ Schlussprüfung abgeschlossen, Korrekturen sind eingearbeitet – bereit zur Freigabe. Bitte Vorlage und Begleitseite ansehen und zusammenführen (oder schließen)." ;;
+              skipped|"") gh pr comment "$NR" --body "⚠️ Die Schlussprüfung konnte nicht laufen (Begleitseite oder Quellen nicht ladbar). Bitte Vorlage und Begleitseite vor dem Merge selbst prüfen." ;;
+            esac
+            echo "::notice title=Vorlagen::Pull Request #$NR ist bereit zur Freigabe."
+          else
+            gh pr comment "$NR" --body "Die Prüfungen sind fertig. Bitte oben auf „Ready for review“ klicken, dann ansehen und zusammenführen." || true
+            echo "::warning title=Vorlagen::Pull Request #$NR ließ sich nicht automatisch freigeben – Hinweis im Pull Request."
+          fi
+
       - name: Hauptzweig unverändert?
         if: always() && steps.git.outcome == 'success' && steps.git.outputs.sha != ''
         env:
@@ -644,11 +776,18 @@ jobs:
           BEGINN: ${{ steps.start.outputs.zeit }}
           RUNDE: ${{ matrix.runde }}
           ANZAHL: ${{ needs.planen.outputs.anzahl }}
+          AGENT_BLOCK: ${{ steps.block.outputs.ergebnis }}
         run: |
           set -euo pipefail
           if [ -z "${BEGINN:-}" ]; then
             echo "::error title=Vorlagen::Startzeit dieser Runde unbekannt – die übrigen Runden werden sicherheitshalber abgesagt."
             exit 1
+          fi
+          # Eine erkannte Doppelung kostet nur wenige Züge; die Vorlage steht jetzt in Notion auf
+          # „Doppelung“, die nächste Runde wählt also eine andere.
+          if [ "${AGENT_BLOCK:-}" = "DUPLIKAT" ]; then
+            echo "::notice title=Vorlagen::Runde ${RUNDE} von ${ANZAHL}: Doppelung erkannt – weiter mit der nächsten Vorlage."
+            exit 0
           fi
           # Eigene Entwürfe dieser Runde, erkannt am Format im Dateikopf (nicht nur am Zweig):
           # So zählt ein gleichzeitig laufender anderer Agent nicht als Ergebnis dieser Runde.

@@ -58,11 +58,8 @@ import html
 import http.cookiejar
 import io
 import json
-import os
 import random
 import re
-import shutil
-import subprocess
 import sys
 import time
 import unicodedata
@@ -75,7 +72,6 @@ from pathlib import Path
 from typing import NamedTuple
 
 WURZEL = Path(__file__).resolve().parent.parent
-ENTWUERFE = WURZEL / "entwuerfe"
 
 BUND_INDEX = "https://www.rechtsprechung-im-internet.de/rii-toc.xml"
 BB_BASIS = "https://gerichtsentscheidungen.brandenburg.de"
@@ -379,45 +375,6 @@ def themenbezug(text: str) -> tuple[int, list[str]]:
     return len(getroffen), getroffen
 
 
-def texte_offener_entwuerfe() -> list[str]:
-    """Entwürfe, die noch als Pull Request auf die Durchsicht warten.
-
-    Sie liegen nicht im Ordner entwuerfe/ des Hauptzweigs. Ohne diesen Abgleich
-    galt eine Entscheidung so lange als „noch nicht besprochen“, bis ihr
-    Entwurf gemergt war – am 25.09.2026 entstanden so drei Besprechungen
-    desselben Urteils (OLG Brandenburg 10 U 14/24), zwei davon in einem Lauf.
-    Gelesen wird über refs/pull/<n>/head mit der GitHub-CLI (GH_TOKEN).
-    """
-    if not shutil.which("gh"):
-        print("::warning title=Urteilssuche::GitHub-CLI fehlt – Entwürfe in offenen Pull Requests "
-              "werden nicht ausgeschlossen; Doppelbesprechungen sind möglich.")
-        return []
-
-    def gh(*args: str) -> str:
-        return subprocess.run(["gh", *args], capture_output=True, text=True, encoding="utf-8",
-                              check=True, timeout=90).stdout
-
-    try:
-        repo = os.environ.get("GITHUB_REPOSITORY") or gh(
-            "repo", "view", "--json", "nameWithOwner", "--jq", ".nameWithOwner").strip()
-        prs = json.loads(gh("pr", "list", "--repo", repo, "--state", "open", "--limit", "100",
-                            "--json", "number,files"))
-        texte = []
-        for pr in prs:
-            for datei in pr.get("files") or []:
-                pfad = datei["path"]
-                if pfad.startswith("entwuerfe/") and pfad.endswith(".md") and not pfad.lower().endswith("readme.md"):
-                    texte.append(gh("api", "-H", "Accept: application/vnd.github.raw+json",
-                                    f"repos/{repo}/contents/{urllib.parse.quote(pfad)}"
-                                    f"?ref=refs/pull/{pr['number']}/head"))
-        print(f"Offene Entwürfe abgeglichen: {len(texte)}")
-        return texte
-    except (subprocess.SubprocessError, OSError, json.JSONDecodeError, KeyError) as fehler:
-        print(f"::warning title=Urteilssuche::Offene Pull Requests nicht lesbar ({str(fehler)[:200]}) – "
-              "dort liegende Entwürfe werden nicht ausgeschlossen; Doppelbesprechungen sind möglich.")
-        return []
-
-
 STREITWERT_BEGRIFF = re.compile(
     r"(Streitwert|Gegenstandswert|Wert des (?:Streit|Beschwerde)gegenstand(?:e)?s|Beschwer\b)",
     re.I)
@@ -459,22 +416,42 @@ def euro(wert: int) -> str:
     return f"{wert:,} €".replace(",", ".")
 
 
+# ECLI der schon besprochenen Entscheidungen; füllt bekannte_aktenzeichen().
+BEKANNTE_ECLI: set[str] = set()
+
+
 def bekannte_aktenzeichen() -> set[str]:
-    """Aktenzeichen, zu denen es schon einen Entwurf gibt – gemergt oder als offener Pull Request.
+    """Aktenzeichen, zu denen es schon einen Beitrag gibt – veröffentlicht, als Entwurf
+    auf dem Hauptzweig oder in einem Pull Request.
 
     Gilt für jedes Format: Eine Entscheidung, die schon als „Urteil verständlich“
     besprochen wird, bekommt keine zweite Besprechung als „Rechtsprechung“ und
     umgekehrt – zwei Seiten zum selben Urteil würden sich in der Suche gegenseitig
     Konkurrenz machen.
+
+    Gelesen wird der Bestand zum Zeitpunkt der Suche (tools/bestand.py): der
+    neueste Stand von main, offene und in den letzten 14 Tagen zusammengeführte
+    Pull Requests. Anlass: Am 02.10.2026 entstanden zwei Besprechungen von OLG
+    Stuttgart 10 U 308/20 – der erste Entwurf war während des zweiten Laufs
+    zusammengeführt worden, und der Lauf kannte nur seinen Anfangsstand und die
+    offenen Pull Requests. Die ECLI der Beiträge landen in BEKANNTE_ECLI und
+    werden nach dem Laden der Volltexte verglichen (falls ein Portal das
+    Aktenzeichen anders schreibt).
     """
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import bestand
+    warnungen: list[str] = []
+    texte = [t["text"] for t in bestand.texte(warnungen)]
+    for warnung in warnungen:
+        print(f"::warning title=Urteilssuche::{warnung} Doppelbesprechungen sind möglich.")
+    print(f"Bestand abgeglichen: {len(texte)} Beiträge und Entwürfe")
     bekannt: set[str] = set()
-    texte = [p.read_text(encoding="utf-8", errors="replace")
-             for p in (ENTWUERFE.rglob("*.md") if ENTWUERFE.is_dir() else [])
-             if p.name.lower() != "readme.md"]
-    texte += texte_offener_entwuerfe()
     for text in texte:
         for treffer in re.findall(r"^aktenzeichen:\s*(.+)$", text, re.M):
             bekannt.add(normal_az(treffer))
+        for treffer in re.findall(r"^ecli:\s*(.+)$", text, re.M):
+            if normal_ecli(treffer):
+                BEKANNTE_ECLI.add(normal_ecli(treffer))
         # Auch im Fließtext genannte Aktenzeichen zählen als abgedeckt.
         for treffer in re.findall(r"\b[IVX]+ Z[RB] \d+/\d{2}\b", text):
             bekannt.add(normal_az(treffer))
@@ -483,6 +460,10 @@ def bekannte_aktenzeichen() -> set[str]:
 
 def normal_az(wert: str) -> str:
     return re.sub(r"\s+", " ", wert.strip().strip("\"'")).upper()
+
+
+def normal_ecli(wert: str) -> str:
+    return re.sub(r"\s+", "", (wert or "").strip().strip("\"'")).upper()
 
 
 class Fund:
@@ -511,6 +492,7 @@ class Fund:
         self.naehe = 1
         self.gewicht = 0         # siehe gewichten()
         self.gewicht_gruende: list[str] = []
+        self.schon_besprochen = False   # gleiche ECLI wie ein vorhandener Beitrag
 
     @property
     def schluessel(self) -> str:
@@ -952,6 +934,11 @@ def volltexte_ablegen(auswahl: list["Fund"], ordner: Path, pause: float) -> None
             time.sleep(pause)
             continue
         fund.ecli = ecli
+        if ecli and normal_ecli(ecli) in BEKANNTE_ECLI:
+            fund.schon_besprochen = True
+            print(f"  Schon besprochen (gleiche ECLI): {fund.aktenzeichen}")
+            time.sleep(pause)
+            continue
         fund.woerter = len(text.split())
         fund.treffer, begriffe = themenbezug(text)
         fund.begriffe = begriffe
@@ -1279,6 +1266,7 @@ def main() -> int:
             print(f"\nVolltexte werden geladen ({len(geladen)} Entscheidungen) …")
             volltexte_ablegen(geladen, ordner, argumente.pause)
 
+    geladen = [f for f in geladen if not f.schon_besprochen]
     gruppen = auswaehlen(geladen, argumente.max, nach_gewicht=zeitraum.grundlegend)
     auswahl = [f for r in REGIONEN for f in gruppen[r]]
     # Volltexte von Treffern, die nicht in die Liste kommen, wieder entfernen –

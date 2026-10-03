@@ -33,7 +33,17 @@ name: Urteilsbesprechung
 # liefern kein auswertbares Trefferformat.
 # -----------------------------------------------------------------------------
 
+# Wochenplan: Sonntag um 00:37 Uhr (deutsche Zeit) eine Runde, mit
+# Kontingent-Bremse (tools/kontingent.py). Schon besprochene Urteile –
+# veröffentlicht, auf main oder in einem Pull Request, auch einem gerade erst
+# zusammengeführten – erkennt die Suche am Aktenzeichen und an der ECLI
+# (tools/urteile_finden.py über tools/bestand.py). Der Pull Request bleibt bis
+# zum Ende von Fakten- und Schlussprüfung ein Entwurf.
 on:
+  schedule:
+    # Krumme Minute: Geplante Läufe zur vollen Stunde fallen bei GitHub öfter aus.
+    - cron: "37 0 * * 0"
+      timezone: "Europe/Berlin"
   workflow_dispatch:
     inputs:
       runden:
@@ -86,7 +96,7 @@ on:
           - "ab 500.000 €"
           - "ab 1 Mio. €"
 
-run-name: "Urteilsbesprechung · ${{ inputs.runden || '1' }} Runde(n) · ${{ inputs.alter || '1 bis 15 Jahre' }} · Streitwert ${{ inputs.streitwert || 'egal' }}"
+run-name: "Urteilsbesprechung${{ github.event_name == 'schedule' && ' · Wochenplan' || '' }} · ${{ inputs.runden || '1' }} Runde(n) · ${{ inputs.alter || '1 bis 15 Jahre' }} · Streitwert ${{ inputs.streitwert || 'egal' }}"
 
 concurrency:
   # Urteilsbesprechung und Urteil verständlich teilen sich diese Warteschlange:
@@ -109,20 +119,52 @@ jobs:
   # -----------------------------------------------------------------
   planen:
     runs-on: ubuntu-latest
-    timeout-minutes: 2
-    permissions: {}
+    timeout-minutes: 5
+    permissions:
+      contents: read         # tools/kontingent.py auschecken
+      issues: write          # abgelaufene Kontingent-Pause schließen
+      pull-requests: read    # Entwürfe der Woche zählen
     outputs:
       liste: ${{ steps.plan.outputs.liste }}
       anzahl: ${{ steps.plan.outputs.anzahl }}
     steps:
+      - name: Repository auschecken
+        if: github.event_name == 'schedule'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: tools
+
+      - name: Kontingent prüfen (nur geplante Läufe)
+        id: kontingent
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/kontingent.py pruefen | tee -a "$GITHUB_OUTPUT"
+
       - name: Runden planen
         id: plan
         env:
           RUNDEN: ${{ inputs.runden }}
+          RUNDEN_GEPLANT: "1"      # Runden je geplantem Lauf (Wochenplan)
+          GEPLANT: ${{ github.event_name == 'schedule' }}
+          LAUFEN: ${{ steps.kontingent.outputs.laufen }}
+          FREI: ${{ steps.kontingent.outputs.frei }}
+          GRUND: ${{ steps.kontingent.outputs.grund }}
           EINZELN: ""
         run: |
           set -euo pipefail
-          N="${RUNDEN:-1}"
+          if [ "$GEPLANT" = "true" ]; then
+            if [ "${LAUFEN:-ja}" = "nein" ]; then
+              echo "::notice title=Urteilsbesprechung::Geplanter Lauf entfällt – ${GRUND}."
+              { echo "liste=[]"; echo "anzahl=0"; } >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            N="$RUNDEN_GEPLANT"
+            case "${FREI:-}" in ''|*[!0-9]*) ;; *) if [ "$FREI" -lt "$N" ]; then N="$FREI"; fi ;; esac
+          else
+            N="${RUNDEN:-1}"
+          fi
           case "$N" in ''|*[!0-9]*) N=1 ;; esac
           if [ "$N" -lt 1 ]; then N=1; fi
           if [ "$N" -gt 5 ]; then N=5; fi
@@ -136,6 +178,8 @@ jobs:
 
   besprechung:
     needs: planen
+    # Null Runden (Kontingent-Bremse): Job entfällt, ohne die leere Liste auszuwerten.
+    if: needs.planen.outputs.anzahl != '0'
     name: "Runde ${{ matrix.runde }} von ${{ needs.planen.outputs.anzahl }}"
     strategy:
       # Nacheinander, nie gleichzeitig; ein Fehlschlag sagt die übrigen Runden ab.
@@ -151,7 +195,8 @@ jobs:
 
     permissions:
       contents: write        # Entwurf anlegen und Branch pushen
-      pull-requests: write   # Pull Request öffnen
+      pull-requests: write   # Pull Request öffnen, als Entwurf markieren und freigeben
+      issues: write          # Kontingent-Pause als Issue (tools/kontingent.py)
       id-token: write        # von der Claude-Action benötigt
 
     steps:
@@ -425,6 +470,17 @@ jobs:
             --add-dir ${{ steps.kandidaten.outputs.verzeichnis }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
 
+      # Wochenlimit des Claude-Abos erreicht? Dann pausieren die geplanten Läufe
+      # bis zum Neustart (Issue „Agenten pausieren bis …“, tools/kontingent.py).
+      - name: Kontingent prüfen
+        id: limit
+        if: ${{ always() && steps.claude.outcome != 'skipped' && steps.claude.outcome != '' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERLAUF: ${{ steps.claude2.outputs.execution_file || steps.claude.outputs.execution_file }}
+        run: python3 tools/kontingent.py erkennen "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}" | tee -a "$GITHUB_OUTPUT"
+
       # Ein Ergebnis für alle folgenden Schritte: Erfolg, wenn einer der beiden
       # Versuche erfolgreich war. Sonst scheitert die Runde hier – genau wie
       # früher am Schreibschritt selbst.
@@ -483,6 +539,14 @@ jobs:
           fi
           NR="${ZEILE%% *}"
           ZWEIG="${ZEILE#* }"
+          # Bis Fakten- und Schlussprüfung fertig sind, bleibt der Pull Request ein Entwurf: Der
+          # Merge-Knopf ist gesperrt. Anlass: Am 02.10.2026 wurden Entwürfe zusammengeführt, bevor
+          # ihre Prüfkorrekturen da waren – die Korrekturen fehlten danach auf der Website.
+          if [ "$(gh pr view "$NR" --json isDraft --jq '.isDraft')" != "true" ]; then
+            gh pr ready "$NR" --undo > /dev/null 2>&1 \
+              || echo "::warning title=Prüfung::Pull Request #$NR ließ sich nicht als Entwurf markieren – bitte erst nach den Prüfkommentaren zusammenführen."
+          fi
+          echo "freigeben=$NR" >> "$GITHUB_OUTPUT"
           git fetch -q origin "$ZWEIG"
           git checkout -q -B "$ZWEIG" "origin/$ZWEIG"
 
@@ -656,6 +720,27 @@ jobs:
             gh pr comment "$NR" --body-file "$BERICHT"
           else
             gh pr comment "$NR" --body "⚠️ Die Schlussprüfung gegen die Quellen ist nicht vollständig durchgelaufen (Ergebnis: ${PRUEFUNG}). Bitte Zahlen und Fußnoten vor dem Merge selbst an den Quellen prüfen."
+          fi
+
+      # Erst jetzt – nach Fakten- und Schlussprüfung und ihren Korrekturen – wird der
+      # Pull Request zum Zusammenführen freigegeben. GitHub benachrichtigt dabei.
+      - name: Zum Mergen freigeben
+        if: ${{ !cancelled() && steps.ziel.outputs.freigeben != '' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ steps.ziel.outputs.freigeben }}
+          PRUEFUNG: ${{ steps.schluss.outcome }}
+        run: |
+          set -euo pipefail
+          if gh pr ready "$NR" > /dev/null 2>&1; then
+            case "$PRUEFUNG" in
+              success) gh pr comment "$NR" --body "✅ Fakten- und Schlussprüfung abgeschlossen, Korrekturen sind eingearbeitet – bereit zur Freigabe. Bitte lesen und zusammenführen (oder schließen, wenn der Beitrag nicht erscheinen soll)." ;;
+              skipped|"") gh pr comment "$NR" --body "⚠️ Die Schlussprüfung konnte nicht laufen (Entwurf oder Quellen nicht ladbar). Bitte Zahlen, Fußnoten und die Aussagen über die Entscheidung vor dem Merge selbst prüfen." ;;
+            esac
+            echo "::notice title=Urteilsbesprechung::Pull Request #$NR ist bereit zur Freigabe."
+          else
+            gh pr comment "$NR" --body "Die Prüfungen sind fertig. Bitte oben auf „Ready for review“ klicken, dann lesen und zusammenführen." || true
+            echo "::warning title=Urteilsbesprechung::Pull Request #$NR ließ sich nicht automatisch freigeben – Hinweis im Pull Request."
           fi
 
       - name: Ergebnis melden
