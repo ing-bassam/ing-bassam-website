@@ -502,18 +502,35 @@ BUCH_KOPF = re.compile(r"^=== S\. (.+?) \| PDF (\d+) ===$", re.M)
 
 
 def bibliothek_laden(ordner: Path | None) -> list[dict]:
-    """Katalog der Fachbibliothek."""
+    """Katalog der Fachbibliothek: Fachbücher und Forschungsarbeiten (Ordner forschung/)."""
     if not ordner or not (ordner / "katalog.yml").exists():
         return []
     import yaml  # nur hier nötig; im Workflow installiert
-    return yaml.safe_load((ordner / "katalog.yml").read_text(encoding="utf-8")) or []
+    katalog = []
+    for bereich in ("", "forschung"):
+        datei = ordner / bereich / "katalog.yml"
+        if datei.exists():
+            katalog += [{**e, "_bereich": bereich} for e in yaml.safe_load(datei.read_text(encoding="utf-8")) or []]
+    return katalog
+
+
+def forschungsarbeit(eintrag: str, katalog: list[dict]) -> dict | None:
+    """Forschungsarbeit aus der Bibliothek, auf die ein Fußnoteneintrag mit Adresse verweist."""
+    for werk in katalog:
+        if werk.get("_bereich") != "forschung":
+            continue
+        kennzeichen = [werk.get("url"), werk.get("pdf"), werk.get("doi")]
+        if any(k and k in eintrag for k in kennzeichen):
+            return werk
+    return None
 
 
 def buchangaben(eintrag: str, katalog: list[dict]) -> list[tuple[str, str]]:
     """Buchquelle eines Fußnoteneintrags als Schlüssel buch:<kennung>:<Seiten>.
 
     Bücher erkennt man an der ISBN, Normen aus der Bibliothek an ihrer Nummer
-    samt Seitenangabe in einem Eintrag ohne Internetadresse.
+    samt Seitenangabe in einem Eintrag ohne Internetadresse, Forschungsarbeiten
+    aus der Bibliothek an ihrer Adresse samt Seitenangabe.
     """
     isbn = BUCH_ISBN.search(eintrag)
     seiten = BUCH_SEITEN.search(eintrag)
@@ -521,6 +538,8 @@ def buchangaben(eintrag: str, katalog: list[dict]) -> list[tuple[str, str]]:
         ziffern = re.sub(r"[^\dX]", "", isbn.group(1))
         werk = next((e for e in katalog if re.sub(r"[^\dX]", "", e.get("isbn") or "") == ziffern),
                     None)
+    elif forschungsarbeit(eintrag, katalog) and seiten:
+        werk, ziffern = forschungsarbeit(eintrag, katalog), ""
     else:
         werk = next((e for e in katalog if e.get("normnummer") and e["normnummer"] in eintrag),
                     None)
@@ -536,7 +555,12 @@ def buchangaben(eintrag: str, katalog: list[dict]) -> list[tuple[str, str]]:
 
 
 def quellenangaben(eintrag: str, katalog: list[dict]) -> list[tuple[str, str]]:
-    return adressen(eintrag) + buchangaben(eintrag, katalog)
+    buch = buchangaben(eintrag, katalog)
+    werk = forschungsarbeit(eintrag, katalog) if buch else None
+    # Liegt eine Forschungsarbeit in der Bibliothek, gilt ihr Text an der zitierten Seite;
+    # ihre Adresse muss dann nicht noch einmal geladen werden.
+    eigene = {werk.get("url"), werk.get("pdf")} if werk else set()
+    return [(rolle, url) for rolle, url in adressen(eintrag) if url not in eigene] + buch
 
 
 def buch_laden(ordner: Path | None, schluessel: str) -> tuple[str | None, str, str]:
@@ -545,7 +569,8 @@ def buch_laden(ordner: Path | None, schluessel: str) -> tuple[str | None, str, s
     art = f"Fachbibliothek {kennung}, S. {angabe or '?'}"
     if not ordner:
         return None, art, "Fachbibliothek nicht geladen"
-    datei = ordner / "texte" / f"{kennung}.txt"
+    datei = next((d for d in (ordner / "texte" / f"{kennung}.txt", ordner / "forschung" / "texte" / f"{kennung}.txt")
+                  if d.exists()), ordner / "texte" / f"{kennung}.txt")
     if not datei.exists():
         return None, art, "Werk nicht in der Fachbibliothek – ISBN prüfen"
     if not angabe:

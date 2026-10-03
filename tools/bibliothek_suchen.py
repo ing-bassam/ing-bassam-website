@@ -6,11 +6,25 @@ gedruckten Seitenzahl, das Inhaltsverzeichnis je Werk und einen Katalog mit
 dem fertigen Zitat. Gesucht wird mit der Volltextsuche, die in Python
 eingebaut ist (SQLite FTS5) – ohne weiteren Dienst.
 
+Dazu kommt, was der Workflow „Wissen sammeln“ im Bibliotheks-Repository jede
+Nacht ergänzt; die Suche umfasst alles:
+
+    forschung/   frei zugängliche Forschungsarbeiten (Kennung fo-…) – Text mit
+                 Seitenzahlen wie bei den Büchern, Fußnote mit Seite und Adresse
+    quellen/     Steckbriefe geprüfter Webquellen aus freigegebenen Beiträgen
+                 (Kennung wq-…) – Adresse, belegte Aussagen, Belegstück; kein Volltext
+    erfahrungen.md  das Erfahrungsbuch (wird gelesen, nicht durchsucht)
+
 Aufrufe:
     python tools/bibliothek_suchen.py <bibliothek> --index
         baut den Suchindex (einmal je Lauf, rund eine Minute)
     python tools/bibliothek_suchen.py <bibliothek> --katalog [--thema <Thema>]
-        alle Werke mit Kennung, Jahr, Themen und Titel
+        alle Fachbücher mit Kennung, Jahr, Themen und Titel; dazu die Zahl der
+        Forschungsarbeiten und Webquellen
+    python tools/bibliothek_suchen.py <bibliothek> --forschung [--thema <Thema>]
+        alle Forschungsarbeiten
+    python tools/bibliothek_suchen.py <bibliothek> --webquellen [--thema <Thema>]
+        alle Steckbriefe geprüfter Webquellen
     python tools/bibliothek_suchen.py <bibliothek> "<Suchwörter>" [--werk <kennung>] [--anzahl 8] [--alle-auflagen]
         die passendsten Seiten. Jedes Wort wird als Wortanfang gesucht: „abdicht“
         findet „Abdichtung“ und „Abdichtungsbahn“; Umlaute sind gleichgültig.
@@ -31,16 +45,41 @@ from pathlib import Path
 KOPF = re.compile(r"^=== S\. (.+?) \| PDF (\d+) ===$", re.M)
 GLIEDERUNG = re.compile(r"^( *)- (.+) \(S\. ([^,]+), PDF (\d+)\)$")
 JE_WERK = 3   # höchstens so viele Treffer aus demselben Werk
+# Teile der Bibliothek: Fachbücher (oberste Ebene), Forschungsarbeiten, Steckbriefe von Webquellen
+BEREICHE = ("", "forschung", "quellen")
 
 
 def katalog_laden(bibliothek: Path) -> list[dict]:
+    """Alle Einträge aller Teile; `_bereich` sagt, in welchem Ordner Text und Gliederung liegen."""
     import yaml  # nur hier nötig; im Workflow installiert
-    return yaml.safe_load((bibliothek / "katalog.yml").read_text(encoding="utf-8")) or []
+    alle = []
+    for bereich in BEREICHE:
+        datei = bibliothek / bereich / "katalog.yml"
+        if datei.exists():
+            for eintrag in yaml.safe_load(datei.read_text(encoding="utf-8")) or []:
+                alle.append({**eintrag, "_bereich": bereich})
+    return alle
+
+
+def ist_webquelle(eintrag: dict) -> bool:
+    return eintrag.get("art") == "Webquelle"
+
+
+def satzende(text: str) -> str:
+    return text if text[-1:] in ".?!" else text + "."
 
 
 def fussnote(eintrag: dict, seite: str = "<Seite>") -> str:
+    if ist_webquelle(eintrag):
+        return f"{satzende(eintrag['zitat'])} {eintrag['url']} (abgerufen am <Laufdatum>)."
+    if eintrag.get("url"):        # Forschungsarbeit im Netz: Seite und Adresse
+        return f"{eintrag['zitat']}, S. {seite}. {eintrag['url']} (abgerufen am <Laufdatum>)."
     isbn = f" ISBN {eintrag['isbn']}." if eintrag.get("isbn") else ""
     return f"{eintrag['zitat']}, S. {seite}.{isbn}"
+
+
+def ordner(bibliothek: Path, eintrag: dict | None) -> Path:
+    return bibliothek / ((eintrag or {}).get("_bereich") or "")
 
 
 def index_pfad(bibliothek: Path) -> Path:
@@ -59,7 +98,8 @@ def index_bauen(bibliothek: Path) -> None:
     db.executemany("INSERT INTO werke VALUES (?, ?)",
                    [(e["kennung"], e.get("ersetzt_durch") or "") for e in katalog_laden(bibliothek)])
     werke = seiten_gesamt = 0
-    for datei in sorted((bibliothek / "texte").glob("*.txt")):
+    dateien = [d for bereich in BEREICHE for d in sorted((bibliothek / bereich / "texte").glob("*.txt"))]
+    for datei in dateien:
         kennung = datei.stem
         inhalt = datei.read_text(encoding="utf-8")
         treffer = list(KOPF.finditer(inhalt))
@@ -72,7 +112,7 @@ def index_bauen(bibliothek: Path) -> None:
         db.executemany("INSERT INTO seiten VALUES (?, ?, ?, ?)", zeilen)
         werke += 1
         seiten_gesamt += len(zeilen)
-        gl = bibliothek / "gliederung" / f"{kennung}.md"
+        gl = datei.parent.parent / "gliederung" / f"{kennung}.md"
         if gl.exists():
             eintraege = []
             for zeile in gl.read_text(encoding="utf-8").splitlines():
@@ -177,15 +217,23 @@ def suchen(bibliothek: Path, suchtext: str, werk: str, anzahl: int, alle: bool =
             break
 
     for nummer, (kennung, seite, pdf, auszug) in enumerate(auswahl, 1):
-        titel = kapitel(db, kennung, pdf)
-        print(f"[{nummer}] {kennung} · S. {seite}" + (f" · Kap.: {titel}" if titel else ""))
+        eintrag = katalog.get(kennung, {})
+        if ist_webquelle(eintrag):
+            print(f"[{nummer}] {kennung} · Steckbrief einer geprüften Webquelle ({eintrag.get('quelltyp')}, "
+                  f"{eintrag.get('domain')}; zuletzt belegt {eintrag.get('zuletzt_belegt')})")
+        else:
+            titel = kapitel(db, kennung, pdf)
+            art = f" · {eintrag.get('art')}" if eintrag.get("_bereich") == "forschung" else ""
+            print(f"[{nummer}] {kennung}{art} · S. {seite}" + (f" · Kap.: {titel}" if titel else ""))
         print("    " + " ".join(auszug.split()))
-    print("\nZitierweise in der Fußnote (Seite einsetzen):")
+    print("\nZitierweise in der Fußnote (Seite einsetzen, Abrufdatum = Laufdatum):")
     for kennung in dict.fromkeys(z[0] for z in auswahl):
         if kennung in katalog:
             print(f"  {kennung}: {fussnote(katalog[kennung])}")
     print(f"\nGanze Seite lesen: python tools/bibliothek_suchen.py {bibliothek.as_posix()} "
           "--werk <kennung> --seite <S>")
+    if any(ist_webquelle(katalog.get(z[0], {})) for z in auswahl):
+        print("Steckbrief einer Webquelle lesen: --werk <wq-…> --seite 1")
 
 
 def seiten_zeigen(bibliothek: Path, werk: str, von: str, bis: str | None) -> None:
@@ -207,34 +255,56 @@ def seiten_zeigen(bibliothek: Path, werk: str, von: str, bis: str | None) -> Non
     if ende[0] - start[0] > 5:
         print("Höchstens sechs Seiten auf einmal.")
         return
+    eintrag = katalog[werk]
     for seite, pdf, text in db.execute(
             "SELECT seite, pdf, text FROM seiten WHERE kennung = ? AND pdf BETWEEN ? AND ? ORDER BY pdf",
             (werk, start[0], ende[0])):
         titel = kapitel(db, werk, pdf)
-        print(f"=== {werk} · S. {seite}" + (f" · Kap.: {titel}" if titel else "") + " ===")
+        kopf = "Steckbrief" if ist_webquelle(eintrag) else f"S. {seite}" + (f" · Kap.: {titel}" if titel else "")
+        print(f"=== {werk} · {kopf} ===")
         print(text)
         print()
-    if katalog[werk].get("ersetzt_durch"):
-        print(f"Achtung: ältere Auflage. Aktuell ist {katalog[werk]['ersetzt_durch']} – "
+    if eintrag.get("ersetzt_durch"):
+        print(f"Achtung: ältere Auflage. Aktuell ist {eintrag['ersetzt_durch']} – "
               "für geltende Aussagen dort nachsehen.")
     seite_text = von if not bis or bis == von else f"{von}–{bis}"
-    print(f"Fußnote: {fussnote(katalog[werk], seite_text)}")
-    print(f"Stand des Werkes: {katalog[werk].get('jahr') or 'unbekannt'} – bei Normaussagen prüfen, "
-          "ob die zitierte Fassung noch gilt.")
+    print(f"Fußnote: {fussnote(eintrag, seite_text)}")
+    if ist_webquelle(eintrag):
+        print(f"Zuletzt in einem freigegebenen Beitrag belegt: {eintrag.get('zuletzt_belegt') or 'unbekannt'}. "
+              "Den aktuellen Stand – Normstatus, Gesetzesfassung, geänderte Seite – zeigt nur die Adresse.")
+    elif eintrag.get("_bereich") == "forschung":
+        print(f"Stand der Arbeit: {eintrag.get('jahr') or 'unbekannt'} ({eintrag.get('art')}, frei zugänglich, "
+              f"Lizenz {eintrag.get('lizenz') or 'unbekannt'}) – bei Normaussagen prüfen, ob die Fassung noch gilt.")
+    else:
+        print(f"Stand des Werkes: {eintrag.get('jahr') or 'unbekannt'} – bei Normaussagen prüfen, "
+              "ob die zitierte Fassung noch gilt.")
 
 
-def katalog_zeigen(bibliothek: Path, thema: str | None) -> None:
-    for e in katalog_laden(bibliothek):
+def katalog_zeigen(bibliothek: Path, thema: str | None, teil: str = "") -> None:
+    """`teil`: „“ für die Fachbücher, „forschung“ oder „quellen“."""
+    katalog = katalog_laden(bibliothek)
+    for e in katalog:
         themen = ", ".join(e.get("themen") or [])
-        if thema and thema.lower() not in themen.lower():
+        if e["_bereich"] != teil or (thema and thema.lower() not in themen.lower()):
             continue
         titel = e.get("titel") or "(Titel fehlt)"
+        if ist_webquelle(e):
+            print(f"{e['kennung']:<36} {e.get('zuletzt_belegt') or '?'}  [{e.get('quelltyp')}]  {titel[:80]}")
+            continue
+        art = f"{e.get('art')}: " if teil == "forschung" else ""
         hinweis = f"  → ältere Auflage, aktuell: {e['ersetzt_durch']}" if e.get("ersetzt_durch") else ""
-        print(f"{e['kennung']:<48} {e.get('jahr') or '?':>4}  [{themen}]  {titel[:70]}{hinweis}")
+        print(f"{e['kennung']:<48} {e.get('jahr') or '?':>4}  [{themen}]  {art}{titel[:70]}{hinweis}")
+    if not teil:
+        forschung = sum(1 for e in katalog if e["_bereich"] == "forschung")
+        quellen = sum(1 for e in katalog if e["_bereich"] == "quellen")
+        if forschung or quellen:
+            print(f"\nDazu {forschung} Forschungsarbeiten (Liste: --forschung) und {quellen} Steckbriefe "
+                  "geprüfter Webquellen (Liste: --webquellen) – beide erscheinen in der Suche.")
 
 
 def gliederung_zeigen(bibliothek: Path, werk: str, tiefe: int) -> None:
-    pfad = bibliothek / "gliederung" / f"{werk}.md"
+    eintrag = next((e for e in katalog_laden(bibliothek) if e["kennung"] == werk), None)
+    pfad = ordner(bibliothek, eintrag) / "gliederung" / f"{werk}.md"
     if not pfad.exists():
         print(f"Keine Gliederung zu „{werk}“.")
         return
@@ -250,6 +320,8 @@ def main() -> int:
     parser.add_argument("suchtext", nargs="?")
     parser.add_argument("--index", action="store_true")
     parser.add_argument("--katalog", action="store_true")
+    parser.add_argument("--forschung", action="store_true", help="alle Forschungsarbeiten")
+    parser.add_argument("--webquellen", action="store_true", help="alle Steckbriefe geprüfter Webquellen")
     parser.add_argument("--thema")
     parser.add_argument("--gliederung", metavar="KENNUNG")
     parser.add_argument("--tiefe", type=int, default=2)
@@ -268,6 +340,10 @@ def main() -> int:
         index_bauen(args.bibliothek)
     elif args.katalog:
         katalog_zeigen(args.bibliothek, args.thema)
+    elif args.forschung:
+        katalog_zeigen(args.bibliothek, args.thema, "forschung")
+    elif args.webquellen:
+        katalog_zeigen(args.bibliothek, args.thema, "quellen")
     elif args.gliederung:
         gliederung_zeigen(args.bibliothek, args.gliederung, args.tiefe)
     elif args.seite:
