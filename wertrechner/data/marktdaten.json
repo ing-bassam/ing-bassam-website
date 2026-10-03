@@ -1,0 +1,3217 @@
+{
+ "quelle": "daten/marktdaten.xlsx",
+ "parameter": {
+  "stichtag_faktoren": "2024-12-31",
+  "brw_stichtag_modell": "2024-01-01",
+  "brw_stichtag_aktuell": "2026-01-01",
+  "gnd_wohnen": 80,
+  "regionalfaktor": 1,
+  "nhk_standardstufe": 4,
+  "nhk_baunebenkosten_prozent": 17,
+  "zfh_korrekturfaktor": 1,
+  "bpi_quartal": "IV. Quartal 2024",
+  "bpi_2021": 130.8,
+  "bpi_umbasierung": 1.4124,
+  "bpi_2010": 184.7,
+  "swf_rundung_nachkommastellen": 2,
+  "lz_rundung_nachkommastellen": 1,
+  "barwertfaktor_nachkommastellen": 4,
+  "alterswertminderung_nachkommastellen": 4,
+  "ergebnis_rundung_euro": 1000,
+  "spanne_prozent": 15,
+  "bgf_faktor_unterkellert": 1.55,
+  "bgf_faktor_nicht_unterkellert": 1.3,
+  "ertragswert_mindest_mieteinheiten": 4,
+  "ertragswert_max_gewerbeanteil_prozent": 80,
+  "ertragswert_baujahr_min": 1865,
+  "gfz_w_formel": "K(GFZ) = (−25,191 + 311,62·GFZ − 24,879·GFZ²) / 498,533; gültig 0,8–5,0; auf GFZ 2,0 = 1,0000 basiert",
+  "gfz_d_formel": "K(GFZ) = 0,2047·GFZ + 0,181; gültig 2,0–7,0; auf GFZ 4,0 = 1,0000 basiert",
+  "wohnlagen_datensatz": "Wohnlagen nach Adressen zum Berliner Mietspiegel 2024"
+ },
+ "sachwertfaktor": {
+  "konstante": 1.398,
+  "koeff_sachwert": -2.8e-07,
+  "koeff_tag": -0.0002759,
+  "tage": 1096,
+  "gruppe_1": 0,
+  "gruppe_2": -0.062,
+  "gruppe_3": -0.105,
+  "bauerrichtungsvertrag_standard": "nicht_beurkundet",
+  "wohnlage_sehr_gut_wie": "gut"
+ },
+ "liegenschaftszins": {
+  "konstante": 0.644,
+  "koeff_miete": 0.132,
+  "koeff_tag": 0.0013304,
+  "tage": 1096,
+  "zuschlag_suedost": 0,
+  "zuschlag_suedwest": 0,
+  "zuschlag_nord": 0,
+  "zuschlag_city": 0.167,
+  "zuschlag_ost": 0.167,
+  "zuschlag_west": 0.167,
+  "altbezirk_reinickendorf": 0.2,
+  "altbezirk_mitte": -0.6,
+  "altbezirk_charlottenburg": -0.3,
+  "baujahr_1973_1990_west": 0.3,
+  "gewerbe_je_prozentpunkt": 0.008,
+  "marktanpassungsfaktor": 1
+ },
+ "blaetter": {
+  "Modellparameter": [
+   {
+    "Schlüssel": "stichtag_faktoren",
+    "Wert": "2024-12-31",
+    "Einheit": "Datum",
+    "Beschreibung": "Wertermittlungsstichtag der Sachwertfaktoren und Liegenschaftszinssätze",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 1; Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 1"
+   },
+   {
+    "Schlüssel": "brw_stichtag_modell",
+    "Wert": "2024-01-01",
+    "Einheit": "Datum",
+    "Beschreibung": "Bodenrichtwert, mit dem gerechnet wird (Modellkonformität)",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 4; Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 4"
+   },
+   {
+    "Schlüssel": "brw_stichtag_aktuell",
+    "Wert": "2026-01-01",
+    "Einheit": "Datum",
+    "Beschreibung": "Aktueller Bodenrichtwert, nur zur Anzeige",
+    "Quelle/Stand": "Geoportal Berlin, WFS brw2026"
+   },
+   {
+    "Schlüssel": "gnd_wohnen",
+    "Wert": 80,
+    "Einheit": "Jahre",
+    "Beschreibung": "Gesamtnutzungsdauer Ein- und Zweifamilienhäuser, Mehrfamilienhäuser",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3; ImmoWertV Anlage 1"
+   },
+   {
+    "Schlüssel": "regionalfaktor",
+    "Wert": 1,
+    "Einheit": "Faktor",
+    "Beschreibung": "Regionalfaktor Berlin",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3"
+   },
+   {
+    "Schlüssel": "nhk_standardstufe",
+    "Wert": 4,
+    "Einheit": "Stufe",
+    "Beschreibung": "Feste Standardstufe der NHK 2010 im Berliner Modell",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3"
+   },
+   {
+    "Schlüssel": "nhk_baunebenkosten_prozent",
+    "Wert": 17,
+    "Einheit": "%",
+    "Beschreibung": "In den NHK 2010 für Ein-/Zweifamilienhäuser enthaltene Baunebenkosten (nur Information)",
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.) Fußnote 1"
+   },
+   {
+    "Schlüssel": "zfh_korrekturfaktor",
+    "Wert": 1,
+    "Einheit": "Faktor",
+    "Beschreibung": "Anlage 4 nennt 1,05 für freistehende Zweifamilienhäuser; Berlin: keine Korrektur",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3; ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.) Fußnote 2"
+   },
+   {
+    "Schlüssel": "bpi_quartal",
+    "Wert": "IV. Quartal 2024",
+    "Einheit": "Text",
+    "Beschreibung": "Baupreisindex Neubau Wohngebäude einschl. Umsatzsteuer, Destatis",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 4"
+   },
+   {
+    "Schlüssel": "bpi_2021",
+    "Wert": 130.8,
+    "Einheit": "Index 2021=100",
+    "Beschreibung": "Veröffentlichter Indexwert",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 4; Destatis GENESIS 61261-0002"
+   },
+   {
+    "Schlüssel": "bpi_umbasierung",
+    "Wert": 1.4124,
+    "Einheit": "Faktor",
+    "Beschreibung": "Umbasierung von 2021=100 auf 2010=100",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 4"
+   },
+   {
+    "Schlüssel": "bpi_2010",
+    "Wert": 184.7,
+    "Einheit": "Index 2010=100",
+    "Beschreibung": "Anzuwendender Baupreisindex (bpi_2021 × bpi_umbasierung, gerundet wie veröffentlicht)",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 4"
+   },
+   {
+    "Schlüssel": "swf_rundung_nachkommastellen",
+    "Wert": 2,
+    "Einheit": "Stellen",
+    "Beschreibung": "Sachwertfaktor wird wie in den Tabellen gerundet angewendet",
+    "Quelle/Stand": "Annahme BIB – bitte prüfen (MODELL-BERLIN.md Abschnitt 7)"
+   },
+   {
+    "Schlüssel": "lz_rundung_nachkommastellen",
+    "Wert": 1,
+    "Einheit": "Stellen",
+    "Beschreibung": "Liegenschaftszinssatz wird wie in den Tabellen gerundet angewendet",
+    "Quelle/Stand": "Annahme BIB – bitte prüfen (MODELL-BERLIN.md Abschnitt 7)"
+   },
+   {
+    "Schlüssel": "barwertfaktor_nachkommastellen",
+    "Wert": 4,
+    "Einheit": "Stellen",
+    "Beschreibung": "Rundung Barwert-/Kapitalisierungsfaktor",
+    "Quelle/Stand": "Wertermittlungspraxis; Referenzfall A"
+   },
+   {
+    "Schlüssel": "alterswertminderung_nachkommastellen",
+    "Wert": 4,
+    "Einheit": "Stellen",
+    "Beschreibung": "Rundung Alterswertminderungsfaktor",
+    "Quelle/Stand": "Wertermittlungspraxis; Referenzfall A"
+   },
+   {
+    "Schlüssel": "ergebnis_rundung_euro",
+    "Wert": 1000,
+    "Einheit": "€",
+    "Beschreibung": "Endergebnis auf volle 1.000 € runden",
+    "Quelle/Stand": "Wertermittlungspraxis; Referenzfall A"
+   },
+   {
+    "Schlüssel": "spanne_prozent",
+    "Wert": 15,
+    "Einheit": "%",
+    "Beschreibung": "Breite der angezeigten Wertspanne (±)",
+    "Quelle/Stand": "Annahme BIB – bitte prüfen (MODELL-BERLIN.md Abschnitt 7); Streuung Kaufpreis/Sachwert 0,635–1,627 lt. Sachwertfaktoren 2025 (Stand 04.02.2026) Tabelle 2"
+   },
+   {
+    "Schlüssel": "bgf_faktor_unterkellert",
+    "Wert": 1.55,
+    "Einheit": "Faktor",
+    "Beschreibung": "Schätzung BGF = Wohnfläche × Faktor, wenn nur die Wohnfläche bekannt ist (unterkellert)",
+    "Quelle/Stand": "Annahme BIB – bitte prüfen (MODELL-BERLIN.md Abschnitt 7)"
+   },
+   {
+    "Schlüssel": "bgf_faktor_nicht_unterkellert",
+    "Wert": 1.3,
+    "Einheit": "Faktor",
+    "Beschreibung": "Schätzung BGF = Wohnfläche × Faktor (nicht unterkellert)",
+    "Quelle/Stand": "Annahme BIB – bitte prüfen (MODELL-BERLIN.md Abschnitt 7)"
+   },
+   {
+    "Schlüssel": "ertragswert_mindest_mieteinheiten",
+    "Wert": 4,
+    "Einheit": "Anzahl",
+    "Beschreibung": "Liegenschaftszinssätze gelten ab vier Mieteinheiten",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 1"
+   },
+   {
+    "Schlüssel": "ertragswert_max_gewerbeanteil_prozent",
+    "Wert": 80,
+    "Einheit": "%",
+    "Beschreibung": "Gewerblicher Anteil am Nettojahresrohertrag höchstens",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 1"
+   },
+   {
+    "Schlüssel": "ertragswert_baujahr_min",
+    "Wert": 1865,
+    "Einheit": "Jahr",
+    "Beschreibung": "Jüngstes Baujahr in der Ableitung",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 2"
+   },
+   {
+    "Schlüssel": "gfz_w_formel",
+    "Wert": "K(GFZ) = (−25,191 + 311,62·GFZ − 24,879·GFZ²) / 498,533; gültig 0,8–5,0; auf GFZ 2,0 = 1,0000 basiert",
+    "Einheit": "Text",
+    "Beschreibung": "Hintergrund der Tabelle Wohn-04; der Rechner nutzt die Tabelle mit linearer Zwischenwertbildung",
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 2"
+   },
+   {
+    "Schlüssel": "gfz_d_formel",
+    "Wert": "K(GFZ) = 0,2047·GFZ + 0,181; gültig 2,0–7,0; auf GFZ 4,0 = 1,0000 basiert",
+    "Einheit": "Text",
+    "Beschreibung": "Hintergrund der Tabelle Dienst-04",
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 2"
+   },
+   {
+    "Schlüssel": "wohnlagen_datensatz",
+    "Wert": "Wohnlagen nach Adressen zum Berliner Mietspiegel 2024",
+    "Einheit": "Text",
+    "Beschreibung": "Quelle der automatischen Wohnlage je Adresse",
+    "Quelle/Stand": "Geoportal Berlin, WFS wohnlagenadr2024"
+   }
+  ],
+  "Sachwertfaktoren": [
+   {
+    "Schlüssel": "konstante",
+    "Wert": 1.398,
+    "Beschreibung": "Konstante der Regressionsformel",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 8"
+   },
+   {
+    "Schlüssel": "koeff_sachwert",
+    "Wert": -2.8e-07,
+    "Beschreibung": "je € vorläufiger Sachwert des Grundstücks",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 8"
+   },
+   {
+    "Schlüssel": "koeff_tag",
+    "Wert": -0.0002759,
+    "Beschreibung": "je Tag seit 31.12.2021",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 8"
+   },
+   {
+    "Schlüssel": "tage",
+    "Wert": 1096,
+    "Beschreibung": "Tage vom 31.12.2021 bis 31.12.2024 (fest; keine Fortschreibung)",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 8"
+   },
+   {
+    "Schlüssel": "gruppe_1",
+    "Wert": 0,
+    "Beschreibung": "Treptow, Lichtenberg, Charlottenburg, Spandau, Wilmersdorf, Zehlendorf, Steglitz, Pankow",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 5, 8"
+   },
+   {
+    "Schlüssel": "gruppe_2",
+    "Wert": -0.062,
+    "Beschreibung": "Tempelhof, Neukölln, Hohenschönhausen",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 5, 8"
+   },
+   {
+    "Schlüssel": "gruppe_3",
+    "Wert": -0.105,
+    "Beschreibung": "Köpenick, Weißensee, Reinickendorf, Marzahn, Hellersdorf",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 5, 9"
+   },
+   {
+    "Schlüssel": "bauerrichtungsvertrag_standard",
+    "Wert": "nicht_beurkundet",
+    "Beschreibung": "Annahme für Bestandsobjekte",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 10; Annahme BIB – bitte prüfen (MODELL-BERLIN.md Abschnitt 7)"
+   },
+   {
+    "Schlüssel": "wohnlage_sehr_gut_wie",
+    "Wert": "gut",
+    "Beschreibung": "Für „sehr gut“ ist keine Korrektur veröffentlicht",
+    "Quelle/Stand": "Annahme BIB – bitte prüfen (MODELL-BERLIN.md Abschnitt 7)"
+   }
+  ],
+  "SWF_Korrekturen": [
+   {
+    "Merkmal": "baujahresgruppe",
+    "Ausprägung": "bis 1919",
+    "von": null,
+    "bis": 1919,
+    "Korrektur": 0,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9"
+   },
+   {
+    "Merkmal": "baujahresgruppe",
+    "Ausprägung": "1920–1948",
+    "von": 1920,
+    "bis": 1948,
+    "Korrektur": -0.061,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9"
+   },
+   {
+    "Merkmal": "baujahresgruppe",
+    "Ausprägung": "1949–1970",
+    "von": 1949,
+    "bis": 1970,
+    "Korrektur": -0.123,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9"
+   },
+   {
+    "Merkmal": "baujahresgruppe",
+    "Ausprägung": "1971–1990",
+    "von": 1971,
+    "bis": 1990,
+    "Korrektur": 0,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9"
+   },
+   {
+    "Merkmal": "baujahresgruppe",
+    "Ausprägung": "1991–2009",
+    "von": 1991,
+    "bis": 2009,
+    "Korrektur": 0.106,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9"
+   },
+   {
+    "Merkmal": "baujahresgruppe",
+    "Ausprägung": "2010–2019",
+    "von": 2010,
+    "bis": 2019,
+    "Korrektur": 0,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9"
+   },
+   {
+    "Merkmal": "baujahresgruppe",
+    "Ausprägung": "2020–heute",
+    "von": 2020,
+    "bis": null,
+    "Korrektur": 0,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9"
+   },
+   {
+    "Merkmal": "gebaeudeart",
+    "Ausprägung": "freistehend",
+    "von": null,
+    "bis": null,
+    "Korrektur": 0,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "gebaeudeart",
+    "Ausprägung": "doppelhaushaelfte",
+    "von": null,
+    "bis": null,
+    "Korrektur": 0.084,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "gebaeudeart",
+    "Ausprägung": "reihenendhaus",
+    "von": null,
+    "bis": null,
+    "Korrektur": 0.201,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "gebaeudeart",
+    "Ausprägung": "reihenmittelhaus",
+    "von": null,
+    "bis": null,
+    "Korrektur": 0.341,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "bauzustand",
+    "Ausprägung": "gut",
+    "von": null,
+    "bis": null,
+    "Korrektur": 0.179,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "bauzustand",
+    "Ausprägung": "normal",
+    "von": null,
+    "bis": null,
+    "Korrektur": 0,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "bauzustand",
+    "Ausprägung": "schlecht",
+    "von": null,
+    "bis": null,
+    "Korrektur": -0.141,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "konstruktion",
+    "Ausprägung": "massiv",
+    "von": null,
+    "bis": null,
+    "Korrektur": 0,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "konstruktion",
+    "Ausprägung": "fertighaus_massiv",
+    "von": null,
+    "bis": null,
+    "Korrektur": 0,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "konstruktion",
+    "Ausprägung": "fertighaus_holz",
+    "von": null,
+    "bis": null,
+    "Korrektur": -0.072,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "wohnlage",
+    "Ausprägung": "einfach",
+    "von": null,
+    "bis": null,
+    "Korrektur": -0.043,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "wohnlage",
+    "Ausprägung": "mittel",
+    "von": null,
+    "bis": null,
+    "Korrektur": 0,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "wohnlage",
+    "Ausprägung": "gut",
+    "von": null,
+    "bis": null,
+    "Korrektur": 0.075,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "bauerrichtungsvertrag",
+    "Ausprägung": "beurkundet",
+    "von": null,
+    "bis": null,
+    "Korrektur": -0.081,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "bauerrichtungsvertrag",
+    "Ausprägung": "nicht_beurkundet",
+    "von": null,
+    "bis": null,
+    "Korrektur": 0,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 9–10"
+   },
+   {
+    "Merkmal": "wohnlage",
+    "Ausprägung": "sehr_gut",
+    "von": null,
+    "bis": null,
+    "Korrektur": 0.075,
+    "Quelle/Stand": "Annahme BIB – bitte prüfen (MODELL-BERLIN.md Abschnitt 7) – wie „gut“"
+   }
+  ],
+  "Liegenschaftszinssaetze": [
+   {
+    "Schlüssel": "konstante",
+    "Wert": 0.644,
+    "Beschreibung": "Konstante der Regressionsformel (Ergebnis in %)",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 12"
+   },
+   {
+    "Schlüssel": "koeff_miete",
+    "Wert": 0.132,
+    "Beschreibung": "je €/m² durchschnittliche monatliche Objektkaltmiete (Wohn-/Nutzfläche)",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 12"
+   },
+   {
+    "Schlüssel": "koeff_tag",
+    "Wert": 0.0013304,
+    "Beschreibung": "je Tag seit 01.01.2022",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 12"
+   },
+   {
+    "Schlüssel": "tage",
+    "Wert": 1096,
+    "Beschreibung": "Tage vom 01.01.2022 bis 31.12.2024 (fest; keine Fortschreibung)",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 12"
+   },
+   {
+    "Schlüssel": "zuschlag_suedost",
+    "Wert": 0,
+    "Beschreibung": "Gebietsgruppe Südost",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 12"
+   },
+   {
+    "Schlüssel": "zuschlag_suedwest",
+    "Wert": 0,
+    "Beschreibung": "Gebietsgruppe Südwest",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 13"
+   },
+   {
+    "Schlüssel": "zuschlag_nord",
+    "Wert": 0,
+    "Beschreibung": "Gebietsgruppe Nord",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 13"
+   },
+   {
+    "Schlüssel": "zuschlag_city",
+    "Wert": 0.167,
+    "Beschreibung": "Gebietsgruppe City",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 14"
+   },
+   {
+    "Schlüssel": "zuschlag_ost",
+    "Wert": 0.167,
+    "Beschreibung": "Gebietsgruppe Ost",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 14"
+   },
+   {
+    "Schlüssel": "zuschlag_west",
+    "Wert": 0.167,
+    "Beschreibung": "Gebietsgruppe West",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 15"
+   },
+   {
+    "Schlüssel": "altbezirk_reinickendorf",
+    "Wert": 0.2,
+    "Beschreibung": "Korrektur Altbezirk Reinickendorf (Gebietsgruppe Nord)",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 13"
+   },
+   {
+    "Schlüssel": "altbezirk_mitte",
+    "Wert": -0.6,
+    "Beschreibung": "Korrektur Altbezirk Mitte (Gebietsgruppe City)",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 14"
+   },
+   {
+    "Schlüssel": "altbezirk_charlottenburg",
+    "Wert": -0.3,
+    "Beschreibung": "Korrektur Altbezirk Charlottenburg (Gebietsgruppe City)",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 14"
+   },
+   {
+    "Schlüssel": "baujahr_1973_1990_west",
+    "Wert": 0.3,
+    "Beschreibung": "Korrektur Baujahre 1973–1990 im Westteil (Stadtlage West)",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 15"
+   },
+   {
+    "Schlüssel": "gewerbe_je_prozentpunkt",
+    "Wert": 0.008,
+    "Beschreibung": "Korrektur je Prozentpunkt gewerblicher Anteil am Nettojahresrohertrag (+0,08 je 10 %)",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 15"
+   },
+   {
+    "Schlüssel": "marktanpassungsfaktor",
+    "Wert": 1,
+    "Beschreibung": "Die Zinssätze sind aus Kaufpreisen abgeleitet; keine weitere Marktanpassung",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 1 (Nr. 4)"
+   }
+  ],
+  "Bewirtschaftungskosten": [
+   {
+    "Position": "instandhaltung",
+    "Nutzung": "wohnen",
+    "Wert": 13.8,
+    "Einheit": "€ je m² Wohnfläche und Jahr",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 9"
+   },
+   {
+    "Position": "instandhaltung",
+    "Nutzung": "garage",
+    "Wert": 104,
+    "Einheit": "€ je Platz und Jahr",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 9"
+   },
+   {
+    "Position": "instandhaltung",
+    "Nutzung": "stellplatz",
+    "Wert": 52,
+    "Einheit": "€ je Platz und Jahr (offener Wagenabstellplatz)",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 9"
+   },
+   {
+    "Position": "instandhaltung",
+    "Nutzung": "gewerbe",
+    "Wert": 100,
+    "Einheit": "% des Wohnansatzes je m² Nutzfläche (Büro, Praxis, Laden)",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 9; ImmoWertV Anlage 3"
+   },
+   {
+    "Position": "instandhaltung",
+    "Nutzung": "nebennutzung",
+    "Wert": 30,
+    "Einheit": "% des Wohnansatzes je m² (Lager, Werkstatt im Keller)",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 9; ImmoWertV Anlage 3"
+   },
+   {
+    "Position": "verwaltung",
+    "Nutzung": "wohnen",
+    "Wert": 351,
+    "Einheit": "€ je Wohnung und Jahr",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 9"
+   },
+   {
+    "Position": "verwaltung",
+    "Nutzung": "gewerbe",
+    "Wert": 3,
+    "Einheit": "% des Mietertrags",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 9"
+   },
+   {
+    "Position": "verwaltung",
+    "Nutzung": "sonstiges",
+    "Wert": 3,
+    "Einheit": "% des Mietertrags (Stellplätze, Garagen)",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 9"
+   },
+   {
+    "Position": "mietausfallwagnis",
+    "Nutzung": "wohnen",
+    "Wert": 2,
+    "Einheit": "% der Nettokaltmiete",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 9"
+   },
+   {
+    "Position": "mietausfallwagnis",
+    "Nutzung": "gewerbe",
+    "Wert": 4,
+    "Einheit": "% der Nettokaltmiete",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 9"
+   },
+   {
+    "Position": "mietausfallwagnis",
+    "Nutzung": "sonstiges",
+    "Wert": 4,
+    "Einheit": "% der Nettokaltmiete",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 9"
+   },
+   {
+    "Position": "betriebskosten",
+    "Nutzung": "alle",
+    "Wert": 0,
+    "Einheit": "€ – kein Ansatz im Berliner Modell",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 8–9 (keine Position)"
+   },
+   {
+    "Position": "indexierung",
+    "Nutzung": "alle",
+    "Wert": "VPI (2020=100): Oktober 2001 = 77,1 → Oktober 2023 = 117,8",
+    "Einheit": "Text",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 9; Destatis GENESIS 61111-0002"
+   }
+  ],
+  "RND": [
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baujahr",
+    "von": null,
+    "bis": 1948,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 25,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baualter",
+    "von": 0,
+    "bis": 2,
+    "gut": 80,
+    "normal": 75,
+    "schlecht": 70,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3–4"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baualter",
+    "von": 3,
+    "bis": 7,
+    "gut": 75,
+    "normal": 70,
+    "schlecht": 65,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3–4"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baualter",
+    "von": 8,
+    "bis": 12,
+    "gut": 70,
+    "normal": 65,
+    "schlecht": 60,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3–4"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baualter",
+    "von": 13,
+    "bis": 17,
+    "gut": 65,
+    "normal": 60,
+    "schlecht": 55,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3–4"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baualter",
+    "von": 18,
+    "bis": 22,
+    "gut": 60,
+    "normal": 55,
+    "schlecht": 50,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3–4"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baualter",
+    "von": 23,
+    "bis": 27,
+    "gut": 55,
+    "normal": 50,
+    "schlecht": 45,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3–4"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baualter",
+    "von": 28,
+    "bis": 32,
+    "gut": 55,
+    "normal": 45,
+    "schlecht": 40,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3–4"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baualter",
+    "von": 33,
+    "bis": 37,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 35,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3–4"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baualter",
+    "von": 38,
+    "bis": 42,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 30,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3–4"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baualter",
+    "von": 43,
+    "bis": 47,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 25,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3–4"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baualter",
+    "von": 48,
+    "bis": 52,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 25,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3–4"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baualter",
+    "von": 53,
+    "bis": 57,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 25,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3–4"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Regel": "baualter",
+    "von": 58,
+    "bis": null,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 25,
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 3–4"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baujahr",
+    "von": null,
+    "bis": 1948,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 25,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 10 (Tabelle 2)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "abschlag_altbau_teilweise",
+    "von": null,
+    "bis": 1918,
+    "gut": -5,
+    "normal": -5,
+    "schlecht": -5,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 10 (Tabelle 3): vollständig mit Zentralheizung oder Bädern"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "abschlag_altbau_ohne",
+    "von": null,
+    "bis": 1918,
+    "gut": -10,
+    "normal": -10,
+    "schlecht": -10,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 10 (Tabelle 3): weder Zentralheizung noch Bäder vollständig"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "abschlag_zwischenkrieg_ohne_zh",
+    "von": 1919,
+    "bis": 1948,
+    "gut": -5,
+    "normal": -5,
+    "schlecht": -5,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 10 (Tabelle 4): nicht vollständig mit Zentralheizung"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baualter",
+    "von": 0,
+    "bis": 2,
+    "gut": 80,
+    "normal": null,
+    "schlecht": null,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 11 (Tabelle 5)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baualter",
+    "von": 3,
+    "bis": 7,
+    "gut": 75,
+    "normal": 70,
+    "schlecht": null,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 11 (Tabelle 5)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baualter",
+    "von": 8,
+    "bis": 12,
+    "gut": 70,
+    "normal": 65,
+    "schlecht": 60,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 11 (Tabelle 5)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baualter",
+    "von": 13,
+    "bis": 17,
+    "gut": 65,
+    "normal": 60,
+    "schlecht": 55,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 11 (Tabelle 5)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baualter",
+    "von": 18,
+    "bis": 22,
+    "gut": 60,
+    "normal": 55,
+    "schlecht": 50,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 11 (Tabelle 5)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baualter",
+    "von": 23,
+    "bis": 27,
+    "gut": 55,
+    "normal": 50,
+    "schlecht": 45,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 11 (Tabelle 5)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baualter",
+    "von": 28,
+    "bis": 32,
+    "gut": 55,
+    "normal": 45,
+    "schlecht": 40,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 11 (Tabelle 5)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baualter",
+    "von": 33,
+    "bis": 37,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 35,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 11 (Tabelle 5)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baualter",
+    "von": 38,
+    "bis": 42,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 30,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 11 (Tabelle 5)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baualter",
+    "von": 43,
+    "bis": 47,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 25,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 11 (Tabelle 5)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baualter",
+    "von": 48,
+    "bis": 52,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 25,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 11 (Tabelle 5)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baualter",
+    "von": 53,
+    "bis": 57,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 25,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 11 (Tabelle 5)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Regel": "baualter",
+    "von": 58,
+    "bis": null,
+    "gut": 55,
+    "normal": 40,
+    "schlecht": 25,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 11 (Tabelle 5)"
+   }
+  ],
+  "NHK2010": [
+   {
+    "Typ": "1.01",
+    "Gebäudestellung": "freistehend",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG",
+    "Dachgeschoss": "voll_ausgebaut",
+    "Stufe_1": 655,
+    "Stufe_2": 725,
+    "Stufe_3": 835,
+    "Stufe_4": 1005,
+    "Stufe_5": 1260,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "2.01",
+    "Gebäudestellung": "doppelhaus_reihenend",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG",
+    "Dachgeschoss": "voll_ausgebaut",
+    "Stufe_1": 615,
+    "Stufe_2": 685,
+    "Stufe_3": 785,
+    "Stufe_4": 945,
+    "Stufe_5": 1180,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "3.01",
+    "Gebäudestellung": "reihenmittel",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG",
+    "Dachgeschoss": "voll_ausgebaut",
+    "Stufe_1": 575,
+    "Stufe_2": 640,
+    "Stufe_3": 735,
+    "Stufe_4": 885,
+    "Stufe_5": 1105,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "1.02",
+    "Gebäudestellung": "freistehend",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG",
+    "Dachgeschoss": "nicht_ausgebaut",
+    "Stufe_1": 545,
+    "Stufe_2": 605,
+    "Stufe_3": 695,
+    "Stufe_4": 840,
+    "Stufe_5": 1050,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "2.02",
+    "Gebäudestellung": "doppelhaus_reihenend",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG",
+    "Dachgeschoss": "nicht_ausgebaut",
+    "Stufe_1": 515,
+    "Stufe_2": 570,
+    "Stufe_3": 655,
+    "Stufe_4": 790,
+    "Stufe_5": 985,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "3.02",
+    "Gebäudestellung": "reihenmittel",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG",
+    "Dachgeschoss": "nicht_ausgebaut",
+    "Stufe_1": 480,
+    "Stufe_2": 535,
+    "Stufe_3": 615,
+    "Stufe_4": 740,
+    "Stufe_5": 925,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "1.03",
+    "Gebäudestellung": "freistehend",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG",
+    "Dachgeschoss": "flachdach",
+    "Stufe_1": 705,
+    "Stufe_2": 785,
+    "Stufe_3": 900,
+    "Stufe_4": 1085,
+    "Stufe_5": 1360,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "2.03",
+    "Gebäudestellung": "doppelhaus_reihenend",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG",
+    "Dachgeschoss": "flachdach",
+    "Stufe_1": 665,
+    "Stufe_2": 735,
+    "Stufe_3": 845,
+    "Stufe_4": 1020,
+    "Stufe_5": 1275,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "3.03",
+    "Gebäudestellung": "reihenmittel",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG",
+    "Dachgeschoss": "flachdach",
+    "Stufe_1": 620,
+    "Stufe_2": 690,
+    "Stufe_3": 795,
+    "Stufe_4": 955,
+    "Stufe_5": 1195,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "1.11",
+    "Gebäudestellung": "freistehend",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG+OG",
+    "Dachgeschoss": "voll_ausgebaut",
+    "Stufe_1": 655,
+    "Stufe_2": 725,
+    "Stufe_3": 835,
+    "Stufe_4": 1005,
+    "Stufe_5": 1260,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "2.11",
+    "Gebäudestellung": "doppelhaus_reihenend",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG+OG",
+    "Dachgeschoss": "voll_ausgebaut",
+    "Stufe_1": 615,
+    "Stufe_2": 685,
+    "Stufe_3": 785,
+    "Stufe_4": 945,
+    "Stufe_5": 1180,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "3.11",
+    "Gebäudestellung": "reihenmittel",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG+OG",
+    "Dachgeschoss": "voll_ausgebaut",
+    "Stufe_1": 575,
+    "Stufe_2": 640,
+    "Stufe_3": 735,
+    "Stufe_4": 885,
+    "Stufe_5": 1105,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "1.12",
+    "Gebäudestellung": "freistehend",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG+OG",
+    "Dachgeschoss": "nicht_ausgebaut",
+    "Stufe_1": 570,
+    "Stufe_2": 635,
+    "Stufe_3": 730,
+    "Stufe_4": 880,
+    "Stufe_5": 1100,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "2.12",
+    "Gebäudestellung": "doppelhaus_reihenend",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG+OG",
+    "Dachgeschoss": "nicht_ausgebaut",
+    "Stufe_1": 535,
+    "Stufe_2": 595,
+    "Stufe_3": 685,
+    "Stufe_4": 825,
+    "Stufe_5": 1035,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "3.12",
+    "Gebäudestellung": "reihenmittel",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG+OG",
+    "Dachgeschoss": "nicht_ausgebaut",
+    "Stufe_1": 505,
+    "Stufe_2": 560,
+    "Stufe_3": 640,
+    "Stufe_4": 775,
+    "Stufe_5": 965,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "1.13",
+    "Gebäudestellung": "freistehend",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG+OG",
+    "Dachgeschoss": "flachdach",
+    "Stufe_1": 665,
+    "Stufe_2": 740,
+    "Stufe_3": 850,
+    "Stufe_4": 1025,
+    "Stufe_5": 1285,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "2.13",
+    "Gebäudestellung": "doppelhaus_reihenend",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG+OG",
+    "Dachgeschoss": "flachdach",
+    "Stufe_1": 625,
+    "Stufe_2": 695,
+    "Stufe_3": 800,
+    "Stufe_4": 965,
+    "Stufe_5": 1205,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "3.13",
+    "Gebäudestellung": "reihenmittel",
+    "Keller": "unterkellert",
+    "Geschosse": "KG+EG+OG",
+    "Dachgeschoss": "flachdach",
+    "Stufe_1": 585,
+    "Stufe_2": 650,
+    "Stufe_3": 750,
+    "Stufe_4": 905,
+    "Stufe_5": 1130,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "1.21",
+    "Gebäudestellung": "freistehend",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG",
+    "Dachgeschoss": "voll_ausgebaut",
+    "Stufe_1": 790,
+    "Stufe_2": 875,
+    "Stufe_3": 1005,
+    "Stufe_4": 1215,
+    "Stufe_5": 1515,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "2.21",
+    "Gebäudestellung": "doppelhaus_reihenend",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG",
+    "Dachgeschoss": "voll_ausgebaut",
+    "Stufe_1": 740,
+    "Stufe_2": 825,
+    "Stufe_3": 945,
+    "Stufe_4": 1140,
+    "Stufe_5": 1425,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "3.21",
+    "Gebäudestellung": "reihenmittel",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG",
+    "Dachgeschoss": "voll_ausgebaut",
+    "Stufe_1": 695,
+    "Stufe_2": 770,
+    "Stufe_3": 885,
+    "Stufe_4": 1065,
+    "Stufe_5": 1335,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "1.22",
+    "Gebäudestellung": "freistehend",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG",
+    "Dachgeschoss": "nicht_ausgebaut",
+    "Stufe_1": 585,
+    "Stufe_2": 650,
+    "Stufe_3": 745,
+    "Stufe_4": 900,
+    "Stufe_5": 1125,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "2.22",
+    "Gebäudestellung": "doppelhaus_reihenend",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG",
+    "Dachgeschoss": "nicht_ausgebaut",
+    "Stufe_1": 550,
+    "Stufe_2": 610,
+    "Stufe_3": 700,
+    "Stufe_4": 845,
+    "Stufe_5": 1055,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "3.22",
+    "Gebäudestellung": "reihenmittel",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG",
+    "Dachgeschoss": "nicht_ausgebaut",
+    "Stufe_1": 515,
+    "Stufe_2": 570,
+    "Stufe_3": 655,
+    "Stufe_4": 790,
+    "Stufe_5": 990,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "1.23",
+    "Gebäudestellung": "freistehend",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG",
+    "Dachgeschoss": "flachdach",
+    "Stufe_1": 920,
+    "Stufe_2": 1025,
+    "Stufe_3": 1180,
+    "Stufe_4": 1420,
+    "Stufe_5": 1775,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "2.23",
+    "Gebäudestellung": "doppelhaus_reihenend",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG",
+    "Dachgeschoss": "flachdach",
+    "Stufe_1": 865,
+    "Stufe_2": 965,
+    "Stufe_3": 1105,
+    "Stufe_4": 1335,
+    "Stufe_5": 1670,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "3.23",
+    "Gebäudestellung": "reihenmittel",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG",
+    "Dachgeschoss": "flachdach",
+    "Stufe_1": 810,
+    "Stufe_2": 900,
+    "Stufe_3": 1035,
+    "Stufe_4": 1250,
+    "Stufe_5": 1560,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "1.31",
+    "Gebäudestellung": "freistehend",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG+OG",
+    "Dachgeschoss": "voll_ausgebaut",
+    "Stufe_1": 720,
+    "Stufe_2": 800,
+    "Stufe_3": 920,
+    "Stufe_4": 1105,
+    "Stufe_5": 1385,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "2.31",
+    "Gebäudestellung": "doppelhaus_reihenend",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG+OG",
+    "Dachgeschoss": "voll_ausgebaut",
+    "Stufe_1": 675,
+    "Stufe_2": 750,
+    "Stufe_3": 865,
+    "Stufe_4": 1040,
+    "Stufe_5": 1300,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "3.31",
+    "Gebäudestellung": "reihenmittel",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG+OG",
+    "Dachgeschoss": "voll_ausgebaut",
+    "Stufe_1": 635,
+    "Stufe_2": 705,
+    "Stufe_3": 810,
+    "Stufe_4": 975,
+    "Stufe_5": 1215,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "1.32",
+    "Gebäudestellung": "freistehend",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG+OG",
+    "Dachgeschoss": "nicht_ausgebaut",
+    "Stufe_1": 620,
+    "Stufe_2": 690,
+    "Stufe_3": 790,
+    "Stufe_4": 955,
+    "Stufe_5": 1190,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "2.32",
+    "Gebäudestellung": "doppelhaus_reihenend",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG+OG",
+    "Dachgeschoss": "nicht_ausgebaut",
+    "Stufe_1": 580,
+    "Stufe_2": 645,
+    "Stufe_3": 745,
+    "Stufe_4": 895,
+    "Stufe_5": 1120,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "3.32",
+    "Gebäudestellung": "reihenmittel",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG+OG",
+    "Dachgeschoss": "nicht_ausgebaut",
+    "Stufe_1": 545,
+    "Stufe_2": 605,
+    "Stufe_3": 695,
+    "Stufe_4": 840,
+    "Stufe_5": 1050,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "1.33",
+    "Gebäudestellung": "freistehend",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG+OG",
+    "Dachgeschoss": "flachdach",
+    "Stufe_1": 785,
+    "Stufe_2": 870,
+    "Stufe_3": 1000,
+    "Stufe_4": 1205,
+    "Stufe_5": 1510,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "2.33",
+    "Gebäudestellung": "doppelhaus_reihenend",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG+OG",
+    "Dachgeschoss": "flachdach",
+    "Stufe_1": 735,
+    "Stufe_2": 820,
+    "Stufe_3": 940,
+    "Stufe_4": 1135,
+    "Stufe_5": 1415,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   },
+   {
+    "Typ": "3.33",
+    "Gebäudestellung": "reihenmittel",
+    "Keller": "nicht_unterkellert",
+    "Geschosse": "EG+OG",
+    "Dachgeschoss": "flachdach",
+    "Stufe_1": 690,
+    "Stufe_2": 765,
+    "Stufe_3": 880,
+    "Stufe_4": 1060,
+    "Stufe_5": 1325,
+    "Quelle/Stand": "ImmoWertV Anlage 4 (BGBl. I 2021 S. 2824 ff.), Tabelle 1 (Grafik), einschl. 17 % Baunebenkosten"
+   }
+  ],
+  "GFZ_Koeffizienten": [
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 0.8,
+    "Koeffizient": 0.4176,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 0.9,
+    "Koeffizient": 0.4716,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 1,
+    "Koeffizient": 0.5246,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 1.1,
+    "Koeffizient": 0.5767,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 1.2,
+    "Koeffizient": 0.6277,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 1.3,
+    "Koeffizient": 0.6777,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 1.4,
+    "Koeffizient": 0.7268,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 1.5,
+    "Koeffizient": 0.7748,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 1.6,
+    "Koeffizient": 0.8218,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 1.7,
+    "Koeffizient": 0.8679,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 1.8,
+    "Koeffizient": 0.9129,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 1.9,
+    "Koeffizient": 0.957,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 2,
+    "Koeffizient": 1,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 2.1,
+    "Koeffizient": 1.042,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 2.2,
+    "Koeffizient": 1.0831,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 2.3,
+    "Koeffizient": 1.1231,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 2.4,
+    "Koeffizient": 1.1622,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 2.5,
+    "Koeffizient": 1.2003,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 2.6,
+    "Koeffizient": 1.2373,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 2.7,
+    "Koeffizient": 1.2734,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 2.8,
+    "Koeffizient": 1.3084,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 2.9,
+    "Koeffizient": 1.3425,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 3,
+    "Koeffizient": 1.3756,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 3.1,
+    "Koeffizient": 1.4076,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 3.2,
+    "Koeffizient": 1.4387,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 3.3,
+    "Koeffizient": 1.4688,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 3.4,
+    "Koeffizient": 1.4978,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 3.5,
+    "Koeffizient": 1.5259,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 3.6,
+    "Koeffizient": 1.553,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 3.7,
+    "Koeffizient": 1.5791,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 3.8,
+    "Koeffizient": 1.6041,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 3.9,
+    "Koeffizient": 1.6282,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 4,
+    "Koeffizient": 1.6513,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 4.1,
+    "Koeffizient": 1.6734,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 4.2,
+    "Koeffizient": 1.6945,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 4.3,
+    "Koeffizient": 1.7146,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 4.4,
+    "Koeffizient": 1.7336,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 4.5,
+    "Koeffizient": 1.7517,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 4.6,
+    "Koeffizient": 1.7688,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 4.7,
+    "Koeffizient": 1.7849,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 4.8,
+    "Koeffizient": 1.8,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 4.9,
+    "Koeffizient": 1.8141,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "wohn04",
+    "GFZ": 5,
+    "Koeffizient": 1.8272,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 2,
+    "Koeffizient": 0.5906,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 2.1,
+    "Koeffizient": 0.6111,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 2.2,
+    "Koeffizient": 0.6316,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 2.3,
+    "Koeffizient": 0.652,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 2.4,
+    "Koeffizient": 0.6725,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 2.5,
+    "Koeffizient": 0.693,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 2.6,
+    "Koeffizient": 0.7134,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 2.7,
+    "Koeffizient": 0.7339,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 2.8,
+    "Koeffizient": 0.7544,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 2.9,
+    "Koeffizient": 0.7749,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 3,
+    "Koeffizient": 0.7953,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 3.1,
+    "Koeffizient": 0.8158,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 3.2,
+    "Koeffizient": 0.8363,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 3.3,
+    "Koeffizient": 0.8567,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 3.4,
+    "Koeffizient": 0.8772,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 3.5,
+    "Koeffizient": 0.8977,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 3.6,
+    "Koeffizient": 0.9181,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 3.7,
+    "Koeffizient": 0.9386,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 3.8,
+    "Koeffizient": 0.9591,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 3.9,
+    "Koeffizient": 0.9795,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 4,
+    "Koeffizient": 1,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 4.1,
+    "Koeffizient": 1.0205,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 4.2,
+    "Koeffizient": 1.0409,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 4.3,
+    "Koeffizient": 1.0614,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 4.4,
+    "Koeffizient": 1.0819,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 4.5,
+    "Koeffizient": 1.1023,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 4.6,
+    "Koeffizient": 1.1228,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 4.7,
+    "Koeffizient": 1.1433,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 4.8,
+    "Koeffizient": 1.1637,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 4.9,
+    "Koeffizient": 1.1842,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 5,
+    "Koeffizient": 1.2047,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 5.1,
+    "Koeffizient": 1.2251,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 5.2,
+    "Koeffizient": 1.2456,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 5.3,
+    "Koeffizient": 1.2661,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 5.4,
+    "Koeffizient": 1.2866,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 5.5,
+    "Koeffizient": 1.307,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 5.6,
+    "Koeffizient": 1.3275,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 5.7,
+    "Koeffizient": 1.348,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 5.8,
+    "Koeffizient": 1.3684,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 5.9,
+    "Koeffizient": 1.3889,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 6,
+    "Koeffizient": 1.4094,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 6.1,
+    "Koeffizient": 1.4298,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 6.2,
+    "Koeffizient": 1.4503,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 6.3,
+    "Koeffizient": 1.4708,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 6.4,
+    "Koeffizient": 1.4912,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 6.5,
+    "Koeffizient": 1.5117,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 6.6,
+    "Koeffizient": 1.5322,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 6.7,
+    "Koeffizient": 1.5526,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 6.8,
+    "Koeffizient": 1.5731,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 6.9,
+    "Koeffizient": 1.5936,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   },
+   {
+    "Tabelle": "dienst04",
+    "GFZ": 7,
+    "Koeffizient": 1.614,
+    "Quelle/Stand": "GFZ-Umrechnungskoeffizienten Dienstleistung 2004 (Stand 12.10.2022) S. 1"
+   }
+  ],
+  "Ortsteile": [
+   {
+    "Bezirk_Nr": "01",
+    "Bezirk": "Mitte",
+    "Altbezirk": "Mitte",
+    "Ortsteil": "Mitte",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": null,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "01",
+    "Bezirk": "Mitte",
+    "Altbezirk": "Tiergarten",
+    "Ortsteil": "Moabit",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "West",
+    "SWF_Gruppe": null,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "01",
+    "Bezirk": "Mitte",
+    "Altbezirk": "Tiergarten",
+    "Ortsteil": "Hansaviertel",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "West",
+    "SWF_Gruppe": null,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "01",
+    "Bezirk": "Mitte",
+    "Altbezirk": "Tiergarten",
+    "Ortsteil": "Tiergarten",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "West",
+    "SWF_Gruppe": null,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1); dort als „Tiergarten-Süd“ geführt"
+   },
+   {
+    "Bezirk_Nr": "01",
+    "Bezirk": "Mitte",
+    "Altbezirk": "Wedding",
+    "Ortsteil": "Wedding",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": null,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "01",
+    "Bezirk": "Mitte",
+    "Altbezirk": "Wedding",
+    "Ortsteil": "Gesundbrunnen",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": null,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "02",
+    "Bezirk": "Friedrichshain-Kreuzberg",
+    "Altbezirk": "Friedrichshain",
+    "Ortsteil": "Friedrichshain",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": null,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "02",
+    "Bezirk": "Friedrichshain-Kreuzberg",
+    "Altbezirk": "Kreuzberg",
+    "Ortsteil": "Kreuzberg",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "West",
+    "SWF_Gruppe": null,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "03",
+    "Bezirk": "Pankow",
+    "Altbezirk": "Prenzlauer Berg",
+    "Ortsteil": "Prenzlauer Berg",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": null,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "03",
+    "Bezirk": "Pankow",
+    "Altbezirk": "Weißensee",
+    "Ortsteil": "Weißensee",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "03",
+    "Bezirk": "Pankow",
+    "Altbezirk": "Weißensee",
+    "Ortsteil": "Blankenburg",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "03",
+    "Bezirk": "Pankow",
+    "Altbezirk": "Weißensee",
+    "Ortsteil": "Heinersdorf",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "03",
+    "Bezirk": "Pankow",
+    "Altbezirk": "Weißensee",
+    "Ortsteil": "Karow",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "03",
+    "Bezirk": "Pankow",
+    "Altbezirk": "Weißensee",
+    "Ortsteil": "Stadtrandsiedlung Malchow",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "03",
+    "Bezirk": "Pankow",
+    "Altbezirk": "Pankow",
+    "Ortsteil": "Pankow",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "03",
+    "Bezirk": "Pankow",
+    "Altbezirk": "Pankow",
+    "Ortsteil": "Blankenfelde",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "03",
+    "Bezirk": "Pankow",
+    "Altbezirk": "Pankow",
+    "Ortsteil": "Buch",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "03",
+    "Bezirk": "Pankow",
+    "Altbezirk": "Pankow",
+    "Ortsteil": "Französisch Buchholz",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "03",
+    "Bezirk": "Pankow",
+    "Altbezirk": "Pankow",
+    "Ortsteil": "Niederschönhausen",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "03",
+    "Bezirk": "Pankow",
+    "Altbezirk": "Pankow",
+    "Ortsteil": "Rosenthal",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "03",
+    "Bezirk": "Pankow",
+    "Altbezirk": "Pankow",
+    "Ortsteil": "Wilhelmsruh",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "04",
+    "Bezirk": "Charlottenburg-Wilmersdorf",
+    "Altbezirk": "Charlottenburg",
+    "Ortsteil": "Charlottenburg",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "04",
+    "Bezirk": "Charlottenburg-Wilmersdorf",
+    "Altbezirk": "Charlottenburg",
+    "Ortsteil": "Westend",
+    "Gebietsgruppe": "Südwest",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "04",
+    "Bezirk": "Charlottenburg-Wilmersdorf",
+    "Altbezirk": "Charlottenburg",
+    "Ortsteil": "Charlottenburg-Nord",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "04",
+    "Bezirk": "Charlottenburg-Wilmersdorf",
+    "Altbezirk": "Wilmersdorf",
+    "Ortsteil": "Wilmersdorf",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "04",
+    "Bezirk": "Charlottenburg-Wilmersdorf",
+    "Altbezirk": "Wilmersdorf",
+    "Ortsteil": "Schmargendorf",
+    "Gebietsgruppe": "Südwest",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "04",
+    "Bezirk": "Charlottenburg-Wilmersdorf",
+    "Altbezirk": "Wilmersdorf",
+    "Ortsteil": "Grunewald",
+    "Gebietsgruppe": "Südwest",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "04",
+    "Bezirk": "Charlottenburg-Wilmersdorf",
+    "Altbezirk": "Wilmersdorf",
+    "Ortsteil": "Halensee",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "05",
+    "Bezirk": "Spandau",
+    "Altbezirk": "Spandau",
+    "Ortsteil": "Spandau",
+    "Gebietsgruppe": "West",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "05",
+    "Bezirk": "Spandau",
+    "Altbezirk": "Spandau",
+    "Ortsteil": "Haselhorst",
+    "Gebietsgruppe": "West",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "05",
+    "Bezirk": "Spandau",
+    "Altbezirk": "Spandau",
+    "Ortsteil": "Siemensstadt",
+    "Gebietsgruppe": "West",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "05",
+    "Bezirk": "Spandau",
+    "Altbezirk": "Spandau",
+    "Ortsteil": "Staaken",
+    "Gebietsgruppe": "West",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1); West-Staaken (ehem. Ostteil) hat dort Stadtlage Ost – im Adressdatensatz nicht unterscheidbar"
+   },
+   {
+    "Bezirk_Nr": "05",
+    "Bezirk": "Spandau",
+    "Altbezirk": "Spandau",
+    "Ortsteil": "Gatow",
+    "Gebietsgruppe": "West",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "05",
+    "Bezirk": "Spandau",
+    "Altbezirk": "Spandau",
+    "Ortsteil": "Kladow",
+    "Gebietsgruppe": "West",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "05",
+    "Bezirk": "Spandau",
+    "Altbezirk": "Spandau",
+    "Ortsteil": "Hakenfelde",
+    "Gebietsgruppe": "West",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "05",
+    "Bezirk": "Spandau",
+    "Altbezirk": "Spandau",
+    "Ortsteil": "Falkenhagener Feld",
+    "Gebietsgruppe": "West",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "05",
+    "Bezirk": "Spandau",
+    "Altbezirk": "Spandau",
+    "Ortsteil": "Wilhelmstadt",
+    "Gebietsgruppe": "West",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "06",
+    "Bezirk": "Steglitz-Zehlendorf",
+    "Altbezirk": "Steglitz",
+    "Ortsteil": "Steglitz",
+    "Gebietsgruppe": "Südwest",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "06",
+    "Bezirk": "Steglitz-Zehlendorf",
+    "Altbezirk": "Steglitz",
+    "Ortsteil": "Lichterfelde",
+    "Gebietsgruppe": "Südwest",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "06",
+    "Bezirk": "Steglitz-Zehlendorf",
+    "Altbezirk": "Steglitz",
+    "Ortsteil": "Lankwitz",
+    "Gebietsgruppe": "Südwest",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "06",
+    "Bezirk": "Steglitz-Zehlendorf",
+    "Altbezirk": "Zehlendorf",
+    "Ortsteil": "Zehlendorf",
+    "Gebietsgruppe": "Südwest",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "06",
+    "Bezirk": "Steglitz-Zehlendorf",
+    "Altbezirk": "Zehlendorf",
+    "Ortsteil": "Dahlem",
+    "Gebietsgruppe": "Südwest",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "06",
+    "Bezirk": "Steglitz-Zehlendorf",
+    "Altbezirk": "Zehlendorf",
+    "Ortsteil": "Nikolassee",
+    "Gebietsgruppe": "Südwest",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "06",
+    "Bezirk": "Steglitz-Zehlendorf",
+    "Altbezirk": "Zehlendorf",
+    "Ortsteil": "Wannsee",
+    "Gebietsgruppe": "Südwest",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "06",
+    "Bezirk": "Steglitz-Zehlendorf",
+    "Altbezirk": "Zehlendorf",
+    "Ortsteil": "Schlachtensee",
+    "Gebietsgruppe": "Südwest",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "07",
+    "Bezirk": "Tempelhof-Schöneberg",
+    "Altbezirk": "Schöneberg",
+    "Ortsteil": "Schöneberg",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "West",
+    "SWF_Gruppe": null,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "07",
+    "Bezirk": "Tempelhof-Schöneberg",
+    "Altbezirk": "Schöneberg",
+    "Ortsteil": "Friedenau",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "West",
+    "SWF_Gruppe": null,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "07",
+    "Bezirk": "Tempelhof-Schöneberg",
+    "Altbezirk": "Tempelhof",
+    "Ortsteil": "Tempelhof",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "07",
+    "Bezirk": "Tempelhof-Schöneberg",
+    "Altbezirk": "Tempelhof",
+    "Ortsteil": "Mariendorf",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "07",
+    "Bezirk": "Tempelhof-Schöneberg",
+    "Altbezirk": "Tempelhof",
+    "Ortsteil": "Marienfelde",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "07",
+    "Bezirk": "Tempelhof-Schöneberg",
+    "Altbezirk": "Tempelhof",
+    "Ortsteil": "Lichtenrade",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "08",
+    "Bezirk": "Neukölln",
+    "Altbezirk": "Neukölln",
+    "Ortsteil": "Neukölln",
+    "Gebietsgruppe": "City",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "08",
+    "Bezirk": "Neukölln",
+    "Altbezirk": "Neukölln",
+    "Ortsteil": "Britz",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "08",
+    "Bezirk": "Neukölln",
+    "Altbezirk": "Neukölln",
+    "Ortsteil": "Buckow",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "08",
+    "Bezirk": "Neukölln",
+    "Altbezirk": "Neukölln",
+    "Ortsteil": "Rudow",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "08",
+    "Bezirk": "Neukölln",
+    "Altbezirk": "Neukölln",
+    "Ortsteil": "Gropiusstadt",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Treptow",
+    "Ortsteil": "Alt-Treptow",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Treptow",
+    "Ortsteil": "Plänterwald",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Treptow",
+    "Ortsteil": "Baumschulenweg",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Treptow",
+    "Ortsteil": "Johannisthal",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Treptow",
+    "Ortsteil": "Niederschöneweide",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Treptow",
+    "Ortsteil": "Altglienicke",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Treptow",
+    "Ortsteil": "Adlershof",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Treptow",
+    "Ortsteil": "Bohnsdorf",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Köpenick",
+    "Ortsteil": "Oberschöneweide",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Köpenick",
+    "Ortsteil": "Köpenick",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Köpenick",
+    "Ortsteil": "Friedrichshagen",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Köpenick",
+    "Ortsteil": "Rahnsdorf",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Köpenick",
+    "Ortsteil": "Grünau",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Köpenick",
+    "Ortsteil": "Müggelheim",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "09",
+    "Bezirk": "Treptow-Köpenick",
+    "Altbezirk": "Köpenick",
+    "Ortsteil": "Schmöckwitz",
+    "Gebietsgruppe": "Südost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "10",
+    "Bezirk": "Marzahn-Hellersdorf",
+    "Altbezirk": "Marzahn",
+    "Ortsteil": "Marzahn",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "10",
+    "Bezirk": "Marzahn-Hellersdorf",
+    "Altbezirk": "Marzahn",
+    "Ortsteil": "Biesdorf",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "10",
+    "Bezirk": "Marzahn-Hellersdorf",
+    "Altbezirk": "Hellersdorf",
+    "Ortsteil": "Kaulsdorf",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "10",
+    "Bezirk": "Marzahn-Hellersdorf",
+    "Altbezirk": "Hellersdorf",
+    "Ortsteil": "Mahlsdorf",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "10",
+    "Bezirk": "Marzahn-Hellersdorf",
+    "Altbezirk": "Hellersdorf",
+    "Ortsteil": "Hellersdorf",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "11",
+    "Bezirk": "Lichtenberg",
+    "Altbezirk": "Lichtenberg",
+    "Ortsteil": "Friedrichsfelde",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "11",
+    "Bezirk": "Lichtenberg",
+    "Altbezirk": "Lichtenberg",
+    "Ortsteil": "Karlshorst",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "11",
+    "Bezirk": "Lichtenberg",
+    "Altbezirk": "Lichtenberg",
+    "Ortsteil": "Lichtenberg",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "11",
+    "Bezirk": "Lichtenberg",
+    "Altbezirk": "Lichtenberg",
+    "Ortsteil": "Fennpfuhl",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "11",
+    "Bezirk": "Lichtenberg",
+    "Altbezirk": "Lichtenberg",
+    "Ortsteil": "Rummelsburg",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 1,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "11",
+    "Bezirk": "Lichtenberg",
+    "Altbezirk": "Hohenschönhausen",
+    "Ortsteil": "Falkenberg",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "11",
+    "Bezirk": "Lichtenberg",
+    "Altbezirk": "Hohenschönhausen",
+    "Ortsteil": "Malchow",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "11",
+    "Bezirk": "Lichtenberg",
+    "Altbezirk": "Hohenschönhausen",
+    "Ortsteil": "Wartenberg",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "11",
+    "Bezirk": "Lichtenberg",
+    "Altbezirk": "Hohenschönhausen",
+    "Ortsteil": "Neu-Hohenschönhausen",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "11",
+    "Bezirk": "Lichtenberg",
+    "Altbezirk": "Hohenschönhausen",
+    "Ortsteil": "Alt-Hohenschönhausen",
+    "Gebietsgruppe": "Ost",
+    "Stadtlage": "Ost",
+    "SWF_Gruppe": 2,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "12",
+    "Bezirk": "Reinickendorf",
+    "Altbezirk": "Reinickendorf",
+    "Ortsteil": "Reinickendorf",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "12",
+    "Bezirk": "Reinickendorf",
+    "Altbezirk": "Reinickendorf",
+    "Ortsteil": "Tegel",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "12",
+    "Bezirk": "Reinickendorf",
+    "Altbezirk": "Reinickendorf",
+    "Ortsteil": "Konradshöhe",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "12",
+    "Bezirk": "Reinickendorf",
+    "Altbezirk": "Reinickendorf",
+    "Ortsteil": "Heiligensee",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "12",
+    "Bezirk": "Reinickendorf",
+    "Altbezirk": "Reinickendorf",
+    "Ortsteil": "Frohnau",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "12",
+    "Bezirk": "Reinickendorf",
+    "Altbezirk": "Reinickendorf",
+    "Ortsteil": "Hermsdorf",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "12",
+    "Bezirk": "Reinickendorf",
+    "Altbezirk": "Reinickendorf",
+    "Ortsteil": "Waidmannslust",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "12",
+    "Bezirk": "Reinickendorf",
+    "Altbezirk": "Reinickendorf",
+    "Ortsteil": "Lübars",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "12",
+    "Bezirk": "Reinickendorf",
+    "Altbezirk": "Reinickendorf",
+    "Ortsteil": "Wittenau",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "12",
+    "Bezirk": "Reinickendorf",
+    "Altbezirk": "Reinickendorf",
+    "Ortsteil": "Märkisches Viertel",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   },
+   {
+    "Bezirk_Nr": "12",
+    "Bezirk": "Reinickendorf",
+    "Altbezirk": "Reinickendorf",
+    "Ortsteil": "Borsigwalde",
+    "Gebietsgruppe": "Nord",
+    "Stadtlage": "West",
+    "SWF_Gruppe": 3,
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 5–8 (Tabelle 1)"
+   }
+  ],
+  "Gueltigkeit": [
+   {
+    "Verfahren": "sachwert",
+    "Größe": "vorläufiger Sachwert des Grundstücks",
+    "Schlüssel": "vorlaeufiger_sachwert",
+    "Min": 289845,
+    "Max": 1114060,
+    "Einheit": "€",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 6–7 (Tabellen 2–3)"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Größe": "Grundstücksfläche",
+    "Schlüssel": "grundstuecksflaeche",
+    "Min": 212,
+    "Max": 993,
+    "Einheit": "m²",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 6–7 (Tabellen 2–3)"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Größe": "Brutto-Grundfläche",
+    "Schlüssel": "bgf",
+    "Min": 146,
+    "Max": 430,
+    "Einheit": "m²",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 6–7 (Tabellen 2–3)"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Größe": "Bodenrichtwert",
+    "Schlüssel": "brw",
+    "Min": 410,
+    "Max": 1200,
+    "Einheit": "€/m²",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 6–7 (Tabellen 2–3)"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Größe": "NHK 2010 (Stufe 4)",
+    "Schlüssel": "nhk",
+    "Min": 825,
+    "Max": 1215,
+    "Einheit": "€/m²",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 6–7 (Tabellen 2–3)"
+   },
+   {
+    "Verfahren": "sachwert",
+    "Größe": "tatsächliche GFZ",
+    "Schlüssel": "gfz",
+    "Min": 0.1,
+    "Max": 0.54,
+    "Einheit": "–",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 6–7 (Tabellen 2–3)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Größe": "durchschnittliche Objektkaltmiete (5–95 %)",
+    "Schlüssel": "objektmiete",
+    "Min": 5.6,
+    "Max": 12.1,
+    "Einheit": "€/m² Monat",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 16 (Tabellen 12–14)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Größe": "Objektkaltmiete, Tabellenbereich (Min/Max)",
+    "Schlüssel": "objektmiete_tabelle",
+    "Min": 4,
+    "Max": 20,
+    "Einheit": "€/m² Monat",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 16 (Tabellen 12–14)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Größe": "gewerblicher Mietanteil",
+    "Schlüssel": "gewerbeanteil",
+    "Min": 0,
+    "Max": 49.2,
+    "Einheit": "%",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 16 (Tabellen 12–14)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Größe": "Grundstücksfläche",
+    "Schlüssel": "grundstuecksflaeche",
+    "Min": 364,
+    "Max": 2341,
+    "Einheit": "m²",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 16 (Tabellen 12–14)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Größe": "Wohn-/Nutzfläche",
+    "Schlüssel": "wohn_nutzflaeche",
+    "Min": 407,
+    "Max": 3318,
+    "Einheit": "m²",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 16 (Tabellen 12–14)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Größe": "tatsächliche GFZ",
+    "Schlüssel": "gfz",
+    "Min": 0.53,
+    "Max": 4.42,
+    "Einheit": "–",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 16 (Tabellen 12–14)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Größe": "Bodenrichtwert",
+    "Schlüssel": "brw",
+    "Min": 600,
+    "Max": 6500,
+    "Einheit": "€/m²",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 16 (Tabellen 12–14)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Größe": "Bodenwert je m² (GFZ-angepasst)",
+    "Schlüssel": "bodenwert_m2",
+    "Min": 613,
+    "Max": 8490,
+    "Einheit": "€/m²",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 16 (Tabellen 12–14)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Größe": "Alter",
+    "Schlüssel": "alter",
+    "Min": 30,
+    "Max": 141,
+    "Einheit": "Jahre",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 16 (Tabellen 12–14)"
+   },
+   {
+    "Verfahren": "ertragswert",
+    "Größe": "Restnutzungsdauer",
+    "Schlüssel": "rnd",
+    "Min": 35,
+    "Max": 50,
+    "Einheit": "Jahre",
+    "Quelle/Stand": "Liegenschaftszinssätze 2025 (Stand 24.10.2025) S. 16 (Tabellen 12–14)"
+   }
+  ],
+  "Baupreisindex": [
+   {
+    "Jahr": 2024,
+    "Quartal": "IV",
+    "Index_2021": 130.8,
+    "Index_2010": 184.7,
+    "Verwendung": "Sachwertfaktoren 2025 (anzuwendender Wert)",
+    "Quelle/Stand": "Sachwertfaktoren 2025 (Stand 04.02.2026) S. 4; Destatis GENESIS 61261-0002"
+   }
+  ],
+  "Quellen": [
+   {
+    "Kürzel": "SWF 2025",
+    "Dokument": "Sachwertfaktoren 2025 zum Stichtag 31.12.2024, Gutachterausschuss Berlin",
+    "Link": "https://www.berlin.de/gutachterausschuss/_assets/amarktinformationen/adaten-zur-wertermittlung/05-03-010-2500.pdf",
+    "Quelle/Stand": "Stand 04.02.2026"
+   },
+   {
+    "Kürzel": "LZ 2025",
+    "Dokument": "Liegenschaftszinssätze 2025 zum Stichtag 31.12.2024, Gutachterausschuss Berlin",
+    "Link": "https://www.berlin.de/gutachterausschuss/_assets/amarktinformationen/adaten-zur-wertermittlung/05-02-010-2500.pdf",
+    "Quelle/Stand": "Stand 24.10.2025"
+   },
+   {
+    "Kürzel": "GFZ-W",
+    "Dokument": "GFZ-Umrechnungskoeffizienten Wohnbauland 2004",
+    "Link": "https://www.berlin.de/gutachterausschuss/_assets/amarktinformationen/adaten-zur-wertermittlung/05-01-010-0400.pdf",
+    "Quelle/Stand": "Stand 12.10.2022"
+   },
+   {
+    "Kürzel": "GFZ-D",
+    "Dokument": "GFZ-Umrechnungskoeffizienten Dienstleistung/Büro 2004",
+    "Link": "https://www.berlin.de/gutachterausschuss/_assets/amarktinformationen/adaten-zur-wertermittlung/05-01-020-0400.pdf",
+    "Quelle/Stand": "Stand 12.10.2022"
+   },
+   {
+    "Kürzel": "ImmoWertV",
+    "Dokument": "Immobilienwertermittlungsverordnung vom 14.07.2021",
+    "Link": "https://www.gesetze-im-internet.de/immowertv_2022/",
+    "Quelle/Stand": "BGBl. I 2021 S. 2805"
+   },
+   {
+    "Kürzel": "ImmoWertA",
+    "Dokument": "Muster-Anwendungshinweise zur ImmoWertV",
+    "Link": "https://www.bmwsb.bund.de/ImmoWertA",
+    "Quelle/Stand": "20.09.2023"
+   },
+   {
+    "Kürzel": "BRW",
+    "Dokument": "Bodenrichtwerte Berlin (WFS brw2024, brw2026)",
+    "Link": "https://gdi.berlin.de/services/wfs/brw2024",
+    "Quelle/Stand": "Stichtage 01.01.2024 / 01.01.2026"
+   },
+   {
+    "Kürzel": "Wohnlagen",
+    "Dokument": "Wohnlagen nach Adressen zum Berliner Mietspiegel 2024",
+    "Link": "https://gdi.berlin.de/services/wfs/wohnlagenadr2024",
+    "Quelle/Stand": "Stand 31.07.2024"
+   },
+   {
+    "Kürzel": "Adressen",
+    "Dokument": "Adressen Berlin (WFS adressen_berlin)",
+    "Link": "https://gdi.berlin.de/services/wfs/adressen_berlin",
+    "Quelle/Stand": "laufend"
+   },
+   {
+    "Kürzel": "Destatis BPI",
+    "Dokument": "Preisindizes für die Bauwirtschaft, Tabelle 61261-0002",
+    "Link": "https://www-genesis.destatis.de/datenbank/online/statistic/61261/table/61261-0002",
+    "Quelle/Stand": "vierteljährlich"
+   }
+  ]
+ }
+}

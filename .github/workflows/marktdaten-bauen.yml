@@ -1,0 +1,91 @@
+name: Marktdaten bauen
+
+# -----------------------------------------------------------------------------
+# Ein Klick: Actions → Marktdaten bauen → Run workflow.
+#
+#   1. Wandelt daten/marktdaten.xlsx in wertrechner/data/marktdaten.json um
+#      (tools/marktdaten_bauen.py). Fehlende Pflichtwerte brechen den Lauf ab.
+#   2. Auf Wunsch: lädt die offenen Berliner Geodaten neu und baut die
+#      Adress-/Bodenrichtwertdateien je PLZ (tools/adressdaten_bauen.py).
+#   3. Öffnet einen Pull Request mit den geänderten Dateien – nichts landet
+#      ungeprüft auf dem Hauptzweig.
+#
+# Kosten: keine. Kontingent: keines (kein Agent).
+# -----------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+    inputs:
+      adressen:
+        description: "Adressen und Bodenrichtwerte neu bauen (lädt ca. 300 MB vom Geoportal Berlin)"
+        required: false
+        default: false
+        type: boolean
+
+run-name: "Marktdaten bauen${{ inputs.adressen && ' (mit Adressen)' || '' }}"
+
+concurrency:
+  group: marktdaten-bauen
+  cancel-in-progress: false
+
+jobs:
+  bauen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write        # Zweig anlegen
+      pull-requests: write   # Pull Request öffnen
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: true
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Abhängigkeiten installieren
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip --quiet
+          python -m pip install --quiet 'openpyxl==3.1.5'
+
+      - name: Marktdaten umwandeln
+        run: python tools/marktdaten_bauen.py
+
+      - name: Adressen und Bodenrichtwerte bauen
+        if: inputs.adressen
+        run: python tools/adressdaten_bauen.py
+
+      - name: Node bereitstellen (für die Rechenkern-Tests)
+        if: hashFiles('tests/*.test.mjs') != ''
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: '22'
+      - name: Tests ausführen
+        if: hashFiles('tests/*.test.mjs') != ''
+        run: node --test tests/
+
+      - name: Pull Request öffnen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain -- wertrechner/data)" ]; then
+            echo "::notice title=Marktdaten::Die erzeugten Dateien sind bereits aktuell."
+            exit 0
+          fi
+          ZWEIG="daten/marktdaten-$(date -u +%Y-%m-%d-%H%M)"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$ZWEIG"
+          git add -A wertrechner/data
+          git commit -q -m "Marktdaten neu gebaut" \
+                        -m "Automatisch erzeugt aus daten/marktdaten.xlsx durch tools/marktdaten_bauen.py${{ inputs.adressen && ' und tools/adressdaten_bauen.py' || '' }}."
+          git push -q origin "HEAD:$ZWEIG"
+          gh pr create --base "${{ github.ref_name }}" --head "$ZWEIG" \
+            --title "Marktdaten neu gebaut" \
+            --body "Erzeugt über den Workflow „Marktdaten bauen“. Bitte die Änderungen unter wertrechner/data prüfen und mergen."

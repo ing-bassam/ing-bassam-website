@@ -6,3 +6,12 @@ __pycache__/
 # Fachbibliothek: wird im Workflow aus dem privaten Repository FachwissenAgent
 # geladen und darf nie in dieses öffentliche Repository gelangen.
 .bibliothek/
+
+# Wertrechner: Rohdaten des Landes Berlin (ca. 300 MB), die
+# tools/adressdaten_bauen.py herunterlädt. Ins Repository kommen nur die
+# daraus erzeugten kleinen JSON-Dateien unter wertrechner/data/.
+.wertrechner-cache/
+
+# Wertrechner: Fachbücher, Kommentare und Unterlagen kommerzieller Software
+# sind urheberrechtlich geschützt und bleiben lokal.
+fachliteratur-privat/
