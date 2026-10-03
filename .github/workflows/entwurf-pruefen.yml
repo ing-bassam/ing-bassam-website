@@ -192,7 +192,7 @@ jobs:
             Bericht: ${{ steps.vorbereitung.outputs.faktenbericht }}
           claude_args: |
             --max-turns 110
-            --model claude-opus-5
+            --model claude-opus-5-5
             --add-dir ${{ steps.vorbereitung.outputs.arbeit }}
             --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(wc:*)"
 
@@ -253,7 +253,7 @@ jobs:
             Bibliothek: ${{ steps.bibindex.outputs.ordner || 'nicht verfügbar' }}
           claude_args: |
             --max-turns 80
-            --model claude-opus-5
+            --model claude-opus-5-5
             --add-dir ${{ steps.vorbereitung.outputs.arbeit }}
             --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,WebFetch,WebSearch,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*),Bash(wc:*)"
 
