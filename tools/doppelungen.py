@@ -23,6 +23,9 @@ Regeln:
     - Begriffe zählen nach Seltenheit: „Ortstermin“ wiegt mehr als „prüfen“.
       Gleichbedeutende Wörter werden vorher vereinheitlicht (Mängelrüge =
       Mängelanzeige, Gutachter = Sachverständiger, …).
+    - Verglichen wird nur innerhalb einer Sprache (Dateikopf `sprache:`, Notion
+      „Sprache“; leer = Deutsch): Ein englischer Beitrag zum Thema eines
+      deutschen ist eine Übersetzung, keine Doppelung.
 
 Die Prüfung ist bewusst vorsichtig: Im Zweifel heißt das Ergebnis „verwandt“.
 Dann prüft der Agent selbst mit vollem Textverständnis (Skill-Regel DUPLIKAT)
@@ -103,7 +106,8 @@ SYNONYME = [
     (r"\bgewahrleist\w*|\bmangelanspruch\w*|\bmangelhaftung", "gewaehrleistung"),
     (r"\bbautagebuch\w*|\bbautagesbericht\w*", "bautagebuch"),
     (r"\bpfusch\w*|\bbaumangel\w*|\bmangel\b|\bmangeln\b|\bmangelhaft\w*", "mangel"),
-    (r"\bimmobilienkauf\w*|\bhauskauf\w*|\bkauf eines (?:gebrauchten )?hauses", "hauskauf"),
+    (r"\bimmobilienkauf\w*|\bhauskauf\w*|\bkauf (?:eines|einer) (?:gebrauchten )?(?:hauses|immobilie)\b"
+     r"|\bimmobilien? (?:zu )?kaufen\b|\bhaus (?:zu )?kaufen\b", "hauskauf"),
     (r"\b(?:bau|end)?abnahm\w*", "abnahme"),
     (r"\bschlussrechnung\w*", "schlussrechnung"),
     (r"\baufmass\w*", "aufmass"),
@@ -250,6 +254,9 @@ class Vergleich:
         """(doppelung|verwandt|neu, Grund, Merkmale) für das Thema c gegenüber dem Eintrag e."""
         if c.get("art") == "urteil" and e.get("art") == "urteil" and gleiches_urteil(c, e):
             return "doppelung", "dasselbe Urteil", {}
+        # Ein englischer Beitrag zum Thema eines deutschen ist eine Übersetzung, keine Doppelung.
+        if c.get("sprache", "de") != e.get("sprache", "de"):
+            return "neu", "", {}
         m = self.merkmale(c, e)
         # Urteile vertreten keine Beiträge und umgekehrt; eine Vorlage ergänzt einen Fachbeitrag
         # zum selben Thema (die Begleitseite verlinkt ihn), ersetzt wird sie nur durch eine Vorlage.
@@ -302,11 +309,12 @@ def beschreibung(e: dict) -> str:
     """Wie ein vorhandener Beitrag im Protokoll heißt: Kurzform und Stand – nie ein Notion-Titel."""
     if e.get("quelle") == "notion":
         return f"Notion-Thema {e.get('notion_id', '')[:8]}… ({e.get('liste', '')}, {e.get('status', '')})"
+    kurz = e.get("kurzform") or "Thema ohne Kurzform"
     if e.get("status") == "veröffentlicht":
-        return f"{e['kurzform']} (veröffentlicht)"
+        return f"{kurz} (veröffentlicht)"
     if e.get("pr_offen"):
-        return f"{e['kurzform']} (Entwurf, Pull Request #{e.get('pr')})"
-    return f"{e['kurzform']} (Entwurf, wartet auf Veröffentlichung)"
+        return f"{kurz} (Entwurf, Pull Request #{e.get('pr')})"
+    return f"{kurz} (Entwurf, wartet auf Veröffentlichung)"
 
 
 def verweis(e: dict) -> str:
