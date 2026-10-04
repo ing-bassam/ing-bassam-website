@@ -22,7 +22,7 @@ class Zuordnung(unittest.TestCase):
         self.assertEqual(seite.schluessel, "beweissicherung")
 
     def test_gutachten_nach_thema(self):
-        seite = l.passende_seite(["Gutachten"], ["Schimmel", "Schimmel in der Wohnung: Baumangel oder Lüftung?"])
+        seite = l.passende_seite(["Gutachten"], ["Schimmel in der Wohnung: Baumangel oder Lüftung?"], ["Schimmel"])
         self.assertEqual(seite.schluessel, "schimmel")
         seite = l.passende_seite(["Gutachten"], ["Wasserschaden im Mehrfamilienhaus"])
         self.assertEqual(seite.schluessel, "wasserschaden")
@@ -31,9 +31,18 @@ class Zuordnung(unittest.TestCase):
         seite = l.passende_seite(["Gutachten", "Bauherrenvertretung"], ["Mängelanzeige mit Fristsetzung"])
         self.assertEqual(seite.schluessel, "baubegleitung")
 
+    def test_titel_wiegt_schwerer_als_schlagwoerter(self):
+        # Der Schimmel-Beitrag erwähnt die Beweissicherung nur in den Schlagwörtern.
+        seite = l.passende_seite(["Gutachten"], ["Schimmel in der Wohnung: Baumangel oder Lüftungsverhalten?"],
+                                 ["Schimmel", "Beweissicherung", "Lüftung"])
+        self.assertEqual(seite.schluessel, "schimmel")
+        # Steht das Thema nur in den Schlagwörtern, zählen diese.
+        seite = l.passende_seite(["Gutachten"], ["Was die Verwaltung zuerst tun muss"], ["Leitungswasser"])
+        self.assertEqual(seite.schluessel, "wasserschaden")
+
     def test_besonderes_schlaegt_allgemeines(self):
         # „Beweissicherung“ im Titel gewinnt gegen „Versicherung“ in den Schlagwörtern.
-        seite = l.passende_seite(["Gutachten"], ["Versicherung", "Technische Beweissicherung: Nutzen"])
+        seite = l.passende_seite(["Gutachten"], ["Technische Beweissicherung: Nutzen"], ["Versicherung"])
         self.assertEqual(seite.schluessel, "beweissicherung")
 
     def test_kaufberatung(self):

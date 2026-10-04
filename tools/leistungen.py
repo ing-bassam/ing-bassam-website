@@ -112,21 +112,24 @@ def alle() -> list[Leistungsseite]:
     return [SEITEN["uebersicht"]] + [SEITEN[s] for s in REIHENFOLGE]
 
 
-def _nach_thema(stichwortquellen: list[str]) -> str | None:
-    text = " ".join(q.lower() for q in stichwortquellen if q)
+def _nach_thema(quellen: list[str]) -> str | None:
+    text = " ".join(q.lower() for q in quellen if q)
     for woerter, schluessel in STICHWORTE:
         if any(w in text for w in woerter):
             return schluessel
     return None
 
 
-def passende_seite(leistungen: list[str], stichwortquellen: list[str]) -> Leistungsseite:
+def passende_seite(leistungen: list[str], titelquellen: list[str],
+                   schlagwortquellen: list[str] = ()) -> Leistungsseite:
     """Die Leistungsseite zu einem Beitrag.
 
     ``leistungen`` sind die Werte des Frontmatter-Felds in Reihenfolge,
-    ``stichwortquellen`` Schlagwörter, Titel, Kurzform und Kategorie des Beitrags.
+    ``titelquellen`` Titel und Kurzform, ``schlagwortquellen`` Schlagwörter und
+    Kategorie. Titel und Kurzform wiegen schwerer: Ein Schimmel-Beitrag, der die
+    Beweissicherung nur in den Schlagwörtern erwähnt, führt zum Schimmelgutachten.
     """
-    thema = _nach_thema(stichwortquellen)
+    thema = _nach_thema(list(titelquellen)) or _nach_thema(list(schlagwortquellen))
     for wert in leistungen:
         schluessel = wert.strip().lower()
         if schluessel == "gutachten":

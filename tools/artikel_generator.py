@@ -1080,7 +1080,8 @@ def leistungskasten_html(artikel: "Artikel") -> str:
     """
     seite = leistungen.passende_seite(
         artikel.leistungen,
-        artikel.schlagwoerter + [artikel.titel, artikel.kurzform, artikel.kategorie],
+        [artikel.titel, artikel.kurzform],
+        artikel.schlagwoerter + [artikel.kategorie],
     )
     ziel = f"../../{seite.pfad}"
     knopf = "Alle Leistungen" if seite.schluessel == "uebersicht" else "Leistung und Preise"
