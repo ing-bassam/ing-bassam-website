@@ -1,5 +1,5 @@
 ---
-titel: "Checkliste Wohnungskauf: Sondereigentum, Gemeinschaft, Unterlagen"
+titel: "Checkliste Wohnungskauf: Sonder- und Gemeinschaftseigentum"
 kategorie: Bauherrenwissen
 format: Vorlage
 zielgruppe: Privat
@@ -29,7 +29,7 @@ todos: 0
 regelwerke_bestaetigt:
 ---
 
-# Checkliste Wohnungskauf: Sondereigentum, Gemeinschaft, Unterlagen
+# Checkliste Wohnungskauf: Sonder- und Gemeinschaftseigentum
 
 Die Wohnung ist hell, das Bad ist neu, der Preis wirkt fair. Zwei Jahre später beschließt die Eigentümergemeinschaft eine Sonderumlage für das Dach. Solche Kosten sieht man nicht in der Wohnung. Sie stehen in den Unterlagen der Gemeinschaft. Eine Checkliste für den Wohnungskauf ist eine Liste von Unterlagen und Bauteilen, die Käufer vor dem Notartermin prüfen. Diese Vorlage führt Sie durch beides: durch die Papiere von Verkäufer und Verwaltung und durch den Rundgang vom Dach bis zum Kellerraum.
 

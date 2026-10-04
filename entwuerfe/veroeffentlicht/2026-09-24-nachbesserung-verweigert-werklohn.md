@@ -1,5 +1,5 @@
 ---
-titel: "Handwerker lehnt die Nacharbeit ab: Was aus dem Werklohn wird"
+titel: "Handwerker lehnt Nacharbeit ab: Was aus dem Werklohn wird"
 kategorie: Gutachten & Recht
 format: Rechtsprechung
 fassung: verständlich
@@ -34,7 +34,7 @@ todos: 0
 regelwerke_bestaetigt: OLG Brandenburg 10 U 14/24, § 634 BGB, § 638 BGB, § 641 BGB
 ---
 
-# Handwerker lehnt die Nacharbeit ab: Was aus dem Werklohn wird
+# Handwerker lehnt Nacharbeit ab: Was aus dem Werklohn wird
 
 Ein Betrieb schweißt an einem Säulendrehkran, der bestimmungsgemäß einbetoniert ist (Gründe II. 1. c dd). Eine Röntgenprüfung zeigt Fehler in der Naht. Die Auftraggeberin verlangt bis übermorgen mangelfreie Arbeit, der Betrieb lehnt jede Reparatur ab (Gründe II. 1. c aa). Dann klagt er auf seinen Werklohn, also auf das Geld für die geleistete Arbeit. Das Landgericht weist die Klage ab, und das Oberlandesgericht Brandenburg weist am 4. Juni 2026 die Berufung zurück; die Klage ist damit endgültig abgewiesen (Aktenzeichen 10 U 14/24, Tenor und Gründe II.).[^1] Von gut 11.500 Euro blieb nichts übrig (Gründe II. 1.).
 

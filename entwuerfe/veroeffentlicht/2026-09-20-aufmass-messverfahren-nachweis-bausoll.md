@@ -1,5 +1,5 @@
 ---
-titel: Wer beweist die vertragsgerechte Bauleistung vor der Abnahme?
+titel: Wer beweist die vertragsgerechte Bauleistung vor Abnahme?
 kategorie: Gutachten & Recht
 format: Rechtsprechung
 zielgruppe: Gewerblich
@@ -34,7 +34,7 @@ todos: 0
 regelwerke_bestaetigt: KG Berlin 21 U 11/21, BGH VII ZR 34/20, BGH VII ZR 212/07, BGH VII ZR 64/07, § 363 BGB, § 648a BGB, § 304 ZPO, VOB/B 2012 (angewandte Fassung laut KG Rn. 59), DIN 18202:2019-07
 ---
 
-# Wer beweist die vertragsgerechte Bauleistung vor der Abnahme?
+# Wer beweist die vertragsgerechte Bauleistung vor Abnahme?
 
 Das Kammergericht Berlin hat mit Urteil vom 6. März 2026 (Aktenzeichen 21 U 11/21) entschieden, dass der Auftragnehmer die Darlegungs- und Beweislast dafür trägt, seine Leistung bis zum Ablauf der Ausführungsfrist vertragsgerecht erbracht zu haben.[^1] Diese Beweislast trifft ihn auch dann, wenn der Auftraggeber die behauptete Nichterfüllung zum Anlass einer Kündigung aus wichtigem Grund nimmt. Für die Baupraxis entscheidend ist der zweite Teil der Begründung: Der Senat hat den Nachweis nicht schon deshalb als geführt angesehen, weil der Auftragnehmer gemessen hatte. Er hat geprüft, ob die Messwerte das Bausoll belegen und ob das eingesetzte Messverfahren den vertraglichen Vorgaben entsprach. Ein Aufmaß mit einem abweichenden Messsystem, eine Messung zum falschen Zeitpunkt und die Eigenkontrolldaten der Baumaschine trugen den Nachweis nicht. Die Entscheidung ist ein Teilurteil und Grundurteil; über die Höhe des Anspruchs ist noch nicht entschieden.
 

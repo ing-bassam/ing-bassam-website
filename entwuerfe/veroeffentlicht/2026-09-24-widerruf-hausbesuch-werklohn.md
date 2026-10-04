@@ -1,5 +1,5 @@
 ---
-titel: Wann der Widerruf den Werklohn für die Wärmepumpe entfallen lässt
+titel: "Widerruf beim Hausbesuch: Wann der Werklohn entfällt"
 kategorie: Gutachten & Recht
 format: Rechtsprechung
 zielgruppe: Gewerblich, Privat
@@ -33,7 +33,7 @@ todos: 0
 regelwerke_bestaetigt: Schleswig-Holsteinisches OLG 1 U 78/25, § 650i BGB
 ---
 
-# Wann der Widerruf den Werklohn für die Wärmepumpe entfallen lässt
+# Widerruf beim Hausbesuch: Wann der Werklohn entfällt
 
 Das Schleswig-Holsteinische Oberlandesgericht hat mit Urteil vom 19. August 2026 (Aktenzeichen 1 U 78/25) entschieden, dass ein Unternehmen keinen Werklohn für eine eingebaute Wärmepumpenanlage verlangen kann, wenn die Auftraggeberin den beim Hausbesuch geschlossenen Vertrag wirksam widerrufen hat.[^1] Der Widerruf war hier gut ein halbes Jahr nach dem Vertragsschluss und fünf Monate nach dem unterschriebenen Abnahmeprotokoll noch rechtzeitig, weil die Widerrufsfrist nie zu laufen begonnen hatte (Rn. 33 bis 37). Ausschlaggebend war eine Formfrage: Bei einem außerhalb von Geschäftsräumen geschlossenen Vertrag muss das Unternehmen die Information über das Widerrufsrecht auf Papier übergeben oder, wenn der Kunde zustimmt, auf einem anderen dauerhaften Datenträger zur Verfügung stellen (Rn. 35). Eine E-Mail an den Enkel der Auftraggeberin genügte dafür nicht, und ein allgemeines Einverständnis mit elektronischer Kommunikation war keine Zustimmung zum Verzicht auf die Papierform (Rn. 41 und Rn. 43). Für die Baupraxis verschiebt die Entscheidung das Gewicht von der Ausführungsqualität hin zur Dokumentation des Vertragsschlusses.
 

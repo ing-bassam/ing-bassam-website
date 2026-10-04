@@ -1,5 +1,5 @@
 ---
-titel: Abgeltungsklausel im Aufhebungsvertrag und verdeckte Baumängel
+titel: "Abgeltungsklausel im Aufhebungsvertrag: verdeckte Baumängel"
 kategorie: Gutachten & Recht
 format: Rechtsprechung
 zielgruppe: Gewerblich, Hausverwaltung
@@ -33,7 +33,7 @@ todos: 0
 regelwerke_bestaetigt: LG Ellwangen 2 O 197/25, VOB/B Ausgabe 2019
 ---
 
-# Abgeltungsklausel im Aufhebungsvertrag und verdeckte Baumängel
+# Abgeltungsklausel im Aufhebungsvertrag: verdeckte Baumängel
 
 Eine Abgeltungsklausel in einem Aufhebungsvertrag kann auch solche Mängelansprüche erfassen, die der Auftraggeber bei der Unterschrift noch gar nicht kannte. Das Landgericht Ellwangen hat mit Urteil vom 10. Juli 2026 (Aktenzeichen 2 O 197/25) eine Schadensersatzklage in voller Höhe abgewiesen, weil ein einziger Satz im Aufhebungsvertrag sämtliche wechselseitigen Ansprüche erledigte, auch die künftigen (Rn. 54, 57).[^1] Der Streitwert war im Beschluss nach dem Tenor auf 2.780.994,31 € festgesetzt worden (Rn. 74). Über die technischen Vorwürfe – unzureichende Verdichtung, zu steile Böschungen, mangelhafte Entwässerung – hat die Kammer nicht entschieden; sie ließ sie ausdrücklich offen (Rn. 69). Für die Baupraxis verschiebt das den entscheidenden Zeitpunkt nach vorn: Nicht das spätere Gutachten bestimmt die Rechtslage, sondern der Kenntnisstand und der Wortlaut bei Vertragsende.
 

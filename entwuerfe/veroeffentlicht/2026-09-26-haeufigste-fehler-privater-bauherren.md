@@ -1,5 +1,5 @@
 ---
-titel: Die häufigsten Fehler privater Bauherren – und wie Sie sie vermeiden
+titel: Die häufigsten Fehler privater Bauherren und ihre Vermeidung
 kategorie: Bauherrenwissen
 format: Ratgeber
 zielgruppe: Privat
@@ -28,7 +28,7 @@ todos: 0
 regelwerke_bestaetigt: "DIN 18202:2019-07"
 ---
 
-# Die häufigsten Fehler privater Bauherren – und wie Sie sie vermeiden
+# Die häufigsten Fehler privater Bauherren und ihre Vermeidung
 
 Der Vertrag lag zwei Abende auf dem Küchentisch. Unterschrieben wurde er, weil der Termin für den Baubeginn sonst gewackelt hätte. Die häufigsten Fehler privater Bauherren passieren nicht auf der Baustelle, sondern vorher am Schreibtisch: bei einer Baubeschreibung, die Lücken lässt, bei einem Zahlungsplan, der dem Baufortschritt vorauseilt, und bei einer Abnahme, die nebenbei erklärt wird.
 

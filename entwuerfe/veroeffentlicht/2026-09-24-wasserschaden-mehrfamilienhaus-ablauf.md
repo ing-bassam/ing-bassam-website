@@ -1,5 +1,5 @@
 ---
-titel: "Wasserschaden im Mehrfamilienhaus: Was die Verwaltung zuerst tun muss"
+titel: "Wasserschaden im Mehrfamilienhaus: Was zuerst zu tun ist"
 kategorie: Hausverwaltung & Bestand
 format: Ratgeber
 zielgruppe: Hausverwaltung
@@ -27,7 +27,7 @@ todos: 0
 regelwerke_bestaetigt: DIN 4108-3:2024-03, DIN 1986-100:2016-12, UBA-Schimmelleitfaden 2017 (aktualisiert April 2024), BGH V ZR 69/21, OLG München 34 Wx 156/05, § 30 VVG, § 82 VVG, § 16 WEG, § 27 WEG, § 535 BGB, § 536c BGB
 ---
 
-# Wasserschaden im Mehrfamilienhaus: Was die Verwaltung zuerst tun muss
+# Wasserschaden im Mehrfamilienhaus: Was zuerst zu tun ist
 
 Bei einem Wasserschaden im Mehrfamilienhaus muss die Hausverwaltung zuerst den Wasseraustritt stoppen und den betroffenen Bereich sichern, besonders dort, wo Strom und Nässe zusammentreffen. Danach hält sie den Zustand fest, meldet den Schaden dem Gebäudeversicherer und holt dessen Weisungen ein. Zugleich lässt sie die Austrittsstelle suchen, denn erst die Ursache entscheidet, wer die Sanierung beauftragt und wer die Kosten trägt. Wie schnell das gehen muss, zeigt ein typischer Verlauf: Eine Mieterin meldet am Freitagnachmittag einen feuchten Fleck an der Flurdecke, am Montag steht Wasser im Treppenhaus.
 
