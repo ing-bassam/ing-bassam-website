@@ -25,6 +25,11 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Baubetrieb
 
+- [Schlussrechnung prüfen: Prüfliste für Auftraggeber](https://ing-bassam.de/fachwissen/pruefliste-schlussrechnung/): Schlussrechnung prüfen: Prüfliste zu Prüffähigkeit, Mengen, Nachträgen, Abzügen und Sicherheiten. Kostenlos als PDF, auch zum Ausfüllen.
+- [Pauschalpreis im Bauvertrag: Was ist wirklich enthalten?](https://ing-bassam.de/fachwissen/pauschalpreis-bauvertrag-leistungsbeschreibung/): Pauschalpreis 350.000 Euro, am Ende über 100.000 Euro mehr für Betonstahl: Das OLG Stuttgart zeigt, warum die Leistungsbeschreibung entscheidet.
+- [Nachtrag prüfen: Anspruchsgrund und Höhe bewerten](https://ing-bassam.de/fachwissen/nachtrag-pruefen-grund-und-hoehe/): Nachtrag prüfen aus Auftraggebersicht: zuerst das Bausoll und den Anspruchsgrund, dann die Höhe nach VOB/B oder BGB. Mit Prüfreihenfolge und Beweislast.
+- [Behinderungsanzeige nach § 6 Abs. 1 VOB/B: Musterschreiben](https://ing-bassam.de/fachwissen/behinderungsanzeige-vob-b/): Musterschreiben Behinderungsanzeige nach § 6 Abs. 1 VOB/B: Inhalt, Form, Empfänger und Frist, mit Prüfliste und Zweitmuster, kostenlos als Word und PDF.
+- [Bauzeitverzögerung: warum der Nachweis oft scheitert](https://ing-bassam.de/fachwissen/bauzeitverzoegerung-nachweis-bauablauf/): LG Karlsruhe 6 O 340/15: Was eine Bauzeitverzögerung an Darlegung verlangt - Ist- und Soll-Abläufe, Balkenpläne, Nachweis der Kapazitäten.
 - [Bauverzug durch Planungsfehler: warum die Klage scheiterte](https://ing-bassam.de/fachwissen/planungsfehler-bauverzoegerung-nachweis/): Das Oberlandesgericht Stuttgart bestätigte die Abweisung einer Millionenklage gegen einen Tragwerksplaner. Was Bauherren bei Planmängeln sichern sollten.
 - [Objektüberwachung nach HOAI: Pflichten, Haftung, Dokumentation](https://ing-bassam.de/fachwissen/objektueberwachung-lp8-pflichten-haftung/): Welche Pflichten die Objektüberwachung nach Leistungsphase 8 der HOAI umfasst, wie weit die Bauüberwachung reicht und welche Dokumentation zählt.
 - [Nachträge nach VOB/B: Anspruchsgrundlagen sauber trennen](https://ing-bassam.de/fachwissen/nachtraege-vob-b-anspruchsgrundlagen/): Welche Anspruchsgrundlage trägt einen Nachtrag nach VOB/B? Vergütung, Entschädigung und Schadensersatz mit Voraussetzungen und Nachweis.
@@ -37,6 +42,8 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Bauherrenwissen
 
+- [Bautagebuch für Bauherren: Vorlage und Anleitung](https://ing-bassam.de/fachwissen/bautagebuch-bauherren/): Bautagebuch-Vorlage für Bauherren als Word, Excel und PDF, mit Anleitung zu Fotos, verdeckten Leistungen und Beweislage am Bau.
+- [Checkliste Altbaukauf: Schwachstellen nach Baujahr](https://ing-bassam.de/fachwissen/altbaukauf-schwachstellen-baujahr/): Checkliste für den Altbaukauf: typische Schwachstellen und Schadstoffe nach Baujahr erkennen, in vier Stufen bewerten und auswerten.
 - [Pfusch am Bau: was Bauherren zuerst tun müssen](https://ing-bassam.de/fachwissen/pfusch-am-bau-vorgehen-ansprueche/): Pfusch am Bau erkannt: wie Bauherren Mängel dokumentieren, anzeigen, Fristen setzen und wann ein Sachverständiger den Verdacht klärt.
 - [Bauvertrag: welche Klauseln für Verbraucher riskant sind](https://ing-bassam.de/fachwissen/bauvertrag-riskante-klauseln-verbraucher/): Welche Klauseln im Bauvertrag für private Bauherren riskant sind: Baubeschreibung, Fertigstellungstermin und Zahlungsplan vor der Unterschrift prüfen.
 - [Baukosten realistisch schätzen: DIN 276 statt m²-Preis](https://ing-bassam.de/fachwissen/baukosten-schaetzen-din-276/): Was kostet ein Hausbau wirklich? Wie die Kostenermittlung nach DIN 276 alle Kostengruppen erfasst und woran Bauherren unrealistische Angebote erkennen.
@@ -58,11 +65,17 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Bauschäden
 
+- [Checkliste Wasserschaden – erste Schritte](https://ing-bassam.de/fachwissen/wasserschaden-erste-schritte-dokumentation/): Was bei einem Wasserschaden sofort zu tun ist und wie Sie ihn für die Versicherung festhalten – mit kostenloser Checkliste zum Ausdrucken.
 - [Rissprotokoll zur Rissbeobachtung](https://ing-bassam.de/fachwissen/rissprotokoll-rissbeobachtung/): Risse im Haus richtig beobachten: nummerieren, messen, vergleichen. Kostenlose Vorlage als PDF und Excel mit Messreihe und Bewertung.
 - [Schimmel nach Fassadendämmung: Ursache oder Folge?](https://ing-bassam.de/fachwissen/schimmel-nach-fassadendaemmung/): Nach einer Fassadendämmung tritt Schimmel auf. Wie Sie Wärmebrücken, Luftwechsel und Ausführungsfehler als Ursache sauber voneinander trennen.
 
 ### Gutachten & Recht
 
+- [Undichtes Dach: Wer zahlt den Planungsfehler?](https://ing-bassam.de/fachwissen/undichtes-dach-planungsfehler-bedenken/): OLG Stuttgart 10 U 127/13: Der Anspruch der Bauherrin blieb ungekürzt, weil die Baufirma den Planungsfehler kannte und ihre Warnung nicht bewies.
+- [Gebaut wie geplant, aber gegen die Baugenehmigung](https://ing-bassam.de/fachwissen/planung-weicht-von-baugenehmigung-ab/): Ein Urteil des OLG Stuttgart zu brennbaren Fassadenrohren zeigt, warum eine Planung mangelhaft ist, die die bekannte Baugenehmigung nicht einhält.
+- [Gewährleistung am Bau: Fristen, Beginn, Hemmung](https://ing-bassam.de/fachwissen/gewaehrleistung-bau-fristen-bgb-vob/): Mängelansprüche am Bau verjähren nach BGB in fünf, nach VOB/B meist in vier Jahren ab Abnahme. Wann die Frist beginnt und wie Hemmung sie anhält.
+- [DIN eingehalten, Regeln der Technik verfehlt](https://ing-bassam.de/fachwissen/din-anerkannte-regeln-technik-warmdach/): Ein Warmdach hielt die DIN ein und war trotzdem mangelhaft: das OLG Stuttgart zu anerkannten Regeln der Technik, Planungsfehler und Mitverschulden.
+- [Beweisverfahren: Wann die Verjährung wieder läuft](https://ing-bassam.de/fachwissen/beweisverfahren-verjaehrung-baumaengel/): Der Bundesgerichtshof 2023: Werden mehrere Baumängel in einem Beweisverfahren begutachtet, endet die Hemmung der Verjährung grundsätzlich einheitlich.
 - [Mängelanzeige mit Fristsetzung: Musterschreiben](https://ing-bassam.de/fachwissen/maengelanzeige-mit-fristsetzung/): Musterschreiben Mängelanzeige mit Fristsetzung: Mangel beschreiben, Frist mit Datum setzen, Zugang nachweisen. Kostenlos als Word und PDF.
 - [Was kostet ein Baugutachter? Honorar und Ablauf](https://ing-bassam.de/fachwissen/was-kostet-ein-baugutachter/): Was ein Baugutachter kostet, wovon das Honorar abhängt, was im Preis enthalten ist und wann sich ein Gutachten rechnet – ein Überblick.
 - [Checkliste Ortstermin mit dem Bausachverständigen](https://ing-bassam.de/fachwissen/vorbereitung-gutachter-ortstermin/): Checkliste für den Ortstermin mit dem Bausachverständigen: welche Unterlagen, Zugänge und Angaben Sie vorbereiten. Kostenlos als PDF.

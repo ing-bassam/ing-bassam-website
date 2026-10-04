@@ -14,7 +14,7 @@ kurzform: wasserschaden-erste-schritte-dokumentation
 dateien: vorlagen/wasserschaden-erste-schritte-dokumentation/wasserschaden-erste-schritte-dokumentation.pdf
 erstellt: 2026-10-02
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-81d9-b514-cdef010f9292
 notion_url: https://app.notion.com/p/Checkliste-Wasserschaden-erste-Schritte-und-Dokumentation-3e2d96ad00b481d9b514cdef010f9292

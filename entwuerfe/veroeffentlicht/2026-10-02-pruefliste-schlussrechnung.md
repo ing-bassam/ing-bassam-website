@@ -14,7 +14,7 @@ kurzform: pruefliste-schlussrechnung
 dateien: vorlagen/pruefliste-schlussrechnung/pruefliste-schlussrechnung.pdf, vorlagen/pruefliste-schlussrechnung/pruefliste-schlussrechnung-ausfuellbar.pdf
 erstellt: 2026-10-02
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-8101-adb4-c7baa6422a26
 notion_url: https://app.notion.com/p/Pr-fliste-Schlussrechnung-3e5d96ad00b48101adb4c7baa6422a26

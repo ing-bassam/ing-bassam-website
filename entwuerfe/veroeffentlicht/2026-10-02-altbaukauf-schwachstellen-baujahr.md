@@ -14,7 +14,7 @@ kurzform: altbaukauf-schwachstellen-baujahr
 dateien: vorlagen/altbaukauf-schwachstellen-baujahr/altbaukauf-schwachstellen-baujahr.pdf, vorlagen/altbaukauf-schwachstellen-baujahr/altbaukauf-schwachstellen-baujahr-ausfuellbar.pdf
 erstellt: 2026-10-02
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-8112-bea6-eb068b017c48
 notion_url: https://app.notion.com/p/Checkliste-Altbaukauf-typische-Schwachstellen-nach-Baujahr-3e5d96ad00b48112bea6eb068b017c48

@@ -7,28 +7,27 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (13)
+## 🟡 Entwurf (0)
+
+Zurzeit keine.
+
+## 🟢 Veröffentlicht (63)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
-| 02.10.2026 | [Checkliste Wasserschaden – erste Schritte](entwurf/2026-10-02-wasserschaden-erste-schritte-dokumentation.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/wasserschaden-erste-schritte-dokumentation/) |
-| 02.10.2026 | [Undichtes Dach: Wer zahlt den Planungsfehler?](entwurf/2026-10-02-undichtes-dach-planungsfehler-bedenken.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/undichtes-dach-planungsfehler-bedenken/) |
-| 02.10.2026 | [Schlussrechnung prüfen: Prüfliste für Auftraggeber](entwurf/2026-10-02-pruefliste-schlussrechnung.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/pruefliste-schlussrechnung/) |
-| 02.10.2026 | [Gebaut wie geplant, aber gegen die Baugenehmigung](entwurf/2026-10-02-planung-weicht-von-baugenehmigung-ab.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/planung-weicht-von-baugenehmigung-ab/) |
-| 02.10.2026 | [Pauschalpreis im Bauvertrag: Was ist wirklich enthalten?](entwurf/2026-10-02-pauschalpreis-bauvertrag-leistungsbeschreibung.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/pauschalpreis-bauvertrag-leistungsbeschreibung/) |
-| 02.10.2026 | [Nachtrag prüfen: Anspruchsgrund und Höhe bewerten](entwurf/2026-10-02-nachtrag-pruefen-grund-und-hoehe.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nachtrag-pruefen-grund-und-hoehe/) |
-| 02.10.2026 | [Gewährleistung am Bau: Fristen, Beginn, Hemmung](entwurf/2026-10-02-gewaehrleistung-bau-fristen-bgb-vob.md) | Grundlagen | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/gewaehrleistung-bau-fristen-bgb-vob/) |
-| 02.10.2026 | [DIN eingehalten, Regeln der Technik verfehlt](entwurf/2026-10-02-din-anerkannte-regeln-technik-warmdach.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/din-anerkannte-regeln-technik-warmdach/) |
-| 02.10.2026 | [Beweisverfahren: Wann die Verjährung wieder läuft](entwurf/2026-10-02-beweisverfahren-verjaehrung-baumaengel.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/beweisverfahren-verjaehrung-baumaengel/) |
-| 02.10.2026 | [Behinderungsanzeige nach § 6 Abs. 1 VOB/B: Musterschreiben](entwurf/2026-10-02-behinderungsanzeige-vob-b.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/behinderungsanzeige-vob-b/) |
-| 02.10.2026 | [Bauzeitverzögerung: warum der Nachweis oft scheitert](entwurf/2026-10-02-bauzeitverzoegerung-nachweis-bauablauf.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/bauzeitverzoegerung-nachweis-bauablauf/) |
-| 02.10.2026 | [Bautagebuch für Bauherren: Vorlage und Anleitung](entwurf/2026-10-02-bautagebuch-bauherren.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bautagebuch-bauherren/) |
-| 02.10.2026 | [Checkliste Altbaukauf: Schwachstellen nach Baujahr](entwurf/2026-10-02-altbaukauf-schwachstellen-baujahr.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/altbaukauf-schwachstellen-baujahr/) |
-
-## 🟢 Veröffentlicht (50)
-
-| Datum | Titel | Format | Kategorie | Seite |
-|---|---|---|---|---|
+| 02.10.2026 | [Checkliste Wasserschaden – erste Schritte](veroeffentlicht/2026-10-02-wasserschaden-erste-schritte-dokumentation.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/wasserschaden-erste-schritte-dokumentation/) |
+| 02.10.2026 | [Undichtes Dach: Wer zahlt den Planungsfehler?](veroeffentlicht/2026-10-02-undichtes-dach-planungsfehler-bedenken.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/undichtes-dach-planungsfehler-bedenken/) |
+| 02.10.2026 | [Schlussrechnung prüfen: Prüfliste für Auftraggeber](veroeffentlicht/2026-10-02-pruefliste-schlussrechnung.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/pruefliste-schlussrechnung/) |
+| 02.10.2026 | [Gebaut wie geplant, aber gegen die Baugenehmigung](veroeffentlicht/2026-10-02-planung-weicht-von-baugenehmigung-ab.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/planung-weicht-von-baugenehmigung-ab/) |
+| 02.10.2026 | [Pauschalpreis im Bauvertrag: Was ist wirklich enthalten?](veroeffentlicht/2026-10-02-pauschalpreis-bauvertrag-leistungsbeschreibung.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/pauschalpreis-bauvertrag-leistungsbeschreibung/) |
+| 02.10.2026 | [Nachtrag prüfen: Anspruchsgrund und Höhe bewerten](veroeffentlicht/2026-10-02-nachtrag-pruefen-grund-und-hoehe.md) | Fachbeitrag | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nachtrag-pruefen-grund-und-hoehe/) |
+| 02.10.2026 | [Gewährleistung am Bau: Fristen, Beginn, Hemmung](veroeffentlicht/2026-10-02-gewaehrleistung-bau-fristen-bgb-vob.md) | Grundlagen | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/gewaehrleistung-bau-fristen-bgb-vob/) |
+| 02.10.2026 | [DIN eingehalten, Regeln der Technik verfehlt](veroeffentlicht/2026-10-02-din-anerkannte-regeln-technik-warmdach.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/din-anerkannte-regeln-technik-warmdach/) |
+| 02.10.2026 | [Beweisverfahren: Wann die Verjährung wieder läuft](veroeffentlicht/2026-10-02-beweisverfahren-verjaehrung-baumaengel.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/beweisverfahren-verjaehrung-baumaengel/) |
+| 02.10.2026 | [Behinderungsanzeige nach § 6 Abs. 1 VOB/B: Musterschreiben](veroeffentlicht/2026-10-02-behinderungsanzeige-vob-b.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/behinderungsanzeige-vob-b/) |
+| 02.10.2026 | [Bauzeitverzögerung: warum der Nachweis oft scheitert](veroeffentlicht/2026-10-02-bauzeitverzoegerung-nachweis-bauablauf.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/bauzeitverzoegerung-nachweis-bauablauf/) |
+| 02.10.2026 | [Bautagebuch für Bauherren: Vorlage und Anleitung](veroeffentlicht/2026-10-02-bautagebuch-bauherren.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bautagebuch-bauherren/) |
+| 02.10.2026 | [Checkliste Altbaukauf: Schwachstellen nach Baujahr](veroeffentlicht/2026-10-02-altbaukauf-schwachstellen-baujahr.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/altbaukauf-schwachstellen-baujahr/) |
 | 29.09.2026 | [Wohnungsübergabeprotokoll für Ein- und Auszug](veroeffentlicht/2026-09-29-wohnungsuebergabeprotokoll-einzug-auszug.md) | Vorlage | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/wohnungsuebergabeprotokoll-einzug-auszug/) |
 | 29.09.2026 | [Raumklima-Protokoll bei Schimmelverdacht](veroeffentlicht/2026-09-29-raumklima-protokoll-schimmelverdacht.md) | Vorlage | Bauphysik | [ansehen](https://ing-bassam.de/fachwissen/raumklima-protokoll-schimmelverdacht/) |
 | 29.09.2026 | [Pfusch am Bau: was Bauherren zuerst tun müssen](veroeffentlicht/2026-09-29-pfusch-am-bau-vorgehen-ansprueche.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/pfusch-am-bau-vorgehen-ansprueche/) |

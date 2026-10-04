@@ -14,7 +14,7 @@ kurzform: bautagebuch-bauherren
 dateien: vorlagen/bautagebuch-bauherren/bautagebuch-bauherren.pdf, vorlagen/bautagebuch-bauherren/bautagebuch-bauherren-ausfuellbar.pdf, vorlagen/bautagebuch-bauherren/bautagebuch-bauherren.docx, vorlagen/bautagebuch-bauherren/bautagebuch-bauherren.xlsx
 erstellt: 2026-10-02
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-8111-91d2-c3ffe22dc874
 notion_url: https://app.notion.com/p/Bautagebuch-f-r-Bauherren-3e5d96ad00b4811191d2c3ffe22dc874
