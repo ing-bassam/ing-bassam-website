@@ -43,6 +43,11 @@ try:
 except ImportError:  # pragma: no cover
     sys.exit("Fehlt: markdown. Installieren mit: python -m pip install markdown")
 
+# Leistungsseiten und ihre Zuordnung zu den Beiträgen – eigenes Modul neben
+# diesem Skript, damit die Regeln ohne markdown und PyYAML getestet werden können.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import leistungen  # noqa: E402
+
 WURZEL = Path(__file__).resolve().parent.parent
 ENTWUERFE = WURZEL / "entwuerfe"
 # Unterordner nach Status. Der Seitenbau auf dem Hauptzweig sortiert jede Datei
@@ -70,8 +75,10 @@ LLMS = WURZEL / "llms.txt"
 WEITERE_SEITEN = [
     ("https://ing-bassam.de/wertrechner/", "monthly", "0.8"),
     ("https://ing-bassam.de/en/property-valuation/", "monthly", "0.7"),
-    ("https://ing-bassam.de/leistungen/technische-due-diligence/", "monthly", "0.8"),
     ("https://ing-bassam.de/en/technical-due-diligence-berlin/", "monthly", "0.8"),
+] + [
+    # Die Leistungsseiten unter /leistungen/ (Übersicht und je Leistung eine Seite).
+    (f"{BASIS_URL}/{seite.pfad}", "monthly", "0.8") for seite in leistungen.alle()
 ]
 FIRMA = "Bassam Ingenieurbüro für Bauwesen GmbH"
 KURZNAME = "BIB Ingenieurbüro für Bauwesen"
@@ -448,6 +455,9 @@ class Artikel:
         self.kernfrage = als_text(kopf.get("kernfrage"))
         self.zielgruppe = als_liste(kopf.get("zielgruppe"))
         self.schlagwoerter = als_liste(kopf.get("schlagwoerter"))
+        # Leistungen des Büros, zu denen der Beitrag hinführt; steuert den Kasten
+        # „Passende Leistung“ (siehe tools/leistungen.py).
+        self.leistungen = als_liste(kopf.get("leistung"))
         self.definition = als_text(kopf.get("definition"))
         self.adressat = als_text(kopf.get("adressat"))
         self.status = als_text(kopf.get("status")) or "Entwurf"
@@ -744,7 +754,7 @@ KOPF_VORLAGE = """<!DOCTYPE html>
   <div class="wrap kopf-innen">
     <a href="{start}" class="logo" aria-label="{kurzname} – zur Startseite"><b>BIB</b><span>Ingenieurbüro für Bauwesen</span></a>
     <nav aria-label="Bereiche">
-      <a href="{start}#leistungen">Leistungen</a>
+      <a href="{start}leistungen/">Leistungen</a>
       <a href="{fachwissen}">Fachwissen</a>
       <a href="{start}wertrechner/">Wertrechner</a>
       <a href="{start}#kontakt">Kontakt</a>
@@ -905,7 +915,7 @@ def artikelseite(artikel: Artikel) -> str:
 {download_html(artikel)}      <div class="prosa">
 {autorenkasten_angleichen(artikel.inhalt_html, artikel.geaendert)}
       </div>
-{weiterlesen_html(artikel)}
+{leistungskasten_html(artikel)}{weiterlesen_html(artikel)}
     </div>
   </article>
 </main>
@@ -1060,6 +1070,30 @@ def passende_beitraege(artikel: "Artikel", kandidaten: list["Artikel"],
     return thematisch + auffuellen, False
 
 
+def leistungskasten_html(artikel: "Artikel") -> str:
+    """Kasten „Passende Leistung“ unter dem Beitrag: die Leistungsseite, zu der er hinführt.
+
+    Gesteuert über das Frontmatter-Feld ``leistung``; bei „Gutachten“ entscheidet
+    das Thema des Beitrags. Die Regeln stehen in tools/leistungen.py, damit sie
+    getestet werden können. Der Kasten nennt keine Preise – die stehen auf der
+    Leistungsseite; der Beitrag selbst bleibt werbefrei.
+    """
+    seite = leistungen.passende_seite(
+        artikel.leistungen,
+        artikel.schlagwoerter + [artikel.titel, artikel.kurzform, artikel.kategorie],
+    )
+    ziel = f"../../{seite.pfad}"
+    knopf = "Alle Leistungen" if seite.schluessel == "uebersicht" else "Leistung und Preise"
+    return f"""      <aside class="leistungskasten" aria-labelledby="leistung-titel">
+        <span class="eyebrow">Passende Leistung</span>
+        <h2 id="leistung-titel"><a href="{ziel}">{html.escape(seite.titel)}</a></h2>
+        <p>{html.escape(seite.kurztext)}</p>
+        <p class="aktionen"><a class="btn btn-primary" href="{ziel}">{knopf}</a><a class="btn btn-outline" href="../../#kontakt">Anfrage senden</a></p>
+        <p class="klein">Rückmeldung innerhalb eines Werktags · Berlin und Brandenburg</p>
+      </aside>
+"""
+
+
 def weiterlesen_html(artikel: "Artikel") -> str:
     """Block unter dem Artikel: Links auf verwandte, veröffentlichte Beiträge."""
     if not artikel.passende:
@@ -1099,12 +1133,16 @@ def llms_bauen(oeffentlich: list["Artikel"]) -> str:
         "",
         f"Kontakt und Impressum: {BASIS_URL}/#kontakt · {BASIS_URL}/#impressum",
         "",
-        "## Leistungen",
+        f"## Leistungen ({BASIS_URL}/leistungen/)",
         "",
-        f"- [Versicherungsgutachten]({BASIS_URL}/#leistung-versicherungsgutachten)",
-        f"- [Gerichtsgutachten]({BASIS_URL}/#leistung-gerichtsgutachten)",
-        f"- [Technische Beweissicherung]({BASIS_URL}/#leistung-beweissicherung)",
-        f"- [Objektüberwachung (LP 8)]({BASIS_URL}/#leistung-objektueberwachung)",
+    ] + [
+        f"- [{seite.name}]({BASIS_URL}/{seite.pfad}): {seite.kurztext}"
+        for seite in leistungen.alle()
+    ] + [
+        f"- [Technical Due Diligence Berlin]({BASIS_URL}/en/technical-due-diligence-berlin/): pre-purchase building "
+        "inspection and document review for international investors and private buyers; fixed prices, reports in English.",
+        f"- [Objektüberwachung (LP 8)]({BASIS_URL}/#leistung-objektueberwachung): Bauherrenvertretung während der "
+        "Bauausführung nach Angebot.",
         "",
         "## Wertrechner",
         "",
@@ -1113,14 +1151,6 @@ def llms_bauen(oeffentlich: list["Artikel"]) -> str:
         "Liegenschaftszinssätzen des Gutachterausschusses; Bodenrichtwert automatisch aus der Adresse, "
         "Berechnung vollständig im Browser.",
         f"- [Property Value Calculator Berlin]({BASIS_URL}/en/property-valuation/): English version of the calculator.",
-        "",
-        "## Technische Due Diligence",
-        "",
-        f"- [Technische Due Diligence Berlin]({BASIS_URL}/leistungen/technische-due-diligence/): Ankaufsprüfung und "
-        "Unterlagenprüfung durch unabhängige Bauingenieure – Kaufberatung vor Ort, technischer Kurzbericht und "
-        "technische Due Diligence für Mietwohnhäuser zu Festpreisen; Berichte auf Deutsch und Englisch.",
-        f"- [Technical Due Diligence Berlin]({BASIS_URL}/en/technical-due-diligence-berlin/): pre-purchase building "
-        "inspection and document review for international investors and private buyers; fixed prices, reports in English.",
         "",
         f"## Fachwissen ({BASIS_URL}/fachwissen/)",
     ]
