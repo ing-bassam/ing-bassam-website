@@ -55,8 +55,29 @@
     "addressLocality": "Berlin",
     "addressCountry": "DE"
   },
-  "areaServed": { "@type": "City", "name": "Berlin" },
-  "knowsAbout": ["Versicherungsgutachten", "Gerichtsgutachten", "Technische Beweissicherung", "Objektüberwachung (LP 8)", "Bauschäden", "Bauphysik"]
+  "areaServed": [{ "@type": "City", "name": "Berlin" }, { "@type": "State", "name": "Brandenburg" }],
+  "knowsLanguage": ["de", "en"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "telephone": "+4917623581339",
+    "email": "info@ing-bassam.de",
+    "availableLanguage": ["German", "English"],
+    "areaServed": "DE"
+  },
+  "knowsAbout": ["Versicherungsgutachten", "Gerichtsgutachten", "Technische Beweissicherung", "Objektüberwachung (LP 8)", "Technische Due Diligence", "Bauschäden", "Bauphysik", "Immobilienbewertung"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Leistungen",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Versicherungsgutachten", "url": "https://ing-bassam.de/#leistung-versicherungsgutachten" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gerichtsgutachten", "url": "https://ing-bassam.de/#leistung-gerichtsgutachten" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technische Beweissicherung", "url": "https://ing-bassam.de/#leistung-beweissicherung" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Objektüberwachung (LP 8)", "url": "https://ing-bassam.de/#leistung-objektueberwachung" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technische Due Diligence und Kaufberatung", "url": "https://ing-bassam.de/leistungen/technische-due-diligence/" } },
+      { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "itemOffered": { "@type": "Service", "name": "Wertrechner Berlin (kostenlose Wertindikation)", "url": "https://ing-bassam.de/wertrechner/" } }
+    ]
+  }
 }
 </script>
 
@@ -671,6 +692,35 @@
     .fw-summary .btn{width:100%;}
   }
 
+  /* =====================================================================
+     MOBILER SCHNELLKONTAKT – feste Leiste am unteren Rand (Anruf, Anfrage),
+     nur bis 860 px Breite; dieselbe Leiste wie auf Fachbeiträgen und Wertrechner.
+     Sie verschwindet, sobald das Kontaktformular selbst im Bild ist (Skript).
+     ===================================================================== */
+  .schnellkontakt{display:none;}
+  @media (max-width:860px){
+    body{padding-bottom:calc(66px + env(safe-area-inset-bottom));}
+    .schnellkontakt{
+      position:fixed; left:0; right:0; bottom:0; z-index:90;
+      display:grid; grid-template-columns:1fr 1fr; gap:8px;
+      padding:8px var(--gutter) calc(8px + env(safe-area-inset-bottom));
+      background:rgba(10,18,29,.94);
+      -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+      border-top:1px solid var(--ink-line);
+      transition:transform var(--dur) var(--ease);
+    }
+    .schnellkontakt.ist-verdeckt{transform:translateY(120%);}
+    .schnellkontakt a{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      min-height:48px; padding:0 12px;
+      border:1px solid var(--ink-line-2); border-radius:var(--radius-sm);
+      color:#fff; font-size:.9375rem; font-weight:500; white-space:nowrap;
+    }
+    .schnellkontakt a.primaer{background:var(--accent); border-color:var(--accent);}
+    .schnellkontakt .icon{width:18px; height:18px;}
+  }
+  @media print{.schnellkontakt{display:none !important;}}
+
   /* Verweis auf die eigenständigen Fachbeitrags-Seiten */
   .fw-verweis{display:flex; flex-wrap:wrap; align-items:center; gap:20px 28px; padding:28px 0 4px; border-top:1px solid var(--line);}
   .fw-verweis p{margin:0; flex:1 1 320px; color:var(--text-2); max-width:62ch;}
@@ -902,7 +952,7 @@
       <div class="contact-info reveal">
         <p class="section-label"><span class="num">03</span><span class="rule"></span><span>Kontakt</span></p>
         <h2 id="kontaktTitle">Sprechen wir über Ihr Projekt</h2>
-        <p class="contact-lead">Ob Schadensfall, Rechtsstreit oder laufende Baumaßnahme – schildern Sie uns Ihr Anliegen, wir melden uns zeitnah zurück.</p>
+        <p class="contact-lead">Ob Schadensfall, Rechtsstreit, Hauskauf oder laufende Baumaßnahme – schildern Sie uns Ihr Anliegen. Sie erhalten innerhalb eines Werktags eine Rückmeldung.</p>
         <ul class="contact-list">
           <li>
             <a class="contact-row" href="tel:+4917623581339">
@@ -930,7 +980,7 @@
         <form id="kontaktForm" action="mailto:info@ing-bassam.de" method="post" enctype="text/plain" novalidate>
           <div id="formFields">
             <h3>Anfrage senden</h3>
-            <p class="form-sub">Felder mit <span aria-hidden="true">*</span><span class="sr-only">Stern</span> sind Pflichtfelder.</p>
+            <p class="form-sub">Felder mit <span aria-hidden="true">*</span><span class="sr-only">Stern</span> sind Pflichtfelder. Rückmeldung innerhalb eines Werktags.</p>
 
             <div class="field-row">
               <div class="field">
@@ -953,6 +1003,7 @@
                 <option>Gerichtsgutachten</option>
                 <option>Technische Beweissicherung</option>
                 <option>Objektüberwachung (LP 8)</option>
+                <option>Technische Due Diligence / Kaufberatung</option>
                 <option>Sonstiges</option>
               </select>
             </div>
@@ -973,7 +1024,7 @@
           <div id="formSuccess" class="form-success" hidden>
             <span class="form-success-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
             <h3 tabindex="-1" id="formSuccessTitle">Vielen Dank für Ihre Anfrage!</h3>
-            <p>Ihr E-Mail-Programm wurde mit einer vorbereiteten Nachricht geöffnet. Bitte senden Sie die E-Mail dort ab – wir melden uns anschließend in Kürze telefonisch oder per E-Mail bei Ihnen.</p>
+            <p>Ihr E-Mail-Programm wurde mit einer vorbereiteten Nachricht geöffnet. Bitte senden Sie die E-Mail dort ab – wir melden uns innerhalb eines Werktags telefonisch oder per E-Mail bei Ihnen.</p>
             <p>Falls sich kein E-Mail-Programm geöffnet hat, erreichen Sie uns direkt unter <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a> oder telefonisch unter <a href="tel:+4917623581339">+49 176 23581339</a>.</p>
             <button type="button" class="btn btn-outline" id="formBack">Zurück zum Formular</button>
           </div>
@@ -1104,7 +1155,11 @@
   </div>
 </footer>
 
-
+<!-- Mobiler Schnellkontakt: nur auf kleinen Bildschirmen sichtbar (siehe CSS) -->
+<nav class="schnellkontakt" id="schnellkontakt" aria-label="Schnellkontakt">
+  <a href="tel:+4917623581339"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Anrufen</a>
+  <a href="#kontakt" class="primaer"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Anfrage senden</a>
+</nav>
 
 <script>
   /* =====================================================================
@@ -1167,6 +1222,15 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
       revealEls.forEach((el) => revealObserver.observe(el));
+    }
+
+    /* ---------- Mobiler Schnellkontakt: weg, sobald das Kontaktformular im Bild ist ---------- */
+    const schnellkontakt = document.getElementById('schnellkontakt');
+    const kontaktBereich = document.getElementById('kontakt');
+    if (schnellkontakt && kontaktBereich && 'IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        entries.forEach((entry) => schnellkontakt.classList.toggle('ist-verdeckt', entry.isIntersecting));
+      }, { threshold: 0.15 }).observe(kontaktBereich);
     }
 
     /* ---------- Impressum & Datenschutz über Links öffnen ---------- */
