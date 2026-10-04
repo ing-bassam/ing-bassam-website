@@ -1,5 +1,5 @@
 ---
-titel: "Baupreissteigerung beim Schallschutz: Wer zahlt die Mehrkosten?"
+titel: "Schallschutz wird teurer: Wer zahlt die Mehrkosten?"
 kategorie: Baubetrieb
 format: Rechtsprechung
 zielgruppe: Hausverwaltung, Privat
@@ -33,7 +33,7 @@ todos: 0
 regelwerke_bestaetigt: OVG 6 A 1/25, WEG § 23, BGB § 632, FluLärmG § 9, 2. FlugLSV § 3, DIN 4109-1:2018-01
 ---
 
-# Baupreissteigerung beim Schallschutz: Wer zahlt die Mehrkosten?
+# Schallschutz wird teurer: Wer zahlt die Mehrkosten?
 
 Wer als notwendig anerkannte Schallschutzmaßnahmen erst Jahre später umsetzt, trägt die zwischenzeitliche Baupreissteigerung selbst, wenn die Verzögerung ganz überwiegend in seiner Sphäre liegt. Das hat das Oberverwaltungsgericht Berlin-Brandenburg mit Urteil vom 9. Juli 2026 (OVG 6 A 1/25) entschieden.[^1] Zudem wird nur erstattet, was der Eigentümer dem Bauunternehmen nach dem Bauwerkvertrag tatsächlich schuldet (Rn. 46, 51 und 59).
 

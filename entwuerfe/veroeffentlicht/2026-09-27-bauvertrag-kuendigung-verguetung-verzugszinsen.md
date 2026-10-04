@@ -1,5 +1,5 @@
 ---
-titel: "Bauvertrag ohne Grund gekündigt: 5 Prozent und Zinsen für vier Jahre"
+titel: "Bauvertrag ohne Grund gekündigt: 5 Prozent plus Zinsen"
 kategorie: Gutachten & Recht
 format: Rechtsprechung
 fassung: verständlich
@@ -34,7 +34,7 @@ todos: 0
 regelwerke_bestaetigt: OLG Sachsen-Anhalt 2 U 80/25, § 648 BGB, VOB/B 2016
 ---
 
-# Bauvertrag ohne Grund gekündigt: 5 Prozent und Zinsen für vier Jahre
+# Bauvertrag ohne Grund gekündigt: 5 Prozent plus Zinsen
 
 Ein Bauunternehmen sollte Erd- und Tiefbauarbeiten für einen Neubau ausführen. Vereinbart waren 50 Prozent Vorauszahlung gegen eine Bürgschaft (Rn. 8, Rn. 13). Das Unternehmen schickte die Bürgschaften und stellte zwei Abschlagsrechnungen (Rn. 15, Rn. 16). Der Auftraggeber zahlte nichts, gebaut wurde nie (Rn. 17, Rn. 18). Gut vier Jahre später kündigte er beide Verträge (Rn. 20). Das Oberlandesgericht des Landes Sachsen-Anhalt entschied am 21. Juli 2026, dass er dennoch zahlen muss (Aktenzeichen 2 U 80/25).[^1] Fällig wurden 5 Prozent der vereinbarten Vergütung und Verzugszinsen für mehr als vier Jahre.
 

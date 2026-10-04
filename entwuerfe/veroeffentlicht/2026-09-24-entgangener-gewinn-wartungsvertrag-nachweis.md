@@ -1,5 +1,5 @@
 ---
-titel: "Entgangener Gewinn nach Vertragsende: Was nachgewiesen werden muss"
+titel: "Entgangener Gewinn nach Vertragsende: Was zu beweisen ist"
 kategorie: Baubetrieb
 format: Rechtsprechung
 zielgruppe: Gewerblich, Hausverwaltung
@@ -33,7 +33,7 @@ todos: 0
 regelwerke_bestaetigt: KG Berlin 2 U 37/23, BGB § 252, BGB § 648, VOB/B § 8 Abs. 1
 ---
 
-# Entgangener Gewinn nach Vertragsende: Was nachgewiesen werden muss
+# Entgangener Gewinn nach Vertragsende: Was zu beweisen ist
 
 Wer einen langfristigen Vertrag über Betrieb und Wartung einer technischen Anlage vorzeitig verliert, kann den entgangenen Gewinn ersetzt verlangen, muss dafür aber offenlegen, welche Kosten er durch das Ende des Vertrags erspart. Das Kammergericht hat mit Urteil vom 3. September 2026 (Aktenzeichen 2 U 37/23) entschieden, dass die pauschale Angabe einer Summe ersparter Kosten nicht genügt, und den entgangenen Gewinn nach Nachbesserung des Vortrags selbst geschätzt (Rn. 64, 65, 66).[^1] Die zwanzigjährige Laufzeit des Vertrags dient nach dem Leitsatz des Senats der Investitions- und Planungssicherheit und führt regelmäßig nicht zu einer unangemessenen Benachteiligung des Auftraggebers (Leitsatz 1, Rn. 55). Zugleich hat er der klagenden Seite mehr abgezogen als die Vorinstanz: anteilige Personalkosten im Wege des Vorteilsausgleichs, einen höheren Reparaturaufwand und eine Abzinsung der künftigen Jahresbeträge (Rn. 80, 82, 83). Für die Baupraxis liegt der Wert der Entscheidung in der Frage, wie eine Kalkulation aussehen muss, die vor Gericht als Grundlage einer Schätzung taugt.
 

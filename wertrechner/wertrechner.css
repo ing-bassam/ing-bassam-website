@@ -331,6 +331,18 @@ dl.parameter dd{margin:0; font-weight:500; color:var(--text);}
 .seiten-fuss a:hover{color:#fff;}
 .seiten-fuss .klein{margin-top:18px; font-size:.8125rem; color:var(--on-ink-3); max-width:80ch;}
 
+/* ------------------------------------------------- Mobiler Schnellkontakt
+   Feste Leiste am unteren Rand (Anruf, Anfrage), nur bis 860 px Breite –
+   dieselbe Leiste wie auf Startseite und Fachbeiträgen. */
+.schnellkontakt{display:none;}
+@media (max-width:860px){
+  body{padding-bottom:calc(66px + env(safe-area-inset-bottom));}
+  .schnellkontakt{position:fixed; left:0; right:0; bottom:0; z-index:90; display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:8px var(--gutter) calc(8px + env(safe-area-inset-bottom)); background:rgba(10,18,29,.94); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); border-top:1px solid var(--ink-line);}
+  .schnellkontakt a{display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:0 12px; border:1px solid var(--ink-line-2); border-radius:var(--radius-sm); color:#fff; font-size:.9375rem; font-weight:500; text-decoration:none; white-space:nowrap;}
+  .schnellkontakt a.primaer{background:var(--accent); border-color:var(--accent);}
+  .schnellkontakt svg{width:18px; height:18px; flex-shrink:0; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
+}
+
 /* ----------------------------------------------------------------- Motion */
 .einblenden{animation:einblenden .45s var(--ease) both;}
 @keyframes einblenden{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
@@ -350,7 +362,7 @@ dl.parameter dd{margin:0; font-weight:500; color:var(--text);}
 
 /* ----------------------------------------------------------------- Druck */
 @media print{
-  .seiten-kopf,.seiten-fuss,.hero,.navigation,.fortschritt,.cta,.skip-link{display:none !important;}
+  .seiten-kopf,.seiten-fuss,.hero,.navigation,.fortschritt,.cta,.skip-link,.schnellkontakt{display:none !important;}
   body{background:#fff; font-size:10.5pt;}
   .assistent{margin:0;}
   .karte{box-shadow:none; border:0;}

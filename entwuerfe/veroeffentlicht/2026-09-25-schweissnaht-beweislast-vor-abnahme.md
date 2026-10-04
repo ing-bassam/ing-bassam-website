@@ -1,5 +1,5 @@
 ---
-titel: "Schweißnaht einbetoniert: Wer die Mangelfreiheit beweisen muss"
+titel: "Schweißnaht einbetoniert: Wer die Mangelfreiheit beweist"
 kategorie: Gutachten & Recht
 format: Rechtsprechung
 zielgruppe: Gewerblich
@@ -33,7 +33,7 @@ todos: 0
 regelwerke_bestaetigt: OLG Brandenburg 10 U 14/24, DIN EN ISO 17636-1, DIN EN ISO 17640, DIN EN ISO 17638, DIN EN ISO 5817, DIN EN 1090-2
 ---
 
-# Schweißnaht einbetoniert: Wer die Mangelfreiheit beweisen muss
+# Schweißnaht einbetoniert: Wer die Mangelfreiheit beweist
 
 Das Oberlandesgericht Brandenburg hat mit Urteil vom 4. Juni 2026 (Aktenzeichen 10 U 14/24) die Werklohnklage eines Werkunternehmers endgültig abgewiesen, der Schweißarbeiten an einem später einbetonierten Säulendrehkran ausgeführt hatte.[^1] Das Gericht bejaht zunächst die Fälligkeit des Werklohns, obwohl keine Abnahme stattgefunden hatte, weil der Auftraggeber nur noch Minderung geltend machte und das Vertragsverhältnis damit in ein Abrechnungsverhältnis übergegangen war (Gründe II 1 a). Die Beweislast für die Mangelfreiheit bleibt dennoch beim Auftragnehmer, und zwar auch dann, wenn die Vergütung ohne Abnahme fällig geworden ist (Gründe II 1 c bb). Weil der Unternehmer die Mangelfreiheit der Schweißnaht nicht beweisen konnte und die Beseitigung ein Freilegen des einbetonierten Krans erfordert hätte, überstieg die erklärte Minderung den gesamten Werklohn (Gründe II 1 c dd). Für die Baupraxis liegt der Kern in der Frage, wie sich eine verdeckte Leistung nachweisen lässt, wenn der geeignete Prüfzeitpunkt verstrichen ist.
 

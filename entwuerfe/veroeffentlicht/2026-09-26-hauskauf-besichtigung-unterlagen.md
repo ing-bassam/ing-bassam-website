@@ -1,5 +1,5 @@
 ---
-titel: Checkliste Hauskauf – Besichtigung, Unterlagen und Bauzustand
+titel: "Checkliste Hauskauf: Besichtigung, Unterlagen, Bauzustand"
 kategorie: Bauherrenwissen
 format: Vorlage
 zielgruppe: Privat
@@ -29,7 +29,7 @@ todos: 0
 regelwerke_bestaetigt: GModG, BGB, GBV, WoFlV
 ---
 
-# Checkliste Hauskauf – Besichtigung, Unterlagen und Bauzustand
+# Checkliste Hauskauf: Besichtigung, Unterlagen, Bauzustand
 
 Der Notartermin ist in zwei Wochen. Bei der Besichtigung sah der Keller trocken aus. Jetzt fällt Ihnen ein, dass die Wand hinter dem Regal weiße Flecken hatte. Diese Checkliste für den Hauskauf hilft Ihnen, solche Lücken vorher zu schließen. Sie sagt Ihnen, welche Unterlagen Sie vor dem Termin anfordern und worauf Sie außen und innen sehen. Sie nennt die Angaben, die Sie zur Haustechnik erfragen, und die Baujahre, bei denen Schadstoffe in Betracht kommen. Am Ende ordnen Sie Ihre Befunde nach Dringlichkeit.
 

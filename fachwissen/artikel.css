@@ -16,6 +16,7 @@
   --ink-950:#0a121d;
   --ink-900:#0f1a28;
   --ink-line:rgba(255,255,255,.08);
+  --ink-line-2:rgba(255,255,255,.16);
   --on-ink:#edeff2;
   --on-ink-2:#aeb6c2;
   --on-ink-3:#848e9c;
@@ -262,7 +263,33 @@ a:hover{color:var(--accent-hover);}
   .karten{grid-template-columns:1fr;}
 }
 
+/* ------------------------------------------------- Mobiler Schnellkontakt
+   Feste Leiste am unteren Rand mit Anruf und Anfrage – nur auf kleinen
+   Bildschirmen, wo Telefonnummer und Kontaktformular sonst erst nach langem
+   Scrollen erreichbar sind. Auf dem Desktop bleibt sie ausgeblendet. */
+.schnellkontakt{display:none;}
+@media (max-width:860px){
+  body{padding-bottom:calc(66px + env(safe-area-inset-bottom));}
+  .schnellkontakt{
+    position:fixed; left:0; right:0; bottom:0; z-index:90;
+    display:grid; grid-template-columns:1fr 1fr; gap:8px;
+    padding:8px var(--gutter) calc(8px + env(safe-area-inset-bottom));
+    background:rgba(10,18,29,.94);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    border-top:1px solid var(--ink-line);
+  }
+  .schnellkontakt a{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    min-height:48px; padding:0 12px;
+    border:1px solid var(--ink-line-2); border-radius:var(--radius-sm);
+    color:#fff; font-size:.9375rem; font-weight:500; text-decoration:none; white-space:nowrap;
+  }
+  .schnellkontakt a.primaer{background:var(--accent); border-color:var(--accent);}
+  .schnellkontakt svg{width:18px; height:18px; flex-shrink:0; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
+}
+
 @media print{
+  .schnellkontakt{display:none;}
   .seiten-kopf,.seiten-fuss,.brotkrumen,.skip-link,.entwurfswarnung,.weiterlesen{display:none;}
   body{background:#fff; font-size:11pt;}
   .prosa h2{margin-top:24pt;}

@@ -1,5 +1,5 @@
 ---
-titel: "Objektüberwachung nach HOAI: Pflichten, Haftung, Dokumentation"
+titel: "Objektüberwachung nach HOAI: Pflichten und Haftung"
 kategorie: Baubetrieb
 format: Grundlagen
 zielgruppe: Gewerblich, Privat
@@ -28,7 +28,7 @@ todos: 0
 regelwerke_bestaetigt: HOAI 2021, BGB, VOB/B, DIN 18202, DIN 276
 ---
 
-# Objektüberwachung nach HOAI: Pflichten, Haftung, Dokumentation
+# Objektüberwachung nach HOAI: Pflichten und Haftung
 
 Die Objektüberwachung nach Leistungsphase 8 der Honorarordnung für Architekten und Ingenieure (HOAI) umfasst nach dem Leistungsbild Gebäude und Innenräume sechzehn Grundleistungen, die vom Überwachen der Ausführung bis zum Überwachen der Beseitigung der bei der Abnahme festgestellten Mängel reichen. Objektüberwachung nach Leistungsphase 8 der HOAI ist die Überwachung der Bauausführung auf Übereinstimmung mit der behördlichen Genehmigung, den Bauverträgen, den Ausführungsunterlagen, den einschlägigen Vorschriften und den allgemein anerkannten Regeln der Technik.[^1] Die Verordnung bewertet diese Leistungsphase bei Gebäuden mit 32 Prozent des Honorars und damit höher als jede andere Leistungsphase.[^2] Der vorliegende Beitrag ordnet das Leistungsbild ein, beschreibt die Überwachungstiefe bei schadensträchtigen Bauabschnitten, erläutert die Dokumentation als Beweisgrundlage und zeigt die haftungsrechtlichen Schnittstellen zur Abnahme und zur Verjährung. Er richtet sich an Bauunternehmen, Investoren und private Bauherren, die wissen wollen, welche Leistung sie einkaufen und welche Nachweise sie erwarten dürfen.
 

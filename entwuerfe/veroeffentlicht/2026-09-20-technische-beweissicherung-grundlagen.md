@@ -1,5 +1,5 @@
 ---
-titel: "Technische Beweissicherung: Was sie leistet und wann sie nötig ist"
+titel: "Technische Beweissicherung: Nutzen und richtiger Zeitpunkt"
 kategorie: Gutachten & Recht
 format: Grundlagen
 zielgruppe: Privat, Hausverwaltung
@@ -28,7 +28,7 @@ todos: 0
 regelwerke_bestaetigt: ZPO, BGB, VVG, GewO, WEG, JVEG, DIN 4150-3, DIN 4123, VOB/B, BGH VII ZR 98/94, BGH VIII ZR 344/18, LAI-Hinweise Erschütterungsimmissionen 2018, BayIka-Leitfaden bautechnische Beweissicherung 2021
 ---
 
-# Technische Beweissicherung: Was sie leistet und wann sie nötig ist
+# Technische Beweissicherung: Nutzen und richtiger Zeitpunkt
 
 Eine technische Beweissicherung hält den Zustand eines Gebäudes zu einem bestimmten Zeitpunkt fachlich fest, bevor eine Veränderung diesen Zustand überlagert oder beseitigt. Sie konserviert einen Befund, der sonst verloren ginge. Beauftragt werden sollte sie immer dann, wenn absehbar ist, dass später darüber gestritten werden kann, ob ein Riss, eine Feuchtestelle, eine Setzung oder ein Verschleißbild bereits vorher vorhanden war. Typische Anlässe sind Bauarbeiten auf dem Nachbargrundstück, die Sanierung eines eingetretenen Schadens, die Abnahme einer Bauleistung und das Verdecken von Bauteilen.
 
