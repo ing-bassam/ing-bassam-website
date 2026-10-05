@@ -43,7 +43,7 @@ Geteilt in drei Lieferungen: 3a Übersicht + Vorlagen + Fristenrechner, 3b Taupu
 - [x] 3a: Gewährleistungsfristen-Rechner `/werkzeuge/gewaehrleistungsfrist/` – BGB/VOB/B ab Abnahme, Hemmung (§§ 203, 204, 209 BGB), Mängelrüge und Mängelbeseitigung nach VOB/B, Anerkenntnis (§ 212 BGB), Werktagsregel (§ 193 BGB) mit Berliner Feiertagen; Rechenkern `frist.js` mit Node-Tests
 - [x] 3a: Übersichtsseite „Checklisten und Vorlagen“ `/fachwissen/vorlagen/` – vom Seitenbauer aus den Vorlagen-Beiträgen erzeugt, aktualisiert sich mit jeder neuen Vorlage
 - [x] 3a: Node-Tests laufen im Workflow „Werkzeuge testen“ mit; Navigation „Werkzeuge“ auf Startseite und Fachbeiträgen
-- [ ] 3b: Taupunkt- und Schimmelrisiko-Rechner (Raumklima, Oberflächentemperatur, 80-%-Kriterium, Temperaturfaktor)
+- [x] 3b: Taupunkt- und Schimmelrisiko-Rechner `/werkzeuge/taupunkt/` – Magnus-Formel, Taupunkt, Oberflächenfeuchte, 80-%-Kriterium und Temperaturfaktor nach DIN 4108-2, zulässige Raumluftfeuchte; Rechenkern `taupunkt.js` mit Node-Tests
 - [ ] 3c: Mängelanzeige-Generator (Formular → fertiges Schreiben, Druck als PDF, alles im Browser)
 - [ ] Alle Werkzeuge: ohne Server, ohne Datenübertragung, mit Tests
 

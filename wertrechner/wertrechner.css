@@ -374,7 +374,9 @@ dl.parameter dd{margin:0; font-weight:500; color:var(--text);}
 .btn-leer:hover{border-color:var(--text); color:var(--text);}
 .werkzeug-ergebnis{margin-top:30px; padding-top:26px; border-top:1px solid var(--line);}
 .werkzeug-ergebnis[hidden]{display:none;}
-.spanne.status-knapp .zahlen{color:var(--accent-bright);}
+.spanne.status-knapp .zahlen, .spanne.status-schimmel .zahlen, .spanne.status-tauwasser .zahlen{color:var(--accent-bright);}
+.spanne.status-grenzbereich .zahlen{color:#e6b566;}
+.spanne.status-unkritisch .zahlen{color:#8fd4ad;}
 .spanne.status-abgelaufen .zahlen{color:var(--on-ink-2); text-decoration:line-through; text-decoration-color:var(--accent-bright); text-decoration-thickness:3px;}
 .spanne .zahlen .wochentag{font-size:.45em; font-weight:500; color:var(--on-ink-2);}
 .hinweise{margin:18px 0 0; padding:0 0 0 1.2em; font-size:.9375rem; color:var(--text-2);}
