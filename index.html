@@ -70,10 +70,14 @@
     "@type": "OfferCatalog",
     "name": "Leistungen",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Versicherungsgutachten", "url": "https://ing-bassam.de/#leistung-versicherungsgutachten" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gerichtsgutachten", "url": "https://ing-bassam.de/#leistung-gerichtsgutachten" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technische Beweissicherung", "url": "https://ing-bassam.de/#leistung-beweissicherung" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Versicherungsgutachten", "url": "https://ing-bassam.de/leistungen/gerichte-versicherer/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gerichtsgutachten", "url": "https://ing-bassam.de/leistungen/gerichte-versicherer/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technische Beweissicherung", "url": "https://ing-bassam.de/leistungen/technische-beweissicherung/" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Objektüberwachung (LP 8)", "url": "https://ing-bassam.de/#leistung-objektueberwachung" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Baubegleitung und Bauabnahme", "url": "https://ing-bassam.de/leistungen/baubegleitung-bauabnahme/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Schimmelgutachten und Feuchteschäden", "url": "https://ing-bassam.de/leistungen/schimmelgutachten/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wasserschaden-Gutachten", "url": "https://ing-bassam.de/leistungen/wasserschaden-gutachten/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Privatgutachten für Bauprozesse", "url": "https://ing-bassam.de/leistungen/privatgutachten-bauprozess/" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technische Due Diligence und Kaufberatung", "url": "https://ing-bassam.de/leistungen/technische-due-diligence/" } },
       { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "itemOffered": { "@type": "Service", "name": "Wertrechner Berlin (kostenlose Wertindikation)", "url": "https://ing-bassam.de/wertrechner/" } }
     ]
@@ -416,6 +420,10 @@
   .service-card p{font-size:.984375rem; line-height:1.68; color:var(--text-2);}
   .service-card .text-link{margin-top:auto; padding-top:24px; align-self:flex-start; color:var(--text);}
   .service-card .text-link:hover{color:var(--accent);}
+  /* Zwei Verweise je Karte: zur Leistungsseite und zur Anfrage */
+  .service-card .service-links{display:flex; flex-wrap:wrap; gap:4px 24px; margin-top:auto; padding-top:24px;}
+  .service-card .service-links .text-link{margin-top:0; padding-top:0;}
+  .services-mehr{display:flex; justify-content:center; margin-top:28px;}
 
   /* =====================================================================
      FACHWISSEN
@@ -758,7 +766,7 @@
         <li><a href="#leistungen">Leistungen</a></li>
         <li><a href="#fachwissen">Fachwissen</a></li>
         <li><a href="/wertrechner/">Wertrechner</a></li>
-        <li><a href="/leistungen/technische-due-diligence/">Due Diligence</a></li>
+        <li><a href="/werkzeuge/">Werkzeuge</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
       <a href="#kontakt" class="btn btn-primary header-cta">Kontakt aufnehmen</a>
@@ -847,19 +855,19 @@
       <div class="wrap">
         <h2 class="sr-only">Ihr Anliegen</h2>
         <div class="audience-grid">
-          <a class="audience-item" href="#leistung-objektueberwachung">
+          <a class="audience-item" href="/leistungen/baubegleitung-bauabnahme/">
             <span class="audience-kicker">Ihr Anliegen</span>
             <span class="audience-title">Private Bauherren</span>
             <span class="audience-text">Wir begleiten Ihre Bauausführung vor Ort und vertreten Ihre Interessen gegenüber den ausführenden Firmen.</span>
             <span class="audience-link">Objektüberwachung (LP&nbsp;8) <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
           </a>
-          <a class="audience-item" href="#leistung-beweissicherung">
+          <a class="audience-item" href="/leistungen/technische-beweissicherung/">
             <span class="audience-kicker">Ihr Anliegen</span>
             <span class="audience-title">Unternehmen &amp; Partner</span>
             <span class="audience-text">Lückenlose Dokumentation des Gebäudezustands vor, während und nach Bauarbeiten.</span>
             <span class="audience-link">Technische Beweissicherung <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
           </a>
-          <a class="audience-item" href="#leistung-versicherungsgutachten">
+          <a class="audience-item" href="/leistungen/">
             <span class="audience-kicker">Ihr Anliegen</span>
             <span class="audience-title">Gutachten benötigt</span>
             <span class="audience-text">Unabhängige, nachvollziehbare Gutachten für Versicherungen, Gerichte und Bauherren.</span>
@@ -889,7 +897,10 @@
           </div>
           <h3>Versicherungsgutachten</h3>
           <p>Wir ermitteln Schadensursache und &#8209;umfang bei Gebäudeschäden und liefern Versicherungen eine belastbare, unabhängige Bewertungsgrundlage für die Regulierung.</p>
-          <a href="#kontakt" class="text-link" data-topic="Versicherungsgutachten">Anfrage stellen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <div class="service-links">
+            <a href="/leistungen/gerichte-versicherer/" class="text-link">Leistung und Honorar <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="#kontakt" class="text-link" data-topic="Versicherungsgutachten">Anfrage stellen</a>
+          </div>
         </article>
 
         <article class="service-card reveal" style="--d:.08s" id="leistung-gerichtsgutachten">
@@ -899,7 +910,10 @@
           </div>
           <h3>Gerichtsgutachten</h3>
           <p>Als gerichtlich beauftragte Sachverständige erstellen wir neutrale, nachvollziehbare Gutachten, die vor Gericht Bestand haben und Streitfragen fundiert klären.</p>
-          <a href="#kontakt" class="text-link" data-topic="Gerichtsgutachten">Anfrage stellen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <div class="service-links">
+            <a href="/leistungen/gerichte-versicherer/" class="text-link">Sachgebiete und Ablauf <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="#kontakt" class="text-link" data-topic="Gerichtsgutachten">Anfrage stellen</a>
+          </div>
         </article>
 
         <article class="service-card reveal" id="leistung-beweissicherung">
@@ -909,7 +923,10 @@
           </div>
           <h3>Technische Beweissicherung</h3>
           <p>Vor, während und nach Bauarbeiten dokumentieren wir den Zustand von Gebäuden lückenlos – als belastbarer Nachweis für spätere Auseinandersetzungen.</p>
-          <a href="#kontakt" class="text-link" data-topic="Technische Beweissicherung">Anfrage stellen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <div class="service-links">
+            <a href="/leistungen/technische-beweissicherung/" class="text-link">Leistung und Preise <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="#kontakt" class="text-link" data-topic="Technische Beweissicherung">Anfrage stellen</a>
+          </div>
         </article>
 
         <article class="service-card reveal" style="--d:.08s" id="leistung-objektueberwachung">
@@ -919,9 +936,13 @@
           </div>
           <h3>Objektüberwachung (LP&nbsp;8)</h3>
           <p>Als Bauherrenvertretung begleiten wir die Bauausführung vor Ort, sichern Qualität, Kosten und Termine und vertreten Ihre Interessen gegenüber den ausführenden Firmen.</p>
-          <a href="#kontakt" class="text-link" data-topic="Objektüberwachung (LP 8)">Anfrage stellen <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <div class="service-links">
+            <a href="/leistungen/baubegleitung-bauabnahme/" class="text-link">Baubegleitung und Bauabnahme <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="#kontakt" class="text-link" data-topic="Objektüberwachung (LP 8)">Anfrage stellen</a>
+          </div>
         </article>
       </div>
+      <p class="services-mehr reveal"><a class="btn btn-outline" href="/leistungen/">Alle Leistungen mit Umfang und Preisen <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
     </div>
   </section>
 
@@ -1047,9 +1068,11 @@
     <div class="footer-col">
       <h4>Navigation</h4>
       <a href="#start">Start</a>
-      <a href="#leistungen">Leistungen</a>
+      <a href="/leistungen/">Leistungen</a>
       <a href="#fachwissen">Fachwissen</a>
       <a href="/wertrechner/">Wertrechner</a>
+      <a href="/werkzeuge/">Werkzeuge</a>
+      <a href="/fachwissen/vorlagen/">Vorlagen</a>
       <a href="/leistungen/technische-due-diligence/">Due Diligence</a>
       <a href="#kontakt">Kontakt</a>
     </div>

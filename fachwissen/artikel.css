@@ -239,6 +239,46 @@ a:hover{color:var(--accent-hover);}
 .downloads .download b{font-weight:600;}
 .downloads .download span{font-size:.8125rem; color:var(--text-3);}
 
+/* Kasten „Passende Leistung“ unter dem Artikel – die Leistungsseite, zu der der
+   Beitrag hinführt (leistungskasten_html() im Seitenbauer, Regeln in tools/leistungen.py) */
+.leistungskasten{
+  margin:56px 0 0; padding:clamp(24px, 4vw, 36px);
+  background:var(--ink-950); color:var(--on-ink); border-radius:var(--radius);
+}
+.leistungskasten .eyebrow{
+  display:block; margin-bottom:10px;
+  font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--on-ink-3);
+}
+.leistungskasten h2{font-family:var(--font-display); font-weight:600; font-size:1.375rem; line-height:1.3; margin:0 0 10px;}
+.leistungskasten h2 a{color:#fff; text-decoration:none;}
+.leistungskasten h2 a:hover{color:var(--accent-bright);}
+.leistungskasten p{margin:0 0 18px; font-size:1rem; line-height:1.65; color:var(--on-ink-2); max-width:62ch;}
+.leistungskasten .aktionen{display:flex; flex-wrap:wrap; gap:10px; margin:0;}
+.leistungskasten .btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-height:48px; padding:0 22px;
+  border:1px solid transparent; border-radius:var(--radius-sm);
+  font-size:.9375rem; font-weight:500; text-decoration:none; white-space:nowrap;
+}
+.leistungskasten .btn-primary{background:var(--accent); color:#fff;}
+.leistungskasten .btn-primary:hover{background:var(--accent-hover); color:#fff;}
+.leistungskasten .btn-outline{border-color:rgba(255,255,255,.3); color:#fff;}
+.leistungskasten .btn-outline:hover{border-color:#fff; color:#fff;}
+.leistungskasten .klein{margin:14px 0 0; font-size:.8125rem; color:var(--on-ink-3);}
+
+/* Übersicht der Vorlagen (fachwissen/vorlagen/): Download-Knöpfe je Karte, Hinweis auf die Rechner */
+.downloads-zeile{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:0;}
+.karte .download{
+  display:inline-flex; align-items:center; min-height:34px; padding:0 12px;
+  border:1px solid var(--line-strong); border-radius:var(--radius-sm); background:var(--paper);
+  color:var(--text); text-decoration:none; font-size:.8125rem; font-weight:600;
+  transition:border-color .15s ease, color .15s ease;
+}
+.karte .download:hover{border-color:var(--accent); color:var(--accent-hover);}
+.downloads-zeile .beitrag{margin-left:auto; font-size:.8125rem;}
+.werkzeug-hinweis{margin:-12px 0 28px; padding:12px 16px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); font-size:.9375rem;}
+.werkzeug-hinweis p{margin:0;}
+
 /* Passende Fachbeiträge unter dem Artikel – dieselben Karten wie in der Übersicht */
 .weiterlesen{margin:56px 0 0; padding-top:28px; border-top:1px solid var(--line);}
 .weiterlesen h2{font-family:var(--font-display); font-weight:600; font-size:1.375rem; line-height:1.3; margin:0 0 20px;}
@@ -289,7 +329,7 @@ a:hover{color:var(--accent-hover);}
 }
 
 @media print{
-  .schnellkontakt{display:none;}
+  .schnellkontakt,.leistungskasten{display:none;}
   .seiten-kopf,.seiten-fuss,.brotkrumen,.skip-link,.entwurfswarnung,.weiterlesen{display:none;}
   body{background:#fff; font-size:11pt;}
   .prosa h2{margin-top:24pt;}

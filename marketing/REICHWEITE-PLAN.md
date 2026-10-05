@@ -22,24 +22,29 @@ Kundenstimmen, „Über uns“.
 - [x] Wertrechner und Due Diligence in Kopf- und Fußzeile aller Fachbeiträge verlinkt
 - [x] Anliegen „Technische Due Diligence / Kaufberatung“ im Kontaktformular
 
-## Phase 2 – Eine Seite je Leistung
+## Phase 2 – Eine Seite je Leistung (PR „Phase 2“)
 
-- [ ] Übersicht `/leistungen/` mit allen Leistungen
-- [ ] Schimmelgutachten und Feuchteschäden
-- [ ] Technische Beweissicherung
-- [ ] Baubegleitung und Bauabnahme für private Bauherren
-- [ ] Wasserschaden-Gutachten (Versicherungsfälle)
-- [ ] Privatgutachten für Bauprozesse (Zielgruppe Anwälte)
-- [ ] Für Gerichte und Versicherer (Fachgebiete, Kapazität, Bearbeitungszeit)
-- [ ] Jede Seite: Umfang, Ablauf, Richtpreise, FAQ, strukturierte Daten; Startseite und Navigation verlinken
-- [ ] Kasten „Passende Leistung“ am Ende jedes Fachbeitrags – gesteuert über das Frontmatter-Feld `leistung`
+- [x] Übersicht `/leistungen/` mit allen Leistungen, Honorarlogik und Erstgespräch
+- [x] Schimmelgutachten und Feuchteschäden (`/leistungen/schimmelgutachten/`)
+- [x] Technische Beweissicherung (`/leistungen/technische-beweissicherung/`)
+- [x] Baubegleitung und Bauabnahme (`/leistungen/baubegleitung-bauabnahme/`)
+- [x] Wasserschaden-Gutachten (`/leistungen/wasserschaden-gutachten/`)
+- [x] Privatgutachten für Bauprozesse (`/leistungen/privatgutachten-bauprozess/`)
+- [x] Für Gerichte und Versicherer (`/leistungen/gerichte-versicherer/`)
+- [x] Jede Seite: Umfang, Ablauf, Richtpreise, FAQ, strukturierte Daten, Verweise auf passende Fachbeiträge; Startseite, Navigation, Sitemap und llms.txt verlinken
+- [x] Kasten „Passende Leistung“ am Ende jedes Fachbeitrags – Regeln in `tools/leistungen.py` (Frontmatter-Feld `leistung`, bei „Gutachten“ entscheidet das Thema), getestet in `tests/test_leistungen.py`
+- [ ] Richtpreise vom Büro bestätigen; danach Bewertungsbitte-Vorlage für das Google-Unternehmensprofil
 
 ## Phase 3 – Werkzeuge und Checklisten als Einstieg
 
-- [ ] Gewährleistungsfristen-Rechner (BGB/VOB: Abnahmedatum → Fristende, Hemmung, Neubeginn)
-- [ ] Taupunkt- und Schimmelrisiko-Rechner (Raumklima, Oberflächentemperatur, 80-%-Kriterium)
-- [ ] Mängelanzeige-Generator (Formular → fertiges Schreiben, Druck als PDF, alles im Browser)
-- [ ] Übersichtsseite „Checklisten und Vorlagen“ für die vorhandenen Downloads
+Geteilt in drei Lieferungen: 3a Übersicht + Vorlagen + Fristenrechner, 3b Taupunkt-Rechner, 3c Mängelanzeige-Generator.
+
+- [x] 3a: Übersicht `/werkzeuge/` (Rechner, Checklisten, Protokolle, Musterschreiben)
+- [x] 3a: Gewährleistungsfristen-Rechner `/werkzeuge/gewaehrleistungsfrist/` – BGB/VOB/B ab Abnahme, Hemmung (§§ 203, 204, 209 BGB), Mängelrüge und Mängelbeseitigung nach VOB/B, Anerkenntnis (§ 212 BGB), Werktagsregel (§ 193 BGB) mit Berliner Feiertagen; Rechenkern `frist.js` mit Node-Tests
+- [x] 3a: Übersichtsseite „Checklisten und Vorlagen“ `/fachwissen/vorlagen/` – vom Seitenbauer aus den Vorlagen-Beiträgen erzeugt, aktualisiert sich mit jeder neuen Vorlage
+- [x] 3a: Node-Tests laufen im Workflow „Werkzeuge testen“ mit; Navigation „Werkzeuge“ auf Startseite und Fachbeiträgen
+- [ ] 3b: Taupunkt- und Schimmelrisiko-Rechner (Raumklima, Oberflächentemperatur, 80-%-Kriterium, Temperaturfaktor)
+- [ ] 3c: Mängelanzeige-Generator (Formular → fertiges Schreiben, Druck als PDF, alles im Browser)
 - [ ] Alle Werkzeuge: ohne Server, ohne Datenübertragung, mit Tests
 
 ## Phase 4 – Englisch ausbauen

@@ -307,8 +307,35 @@ dl.parameter dd{margin:0; font-weight:500; color:var(--text);}
 .pruefliste li::before{content:""; position:absolute; left:2px; top:16px; width:14px; height:8px; border-left:2px solid var(--accent); border-bottom:2px solid var(--accent); transform:rotate(-45deg);}
 .pruefliste li b{color:var(--text); font-weight:600;}
 .wrap.leistungsseite{max-width:1040px;}
+.hero .brotkrumen{margin:0 0 22px; font-size:.8125rem; color:var(--on-ink-3);}
+.hero .brotkrumen a{color:var(--on-ink-2); text-decoration:none;}
+.hero .brotkrumen a:hover{color:#fff;}
+.hero .brotkrumen span[aria-hidden]{margin-inline:6px;}
 .pakete{display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px; margin:22px 0 48px; align-items:stretch;}
-@media (max-width:900px){.pakete{grid-template-columns:1fr;}}
+.pakete.zwei{grid-template-columns:repeat(2, minmax(0, 1fr));}
+@media (max-width:900px){.pakete, .pakete.zwei{grid-template-columns:1fr;}}
+/* Übersicht aller Leistungen */
+.leistungsraster{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin:0 0 48px;}
+.leistungskarte{display:flex; flex-direction:column; gap:10px; padding:24px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-lg); transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);}
+.leistungskarte:hover{border-color:var(--accent); box-shadow:0 18px 40px -28px rgba(10,18,29,.35);}
+.leistungskarte .zielgruppe{font-size:.75rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-3);}
+.infos .leistungskarte h2{font-size:1.25rem; line-height:1.3; margin:0;}
+.leistungskarte h2 a{color:var(--text); text-decoration:none;}
+.leistungskarte h2 a:hover{color:var(--accent);}
+.infos .leistungskarte p{font-size:.9375rem; flex:1; margin:0;}
+.leistungskarte .ab{font-family:var(--font-display); font-weight:600; font-size:1.125rem; color:var(--text); margin-top:4px;}
+.leistungskarte .ab small{display:block; font-family:var(--font-body); font-weight:400; font-size:.8125rem; color:var(--text-3);}
+.leistungskarte .mehr{font-weight:500; color:var(--accent); text-decoration:none;}
+.leistungskarte .mehr:hover{color:var(--accent-hover);}
+/* Verweise auf Fachbeiträge am Ende einer Leistungsseite */
+.beitragsliste{list-style:none; margin:0 0 48px; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:10px;}
+.beitragsliste a{display:block; padding:14px 18px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); color:var(--text); text-decoration:none; font-weight:500; line-height:1.4; transition:border-color var(--dur) var(--ease);}
+.beitragsliste a:hover{border-color:var(--accent); color:var(--accent-hover);}
+.beitragsliste small{display:block; margin-top:4px; font-weight:400; font-size:.8125rem; color:var(--text-3);}
+.honorar{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin:0 0 48px;}
+.honorar div{padding:18px 20px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);}
+.honorar b{display:block; font-family:var(--font-display); font-weight:600; font-size:1.375rem; margin-bottom:4px;}
+.honorar span{font-size:.875rem; color:var(--text-2); line-height:1.5;}
 .paket{display:flex; flex-direction:column; gap:12px; padding:26px 24px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-lg);}
 .paket.hervorgehoben{background:#fff; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft), 0 24px 50px -30px rgba(10,18,29,.35);}
 .paket h3{font-size:1.1875rem;}
@@ -330,6 +357,30 @@ dl.parameter dd{margin:0; font-weight:500; color:var(--text);}
 .seiten-fuss a{color:var(--on-ink-2);}
 .seiten-fuss a:hover{color:#fff;}
 .seiten-fuss .klein{margin-top:18px; font-size:.8125rem; color:var(--on-ink-3); max-width:80ch;}
+
+/* ------------------------------------------------------------ Werkzeuge
+   Kleine Rechner und Generatoren unter /werkzeuge/: Formular in der Karte,
+   Ergebnis darunter, dieselben Bausteine wie im Wertrechner. */
+.werkzeug .karte-inhalt{display:grid; gap:0;}
+.werkzeug .zeile{margin-bottom:26px;}
+.werkzeug .zeile .block{margin-bottom:0;}
+.hemmungen{display:grid; gap:10px; margin:0 0 14px; padding:0; list-style:none;}
+.hemmung{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:10px; align-items:end; padding:12px 14px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);}
+.hemmung label{display:grid; gap:4px; font-size:.8125rem; color:var(--text-2);}
+.hemmung input, .hemmung select{width:100%; min-height:44px; padding:8px 10px; border:1px solid var(--line); border-radius:var(--radius-sm); background:#fff; font-size:.9375rem; color:var(--text);}
+.hemmung .entfernen{justify-self:start;}
+.btn-klein{min-height:40px; padding:0 14px; font-size:.875rem;}
+.btn-leer{background:transparent; border-color:var(--line-strong); color:var(--text-2);}
+.btn-leer:hover{border-color:var(--text); color:var(--text);}
+.werkzeug-ergebnis{margin-top:30px; padding-top:26px; border-top:1px solid var(--line);}
+.werkzeug-ergebnis[hidden]{display:none;}
+.spanne.status-knapp .zahlen{color:var(--accent-bright);}
+.spanne.status-abgelaufen .zahlen{color:var(--on-ink-2); text-decoration:line-through; text-decoration-color:var(--accent-bright); text-decoration-thickness:3px;}
+.spanne .zahlen .wochentag{font-size:.45em; font-weight:500; color:var(--on-ink-2);}
+.hinweise{margin:18px 0 0; padding:0 0 0 1.2em; font-size:.9375rem; color:var(--text-2);}
+.hinweise li{margin-bottom:8px;}
+.aktionen-zeile{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px;}
+@media print{.werkzeug .karte-inhalt > :not(.werkzeug-ergebnis){display:none;} .hero{display:none;}}
 
 /* ------------------------------------------------- Mobiler Schnellkontakt
    Feste Leiste am unteren Rand (Anruf, Anfrage), nur bis 860 px Breite –
