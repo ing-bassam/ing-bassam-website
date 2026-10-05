@@ -358,6 +358,30 @@ dl.parameter dd{margin:0; font-weight:500; color:var(--text);}
 .seiten-fuss a:hover{color:#fff;}
 .seiten-fuss .klein{margin-top:18px; font-size:.8125rem; color:var(--on-ink-3); max-width:80ch;}
 
+/* ------------------------------------------------------------ Werkzeuge
+   Kleine Rechner und Generatoren unter /werkzeuge/: Formular in der Karte,
+   Ergebnis darunter, dieselben Bausteine wie im Wertrechner. */
+.werkzeug .karte-inhalt{display:grid; gap:0;}
+.werkzeug .zeile{margin-bottom:26px;}
+.werkzeug .zeile .block{margin-bottom:0;}
+.hemmungen{display:grid; gap:10px; margin:0 0 14px; padding:0; list-style:none;}
+.hemmung{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:10px; align-items:end; padding:12px 14px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);}
+.hemmung label{display:grid; gap:4px; font-size:.8125rem; color:var(--text-2);}
+.hemmung input, .hemmung select{width:100%; min-height:44px; padding:8px 10px; border:1px solid var(--line); border-radius:var(--radius-sm); background:#fff; font-size:.9375rem; color:var(--text);}
+.hemmung .entfernen{justify-self:start;}
+.btn-klein{min-height:40px; padding:0 14px; font-size:.875rem;}
+.btn-leer{background:transparent; border-color:var(--line-strong); color:var(--text-2);}
+.btn-leer:hover{border-color:var(--text); color:var(--text);}
+.werkzeug-ergebnis{margin-top:30px; padding-top:26px; border-top:1px solid var(--line);}
+.werkzeug-ergebnis[hidden]{display:none;}
+.spanne.status-knapp .zahlen{color:var(--accent-bright);}
+.spanne.status-abgelaufen .zahlen{color:var(--on-ink-2); text-decoration:line-through; text-decoration-color:var(--accent-bright); text-decoration-thickness:3px;}
+.spanne .zahlen .wochentag{font-size:.45em; font-weight:500; color:var(--on-ink-2);}
+.hinweise{margin:18px 0 0; padding:0 0 0 1.2em; font-size:.9375rem; color:var(--text-2);}
+.hinweise li{margin-bottom:8px;}
+.aktionen-zeile{display:flex; flex-wrap:wrap; gap:12px; margin-top:22px;}
+@media print{.werkzeug .karte-inhalt > :not(.werkzeug-ergebnis){display:none;} .hero{display:none;}}
+
 /* ------------------------------------------------- Mobiler Schnellkontakt
    Feste Leiste am unteren Rand (Anruf, Anfrage), nur bis 860 px Breite –
    dieselbe Leiste wie auf Startseite und Fachbeiträgen. */

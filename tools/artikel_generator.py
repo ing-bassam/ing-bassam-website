@@ -5,6 +5,7 @@ Erzeugt wird ausschließlich in fachwissen/ und in sitemap.xml:
 
     fachwissen/index.html              Übersicht aller veröffentlichten Beiträge
     fachwissen/<kurzform>/index.html   eine Seite je Entwurf
+    fachwissen/vorlagen/index.html     Übersicht der Vorlagen mit Download-Dateien
     sitemap.xml                        Startseite, Übersicht, veröffentlichte Beiträge
 
 Der ganze Artikeltext steht im ausgelieferten HTML. KI-Crawler führen kein
@@ -756,7 +757,7 @@ KOPF_VORLAGE = """<!DOCTYPE html>
     <nav aria-label="Bereiche">
       <a href="{start}leistungen/">Leistungen</a>
       <a href="{fachwissen}">Fachwissen</a>
-      <a href="{start}wertrechner/">Wertrechner</a>
+      <a href="{start}werkzeuge/">Werkzeuge</a>
       <a href="{start}#kontakt">Kontakt</a>
     </nav>
   </div>
@@ -770,7 +771,7 @@ FUSS_VORLAGE = """
   <div class="wrap">
     <p><strong>{firma}</strong><br>Straße am Flugplatz 6a, 12487 Berlin</p>
     <p><a href="tel:+4917623581339">{telefon}</a> · <a href="mailto:{email}">{email}</a> · Rückmeldung innerhalb eines Werktags</p>
-    <p class="rechtliches"><a href="{start}#impressum">Impressum</a> · <a href="{start}#datenschutz">Datenschutz</a> · <a href="{fachwissen}">Alle Fachbeiträge</a> · <a href="{start}wertrechner/">Wertrechner</a> · <a href="{start}leistungen/technische-due-diligence/">Due Diligence</a></p>
+    <p class="rechtliches"><a href="{start}#impressum">Impressum</a> · <a href="{start}#datenschutz">Datenschutz</a> · <a href="{fachwissen}">Alle Fachbeiträge</a> · <a href="{fachwissen}vorlagen/">Vorlagen</a> · <a href="{start}wertrechner/">Wertrechner</a> · <a href="{start}leistungen/technische-due-diligence/">Due Diligence</a></p>
     <p class="klein">© {jahr} {firma} · Keine Cookies. Kein Tracking.</p>
   </div>
 </footer>
@@ -1145,13 +1146,18 @@ def llms_bauen(oeffentlich: list["Artikel"]) -> str:
         f"- [Objektüberwachung (LP 8)]({BASIS_URL}/#leistung-objektueberwachung): Bauherrenvertretung während der "
         "Bauausführung nach Angebot.",
         "",
-        "## Wertrechner",
+        f"## Werkzeuge ({BASIS_URL}/werkzeuge/)",
         "",
         f"- [Wertrechner Berlin]({BASIS_URL}/wertrechner/): Kostenlose, unverbindliche Wertindikation für "
         "Ein-, Zweifamilien- und Mietshäuser in Berlin nach der ImmoWertV 2021 mit den Sachwertfaktoren und "
         "Liegenschaftszinssätzen des Gutachterausschusses; Bodenrichtwert automatisch aus der Adresse, "
         "Berechnung vollständig im Browser.",
         f"- [Property Value Calculator Berlin]({BASIS_URL}/en/property-valuation/): English version of the calculator.",
+        f"- [Gewährleistungsfrist berechnen]({BASIS_URL}/werkzeuge/gewaehrleistungsfrist/): Ende der Verjährung "
+        "von Mängelansprüchen nach BGB (5 Jahre) oder VOB/B (4 Jahre) ab Abnahme, mit Hemmung, Mängelrüge, "
+        "Anerkenntnis und Werktagsregel; Rechenweg mit Paragrafen, Berechnung im Browser.",
+        f"- [Checklisten und Vorlagen]({BASIS_URL}/fachwissen/vorlagen/): alle Checklisten, Protokolle und "
+        "Musterschreiben als PDF und Word zum Herunterladen, jeweils mit erläuterndem Fachbeitrag.",
         "",
         f"## Fachwissen ({BASIS_URL}/fachwissen/)",
     ]
@@ -1303,6 +1309,99 @@ def uebersichtsseite(artikel: list[Artikel]) -> str:
 </main>
 """
         + fuss_bauen(start="../", fachwissen="./")
+    )
+
+
+def vorlagenseite(artikel: list[Artikel]) -> str:
+    """Übersicht aller Vorlagen mit Download-Dateien: fachwissen/vorlagen/index.html.
+
+    Zeigt jeden veröffentlichten Beitrag, der Dateien zum Herunterladen mitbringt
+    (Checklisten, Protokolle, Musterschreiben), mit direkten Download-Links und
+    dem Verweis auf den erläuternden Beitrag. Verlinkt von /werkzeuge/, der
+    Startseite und der Fußzeile der Beiträge.
+    """
+    vorlagen = sorted((a for a in artikel if a.dateien), key=lambda a: a.titel.lower())
+    anzahl = len(vorlagen)
+    beschreibung = (
+        f"{anzahl} Checklisten, Protokolle und Musterschreiben aus der Gutachten- und Baupraxis "
+        "– kostenlos als PDF oder Word, ohne Anmeldung, mit Erläuterung im Fachbeitrag."
+    )
+    url = f"{BASIS_URL}/fachwissen/vorlagen/"
+    kopf = kopf_bauen(
+        titel_tag=f"Checklisten und Vorlagen | {KURZNAME}",
+        beschreibung=beschreibung,
+        canonical=url,
+        css="../artikel.css",
+        start="../../",
+        fachwissen="../",
+        indexierbar=True,
+        og=og_block("Checklisten und Vorlagen", beschreibung, url, "website"),
+    )
+
+    karten = []
+    eintraege = []
+    for nr, a in enumerate(vorlagen, 1):
+        links = []
+        for pfad in a.dateien:
+            datei = WURZEL / pfad
+            if not datei.is_file():
+                continue
+            art, _ = DATEI_ARTEN.get(datei.suffix.lower(), (datei.suffix.lstrip(".").upper(), ""))
+            if "ausfuellbar" in datei.stem:
+                art = "PDF ausfüllbar"
+            links.append(f'<a class="download" href="{html.escape(BASIS_URL + "/" + pfad)}" download>'
+                         f'{html.escape(art)}</a>')
+        marke = (f'<span class="marke marke--kategorie" data-kategorie="{slug(a.kategorie)}">'
+                 f'{html.escape(a.kategorie)}</span>' if a.kategorie else "")
+        karten.append(f"""        <li class="karte" data-kategorie="{slug(a.kategorie)}">
+          <div class="marken">{marke}</div>
+          <h2><a href="../{a.kurzform}/">{html.escape(a.titel)}</a></h2>
+          <p>{html.escape(a.meta_beschreibung)}</p>
+          <p class="downloads-zeile">{" ".join(links)} <a class="beitrag" href="../{a.kurzform}/">Erläuterung lesen</a></p>
+        </li>""")
+        eintraege.append({"@type": "ListItem", "position": nr, "name": a.titel, "url": a.url})
+
+    daten = json_wert({
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Start", "item": f"{BASIS_URL}/"},
+                {"@type": "ListItem", "position": 2, "name": "Fachwissen", "item": f"{BASIS_URL}/fachwissen/"},
+                {"@type": "ListItem", "position": 3, "name": "Checklisten und Vorlagen", "item": url},
+            ]},
+            {"@type": "CollectionPage", "name": "Checklisten und Vorlagen", "url": url,
+             "description": beschreibung, "inLanguage": "de",
+             "publisher": {"@id": f"{BASIS_URL}/#organization"},
+             "mainEntity": {"@type": "ItemList", "itemListElement": eintraege}},
+        ],
+    })
+
+    return (
+        kopf
+        + f"""
+<main id="inhalt">
+  <div class="wrap">
+    <nav class="brotkrumen" aria-label="Sie sind hier">
+      <a href="../../">Start</a> <span aria-hidden="true">›</span>
+      <a href="../">Fachwissen</a> <span aria-hidden="true">›</span>
+      <span>Checklisten und Vorlagen</span>
+    </nav>
+    <header class="uebersicht-kopf">
+      <h1>Checklisten und Vorlagen</h1>
+      <p>{html.escape(beschreibung)} Jede Vorlage gehört zu einem Fachbeitrag, der erklärt, wie sie auszufüllen ist und woran Protokolle und Anzeigen in der Praxis scheitern.</p>
+    </header>
+    <aside class="werkzeug-hinweis">
+      <p><strong>Rechner:</strong> <a href="../../wertrechner/">Wertrechner Berlin</a> · <a href="../../werkzeuge/gewaehrleistungsfrist/">Gewährleistungsfrist berechnen</a> · <a href="../../werkzeuge/">alle Werkzeuge</a></p>
+    </aside>
+    <ul class="karten">
+{chr(10).join(karten)}
+    </ul>
+  </div>
+</main>
+
+<script type="application/ld+json">{daten}</script>
+"""
+        + fuss_bauen(start="../../", fachwissen="../")
     )
 
 
@@ -1480,6 +1579,7 @@ def main() -> int:
     for a in artikel:
         schreiben(ZIEL / a.kurzform / "index.html", artikelseite(a), geaendert, argumente.pruefen)
     schreiben(ZIEL / "index.html", uebersichtsseite(oeffentlich), geaendert, argumente.pruefen)
+    schreiben(ZIEL / "vorlagen" / "index.html", vorlagenseite(oeffentlich), geaendert, argumente.pruefen)
     schreiben(SITEMAP, sitemap_bauen(oeffentlich, heute), geaendert, argumente.pruefen)
     schreiben(LLMS, llms_bauen(oeffentlich), geaendert, argumente.pruefen)
 
@@ -1487,7 +1587,8 @@ def main() -> int:
     verwaist: list[str] = []
     if ZIEL.is_dir():
         for ordner in sorted(p for p in ZIEL.iterdir() if p.is_dir()):
-            if ordner.name not in bekannt:
+            # „vorlagen“ ist die erzeugte Übersichtsseite, kein Beitrag.
+            if ordner.name not in bekannt and ordner.name != "vorlagen":
                 verwaist.append(f"fachwissen/{ordner.name}/")
                 if not argumente.pruefen:
                     for datei in sorted(ordner.rglob("*"), reverse=True):

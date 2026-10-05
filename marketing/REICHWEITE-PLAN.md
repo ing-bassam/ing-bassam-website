@@ -37,10 +37,14 @@ Kundenstimmen, „Über uns“.
 
 ## Phase 3 – Werkzeuge und Checklisten als Einstieg
 
-- [ ] Gewährleistungsfristen-Rechner (BGB/VOB: Abnahmedatum → Fristende, Hemmung, Neubeginn)
-- [ ] Taupunkt- und Schimmelrisiko-Rechner (Raumklima, Oberflächentemperatur, 80-%-Kriterium)
-- [ ] Mängelanzeige-Generator (Formular → fertiges Schreiben, Druck als PDF, alles im Browser)
-- [ ] Übersichtsseite „Checklisten und Vorlagen“ für die vorhandenen Downloads
+Geteilt in drei Lieferungen: 3a Übersicht + Vorlagen + Fristenrechner, 3b Taupunkt-Rechner, 3c Mängelanzeige-Generator.
+
+- [x] 3a: Übersicht `/werkzeuge/` (Rechner, Checklisten, Protokolle, Musterschreiben)
+- [x] 3a: Gewährleistungsfristen-Rechner `/werkzeuge/gewaehrleistungsfrist/` – BGB/VOB/B ab Abnahme, Hemmung (§§ 203, 204, 209 BGB), Mängelrüge und Mängelbeseitigung nach VOB/B, Anerkenntnis (§ 212 BGB), Werktagsregel (§ 193 BGB) mit Berliner Feiertagen; Rechenkern `frist.js` mit Node-Tests
+- [x] 3a: Übersichtsseite „Checklisten und Vorlagen“ `/fachwissen/vorlagen/` – vom Seitenbauer aus den Vorlagen-Beiträgen erzeugt, aktualisiert sich mit jeder neuen Vorlage
+- [x] 3a: Node-Tests laufen im Workflow „Werkzeuge testen“ mit; Navigation „Werkzeuge“ auf Startseite und Fachbeiträgen
+- [ ] 3b: Taupunkt- und Schimmelrisiko-Rechner (Raumklima, Oberflächentemperatur, 80-%-Kriterium, Temperaturfaktor)
+- [ ] 3c: Mängelanzeige-Generator (Formular → fertiges Schreiben, Druck als PDF, alles im Browser)
 - [ ] Alle Werkzeuge: ohne Server, ohne Datenübertragung, mit Tests
 
 ## Phase 4 – Englisch ausbauen
