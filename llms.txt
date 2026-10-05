@@ -27,6 +27,14 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 - [Expert reports for construction disputes](https://ing-bassam.de/en/construction-dispute-expert-berlin/): Party expert reports on defects, damage, variations and delay, review of court-appointed and opposing reports, support in independent evidence proceedings – in English and German.
 - [Property value calculator Berlin](https://ing-bassam.de/en/property-valuation/): Free, indicative value range for houses and apartment buildings in Berlin based on the market data of the Berlin valuation board; calculated in the browser.
 
+## Guides in English (https://ing-bassam.de/en/guides/)
+
+- [Mould in a flat in Germany: building defect or ventilation?](https://ing-bassam.de/en/guides/mould-in-flats-building-defect-or-ventilation/): Mould in a flat in Germany: how to tell a building defect from ventilation habits, what the courts have decided and what to record before anyone cleans.
+- [Construction warranty periods in Germany: BGB and VOB/B](https://ing-bassam.de/en/guides/construction-warranty-periods-germany-bgb-vob/): Defect claims on German building work expire five years after acceptance under the BGB, usually four under the VOB/B. When the clock starts and what stops it.
+- [Buying a house in Germany: viewing checklist and documents](https://ing-bassam.de/en/guides/buying-a-house-in-germany-viewing-documents/): Buying a used house in Germany: which documents to request, what to check outside and inside, building services, asbestos – with a checklist for the viewing.
+- [Buying a flat in Germany: owners' association documents](https://ing-bassam.de/en/guides/buying-a-flat-in-germany-weg-documents/): Buying a flat in Germany: which owners' association documents to request and how to check the common property and the flat – with a checklist for the viewing.
+- [What does a building surveyor cost in Germany?](https://ing-bassam.de/en/guides/building-surveyor-fees-germany/): What a building surveyor costs in Germany, what the fee depends on, what is included and when a report pays off – fee types, court rates, who pays.
+
 ## Werkzeuge (https://ing-bassam.de/werkzeuge/)
 
 - [Wertrechner Berlin](https://ing-bassam.de/wertrechner/): Kostenlose, unverbindliche Wertindikation für Ein-, Zweifamilien- und Mietshäuser in Berlin nach der ImmoWertV 2021 mit den Sachwertfaktoren und Liegenschaftszinssätzen des Gutachterausschusses; Bodenrichtwert automatisch aus der Adresse, Berechnung vollständig im Browser.
