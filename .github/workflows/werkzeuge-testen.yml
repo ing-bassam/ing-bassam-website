@@ -5,6 +5,8 @@ name: Werkzeuge testen
 # Werkzeugen, Tests, Workflows oder Skills etwas ändert: Doppelungsprüfung,
 # Kontingent-Bremse, Veröffentlichung, Zeitpläne. Ohne KI, ohne Kontingent,
 # ohne Secrets. Bei den Entwürfen der Agenten läuft er nicht.
+# Dazu die von Hand gepflegten Seiten (Startseite, Leistungsseiten, Wertrechner):
+# Länge der Meta-Beschreibung und Strukturdaten (tests/test_seiten.py).
 # Kosten: keine (GitHub Actions ist für öffentliche Repositorys frei).
 # -----------------------------------------------------------------------------
 
@@ -15,6 +17,10 @@ on:
       - "tests/**"
       - ".github/workflows/**"
       - ".claude/skills/**"
+      - "index.html"
+      - "en/**"
+      - "leistungen/**"
+      - "wertrechner/**"
   push:
     branches: [main]
     paths:
@@ -22,6 +28,10 @@ on:
       - "tests/**"
       - ".github/workflows/**"
       - ".claude/skills/**"
+      - "index.html"
+      - "en/**"
+      - "leistungen/**"
+      - "wertrechner/**"
   workflow_dispatch:
 
 permissions:
