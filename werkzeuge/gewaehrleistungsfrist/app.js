@@ -78,13 +78,19 @@ function felderUmschalten() {
 }
 
 function inAdresse(eingabe) {
+  // Erst wenn ein Abnahmedatum steht, gibt es etwas zu merken; vorher bleibt die Adresse sauber.
   const p = new URLSearchParams();
-  for (const [k, v] of Object.entries(eingabe)) {
-    if (k === "hemmungen") {
-      eingabe.hemmungen.filter((h) => h.von && h.bis).forEach((h) => p.append("h", `${h.von}_${h.bis}_${h.art}`));
-    } else if (v && k !== "heute") {
-      p.set(k, v);
+  if (eingabe.abnahme) {
+    p.set("abnahme", eingabe.abnahme);
+    p.set("frist", eingabe.frist);
+    if (eingabe.frist === "vereinbart") {
+      p.set("vereinbartJahre", eingabe.vereinbartJahre || "0");
+      p.set("vereinbartMonate", eingabe.vereinbartMonate || "0");
     }
+    for (const k of ["anerkenntnis", "ruege", "beseitigungAbnahme"]) {
+      if (eingabe[k]) p.set(k, eingabe[k]);
+    }
+    eingabe.hemmungen.filter((h) => h.von && h.bis).forEach((h) => p.append("h", `${h.von}_${h.bis}_${h.art}`));
   }
   const neu = p.toString();
   if (neu !== location.hash.slice(1)) history.replaceState(null, "", neu ? `#${neu}` : location.pathname);
