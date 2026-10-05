@@ -49,9 +49,13 @@ Geteilt in drei Lieferungen: 3a Übersicht + Vorlagen + Fristenrechner, 3b Taupu
 
 ## Phase 4 – Englisch ausbauen
 
-- [ ] Einstiegsseite `/en/` mit allen Leistungen für internationale Käufer und Investoren
-- [ ] Englische Fassungen der Leistungsseiten aus Phase 2
-- [ ] Fünf Fachbeiträge auf Englisch (Hauskauf-Unterlagen, Wohnungskauf, Schimmel, Gewährleistung, Gutachterkosten)
+Geteilt in 4a (Einstieg und Leistungsseiten) und 4b (englische Fachbeiträge).
+
+- [x] 4a: Einstiegsseite `/en/` – alle Leistungen, Honorar, Arbeit mit Kunden im Ausland, Glossar mit 14 deutschen Baubegriffen, Kontakt, FAQ
+- [x] 4a: Englische Leistungsseiten: `/en/mould-survey-berlin/`, `/en/water-damage-survey-berlin/`, `/en/new-build-inspection-berlin/` (snagging), `/en/condition-survey-berlin/`, `/en/construction-dispute-expert-berlin/` – gleiche Pakete und Preise wie auf Deutsch
+- [x] 4a: hreflang-Paare Deutsch ↔ Englisch auf allen Gegenstücken (inkl. Startseite ↔ `/en/`), Sprachumschalter in der Kopfzeile, „English“ im Menü der Startseite; `tests/test_hreflang.py` prüft die Gegenseitigkeit
+- [x] 4a: Liste der englischen Seiten zentral in `tools/leistungen.py` (`ENGLISCH`) → Sitemap und llms.txt („## English“)
+- [ ] 4b: Fünf Fachbeiträge auf Englisch (Hauskauf-Unterlagen, Wohnungskauf, Schimmel, Gewährleistung, Gutachterkosten) – mit Seitenbauer-Unterstützung für englische Beiträge
 
 ## Phase 5 – Geschäftskunden
 
