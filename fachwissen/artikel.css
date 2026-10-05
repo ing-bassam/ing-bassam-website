@@ -268,6 +268,11 @@ a:hover{color:var(--accent-hover);}
 .leistungskasten .btn-outline{border-color:rgba(255,255,255,.3); color:#fff;}
 .leistungskasten .btn-outline:hover{border-color:#fff; color:#fff;}
 .leistungskasten .klein{margin:14px 0 0; font-size:.8125rem; color:var(--on-ink-3);}
+/* Hinweis auf die Seite der Zielgruppe (z. B. Hausverwaltungen), siehe leistungen.zielgruppen_seite() */
+.leistungskasten .zielgruppen-hinweis{margin:10px 0 0; font-size:.875rem;}
+.leistungskasten .zielgruppen-hinweis a{color:var(--accent-bright); text-decoration:none;}
+.leistungskasten .zielgruppen-hinweis a:hover{color:#fff;}
+.seiten-fuss .rechtliches + .rechtliches{margin-top:6px;}
 
 /* Übersicht der Vorlagen (fachwissen/vorlagen/): Download-Knöpfe je Karte, Hinweis auf die Rechner */
 .downloads-zeile{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:0;}
