@@ -17,10 +17,12 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 - [Technical Due Diligence Berlin](https://ing-bassam.de/en/technical-due-diligence-berlin/): pre-purchase building inspection and document review for international investors and private buyers; fixed prices, reports in English.
 - [Objektüberwachung (LP 8)](https://ing-bassam.de/#leistung-objektueberwachung): Bauherrenvertretung während der Bauausführung nach Angebot.
 
-## Wertrechner
+## Werkzeuge (https://ing-bassam.de/werkzeuge/)
 
 - [Wertrechner Berlin](https://ing-bassam.de/wertrechner/): Kostenlose, unverbindliche Wertindikation für Ein-, Zweifamilien- und Mietshäuser in Berlin nach der ImmoWertV 2021 mit den Sachwertfaktoren und Liegenschaftszinssätzen des Gutachterausschusses; Bodenrichtwert automatisch aus der Adresse, Berechnung vollständig im Browser.
 - [Property Value Calculator Berlin](https://ing-bassam.de/en/property-valuation/): English version of the calculator.
+- [Gewährleistungsfrist berechnen](https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/): Ende der Verjährung von Mängelansprüchen nach BGB (5 Jahre) oder VOB/B (4 Jahre) ab Abnahme, mit Hemmung, Mängelrüge, Anerkenntnis und Werktagsregel; Rechenweg mit Paragrafen, Berechnung im Browser.
+- [Checklisten und Vorlagen](https://ing-bassam.de/fachwissen/vorlagen/): alle Checklisten, Protokolle und Musterschreiben als PDF und Word zum Herunterladen, jeweils mit erläuterndem Fachbeitrag.
 
 ## Fachwissen (https://ing-bassam.de/fachwissen/)
 
