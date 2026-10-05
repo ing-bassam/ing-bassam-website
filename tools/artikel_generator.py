@@ -77,6 +77,9 @@ WEITERE_SEITEN = [
     ("https://ing-bassam.de/wertrechner/", "monthly", "0.8"),
     ("https://ing-bassam.de/en/property-valuation/", "monthly", "0.7"),
     ("https://ing-bassam.de/en/technical-due-diligence-berlin/", "monthly", "0.8"),
+    ("https://ing-bassam.de/werkzeuge/", "monthly", "0.8"),
+    ("https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/", "monthly", "0.8"),
+    ("https://ing-bassam.de/fachwissen/vorlagen/", "weekly", "0.8"),
 ] + [
     # Die Leistungsseiten unter /leistungen/ (Übersicht und je Leistung eine Seite).
     (f"{BASIS_URL}/{seite.pfad}", "monthly", "0.8") for seite in leistungen.alle()
