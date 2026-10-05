@@ -22,17 +22,18 @@ Kundenstimmen, „Über uns“.
 - [x] Wertrechner und Due Diligence in Kopf- und Fußzeile aller Fachbeiträge verlinkt
 - [x] Anliegen „Technische Due Diligence / Kaufberatung“ im Kontaktformular
 
-## Phase 2 – Eine Seite je Leistung
+## Phase 2 – Eine Seite je Leistung (PR „Phase 2“)
 
-- [ ] Übersicht `/leistungen/` mit allen Leistungen
-- [ ] Schimmelgutachten und Feuchteschäden
-- [ ] Technische Beweissicherung
-- [ ] Baubegleitung und Bauabnahme für private Bauherren
-- [ ] Wasserschaden-Gutachten (Versicherungsfälle)
-- [ ] Privatgutachten für Bauprozesse (Zielgruppe Anwälte)
-- [ ] Für Gerichte und Versicherer (Fachgebiete, Kapazität, Bearbeitungszeit)
-- [ ] Jede Seite: Umfang, Ablauf, Richtpreise, FAQ, strukturierte Daten; Startseite und Navigation verlinken
-- [ ] Kasten „Passende Leistung“ am Ende jedes Fachbeitrags – gesteuert über das Frontmatter-Feld `leistung`
+- [x] Übersicht `/leistungen/` mit allen Leistungen, Honorarlogik und Erstgespräch
+- [x] Schimmelgutachten und Feuchteschäden (`/leistungen/schimmelgutachten/`)
+- [x] Technische Beweissicherung (`/leistungen/technische-beweissicherung/`)
+- [x] Baubegleitung und Bauabnahme (`/leistungen/baubegleitung-bauabnahme/`)
+- [x] Wasserschaden-Gutachten (`/leistungen/wasserschaden-gutachten/`)
+- [x] Privatgutachten für Bauprozesse (`/leistungen/privatgutachten-bauprozess/`)
+- [x] Für Gerichte und Versicherer (`/leistungen/gerichte-versicherer/`)
+- [x] Jede Seite: Umfang, Ablauf, Richtpreise, FAQ, strukturierte Daten, Verweise auf passende Fachbeiträge; Startseite, Navigation, Sitemap und llms.txt verlinken
+- [x] Kasten „Passende Leistung“ am Ende jedes Fachbeitrags – Regeln in `tools/leistungen.py` (Frontmatter-Feld `leistung`, bei „Gutachten“ entscheidet das Thema), getestet in `tests/test_leistungen.py`
+- [ ] Richtpreise vom Büro bestätigen; danach Bewertungsbitte-Vorlage für das Google-Unternehmensprofil
 
 ## Phase 3 – Werkzeuge und Checklisten als Einstieg
 

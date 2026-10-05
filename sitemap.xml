@@ -25,14 +25,56 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ing-bassam.de/en/technical-due-diligence-berlin/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/leistungen/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/leistungen/schimmelgutachten/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/leistungen/wasserschaden-gutachten/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/leistungen/technische-beweissicherung/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/leistungen/baubegleitung-bauabnahme/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ing-bassam.de/leistungen/technische-due-diligence/</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ing-bassam.de/en/technical-due-diligence-berlin/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <loc>https://ing-bassam.de/leistungen/privatgutachten-bauprozess/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/leistungen/gerichte-versicherer/</loc>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

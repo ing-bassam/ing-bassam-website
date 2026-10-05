@@ -4,22 +4,23 @@
 
 Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#impressum
 
-## Leistungen
+## Leistungen (https://ing-bassam.de/leistungen/)
 
-- [Versicherungsgutachten](https://ing-bassam.de/#leistung-versicherungsgutachten)
-- [Gerichtsgutachten](https://ing-bassam.de/#leistung-gerichtsgutachten)
-- [Technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung)
-- [Objektüberwachung (LP 8)](https://ing-bassam.de/#leistung-objektueberwachung)
+- [Alle Leistungen](https://ing-bassam.de/leistungen/): Umfang, Ablauf und Richtpreise aller Leistungen des Büros auf einen Blick – vom Schimmelgutachten bis zur technischen Due Diligence.
+- [Schimmelgutachten](https://ing-bassam.de/leistungen/schimmelgutachten/): Wir klären mit Messung und Berechnung, ob Wärmebrücke, Feuchte aus dem Bauteil oder Nutzung hinter dem Befall steckt – mit Sanierungsempfehlung und Kostenbandbreite.
+- [Wasserschaden-Gutachten](https://ing-bassam.de/leistungen/wasserschaden-gutachten/): Zustand sichern, bevor saniert wird; Ursache und betroffene Bauteile feststellen; Trocknungskonzept und Kosten prüfen – für Eigentümer, Verwaltungen und Versicherer.
+- [Technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/): Dokumentation von Rissen, Verformungen und Feuchte vor Bauarbeiten am Nachbargrundstück, vor Sanierungen und vor dem Verdecken von Bauteilen – nachvollziehbar auch Jahre später.
+- [Baubegleitung und Bauabnahme](https://ing-bassam.de/leistungen/baubegleitung-bauabnahme/): Prüfung der Ausführung, wenn Bauteile fertig, aber noch offen sind, und ein Mängelprotokoll zur Abnahme, das hält – als Einzeltermin oder Paket.
+- [Technische Due Diligence](https://ing-bassam.de/leistungen/technische-due-diligence/): Begehung und Unterlagenprüfung vor dem Kauf: Zustand, Risiken, Instandhaltungsstau und Kosten – als Kaufberatung vor Ort, Kurzbericht oder vollständige Due Diligence.
+- [Privatgutachten für Bauprozesse](https://ing-bassam.de/leistungen/privatgutachten-bauprozess/): Gutachterliche Stellungnahmen zu Mängeln, Schäden, Nachträgen und Bauzeit, Prüfung gegnerischer Gutachten und Begleitung im Beweisverfahren – für Kanzleien und Parteien.
+- [Für Gerichte und Versicherer](https://ing-bassam.de/leistungen/gerichte-versicherer/): Gutachten nach Beweisbeschluss oder Rahmenvereinbarung mit verbindlichen Bearbeitungszeiten – Sachgebiete, Ablauf und Vergütung.
+- [Technical Due Diligence Berlin](https://ing-bassam.de/en/technical-due-diligence-berlin/): pre-purchase building inspection and document review for international investors and private buyers; fixed prices, reports in English.
+- [Objektüberwachung (LP 8)](https://ing-bassam.de/#leistung-objektueberwachung): Bauherrenvertretung während der Bauausführung nach Angebot.
 
 ## Wertrechner
 
 - [Wertrechner Berlin](https://ing-bassam.de/wertrechner/): Kostenlose, unverbindliche Wertindikation für Ein-, Zweifamilien- und Mietshäuser in Berlin nach der ImmoWertV 2021 mit den Sachwertfaktoren und Liegenschaftszinssätzen des Gutachterausschusses; Bodenrichtwert automatisch aus der Adresse, Berechnung vollständig im Browser.
 - [Property Value Calculator Berlin](https://ing-bassam.de/en/property-valuation/): English version of the calculator.
-
-## Technische Due Diligence
-
-- [Technische Due Diligence Berlin](https://ing-bassam.de/leistungen/technische-due-diligence/): Ankaufsprüfung und Unterlagenprüfung durch unabhängige Bauingenieure – Kaufberatung vor Ort, technischer Kurzbericht und technische Due Diligence für Mietwohnhäuser zu Festpreisen; Berichte auf Deutsch und Englisch.
-- [Technical Due Diligence Berlin](https://ing-bassam.de/en/technical-due-diligence-berlin/): pre-purchase building inspection and document review for international investors and private buyers; fixed prices, reports in English.
 
 ## Fachwissen (https://ing-bassam.de/fachwissen/)
 
