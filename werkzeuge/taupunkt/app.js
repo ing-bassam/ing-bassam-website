@@ -150,6 +150,8 @@ function aktualisieren() {
 }
 
 ausAdresse();
+// Ein neuer Link in derselben Registerkarte lädt die Seite nicht neu, sondern ändert nur den Anker.
+window.addEventListener("hashchange", () => { ausAdresse(); aktualisieren(); });
 form.addEventListener("input", aktualisieren);
 form.addEventListener("change", aktualisieren);
 form.addEventListener("submit", (ev) => { ev.preventDefault(); aktualisieren(); ausgabe.scrollIntoView({ behavior: "smooth", block: "start" }); });

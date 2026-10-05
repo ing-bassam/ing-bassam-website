@@ -206,6 +206,14 @@ function aktualisieren() {
 
 form.elements.heute.value = heuteIso();
 ausAdresse();
+// Ein neuer Link in derselben Registerkarte lädt die Seite nicht neu, sondern ändert nur den Anker.
+window.addEventListener("hashchange", () => {
+  form.reset();
+  form.elements.heute.value = heuteIso();
+  liste.replaceChildren();
+  ausAdresse();
+  aktualisieren();
+});
 document.getElementById("hemmung-neu").addEventListener("click", () => hemmungHinzufuegen());
 form.addEventListener("input", aktualisieren);
 form.addEventListener("change", aktualisieren);
