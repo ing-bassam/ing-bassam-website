@@ -327,6 +327,13 @@ dl.parameter dd{margin:0; font-weight:500; color:var(--text);}
 .leistungskarte .ab small{display:block; font-family:var(--font-body); font-weight:400; font-size:.8125rem; color:var(--text-3);}
 .leistungskarte .mehr{font-weight:500; color:var(--accent); text-decoration:none;}
 .leistungskarte .mehr:hover{color:var(--accent-hover);}
+/* Glossar deutscher Baubegriffe auf den englischen Seiten */
+.glossar{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:0 32px; margin:0 0 48px;}
+.glossar div{padding:14px 0; border-bottom:1px solid var(--line);}
+.glossar dt{font-family:var(--font-display); font-weight:600; font-size:1.0625rem; color:var(--text);}
+.glossar dd{margin:4px 0 0; font-size:.9375rem; line-height:1.6; color:var(--text-2);}
+.beitragsliste .sprache-hinweis{display:inline-block; margin-left:6px; padding:0 6px; border:1px solid var(--line-strong); border-radius:4px; font-size:.6875rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--text-3); vertical-align:middle;}
+
 /* Verweise auf Fachbeiträge am Ende einer Leistungsseite */
 .beitragsliste{list-style:none; margin:0 0 48px; padding:0; display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:10px;}
 .beitragsliste a{display:block; padding:14px 18px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); color:var(--text); text-decoration:none; font-weight:500; line-height:1.4; transition:border-color var(--dur) var(--ease);}

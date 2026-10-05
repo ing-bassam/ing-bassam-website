@@ -134,7 +134,8 @@ jobs:
           set -euo pipefail
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A entwuerfe fachwissen sitemap.xml llms.txt
+          # en/guides: englische Leitfäden – ihre Sprachverknüpfung hängt am deutschen Original.
+          git add -A entwuerfe fachwissen en/guides sitemap.xml llms.txt
           # Die erste Zeile ist fest: tools/hauptzweig_pruefen.py erkennt daran
           # einen erlaubten Bot-Commit und schlägt bei laufenden Agenten keinen Alarm.
           git commit -q -m "Entwürfe veröffentlicht" \

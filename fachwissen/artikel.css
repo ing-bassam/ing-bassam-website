@@ -82,6 +82,9 @@ a:hover{color:var(--accent-hover);}
 .seiten-kopf nav{display:flex; gap:24px; flex-wrap:wrap; padding-bottom:6px;}
 .seiten-kopf nav a{color:var(--on-ink-2); text-decoration:none; font-size:.9375rem;}
 .seiten-kopf nav a:hover{color:#fff;}
+/* Sprachumschalter (Beiträge mit englischer Fassung, englische Leitfäden unter /en/guides/) */
+.seiten-kopf nav{align-items:center;}
+.seiten-kopf nav .sprache{display:inline-flex; align-items:center; min-height:32px; padding:0 12px; border:1px solid var(--ink-line-2); border-radius:999px; font-size:.8125rem; letter-spacing:.04em;}
 
 /* --------------------------------------------------------- Brotkrumen */
 .brotkrumen{font-size:.8125rem; color:var(--text-3); margin:28px 0 0;}

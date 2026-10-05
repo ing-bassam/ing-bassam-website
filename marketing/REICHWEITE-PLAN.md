@@ -49,9 +49,15 @@ Geteilt in drei Lieferungen: 3a Übersicht + Vorlagen + Fristenrechner, 3b Taupu
 
 ## Phase 4 – Englisch ausbauen
 
-- [ ] Einstiegsseite `/en/` mit allen Leistungen für internationale Käufer und Investoren
-- [ ] Englische Fassungen der Leistungsseiten aus Phase 2
-- [ ] Fünf Fachbeiträge auf Englisch (Hauskauf-Unterlagen, Wohnungskauf, Schimmel, Gewährleistung, Gutachterkosten)
+Geteilt in 4a (Einstieg und Leistungsseiten) und 4b (englische Fachbeiträge).
+
+- [x] 4a: Einstiegsseite `/en/` – alle Leistungen, Honorar, Arbeit mit Kunden im Ausland, Glossar mit 14 deutschen Baubegriffen, Kontakt, FAQ
+- [x] 4a: Englische Leistungsseiten: `/en/mould-survey-berlin/`, `/en/water-damage-survey-berlin/`, `/en/new-build-inspection-berlin/` (snagging), `/en/condition-survey-berlin/`, `/en/construction-dispute-expert-berlin/` – gleiche Pakete und Preise wie auf Deutsch
+- [x] 4a: hreflang-Paare Deutsch ↔ Englisch auf allen Gegenstücken (inkl. Startseite ↔ `/en/`), Sprachumschalter in der Kopfzeile, „English“ im Menü der Startseite; `tests/test_hreflang.py` prüft die Gegenseitigkeit
+- [x] 4a: Liste der englischen Seiten zentral in `tools/leistungen.py` (`ENGLISCH`) → Sitemap und llms.txt („## English“)
+- [x] 4b: Fünf Leitfäden auf Englisch unter `/en/guides/` (Hauskauf, Wohnungskauf, Schimmel, Gewährleistungsfristen, Gutachterkosten) – englische Fassungen veröffentlichter deutscher Beiträge mit denselben Quellen; Übersicht `/en/guides/`, Menüpunkt „Guides“ und Verweise auf den englischen Seiten
+- [x] 4b: Seitenbauer baut englische Leitfäden aus `entwuerfe-en/` (`tools/beitraege_en.py`): hreflang in beide Richtungen, „English version“ und Sprachumschalter auf dem deutschen Original, Sitemap, llms.txt („## Guides in English“), IndexNow; `tests/test_leitfaeden_en.py` prüft Entwürfe, Original, Verknüpfung und verwaiste Seiten
+- [ ] Englische Texte von einer Person mit sehr gutem Englisch gegenlesen lassen (Fachbegriffe, Ton)
 
 ## Phase 5 – Geschäftskunden
 

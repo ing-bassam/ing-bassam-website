@@ -6,7 +6,8 @@ name: Werkzeuge testen
 # Kontingent-Bremse, Veröffentlichung, Zeitpläne. Ohne KI, ohne Kontingent,
 # ohne Secrets. Bei den Entwürfen der Agenten läuft er nicht.
 # Dazu die von Hand gepflegten Seiten (Startseite, Leistungsseiten, Wertrechner):
-# Länge der Meta-Beschreibung und Strukturdaten (tests/test_seiten.py).
+# Länge der Meta-Beschreibung und Strukturdaten (tests/test_seiten.py), dazu die
+# englischen Leitfäden aus entwuerfe-en/ (tests/test_leitfaeden_en.py).
 # Kosten: keine (GitHub Actions ist für öffentliche Repositorys frei).
 # -----------------------------------------------------------------------------
 
@@ -21,6 +22,7 @@ on:
       - ".claude/skills/**"
       - "index.html"
       - "en/**"
+      - "entwuerfe-en/**"
       - "leistungen/**"
       - "wertrechner/**"
   push:
@@ -34,6 +36,7 @@ on:
       - ".claude/skills/**"
       - "index.html"
       - "en/**"
+      - "entwuerfe-en/**"
       - "leistungen/**"
       - "wertrechner/**"
   workflow_dispatch:
