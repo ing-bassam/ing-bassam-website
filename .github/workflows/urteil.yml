@@ -388,7 +388,7 @@ jobs:
         continue-on-error: true
         if: steps.kandidaten.outputs.gefunden == 'true'
         timeout-minutes: 60   # lässt Fakten- und Schlussprüfung Zeit innerhalb der 235 Job-Minuten
-        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
+        uses: anthropics/claude-code-action@ed670b4cf9de2a5a570d130d2f6197b9e543cd64 # v1.0.240
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -444,7 +444,7 @@ jobs:
         continue-on-error: true
         if: steps.fehlalarm.outputs.zweiter_versuch == 'true'
         timeout-minutes: 60   # lässt Fakten- und Schlussprüfung Zeit innerhalb der 235 Job-Minuten
-        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
+        uses: anthropics/claude-code-action@ed670b4cf9de2a5a570d130d2f6197b9e543cd64 # v1.0.240
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -597,7 +597,7 @@ jobs:
         # vermerkt das im Pull Request.
         continue-on-error: true
         timeout-minutes: 50
-        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
+        uses: anthropics/claude-code-action@ed670b4cf9de2a5a570d130d2f6197b9e543cd64 # v1.0.240
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
@@ -679,7 +679,7 @@ jobs:
         if: ${{ !cancelled() && steps.quellen.outputs.bereit == 'true' }}
         continue-on-error: true
         timeout-minutes: 40
-        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
+        uses: anthropics/claude-code-action@ed670b4cf9de2a5a570d130d2f6197b9e543cd64 # v1.0.240
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |

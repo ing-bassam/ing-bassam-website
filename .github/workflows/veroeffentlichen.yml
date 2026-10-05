@@ -166,7 +166,7 @@ jobs:
         if: steps.zettel.outputs.anzahl != '' && steps.zettel.outputs.anzahl != '0'
         continue-on-error: true
         timeout-minutes: 15
-        uses: anthropics/claude-code-action@756cc22e19660d20e8cc9496b4f242475a7f7790 # v1.0.235
+        uses: anthropics/claude-code-action@ed670b4cf9de2a5a570d130d2f6197b9e543cd64 # v1.0.240
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
