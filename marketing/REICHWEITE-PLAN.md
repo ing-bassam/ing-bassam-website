@@ -61,15 +61,20 @@ Geteilt in 4a (Einstieg und Leistungsseiten) und 4b (englische Fachbeiträge).
 
 ## Phase 5 – Geschäftskunden
 
-- [ ] Seiten „Für Hausverwaltungen“, „Für Anwälte“, „Für Versicherer“
-- [ ] Acht LinkedIn-Beiträge aus bestehenden Fachbeiträgen vorformuliert (`marketing/linkedin/`)
-- [ ] Liste der Verzeichnisse mit Eintragsdaten (IHK-Sachverständigenverzeichnis, Baukammer Berlin, Fachverbände)
+- [x] Seiten für Zielgruppen: `/leistungen/hausverwaltungen/`, `/leistungen/rechtsanwaelte/`, `/leistungen/versicherer/` – typische Anlässe, Arbeitsweise, Ablauf, Preise netto mit denselben Beträgen wie die Leistungsseiten, Anruf- und Anfrageknopf mit vorbereiteter E-Mail
+- [x] Verlinkt von `/leistungen/` (Abschnitt „Für Verwaltungen, Kanzleien und Versicherer“), Startseite (Zielgruppen-Kachel, Fußzeile), Fußzeile aller Fachbeiträge, Gerichts- und Prozessseiten; Kasten „Passende Leistung“ zeigt bei Beiträgen mit Zielgruppe Hausverwaltung einen Hinweis auf deren Seite (`tools/leistungen.py`, getestet)
+- [x] Neun LinkedIn-Entwürfe in `marketing/linkedin/`: acht aus Fachbeiträgen, einer für Versicherer aus der Leistungsseite; jede Aussage mit Beleg, Schlusszeile zur Seite der Zielgruppe
+- [x] Liste der Verzeichnisse mit Eintragsdaten, Beschreibungstexten, Kosten und Bedingungen (IHK-Sachverständigenverzeichnis, Kammer, Fachverbände, Branchenbücher, Netzwerke der Zielgruppen) – bewusst **nicht** in diesem öffentlichen Repository, sondern beim Inhaber
+- [x] Nicht belegte Erfahrungsaussagen und Selbstzuschreibungen auf bestehenden Seiten neutral formuliert („gehören zu unserem Alltag“, „unabhängig“, „hält vor Gericht“)
 
 ## Dein Part (ohne Code)
 
-1. **Google Unternehmensprofil** anlegen oder vervollständigen: Kategorie „Bausachverständiger“ (Zweitkategorien
-   „Ingenieurbüro“, „Gutachter“), alle Leistungen eintragen, Beschreibung, Foto des Büros, Website-Link auf
+1. **Google Unternehmensprofil** anlegen oder vervollständigen: Hauptkategorie voraussichtlich „Baugutachter“
+   (dazu „Bauingenieur“, „Gutachter“; im Profil-Editor prüfen), alle Leistungen eintragen, Beschreibung, Website-Link auf
    `https://ing-bassam.de/`. Nach jedem abgeschlossenen Auftrag eine Bewertungsbitte per Mail – Textvorlage folgt in Phase 2.
 2. **Search Console** einmal im Monat öffnen: Leistung → Suchanfragen. Die zehn häufigsten Anfragen und die Seiten
    mit Position 5–20 sind die Vorlage für neue Leistungsseiten und Beiträge.
 3. **Antwortversprechen** einhalten: Innerhalb eines Werktags reagieren – notfalls nur mit Terminvorschlag.
+4. **Phase 5:** LinkedIn-Unternehmensseite anlegen und die Entwürfe aus `marketing/linkedin/` wöchentlich posten;
+   Einträge nach der Verzeichnisliste vornehmen (zuerst Google, dann Bing, Branchenbücher, Verbände);
+   Öffnungszeiten einmal festlegen und überall gleich angeben.
