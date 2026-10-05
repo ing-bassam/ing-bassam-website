@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mängelanzeige mit Fristsetzung erstellen – Generator | BIB</title>
+<meta name="description" content="Kostenloser Generator: Mängelanzeige mit Fristsetzung in zehn Minuten: Ort und Erscheinungsbild je Mangel, Fristdatum, Anlagen, Prüfliste. Ohne Speicherung.">
+<meta name="theme-color" content="#0a121d">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://ing-bassam.de/werkzeuge/maengelanzeige/">
+<!-- DATENSCHUTZ: nur Dateien dieser Website; der Generator läuft vollständig im Browser, nichts wird übertragen oder gespeichert. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-v22-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/wertrechner/wertrechner.css">
+<link rel="modulepreload" href="/werkzeuge/maengelanzeige/brief.js">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="BIB Ingenieurbüro für Bauwesen">
+<meta property="og:title" content="Mängelanzeige mit Fristsetzung erstellen – Generator">
+<meta property="og:description" content="Aus wenigen Angaben eine vollständige Mängelanzeige: Ort und Erscheinungsbild je Mangel, Fristdatum, Anlagen, Prüfliste. Kostenlos, im Browser, zum Drucken oder als PDF.">
+<meta property="og:url" content="https://ing-bassam.de/werkzeuge/maengelanzeige/">
+<meta property="og:image" content="https://ing-bassam.de/vorschau.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Strukturierte Daten (werden nicht ausgeführt, nur gelesen) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://ing-bassam.de/" },
+        { "@type": "ListItem", "position": 2, "name": "Werkzeuge", "item": "https://ing-bassam.de/werkzeuge/" },
+        { "@type": "ListItem", "position": 3, "name": "Mängelanzeige erstellen", "item": "https://ing-bassam.de/werkzeuge/maengelanzeige/" }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Mängelanzeige-Generator",
+      "url": "https://ing-bassam.de/werkzeuge/maengelanzeige/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "browserRequirements": "JavaScript",
+      "inLanguage": "de",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "description": "Erzeugt aus strukturierten Angaben eine Mängelanzeige mit Fristsetzung nach dem Musterschreiben des Büros – im Browser, ohne Datenübertragung.",
+      "provider": { "@id": "https://ing-bassam.de/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Was muss in einer Mängelanzeige stehen?", "acceptedAnswer": { "@type": "Answer", "text": "Drei Dinge: wo die Erscheinung sitzt (Gebäude, Geschoss, Raum, Bauteil), wie sie aussieht (das Erscheinungsbild, nicht das Wort mangelhaft) und bis zu welchem Kalenderdatum sie beseitigt sein soll. Dazu Bauvorhaben, Vertragsdatum und Vertragsgrundlage, der Vorbehalt weiterer Rechte und die Anlagen. Eine Ursache müssen Sie nicht benennen – die Untersuchung ist Sache des Unternehmens." } },
+        { "@type": "Question", "name": "Wie lang muss die Frist sein?", "acceptedAnswer": { "@type": "Answer", "text": "Es gibt keine feste Zahl. Angemessen ist die Zeit, die für die Arbeiten objektiv nötig ist, bei sofortigem Beginn und zügiger Ausführung. Eine zu kurz bemessene Frist ist nach der Fachliteratur nicht wirkungslos, sondern setzt eine angemessene Frist in Gang. Wer vor deren Ablauf selbst handelt, riskiert seine Ansprüche. Zwei bis vier Wochen sind bei üblichen Mängeln ein häufiger Rahmen; bei Lieferzeiten oder Witterung entsprechend mehr." } },
+        { "@type": "Question", "name": "Reicht eine E-Mail?", "acceptedAnswer": { "@type": "Answer", "text": "Der Zugang zählt, nicht die Absendung. Eine einfache E-Mail belegt den Zugang in der Regel nicht. Sicherer sind Bote mit Empfangsbestätigung oder Einschreiben mit Rückschein; die E-Mail kann zusätzlich vorab gehen. Bewahren Sie eine Kopie mit Absendedatum auf." } },
+        { "@type": "Question", "name": "An wen richte ich das Schreiben?", "acceptedAnswer": { "@type": "Answer", "text": "An Ihren Vertragspartner – das Unternehmen, mit dem der Bauvertrag besteht. Ein Hinweis an Architekt, Bauleitung oder einen Nachunternehmer ersetzt die Anzeige nicht. Bestehen mehrere Verträge, geht je Vertrag ein eigenes Schreiben hinaus." } },
+        { "@type": "Question", "name": "Was ändert sich mit der VOB/B?", "acceptedAnswer": { "@type": "Answer", "text": "Vor der Abnahme hat das Unternehmen erkannte Mängel nach § 4 Abs. 7 VOB/B auf eigene Kosten zu beseitigen, ohne dass es dafür einer Aufforderung bedarf. Nach der Abnahme verlangt § 13 Abs. 5 Nr. 1 VOB/B ein schriftliches Verlangen vor Ablauf der Verjährungsfrist, das für den gerügten Mangel eine neue Zwei-Jahres-Frist auslöst. Angezeigt und befristet wird in beiden Fällen, schon aus Beweisgründen." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="werkzeug brief-druck">
+
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="seiten-kopf">
+  <div class="wrap kopf-innen">
+    <a href="/" class="logo" aria-label="BIB Ingenieurbüro für Bauwesen – zur Startseite"><b>BIB</b><span>Ingenieurbüro für Bauwesen</span></a>
+    <nav aria-label="Bereiche">
+      <a href="/leistungen/">Leistungen</a>
+      <a href="/fachwissen/">Fachwissen</a>
+      <a href="/werkzeuge/" aria-current="page">Werkzeuge</a>
+      <a href="/#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+  <section class="hero" aria-labelledby="titel">
+    <div class="wrap">
+      <nav class="brotkrumen" aria-label="Sie sind hier"><a href="/">Start</a> <span aria-hidden="true">›</span> <a href="/werkzeuge/">Werkzeuge</a> <span aria-hidden="true">›</span> <span>Mängelanzeige erstellen</span></nav>
+      <span class="eyebrow">Kostenlos · nach dem Musterschreiben des Büros · nichts wird gespeichert</span>
+      <h1 id="titel">Mängelanzeige mit Fristsetzung – <span class="accent">in zehn Minuten.</span></h1>
+      <p class="hero-lead">Sie tragen ein, wo der Mangel sitzt, wie er aussieht und bis wann er beseitigt sein soll. Der Generator setzt daraus ein vollständiges Schreiben zusammen – mit Vertragsgrundlage, Abnahmestand, Anlagen und dem Vorbehalt weiterer Rechte – und geht vor dem Absenden die zwanzig Punkte durch, an denen Mängelanzeigen in der Praxis scheitern.</p>
+      <ul class="vertrauen">
+        <li>Keine Datenübertragung, keine Speicherung</li>
+        <li>Ich- oder Wir-Form</li>
+        <li>BGB und VOB/B</li>
+        <li>Drucken, PDF, Text kopieren</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="assistent" aria-label="Mängelanzeige-Generator">
+    <div class="wrap schmal">
+      <div class="karte">
+        <div class="karte-inhalt">
+          <noscript>
+            <p class="meldung warnung"><strong>JavaScript ist ausgeschaltet.</strong> Der Generator arbeitet ausschließlich in Ihrem Browser und braucht dafür JavaScript. Es werden keine Daten an uns oder Dritte übertragen. Das Musterschreiben gibt es auch als <a href="/fachwissen/maengelanzeige-mit-fristsetzung/">Word- und PDF-Vorlage</a>.</p>
+          </noscript>
+
+          <form id="anzeige-form" novalidate autocomplete="off">
+            <div class="schritt-kopf">
+              <h2>Absender und Empfänger</h2>
+              <p>Empfänger ist das Unternehmen, mit dem der Vertrag besteht – nicht Architekt, Bauleitung oder Nachunternehmer.</p>
+            </div>
+            <label class="haken"><input type="checkbox" name="einzelperson" value="ja"><span>Ich schreibe als Einzelperson (Ich-Form statt Wir-Form)</span></label>
+            <div class="zeile">
+              <div class="block">
+                <label for="abs-name">Ihr Name oder Ihre Gemeinschaft</label>
+                <div class="eingabe breit"><input id="abs-name" name="abs-name" type="text" placeholder="z. B. Eigentümergemeinschaft Musterstraße 1"></div>
+              </div>
+              <div class="block">
+                <label for="abs-strasse">Straße und Hausnummer</label>
+                <div class="eingabe breit"><input id="abs-strasse" name="abs-strasse" type="text"></div>
+              </div>
+              <div class="block">
+                <label for="abs-plzort">PLZ und Ort</label>
+                <div class="eingabe mittel"><input id="abs-plzort" name="abs-plzort" type="text"></div>
+              </div>
+              <div class="block">
+                <label for="abs-telefon">Telefon <span class="optional">(für die Terminabstimmung)</span></label>
+                <div class="eingabe mittel"><input id="abs-telefon" name="abs-telefon" type="tel"></div>
+              </div>
+              <div class="block">
+                <label for="abs-email">E-Mail <span class="optional">(optional)</span></label>
+                <div class="eingabe mittel"><input id="abs-email" name="abs-email" type="email"></div>
+              </div>
+            </div>
+            <div class="zeile">
+              <div class="block">
+                <label for="emp-firma">Unternehmen (Vertragspartner)</label>
+                <div class="eingabe breit"><input id="emp-firma" name="emp-firma" type="text" placeholder="z. B. Muster Bau GmbH"></div>
+              </div>
+              <div class="block">
+                <label for="emp-zusatz">Zusatz <span class="optional">(z. B. z. Hd. Geschäftsführung)</span></label>
+                <div class="eingabe breit"><input id="emp-zusatz" name="emp-zusatz" type="text"></div>
+              </div>
+              <div class="block">
+                <label for="emp-strasse">Straße und Hausnummer</label>
+                <div class="eingabe breit"><input id="emp-strasse" name="emp-strasse" type="text"></div>
+              </div>
+              <div class="block">
+                <label for="emp-plzort">PLZ und Ort</label>
+                <div class="eingabe mittel"><input id="emp-plzort" name="emp-plzort" type="text"></div>
+              </div>
+            </div>
+            <div class="zeile">
+              <div class="block">
+                <label for="ort">Ort des Schreibens</label>
+                <div class="eingabe mittel"><input id="ort" name="ort" type="text" placeholder="Berlin"></div>
+              </div>
+              <div class="block">
+                <label for="datum">Datum des Schreibens</label>
+                <div class="eingabe mittel"><input id="datum" name="datum" type="date"></div>
+              </div>
+            </div>
+
+            <div class="schritt-kopf">
+              <h2>Vertrag und Abnahme</h2>
+              <p>Prüfen Sie zuerst Ihren Bauvertrag: Die VOB/B gilt nur, wenn sie vereinbart ist; sonst gilt das Werkvertragsrecht des BGB.</p>
+            </div>
+            <div class="zeile">
+              <div class="block">
+                <label for="bauvorhaben">Bauvorhaben</label>
+                <div class="eingabe breit"><input id="bauvorhaben" name="bauvorhaben" type="text" placeholder="z. B. Musterstraße 1, 12487 Berlin"></div>
+              </div>
+              <div class="block">
+                <label for="leistung">Beauftragte Leistung</label>
+                <div class="eingabe breit"><input id="leistung" name="leistung" type="text" placeholder="z. B. die Fliesenarbeiten im Erdgeschoss"></div>
+              </div>
+              <div class="block">
+                <label for="vertragsdatum">Datum des Bauvertrags</label>
+                <div class="eingabe mittel"><input id="vertragsdatum" name="vertragsdatum" type="date"></div>
+              </div>
+            </div>
+            <div class="block">
+              <span class="legende">Vertragsgrundlage</span>
+              <ul class="wahl" data-spalten="2">
+                <li><label><input type="radio" name="vertragsart" value="bgb" checked><span class="titel">BGB-Werkvertrag</span><span class="text">Regelfall bei privaten Bauherren und Verbraucherbauverträgen</span></label></li>
+                <li><label><input type="radio" name="vertragsart" value="vob"><span class="titel">VOB/B vereinbart</span><span class="text">nur wenn die VOB/B ausdrücklich Vertragsbestandteil ist</span></label></li>
+              </ul>
+            </div>
+            <div class="block">
+              <span class="legende">Abnahme der Leistung</span>
+              <ul class="wahl" data-spalten="3">
+                <li><label><input type="radio" name="abnahme" value="nein" checked><span class="titel">Noch nicht abgenommen</span><span class="text">Leistung läuft oder ist noch nicht förmlich abgenommen</span></label></li>
+                <li><label><input type="radio" name="abnahme" value="ja"><span class="titel">Abgenommen</span><span class="text">Mangel nach der Abnahme aufgetreten</span></label></li>
+                <li><label><input type="radio" name="abnahme" value="vorbehalt"><span class="titel">Abgenommen mit Vorbehalt</span><span class="text">Mangel steht im Abnahmeprotokoll</span></label></li>
+              </ul>
+            </div>
+            <div class="zeile">
+              <div class="block" data-nur-abnahme hidden>
+                <label for="abnahmeDatum">Datum der Abnahme</label>
+                <div class="eingabe mittel"><input id="abnahmeDatum" name="abnahmeDatum" type="date"></div>
+              </div>
+              <div class="block" data-nur-vorbehalt hidden>
+                <label for="vorbehaltNr">Nummer im Abnahmeprotokoll</label>
+                <div class="eingabe kurz"><input id="vorbehaltNr" name="vorbehaltNr" type="text" placeholder="z. B. 7"></div>
+              </div>
+            </div>
+
+            <div class="schritt-kopf">
+              <h2>Mängel</h2>
+              <p>Je Mangel: Ort genau bezeichnen, Erscheinungsbild beschreiben, Datum der Feststellung. Keine Ursache behaupten – die Untersuchung liegt beim Unternehmen.</p>
+            </div>
+            <ul class="hemmungen" id="maengel" aria-live="polite"></ul>
+            <template id="mangel-vorlage">
+              <li class="mangel">
+                <span class="mangel-nr">Mangel 1</span>
+                <label>Ort (Gebäude, Geschoss, Raum, Bauteil)<input name="ort" type="text" placeholder="z. B. Bad im Erdgeschoss, Außenwand unter dem Fenster"></label>
+                <label>Erscheinungsbild<textarea name="erscheinung" rows="2" placeholder="z. B. dunkler, feuchter Fleck auf etwa 80 cm Breite, Putz blättert ab"></textarea></label>
+                <div class="mangel-zeile">
+                  <label>Festgestellt am<input name="datum" type="date"></label>
+                  <button type="button" class="btn btn-leer btn-klein entfernen">Entfernen</button>
+                </div>
+              </li>
+            </template>
+            <div class="block"><div><button type="button" class="btn btn-outline btn-klein" id="mangel-neu">Weiteren Mangel hinzufügen</button></div></div>
+
+            <div class="schritt-kopf">
+              <h2>Frist und Ausführung</h2>
+              <p>Ein konkretes Kalenderdatum ist wichtiger als jede Formulierung. „Unverzüglich“ ist keine Frist.</p>
+            </div>
+            <div class="zeile">
+              <div class="block">
+                <label for="frist">Mängel beseitigt bis</label>
+                <div class="eingabe mittel"><input id="frist" name="frist" type="date"></div>
+                <p class="hilfe">Die Frist gilt für den Abschluss der Arbeiten.</p>
+              </div>
+              <div class="block">
+                <label for="rueckmeldung">Rückmeldung erbeten bis <span class="optional">(optional)</span></label>
+                <div class="eingabe mittel"><input id="rueckmeldung" name="rueckmeldung" type="date"></div>
+              </div>
+              <div class="block">
+                <label for="zeiten">Mögliche Ausführungszeiten <span class="optional">(optional)</span></label>
+                <div class="eingabe breit"><input id="zeiten" name="zeiten" type="text" placeholder="z. B. montags bis freitags 8 bis 16 Uhr"></div>
+              </div>
+              <div class="block">
+                <label for="zugang">Zugang wird gewährt zu <span class="optional">(optional)</span></label>
+                <div class="eingabe breit"><input id="zugang" name="zugang" type="text" placeholder="z. B. Bad, Flur und Keller"></div>
+              </div>
+              <div class="block">
+                <label for="ansprechpartner">Ansprechpartner für den Termin <span class="optional">(sonst Absender)</span></label>
+                <div class="eingabe breit"><input id="ansprechpartner" name="ansprechpartner" type="text" placeholder="Name, Telefon, E-Mail"></div>
+              </div>
+            </div>
+            <label class="haken"><input type="checkbox" name="gefahr" value="ja"><span>Es droht ein Folgeschaden oder eine Gefahr für Personen (fügt einen Absatz mit Sicherungsmaßnahme hinzu)</span></label>
+            <div class="block" data-nur-gefahr hidden>
+              <label for="sicherung">Veranlasste Sicherungsmaßnahme</label>
+              <div class="eingabe breit"><input id="sicherung" name="sicherung" type="text" placeholder="z. B. die Absperrung des Bereichs"></div>
+            </div>
+
+            <div class="schritt-kopf">
+              <h2>Anlagen</h2>
+              <p>Lichtbilder mit Datum, Maßangabe und erkennbarer Lage im Raum gehören zu jeder Anzeige.</p>
+            </div>
+            <div class="block">
+              <div class="haken-liste" id="anlagen"></div>
+              <label for="anlagenWeitere">Weitere Anlagen <span class="optional">(mit Semikolon trennen)</span></label>
+              <div class="eingabe breit"><input id="anlagenWeitere" name="anlagenWeitere" type="text" placeholder="z. B. Schriftverkehr vom 12.09.2026; Angebot vom 01.02.2025"></div>
+            </div>
+
+            <div class="navigation">
+              <span class="hilfe">Die Vorschau unten aktualisiert sich mit jeder Eingabe.</span>
+              <button type="submit" class="btn btn-primary">Schreiben erzeugen</button>
+            </div>
+          </form>
+
+          <div class="werkzeug-ergebnis" id="ergebnis" aria-live="polite" hidden></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="infos" aria-labelledby="infos-titel">
+    <div class="wrap schmal">
+      <h2 id="infos-titel">So ist das Schreiben aufgebaut</h2>
+      <ol class="ablauf">
+        <li><b>Vertrag und Grundlage.</b> Bauvertrag mit Datum und Leistung; ob das Werkvertragsrecht des BGB gilt oder die VOB/B einbezogen ist. Danach die Erklärung, dass Mängel angezeigt werden und Beseitigung verlangt wird.</li>
+        <li><b>Abnahmestand.</b> Nicht abgenommen, abgenommen am, oder abgenommen mit Vorbehalt unter Nummer – weil davon abhängt, welche Vorschriften greifen.</li>
+        <li><b>Mängel.</b> Je Mangel Ort, Erscheinungsbild und Datum der Feststellung. Ausdrücklich ohne Ursache: Nach gefestigter Rechtsprechung genügt die Beschreibung des Erscheinungsbilds mit seiner Lage – so konkret, dass das Unternehmen sofort mit der Untersuchung beginnen kann.</li>
+        <li><b>Frist.</b> Ein konkretes Kalenderdatum für den Abschluss der Arbeiten, dazu Ausführungszeiten, Zugang und Ansprechpartner.</li>
+        <li><b>Vorbehalt und Rückmeldung.</b> Der Weg der Beseitigung bleibt dem Unternehmen (§ 635 BGB), weitere Rechte bleiben vorbehalten, Eingangsbestätigung und Terminmitteilung werden erbeten.</li>
+      </ol>
+
+      <div class="info-raster">
+        <div>
+          <h3>Was der Generator leistet</h3>
+          <p>Er bringt Ihre Angaben in die Form des Musterschreibens, das wir in der Baupraxis verwenden, prüft Pflichtangaben und warnt, wenn eine Beschreibung nach Ursachenbehauptung klingt oder die Frist sehr kurz ist. Nichts wird gespeichert oder übertragen – schließen Sie die Seite, sind die Angaben weg.</p>
+        </div>
+        <div>
+          <h3>Was er nicht leistet</h3>
+          <p>Ob Ihnen Mängelrechte zustehen, welche Frist angemessen ist, ob die VOB/B wirksam vereinbart wurde und was nach fruchtlosem Fristablauf zu tun ist (Selbstvornahme, Kostenvorschuss nach § 637 BGB, Kündigung), beurteilt ein Rechtsanwalt. Bei hohen Kosten und bei Streit über die Ursache sollte er vor dem Absenden lesen.</p>
+        </div>
+      </div>
+
+      <div class="leistung" id="beweis">
+        <span class="eyebrow dunkel">Bevor nachgebessert wird</span>
+        <h2>Den Befund sichern, solange er noch da ist</h2>
+        <p>Bessert das Unternehmen nach oder bestreitet es den Mangel, ist der ursprüngliche Zustand bald nicht mehr feststellbar. Eine technische Beweissicherung hält ihn fest; eine gutachterliche Stellungnahme benennt Ursache, Beseitigung und Kosten – als Grundlage für Ihren Anwalt. In Berlin und Brandenburg, Rückmeldung innerhalb eines Werktags.</p>
+        <div class="aktionen"><a class="btn btn-primary" href="/leistungen/technische-beweissicherung/">Beweissicherung ab 690 €</a><a class="btn btn-ghost" href="/werkzeuge/gewaehrleistungsfrist/">Läuft die Gewährleistung noch? Frist berechnen</a></div>
+        <p class="klein"><a href="tel:+4917623581339">+49 176 23581339</a> · <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a></p>
+      </div>
+
+      <h2 id="faq-titel">Häufige Fragen</h2>
+      <div class="faq" aria-labelledby="faq-titel">
+        <details class="abschnitt"><summary>Was muss in einer Mängelanzeige stehen?</summary><div class="abschnitt-inhalt"><p>Drei Dinge: wo die Erscheinung sitzt (Gebäude, Geschoss, Raum, Bauteil), wie sie aussieht (das Erscheinungsbild, nicht das Wort mangelhaft) und bis zu welchem Kalenderdatum sie beseitigt sein soll. Dazu Bauvorhaben, Vertragsdatum und Vertragsgrundlage, der Vorbehalt weiterer Rechte und die Anlagen. Eine Ursache müssen Sie nicht benennen – die Untersuchung ist Sache des Unternehmens.</p></div></details>
+        <details class="abschnitt"><summary>Wie lang muss die Frist sein?</summary><div class="abschnitt-inhalt"><p>Es gibt keine feste Zahl. Angemessen ist die Zeit, die für die Arbeiten objektiv nötig ist, bei sofortigem Beginn und zügiger Ausführung. Eine zu kurz bemessene Frist ist nach der Fachliteratur nicht wirkungslos, sondern setzt eine angemessene Frist in Gang. Wer vor deren Ablauf selbst handelt, riskiert seine Ansprüche. Zwei bis vier Wochen sind bei üblichen Mängeln ein häufiger Rahmen; bei Lieferzeiten oder Witterung entsprechend mehr.</p></div></details>
+        <details class="abschnitt"><summary>Reicht eine E-Mail?</summary><div class="abschnitt-inhalt"><p>Der Zugang zählt, nicht die Absendung. Eine einfache E-Mail belegt den Zugang in der Regel nicht. Sicherer sind Bote mit Empfangsbestätigung oder Einschreiben mit Rückschein; die E-Mail kann zusätzlich vorab gehen. Bewahren Sie eine Kopie mit Absendedatum auf.</p></div></details>
+        <details class="abschnitt"><summary>An wen richte ich das Schreiben?</summary><div class="abschnitt-inhalt"><p>An Ihren Vertragspartner – das Unternehmen, mit dem der Bauvertrag besteht. Ein Hinweis an Architekt, Bauleitung oder einen Nachunternehmer ersetzt die Anzeige nicht. Bestehen mehrere Verträge, geht je Vertrag ein eigenes Schreiben hinaus.</p></div></details>
+        <details class="abschnitt"><summary>Was ändert sich mit der VOB/B?</summary><div class="abschnitt-inhalt"><p>Vor der Abnahme hat das Unternehmen erkannte Mängel nach § 4 Abs. 7 VOB/B auf eigene Kosten zu beseitigen, ohne dass es dafür einer Aufforderung bedarf. Nach der Abnahme verlangt § 13 Abs. 5 Nr. 1 VOB/B ein schriftliches Verlangen vor Ablauf der Verjährungsfrist, das für den gerügten Mangel eine neue Zwei-Jahres-Frist auslöst. Angezeigt und befristet wird in beiden Fällen, schon aus Beweisgründen.</p></div></details>
+      </div>
+
+      <h2>Zum Weiterlesen</h2>
+      <ul class="beitragsliste">
+        <li><a href="/fachwissen/maengelanzeige-mit-fristsetzung/">Mängelanzeige mit Fristsetzung: Musterschreiben<small>Vorlage · Word und PDF mit Erläuterung</small></a></li>
+        <li><a href="/fachwissen/pfusch-am-bau-vorgehen-ansprueche/">Pfusch am Bau: was Bauherren zuerst tun müssen<small>Fachbeitrag · Reihenfolge der Schritte</small></a></li>
+        <li><a href="/fachwissen/nachbesserung-verweigert-werklohn/">Handwerker lehnt Nacharbeit ab: Was aus dem Werklohn wird<small>Rechtsprechung · wenn die Frist verstreicht</small></a></li>
+        <li><a href="/fachwissen/maengelliste-abnahme-gewaehrleistung/">Mängelliste für Abnahme und Gewährleistung<small>Vorlage · als Anlage zur Anzeige</small></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="seiten-fuss">
+  <div class="wrap">
+    <p><strong>Bassam Ingenieurbüro für Bauwesen GmbH</strong> · Straße am Flugplatz 6a, 12487 Berlin · <a href="tel:+4917623581339">+49 176 23581339</a> · <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a></p>
+    <p><a href="/#impressum">Impressum</a> · <a href="/#datenschutz">Datenschutzerklärung</a> · <a href="/">Zur Startseite</a> · <a href="/werkzeuge/">Alle Werkzeuge</a> · <a href="/leistungen/">Leistungen</a></p>
+    <p class="klein">Datenschutz: Alle Eingaben bleiben in Ihrem Browser und werden nicht gespeichert. Diese Seite setzt keine Cookies, nutzt kein Tracking und lädt ausschließlich Dateien von ing-bassam.de. Keine Rechtsberatung.</p>
+  </div>
+</footer>
+
+<nav class="schnellkontakt" aria-label="Schnellkontakt">
+  <a href="tel:+4917623581339"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Anrufen</a>
+  <a href="/#kontakt" class="primaer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Anfrage senden</a>
+</nav>
+
+<script type="module" src="/werkzeuge/maengelanzeige/app.js"></script>
+</body>
+</html>

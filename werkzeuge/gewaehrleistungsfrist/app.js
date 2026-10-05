@@ -171,7 +171,7 @@ function rendern(e) {
           : "Ob Ansprüche trotz Ablauf bestehen – etwa bei arglistig verschwiegenen Mängeln oder abweichenden Vertragsfristen – beurteilt ein Rechtsanwalt. Wir liefern dafür die technische Feststellung."}</p>
         <div class="aktionen">
           <a class="btn btn-primary" href="/leistungen/baubegleitung-bauabnahme/">Gewährleistungsbegehung ab 490 €</a>
-          <a class="btn btn-ghost" href="/fachwissen/maengelanzeige-mit-fristsetzung/">Musterschreiben Mängelanzeige</a>
+          <a class="btn btn-ghost" href="/werkzeuge/maengelanzeige/">Mängelanzeige erstellen</a>
         </div>
         <p class="klein">Rückmeldung innerhalb eines Werktags · Berlin und Brandenburg</p>
       </div>
