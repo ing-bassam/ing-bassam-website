@@ -79,6 +79,7 @@ WEITERE_SEITEN = [
     ("https://ing-bassam.de/en/technical-due-diligence-berlin/", "monthly", "0.8"),
     ("https://ing-bassam.de/werkzeuge/", "monthly", "0.8"),
     ("https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/", "monthly", "0.8"),
+    ("https://ing-bassam.de/werkzeuge/taupunkt/", "monthly", "0.8"),
     ("https://ing-bassam.de/fachwissen/vorlagen/", "weekly", "0.8"),
 ] + [
     # Die Leistungsseiten unter /leistungen/ (Übersicht und je Leistung eine Seite).
@@ -1159,6 +1160,9 @@ def llms_bauen(oeffentlich: list["Artikel"]) -> str:
         f"- [Gewährleistungsfrist berechnen]({BASIS_URL}/werkzeuge/gewaehrleistungsfrist/): Ende der Verjährung "
         "von Mängelansprüchen nach BGB (5 Jahre) oder VOB/B (4 Jahre) ab Abnahme, mit Hemmung, Mängelrüge, "
         "Anerkenntnis und Werktagsregel; Rechenweg mit Paragrafen, Berechnung im Browser.",
+        f"- [Taupunkt und Schimmelrisiko]({BASIS_URL}/werkzeuge/taupunkt/): Taupunkt, Oberflächenfeuchte und "
+        "Schimmelrisiko nach dem 80-%-Kriterium der DIN 4108-2 aus Raumklima und Oberflächentemperatur oder "
+        "Temperaturfaktor; Magnus-Formel, Rechenweg mit Formeln, Berechnung im Browser.",
         f"- [Checklisten und Vorlagen]({BASIS_URL}/fachwissen/vorlagen/): alle Checklisten, Protokolle und "
         "Musterschreiben als PDF und Word zum Herunterladen, jeweils mit erläuterndem Fachbeitrag.",
         "",

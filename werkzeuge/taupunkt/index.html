@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taupunkt und Schimmelrisiko berechnen – DIN 4108-2 | BIB</title>
+<meta name="description" content="Kostenloser Rechner: Taupunkt, Oberflächenfeuchte und Schimmelrisiko nach dem 80-%-Kriterium der DIN 4108-2 – aus Raumklima und Oberflächentemperatur.">
+<meta name="theme-color" content="#0a121d">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://ing-bassam.de/werkzeuge/taupunkt/">
+<!-- DATENSCHUTZ: nur Dateien dieser Website; der Rechner läuft vollständig im Browser, nichts wird übertragen. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-v22-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/wertrechner/wertrechner.css">
+<link rel="modulepreload" href="/werkzeuge/taupunkt/taupunkt.js">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="BIB Ingenieurbüro für Bauwesen">
+<meta property="og:title" content="Taupunkt und Schimmelrisiko berechnen – DIN 4108-2">
+<meta property="og:description" content="Taupunkt, Oberflächenfeuchte und Schimmelrisiko nach dem 80-%-Kriterium – aus Raumklima und Oberflächentemperatur oder Temperaturfaktor. Kostenlos, mit Rechenweg.">
+<meta property="og:url" content="https://ing-bassam.de/werkzeuge/taupunkt/">
+<meta property="og:image" content="https://ing-bassam.de/vorschau.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Strukturierte Daten (werden nicht ausgeführt, nur gelesen) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://ing-bassam.de/" },
+        { "@type": "ListItem", "position": 2, "name": "Werkzeuge", "item": "https://ing-bassam.de/werkzeuge/" },
+        { "@type": "ListItem", "position": 3, "name": "Taupunkt und Schimmelrisiko", "item": "https://ing-bassam.de/werkzeuge/taupunkt/" }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Taupunkt- und Schimmelrisiko-Rechner",
+      "url": "https://ing-bassam.de/werkzeuge/taupunkt/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "browserRequirements": "JavaScript",
+      "inLanguage": "de",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "description": "Berechnet Taupunkt, Oberflächenfeuchte und Schimmelrisiko nach dem 80-%-Kriterium der DIN 4108-2 aus Raumklima und Oberflächentemperatur oder Temperaturfaktor.",
+      "provider": { "@id": "https://ing-bassam.de/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Warum wächst Schimmel schon unterhalb des Taupunkts?", "acceptedAnswer": { "@type": "Answer", "text": "Schimmelpilze brauchen kein flüssiges Wasser. Ab etwa 80 % relativer Feuchte an der Oberfläche reicht die Feuchte im Material für Wachstum aus. Die DIN 4108-2 setzt deshalb nicht den Taupunkt (100 %), sondern 80 % Oberflächenfeuchte als Grenze an. Bei 20 °C und 50 % Raumluftfeuchte liegt der Taupunkt bei 9,3 °C, die kritische Oberflächentemperatur aber schon bei 12,6 °C." } },
+        { "@type": "Question", "name": "Was ist der Temperaturfaktor f_Rsi?", "acceptedAnswer": { "@type": "Answer", "text": "Er beschreibt, wie warm eine raumseitige Oberfläche im Verhältnis zur Differenz zwischen Raum- und Außentemperatur bleibt: f_Rsi = (θ_si − θ_e) / (θ_i − θ_e). Nach DIN 4108-2 muss er an jeder Stelle der Gebäudehülle mindestens 0,70 betragen; bei −5 °C außen und 20 °C innen entspricht das 12,6 °C Oberflächentemperatur. Ungedämmte Altbauecken erreichen oft nur 0,5 bis 0,6." } },
+        { "@type": "Question", "name": "Wo und wie messe ich die Oberflächentemperatur?", "acceptedAnswer": { "@type": "Answer", "text": "An der kältesten Stelle: in Außenwandecken, an Fensterlaibungen, am Fenstersturz, am Rollladenkasten, hinter Möbeln an Außenwänden und am Übergang zur Decke oder zum Boden. Ein Infrarotthermometer oder ein Anlegefühler genügt für eine erste Einordnung; messen Sie morgens vor dem Lüften und notieren Sie gleichzeitig Raumtemperatur und Luftfeuchte." } },
+        { "@type": "Question", "name": "Lüften oder dämmen – was folgt aus dem Ergebnis?", "acceptedAnswer": { "@type": "Answer", "text": "Liegt die Oberflächenfeuchte über 80 %, gibt es zwei Hebel: die Oberfläche wärmer machen oder die Raumluft trockener halten. Der Rechner nennt die Raumluftfeuchte, bis zu der die Stelle trocken bliebe. Ist dieser Wert im Winter nicht realistisch erreichbar – etwa unter 40 % –, liegt das Problem beim Bauteil, nicht beim Nutzer. Diese Abgrenzung ist der Kern jedes Schimmelgutachtens." } },
+        { "@type": "Question", "name": "Wie genau ist die Rechnung?", "acceptedAnswer": { "@type": "Answer", "text": "Die Magnus-Formel liefert den Sättigungsdampfdruck im Wohnbereich auf wenige Zehntel Prozent genau; die Unsicherheit liegt in der Messung. Hygrometer weichen oft um 3 bis 5 Prozentpunkte ab, Infrarotthermometer um 1 bis 2 Kelvin. Rechnen Sie Varianten, und bewerten Sie Grenzfälle nicht nach einer einzelnen Messung." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="werkzeug">
+
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="seiten-kopf">
+  <div class="wrap kopf-innen">
+    <a href="/" class="logo" aria-label="BIB Ingenieurbüro für Bauwesen – zur Startseite"><b>BIB</b><span>Ingenieurbüro für Bauwesen</span></a>
+    <nav aria-label="Bereiche">
+      <a href="/leistungen/">Leistungen</a>
+      <a href="/fachwissen/">Fachwissen</a>
+      <a href="/werkzeuge/" aria-current="page">Werkzeuge</a>
+      <a href="/#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+  <section class="hero" aria-labelledby="titel">
+    <div class="wrap">
+      <nav class="brotkrumen" aria-label="Sie sind hier"><a href="/">Start</a> <span aria-hidden="true">›</span> <a href="/werkzeuge/">Werkzeuge</a> <span aria-hidden="true">›</span> <span>Taupunkt und Schimmelrisiko</span></nav>
+      <span class="eyebrow">Kostenlos · DIN 4108-2 · mit Rechenweg</span>
+      <h1 id="titel">Wird diese Wand <span class="accent">schimmeln?</span></h1>
+      <p class="hero-lead">Raumtemperatur, Luftfeuchte und die Temperatur der kalten Stelle eingeben – der Rechner nennt Taupunkt, Oberflächenfeuchte und sagt, ob das 80-Prozent-Kriterium der DIN 4108-2 eingehalten ist. Ohne Messung an der Wand schätzt er die Oberflächentemperatur aus Außentemperatur und Temperaturfaktor.</p>
+      <ul class="vertrauen">
+        <li>Keine Datenübertragung</li>
+        <li>Keine Cookies, kein Tracking</li>
+        <li>Magnus-Formel, DIN 4108-2</li>
+        <li>Jeder Schritt mit Formel</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="assistent" aria-label="Taupunkt- und Schimmelrisiko-Rechner">
+    <div class="wrap schmal">
+      <div class="karte">
+        <div class="karte-inhalt">
+          <noscript>
+            <p class="meldung warnung"><strong>JavaScript ist ausgeschaltet.</strong> Der Rechner rechnet ausschließlich in Ihrem Browser und braucht dafür JavaScript. Es werden keine Daten an uns oder Dritte übertragen. Die Formeln stehen weiter unten auf dieser Seite.</p>
+          </noscript>
+
+          <form id="taupunkt-form" novalidate>
+            <div class="schritt-kopf">
+              <h2>Raumklima</h2>
+              <p>Werte aus dem Raum, in dem die kalte Stelle liegt – am besten morgens vor dem Lüften.</p>
+            </div>
+            <div class="zeile">
+              <div class="block">
+                <label for="innen">Raumlufttemperatur</label>
+                <div class="eingabe kurz"><input id="innen" name="innen" type="number" inputmode="decimal" step="0.5" min="-20" max="50" value="20"><span class="einheit">°C</span></div>
+              </div>
+              <div class="block">
+                <label for="feuchte">Relative Luftfeuchte</label>
+                <div class="eingabe kurz"><input id="feuchte" name="feuchte" type="number" inputmode="decimal" step="1" min="1" max="100" value="50"><span class="einheit">%</span></div>
+                <p class="hilfe">Hygrometer weichen oft um 3 bis 5 Prozentpunkte ab – rechnen Sie Varianten.</p>
+              </div>
+            </div>
+
+            <div class="schritt-kopf">
+              <h2>Kalte Stelle</h2>
+              <p>Gemessen ist besser als geschätzt. Ohne Messgerät nutzen Sie Außentemperatur und Temperaturfaktor.</p>
+            </div>
+            <div class="block">
+              <ul class="wahl" data-spalten="2">
+                <li><label><input type="radio" name="modus" value="gemessen" checked><span class="titel">Oberflächentemperatur gemessen</span><span class="text">Infrarotthermometer oder Anlegefühler an der kältesten Stelle</span></label></li>
+                <li><label><input type="radio" name="modus" value="geschaetzt"><span class="titel">Aus Außentemperatur schätzen</span><span class="text">über den Temperaturfaktor f<sub>Rsi</sub> des Bauteils</span></label></li>
+              </ul>
+            </div>
+            <div class="zeile">
+              <div class="block" data-nur-gemessen>
+                <label for="oberflaeche">Oberflächentemperatur</label>
+                <div class="eingabe kurz"><input id="oberflaeche" name="oberflaeche" type="number" inputmode="decimal" step="0.1" min="-30" max="50" value="13"><span class="einheit">°C</span></div>
+                <p class="hilfe">Raumecke, Fensterlaibung, hinter dem Schrank – dort, wo es feucht wird.</p>
+              </div>
+              <div class="block" data-nur-geschaetzt hidden>
+                <label for="aussen">Außentemperatur</label>
+                <div class="eingabe kurz"><input id="aussen" name="aussen" type="number" inputmode="decimal" step="0.5" min="-40" max="40" value="-5"><span class="einheit">°C</span></div>
+                <p class="hilfe">DIN 4108-2 rechnet mit −5 °C.</p>
+              </div>
+              <div class="block" data-nur-geschaetzt hidden>
+                <label for="fRsi">Temperaturfaktor f<sub>Rsi</sub></label>
+                <div class="eingabe kurz"><input id="fRsi" name="fRsi" type="number" inputmode="decimal" step="0.01" min="0" max="1" value="0.70"></div>
+                <details class="erklaerung"><summary>Welcher Wert passt?</summary><p>0,70 ist der Mindestwert der DIN 4108-2 für Neubauten und sanierte Bauteile. Gedämmte Außenwandflächen liegen bei 0,85 bis 0,95, ungedämmte Außenwandecken aus Vollziegel bei 0,55 bis 0,65, ungedämmte Betonstürze und auskragende Balkonplatten oft darunter.</p></details>
+              </div>
+            </div>
+
+            <div class="navigation">
+              <span class="hilfe">Das Ergebnis aktualisiert sich bei jeder Eingabe.</span>
+              <button type="submit" class="btn btn-primary">Bewerten</button>
+            </div>
+          </form>
+
+          <div class="werkzeug-ergebnis" id="ergebnis" aria-live="polite" hidden></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feste, ohne JavaScript lesbare Erläuterungen -->
+  <section class="infos" aria-labelledby="infos-titel">
+    <div class="wrap schmal">
+      <h2 id="infos-titel">So rechnet das Werkzeug</h2>
+      <ol class="ablauf">
+        <li><b>Sättigungsdampfdruck.</b> Wie viel Wasserdampf Luft höchstens aufnehmen kann, hängt von der Temperatur ab: p<sub>s</sub>(θ) = 611,2 Pa · exp(17,62 · θ / (243,12 °C + θ)) – die Magnus-Formel in der Fassung von Sonntag (1990).</li>
+        <li><b>Partialdruck und Taupunkt.</b> Der tatsächliche Wasserdampfdruck ist relative Feuchte mal Sättigungsdruck. Die Temperatur, bei der dieser Druck gesättigt ist, ist der Taupunkt – ab dort kondensiert Wasser.</li>
+        <li><b>Oberflächenfeuchte.</b> An einer kalten Oberfläche ist die relative Feuchte höher als im Raum: Partialdruck geteilt durch den Sättigungsdruck bei Oberflächentemperatur.</li>
+        <li><b>Schimmelkriterium.</b> DIN 4108-2:2013-02, Abschnitt 6.2, verlangt, dass die Oberflächenfeuchte 80 % nicht überschreitet. Unter den Normbedingungen 20 °C / 50 % innen und −5 °C außen heißt das: Oberfläche mindestens 12,6 °C, Temperaturfaktor f<sub>Rsi</sub> mindestens 0,70.</li>
+        <li><b>Temperaturfaktor.</b> f<sub>Rsi</sub> = (θ<sub>si</sub> − θ<sub>e</sub>) / (θ<sub>i</sub> − θ<sub>e</sub>). Ohne Messung lässt sich damit die Oberflächentemperatur aus Außentemperatur und Bauteilqualität schätzen; umgekehrt nennt der Rechner den Faktor, den die Stelle bräuchte.</li>
+      </ol>
+
+      <div class="info-raster">
+        <div>
+          <h3>Was das Werkzeug leistet</h3>
+          <p>Es ordnet eine Momentaufnahme ein: Ist die Stelle bei diesem Raumklima kritisch? Wie viel Reserve bleibt? Bis zu welcher Luftfeuchte bliebe sie trocken? Damit lässt sich ein Streit über „falsches Lüften“ versachlichen – und entscheiden, ob eine Messung über Wochen und ein Gutachten nötig sind.</p>
+        </div>
+        <div>
+          <h3>Was es nicht leistet</h3>
+          <p>Es rechnet stationär, ohne Feuchtepufferung, Luftbewegung und Wärmespeicherung, und es kennt den Bauteilaufbau nicht. Ob der Mindestwärmeschutz eingehalten ist, ob Feuchte aus dem Bauteil stammt und wer die Ursache zu vertreten hat, klärt nur ein Ortstermin mit Messung über Zeit und rechnerischer Prüfung der Wärmebrücke.</p>
+        </div>
+      </div>
+
+      <div class="leistung" id="gutachten">
+        <span class="eyebrow dunkel">Wenn es ernst wird</span>
+        <h2>Schimmelgutachten mit Messung und Berechnung</h2>
+        <p>Wir messen Raumklima, Oberflächentemperaturen und Bauteilfeuchte vor Ort, zeichnen das Raumklima auf Wunsch über zwei bis vier Wochen auf, prüfen die Wärmebrücke rechnerisch und sagen, ob Bauteil oder Nutzung die Ursache ist – mit Sanierungsempfehlung und Kostenbandbreite. Schimmel-Check ab 350 €, Gutachten ab 990 € inkl. MwSt.</p>
+        <div class="aktionen"><a class="btn btn-primary" href="/leistungen/schimmelgutachten/">Schimmelgutachten ansehen</a><a class="btn btn-ghost" href="/fachwissen/taupunkt-oberflaechentemperatur-schimmelkriterium/">Fachbeitrag zum Schimmelkriterium</a></div>
+        <p class="klein">Rückmeldung innerhalb eines Werktags · <a href="tel:+4917623581339">+49 176 23581339</a></p>
+      </div>
+
+      <h2 id="faq-titel">Häufige Fragen</h2>
+      <div class="faq" aria-labelledby="faq-titel">
+        <details class="abschnitt"><summary>Warum wächst Schimmel schon unterhalb des Taupunkts?</summary><div class="abschnitt-inhalt"><p>Schimmelpilze brauchen kein flüssiges Wasser. Ab etwa 80 % relativer Feuchte an der Oberfläche reicht die Feuchte im Material für Wachstum aus. Die DIN 4108-2 setzt deshalb nicht den Taupunkt (100 %), sondern 80 % Oberflächenfeuchte als Grenze an. Bei 20 °C und 50 % Raumluftfeuchte liegt der Taupunkt bei 9,3 °C, die kritische Oberflächentemperatur aber schon bei 12,6 °C.</p></div></details>
+        <details class="abschnitt"><summary>Was ist der Temperaturfaktor f<sub>Rsi</sub>?</summary><div class="abschnitt-inhalt"><p>Er beschreibt, wie warm eine raumseitige Oberfläche im Verhältnis zur Differenz zwischen Raum- und Außentemperatur bleibt: f<sub>Rsi</sub> = (θ<sub>si</sub> − θ<sub>e</sub>) / (θ<sub>i</sub> − θ<sub>e</sub>). Nach DIN 4108-2 muss er an jeder Stelle der Gebäudehülle mindestens 0,70 betragen; bei −5 °C außen und 20 °C innen entspricht das 12,6 °C Oberflächentemperatur. Ungedämmte Altbauecken erreichen oft nur 0,5 bis 0,6.</p></div></details>
+        <details class="abschnitt"><summary>Wo und wie messe ich die Oberflächentemperatur?</summary><div class="abschnitt-inhalt"><p>An der kältesten Stelle: in Außenwandecken, an Fensterlaibungen, am Fenstersturz, am Rollladenkasten, hinter Möbeln an Außenwänden und am Übergang zur Decke oder zum Boden. Ein Infrarotthermometer oder ein Anlegefühler genügt für eine erste Einordnung; messen Sie morgens vor dem Lüften und notieren Sie gleichzeitig Raumtemperatur und Luftfeuchte.</p></div></details>
+        <details class="abschnitt"><summary>Lüften oder dämmen – was folgt aus dem Ergebnis?</summary><div class="abschnitt-inhalt"><p>Liegt die Oberflächenfeuchte über 80 %, gibt es zwei Hebel: die Oberfläche wärmer machen oder die Raumluft trockener halten. Der Rechner nennt die Raumluftfeuchte, bis zu der die Stelle trocken bliebe. Ist dieser Wert im Winter nicht realistisch erreichbar – etwa unter 40 % –, liegt das Problem beim Bauteil, nicht beim Nutzer. Diese Abgrenzung ist der Kern jedes <a href="/leistungen/schimmelgutachten/">Schimmelgutachtens</a>.</p></div></details>
+        <details class="abschnitt"><summary>Wie genau ist die Rechnung?</summary><div class="abschnitt-inhalt"><p>Die Magnus-Formel liefert den Sättigungsdampfdruck im Wohnbereich auf wenige Zehntel Prozent genau; die Unsicherheit liegt in der Messung. Hygrometer weichen oft um 3 bis 5 Prozentpunkte ab, Infrarotthermometer um 1 bis 2 Kelvin. Rechnen Sie Varianten, und bewerten Sie Grenzfälle nicht nach einer einzelnen Messung.</p></div></details>
+      </div>
+
+      <h2>Zum Weiterlesen</h2>
+      <ul class="beitragsliste">
+        <li><a href="/fachwissen/taupunkt-oberflaechentemperatur-schimmelkriterium/">Taupunkt, Oberflächentemperatur und Schimmelkriterium<small>Fachbeitrag · die Physik hinter dem 80-%-Kriterium</small></a></li>
+        <li><a href="/fachwissen/raumklima-protokoll-schimmelverdacht/">Raumklima-Protokoll bei Schimmelverdacht<small>Vorlage · Temperatur und Feuchte über Wochen festhalten</small></a></li>
+        <li><a href="/fachwissen/schimmel-wohnung-baumangel-lueftung/">Schimmel in der Wohnung: Baumangel oder Lüftungsverhalten?<small>Fachbeitrag · wie sich die Ursache klären lässt</small></a></li>
+        <li><a href="/fachwissen/schimmel-nach-fassadendaemmung/">Schimmel nach Fassadendämmung: Ursache oder Folge?<small>Fachbeitrag · wenn es nach der Sanierung losgeht</small></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="seiten-fuss">
+  <div class="wrap">
+    <p><strong>Bassam Ingenieurbüro für Bauwesen GmbH</strong> · Straße am Flugplatz 6a, 12487 Berlin · <a href="tel:+4917623581339">+49 176 23581339</a> · <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a></p>
+    <p><a href="/#impressum">Impressum</a> · <a href="/#datenschutz">Datenschutzerklärung</a> · <a href="/">Zur Startseite</a> · <a href="/werkzeuge/">Alle Werkzeuge</a> · <a href="/leistungen/">Leistungen</a></p>
+    <p class="klein">Datenschutz: Alle Eingaben bleiben in Ihrem Browser. Diese Seite setzt keine Cookies, nutzt kein Tracking und lädt ausschließlich Dateien von ing-bassam.de. Einordnung, kein Gutachten.</p>
+  </div>
+</footer>
+
+<nav class="schnellkontakt" aria-label="Schnellkontakt">
+  <a href="tel:+4917623581339"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Anrufen</a>
+  <a href="/#kontakt" class="primaer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Anfrage senden</a>
+</nav>
+
+<script type="module" src="/werkzeuge/taupunkt/app.js"></script>
+</body>
+</html>
