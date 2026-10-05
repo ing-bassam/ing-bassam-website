@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gewährleistungsfrist berechnen – BGB und VOB/B | BIB</title>
+<meta name="description" content="Kostenloser Rechner: Wann verjähren Mängelansprüche am Bau? Fristende nach BGB oder VOB/B ab Abnahme, mit Hemmung, Mängelrüge, Anerkenntnis und Werktagsregel.">
+<meta name="theme-color" content="#0a121d">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/">
+<!-- DATENSCHUTZ: nur Dateien dieser Website; der Rechner läuft vollständig im Browser, nichts wird übertragen. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-v22-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/wertrechner/wertrechner.css">
+<link rel="modulepreload" href="/werkzeuge/gewaehrleistungsfrist/frist.js">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="BIB Ingenieurbüro für Bauwesen">
+<meta property="og:title" content="Gewährleistungsfrist berechnen – BGB und VOB/B">
+<meta property="og:description" content="Wann verjähren Mängelansprüche am Bau? Fristende ab Abnahme mit Hemmung, Mängelrüge, Anerkenntnis und Werktagsregel – kostenlos, mit Rechenweg und Paragrafen.">
+<meta property="og:url" content="https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/">
+<meta property="og:image" content="https://ing-bassam.de/vorschau.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Strukturierte Daten (werden nicht ausgeführt, nur gelesen) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://ing-bassam.de/" },
+        { "@type": "ListItem", "position": 2, "name": "Werkzeuge", "item": "https://ing-bassam.de/werkzeuge/" },
+        { "@type": "ListItem", "position": 3, "name": "Gewährleistungsfrist berechnen", "item": "https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/" }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Gewährleistungsfristen-Rechner",
+      "url": "https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "browserRequirements": "JavaScript",
+      "inLanguage": "de",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "description": "Berechnet das Ende der Verjährungsfrist für Mängelansprüche am Bau nach BGB oder VOB/B – mit Hemmung, Mängelrüge, Anerkenntnis und Werktagsregel.",
+      "provider": { "@id": "https://ing-bassam.de/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Wann beginnt die Gewährleistungsfrist am Bau?", "acceptedAnswer": { "@type": "Answer", "text": "Mit der Abnahme der Leistung. Der Tag der Abnahme selbst wird nicht mitgerechnet (§ 187 Abs. 1 BGB); die Frist endet mit Ablauf des Tages, der dem Abnahmetag nach seiner Zahl entspricht (§ 188 Abs. 2 BGB). Bei einer Abnahme am 15. März 2021 endet die fünfjährige BGB-Frist also mit dem 15. März 2026." } },
+        { "@type": "Question", "name": "Wie lang ist die Frist nach BGB und nach VOB/B?", "acceptedAnswer": { "@type": "Answer", "text": "Beim BGB-Werkvertrag verjähren Mängelansprüche bei einem Bauwerk in fünf Jahren (§ 634a Abs. 1 Nr. 2 BGB), bei anderen Werkleistungen in zwei Jahren. Ist die VOB/B vereinbart und nichts anderes abgesprochen, gelten vier Jahre für Bauwerke und zwei Jahre für andere Werke, feuerberührte Teile von Feuerungsanlagen und für maschinelle oder elektrotechnische Anlagen ohne Wartungsauftrag (§ 13 Abs. 4 VOB/B)." } },
+        { "@type": "Question", "name": "Verlängert eine Mängelanzeige die Frist?", "acceptedAnswer": { "@type": "Answer", "text": "Beim BGB-Vertrag nicht – dort hemmen nur Verhandlungen (§ 203 BGB) oder ein gerichtliches Verfahren wie das selbständige Beweisverfahren (§ 204 BGB). Bei vereinbarter VOB/B verjährt der Anspruch auf Beseitigung eines schriftlich gerügten Mangels in zwei Jahren ab Zugang der Rüge, nicht aber vor Ablauf der Regelfrist (§ 13 Abs. 5 Nr. 1 VOB/B)." } },
+        { "@type": "Question", "name": "Was passiert, wenn das Fristende auf ein Wochenende fällt?", "acceptedAnswer": { "@type": "Answer", "text": "Fällt der letzte Tag auf einen Sonnabend, Sonntag oder gesetzlichen Feiertag, tritt nach § 193 BGB der nächste Werktag an seine Stelle. Der Rechner berücksichtigt die bundesweiten Feiertage und den 8. März in Berlin. Verlassen Sie sich darauf nicht; reichen Sie hemmende Maßnahmen deutlich vorher ein." } },
+        { "@type": "Question", "name": "Beginnt die Frist nach einer Nachbesserung neu?", "acceptedAnswer": { "@type": "Answer", "text": "Nach der VOB/B beginnt für die nachgebesserte Leistung eine neue Frist von zwei Jahren ab Abnahme der Mängelbeseitigung, die nicht vor der Regelfrist endet (§ 13 Abs. 5 Nr. 1 Satz 3 VOB/B). Beim BGB-Vertrag kann eine Nachbesserung ein Anerkenntnis sein, mit dem die volle Frist neu beginnt (§ 212 BGB) – ob das im Einzelfall so ist, beurteilt ein Rechtsanwalt." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="werkzeug">
+
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="seiten-kopf">
+  <div class="wrap kopf-innen">
+    <a href="/" class="logo" aria-label="BIB Ingenieurbüro für Bauwesen – zur Startseite"><b>BIB</b><span>Ingenieurbüro für Bauwesen</span></a>
+    <nav aria-label="Bereiche">
+      <a href="/leistungen/">Leistungen</a>
+      <a href="/fachwissen/">Fachwissen</a>
+      <a href="/werkzeuge/" aria-current="page">Werkzeuge</a>
+      <a href="/#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+  <section class="hero" aria-labelledby="titel">
+    <div class="wrap">
+      <nav class="brotkrumen" aria-label="Sie sind hier"><a href="/">Start</a> <span aria-hidden="true">›</span> <a href="/werkzeuge/">Werkzeuge</a> <span aria-hidden="true">›</span> <span>Gewährleistungsfrist</span></nav>
+      <span class="eyebrow">Kostenlos · BGB und VOB/B · mit Rechenweg</span>
+      <h1 id="titel">Wann läuft die Gewährleistung <span class="accent">ab?</span></h1>
+      <p class="hero-lead">Abnahmedatum eingeben, Vertragsart wählen – der Rechner nennt den letzten Tag der Verjährungsfrist für Mängelansprüche, berücksichtigt Hemmung, Mängelrüge nach VOB/B, Anerkenntnis und die Werktagsregel und zeigt jeden Schritt mit Paragraf.</p>
+      <ul class="vertrauen">
+        <li>Keine Datenübertragung</li>
+        <li>Keine Cookies, kein Tracking</li>
+        <li>Rechenweg Schritt für Schritt</li>
+        <li>Stand der Vorschriften: Oktober 2026</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="assistent" aria-label="Gewährleistungsfristen-Rechner">
+    <div class="wrap schmal">
+      <div class="karte">
+        <div class="karte-inhalt">
+          <noscript>
+            <p class="meldung warnung"><strong>JavaScript ist ausgeschaltet.</strong> Der Rechner rechnet ausschließlich in Ihrem Browser und braucht dafür JavaScript. Es werden keine Daten an uns oder Dritte übertragen. Die Regeln stehen weiter unten auf dieser Seite.</p>
+          </noscript>
+
+          <form id="frist-form" novalidate>
+            <div class="schritt-kopf">
+              <h2>Abnahme und Vertrag</h2>
+              <p>Maßgeblich ist die Abnahme der gesamten Leistung; bei Teilabnahmen rechnen Sie je Teil gesondert.</p>
+            </div>
+
+            <div class="zeile">
+              <div class="block">
+                <label for="abnahme">Datum der Abnahme</label>
+                <div class="eingabe mittel"><input id="abnahme" name="abnahme" type="date" required></div>
+                <p class="hilfe">Förmliche oder konkludente Abnahme; bei Zahlung der Schlussrechnung ohne Rüge ist das Datum eine Rechtsfrage.</p>
+              </div>
+              <div class="block">
+                <label for="frist">Vertrag und Leistung</label>
+                <div class="eingabe breit">
+                  <select id="frist" name="frist">
+                    <option value="bgb_bauwerk">Bauwerk – BGB-Werkvertrag (5 Jahre)</option>
+                    <option value="vob_bauwerk">Bauwerk – VOB/B vereinbart (4 Jahre)</option>
+                    <option value="bgb_sonstig">Andere Werkleistung – BGB (2 Jahre)</option>
+                    <option value="vob_sonstig">Andere Werke, Feuerungsanlagen – VOB/B (2 Jahre)</option>
+                    <option value="vob_anlage">Maschinelle/elektrotechnische Anlagen ohne Wartung – VOB/B (2 Jahre)</option>
+                    <option value="vereinbart">Vertraglich vereinbarte Frist</option>
+                  </select>
+                </div>
+                <p class="hilfe">Die VOB/B gilt nur, wenn sie im Vertrag wirksam vereinbart ist.</p>
+              </div>
+            </div>
+
+            <div class="zeile" data-nur-vereinbart hidden>
+              <div class="block">
+                <label for="vereinbartJahre">Vereinbarte Frist</label>
+                <div class="eingabe kurz"><input id="vereinbartJahre" name="vereinbartJahre" type="number" min="0" max="30" step="1" value="5"><span class="einheit">Jahre</span></div>
+              </div>
+              <div class="block">
+                <label for="vereinbartMonate"><span class="optional">zusätzlich</span></label>
+                <div class="eingabe kurz"><input id="vereinbartMonate" name="vereinbartMonate" type="number" min="0" max="11" step="1" value="0"><span class="einheit">Monate</span></div>
+              </div>
+            </div>
+
+            <div class="schritt-kopf">
+              <h2>Was seit der Abnahme geschehen ist <span class="optional">(optional)</span></h2>
+              <p>Nur eintragen, was tatsächlich vorliegt. Jede Angabe verändert das Ergebnis nur für den jeweils betroffenen Mangel.</p>
+            </div>
+
+            <div class="zeile">
+              <div class="block">
+                <label for="anerkenntnis">Anerkenntnis des Unternehmers am</label>
+                <div class="eingabe mittel"><input id="anerkenntnis" name="anerkenntnis" type="date"></div>
+                <details class="erklaerung"><summary>Was zählt als Anerkenntnis?</summary><p>Erkennt der Unternehmer den Mangel an – etwa durch vorbehaltlose Nachbesserung oder eine schriftliche Zusage –, beginnt die Verjährung nach § 212 Abs. 1 Nr. 1 BGB neu. Ob eine bestimmte Handlung ein Anerkenntnis ist, beurteilt ein Rechtsanwalt.</p></details>
+              </div>
+              <div class="block" data-nur-vob hidden>
+                <label for="ruege">Schriftliche Mängelrüge zugegangen am</label>
+                <div class="eingabe mittel"><input id="ruege" name="ruege" type="date"></div>
+                <p class="hilfe">§ 13 Abs. 5 Nr. 1 VOB/B: zwei Jahre ab Zugang, nicht vor Ablauf der Regelfrist.</p>
+              </div>
+              <div class="block" data-nur-vob hidden>
+                <label for="beseitigungAbnahme">Mängelbeseitigung abgenommen am</label>
+                <div class="eingabe mittel"><input id="beseitigungAbnahme" name="beseitigungAbnahme" type="date"></div>
+                <p class="hilfe">Neue Zwei-Jahres-Frist für die nachgebesserte Leistung.</p>
+              </div>
+            </div>
+
+            <div class="block">
+              <span class="legende">Hemmung der Verjährung</span>
+              <p class="hilfe">Zeiten, in denen über den Anspruch verhandelt wurde oder ein gerichtliches Verfahren lief, werden nicht eingerechnet (§ 209 BGB). Bei Verfahren das Datum der Beendigung eintragen – die Hemmung endet sechs Monate später.</p>
+              <ul class="hemmungen" id="hemmungen" aria-live="polite"></ul>
+              <template id="hemmung-vorlage">
+                <li class="hemmung">
+                  <label>Von<input name="von" type="date"></label>
+                  <label>Bis / Beendigung<input name="bis" type="date"></label>
+                  <label>Art<select name="art"></select></label>
+                  <button type="button" class="btn btn-leer btn-klein entfernen">Entfernen</button>
+                </li>
+              </template>
+              <div><button type="button" class="btn btn-outline btn-klein" id="hemmung-neu">Hemmung hinzufügen</button></div>
+            </div>
+
+            <div class="zeile">
+              <div class="block">
+                <label for="heute">Stichtag für die Restlaufzeit</label>
+                <div class="eingabe mittel"><input id="heute" name="heute" type="date"></div>
+                <p class="hilfe">Voreingestellt ist heute.</p>
+              </div>
+            </div>
+
+            <div class="navigation">
+              <span class="hilfe">Das Ergebnis erscheint, sobald ein Abnahmedatum eingetragen ist.</span>
+              <button type="submit" class="btn btn-primary">Frist berechnen</button>
+            </div>
+          </form>
+
+          <div class="werkzeug-ergebnis" id="ergebnis" aria-live="polite" hidden></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feste, ohne JavaScript lesbare Erläuterungen -->
+  <section class="infos" aria-labelledby="infos-titel">
+    <div class="wrap schmal">
+      <h2 id="infos-titel">So rechnet das Werkzeug</h2>
+      <ol class="ablauf">
+        <li><b>Beginn.</b> Die Verjährung der Mängelansprüche beginnt mit der Abnahme (§ 634a Abs. 2 BGB, § 13 Abs. 4 Nr. 3 VOB/B). Der Abnahmetag zählt nicht mit (§ 187 Abs. 1 BGB).</li>
+        <li><b>Regelfrist.</b> Fünf Jahre bei einem Bauwerk nach BGB, vier Jahre nach VOB/B, zwei Jahre bei anderen Werken und bei Anlagen ohne Wartungsauftrag. Die Frist endet mit Ablauf des Tages, der dem Abnahmetag nach seiner Zahl entspricht (§ 188 Abs. 2 BGB); fehlt der Tag, gilt der Monatsletzte (§ 188 Abs. 3 BGB).</li>
+        <li><b>Verlängerungen.</b> Ein Anerkenntnis lässt die volle Frist neu beginnen (§ 212 BGB). Nach VOB/B gelten zwei Jahre ab schriftlicher Mängelrüge und zwei Jahre ab Abnahme der Mängelbeseitigung, jeweils nicht vor Ablauf der Regelfrist (§ 13 Abs. 5 Nr. 1 VOB/B).</li>
+        <li><b>Hemmung.</b> Zeiten von Verhandlungen (§ 203 BGB) und gerichtlichen Verfahren (§ 204 BGB) werden nicht eingerechnet (§ 209 BGB). Nach Verhandlungen tritt die Verjährung frühestens drei Monate später ein; die Hemmung durch ein Verfahren endet sechs Monate nach dessen Beendigung.</li>
+        <li><b>Werktag.</b> Fällt das Ende auf Sonnabend, Sonntag oder Feiertag, gilt der nächste Werktag (§ 193 BGB). Berücksichtigt sind die bundesweiten Feiertage und der 8. März in Berlin.</li>
+      </ol>
+
+      <div class="info-raster">
+        <div>
+          <h3>Was das Werkzeug leistet</h3>
+          <p>Es rechnet die gesetzlichen Regelfälle nach, nennt zu jedem Schritt den Paragrafen und sagt, wie viele Tage bleiben. Das genügt, um rechtzeitig zu handeln: eine Begehung einige Monate vor dem Ende, eine Mängelanzeige mit Fristsetzung, bei Streit ein selbständiges Beweisverfahren über einen Rechtsanwalt.</p>
+        </div>
+        <div>
+          <h3>Was es nicht leistet</h3>
+          <p>Es prüft nicht, ob die VOB/B wirksam vereinbart ist, ob eine Handlung ein Anerkenntnis darstellt, ob tatsächlich verhandelt wurde, ob Teilabnahmen vorliegen oder der Vertrag abweichende Fristen enthält. Bei arglistig verschwiegenen Mängeln gilt eine andere Verjährung (§ 634a Abs. 3 BGB). Diese Fragen gehören zu einem Rechtsanwalt.</p>
+        </div>
+      </div>
+
+      <div class="leistung" id="begehung">
+        <span class="eyebrow dunkel">Vor dem Fristablauf</span>
+        <h2>Gewährleistungsbegehung durch Bauingenieure</h2>
+        <p>Was bis zum Fristende nicht gerügt ist, zahlen Sie später selbst. Wir gehen Dach, Fassade, Keller, Fenster, Abdichtungen und Haustechnik durch, dokumentieren Mängel mit Foto und Bewertung und liefern das Protokoll, mit dem Sie fristgerecht anzeigen – in Berlin und Brandenburg, ab 490 € inkl. MwSt.</p>
+        <div class="aktionen"><a class="btn btn-primary" href="/leistungen/baubegleitung-bauabnahme/">Begehung anfragen</a><a class="btn btn-ghost" href="/fachwissen/gewaehrleistung-ablauf-checkliste/">Checkliste vor Ablauf der Gewährleistung</a></div>
+        <p class="klein">Rückmeldung innerhalb eines Werktags · <a href="tel:+4917623581339">+49 176 23581339</a></p>
+      </div>
+
+      <h2 id="faq-titel">Häufige Fragen</h2>
+      <div class="faq" aria-labelledby="faq-titel">
+        <details class="abschnitt"><summary>Wann beginnt die Gewährleistungsfrist am Bau?</summary><div class="abschnitt-inhalt"><p>Mit der Abnahme der Leistung. Der Tag der Abnahme selbst wird nicht mitgerechnet (§ 187 Abs. 1 BGB); die Frist endet mit Ablauf des Tages, der dem Abnahmetag nach seiner Zahl entspricht (§ 188 Abs. 2 BGB). Bei einer Abnahme am 15. März 2021 endet die fünfjährige BGB-Frist also mit dem 15. März 2026.</p></div></details>
+        <details class="abschnitt"><summary>Wie lang ist die Frist nach BGB und nach VOB/B?</summary><div class="abschnitt-inhalt"><p>Beim BGB-Werkvertrag verjähren Mängelansprüche bei einem Bauwerk in fünf Jahren (§ 634a Abs. 1 Nr. 2 BGB), bei anderen Werkleistungen in zwei Jahren. Ist die VOB/B vereinbart und nichts anderes abgesprochen, gelten vier Jahre für Bauwerke und zwei Jahre für andere Werke, feuerberührte Teile von Feuerungsanlagen und für maschinelle oder elektrotechnische Anlagen ohne Wartungsauftrag (§ 13 Abs. 4 VOB/B).</p></div></details>
+        <details class="abschnitt"><summary>Verlängert eine Mängelanzeige die Frist?</summary><div class="abschnitt-inhalt"><p>Beim BGB-Vertrag nicht – dort hemmen nur Verhandlungen (§ 203 BGB) oder ein gerichtliches Verfahren wie das selbständige Beweisverfahren (§ 204 BGB). Bei vereinbarter VOB/B verjährt der Anspruch auf Beseitigung eines schriftlich gerügten Mangels in zwei Jahren ab Zugang der Rüge, nicht aber vor Ablauf der Regelfrist (§ 13 Abs. 5 Nr. 1 VOB/B).</p></div></details>
+        <details class="abschnitt"><summary>Was passiert, wenn das Fristende auf ein Wochenende fällt?</summary><div class="abschnitt-inhalt"><p>Fällt der letzte Tag auf einen Sonnabend, Sonntag oder gesetzlichen Feiertag, tritt nach § 193 BGB der nächste Werktag an seine Stelle. Der Rechner berücksichtigt die bundesweiten Feiertage und den 8. März in Berlin. Verlassen Sie sich darauf nicht; reichen Sie hemmende Maßnahmen deutlich vorher ein.</p></div></details>
+        <details class="abschnitt"><summary>Beginnt die Frist nach einer Nachbesserung neu?</summary><div class="abschnitt-inhalt"><p>Nach der VOB/B beginnt für die nachgebesserte Leistung eine neue Frist von zwei Jahren ab Abnahme der Mängelbeseitigung, die nicht vor der Regelfrist endet (§ 13 Abs. 5 Nr. 1 Satz 3 VOB/B). Beim BGB-Vertrag kann eine Nachbesserung ein Anerkenntnis sein, mit dem die volle Frist neu beginnt (§ 212 BGB) – ob das im Einzelfall so ist, beurteilt ein Rechtsanwalt.</p></div></details>
+      </div>
+
+      <h2>Zum Weiterlesen</h2>
+      <ul class="beitragsliste">
+        <li><a href="/fachwissen/gewaehrleistung-bau-fristen-bgb-vob/">Gewährleistung am Bau: Fristen nach BGB und VOB/B<small>Fachbeitrag · Beginn, Dauer, Hemmung, Neubeginn</small></a></li>
+        <li><a href="/fachwissen/gewaehrleistung-ablauf-checkliste/">Checkliste vor Ablauf der Gewährleistung<small>Vorlage · was vorher zu prüfen ist</small></a></li>
+        <li><a href="/fachwissen/maengelanzeige-mit-fristsetzung/">Mängelanzeige mit Fristsetzung: Musterschreiben<small>Vorlage · Word und PDF</small></a></li>
+        <li><a href="/fachwissen/beweisverfahren-verjaehrung-baumaengel/">Beweisverfahren und Verjährung bei Baumängeln<small>Fachbeitrag · der gerichtliche Weg</small></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="seiten-fuss">
+  <div class="wrap">
+    <p><strong>Bassam Ingenieurbüro für Bauwesen GmbH</strong> · Straße am Flugplatz 6a, 12487 Berlin · <a href="tel:+4917623581339">+49 176 23581339</a> · <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a></p>
+    <p><a href="/#impressum">Impressum</a> · <a href="/#datenschutz">Datenschutzerklärung</a> · <a href="/">Zur Startseite</a> · <a href="/werkzeuge/">Alle Werkzeuge</a> · <a href="/leistungen/">Leistungen</a></p>
+    <p class="klein">Datenschutz: Alle Eingaben bleiben in Ihrem Browser. Diese Seite setzt keine Cookies, nutzt kein Tracking und lädt ausschließlich Dateien von ing-bassam.de. Keine Rechtsberatung; Stand der Vorschriften: Oktober 2026.</p>
+  </div>
+</footer>
+
+<nav class="schnellkontakt" aria-label="Schnellkontakt">
+  <a href="tel:+4917623581339"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Anrufen</a>
+  <a href="/#kontakt" class="primaer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Anfrage senden</a>
+</nav>
+
+<script type="module" src="/werkzeuge/gewaehrleistungsfrist/app.js"></script>
+</body>
+</html>
