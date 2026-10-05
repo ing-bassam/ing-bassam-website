@@ -14,13 +14,22 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 - [Technische Due Diligence](https://ing-bassam.de/leistungen/technische-due-diligence/): Begehung und Unterlagenprüfung vor dem Kauf: Zustand, Risiken, Instandhaltungsstau und Kosten – als Kaufberatung vor Ort, Kurzbericht oder vollständige Due Diligence.
 - [Privatgutachten für Bauprozesse](https://ing-bassam.de/leistungen/privatgutachten-bauprozess/): Gutachterliche Stellungnahmen zu Mängeln, Schäden, Nachträgen und Bauzeit, Prüfung gegnerischer Gutachten und Begleitung im Beweisverfahren – für Kanzleien und Parteien.
 - [Für Gerichte und Versicherer](https://ing-bassam.de/leistungen/gerichte-versicherer/): Gutachten nach Beweisbeschluss oder Rahmenvereinbarung mit verbindlichen Bearbeitungszeiten – Sachgebiete, Ablauf und Vergütung.
-- [Technical Due Diligence Berlin](https://ing-bassam.de/en/technical-due-diligence-berlin/): pre-purchase building inspection and document review for international investors and private buyers; fixed prices, reports in English.
 - [Objektüberwachung (LP 8)](https://ing-bassam.de/#leistung-objektueberwachung): Bauherrenvertretung während der Bauausführung nach Angebot.
+
+## English (https://ing-bassam.de/en/)
+
+- [Building surveyors in Berlin – services in English](https://ing-bassam.de/en/): Overview of all services for international clients, fees, a glossary of German building terms and contact – reports in English or German.
+- [Technical due diligence and pre-purchase surveys](https://ing-bassam.de/en/technical-due-diligence-berlin/): Inspection and document review before buying a house, flat or apartment building in Berlin: condition, risks, maintenance backlog, cost ranges and a 10-year capex plan.
+- [Mould survey](https://ing-bassam.de/en/mould-survey-berlin/): Measurement and calculation show whether a thermal bridge, moisture from the structure or ventilation habits cause the mould – with remediation advice and a cost range.
+- [Water damage survey](https://ing-bassam.de/en/water-damage-survey-berlin/): Condition recorded before the strip-out, source of the water and wet layers established, drying concept and costs checked – for owners, owners' associations, tenants and insurers.
+- [New-build inspection and snagging](https://ing-bassam.de/en/new-build-inspection-berlin/): Stage inspections while building parts are still open and a snagging list for acceptance (Abnahme) – for buyers from developers and self-builders.
+- [Condition survey (Beweissicherung)](https://ing-bassam.de/en/condition-survey-berlin/): Pre-construction and dilapidation surveys: cracks, deformation and damp recorded before works next door, before repairs or before parts are covered up.
+- [Expert reports for construction disputes](https://ing-bassam.de/en/construction-dispute-expert-berlin/): Party expert reports on defects, damage, variations and delay, review of court-appointed and opposing reports, support in independent evidence proceedings – in English and German.
+- [Property value calculator Berlin](https://ing-bassam.de/en/property-valuation/): Free, indicative value range for houses and apartment buildings in Berlin based on the market data of the Berlin valuation board; calculated in the browser.
 
 ## Werkzeuge (https://ing-bassam.de/werkzeuge/)
 
 - [Wertrechner Berlin](https://ing-bassam.de/wertrechner/): Kostenlose, unverbindliche Wertindikation für Ein-, Zweifamilien- und Mietshäuser in Berlin nach der ImmoWertV 2021 mit den Sachwertfaktoren und Liegenschaftszinssätzen des Gutachterausschusses; Bodenrichtwert automatisch aus der Adresse, Berechnung vollständig im Browser.
-- [Property Value Calculator Berlin](https://ing-bassam.de/en/property-valuation/): English version of the calculator.
 - [Gewährleistungsfrist berechnen](https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/): Ende der Verjährung von Mängelansprüchen nach BGB (5 Jahre) oder VOB/B (4 Jahre) ab Abnahme, mit Hemmung, Mängelrüge, Anerkenntnis und Werktagsregel; Rechenweg mit Paragrafen, Berechnung im Browser.
 - [Taupunkt und Schimmelrisiko](https://ing-bassam.de/werkzeuge/taupunkt/): Taupunkt, Oberflächenfeuchte und Schimmelrisiko nach dem 80-%-Kriterium der DIN 4108-2 aus Raumklima und Oberflächentemperatur oder Temperaturfaktor; Magnus-Formel, Rechenweg mit Formeln, Berechnung im Browser.
 - [Mängelanzeige erstellen](https://ing-bassam.de/werkzeuge/maengelanzeige/): Generator für eine Mängelanzeige mit Fristsetzung nach dem Musterschreiben des Büros – Ort und Erscheinungsbild je Mangel, Fristdatum, Anlagen, Prüfliste; BGB und VOB/B; ohne Speicherung, zum Drucken oder Kopieren.

@@ -6,6 +6,9 @@
 <title>BIB Ingenieurbüro für Bauwesen GmbH | Baugutachten in Berlin</title>
 <meta name="description" content="BIB begutachtet Bauschäden und überwacht Bauvorhaben in Berlin: Versicherungs- und Gerichtsgutachten, technische Beweissicherung und Objektüberwachung.">
 <link rel="canonical" href="https://ing-bassam.de/">
+<link rel="alternate" hreflang="de" href="https://ing-bassam.de/">
+<link rel="alternate" hreflang="en" href="https://ing-bassam.de/en/">
+<link rel="alternate" hreflang="x-default" href="https://ing-bassam.de/">
 <meta name="theme-color" content="#0a121d">
 
 <!-- Vorschau beim Teilen (Open Graph) -->
@@ -254,6 +257,9 @@
   .nav-links a:hover::after,
   .nav-links a.is-active::after{transform:scaleX(1);}
   .header-cta{min-height:42px; padding:0 18px; font-size:.9375rem;}
+  /* Zwischen Tablet und kleinem Desktop reicht die Breite nicht für Menü und Knopf;
+     „Kontakt“ steht ohnehin im Menü. Im mobilen Menü (bis 860 px) bleibt der Knopf. */
+  @media (min-width:861px) and (max-width:1080px){ .header-cta{display:none;} }
 
   .nav-toggle{
     display:none; place-items:center;
@@ -768,6 +774,7 @@
         <li><a href="/wertrechner/">Wertrechner</a></li>
         <li><a href="/werkzeuge/">Werkzeuge</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="/en/" lang="en" hreflang="en">English</a></li>
       </ul>
       <a href="#kontakt" class="btn btn-primary header-cta">Kontakt aufnehmen</a>
     </nav>

@@ -72,11 +72,10 @@ LLMS = WURZEL / "llms.txt"
 
 # Seiten, die nicht aus entwuerfe/ entstehen, aber in Sitemap und llms.txt
 # gehören: (Adresse, changefreq, priority). Der Wertrechner liegt unter
-# wertrechner/ (Deutsch) und en/property-valuation/ (Englisch).
+# wertrechner/ (Deutsch) und en/property-valuation/ (Englisch); alle englischen
+# Seiten stehen in tools/leistungen.py (ENGLISCH).
 WEITERE_SEITEN = [
     ("https://ing-bassam.de/wertrechner/", "monthly", "0.8"),
-    ("https://ing-bassam.de/en/property-valuation/", "monthly", "0.7"),
-    ("https://ing-bassam.de/en/technical-due-diligence-berlin/", "monthly", "0.8"),
     ("https://ing-bassam.de/werkzeuge/", "monthly", "0.8"),
     ("https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/", "monthly", "0.8"),
     ("https://ing-bassam.de/werkzeuge/taupunkt/", "monthly", "0.8"),
@@ -85,6 +84,9 @@ WEITERE_SEITEN = [
 ] + [
     # Die Leistungsseiten unter /leistungen/ (Übersicht und je Leistung eine Seite).
     (f"{BASIS_URL}/{seite.pfad}", "monthly", "0.8") for seite in leistungen.alle()
+] + [
+    # Die englischen Seiten unter /en/ (Einstieg, Leistungen, Wertrechner).
+    (f"{BASIS_URL}/{seite.pfad}", "monthly", "0.8") for seite in leistungen.ENGLISCH
 ]
 FIRMA = "Bassam Ingenieurbüro für Bauwesen GmbH"
 KURZNAME = "BIB Ingenieurbüro für Bauwesen"
@@ -1146,10 +1148,15 @@ def llms_bauen(oeffentlich: list["Artikel"]) -> str:
         f"- [{seite.name}]({BASIS_URL}/{seite.pfad}): {seite.kurztext}"
         for seite in leistungen.alle()
     ] + [
-        f"- [Technical Due Diligence Berlin]({BASIS_URL}/en/technical-due-diligence-berlin/): pre-purchase building "
-        "inspection and document review for international investors and private buyers; fixed prices, reports in English.",
         f"- [Objektüberwachung (LP 8)]({BASIS_URL}/#leistung-objektueberwachung): Bauherrenvertretung während der "
         "Bauausführung nach Angebot.",
+        "",
+        f"## English ({BASIS_URL}/en/)",
+        "",
+    ] + [
+        f"- [{seite.name}]({BASIS_URL}/{seite.pfad}): {seite.kurztext}"
+        for seite in leistungen.ENGLISCH
+    ] + [
         "",
         f"## Werkzeuge ({BASIS_URL}/werkzeuge/)",
         "",
@@ -1157,7 +1164,6 @@ def llms_bauen(oeffentlich: list["Artikel"]) -> str:
         "Ein-, Zweifamilien- und Mietshäuser in Berlin nach der ImmoWertV 2021 mit den Sachwertfaktoren und "
         "Liegenschaftszinssätzen des Gutachterausschusses; Bodenrichtwert automatisch aus der Adresse, "
         "Berechnung vollständig im Browser.",
-        f"- [Property Value Calculator Berlin]({BASIS_URL}/en/property-valuation/): English version of the calculator.",
         f"- [Gewährleistungsfrist berechnen]({BASIS_URL}/werkzeuge/gewaehrleistungsfrist/): Ende der Verjährung "
         "von Mängelansprüchen nach BGB (5 Jahre) oder VOB/B (4 Jahre) ab Abnahme, mit Hemmung, Mängelrüge, "
         "Anerkenntnis und Werktagsregel; Rechenweg mit Paragrafen, Berechnung im Browser.",

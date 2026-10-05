@@ -112,6 +112,52 @@ def alle() -> list[Leistungsseite]:
     return [SEITEN["uebersicht"]] + [SEITEN[s] for s in REIHENFOLGE]
 
 
+@dataclass(frozen=True)
+class EnglischeSeite:
+    pfad: str              # relativ zur Wurzel der Website, mit Schrägstrich am Ende
+    name: str              # englischer Name für Listen
+    kurztext: str          # ein Satz für llms.txt
+    deutsch: str | None    # Pfad der deutschen Entsprechung ("" = Startseite, None = keine)
+
+
+# Englische Seiten für internationale Käufer, Mieter, Investoren und Kanzleien.
+# Sitemap und llms.txt werden daraus erzeugt; tests/test_hreflang.py prüft, dass
+# deutsche und englische Fassung gegenseitig per hreflang aufeinander zeigen.
+ENGLISCH: list[EnglischeSeite] = [
+    EnglischeSeite("en/", "Building surveyors in Berlin – services in English",
+                   "Overview of all services for international clients, fees, a glossary of German building "
+                   "terms and contact – reports in English or German.", ""),
+    EnglischeSeite("en/technical-due-diligence-berlin/", "Technical due diligence and pre-purchase surveys",
+                   "Inspection and document review before buying a house, flat or apartment building in Berlin: "
+                   "condition, risks, maintenance backlog, cost ranges and a 10-year capex plan.",
+                   "leistungen/technische-due-diligence/"),
+    EnglischeSeite("en/mould-survey-berlin/", "Mould survey",
+                   "Measurement and calculation show whether a thermal bridge, moisture from the structure or "
+                   "ventilation habits cause the mould – with remediation advice and a cost range.",
+                   "leistungen/schimmelgutachten/"),
+    EnglischeSeite("en/water-damage-survey-berlin/", "Water damage survey",
+                   "Condition recorded before the strip-out, source of the water and wet layers established, drying "
+                   "concept and costs checked – for owners, owners' associations, tenants and insurers.",
+                   "leistungen/wasserschaden-gutachten/"),
+    EnglischeSeite("en/new-build-inspection-berlin/", "New-build inspection and snagging",
+                   "Stage inspections while building parts are still open and a snagging list for acceptance "
+                   "(Abnahme) – for buyers from developers and self-builders.",
+                   "leistungen/baubegleitung-bauabnahme/"),
+    EnglischeSeite("en/condition-survey-berlin/", "Condition survey (Beweissicherung)",
+                   "Pre-construction and dilapidation surveys: cracks, deformation and damp recorded before works "
+                   "next door, before repairs or before parts are covered up.",
+                   "leistungen/technische-beweissicherung/"),
+    EnglischeSeite("en/construction-dispute-expert-berlin/", "Expert reports for construction disputes",
+                   "Party expert reports on defects, damage, variations and delay, review of court-appointed and "
+                   "opposing reports, support in independent evidence proceedings – in English and German.",
+                   "leistungen/privatgutachten-bauprozess/"),
+    EnglischeSeite("en/property-valuation/", "Property value calculator Berlin",
+                   "Free, indicative value range for houses and apartment buildings in Berlin based on the market "
+                   "data of the Berlin valuation board; calculated in the browser.",
+                   "wertrechner/"),
+]
+
+
 def _nach_thema(quellen: list[str]) -> str | None:
     text = " ".join(q.lower() for q in quellen if q)
     for woerter, schluessel in STICHWORTE:
