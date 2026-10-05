@@ -80,6 +80,7 @@ WEITERE_SEITEN = [
     ("https://ing-bassam.de/werkzeuge/", "monthly", "0.8"),
     ("https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/", "monthly", "0.8"),
     ("https://ing-bassam.de/werkzeuge/taupunkt/", "monthly", "0.8"),
+    ("https://ing-bassam.de/werkzeuge/maengelanzeige/", "monthly", "0.8"),
     ("https://ing-bassam.de/fachwissen/vorlagen/", "weekly", "0.8"),
 ] + [
     # Die Leistungsseiten unter /leistungen/ (Übersicht und je Leistung eine Seite).
@@ -1163,6 +1164,9 @@ def llms_bauen(oeffentlich: list["Artikel"]) -> str:
         f"- [Taupunkt und Schimmelrisiko]({BASIS_URL}/werkzeuge/taupunkt/): Taupunkt, Oberflächenfeuchte und "
         "Schimmelrisiko nach dem 80-%-Kriterium der DIN 4108-2 aus Raumklima und Oberflächentemperatur oder "
         "Temperaturfaktor; Magnus-Formel, Rechenweg mit Formeln, Berechnung im Browser.",
+        f"- [Mängelanzeige erstellen]({BASIS_URL}/werkzeuge/maengelanzeige/): Generator für eine Mängelanzeige mit "
+        "Fristsetzung nach dem Musterschreiben des Büros – Ort und Erscheinungsbild je Mangel, Fristdatum, Anlagen, "
+        "Prüfliste; BGB und VOB/B; ohne Speicherung, zum Drucken oder Kopieren.",
         f"- [Checklisten und Vorlagen]({BASIS_URL}/fachwissen/vorlagen/): alle Checklisten, Protokolle und "
         "Musterschreiben als PDF und Word zum Herunterladen, jeweils mit erläuterndem Fachbeitrag.",
         "",
@@ -1398,7 +1402,7 @@ def vorlagenseite(artikel: list[Artikel]) -> str:
       <p>{html.escape(beschreibung)} Jede Vorlage gehört zu einem Fachbeitrag, der erklärt, wie sie auszufüllen ist und woran Protokolle und Anzeigen in der Praxis scheitern.</p>
     </header>
     <aside class="werkzeug-hinweis">
-      <p><strong>Rechner:</strong> <a href="../../wertrechner/">Wertrechner Berlin</a> · <a href="../../werkzeuge/gewaehrleistungsfrist/">Gewährleistungsfrist berechnen</a> · <a href="../../werkzeuge/">alle Werkzeuge</a></p>
+      <p><strong>Rechner und Generatoren:</strong> <a href="../../wertrechner/">Wertrechner Berlin</a> · <a href="../../werkzeuge/gewaehrleistungsfrist/">Gewährleistungsfrist berechnen</a> · <a href="../../werkzeuge/taupunkt/">Taupunkt und Schimmelrisiko</a> · <a href="../../werkzeuge/maengelanzeige/">Mängelanzeige erstellen</a> · <a href="../../werkzeuge/">alle Werkzeuge</a></p>
     </aside>
     <ul class="karten">
 {chr(10).join(karten)}

@@ -44,8 +44,8 @@ Geteilt in drei Lieferungen: 3a Übersicht + Vorlagen + Fristenrechner, 3b Taupu
 - [x] 3a: Übersichtsseite „Checklisten und Vorlagen“ `/fachwissen/vorlagen/` – vom Seitenbauer aus den Vorlagen-Beiträgen erzeugt, aktualisiert sich mit jeder neuen Vorlage
 - [x] 3a: Node-Tests laufen im Workflow „Werkzeuge testen“ mit; Navigation „Werkzeuge“ auf Startseite und Fachbeiträgen
 - [x] 3b: Taupunkt- und Schimmelrisiko-Rechner `/werkzeuge/taupunkt/` – Magnus-Formel, Taupunkt, Oberflächenfeuchte, 80-%-Kriterium und Temperaturfaktor nach DIN 4108-2, zulässige Raumluftfeuchte; Rechenkern `taupunkt.js` mit Node-Tests
-- [ ] 3c: Mängelanzeige-Generator (Formular → fertiges Schreiben, Druck als PDF, alles im Browser)
-- [ ] Alle Werkzeuge: ohne Server, ohne Datenübertragung, mit Tests
+- [x] 3c: Mängelanzeige-Generator `/werkzeuge/maengelanzeige/` – Formular → vollständiges Schreiben nach dem Musterschreiben des Büros (Ich/Wir, BGB/VOB/B, Abnahmestand, Mängel, Frist, Anlagen, Gefahrhinweis), Prüfliste mit 20 Punkten, Drucken/PDF/Text kopieren, keine Speicherung; Rechenkern `brief.js` mit Node-Tests
+- [x] Alle Werkzeuge: ohne Server, ohne Datenübertragung, mit Tests (Node-Tests im Workflow „Werkzeuge testen“)
 
 ## Phase 4 – Englisch ausbauen
 
