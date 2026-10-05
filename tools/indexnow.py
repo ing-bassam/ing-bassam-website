@@ -159,7 +159,8 @@ def main() -> int:
     auswahl.add_argument("--seit", type=int, help="Seiten mit Stand der letzten n Tage")
     auswahl.add_argument("--alle", action="store_true", help="alle Seiten der Sitemap")
     parser.add_argument("--dateien", nargs="*", default=[],
-                        help="zusätzlich diese geänderten Seiten melden (index.html, fachwissen/<kurz>/index.html)")
+                        help="zusätzlich diese geänderten Seiten melden (index.html, fachwissen/<kurz>/index.html, "
+                             "en/guides/<kurz>/index.html)")
     parser.add_argument("--warten", type=int, default=600)
     parser.add_argument("--probe", action="store_true")
     args = parser.parse_args()
@@ -182,7 +183,7 @@ def main() -> int:
         pfad = pfad.replace("\\", "/")
         if pfad == "index.html":
             url = f"https://{HOST}/"
-        elif pfad.startswith("fachwissen/") and pfad.endswith("index.html"):
+        elif pfad.startswith(("fachwissen/", "en/guides/")) and pfad.endswith("index.html"):
             url = f"https://{HOST}/" + pfad[: -len("index.html")]
         else:
             continue

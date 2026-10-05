@@ -2,7 +2,8 @@ name: Fachwissen-Seiten bauen
 
 # -----------------------------------------------------------------------------
 # Baut aus den Markdown-Entwürfen in entwuerfe/ die statischen Artikelseiten
-# unter fachwissen/ und schreibt die sitemap.xml neu.
+# unter fachwissen/ und schreibt die sitemap.xml neu. Dazu die englischen
+# Leitfäden aus entwuerfe-en/ unter en/guides/ (tools/beitraege_en.py).
 #
 # Warum automatisch: KI-Crawler führen kein JavaScript aus. Der Artikeltext muss
 # deshalb im ausgelieferten HTML stehen, und jeder Beitrag braucht eine eigene
@@ -16,8 +17,8 @@ name: Fachwissen-Seiten bauen
 #   - wenn im Entwurf „status: Veröffentlicht" gesetzt wird,
 #   - von Hand über Actions -> Fachwissen-Seiten bauen -> Run workflow.
 #
-# Kein Kreislauf: Der Lauf schreibt ausschließlich nach fachwissen/ und in
-# sitemap.xml. Beides steht nicht in der paths-Liste unten, der eigene Commit
+# Kein Kreislauf: Der Lauf schreibt ausschließlich nach fachwissen/, en/guides/,
+# sitemap.xml und llms.txt. Nichts davon steht in der paths-Liste unten, der eigene Commit
 # löst also keinen neuen Lauf aus. Zusätzlich lösen Commits mit dem
 # GITHUB_TOKEN grundsätzlich keine weiteren Workflows aus.
 # -----------------------------------------------------------------------------
@@ -33,6 +34,10 @@ on:
       # Download-Dateien der Vorlagen: Größe und Liste im Download-Kasten
       - 'vorlagen/**'
       - 'tools/artikel_generator.py'
+      # Englische Leitfäden und die Liste der Leistungsseiten (Kasten „Passende Leistung“)
+      - 'entwuerfe-en/**'
+      - 'tools/beitraege_en.py'
+      - 'tools/leistungen.py'
       - 'fachwissen/artikel.css'
       - '.github/workflows/seiten-bauen.yml'
   workflow_dispatch:
@@ -116,7 +121,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          if [ -z "$(git status --porcelain -- fachwissen sitemap.xml llms.txt entwuerfe)" ]; then
+          if [ -z "$(git status --porcelain -- fachwissen en/guides sitemap.xml llms.txt entwuerfe)" ]; then
             echo "::notice title=Fachwissen::Die erzeugten Seiten sind bereits aktuell."
             echo "geaendert=false" >> "$GITHUB_OUTPUT"
             exit 0
@@ -128,7 +133,8 @@ jobs:
           # Bewusst nur diese Pfade: erzeugte Seiten, Sitemap und – nur auf dem
           # Hauptzweig – das Einsortieren der Beiträge samt Übersicht. Inhalte der
           # Beiträge, index.html, robots.txt und CNAME fasst der Lauf nie an.
-          git add -A fachwissen sitemap.xml llms.txt entwuerfe
+          # en/guides: die englischen Leitfäden aus entwuerfe-en/.
+          git add -A fachwissen en/guides sitemap.xml llms.txt entwuerfe
           git commit -m "Fachwissen-Seiten neu gebaut" \
                      -m "Automatisch erzeugt aus entwuerfe/ durch tools/artikel_generator.py."
 
@@ -155,7 +161,7 @@ jobs:
           ORDNEN=()
           if [ "$ZWEIG" = "main" ]; then ORDNEN=(--ordnen); fi
           python tools/artikel_generator.py "${ORDNEN[@]}" > /dev/null 2>&1 || true
-          if [ -n "$(git status --porcelain -- fachwissen sitemap.xml llms.txt entwuerfe)" ]; then
+          if [ -n "$(git status --porcelain -- fachwissen en/guides sitemap.xml llms.txt entwuerfe)" ]; then
             echo "::error title=Fachwissen::Der Generator liefert bei zwei Läufen unterschiedliche Ergebnisse."
             exit 1
           fi
@@ -193,7 +199,7 @@ jobs:
           # auch ohne neues Datum (Gestaltung, Verlinkung, Vorschaubild).
           GEAENDERT=()
           if [ -s "$ALT" ]; then
-            mapfile -t GEAENDERT < <(git diff --name-only "$VORHER" HEAD -- index.html fachwissen 2>/dev/null \
+            mapfile -t GEAENDERT < <(git diff --name-only "$VORHER" HEAD -- index.html fachwissen en/guides 2>/dev/null \
                                      | grep -E '(^index\.html$|index\.html$)' || true)
           fi
           if [ "${#GEAENDERT[@]}" -gt 0 ]; then

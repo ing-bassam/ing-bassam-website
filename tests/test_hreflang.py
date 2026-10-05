@@ -8,6 +8,8 @@ erscheint dann womöglich nicht für englische Suchanfragen. Geprüft wird:
 - Das Ziel jedes Verweises existiert im Repository.
 - Das Ziel zeigt mit der Sprache der Ausgangsseite zurück.
 - Die Liste der englischen Seiten in tools/leistungen.py stimmt mit den Dateien überein.
+  Ausgenommen sind die Leitfäden unter en/guides/; die erzeugt der Seitenbauer aus
+  entwuerfe-en/, geprüft in tests/test_leitfaeden_en.py.
 
 Aufruf: python -m unittest discover -s tests
 """
@@ -86,6 +88,7 @@ class Hreflang(unittest.TestCase):
     def test_jede_englische_seite_steht_in_der_liste(self):
         bekannt = {s.pfad for s in leistungen.ENGLISCH}
         vorhanden = {p.parent.relative_to(WURZEL).as_posix() + "/" for p in (WURZEL / "en").rglob("index.html")}
+        vorhanden = {pfad for pfad in vorhanden if not pfad.startswith("en/guides/")}
         self.assertEqual(sorted(vorhanden - bekannt), [])
 
 

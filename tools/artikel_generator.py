@@ -48,6 +48,8 @@ except ImportError:  # pragma: no cover
 # diesem Skript, damit die Regeln ohne markdown und PyYAML getestet werden können.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import leistungen  # noqa: E402
+# Englische Fassungen ausgewählter Beiträge (entwuerfe-en/ -> en/guides/).
+import beitraege_en  # noqa: E402
 
 WURZEL = Path(__file__).resolve().parent.parent
 ENTWUERFE = WURZEL / "entwuerfe"
@@ -402,6 +404,9 @@ def strukturierte_daten(artikel: "Artikel") -> str:
             "audience": ({"@type": "Audience", "audienceType": adressat}
                          if adressat else None),
             "isPartOf": {"@type": "CollectionPage", "@id": f"{BASIS_URL}/fachwissen/"},
+            # Englische Fassung; sie nennt umgekehrt translationOfWork (tools/beitraege_en.py).
+            "workTranslation": ({"@id": artikel.englisch.url + "#article"}
+                                if artikel.englisch and artikel.oeffentlich else None),
             "wordCount": artikel.wortzahl or None,
             "isAccessibleForFree": True,
         },
@@ -514,6 +519,8 @@ class Artikel:
         # Verwandte Beiträge setzt main(), sobald alle Entwürfe gelesen sind.
         self.passende: list[Artikel] = []
         self.passend_thematisch = False
+        # Veröffentlichte englische Fassung (beitraege_en.Leitfaden); setzt main().
+        self.englisch = None
 
         self.inhalt_html, self.todos = markdown_zu_html(self.rohtext)
         self.faq = faq_aus_html(self.inhalt_html)
@@ -743,7 +750,7 @@ KOPF_VORLAGE = """<!DOCTYPE html>
 <meta name="description" content="{beschreibung}">
 <meta name="theme-color" content="#0a121d">
 {robots}<link rel="canonical" href="{canonical}">
-<!--
+{alternates}<!--
   DATENSCHUTZ: Diese Richtlinie erlaubt nur Dateien von dieser Website selbst.
   Die Artikelseiten kommen ohne JavaScript aus; Skripte sind vollständig gesperrt.
 -->
@@ -766,7 +773,7 @@ KOPF_VORLAGE = """<!DOCTYPE html>
       <a href="{fachwissen}">Fachwissen</a>
       <a href="{start}werkzeuge/">Werkzeuge</a>
       <a href="{start}#kontakt">Kontakt</a>
-    </nav>
+{sprachwechsel}    </nav>
   </div>
 </header>
 """
@@ -821,8 +828,13 @@ def og_block(titel: str, beschreibung: str, url: str, typ: str, zeit: str = "",
 
 
 def kopf_bauen(*, titel_tag: str, beschreibung: str, canonical: str, css: str,
-               start: str, fachwissen: str, indexierbar: bool, og: str) -> str:
+               start: str, fachwissen: str, indexierbar: bool, og: str,
+               alternates: str = "", sprachwechsel: str = "") -> str:
+    """alternates: hreflang-Zeilen (nur bei einer englischen Fassung), sprachwechsel:
+    Link „English“ als letzter Eintrag der Navigation. Beide leer = wie bisher."""
     return KOPF_VORLAGE.format(
+        alternates=alternates,
+        sprachwechsel=sprachwechsel,
         titel_tag=html.escape(titel_tag),
         beschreibung=html.escape(beschreibung, quote=True),
         # Freigegebene Seiten erlauben Suchmaschinen ausdrücklich Auszüge in
@@ -850,6 +862,17 @@ def fuss_bauen(*, start: str, fachwissen: str) -> str:
 
 
 def artikelseite(artikel: Artikel) -> str:
+    # Englische Fassung (tools/beitraege_en.py): hreflang in beide Richtungen –
+    # Google wertet nur gegenseitige Verweise aus – und ein sichtbarer Link.
+    englisch = artikel.englisch if artikel.oeffentlich else None
+    alternates = sprachwechsel = englisch_link = ""
+    if englisch:
+        alternates = (f'<link rel="alternate" hreflang="de" href="{artikel.url}">\n'
+                      f'<link rel="alternate" hreflang="en" href="{englisch.url}">\n'
+                      f'<link rel="alternate" hreflang="x-default" href="{artikel.url}">\n')
+        ziel = "../.." + englisch.adresse
+        sprachwechsel = f'      <a href="{ziel}" class="sprache" lang="en" hreflang="en">English</a>\n'
+        englisch_link = f' ·\n          <a href="{ziel}" lang="en" hreflang="en">English version</a>'
     kopf = kopf_bauen(
         titel_tag=titel_tag(artikel.titel),
         beschreibung=artikel.meta_beschreibung,
@@ -862,6 +885,8 @@ def artikelseite(artikel: Artikel) -> str:
                     "article", artikel.veroeffentlicht,
                     geaendert=artikel.geaendert, bereich=artikel.kategorie,
                     verfasser=artikel.autor),
+        alternates=alternates,
+        sprachwechsel=sprachwechsel,
     )
 
     warnung = ""
@@ -916,7 +941,7 @@ def artikelseite(artikel: Artikel) -> str:
         <p class="artikel-meta">
           Von {html.escape(artikel.autor)}{qualifikation} ·
           <time datetime="{artikel.veroeffentlicht}">{datum_deutsch(artikel.veroeffentlicht)}</time>{stand} ·
-          etwa {artikel.lesezeit} Minuten Lesezeit
+          etwa {artikel.lesezeit} Minuten Lesezeit{englisch_link}
         </p>
       </header>
 
@@ -1126,7 +1151,7 @@ def weiterlesen_html(artikel: "Artikel") -> str:
       </nav>""")
 
 
-def llms_bauen(oeffentlich: list["Artikel"]) -> str:
+def llms_bauen(oeffentlich: list["Artikel"], leitfaeden: list = ()) -> str:
     """llms.txt – kompakte Übersicht der Website für KI-Systeme (Vorschlag llmstxt.org).
 
     Enthält nur Veröffentlichtes, in derselben Form wie die Sitemap: Titel,
@@ -1156,7 +1181,7 @@ def llms_bauen(oeffentlich: list["Artikel"]) -> str:
     ] + [
         f"- [{seite.name}]({BASIS_URL}/{seite.pfad}): {seite.kurztext}"
         for seite in leistungen.ENGLISCH
-    ] + [
+    ] + beitraege_en.llms_zeilen(list(leitfaeden)) + [
         "",
         f"## Werkzeuge ({BASIS_URL}/werkzeuge/)",
         "",
@@ -1484,7 +1509,10 @@ def bisherige_stande() -> dict[str, str]:
     return {ort.strip(): stand.strip() for ort, stand in paare}
 
 
-def sitemap_bauen(artikel: list[Artikel], heute: str) -> str:
+def sitemap_bauen(artikel: list[Artikel], heute: str,
+                  zusatz: list[tuple[str, str, str, str]] = ()) -> str:
+    """zusatz: fertige Einträge (Adresse, lastmod, changefreq, priority), etwa die
+    englischen Leitfäden aus tools/beitraege_en.py – sie stehen am Ende."""
     # lastmod muss den letzten inhaltlichen Stand angeben. Würde hier immer das
     # heutige Datum stehen, änderte sich die Datei bei jedem Lauf – das erzeugt
     # unnötige Commits, und Suchmaschinen verlieren das Vertrauen in die Angabe.
@@ -1507,6 +1535,7 @@ def sitemap_bauen(artikel: list[Artikel], heute: str) -> str:
         eintraege.append((url, alt.get(url) or heute, takt, gewicht))
     for a in sorted(artikel, key=lambda x: x.kurzform):
         eintraege.append((a.url, a.geaendert, "yearly", "0.7"))
+    eintraege.extend(zusatz)
 
     zeilen = ['<?xml version="1.0" encoding="UTF-8"?>',
               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
@@ -1592,13 +1621,38 @@ def main() -> int:
         a.passende, a.passend_thematisch = passende_beitraege(a, oeffentlich)
     verlinkung_ausgleichen([a for a in artikel if a.oeffentlich])
 
+    # Englische Leitfäden (entwuerfe-en/, tools/beitraege_en.py). Verknüpft wird
+    # nur, wenn beide Fassungen veröffentlicht sind – hreflang auf eine Seite mit
+    # noindex wäre wertlos, und ein einseitiger Verweis ignoriert Google.
+    leitfaeden, fehler_en = beitraege_en.laden()
+    fehler += fehler_en
+    hinweise_en: list[str] = []
+    nach_kurzform = {a.kurzform: a for a in oeffentlich}
+    for l in leitfaeden:
+        original = nach_kurzform.get(l.original)
+        if original is None:
+            hinweise_en.append(f"{l.kurzform}: Original „{l.original}“ ist nicht veröffentlicht – "
+                               f"ohne Sprachverknüpfung gebaut")
+        elif l.oeffentlich:
+            l.deutsch_url, l.deutsch_titel = original.url, original.titel
+            original.englisch = l
+        hinweise_en += [f"{l.kurzform}: {befund}" for befund in beitraege_en.pruefen(l)]
+    leitfaeden_oeffentlich = [l for l in leitfaeden if l.oeffentlich]
+
     geaendert: list[str] = []
     for a in artikel:
         schreiben(ZIEL / a.kurzform / "index.html", artikelseite(a), geaendert, argumente.pruefen)
     schreiben(ZIEL / "index.html", uebersichtsseite(oeffentlich), geaendert, argumente.pruefen)
     schreiben(ZIEL / "vorlagen" / "index.html", vorlagenseite(oeffentlich), geaendert, argumente.pruefen)
-    schreiben(SITEMAP, sitemap_bauen(oeffentlich, heute), geaendert, argumente.pruefen)
-    schreiben(LLMS, llms_bauen(oeffentlich), geaendert, argumente.pruefen)
+    for l in leitfaeden:
+        schreiben(beitraege_en.ZIEL / l.kurzform / "index.html",
+                  beitraege_en.seite(l, leitfaeden_oeffentlich), geaendert, argumente.pruefen)
+    if leitfaeden_oeffentlich:
+        schreiben(beitraege_en.ZIEL / "index.html", beitraege_en.uebersicht(leitfaeden_oeffentlich),
+                  geaendert, argumente.pruefen)
+    schreiben(SITEMAP, sitemap_bauen(oeffentlich, heute, beitraege_en.sitemap_eintraege(leitfaeden_oeffentlich)),
+              geaendert, argumente.pruefen)
+    schreiben(LLMS, llms_bauen(oeffentlich, leitfaeden_oeffentlich), geaendert, argumente.pruefen)
 
     # Seiten entfernen, zu denen es keinen Entwurf mehr gibt.
     verwaist: list[str] = []
@@ -1611,7 +1665,19 @@ def main() -> int:
                     for datei in sorted(ordner.rglob("*"), reverse=True):
                         datei.unlink() if datei.is_file() else datei.rmdir()
                     ordner.rmdir()
+    if beitraege_en.ZIEL.is_dir():
+        bekannt_en = {l.kurzform for l in leitfaeden}
+        for ordner in sorted(p for p in beitraege_en.ZIEL.iterdir() if p.is_dir()):
+            if ordner.name not in bekannt_en:
+                verwaist.append(f"{beitraege_en.PFAD}{ordner.name}/")
+                if not argumente.pruefen:
+                    for datei in sorted(ordner.rglob("*"), reverse=True):
+                        datei.unlink() if datei.is_file() else datei.rmdir()
+                    ordner.rmdir()
 
+    print(f"Englische Leitfäden: {len(leitfaeden)}, davon veröffentlicht: {len(leitfaeden_oeffentlich)}")
+    for zeile in hinweise_en:
+        print(f"  HINWEIS (englisch): {zeile}")
     print(f"Entwürfe gefunden: {len(artikel)}")
     print(f"Davon veröffentlicht: {len(oeffentlich)}")
     for a in sorted(artikel, key=lambda x: x.kurzform):
