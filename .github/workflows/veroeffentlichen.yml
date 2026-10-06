@@ -14,7 +14,7 @@ name: Entwürfe veröffentlichen
 #   2. Baut die Seiten, sortiert die Dateien nach entwuerfe/veroeffentlicht/
 #      und erneuert Übersicht, Sitemap und llms.txt.
 #   3. Schreibt alles in einem Commit auf den Hauptzweig.
-#   4. Meldet die neuen Seiten per IndexNow.
+#   4. Danach liefert „Website ausliefern“ die Seiten aus und meldet sie per IndexNow.
 #   5. Schreibt je Beitrag einen Stichwortzettel für die Videos (Agent, Skill
 #      /stichwortzettel) in die Notion-Liste „Stichwortzettel Videos“.
 #   6. Gleicht die Notion-Listen ab (tools/notion_abgleich.py): online →
@@ -89,7 +89,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          cp sitemap.xml "$RUNNER_TEMP/sitemap-vorher.xml"
           PROBE=()
           if [ "$PROBELAUF" = "true" ]; then PROBE=(--probelauf); fi
           if [ "$AUSWAHL" = "automatisch" ]; then
@@ -144,11 +143,8 @@ jobs:
           git push -q origin "HEAD:$ZWEIG"
           echo "::notice title=Veröffentlichen::$ANZAHL Beitrag/Beiträge veröffentlicht. Die Seiten sind in wenigen Minuten online."
 
-      - name: Suchmaschinen benachrichtigen (IndexNow)
-        if: inputs.probelauf != true && steps.status.outputs.anzahl != '0'
-        continue-on-error: true
-        timeout-minutes: 15
-        run: python tools/indexnow.py --vorher "$RUNNER_TEMP/sitemap-vorher.xml"
+      # Veröffentlichen und IndexNow übernimmt danach der Workflow „Website
+      # ausliefern“ (workflow_run): Er meldet erst, wenn der neue Stand online ist.
 
       # -----------------------------------------------------------------
       # Stichwortzettel für die Videos: Zu jedem gerade veröffentlichten

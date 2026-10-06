@@ -13,10 +13,19 @@ Website stammt, weist die Schlüsseldatei <schlüssel>.txt im Wurzelverzeichnis
 nach. Der Schlüssel ist kein Geheimnis; er muss öffentlich abrufbar sein.
 
 Aufruf:
-    python tools/indexnow.py --vorher <alte-sitemap.xml>   neue und geänderte Seiten
+    python tools/indexnow.py --vergleichen _site --merken <datei>
+                                     vor der Auslieferung: Seiten der gebauten Website mit
+                                     der Live-Website vergleichen, neue und geänderte merken
+    python tools/indexnow.py --liste <datei>                gemerkte Seiten melden (nach der Auslieferung)
+    python tools/indexnow.py --vorher <alte-sitemap.xml>   neue und geänderte Seiten laut Sitemap
     python tools/indexnow.py --seit 8                       Seiten mit Stand der letzten 8 Tage
     python tools/indexnow.py --alle                         alle Seiten der Sitemap
                                                             und die Weiterleitungen alter Adressen
+
+Der Workflow „Website ausliefern“ ruft --vergleichen vor und --liste nach der
+Veröffentlichung auf. Der Vergleich mit dem, was tatsächlich online ist, findet
+auch Seiten, deren Inhalt sich ohne neues Datum geändert hat (Gestaltung,
+Verlinkung), und braucht keinen gespeicherten Vorzustand.
 
 Zusätzlich:
     --warten <Sekunden>  so lange warten, bis die Website Schlüsseldatei und
@@ -24,8 +33,8 @@ Zusätzlich:
     --probe              nur anzeigen, was gemeldet würde
 
 Rückgabewert 0 bei Erfolg oder wenn nichts zu melden ist, 1 bei einem Fehler.
-Der Seitenbau ruft das Skript mit continue-on-error auf: Eine gescheiterte
-Meldung darf nie den Bau der Seiten aufhalten.
+Die Auslieferung ruft das Skript mit continue-on-error auf: Eine gescheiterte
+Meldung darf nie die Veröffentlichung der Seiten aufhalten.
 """
 from __future__ import annotations
 
@@ -84,6 +93,38 @@ def abrufen(url: str) -> tuple[int, str]:
         return fehler.code, ""
     except (urllib.error.URLError, TimeoutError, OSError):
         return 0, ""
+
+
+def datei_zur_adresse(url: str) -> str:
+    """https://ing-bassam.de/a/b/ -> a/b/index.html; die Startseite -> index.html."""
+    pfad = urllib.parse.urlsplit(url).path.lstrip("/")
+    return pfad + "index.html" if pfad == "" or pfad.endswith("/") else pfad
+
+
+def vergleichen(verzeichnis: Path) -> dict[str, str]:
+    """Adressen der gebauten Website, deren Seite live fehlt oder anders aussieht.
+
+    Verglichen wird jede Adresse der neuen Sitemap mit dem, was die Website
+    gerade ausliefert – also vor der Veröffentlichung des neuen Stands.
+    """
+    from concurrent.futures import ThreadPoolExecutor
+
+    neu = eintraege((verzeichnis / "sitemap.xml").read_text(encoding="utf-8"))
+    marke = int(time.time())
+
+    def pruefen(url: str) -> str | None:
+        datei = verzeichnis / datei_zur_adresse(url)
+        if not datei.is_file():
+            return None
+        status, inhalt = abrufen(f"{url}?v={marke}")
+        # Zeilenenden angleichen: read_text liefert immer \n.
+        if status != 200 or inhalt.replace("\r\n", "\n") != datei.read_text(encoding="utf-8"):
+            return url
+        return None
+
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        geaendert = {url for url in pool.map(pruefen, neu) if url}
+    return {url: neu[url] for url in neu if url in geaendert}
 
 
 def warten_bis_online(ziel: dict[str, str], key: str, frist: int) -> bool:
@@ -158,15 +199,33 @@ def main() -> int:
     auswahl.add_argument("--vorher", type=Path, help="Sitemap vor der Änderung")
     auswahl.add_argument("--seit", type=int, help="Seiten mit Stand der letzten n Tage")
     auswahl.add_argument("--alle", action="store_true", help="alle Seiten der Sitemap")
+    auswahl.add_argument("--vergleichen", type=Path,
+                         help="gebaute Website (z. B. _site) mit der Live-Website vergleichen; mit --merken")
+    auswahl.add_argument("--liste", type=Path, help="Datei mit gemerkten Adressen (eine je Zeile) melden")
+    parser.add_argument("--merken", type=Path, help="Ziel für die Adressen aus --vergleichen")
     parser.add_argument("--dateien", nargs="*", default=[],
-                        help="zusätzlich diese geänderten Seiten melden (index.html, fachwissen/<kurz>/index.html, "
-                             "en/guides/<kurz>/index.html)")
+                        help="zusätzlich diese geänderten Seiten melden (Pfade wie index.html oder "
+                             "fachwissen/<kurz>/index.html)")
     parser.add_argument("--warten", type=int, default=600)
     parser.add_argument("--probe", action="store_true")
     args = parser.parse_args()
 
+    if args.vergleichen:
+        if not args.merken:
+            parser.error("--vergleichen braucht --merken <datei>")
+        geaendert = vergleichen(args.vergleichen)
+        args.merken.write_text("".join(f"{url}\n" for url in geaendert), encoding="utf-8")
+        print(f"Neu oder geändert gegenüber der Live-Website: {len(geaendert)} Seiten.")
+        for url in geaendert:
+            print(f"  {url}")
+        return 0
+
     aktuell = eintraege(SITEMAP.read_text(encoding="utf-8"))
-    if args.alle:
+    if args.liste:
+        gemerkt = [z.strip() for z in args.liste.read_text(encoding="utf-8").splitlines() if z.strip()] \
+            if args.liste.exists() else []
+        ziel = {url: aktuell[url] for url in gemerkt if url in aktuell}
+    elif args.alle:
         ziel = dict(aktuell)
     elif args.seit is not None:
         grenze = (date.today() - timedelta(days=args.seit)).isoformat()
@@ -181,9 +240,7 @@ def main() -> int:
     # am 28.09.2026 „Changed pages not submitted to IndexNow“ (30 Seiten).
     for pfad in args.dateien:
         pfad = pfad.replace("\\", "/")
-        if pfad == "index.html":
-            url = f"https://{HOST}/"
-        elif pfad.startswith(("fachwissen/", "en/guides/")) and pfad.endswith("index.html"):
+        if pfad.endswith("index.html"):
             url = f"https://{HOST}/" + pfad[: -len("index.html")]
         else:
             continue

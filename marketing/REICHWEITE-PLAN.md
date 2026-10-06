@@ -8,7 +8,8 @@ Kundenstimmen, „Über uns“.
 ## Was schon da ist (nicht noch einmal einrichten)
 
 - Google Search Console und Bing Webmaster Tools sind verifiziert (`google17d2…html`, `BingSiteAuth.xml`), Ahrefs ebenso.
-- IndexNow meldet neue und geänderte Seiten automatisch (`tools/indexnow.py`, Workflow „Fachwissen-Seiten bauen“).
+- IndexNow meldet neue und geänderte Seiten automatisch nach jeder Auslieferung (`tools/indexnow.py`, Workflow „Website ausliefern“).
+- Ausgeliefert werden nur die Website-Dateien (`tools/website_bauen.py`, Workflow „Website ausliefern“) – Agenten, Werkzeuge, Entwürfe und Unterlagen nicht.
 - Sitemap und `llms.txt` erzeugt `tools/artikel_generator.py`; eigenständige Seiten stehen dort in `WEITERE_SEITEN`.
 - Rund 50 Fachbeiträge mit FAQ und strukturierten Daten, 21 Vorlagen (PDF/Word) als Downloads.
 - Wertrechner (DE/EN) und Leistungsseite Technische Due Diligence (DE/EN).
