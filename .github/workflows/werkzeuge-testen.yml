@@ -23,6 +23,7 @@ on:
       - "index.html"
       - "en/**"
       - "entwuerfe-en/**"
+      - "marketing/linkedin/**"
       - "leistungen/**"
       - "wertrechner/**"
   push:
@@ -37,6 +38,7 @@ on:
       - "index.html"
       - "en/**"
       - "entwuerfe-en/**"
+      - "marketing/linkedin/**"
       - "leistungen/**"
       - "wertrechner/**"
   workflow_dispatch:

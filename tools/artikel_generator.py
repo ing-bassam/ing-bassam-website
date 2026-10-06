@@ -786,6 +786,7 @@ FUSS_VORLAGE = """
     <p><strong>{firma}</strong><br>Straße am Flugplatz 6a, 12487 Berlin</p>
     <p><a href="tel:+4917623581339">{telefon}</a> · <a href="mailto:{email}">{email}</a> · Rückmeldung innerhalb eines Werktags</p>
     <p class="rechtliches"><a href="{start}#impressum">Impressum</a> · <a href="{start}#datenschutz">Datenschutz</a> · <a href="{fachwissen}">Alle Fachbeiträge</a> · <a href="{fachwissen}vorlagen/">Vorlagen</a> · <a href="{start}wertrechner/">Wertrechner</a> · <a href="{start}leistungen/technische-due-diligence/">Due Diligence</a></p>
+    <p class="rechtliches">Für Geschäftskunden: <a href="{start}leistungen/hausverwaltungen/">Hausverwaltungen</a> · <a href="{start}leistungen/rechtsanwaelte/">Rechtsanwälte</a> · <a href="{start}leistungen/versicherer/">Versicherer</a></p>
     <p class="klein">© {jahr} {firma} · Keine Cookies. Kein Tracking.</p>
   </div>
 </footer>
@@ -1118,12 +1119,17 @@ def leistungskasten_html(artikel: "Artikel") -> str:
     )
     ziel = f"../../{seite.pfad}"
     knopf = "Alle Leistungen" if seite.schluessel == "uebersicht" else "Leistung und Preise"
+    # Hinweis für die Zielgruppe des Beitrags (Hausverwaltungen), sofern der Kasten
+    # nicht schon auf deren Seite führt – sie finden dort Preise netto.
+    gruppe = leistungen.zielgruppen_seite(artikel.zielgruppe, seite.schluessel)
+    hinweis = (f'\n        <p class="zielgruppen-hinweis"><a href="../../{gruppe.pfad}">{html.escape(gruppe.name)}: '
+               f'mehrere Einheiten an einem Termin, Preise netto →</a></p>' if gruppe else "")
     return f"""      <aside class="leistungskasten" aria-labelledby="leistung-titel">
         <span class="eyebrow">Passende Leistung</span>
         <h2 id="leistung-titel"><a href="{ziel}">{html.escape(seite.titel)}</a></h2>
         <p>{html.escape(seite.kurztext)}</p>
         <p class="aktionen"><a class="btn btn-primary" href="{ziel}">{knopf}</a><a class="btn btn-outline" href="../../#kontakt">Anfrage senden</a></p>
-        <p class="klein">Rückmeldung innerhalb eines Werktags · Berlin und Brandenburg</p>
+        <p class="klein">Rückmeldung innerhalb eines Werktags · Berlin und Brandenburg</p>{hinweis}
       </aside>
 """
 

@@ -66,11 +66,29 @@ SEITEN: dict[str, Leistungsseite] = {s.schluessel: s for s in (
         "Gerichts- und Versicherungsgutachten: Bauschäden, Baumängel, Bauphysik",
         "Gutachten nach Beweisbeschluss oder Rahmenvereinbarung mit verbindlichen Bearbeitungszeiten "
         "– Sachgebiete, Ablauf und Vergütung."),
+    # Seiten je Zielgruppe (Phase 5): bündeln die Leistungen für Geschäftskunden.
+    Leistungsseite(
+        "hausverwaltungen", "leistungen/hausverwaltungen/", "Für Hausverwaltungen",
+        "Für Hausverwaltungen und WEG-Verwaltungen: Schäden feststellen, Befunde zuordnen",
+        "Wasserschaden, Schimmel, Nachbarbaustelle, Abnahme und Gewährleistung am Gemeinschaftseigentum – "
+        "mehrere Einheiten an einem Termin, im Wasserschaden-Gutachten nach Gemeinschafts- und "
+        "Sondereigentum getrennt, Preise netto."),
+    Leistungsseite(
+        "rechtsanwaelte", "leistungen/rechtsanwaelte/", "Für Rechtsanwälte",
+        "Für Rechtsanwälte und Kanzleien: die technische Seite des Mandats",
+        "Erstbewertung von Akten und Gutachten, Stellungnahmen mit Ortstermin, Ergänzungsfragen zu "
+        "Gerichtsgutachten und Beweissicherung – die rechtliche Bewertung bleibt bei der Kanzlei."),
+    Leistungsseite(
+        "versicherer", "leistungen/versicherer/", "Für Versicherer",
+        "Für Versicherer und Schadenregulierer: Ursache, Umfang, Kosten",
+        "Leitungswasser-, Folge- und Nachbarschäden: Erstbesichtigung meist innerhalb von drei Werktagen, "
+        "Abgrenzung von Ereignis und Verschleiß, Prüfung von Angeboten und Rechnungen."),
 )}
 
 # Anzeige-Reihenfolge in Übersichten (ohne die Übersichtsseite selbst).
 REIHENFOLGE = ["schimmel", "wasserschaden", "beweissicherung", "baubegleitung",
-               "due-diligence", "privatgutachten", "gerichte-versicherer"]
+               "due-diligence", "privatgutachten", "gerichte-versicherer",
+               "hausverwaltungen", "rechtsanwaelte", "versicherer"]
 
 # Wert des Frontmatter-Felds „leistung“ (klein geschrieben) → Schlüssel der Seite.
 # „Gutachten“ fehlt absichtlich, siehe STICHWORTE.
@@ -103,13 +121,35 @@ STICHWORTE: list[tuple[tuple[str, ...], str]] = [
       "gewaehrleistung", "qualitätskontrolle", "qualitaetskontrolle"), "baubegleitung"),
     (("beweisverfahren", "privatgutachten", "gerichtsgutachten", "prozess", "klage", "verjährung",
       "verjaehrung", "beweislast", "nachtrag", "bauzeit", "jveg"), "privatgutachten"),
-    (("versicherungsfall", "versicherer", "versicherung"), "gerichte-versicherer"),
+    (("versicherungsfall", "versicherer", "versicherung"), "versicherer"),
+    # Allgemeine Themen der Verwaltungspraxis ohne eigene Leistungsseite (Begehung,
+    # Wartung, Instandhaltung) führen zur Seite für Hausverwaltungen.
+    (("objektbegehung", "wartungskalender", "instandhaltungskalender", "hausverwaltung"),
+     "hausverwaltungen"),
 ]
 
 
 def alle() -> list[Leistungsseite]:
     """Alle Seiten in Anzeige-Reihenfolge, die Übersicht zuerst."""
     return [SEITEN["uebersicht"]] + [SEITEN[s] for s in REIHENFOLGE]
+
+
+# Zielgruppe eines Beitrags (Frontmatter „zielgruppe“, klein geschrieben) → Seite für
+# diese Zielgruppe. Der Kasten „Passende Leistung“ zeigt sie zusätzlich als Hinweis,
+# damit Verwaltungen von Themenseiten mit Bruttopreisen zu ihrer Seite finden.
+ZIELGRUPPEN = {
+    "hausverwaltung": "hausverwaltungen",
+    "wohnungsbaugesellschaft": "hausverwaltungen",
+}
+
+
+def zielgruppen_seite(zielgruppen: list[str], gezeigt: str) -> Leistungsseite | None:
+    """Seite für die erste passende Zielgruppe – nicht, wenn der Kasten sie schon zeigt."""
+    for gruppe in zielgruppen:
+        schluessel = ZIELGRUPPEN.get(gruppe.strip().lower())
+        if schluessel and schluessel != gezeigt:
+            return SEITEN[schluessel]
+    return None
 
 
 @dataclass(frozen=True)
