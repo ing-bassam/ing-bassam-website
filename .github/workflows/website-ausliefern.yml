@@ -1,0 +1,110 @@
+name: Website ausliefern
+
+# -----------------------------------------------------------------------------
+# Veröffentlicht die Website über GitHub Pages – und zwar NUR die Dateien, die
+# zur Website gehören (Positivliste in tools/website_bauen.py). Agenten
+# (.claude/), Workflows, Werkzeuge, Tests, Entwürfe, Marketing-Unterlagen,
+# Fachliteratur und Rohdaten werden nicht ausgeliefert. Bis Oktober 2026
+# lieferte Pages das ganze Repository aus.
+#
+# Voraussetzung (einmalig): Settings → Pages → Build and deployment →
+# Source: „GitHub Actions“.
+#
+# Wann der Lauf startet:
+#   - bei jedem Push auf main, etwa nach dem Zusammenführen eines Pull Requests,
+#   - nach den Workflows, die selbst auf main schreiben: Deren Commits mit dem
+#     GITHUB_TOKEN lösen keinen Push-Workflow aus,
+#   - von Hand über Actions → Website ausliefern → Run workflow.
+#
+# Danach erfahren Bing und die übrigen IndexNow-Suchmaschinen von neuen und
+# geänderten Seiten. Verglichen wird vor der Veröffentlichung mit dem, was
+# tatsächlich online ist (tools/indexnow.py --vergleichen); gemeldet wird erst,
+# wenn der neue Stand ausgeliefert ist. Das war vorher Teil von
+# „Fachwissen-Seiten bauen“ und „Entwürfe veröffentlichen“.
+# -----------------------------------------------------------------------------
+
+on:
+  push:
+    branches: [main]
+    # Reine Quell- und Arbeitsdateien ändern die Website nicht. Ändern sich
+    # Entwürfe, baut „Fachwissen-Seiten bauen“ die Seiten neu und löst danach
+    # diese Auslieferung aus (workflow_run).
+    paths-ignore:
+      - 'entwuerfe/**'
+      - 'entwuerfe-en/**'
+      - 'marketing/**'
+      - 'tests/**'
+      - '.claude/**'
+      - 'fachliteratur/**'
+      - 'daten/**'
+  workflow_run:
+    workflows: ["Fachwissen-Seiten bauen", "Entwürfe veröffentlichen", "Marktdaten bauen"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Nie zwei Auslieferungen gleichzeitig. Eine laufende wird nicht abgebrochen,
+# damit keine halbe Veröffentlichung entsteht; die neueste wartende gewinnt.
+concurrency:
+  group: website-ausliefern
+  cancel-in-progress: false
+
+jobs:
+  ausliefern:
+    # Nach einem abgebrochenen oder übersprungenen Lauf gibt es nichts Neues.
+    # „failure“ zählt mit: Der Seitenbau endet mit Fehler, wenn ein einzelner
+    # Beitrag gesperrt ist, hat die übrigen Seiten aber schon geschrieben.
+    if: github.event_name != 'workflow_run' || contains(fromJSON('["success", "failure"]'), github.event.workflow_run.conclusion)
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+      pages: write          # veröffentlichen
+      id-token: write       # Nachweis gegenüber GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.auslieferung.outputs.page_url }}
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Immer der neueste Stand von main – auch nach workflow_run, damit der
+          # Commit des auslösenden Workflows dabei ist.
+          ref: main
+          persist-credentials: false
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Website zusammenstellen (nur freigegebene Dateien)
+        run: python tools/website_bauen.py --ziel "$RUNNER_TEMP/website"
+
+      - name: Mit der Live-Website vergleichen (für IndexNow)
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python tools/indexnow.py --vergleichen "$RUNNER_TEMP/website" --merken "$RUNNER_TEMP/zu-melden.txt"
+
+      - name: Pages vorbereiten
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      - name: Website hochladen
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: ${{ runner.temp }}/website
+
+      - name: Auf GitHub Pages veröffentlichen
+        id: auslieferung
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+
+      # Ein Fehler hier färbt die Auslieferung nicht rot; die wöchentliche
+      # Prüfung meldet verpasste Seiten nach.
+      - name: Suchmaschinen benachrichtigen (IndexNow)
+        continue-on-error: true
+        timeout-minutes: 15
+        run: python tools/indexnow.py --liste "$RUNNER_TEMP/zu-melden.txt"

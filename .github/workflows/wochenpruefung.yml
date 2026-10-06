@@ -14,7 +14,7 @@ name: Wöchentliche Prüfung
 #      aktualisiert und geschlossen, sobald alles wieder in Ordnung ist. So gibt
 #      es nur dann eine Benachrichtigung, wenn sich etwas ändert.
 #   2. Meldet Seiten, deren Stand in den letzten acht Tagen neu ist, noch einmal
-#      per IndexNow – falls eine Meldung beim Seitenbau untergegangen ist.
+#      per IndexNow – falls eine Meldung bei der Auslieferung untergegangen ist.
 #
 # Von Hand: Actions → Wöchentliche Prüfung → Run workflow. Mit dem Haken
 # „Alle veröffentlichten Seiten neu melden“ gehen alle Adressen der Sitemap an
