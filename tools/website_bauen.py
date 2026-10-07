@@ -65,6 +65,7 @@ ORDNER = {
 # Bewusst intern: gehört nicht zur Website und wird nie ausgeliefert.
 INTERN = {
     ".claude", ".github", ".gitignore",      # Agenten und Workflows
+    "CLAUDE.md",                             # Hinweise für Claude-Sitzungen und -Agenten
     "tools", "tests",                        # Werkzeuge und Tests
     "entwuerfe", "entwuerfe-en",             # Quelltexte der Beiträge (gebaut nach fachwissen/ und en/guides/)
     "marketing", "fachliteratur", "daten",   # Unterlagen, Literatur, Rohdaten
