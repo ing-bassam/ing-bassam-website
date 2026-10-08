@@ -13,7 +13,7 @@ qualifikation:
 kurzform: fassadenputz-abplatzen-sanierungspflicht
 erstellt: 2026-10-08
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-815b-b661-f34626596a3d
 notion_url: https://app.notion.com/p/Abplatzender-Fassadenputz-Wann-wird-die-Sanierung-zur-Pflicht-3e2d96ad00b4815bb661f34626596a3d

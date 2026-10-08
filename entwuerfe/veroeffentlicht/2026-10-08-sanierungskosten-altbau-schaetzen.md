@@ -13,7 +13,7 @@ qualifikation:
 kurzform: sanierungskosten-altbau-schaetzen
 erstellt: 2026-10-08
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e0d96ad-00b4-81e0-91eb-ee69dc67bbf0
 notion_url: https://app.notion.com/p/Sanierungskosten-im-Altbau-realistisch-sch-tzen-von-der-Zustandserfassung-zur-Kostensch-tzung-3e0d96ad00b481e091ebee69dc67bbf0

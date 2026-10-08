@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ing-bassam.de/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://ing-bassam.de/fachwissen/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -283,6 +283,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ing-bassam.de/fachwissen/fassadenputz-abplatzen-sanierungspflicht/</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ing-bassam.de/fachwissen/fassadenverschmutzung-mangel-gewerbemiete/</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>yearly</changefreq>
@@ -429,6 +435,12 @@
   <url>
     <loc>https://ing-bassam.de/fachwissen/rissprotokoll-rissbeobachtung/</loc>
     <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/fachwissen/sanierungskosten-altbau-schaetzen/</loc>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

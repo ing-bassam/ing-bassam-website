@@ -121,6 +121,8 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Hausverwaltung & Bestand
 
+- [Sanierungskosten im Altbau realistisch schätzen](https://ing-bassam.de/fachwissen/sanierungskosten-altbau-schaetzen/): Was kostet die Sanierung eines Altbaus? Wie aus einer Zustandserfassung eine belastbare Kostenschätzung wird, und warum Quadratmeterpreise täuschen.
+- [Abplatzender Fassadenputz: Wann ist Sanierung Pflicht?](https://ing-bassam.de/fachwissen/fassadenputz-abplatzen-sanierungspflicht/): Abplatzender Fassadenputz: wann Eigentümer und Hausverwaltung sanieren müssen und was Bauordnungsrecht und Verkehrssicherungspflicht verlangen.
 - [Wohnungsübergabeprotokoll für Ein- und Auszug](https://ing-bassam.de/fachwissen/wohnungsuebergabeprotokoll-einzug-auszug/): Was in ein Übergabeprotokoll bei Ein- oder Auszug gehört: Zähler, Schlüssel, Zustand Raum für Raum. Kostenlose Vorlage als PDF.
 - [Schimmel in der Mietwohnung: Ursache klären, dann zahlen](https://ing-bassam.de/fachwissen/schimmel-mietwohnung-ursache-klaeren/): Schimmel in der Mietwohnung: Wie Hausverwaltungen die Ursache belastbar klären lassen, was ein Gutachten leistet und wovon die Kostentragung abhängt.
 - [Wartungs- und Instandhaltungskalender für Wohngebäude](https://ing-bassam.de/fachwissen/wartungskalender-instandhaltung-wohngebaeude/): Wartungskalender für Wohngebäude als Excel und PDF. 79 Zeilen mit Intervall, Grundlage und Nachweis für Dach, Entwässerung, Heizung und Aufzug.

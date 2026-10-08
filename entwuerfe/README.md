@@ -7,16 +7,16 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (1)
+## 🟡 Entwurf (0)
+
+Zurzeit keine.
+
+## 🟢 Veröffentlicht (65)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
-| 08.10.2026 | [Sanierungskosten im Altbau realistisch schätzen](entwurf/2026-10-08-sanierungskosten-altbau-schaetzen.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/sanierungskosten-altbau-schaetzen/) |
-
-## 🟢 Veröffentlicht (63)
-
-| Datum | Titel | Format | Kategorie | Seite |
-|---|---|---|---|---|
+| 08.10.2026 | [Sanierungskosten im Altbau realistisch schätzen](veroeffentlicht/2026-10-08-sanierungskosten-altbau-schaetzen.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/sanierungskosten-altbau-schaetzen/) |
+| 08.10.2026 | [Abplatzender Fassadenputz: Wann ist Sanierung Pflicht?](veroeffentlicht/2026-10-08-fassadenputz-abplatzen-sanierungspflicht.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/fassadenputz-abplatzen-sanierungspflicht/) |
 | 02.10.2026 | [Checkliste Wasserschaden – erste Schritte](veroeffentlicht/2026-10-02-wasserschaden-erste-schritte-dokumentation.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/wasserschaden-erste-schritte-dokumentation/) |
 | 02.10.2026 | [Undichtes Dach: Wer zahlt den Planungsfehler?](veroeffentlicht/2026-10-02-undichtes-dach-planungsfehler-bedenken.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/undichtes-dach-planungsfehler-bedenken/) |
 | 02.10.2026 | [Schlussrechnung prüfen: Prüfliste für Auftraggeber](veroeffentlicht/2026-10-02-pruefliste-schlussrechnung.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/pruefliste-schlussrechnung/) |
