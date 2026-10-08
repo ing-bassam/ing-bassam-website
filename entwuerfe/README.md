@@ -7,9 +7,11 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (0)
+## 🟡 Entwurf (1)
 
-Zurzeit keine.
+| Datum | Titel | Format | Kategorie | Seite |
+|---|---|---|---|---|
+| 08.10.2026 | [Sanierungskosten im Altbau realistisch schätzen](entwurf/2026-10-08-sanierungskosten-altbau-schaetzen.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/sanierungskosten-altbau-schaetzen/) |
 
 ## 🟢 Veröffentlicht (63)
 
