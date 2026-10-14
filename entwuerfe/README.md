@@ -7,16 +7,15 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (1)
+## 🟡 Entwurf (0)
+
+Zurzeit keine.
+
+## 🟢 Veröffentlicht (66)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
-| 14.10.2026 | [Heizungsförderung 2027: Was sinkt, was vor den Antrag gehört](entwurf/2026-10-14-heizungsfoerderung-2027-waermepumpe-antrag.md) | Checkliste | Energie & Förderung | [ansehen](https://ing-bassam.de/fachwissen/heizungsfoerderung-2027-waermepumpe-antrag/) |
-
-## 🟢 Veröffentlicht (65)
-
-| Datum | Titel | Format | Kategorie | Seite |
-|---|---|---|---|---|
+| 14.10.2026 | [Heizungsförderung 2027: Was sinkt, was vor den Antrag gehört](veroeffentlicht/2026-10-14-heizungsfoerderung-2027-waermepumpe-antrag.md) | Checkliste | Energie & Förderung | [ansehen](https://ing-bassam.de/fachwissen/heizungsfoerderung-2027-waermepumpe-antrag/) |
 | 08.10.2026 | [Sanierungskosten im Altbau realistisch schätzen](veroeffentlicht/2026-10-08-sanierungskosten-altbau-schaetzen.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/sanierungskosten-altbau-schaetzen/) |
 | 08.10.2026 | [Abplatzender Fassadenputz: Wann ist Sanierung Pflicht?](veroeffentlicht/2026-10-08-fassadenputz-abplatzen-sanierungspflicht.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/fassadenputz-abplatzen-sanierungspflicht/) |
 | 02.10.2026 | [Checkliste Wasserschaden – erste Schritte](veroeffentlicht/2026-10-02-wasserschaden-erste-schritte-dokumentation.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/wasserschaden-erste-schritte-dokumentation/) |

@@ -13,7 +13,7 @@ qualifikation:
 kurzform: heizungsfoerderung-2027-waermepumpe-antrag
 erstellt: 2026-10-14
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3edd96ad-00b4-818d-b582-c30526bf8e97
 notion_url: https://app.notion.com/p/Heizungsf-rderung-2027-Was-ab-1-Februar-sinkt-und-was-vor-den-Antrag-geh-rt-3edd96ad00b4818db582c30526bf8e97
