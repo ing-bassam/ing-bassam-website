@@ -7,9 +7,11 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (0)
+## 🟡 Entwurf (1)
 
-Zurzeit keine.
+| Datum | Titel | Format | Kategorie | Seite |
+|---|---|---|---|---|
+| 14.10.2026 | [Heizungsförderung 2027: Was sinkt, was vor den Antrag gehört](entwurf/2026-10-14-heizungsfoerderung-2027-waermepumpe-antrag.md) | Checkliste | Energie & Förderung | [ansehen](https://ing-bassam.de/fachwissen/heizungsfoerderung-2027-waermepumpe-antrag/) |
 
 ## 🟢 Veröffentlicht (65)
 
