@@ -25,6 +25,9 @@ NUR_BEI = {
     "areaServed": {"ContactPoint", "DeliveryChargeSpecification", "Demand", "FinancialIncentive", "Offer",
                    "Organization", "LocalBusiness", "ProfessionalService", "Service"},
     "availableLanguage": {"ContactPoint", "Course", "LodgingBusiness", "ServiceChannel", "TouristAttraction"},
+    # Ahrefs, 12.10.2026: „unitText“ direkt am Offer ist ein schema.org-Fehler.
+    "unitText": {"PriceSpecification", "UnitPriceSpecification", "CompoundPriceSpecification",
+                 "QuantitativeValue", "TypeAndQuantityNode"},
 }
 
 
