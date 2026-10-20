@@ -5,7 +5,7 @@ format: Vorlage
 zielgruppe: Privat, Hausverwaltung
 leistung: Gutachten
 kernfrage: Nebenan wird gebaut – wie dokumentiere ich vorher den Zustand meines Hauses, um spätere Risse und Schäden nachweisen zu können?
-meta_beschreibung: "Nebenan wird gebaut? Mit dieser kostenlosen Checkliste halten Sie den Zustand Ihres Hauses vor Baubeginn fest - Raum für Raum, mit Fotos und Bewertung."
+meta_beschreibung: "Nebenan wird gebaut? Mit dieser kostenlosen Checkliste halten Sie den Zustand Ihres Hauses vor Baubeginn fest – Raum für Raum, mit Fotos und Bewertung."
 schlagwoerter: Beweissicherung, Nachbarbaustelle, Risse, Zustandsfeststellung, Baugrube, Erschütterungen, Grundwasserabsenkung, Unterfangung
 definition: Eine Checkliste für die Beweissicherung vor Nachbarbaustellen ist ein Formular, mit dem Sie den Zustand Ihres Hauses vor Baubeginn Bauteil für Bauteil fotografieren, beschreiben und bewerten.
 autor: M. Sc. Karim Abu Elkheir
@@ -37,7 +37,7 @@ Am Zaun hängt ein Bauschild, und in drei Wochen rollt der Bagger an. Später wi
 
 Die Checkliste hält den Ausgangszustand Ihres Hauses fest, damit sich spätere Schäden mit ihm vergleichen lassen. Fachleute nennen das vorsorgliche Beweissicherung, also die Aufnahme des Ist-Zustands, bevor Schäden auftreten können.[^1] Die Fachliteratur empfiehlt Eigentümern benachbarter Gebäude eine eigene Beweissicherung, wenn der Bauherr der Baumaßnahme keine in Auftrag gegeben hat.[^2] Auch der Verband Privater Bauherren beschreibt eine solche Bauzustandsfeststellung als nützlich, um den aktuellen Zustand des eigenen Gebäudes vor benachbarten Baustellen zu dokumentieren.[^3]
 
-Beginnen Sie mit den ersten zwei Abschnitten der Vorlage. Dort tragen Sie ein, was nebenan geplant ist und wie Ihr Haus gebaut ist. Danach bereiten Sie die Dokumentation vor: eine Kamera, die Datum und Uhrzeit speichert, einen Zollstock und eine einfache Skizze mit Raumnummern. Fachleute dokumentieren mit Fotos, kurzer textlicher Erläuterung und der Lage jedes Fotos in einem Plan.[^4] Genau diese Dreiteilung übernimmt die Vorlage für Ihren Rundgang.
+Beginnen Sie mit den ersten zwei Abschnitten der Vorlage. Dort tragen Sie ein, was nebenan geplant ist und wie Ihr Haus gebaut ist. Danach bereiten Sie die Dokumentation vor: eine Kamera, die Datum und Uhrzeit speichert, einen Zollstock und eine einfache Skizze mit Raumnummern. Fachleute dokumentieren mit Fotos, kurzer textlicher Erläuterung und bei Bedarf der Lage der Fotos in einem Plan.[^4] Genau diese Dreiteilung übernimmt die Vorlage für Ihren Rundgang.
 
 Jeder Bauteil-Abschnitt hat vier Bewertungsstufen. „o. B.“ heißt ohne Befund, also nichts Auffälliges. „Gering“ steht für einen vereinzelten, feinen Vorschaden, den Sie fotografieren und nummerieren. „Deutlich“ meint einen ausgeprägten Vorschaden, etwa breite oder versetzte Risse, Feuchte oder Verformungen. „n. p.“ steht für nicht prüfbar, weil ein Bereich verdeckt oder nicht zugänglich ist. Fotografieren Sie auch Stellen ohne Befund, denn ein Foto der unversehrten Wand ist später genauso viel wert wie eines mit Riss.
 
@@ -85,7 +85,7 @@ Eine Grenze hat jede Beweissicherung, auch Ihre eigene. Sie zeigt, was sich ver�
 
 ## Wann ein Sachverständiger die Beweissicherung übernehmen sollte
 
-Ihre eigene Dokumentation ist besser als keine, aber sie ist eine Parteidokumentation. Die Baubetriebslehre beschreibt für die Beweissicherung eine gemeinsame Begehung, bei der der Zustand in Fotos oder Videoaufnahmen festgehalten wird.[^16] Skizzen der Schäden sind dabei von beiden Parteien zu unterzeichnen.[^16] Bieten Sie dem Bauherrn nebenan deshalb einen gemeinsamen Termin an und lassen Sie das ausgefüllte Blatt von beiden Seiten unterschreiben. Die Vorlage hat dafür zwei Unterschriftszeilen.
+Ihre eigene Dokumentation ist besser als keine, aber sie ist eine Parteidokumentation. Die Baubetriebslehre beschreibt für die Beweissicherung mit fachkundigen Nachbarn, etwa Straßenbauämtern, eine gemeinsame Begehung, bei der der Zustand in Fotos oder Videoaufnahmen festgehalten wird.[^16] Skizzen der Schäden sind dabei von beiden Parteien zu unterzeichnen.[^16] Bieten Sie dem Bauherrn nebenan einen gemeinsamen Termin an und lassen Sie das ausgefüllte Blatt von beiden Seiten unterschreiben. Die Vorlage hat dafür zwei Unterschriftszeilen.
 
 Bei einer Baugrube direkt an der Grenze, einer angekündigten Unterfangung oder deutlichen Vorschäden reicht die Eigenaufnahme oft nicht aus. Die privatrechtliche Beweissicherung läuft ohne Gericht und dient der fachgerechten Dokumentation baulicher Zustände, etwa der Nachbarbebauung.[^17] Der Vortrag eines von einer Streitpartei hinzugezogenen Gutachters wird als qualifizierter Parteivortrag gewertet.[^17] Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) durch einen Sachverständigen hält den Zustand Ihres Hauses vor Baubeginn nachvollziehbar fest, mit Plänen, Fotos und Rissbeschreibungen.
 
@@ -95,7 +95,7 @@ Daneben gibt es das gerichtliche selbständige Beweisverfahren. Ist noch kein Re
 
 **Muss der Bauherr nebenan eine Beweissicherung an meinem Haus machen?**
 
-Eine allgemeine gesetzliche Pflicht zur technischen Beweissicherung gibt es nicht.[^7] Für Bauunternehmen ist sie aber ein Mittel, sich gegen ungerechtfertigte Forderungen zu schützen.[^17] Fragen Sie beim Bauherrn nach und bitten Sie um eine Kopie. Hat er keine beauftragt, wird Ihnen als Eigentümer eine eigene Beweissicherung empfohlen.[^2]
+Für Bauunternehmen ist eine Beweissicherung ein Mittel, sich gegen ungerechtfertigte Forderungen zu schützen.[^17] Fragen Sie beim Bauherrn nach und bitten Sie um eine Kopie. Hat er keine beauftragt, wird Ihnen als Eigentümer eine eigene Beweissicherung empfohlen.[^2]
 
 **Wann sollte ich mit der Dokumentation anfangen?**
 
