@@ -1,0 +1,268 @@
+titel: Checkliste Abnahme Gemeinschaftseigentum
+untertitel: Begehung einer neuen Wohnanlage vom Bauträger – für Erwerber und Hausverwaltungen
+kurzform: abnahme-gemeinschaftseigentum-checkliste
+typ: Checkliste
+stand: 2026-10-20
+dateien: [pdf, pdf-ausfuellbar]
+einleitung: >
+  Mit dieser Checkliste bereiten Sie die Abnahme des Gemeinschaftseigentums einer
+  neuen Wohnanlage vor und gehen die gemeinsamen Bauteile in fester Reihenfolge ab:
+  erst Vertrag und Unterlagen, dann von außen nach innen und von unten nach oben.
+  Bewerten Sie jeden Punkt in einer der vier Stufen und notieren Sie Ort, Bauteil
+  und Foto-Nummer. Die Checkliste ersetzt nicht das gemeinsame Abnahmeprotokoll mit
+  dem Bauträger; sie liefert die Befunde, die Sie dort vor der Unterschrift
+  aufnehmen lassen.
+kopffelder:
+  - Wohnanlage und Anschrift
+  - Bauträger
+  - Eigene Einheit (Nr. laut Aufteilungsplan) und Erwerbsvertrag vom
+  - Datum und Uhrzeit der Begehung
+  - Anwesende und ihre Rolle (Erwerber, Bevollmächtigte, Sachverständige, Bauträger, Verwaltung)
+  - Witterung und Beleuchtung
+  - Abnahmeaufforderung erhalten am, Frist bis
+bewertung:
+  stufen:
+    - {kurz: "o. B.", lang: "ohne Befund", beschreibung: "fertig, vertragsgemäß, nichts Auffälliges erkennbar"}
+    - {kurz: "gering", lang: "geringer Befund", beschreibung: "vereinzelt, oberflächlich oder optisch – ins Protokoll mit Frist"}
+    - {kurz: "deutlich", lang: "deutlicher Befund", beschreibung: "Dichtheit, Sicherheit oder Funktion betroffen, großflächig oder unfertig – Fachmann"}
+    - {kurz: "n. p.", lang: "nicht prüfbar", beschreibung: "verschlossen, verdeckt oder noch nicht fertig – als offen vermerken"}
+abschnitte:
+  - titel: Vor dem Termin – Vertrag, Abnahmeweg und Fristen
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Wie soll das Gemeinschaftseigentum laut Erwerbsvertrag abgenommen werden?
+        auswahl: [jeder Erwerber selbst, Bevollmächtigter der Erwerber, Verwalter oder Dritter, unbekannt]
+        hinweis: "Grundsätzlich nimmt jeder Erwerber das Gemeinschaftseigentum gesondert ab. Klauseln, nach denen ein vom Bauträger bestimmter Sachverständiger oder ein mit ihm verbundener Erstverwalter abnimmt, hat die Rechtsprechung für unwirksam gehalten. Ob Ihre Klausel wirksam ist, prüft ein Rechtsanwalt."
+      - text: Erwerbsvertrag, Baubeschreibung, Nachträge und Sonderwünsche liegen vollständig vor
+        ja_nein: true
+        hinweis: "Die Baubeschreibung ist der Maßstab: Gemessen wird, was vereinbart ist, nicht was üblich wäre."
+      - text: Teilungserklärung mit Aufteilungsplan liegt vor; die Grenze zwischen Sonder- und Gemeinschaftseigentum ist geklärt
+        ja_nein: true
+        hinweis: "Zum Gemeinschaftseigentum gehören typischerweise Dach, Fassade, Treppenhaus, Keller und Außenanlagen, auch die Abdichtung unter dem Belag eines Balkons."
+      - text: Eine schriftliche Abnahmeaufforderung mit Frist ist eingegangen und das Fristende ist notiert
+        ja_nein: true
+        hinweis: "Verstreicht eine angemessene Frist, ohne dass Sie die Abnahme unter Angabe mindestens eines Mangels verweigern, kann das Werk als abgenommen gelten. Bei Verbrauchern setzt das einen Hinweis in Textform voraus."
+      - text: Der Bauträger hat bestätigt, dass die gesamte Wohnanlage fertiggestellt ist; offene Restleistungen sind benannt
+        ja_nein: true
+        hinweis: "Außenanlagen, Spielplatz oder Begrünung werden oft später fertig. Was fehlt, gehört mit Fertigstellungstermin ins Protokoll."
+      - text: Mit der Hausverwaltung und den übrigen Erwerbern ist abgestimmt, wer an der Begehung teilnimmt
+        ja_nein: true
+        hinweis: "Ein Beschluss der Gemeinschaft zur gebündelten Abnahme bindet nur die Eigentümer, die ihn tatsächlich gefasst haben. Die Verwaltung organisiert, sie erklärt die Abnahme nur mit Vollmacht."
+      - text: Ein eigener Sachverständiger begleitet die Begehung; seine Rolle ist schriftlich festgelegt
+        ja_nein: true
+        hinweis: "Ein Sachverständiger der Erwerber stellt den Zustand fest. Eine Abnahmeerklärung gibt er nur mit ausdrücklicher Vollmacht ab."
+      - text: Termin bei Tageslicht vereinbart; Schlüssel für Technikräume, Tiefgarage, Dachzugang und Aufzug werden mitgebracht
+        ja_nein: true
+        hinweis: "Mitnehmen: starke Taschenlampe für Streiflicht, Zollstock als Maßstab auf Fotos, Kamera mit Datumsanzeige, Fernglas für Dach und Fassade."
+
+  - titel: Unterlagen zum Gemeinschaftseigentum
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Bestandspläne (Grundrisse, Schnitte, Details im ausgeführten Zustand) liegen vor
+        ja_nein: true
+      - text: Nachweise über die öffentlich-rechtlichen Abnahmen und die vorgeschriebenen Sachverständigenprüfungen liegen vor
+        ja_nein: true
+        hinweis: "Fragen Sie konkret nach den Prüfberichten für Brandschutz-, Elektro- und Sicherheitseinrichtungen, soweit für das Gebäude vorgeschrieben."
+      - text: Prüfbescheinigung für die Aufzugsanlage vor der ersten Inbetriebnahme liegt vor
+        ja_nein: true
+        hinweis: "Aufzüge dürfen grundsätzlich nicht ohne Abnahme benutzt werden. Die Bescheinigung und der Termin der nächsten Prüfung gehören in die Objektakte."
+      - text: "Heizung: Prüf- und Herstellerbescheinigungen, Druckprüfungsprotokolle, Protokoll über die Einweisung und gegebenenfalls über die Abgasmessung liegen vor"
+        ja_nein: true
+      - text: Bedienungs- und Wartungsanleitungen aller gemeinschaftlichen Anlagen liegen vor
+        ja_nein: true
+        hinweis: "Dazu gehören Heizung, Lüftung, Hebeanlage, Rückstausicherung, Tore, Türantriebe, Rauchabzug und Aufzug."
+      - text: Nachweise zur Ausführung der Abdichtungen (Keller, Tiefgarage, Dach, Balkone) sind erbeten oder liegen vor
+        ja_nein: true
+      - text: Protokoll über Spülung und Inbetriebnahme der Trinkwasserinstallation ist erbeten oder liegt vor
+        ja_nein: true
+      - text: Energieausweis für das Gebäude liegt vor
+        ja_nein: true
+      - text: Liste der ausführenden Firmen und der Ansprechpartner für Wartung und Störungen liegt vor
+        ja_nein: true
+
+  - titel: Außenanlagen und Zugänge
+    notizen: 2
+    punkte:
+      - text: Gefälle von Wegen, Höfen und Grünflächen
+        hinweis: "Woran erkennen: Wasser muss vom Gebäude wegfließen. Nach Regen auf Pfützen achten. Gering: kleine Pfütze abseits des Hauses. Deutlich: Gefälle zum Gebäude, zu Türen oder Lichtschächten."
+      - text: Entwässerungsrinnen, Hofabläufe und Schachtabdeckungen
+        hinweis: "Woran erkennen: frei, vollständig, fest eingebaut. Gering: Verschmutzung, Bauschutt. Deutlich: fehlend, lose, ohne Anschluss oder Wasser steht dauerhaft."
+      - text: Lichtschächte und Kelleraußentreppen
+        hinweis: "Woran erkennen: Boden mit Ablauf, kein Gefälle der Umgebung hinein. Deutlich: Wasserspuren am Kellerfenster oder an der Tür unten."
+      - text: Wege, Treppen, Geländer und Beleuchtung im Außenbereich
+        hinweis: "Gering: einzelne lose Platte, Leuchte ohne Funktion. Deutlich: Stolperkanten, fehlende Handläufe, unbeleuchtete Treppen."
+      - text: Spielplatz, Müllstandplatz und Fahrradabstellplätze
+        hinweis: "Unfertige Flächen als Restleistung mit Termin festhalten, nicht als erledigt abhaken."
+      - text: Begrünung, Einfriedung und Außenanlagen laut Baubeschreibung
+        hinweis: "Mit Plan und Baubeschreibung vergleichen: Anzahl, Lage und Art."
+
+  - titel: Keller und Tiefgarage
+    notizen: 2
+    punkte:
+      - text: Bauart der Kellerwände und der Bodenplatte gegen Wasser
+        auswahl: [WU-Beton (weiße Wanne), Abdichtung außen aufgebracht, gemischt, unbekannt]
+        hinweis: "In Plänen oder Baubeschreibung steht WU-Beton oder weiße Wanne, wenn der Beton selbst das Wasser abhalten soll. Bei dieser Bauart kann eine völlig trockene Innenoberfläche nicht in jedem Fall erwartet werden – nachfragen, welche Nutzung vereinbart ist."
+      - text: Feuchte Stellen, Ausblühungen und Risse an Kellerwänden und Boden
+        hinweis: "Woran erkennen: dunkle Flecken, weiße Salzränder, Tropfsteine an Rissen. Gering: trockener Haarriss ohne Spuren. Deutlich: Riss mit Feuchte, Wasseraustritt oder Pfütze."
+      - text: Gefälle und Entwässerung des Tiefgaragenbodens
+        hinweis: "Woran erkennen: nach Regen eingetragenes Wasser beobachten. Gering: kleine Pfützen. Deutlich: große stehende Wasserflächen, Gefälle zu Stützen oder Wänden, fehlende Rinnen."
+      - text: Art des Bodenschutzes in der Tiefgarage
+        auswahl: [Beschichtung, Gussasphalt, Beton ohne Beschichtung, unbekannt]
+        hinweis: "Eine Beschichtung soll das Eindringen von Tausalz in den Beton mindern. Was vereinbart ist, steht in der Baubeschreibung."
+      - text: Beschichtung des Tiefgaragenbodens und Übergang zu Stützen und Wänden
+        hinweis: "Woran erkennen: Blasen, Abplatzungen, Risse in der Beschichtung, offene Kehlen am Wandfuß. Gering: einzelne Kratzer. Deutlich: flächige Blasen oder Ablösungen."
+      - text: Decken, Stützen und Unterzüge in der Tiefgarage
+        hinweis: "Woran erkennen: Rostfahnen, feuchte Flächen, Abplatzungen, Anfahrschäden. Deutlich: Rost oder freiliegender Stahl – Fachmann hinzuziehen."
+      - text: Tor, Lüftung, Beleuchtung und Markierung der Tiefgarage
+        hinweis: "Tor mehrmals öffnen und schließen lassen; Sicherheitsabschaltung zeigen lassen. Stellplatznummern mit Teilungserklärung vergleichen."
+      - text: Kellerräume, Gänge und Abstellräume
+        hinweis: "Türen, Nummerierung, Beleuchtung und Lüftung prüfen. Muffiger Geruch ist ein Hinweis auf Feuchte."
+
+  - titel: Fassade, Sockel und Fenster im Gemeinschaftseigentum
+    notizen: 2
+    punkte:
+      - text: Bauart der Fassade
+        auswahl: [Wärmedämmverbundsystem, Putz auf Mauerwerk, Verblendmauerwerk, hinterlüftete Bekleidung, unbekannt]
+        hinweis: "Klopfprobe vom Boden aus: Ein Wärmedämmverbundsystem klingt hohl. Die Angabe steht auch in der Baubeschreibung."
+      - text: Risse, Abplatzungen und Verfärbungen der Fassade
+        hinweis: "Woran erkennen: mit Fernglas und Streiflicht. Gering: einzelner feiner Riss. Deutlich: Risse mit Versatz, Netzrisse, Beulen oder sich abzeichnende Plattenfugen."
+      - text: Sockel und Übergang zum Gelände
+        hinweis: "Der Sockel muss Spritzwasser aushalten; seine Abdichtung muss lückenlos an die Abdichtung im Erdreich anschließen. Deutlich: Putz bis ins Erdreich ohne Sockelschutz, Abplatzungen, Feuchtespuren."
+      - text: Anschlüsse von Fenstern, Fensterbänken und Durchdringungen an die Fassade
+        hinweis: "Woran erkennen: offene Fugen, fehlende Abdeckungen, Laufspuren unter Fensterbänken. Deutlich: Wasser kann hinter die Fassade gelangen."
+      - text: Hauseingang, Vordach und Haustür
+        hinweis: "Tür schließt selbst und dicht, Schwelle und Rinne vor der Tür sind vorhanden, Briefkästen und Klingelanlage funktionieren."
+
+  - titel: Dach und Dachterrassen (nur vom Boden oder von gesicherten Flächen aus)
+    notizen: 2
+    punkte:
+      - text: Dachform
+        auswahl: [Flachdach, begrüntes Flachdach, geneigtes Dach, gemischt, unbekannt]
+      - text: Dachabläufe und Notüberläufe
+        hinweis: "Ein innen entwässertes Flachdach braucht mindestens einen Ablauf und einen Notüberlauf. Woran erkennen: Abläufe an den Tiefpunkten, frei, mit Laubfang. Deutlich: kein Notüberlauf erkennbar, Ablauf zugesetzt."
+      - text: Wasserstand auf der Dachfläche nach Regen
+        hinweis: "Gering: flache Pfützen, die nach kurzer Zeit abtrocknen – sie kommen auch bei Gefälle vor. Deutlich: große Wasserflächen, die tagelang stehen."
+      - text: Anschlüsse an Attika, Wände, Lichtkuppeln und Durchdringungen
+        hinweis: "Woran erkennen: Abdichtung hochgeführt, sauber abgeschlossen. Deutlich: offene Nähte, lose Abschlussprofile, Blasen."
+      - text: Absturzsicherung und gesicherter Zugang für Wartung
+        hinweis: "Betreten Sie Flachdächer nur mit Absturzsicherung. Fehlt sie, prüfen Sie vom Zugang aus und lassen Sie den Punkt als nicht prüfbar offen."
+      - text: Deckenunterseiten und Wände unter dem Dach im obersten Geschoss
+        hinweis: "Wasserflecken mit Rändern an Decken unter Dach oder Dachterrasse deuten auf eine undichte Abdichtung."
+
+  - titel: Balkone, Loggien und Laubengänge
+    notizen: 2
+    punkte:
+      - text: Gefälle und Entwässerung von Balkonen und Laubengängen
+        hinweis: "Woran erkennen: Wasser läuft von der Tür weg zu Ablauf oder Rinne. Gering: kleine Restpfütze. Deutlich: Wasser steht an der Tür oder an der Hauswand."
+      - text: Ausbildung der Türschwellen zu Balkonen und Dachterrassen
+        auswahl: [Schwelle mit Aufkantung, Rinne vor der Tür, schwellenloser Übergang, unbekannt]
+        hinweis: "Die Abdichtung muss an der Tür ausreichend hoch geführt sein. Niedrige oder schwellenlose Übergänge sind Sonderkonstruktionen und brauchen eine Entwässerung direkt vor der Tür."
+      - text: Unterseiten von Balkonplatten und Decken darunter
+        hinweis: "Woran erkennen: Wasserflecken mit Kränzen, Tropfsteine, abblätternde Farbe. Gering: Verschmutzung. Deutlich: jede Feuchtespur – die Abdichtung gehört zum Gemeinschaftseigentum."
+      - text: Geländer, Brüstungen und Befestigungen
+        hinweis: "Fest, vollständig, ohne scharfe Kanten. Deutlich: wackelnde Geländer oder lose Befestigungen – sofort melden."
+      - text: Entwässerung über Speier oder Fallrohre
+        hinweis: "Wasser darf nicht auf darunterliegende Balkone oder Wege tropfen."
+
+  - titel: Treppenhaus, Flure und Gemeinschaftsräume
+    notizen: 2
+    punkte:
+      - text: Bauart der Treppenläufe
+        auswahl: [von den Wänden getrennt, fest mit Wänden verbunden, unbekannt]
+        hinweis: "Zum Trittschallschutz werden Treppenläufe von den Wänden getrennt und elastisch gelagert. Erkennbar an einer durchgehenden Fuge zwischen Treppenlauf und Wand."
+      - text: Wände, Decken und Bodenbeläge im Treppenhaus
+        hinweis: "Woran erkennen: im Streiflicht. Gering: Farbunterschiede, kleine Kratzer. Deutlich: Risse, Abplatzungen, lose Fliesen oder Stufenkanten."
+      - text: Treppen, Handläufe und Geländer
+        hinweis: "Handläufe durchgehend und fest. Deutlich: lose Teile, fehlende Handläufe, Stolperstellen."
+      - text: Beleuchtung, Schalter und Notbeleuchtung, soweit vorhanden
+      - text: Fahrradraum, Kinderwagenraum, Waschraum und weitere Gemeinschaftsräume
+        hinweis: "Mit Baubeschreibung und Plan vergleichen: Ausstattung, Lüftung, Türen, Beleuchtung."
+      - text: Geräusche aus Technik, Aufzug und Treppenhaus in angrenzenden Räumen
+        hinweis: "Bei laufender Anlage kurz still zuhören. Deutlich: Brummen oder Schläge, die in Wohnungen hörbar sind – Fachmann für Schallschutz fragen."
+
+  - titel: Brandschutz und Rettungswege
+    notizen: 2
+    punkte:
+      - text: Türen zum Treppenhaus, zu Keller, Tiefgarage und Technikräumen
+        hinweis: "Woran erkennen: Schild am Türfalz, Türschließer vorhanden. Tür fällt von allein ins Schloss. Deutlich: Tür schließt nicht, ist verkeilt oder ohne Schließer."
+      - text: Abschottungen an Leitungsdurchführungen durch Wände und Decken
+        hinweis: "Woran erkennen: Durchbrüche in Keller, Technikräumen und Schächten sind ringsum verschlossen, auch zwischen einzelnen Kabeln. Deutlich: offene Spalten oder Löcher neben Leitungen."
+      - text: Rauchabzug im Treppenhaus und seine Bedienstelle
+        hinweis: "Bedienstelle zugänglich und beschriftet; Auslösung vom Bauträger vorführen lassen."
+      - text: Flucht- und Rettungswege, Kennzeichnung und Ausgänge
+        hinweis: "Wege frei, Ausgänge von innen ohne Schlüssel zu öffnen. Deutlich: verstellte oder verschlossene Rettungswege."
+      - text: Feuerlöscher und weitere Brandschutzeinrichtungen laut Brandschutznachweis
+        hinweis: "Was vorgeschrieben ist, steht im Brandschutznachweis. Nachweis erfragen, wenn er nicht vorliegt."
+
+  - titel: Haustechnik
+    notizen: 2
+    punkte:
+      - text: Art der Wärmeerzeugung
+        auswahl: [Fernwärme, Wärmepumpe, Gas, Holz oder Pellets, unbekannt]
+        hinweis: "Steht am Typenschild im Heizraum und in der Baubeschreibung."
+      - text: Heizraum oder Hausanschlussraum
+        hinweis: "Woran erkennen: Leitungen gedämmt und beschriftet, Anlage läuft ohne Störmeldung. Gering: fehlende Beschriftung. Deutlich: Tropfspuren, Störmeldung, fehlende Dämmung."
+      - text: Lüftung von Keller, Tiefgarage und innenliegenden Räumen
+        auswahl: [Fensterlüftung, mechanische Lüftung, gemischt, unbekannt]
+      - text: Entwässerung unterhalb der Rückstauebene
+        auswahl: [Hebeanlage, Rückstauverschluss, keine Ablaufstellen im Keller, unbekannt]
+        hinweis: "Die Rückstauebene liegt in der Regel auf Höhe der Straße. Ablaufstellen darunter brauchen eine Sicherung gegen Rückstau aus dem Kanal. Lage und Wartung erfragen."
+      - text: Hebeanlage, Rückstausicherung und Pumpensümpfe
+        hinweis: "Woran erkennen: zugänglich, beschriftet, Alarm vorhanden. Deutlich: nicht auffindbar, Geruch, Wasserspuren am Boden."
+      - text: Elektro-Hauptverteilung, Zählerplätze und Hausanschluss
+        hinweis: "Nur ansehen, nichts öffnen: Verteilungen verschlossen und beschriftet."
+      - text: Trinkwasser-Hausanschluss und Leitungen im Keller
+        hinweis: "Woran erkennen: Leitungen gedämmt, ohne Tropfwasser oder Kondensat. Deutlich: Tropfspuren, Rost, Kalkspuren an Verbindungen."
+      - text: Aufzug
+        hinweis: "Mehrere Fahrten in alle Geschosse. Woran erkennen: hält bündig, Türen schließen sicher, Notruf ist erreichbar. Deutlich: Stufe beim Halt, Notruf ohne Verbindung."
+      - text: Klingel-, Sprech- und Schließanlage, Briefkästen
+        hinweis: "Von jeder Wohnung zur Haustür testen lassen, soweit möglich."
+
+  - titel: Ergebnis, Vorbehalte und Nachverfolgung
+    bewertung: false
+    notizen: 3
+    punkte:
+      - text: Jeder bekannte Mangel ist nach Ort, Bauteil und Erscheinungsbild im gemeinsamen Protokoll aufgeführt
+        ja_nein: true
+        hinweis: "Keine Sammelposten wie diverse Restarbeiten: Was nicht genau beschrieben ist, lässt sich später kaum nachverfolgen."
+      - text: Vorbehalte wegen bekannter Mängel sind vor der Unterschrift in die gemeinsame Niederschrift aufgenommen
+        ja_nein: true
+        hinweis: "Wer ein Werk trotz Kenntnis eines Mangels abnimmt, behält bestimmte Mängelrechte nur mit Vorbehalt. Ein mündlicher Hinweis am Rande genügt nicht."
+      - text: Nicht geprüfte und noch nicht fertige Bereiche sind ausdrücklich als offen vermerkt
+        ja_nein: true
+      - text: Restleistungen haben einen Fertigstellungstermin und eine spätere gesonderte Abnahme
+        ja_nein: true
+      - text: Fristen zur Mängelbeseitigung und ein Termin zur Nachschau sind vereinbart
+        ja_nein: true
+      - text: Die Erklärung im Protokoll betrifft ausdrücklich nur das Gemeinschaftseigentum und ist vom Sondereigentum getrennt
+        ja_nein: true
+        hinweis: "Die Abnahme der Wohnung bedeutet nicht zwangsläufig, dass auch das Gemeinschaftseigentum abgenommen ist – und umgekehrt."
+      - text: Eine Kopie des unterschriebenen Protokolls und dieser Checkliste ist in der eigenen Ablage
+        ja_nein: true
+      - text: "Hausverwaltung: Datum und Form der Abnahme sind für jede Einheit in einer Übersicht festgehalten"
+        ja_nein: true
+        hinweis: "Der Abnahmezeitpunkt ist für jeden Eigentümer gesondert zu ermitteln. Die Übersicht zeigt später, wann welche Fristen begonnen haben."
+auswertung:
+  - "Jeder geringe oder deutliche Befund, den Sie kennen, gehört vor Ihrer Unterschrift als Mangel mit Vorbehalt in das gemeinsame Protokoll."
+  - "Ein deutlicher Befund an Abdichtung, Keller, Tiefgarage, Dach, Balkonen, Brandschutz oder Tragwerk: vor der Abnahmeerklärung einen Sachverständigen hinzuziehen."
+  - "Nur geringe Befunde: Wegen unwesentlicher Mängel kann die Abnahme nicht verweigert werden. Nehmen Sie die Punkte mit Beseitigungsfrist ins Protokoll auf."
+  - "Ob ein Befund so wesentlich ist, dass Sie die Abnahme verweigern können, ist eine rechtliche Frage: auf Grundlage der technischen Feststellung anwaltlich klären lassen."
+  - "Viele Punkte nicht prüfbar oder Teile der Anlage unfertig: diese Bereiche ausdrücklich als offen vermerken und einen gesonderten Termin vereinbaren."
+  - "Fehlende Unterlagen schriftlich nachfordern und im Protokoll vermerken; ohne Prüfbescheinigungen und Anleitungen lässt sich die Anlage nicht sicher betreiben."
+hinweise:
+  - "Die Checkliste ersetzt keine Begutachtung und keine Rechtsberatung. Ob eine Vertragsklausel wirksam ist, ob Sie die Abnahme verweigern können und welche Fristen laufen, beurteilt ein Rechtsanwalt."
+  - "Prüfen Sie nur, was ohne Eingriff und ohne Gefahr möglich ist. Öffnen Sie keine Bauteile oder Verteilungen, betreten Sie Dächer nur mit Absturzsicherung und arbeiten Sie nicht an Elektro-, Gas- oder Wasserinstallationen."
+  - "Bei Hinweisen auf Standsicherheitsgefahr, Gasgeruch oder Strom in feuchten Bereichen den Bereich verlassen und Bauträger, Fachfirma oder Netzbetreiber verständigen."
+  - "Fotografieren Sie jeden Befund mit Zollstock als Maßstab und notieren Sie die Foto-Nummer neben dem Punkt."
+quellen:
+  - "§ 640 BGB (Abnahme), Fassung seit 01.01.2018"
+  - "BGH, Urteil vom 09.11.2023 – VII ZR 241/22 (Abnahmeklausel mit Erstverwalter)"
+  - "Wirth/Pfisterer/Schellenberg: Privates Baurecht praxisnah, 3. Aufl. 2021, S. 98, S. 103"
+  - "Würfele/Bielefeld/Gralla: Bauobjektüberwachung, 3. Aufl. 2017, S. 101–102, S. 113–114, S. 225"
+  - "Schulz: Architektur der Bauschäden, 4. Aufl. 2020, S. 72, S. 106, S. 231, S. 307, S. 546"
+  - "Schmidt/Windhausen: Lohmeyer Praktische Bauphysik, 10. Aufl. 2024, S. 392"
+  - "Vismann (Hrsg.): Wendehorst Bautechnische Zahlentafeln, 37. Aufl. 2021, S. 1088"
+  - "Vogdt (Hrsg.): Bauphysik, 2022, S. 188; Willems (Hrsg.): Lehrbuch der Bauphysik, 9. Aufl. 2022, S. 992"
+  - "Vielhauer u. a.: Entwurfsplanung der Technischen Gebäudeausrüstung, 2025, S. 48; Bielefeld/Becker: Kommentar zur VOB/C, 20. Aufl. 2025, S. 1505"
