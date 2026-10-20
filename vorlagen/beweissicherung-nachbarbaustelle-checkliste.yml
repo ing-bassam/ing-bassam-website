@@ -1,0 +1,211 @@
+titel: Checkliste Beweissicherung vor Nachbarbaustellen
+untertitel: Den Zustand des eigenen Hauses festhalten, bevor nebenan gebaut wird
+kurzform: beweissicherung-nachbarbaustelle-checkliste
+typ: Checkliste
+stand: 2026-10-20
+dateien: [pdf, pdf-ausfuellbar]
+einleitung: >-
+  Mit dieser Checkliste halten Sie den Zustand Ihres Hauses fest, bevor auf dem
+  Nachbargrundstück gebaut, abgerissen oder ausgeschachtet wird. Gehen Sie das
+  Haus von außen nach innen und vom Keller nach oben durch, fotografieren Sie
+  jede Stelle mit Maßstab und tragen Sie die Fotonummer ein. Bewertet wird der
+  Zustand vor Baubeginn; wiederholen Sie den Rundgang während und nach der
+  Bauzeit mit einem neuen Blatt.
+kopffelder:
+  - Objekt und Anschrift
+  - Baujahr
+  - Eigentümer oder Verwaltung
+  - Nachbarbaustelle (Anschrift, Bauherr)
+  - Datum und Uhrzeit der Aufnahme
+  - Anwesende
+  - Wetter
+bewertung:
+  stufen:
+    - kurz: "o. B."
+      lang: ohne Befund
+      beschreibung: "kein Schaden erkennbar - Übersichtsfoto trotzdem aufnehmen"
+    - kurz: gering
+      lang: geringer Vorschaden
+      beschreibung: "vereinzelt, fein, oberflächlich - fotografieren, nummerieren, in die Skizze eintragen"
+    - kurz: deutlich
+      lang: deutlicher Vorschaden
+      beschreibung: "ausgeprägt, breit, versetzt, feucht oder verformt - vor Baubeginn fachlich aufnehmen lassen"
+    - kurz: "n. p."
+      lang: nicht prüfbar
+      beschreibung: "nicht zugänglich oder verdeckt - vermerken und fachlich klären"
+abschnitte:
+  - titel: Nachbarbaustelle und Zeitplan
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Art der Arbeiten nebenan
+        auswahl: [Abbruch, Neubau mit Keller, Neubau ohne Keller, Umbau oder Sanierung, Leitungs- oder Straßenbau, unbekannt]
+        hinweis: "Abbrucharbeiten, Baulücken, Unterfangungen und Wasserhaltungen gelten in der Fachliteratur als typische Anlässe für eine vorsorgliche Beweissicherung."
+      - text: Abstand der Arbeiten zu Ihrem Haus
+        auswahl: [direkt an der Grenze, wenige Meter, weiter entfernt, unbekannt]
+        hinweis: "Je näher die Baugrube und je tiefer sie reicht, desto gründlicher sollte die Aufnahme sein. Der Umfang richtet sich nach Baugrubentiefe, zu erwartenden Erschütterungen und der Bauart Ihres Hauses."
+      - text: Baugrube soll tiefer reichen als Ihr Kellerboden
+        ja_nein: true
+        hinweis: "Beim Bauherrn oder der Bauleitung erfragen. Liegt die neue Fundamentsohle tiefer als Ihre, muss Ihr Fundament in der Regel vorher unterfangen werden."
+      - text: Unterfangung oder Anker unter oder an Ihrem Gebäude angekündigt
+        ja_nein: true
+        hinweis: "Unterfangungen eines bestehenden Gebäudes und das Einbringen von Verankerungen brauchen die Zustimmung des Eigentümers. Vor einer Zustimmung den Zustand fachlich aufnehmen lassen und rechtlich beraten lassen."
+      - text: Geplantes Verfahren für Baugrubenwand oder Pfähle
+        auswahl: [gerammt, gerüttelt, eingepresst oder gebohrt, kein Verbau, unbekannt]
+        hinweis: "Rammen und Rütteln bringen Erschütterungen in den Boden; Einpressen gilt als erschütterungsfrei. Fragen Sie nach, welches Verfahren vorgesehen ist."
+      - text: Grundwasserabsenkung (Pumpen, Brunnen) angekündigt
+        ja_nein: true
+        hinweis: "Eine Grundwasserabsenkung kann an benachbarten Gebäuden Setzungsschäden auslösen, besonders bei bindigen Böden. Kellerwände und Kellerboden dann besonders sorgfältig aufnehmen."
+      - text: Baubeginn, Bauzeitenplan und Ansprechpartner der Bauleitung erfragt
+        ja_nein: true
+  - titel: Ihr Gebäude
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Bauart der Außenwände
+        auswahl: [Mauerwerk, Beton, Fachwerk, Holzbau, gemischt, unbekannt]
+        hinweis: "Woran erkennen: Bauunterlagen, Blick in Keller oder Dachboden. Die Bauart Ihres Hauses bestimmt mit, wie gründlich die Beweissicherung sein sollte."
+      - text: Unterkellerung
+        auswahl: [voll unterkellert, teilweise, nicht unterkellert, unbekannt]
+      - text: Lage zum Nachbargrundstück
+        auswahl: [freistehend, an der Grenze angebaut, gemeinsame Wand (Reihenhaus), unbekannt]
+        hinweis: "Bei einer Wand direkt an der Grenze oder einer gemeinsamen Wand wirken Abbruch und Aushub unmittelbar auf Ihr Haus. Diese Wand innen und außen besonders genau aufnehmen."
+      - text: Bauunterlagen vorhanden (Pläne, Statik, frühere Gutachten)
+        ja_nein: true
+        hinweis: "Kopien bereitlegen. Ein Sachverständiger braucht sie, um Art und Tiefe der Fundamente einzuschätzen."
+      - text: Bekannte Schäden und frühere Reparaturen schriftlich notiert
+        ja_nein: true
+        hinweis: "Auch ausgebesserte Risse und frühere Wasserschäden aufschreiben, mit ungefährem Datum. So lässt sich später zwischen alt und neu unterscheiden."
+  - titel: Dokumentation vorbereiten
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Kamera oder Handy speichert Aufnahmedatum und Uhrzeit
+        ja_nein: true
+        hinweis: "Originaldateien unbearbeitet aufbewahren und zusätzlich sichern. Zu jedem Foto Raum, Bauteil und Blickrichtung notieren."
+      - text: Grundriss oder Skizze mit Raumnummern und Fotostandorten vorbereitet
+        ja_nein: true
+        hinweis: "Fachleute dokumentieren mit Fotos, kurzer textlicher Erläuterung und der Lage jedes Fotos im Plan. Ohne Lagezuordnung ist ein Foto später schwer zuzuordnen."
+      - text: Zollstock oder Maßstab und Rissbreitenmaßstab bereitgelegt
+        ja_nein: true
+      - text: Reihenfolge des Rundgangs festgelegt (außen, Keller, Geschosse, Dachboden)
+        ja_nein: true
+        hinweis: "Immer dieselbe Reihenfolge verwenden. Dann lassen sich die Fotos aus Erst- und Folgebegehung direkt vergleichen."
+      - text: Gemeinsamer Termin mit Bauherr oder Bauleitung nebenan vereinbart oder Zeuge anwesend
+        ja_nein: true
+        hinweis: "Bei einer gemeinsamen Begehung werden Fotos oder Videos aufgenommen und Skizzen der Schäden von beiden Seiten unterschrieben. Das verringert späteren Streit über den Ausgangszustand."
+  - titel: Fassade und Sockel
+    notizen: 2
+    punkte:
+      - text: Risse in Putz oder Mauerwerk der Fassade zur Baustelle
+        hinweis: "Woran erkennen: Fassade mit Abstand und aus der Nähe betrachten, Streiflicht hilft. Gering: einzelne feine Risse im Putz. Deutlich: breite, lange oder schräg verlaufende Risse, versetzte Rissränder. Länge, Breite und Verlauf notieren."
+      - text: Risse an Fenster- und Türecken außen
+        hinweis: "Woran erkennen: Ecken von Öffnungen gezielt absuchen. Gering: feiner Riss ohne Versatz. Deutlich: Riss läuft weit in die Wand oder setzt sich innen fort."
+      - text: Sockel und Sockelputz
+        hinweis: "Woran erkennen: Sockel rund ums Haus abgehen. Gering: kleine Abplatzungen, leichte Verfärbung. Deutlich: großflächige Abplatzungen, weiße Ausblühungen, dunkle Feuchteränder."
+      - text: Fugen und Anschlüsse (Fensterbänke, Anbauten, Fuge zum Nachbarhaus)
+        hinweis: "Woran erkennen: Blick entlang der Anschlüsse. Gering: Fugenmasse leicht gerissen. Deutlich: Fuge klafft auf, Bauteile haben sich gegeneinander verschoben."
+      - text: Verschmutzung und Farbton der Fassade
+        hinweis: "Staub und Verschmutzung gehören zu den Einwirkungen einer Baustelle. Den Farbton vor Baubeginn fotografieren, möglichst bei gleichem Licht."
+  - titel: Außenanlagen und Dach
+    notizen: 2
+    punkte:
+      - text: Wege, Pflaster und Einfahrt
+        hinweis: "Woran erkennen: auf Mulden, Kanten und lose Steine achten. Gering: einzelne lockere Steine. Deutlich: Absenkungen, Risse oder Pfützen, wo vorher keine waren."
+      - text: Grenzmauer, Zaun und Stützmauer
+        hinweis: "Woran erkennen: Blick entlang der Mauer, Lot mit Wasserwaage. Gering: feine Risse in Fugen. Deutlich: Mauer neigt sich, Risse mit Versatz, Zaunpfosten schief."
+      - text: Terrasse, Außentreppen, Garage und Carport
+        hinweis: "Woran erkennen: Platten, Stufen und Bodenplatte der Garage ansehen. Gering: einzelne Haarrisse. Deutlich: abgesackte Platten, gerissene Stufen, Risse in der Garagenwand."
+      - text: Bäume und Pflanzen an der Grenze
+        hinweis: "Zustand der Bepflanzung fotografieren. Auch Pflanzen können durch Aushub oder Grundwasserabsenkung leiden."
+      - text: Dach, Schornstein und Dachrinnen, nur vom Boden aus betrachtet
+        hinweis: "Nicht auf Leiter oder Dach steigen. Gering: einzelne verschobene Ziegel. Deutlich: Lücken in der Deckung, schiefer Schornstein, abgelöste Rinne. Eine genaue Aufnahme braucht Hubbühne, Gerüst oder Drohne und ist Sache von Fachleuten."
+  - titel: Keller und Gründung
+    notizen: 2
+    punkte:
+      - text: Bauart der Kellerwände
+        auswahl: [Mauerwerk, Beton, Naturstein, unbekannt]
+        hinweis: "Woran erkennen: unverputzte Stellen im Keller, Bauunterlagen. Die Angabe hilft dem Sachverständigen, die Kellerwände einzuschätzen."
+      - text: Risse in den Kellerwänden, besonders in der Wand zur Baustelle
+        hinweis: "Woran erkennen: Wand mit Taschenlampe im Streiflicht absuchen. Gering: feine Risse im Putz. Deutlich: durchgehende, schräge oder treppenförmige Risse, Rissränder versetzt."
+      - text: Risse im Kellerboden
+        hinweis: "Woran erkennen: Boden frei räumen, wo möglich. Gering: feine Netzrisse. Deutlich: lange Risse mit Höhenversatz, Absenkungen an der Außenwand."
+      - text: Feuchte, Wasserflecken und Ausblühungen im Keller
+        hinweis: "Woran erkennen: dunkle Ränder, weiße Salzkrusten, muffiger Geruch. Gering: kleine, trockene Altflecken. Deutlich: nasse Stellen, Wasser am Boden, große Ausblühungen. Feuchtemessungen sind Sache von Fachleuten."
+      - text: Lichtschächte, Kelleraußentreppe und Hauseinführungen der Leitungen
+        hinweis: "Woran erkennen: Fugen zwischen Schacht und Wand, Dichtungen an Rohrdurchführungen. Deutlich: Schacht hat sich abgelöst, Wasser tritt an der Durchführung ein. Den Zustand der Abwasserleitungen klärt nur eine Kamerabefahrung durch eine Fachfirma."
+  - titel: Innenräume
+    notizen: 2
+    punkte:
+      - text: Bauart der Innenwände
+        auswahl: [massiv, Trockenbau, gemischt, unbekannt]
+        hinweis: "Woran erkennen: Klopfprobe - hohl klingende Wände sind meist Trockenbau. Bei Trockenbau auch die Stöße zwischen den Platten und die Ecken fotografieren."
+      - text: Risse in Wänden, besonders in Räumen zur Baustelle
+        hinweis: "Woran erkennen: jede Wand im Streiflicht ansehen, auch hinter Möbeln, soweit möglich. Gering: einzelne feine Risse in Putz oder Tapete. Deutlich: lange, schräge oder breite Risse, Risse über mehrere Räume."
+      - text: Risse an Decken und Deckenanschlüssen
+        hinweis: "Woran erkennen: Übergang Wand-Decke und Deckenmitte prüfen. Gering: feiner Riss in der Ecke. Deutlich: durchlaufender Riss, abgesetzte Deckenkante, Putzteile lösen sich."
+      - text: Fliesen, Estrich und Bodenbeläge
+        hinweis: "Woran erkennen: Bad, Küche und Flur ansehen, Klopfprobe an Fliesen. Gering: einzelne gerissene Fliese. Deutlich: Risse über mehrere Fliesen, hohl klingende Flächen, Fugen reißen auf."
+      - text: Türen und Fenster öffnen und schließen
+        hinweis: "Woran erkennen: jeden Flügel einmal bewegen. Gering: Tür schleift leicht. Deutlich: Türen oder Fenster klemmen oder lassen sich nicht schließen. Ergebnis je Raum notieren."
+      - text: Lage von Böden und Fensterbänken
+        hinweis: "Woran erkennen: Wasserwaage auflegen und Foto mit Libelle machen. Deutlich: sichtbare Schieflage. Der Ausgangswert ist wichtig, damit eine spätere Veränderung erkennbar wird."
+      - text: Treppenhaus und gemeinsame Flure (bei Mehrfamilienhäusern)
+        hinweis: "Woran erkennen: Wände, Treppenläufe und Podeste absuchen. Gering: feine Putzrisse. Deutlich: Risse zwischen Treppe und Wand, Risse in mehreren Geschossen."
+  - titel: Vorhandene Risse sichern
+    bewertung: false
+    notizen: 3
+    punkte:
+      - text: Jeder Riss nummeriert, mit Übersichtsfoto und Detailfoto mit Maßstab
+        ja_nein: true
+        hinweis: "Nummer mit Bleistift neben den Riss schreiben. Für eine längere Beobachtung eignet sich das Rissprotokoll auf ing-bassam.de."
+      - text: Rissbreite mit Rissbreitenmaßstab abgelesen und notiert
+        ja_nein: true
+      - text: Anfang und Ende jedes Risses mit Bleistift markiert
+        ja_nein: true
+        hinweis: "So sehen Sie später sofort, ob ein Riss länger geworden ist."
+      - text: An ausgeprägten Rissen eine Gipsmarke oder ein Rissmonitor gesetzt
+        ja_nein: true
+        hinweis: "Vor einer länger dauernden Baumaßnahme ist es sinnvoll, an vorhandenen ausgeprägten Rissen Rissmonitore anzubringen. So lassen sich Veränderungen fortlaufend verfolgen."
+  - titel: Während und nach der Bauzeit
+    bewertung: false
+    notizen: 3
+    punkte:
+      - text: Tagebuch über starke Erschütterungen, Abbruch- und Rammarbeiten mit Datum und Uhrzeit
+        ja_nein: true
+        hinweis: "Kurz notieren, was gespürt oder gehört wurde, etwa klirrendes Geschirr oder Vibrationen im Boden."
+      - text: Rundgang nach wichtigen Bauphasen wiederholt (Abbruch, Aushub, Verbau, Rohbau)
+        ja_nein: true
+        hinweis: "Je nach Art der Bautätigkeit kann es nötig sein, nicht nur zu Beginn und am Ende, sondern auch während der Bauzeit regelmäßig zu dokumentieren."
+      - text: Neue Schäden sofort fotografiert und dem Bauherrn nebenan schriftlich mitgeteilt
+        ja_nein: true
+        hinweis: "Mitteilung mit Datum und Fotos, Kopie behalten. Bei herabfallenden Teilen oder plötzlich auftretenden breiten Rissen den Bereich räumen und sofort fachliche Hilfe holen."
+      - text: Abschlussbegehung nach Bauende mit derselben Checkliste
+        ja_nein: true
+        hinweis: "Die erneute Aufnahme nach Bauende dient als Veränderungsnachweis. Sie zeigt, was seit der Erstaufnahme neu ist; die Ursache klärt sie noch nicht."
+      - text: Dokumentation doppelt gesichert, Hausverwaltung oder Eigentümergemeinschaft informiert
+        ja_nein: true
+auswertung:
+  - "Alles ohne Befund oder nur gering: Dokumentation sorgfältig ablegen. Bei Baugrube an der Grenze, Ramm- oder Rüttelarbeiten oder einer Grundwasserabsenkung trotzdem eine fachliche Beweissicherung vor Baubeginn erwägen."
+  - "Ein deutlicher Vorschaden an Kellerwänden, Kellerboden oder der Wand zur Baustelle: vor Baubeginn von einem Sachverständigen aufnehmen lassen, gegebenenfalls mit Rissmonitoren."
+  - "Mehrere Punkte nicht prüfbar (Dach, verdeckte Bauteile, Leitungen): fachlich klären lassen. Gerüst, Drohne oder Kamerabefahrung gehören nicht zur einfachen Sichtaufnahme."
+  - "Unterfangung oder Anker an Ihrem Haus angekündigt: vor jeder Zustimmung den Zustand fachlich festhalten und sich rechtlich beraten lassen."
+  - "Neue oder wachsende Schäden während der Bauzeit: sofort fotografieren, den Bauherrn nebenan schriftlich informieren und fachlichen Rat einholen. Bei Gefahr den Bereich räumen."
+  - "Kommt es zum Streit über die Ursache, kann ein Rechtsanwalt prüfen, ob ein gerichtliches selbständiges Beweisverfahren sinnvoll ist."
+unterschriften: [Eigentümer oder Verwaltung, Bauherr oder Bauleitung nebenan (bei gemeinsamer Begehung)]
+hinweise:
+  - "Fotografieren Sie jede Stelle zweimal: einmal das ganze Bauteil, einmal das Detail mit Maßstab."
+  - "Auch Bereiche ohne Schaden fotografieren. Ein Foto ohne Befund ist später genauso wichtig wie eines mit Riss."
+  - "Bewahren Sie die Originaldateien unbearbeitet auf und sichern Sie sie an einem zweiten Ort."
+  - "Nicht auf Leitern, Gerüste oder das Dach steigen und keine Bauteile öffnen. Alles in dieser Liste ist vom Boden aus zu erledigen."
+  - "Die Checkliste hält den Zustand fest. Ob ein späterer Schaden von der Baustelle stammt, beurteilt ein Sachverständiger."
+quellen:
+  - "Weber/Hafkesbrink (Hrsg.): Bauwerksabdichtung in der Altbausanierung, 7. Aufl. 2026, S. 85-88, 137"
+  - "Berner u. a.: Grundlagen der Baubetriebslehre 3, 3. Aufl. 2025, S. 144-146"
+  - "Keldungs/Ganschow/Arbeiter: Leitfaden für Bausachverständige, 4. Aufl. 2018, S. 23"
+  - "Schulz: Architektur der Bauschäden, 4. Aufl. 2020, S. 483-484"
+  - "Hestermann/Rongen: Frick/Knöll Baukonstruktionslehre 1, 37. Aufl. 2025, S. 57, 76"
+  - "Boley (Hrsg.): Handbuch Geotechnik, 2. Aufl. 2019, S. 433; Schmitt u. a.: Baugruben und Gründungen, 19. Aufl. 2024, S. 88"
+  - "DIN 4123:2013-04, Ausschachtungen, Gründungen und Unterfangungen im Bereich bestehender Gebäude"
+  - "DIN 4150-3:2016-12, Erschütterungen im Bauwesen - Teil 3: Einwirkungen auf bauliche Anlagen"
+  - "§ 485 ZPO (selbständiges Beweisverfahren)"
