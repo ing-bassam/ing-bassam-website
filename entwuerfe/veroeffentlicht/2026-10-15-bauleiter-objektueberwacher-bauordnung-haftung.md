@@ -13,7 +13,7 @@ qualifikation:
 kurzform: bauleiter-objektueberwacher-bauordnung-haftung
 erstellt: 2026-10-15
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3eed96ad-00b4-8111-ab2c-c63c9c7d2574
 notion_url: https://app.notion.com/p/Bauleiter-Objekt-berwacher-Bauleiter-nach-Bauordnung-Wer-auf-der-Baustelle-wof-r-zust-ndig-ist-3eed96ad00b48111ab2cc63c9c7d2574

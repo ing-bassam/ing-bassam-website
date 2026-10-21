@@ -7,22 +7,23 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (7)
+## 🟡 Entwurf (6)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 21.10.2026 | [Zu viel Betondeckung: Wer haftet für die Risse?](entwurf/2026-10-21-betondeckung-nennmass-haftungsquote.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/betondeckung-nennmass-haftungsquote/) |
 | 20.10.2026 | [Zu wenig Gefälle auf der Terrasse: Wer haftet wofür?](entwurf/2026-10-20-terrasse-gefaelle-hinweispflicht.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/terrasse-gefaelle-hinweispflicht/) |
 | 20.10.2026 | [Checkliste Beweissicherung vor Nachbarbaustellen](entwurf/2026-10-20-beweissicherung-nachbarbaustelle-checkliste.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/beweissicherung-nachbarbaustelle-checkliste/) |
 | 20.10.2026 | [Checkliste Abnahme Gemeinschaftseigentum im Neubau](entwurf/2026-10-20-abnahme-gemeinschaftseigentum-checkliste.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/abnahme-gemeinschaftseigentum-checkliste/) |
 | 19.10.2026 | [Objektüberwachung: Was kostet Leistungsphase 8 nach HOAI?](entwurf/2026-10-19-honorar-objektueberwachung-lp8-hoai.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/honorar-objektueberwachung-lp8-hoai/) |
 | 19.10.2026 | [Abschlagsrechnung prüfen: was vor der Zahlung zu klären ist](entwurf/2026-10-19-abschlagsrechnung-hausbau-pruefen.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/abschlagsrechnung-hausbau-pruefen/) |
-| 15.10.2026 | [Wasserschaden: eigener Gutachter oder der des Versicherers?](entwurf/2026-10-15-wasserschaden-eigener-sachverstaendiger.md) | Ratgeber | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/wasserschaden-eigener-sachverstaendiger/) |
-| 15.10.2026 | [Bauleiter, Objektüberwacher, Bauleiter nach Bauordnung](entwurf/2026-10-15-bauleiter-objektueberwacher-bauordnung-haftung.md) | Grundlagen | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauleiter-objektueberwacher-bauordnung-haftung/) |
 
-## 🟢 Veröffentlicht (66)
+## 🟢 Veröffentlicht (68)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 15.10.2026 | [Wasserschaden: eigener Gutachter oder der des Versicherers?](veroeffentlicht/2026-10-15-wasserschaden-eigener-sachverstaendiger.md) | Ratgeber | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/wasserschaden-eigener-sachverstaendiger/) |
+| 15.10.2026 | [Bauleiter, Objektüberwacher, Bauleiter nach Bauordnung](veroeffentlicht/2026-10-15-bauleiter-objektueberwacher-bauordnung-haftung.md) | Grundlagen | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauleiter-objektueberwacher-bauordnung-haftung/) |
 | 14.10.2026 | [Heizungsförderung 2027: Was sinkt, was vor den Antrag gehört](veroeffentlicht/2026-10-14-heizungsfoerderung-2027-waermepumpe-antrag.md) | Checkliste | Energie & Förderung | [ansehen](https://ing-bassam.de/fachwissen/heizungsfoerderung-2027-waermepumpe-antrag/) |
 | 08.10.2026 | [Sanierungskosten im Altbau realistisch schätzen](veroeffentlicht/2026-10-08-sanierungskosten-altbau-schaetzen.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/sanierungskosten-altbau-schaetzen/) |
 | 08.10.2026 | [Abplatzender Fassadenputz: Wann ist Sanierung Pflicht?](veroeffentlicht/2026-10-08-fassadenputz-abplatzen-sanierungspflicht.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/fassadenputz-abplatzen-sanierungspflicht/) |

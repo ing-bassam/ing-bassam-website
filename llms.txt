@@ -67,6 +67,7 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Bauherrenwissen
 
+- [Bauleiter, Objektüberwacher, Bauleiter nach Bauordnung](https://ing-bassam.de/fachwissen/bauleiter-objektueberwacher-bauordnung-haftung/): Bauleiter der Baufirma, Objektüberwacher des Bauherrn, Bauleiter nach Bauordnung: Auftraggeber, Aufgaben und Haftung der drei Rollen im Vergleich.
 - [Bautagebuch für Bauherren: Vorlage und Anleitung](https://ing-bassam.de/fachwissen/bautagebuch-bauherren/): Bautagebuch-Vorlage für Bauherren als Word, Excel und PDF, mit Anleitung zu Fotos, verdeckten Leistungen und Beweislage am Bau.
 - [Checkliste Altbaukauf: Schwachstellen nach Baujahr](https://ing-bassam.de/fachwissen/altbaukauf-schwachstellen-baujahr/): Checkliste für den Altbaukauf: typische Schwachstellen und Schadstoffe nach Baujahr erkennen, in vier Stufen bewerten und auswerten.
 - [Pfusch am Bau: was Bauherren zuerst tun müssen](https://ing-bassam.de/fachwissen/pfusch-am-bau-vorgehen-ansprueche/): Pfusch am Bau erkannt: wie Bauherren Mängel dokumentieren, anzeigen, Fristen setzen und wann ein Sachverständiger den Verdacht klärt.
@@ -100,6 +101,7 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Gutachten & Recht
 
+- [Wasserschaden: eigener Gutachter oder der des Versicherers?](https://ing-bassam.de/fachwissen/wasserschaden-eigener-sachverstaendiger/): Reicht bei einem Wasserschaden der Gutachter der Versicherung, oder brauchen Sie einen eigenen Sachverständigen? Wann sich ein Privatgutachten lohnt.
 - [Undichtes Dach: Wer zahlt den Planungsfehler?](https://ing-bassam.de/fachwissen/undichtes-dach-planungsfehler-bedenken/): OLG Stuttgart 10 U 127/13: Der Anspruch der Bauherrin blieb ungekürzt, weil die Baufirma den Planungsfehler kannte und ihre Warnung nicht bewies.
 - [Gebaut wie geplant, aber gegen die Baugenehmigung](https://ing-bassam.de/fachwissen/planung-weicht-von-baugenehmigung-ab/): Ein Urteil des OLG Stuttgart zu brennbaren Fassadenrohren zeigt, warum eine Planung mangelhaft ist, die die bekannte Baugenehmigung nicht einhält.
 - [Gewährleistung am Bau: Fristen, Beginn, Hemmung](https://ing-bassam.de/fachwissen/gewaehrleistung-bau-fristen-bgb-vob/): Mängelansprüche am Bau verjähren nach BGB in fünf, nach VOB/B meist in vier Jahren ab Abnahme. Wann die Frist beginnt und wie Hemmung sie anhält.

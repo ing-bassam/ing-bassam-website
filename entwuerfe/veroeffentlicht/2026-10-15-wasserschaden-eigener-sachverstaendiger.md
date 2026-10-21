@@ -13,7 +13,7 @@ qualifikation:
 kurzform: wasserschaden-eigener-sachverstaendiger
 erstellt: 2026-10-15
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e2d96ad-00b4-81e4-a7e6-e9feafc476bd
 notion_url: https://app.notion.com/p/Wasserschaden-Eigener-Sachverst-ndiger-oder-Gutachter-der-Versicherung-3e2d96ad00b481e4a7e6e9feafc476bd
