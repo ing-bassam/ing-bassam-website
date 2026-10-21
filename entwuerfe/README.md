@@ -7,9 +7,13 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (0)
+## 🟡 Entwurf (3)
 
-Zurzeit keine.
+| Datum | Titel | Format | Kategorie | Seite |
+|---|---|---|---|---|
+| 19.10.2026 | [Objektüberwachung: Was kostet Leistungsphase 8 nach HOAI?](entwurf/2026-10-19-honorar-objektueberwachung-lp8-hoai.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/honorar-objektueberwachung-lp8-hoai/) |
+| 15.10.2026 | [Wasserschaden: eigener Gutachter oder der des Versicherers?](entwurf/2026-10-15-wasserschaden-eigener-sachverstaendiger.md) | Ratgeber | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/wasserschaden-eigener-sachverstaendiger/) |
+| 15.10.2026 | [Bauleiter, Objektüberwacher, Bauleiter nach Bauordnung](entwurf/2026-10-15-bauleiter-objektueberwacher-bauordnung-haftung.md) | Grundlagen | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauleiter-objektueberwacher-bauordnung-haftung/) |
 
 ## 🟢 Veröffentlicht (66)
 
