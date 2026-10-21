@@ -7,11 +7,13 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (3)
+## 🟡 Entwurf (5)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 20.10.2026 | [Checkliste Beweissicherung vor Nachbarbaustellen](entwurf/2026-10-20-beweissicherung-nachbarbaustelle-checkliste.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/beweissicherung-nachbarbaustelle-checkliste/) |
 | 19.10.2026 | [Objektüberwachung: Was kostet Leistungsphase 8 nach HOAI?](entwurf/2026-10-19-honorar-objektueberwachung-lp8-hoai.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/honorar-objektueberwachung-lp8-hoai/) |
+| 19.10.2026 | [Abschlagsrechnung prüfen: was vor der Zahlung zu klären ist](entwurf/2026-10-19-abschlagsrechnung-hausbau-pruefen.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/abschlagsrechnung-hausbau-pruefen/) |
 | 15.10.2026 | [Wasserschaden: eigener Gutachter oder der des Versicherers?](entwurf/2026-10-15-wasserschaden-eigener-sachverstaendiger.md) | Ratgeber | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/wasserschaden-eigener-sachverstaendiger/) |
 | 15.10.2026 | [Bauleiter, Objektüberwacher, Bauleiter nach Bauordnung](entwurf/2026-10-15-bauleiter-objektueberwacher-bauordnung-haftung.md) | Grundlagen | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauleiter-objektueberwacher-bauordnung-haftung/) |
 
