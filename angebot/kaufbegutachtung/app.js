@@ -10,7 +10,7 @@
  * („Auswahl senden“, „Zum Inhalt springen“) dürfen diesen Teil deshalb nie
  * ersetzen – sie werden abgefangen und scrollen nur zum Ziel.
  */
-import { PAKET } from "./paket.js?v=2ad89b72a4";
+import { PAKET } from "./paket.js?v=356094e8a0";
 import { UI } from "./oberflaeche.js?v=c21b9a44f9";
 import {
   OBJEKTE, anfrage, aufzaehlung, bruttoCent, cent, eingabeLesen, entschluesseln, ersetzen, euro, euroSpanne, fragmentAktion,
