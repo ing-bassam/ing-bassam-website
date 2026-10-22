@@ -1082,6 +1082,7 @@ export const DATEN = /* DATEN-ANFANG */ {
     },
     {
       "id": "kfw308",
+      "nutzung": ["selbst", "vermietet_selbst"],
       "kategorie": "foerderung",
       "objekt": "beide",
       "bis": 1994,
@@ -1101,6 +1102,7 @@ export const DATEN = /* DATEN-ANFANG */ {
     },
     {
       "id": "heizungsfoerderung",
+      "nutzung": ["selbst", "vermietet_selbst"],
       "kategorie": "foerderung",
       "objekt": "beide",
       "heizung": ["oel", "gasetage", "nachtspeicher", "gas"],

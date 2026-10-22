@@ -95,21 +95,22 @@ test("Regeln: Wohnung, Baujahr 1905, vermieten, Gasetagenheizung, Milieuschutz",
   const h = hinweise(e({ objekt: "etw", baujahr: "1905", nutzung: "vermieten", heizung: "gasetage", milieuschutz: true }));
   assert.deepEqual(ids(h), [
     "asbest", "blei", "daemmpflicht_etw", "elektro_alt", "flaeche", "gasetage", "gruenderzeit", "heizung_fossil",
-    "heizungsfoerderung", "kfw308", "mietpreisbremse", "mietspiegel", "milieuschutz", "schimmel", "thermo_saison",
-    "vermieterpflichten",
+    "mietpreisbremse", "mietspiegel", "milieuschutz", "schimmel", "thermo_saison", "vermieterpflichten",
   ].sort());
   assert.deepEqual([...h.empfohlen].sort(), ["schadstoff", "vermietung"]);
   assert.deepEqual(h.gruppen.map((g) => g.kategorie), ["pflicht", "miete", "pruefen", "foerderung"]);
-  // Nicht dabei: Hausregeln, Lage-Regeln ohne gewählte Lage, andere Nutzung, andere Heizung.
-  for (const id of ["daemmpflicht_efh", "rauchmelder", "ddr", "sperrfrist", "heizkosten_fern", "heizungspruefung", "oeltank"]) {
+  // Nicht dabei: Hausregeln, Lage-Regeln ohne gewählte Lage, andere Nutzung, andere Heizung –
+  // und die Förderhinweise, die Selbstnutzung voraussetzen (KfW 308, Heizungstausch-Bonus).
+  for (const id of ["daemmpflicht_efh", "rauchmelder", "ddr", "sperrfrist", "heizkosten_fern", "heizungspruefung", "oeltank",
+    "kfw308", "heizungsfoerderung"]) {
     assert.ok(!h.ids.includes(id), id);
   }
   // Mit 6 oder mehr Wohnungen und Gas-Zentralheizung kommt die Heizungsprüfung dazu.
   assert.ok(hinweise(e({ objekt: "etw", heizung: "gas", mfh6: true })).ids.includes("heizungspruefung"));
 });
 
-test("Regeln: Haus, Baujahr 1975, Fertighaus, Öl, Brandenburg", () => {
-  const h = hinweise(e({ objekt: "efh", baujahr: "1975", fertighaus: true, heizung: "oel", region: "brandenburg" }));
+test("Regeln: Haus, Baujahr 1975, Fertighaus, Öl, Brandenburg, selbst nutzen", () => {
+  const h = hinweise(e({ objekt: "efh", baujahr: "1975", fertighaus: true, heizung: "oel", region: "brandenburg", nutzung: "selbst" }));
   assert.deepEqual(ids(h), [
     "asbest", "beratung_ea", "daemmpflicht_efh", "ddr", "elektro_35", "fertighaus", "flachdach", "heizung_fossil",
     "heizungsfoerderung", "kfw308", "mineralwolle", "oeltank", "pcb_pak", "schimmel", "thermo_saison",
