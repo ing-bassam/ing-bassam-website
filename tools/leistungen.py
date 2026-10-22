@@ -55,8 +55,8 @@ SEITEN: dict[str, Leistungsseite] = {s.schluessel: s for s in (
         "kaufbegutachtung", "leistungen/kaufbegutachtung/", "Kaufbegutachtung",
         "Kaufbegutachtung in Berlin: wissen, was Sie kaufen – bevor Sie zum Notar gehen",
         "Eigentumswohnung oder Einfamilienhaus vor dem Kauf: Begehung, Auswertung der Unterlagen und "
-        "Zustandsbericht mit Mängelliste und Kostenrahmen für 10–15 Jahre, mit Hinweisen nach Baujahr "
-        "und Unterlagen-Checkliste."),
+        "Zustandsbericht mit Mängelliste und Kostenrahmen für 10–15 Jahre; Preise und Leistungsübersicht "
+        "nach Ihrer Anfrage per E-Mail."),
     Leistungsseite(
         "due-diligence", "leistungen/technische-due-diligence/", "Technische Due Diligence",
         "Technische Due Diligence und Kaufberatung in Berlin",
@@ -181,8 +181,8 @@ ENGLISCH: list[EnglischeSeite] = [
                    "and contact – reports in English or German; prices on request by email.", ""),
     EnglischeSeite("en/pre-purchase-inspection-berlin/", "Pre-purchase inspection of a flat or house",
                    "Inspection, document review and a condition report with defect list and a 10–15-year cost "
-                   "outlook before you buy a flat or house in Berlin – report in German (English on request), "
-                   "with notes by year of construction and a document checklist.",
+                   "outlook before you buy a flat or house in Berlin – report in German (English on request); "
+                   "prices and list of services after your enquiry by email.",
                    "leistungen/kaufbegutachtung/"),
     EnglischeSeite("en/technical-due-diligence-berlin/", "Technical due diligence and pre-purchase surveys",
                    "Inspection and document review before buying a house, flat or apartment building in Berlin: "

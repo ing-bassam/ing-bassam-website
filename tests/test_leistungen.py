@@ -140,7 +140,7 @@ class Seiten(unittest.TestCase):
 # Seiten, der Startseite, den Werkzeugen und in llms.txt dürfen deshalb keine
 # Eurobeträge und keine Preisangaben in den Strukturdaten stehen.
 
-# Eurobetrag: „1.059,10 €“, „150 €/h“, „3 Mio. €“, „150 Euro“, „€1,059.10“, „€3m“, „EUR 150“.
+# Eurobetrag: „1.234,50 €“, „100 €/h“, „3 Mio. €“, „100 Euro“, „€1,234.50“, „€3m“, „EUR 100“.
 EUROBETRAG = re.compile(r"\d[\d.,]*(?:\s| )?(?:Mio\.\s?)?(?:€|EUR\b|Euro\b)|(?:€|\bEUR\b)(?:\s| )?\d")
 # Strukturdaten-Felder für Preise (schema.org). "price": "0" ist erlaubt: kostenlose Werkzeuge.
 PREISFELDER = {"price", "lowPrice", "highPrice", "minPrice", "maxPrice", "priceRange", "priceSpecification"}
@@ -148,18 +148,9 @@ PREISFELDER = {"price", "lowPrice", "highPrice", "minPrice", "maxPrice", "priceR
 # Beträge, die keine Preise des Büros sind – mit Grund. Sie werden vor der Suche
 # aus dem Text entfernt; jede Ausnahme muss noch vorkommen, sonst ist sie überflüssig.
 AUSNAHMEN = {
-    # Rechenbeispiel im Mini-Rechner „Ihr Anteil an Gemeinschaftskosten“ (Kosten der Eigentümergemeinschaft).
-    "Beispiel: 100.000 € × 45/1.000 = 4.500 €": ["leistungen/kaufbegutachtung/index.html", "werkzeuge/kaufbegutachtung/daten.js"],
-    "Example: €100,000 × 45/1,000 = €4,500": ["en/pre-purchase-inspection-berlin/index.html", "werkzeuge/kaufbegutachtung/daten.js"],
-    # Hinweis zum Berliner Mietspiegel: mögliche Mehrmiete (Marktangabe).
-    "rund 40–47 € mehr im Monat": ["leistungen/kaufbegutachtung/index.html", "werkzeuge/kaufbegutachtung/daten.js"],
-    "about €40–47 more per month": ["en/pre-purchase-inspection-berlin/index.html", "werkzeuge/kaufbegutachtung/daten.js"],
-    # Förderbedingung des KfW-Programms 308 (Einkommensgrenze).
-    "Einkommen bis 90.000 € (plus 10.000 € je weiteres Kind)": ["leistungen/kaufbegutachtung/index.html", "werkzeuge/kaufbegutachtung/daten.js"],
-    "income up to €90,000 (plus €10,000 per further child)": ["en/pre-purchase-inspection-berlin/index.html", "werkzeuge/kaufbegutachtung/daten.js"],
     # Deckungssummen der Berufshaftpflicht (Qualifikation, kein Preis).
-    "Berufshaftpflicht: 3 Mio. € Personen-, 300.000 € Vermögensschäden": ["leistungen/kaufbegutachtung/index.html", "werkzeuge/kaufbegutachtung/daten.js"],
-    "Professional indemnity: €3m personal injury, €300,000 financial loss": ["en/pre-purchase-inspection-berlin/index.html", "werkzeuge/kaufbegutachtung/daten.js"],
+    "Berufshaftpflicht: 3 Mio. € Personen-, 300.000 € Vermögensschäden": ["leistungen/kaufbegutachtung/index.html"],
+    "Professional indemnity: €3m personal injury, €300,000 financial loss": ["en/pre-purchase-inspection-berlin/index.html"],
 }
 
 
