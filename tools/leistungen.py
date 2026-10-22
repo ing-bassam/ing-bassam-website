@@ -52,10 +52,16 @@ SEITEN: dict[str, Leistungsseite] = {s.schluessel: s for s in (
         "Prüfung der Ausführung, wenn Bauteile fertig, aber noch offen sind, und ein Mängelprotokoll "
         "zur Abnahme, das hält – als Einzeltermin oder Paket."),
     Leistungsseite(
+        "kaufbegutachtung", "leistungen/kaufbegutachtung/", "Kaufbegutachtung",
+        "Kaufbegutachtung in Berlin: wissen, was Sie kaufen – bevor Sie zum Notar gehen",
+        "Eigentumswohnung oder Einfamilienhaus vor dem Kauf: Begehung, Auswertung der Unterlagen und "
+        "Zustandsbericht mit Mängelliste und Kostenrahmen für 10–15 Jahre – zum Festpreis, mit "
+        "Preis- und Hinweisrechner."),
+    Leistungsseite(
         "due-diligence", "leistungen/technische-due-diligence/", "Technische Due Diligence",
         "Technische Due Diligence und Kaufberatung in Berlin",
         "Begehung und Unterlagenprüfung vor dem Kauf: Zustand, Risiken, Instandhaltungsstau und "
-        "Kosten – als Kaufberatung vor Ort, Kurzbericht oder vollständige Due Diligence."),
+        "Kosten – als Kaufberatung vor Ort oder vollständige Due Diligence für Mietwohnhäuser und Portfolios."),
     Leistungsseite(
         "privatgutachten", "leistungen/privatgutachten-bauprozess/", "Privatgutachten für Bauprozesse",
         "Privatgutachten und Parteiberatung im Bauprozess",
@@ -87,7 +93,7 @@ SEITEN: dict[str, Leistungsseite] = {s.schluessel: s for s in (
 
 # Anzeige-Reihenfolge in Übersichten (ohne die Übersichtsseite selbst).
 REIHENFOLGE = ["schimmel", "wasserschaden", "beweissicherung", "baubegleitung",
-               "due-diligence", "privatgutachten", "gerichte-versicherer",
+               "kaufbegutachtung", "due-diligence", "privatgutachten", "gerichte-versicherer",
                "hausverwaltungen", "rechtsanwaelte", "versicherer"]
 
 # Wert des Frontmatter-Felds „leistung“ (klein geschrieben) → Schlüssel der Seite.
@@ -99,7 +105,10 @@ ZUORDNUNG = {
     "objektüberwachung lp 8": "baubegleitung",
     "objektueberwachung lp 8": "baubegleitung",
     "objektüberwachung": "baubegleitung",
-    "kaufberatung": "due-diligence",
+    # Private Käufer von Haus oder Wohnung → Kaufbegutachtung; „Due Diligence“
+    # (Mietwohnhäuser, Investoren, Geschäftskunden) bleibt bei der Due Diligence.
+    "kaufberatung": "kaufbegutachtung",
+    "kaufbegutachtung": "kaufbegutachtung",
     "due diligence": "due-diligence",
     "claim management": "privatgutachten",
     "kalkulation": "privatgutachten",
@@ -115,8 +124,11 @@ STICHWORTE: list[tuple[tuple[str, ...], str]] = [
      "wasserschaden"),
     (("schimmel", "taupunkt", "raumklima", "wärmebrücke", "waermebruecke", "kondensat", "tauwasser"),
      "schimmel"),
-    (("hauskauf", "wohnungskauf", "kaufberatung", "altbaukauf", "immobilienkauf", "due diligence",
-      "kaufentscheidung"), "due-diligence"),
+    # „Due Diligence“ vor den Kaufwörtern: „Technische Due Diligence beim Immobilienkauf“
+    # gehört zur Due Diligence, „Checkliste Hauskauf“ zur Kaufbegutachtung.
+    (("due diligence",), "due-diligence"),
+    (("kaufberatung", "kaufbegutachtung", "hauskauf", "wohnungskauf", "altbaukauf", "immobilienkauf",
+      "kaufentscheidung"), "kaufbegutachtung"),
     (("abnahme", "bauträger", "bautraeger", "baubegleit", "bautagebuch", "gewährleistung",
       "gewaehrleistung", "qualitätskontrolle", "qualitaetskontrolle"), "baubegleitung"),
     (("beweisverfahren", "privatgutachten", "gerichtsgutachten", "prozess", "klage", "verjährung",
@@ -167,6 +179,11 @@ ENGLISCH: list[EnglischeSeite] = [
     EnglischeSeite("en/", "Building surveyors in Berlin – services in English",
                    "Overview of all services for international clients, fees, a glossary of German building "
                    "terms and contact – reports in English or German.", ""),
+    EnglischeSeite("en/pre-purchase-inspection-berlin/", "Pre-purchase inspection of a flat or house",
+                   "Inspection, document review and a condition report with defect list and a 10–15-year cost "
+                   "outlook before you buy a flat or house in Berlin – fixed prices incl. VAT, report in German "
+                   "(English as an option), with a price and notes calculator.",
+                   "leistungen/kaufbegutachtung/"),
     EnglischeSeite("en/technical-due-diligence-berlin/", "Technical due diligence and pre-purchase surveys",
                    "Inspection and document review before buying a house, flat or apartment building in Berlin: "
                    "condition, risks, maintenance backlog, cost ranges and a 10-year capex plan.",
