@@ -5,7 +5,7 @@
 // Schlüssel und die echten Inhalte (inhalte.json) liegen nie im Repository.
 import test from "node:test";
 import assert from "node:assert/strict";
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
@@ -16,7 +16,9 @@ import {
 } from "../angebot/kaufbegutachtung/angebot.js";
 import { UI } from "../angebot/kaufbegutachtung/oberflaeche.js";
 import { PAKET } from "../angebot/kaufbegutachtung/paket.js";
-import { WURZEL, imRepository, linksDatei, main, paketBauen, paketDatei } from "../tools/angebot_verschluesseln.mjs";
+import {
+  WURZEL, imRepository, kennung, linksDatei, main, paketBauen, paketDatei, versionenSetzen, versionenVeraltet,
+} from "../tools/angebot_verschluesseln.mjs";
 
 // Testschlüssel: die Bytes 0, 1, 2, … 31 – nur für diese Tests.
 const TESTSCHLUESSEL = bytesZuBase64url(Uint8Array.from({ length: 32 }, (_, i) => i));
@@ -519,5 +521,75 @@ test("Werkzeug von Anfang bis Ende: Schlüssel anlegen, verschlüsseln, Seite en
   } finally {
     console.log = original;
     rmSync(ordner, { recursive: true, force: true });
+  }
+});
+
+// -------------------------------------------------------- Versionskennungen
+
+test("Versionskennungen in index.html und app.js passen zum aktuellen Inhalt", () => {
+  assert.deepEqual(versionenVeraltet(), [],
+    "Veraltete Versionskennungen – bitte ausführen: node tools/angebot_verschluesseln.mjs --versionen");
+});
+
+test("Versionskennungen: jeder Skript- und Style-Verweis der Seite ist versioniert", () => {
+  const ordner = join(WURZEL, "angebot", "kaufbegutachtung");
+  const html = readFileSync(join(ordner, "index.html"), "utf8");
+  const app = readFileSync(join(ordner, "app.js"), "utf8");
+  const verweise = [...html.matchAll(/\b(?:href|src)="([^"]+\.(?:js|css)[^"]*)"/g)].map((t) => t[1]);
+  assert.ok(verweise.length >= 5, verweise.join(", "));
+  for (const v of verweise) assert.match(v, /^\/(?:angebot|wertrechner)\/[\w./-]+\.(?:js|css)\?v=[0-9a-f]{10}$/, v);
+  const importe = [...app.matchAll(/\bfrom\s*"([^"]+)"/g)].map((t) => t[1]);
+  assert.equal(importe.length, 3);
+  for (const v of importe) assert.match(v, /^\.\/[\w-]+\.js\?v=[0-9a-f]{10}$/, v);
+  // Vorab geladene Module brauchen genau dieselbe Adresse wie der Import, sonst lädt der Browser doppelt.
+  for (const name of ["paket.js", "angebot.js"]) {
+    const aus = importe.find((v) => v.startsWith(`./${name}?`));
+    assert.ok(html.includes(`<link rel="modulepreload" href="/angebot/kaufbegutachtung/${aus.slice(2)}">`), name);
+  }
+  assert.ok(app.includes("import(`./paket.js?frisch=${Date.now()}`)"), "Notfall-Import bleibt unversioniert");
+});
+
+test("Versionskennungen: neue paket.js ändert die Adressen von paket.js und app.js", () => {
+  const wurzel = mkdtempSync(join(tmpdir(), "angebot-versionen-"));
+  const beide = ["angebot/kaufbegutachtung/app.js", "angebot/kaufbegutachtung/index.html"];
+  try {
+    const seite = join(wurzel, "angebot", "kaufbegutachtung");
+    mkdirSync(seite, { recursive: true });
+    mkdirSync(join(wurzel, "wertrechner"));
+    writeFileSync(join(wurzel, "wertrechner", "wertrechner.css"), "body{}\n");
+    writeFileSync(join(seite, "angebot.css"), ".a{}\n");
+    writeFileSync(join(seite, "angebot.js"), "export const A = 1;\n");
+    writeFileSync(join(seite, "paket.js"), "export const PAKET = { v: 1 };\n");
+    writeFileSync(join(seite, "app.js"), 'import { PAKET } from "./paket.js";\nimport { A } from "./angebot.js";\n'
+      + "const neu = () => import(`./paket.js?frisch=${Date.now()}`);\n");
+    writeFileSync(join(seite, "index.html"), '<link rel="stylesheet" href="/wertrechner/wertrechner.css">\n'
+      + '<link rel="stylesheet" href="/angebot/kaufbegutachtung/angebot.css">\n'
+      + '<link rel="modulepreload" href="/angebot/kaufbegutachtung/paket.js">\n'
+      + '<script type="module" src="/angebot/kaufbegutachtung/app.js"></script>\n'
+      + '<link rel="icon" href="/favicon.svg">\n');
+    assert.deepEqual(versionenVeraltet(wurzel).sort(), beide);
+    assert.deepEqual(versionenSetzen(wurzel).sort(), beide);
+    assert.deepEqual(versionenVeraltet(wurzel), []);
+    assert.deepEqual(versionenSetzen(wurzel), [], "zweiter Lauf ändert nichts");
+    const lesen = (name) => readFileSync(join(seite, name), "utf8");
+    const app1 = lesen("app.js");
+    const html1 = lesen("index.html");
+    assert.ok(app1.includes(`"./paket.js?v=${kennung("export const PAKET = { v: 1 };\n")}"`));
+    assert.ok(html1.includes(`/app.js?v=${kennung(app1)}"`));
+    assert.ok(html1.includes(`/wertrechner.css?v=${kennung("body{}\n")}"`));
+    assert.ok(html1.includes('href="/favicon.svg"'), "andere Verweise bleiben unverändert");
+    assert.ok(app1.includes("import(`./paket.js?frisch=${Date.now()}`)"));
+
+    // Neu verschlüsselt: paket.js ändert sich → app.js und index.html bekommen neue Kennungen.
+    writeFileSync(join(seite, "paket.js"), "export const PAKET = { v: 2 };\n");
+    assert.deepEqual(versionenVeraltet(wurzel).sort(), beide);
+    versionenSetzen(wurzel);
+    const app2 = lesen("app.js");
+    assert.notEqual(app2, app1);
+    assert.ok(lesen("index.html").includes(`/app.js?v=${kennung(app2)}"`));
+    assert.ok(lesen("index.html").includes(`/paket.js?v=${kennung("export const PAKET = { v: 2 };\n")}"`));
+    assert.equal(kennung("a\r\nb"), kennung("a\nb"), "CRLF und LF ergeben dieselbe Kennung");
+  } finally {
+    rmSync(wurzel, { recursive: true, force: true });
   }
 });

@@ -95,7 +95,7 @@ class Privat(unittest.TestCase):
         for regel in ("default-src 'self'", "script-src 'self'", "connect-src 'none'", "object-src 'none'", "base-uri 'self'"):
             self.assertIn(regel, csp)
         self.assertNotIn("unsafe", csp)
-        self.assertNotRegex(self.html, r"<script(?![^>]*\bsrc=\"/angebot/kaufbegutachtung/app\.js\")[^>]*>",
+        self.assertNotRegex(self.html, r"<script(?![^>]*\bsrc=\"/angebot/kaufbegutachtung/app\.js(?:\?v=[0-9a-f]{10})?\")[^>]*>",
                             "nur das eigene Modul, kein eingebettetes Skript")
         # Externe Links ohne Referrer – in der Seite und in den Quellenangaben der Hinweise.
         for treffer in re.finditer(r'<a [^>]*href="https?://[^"]*"[^>]*>', self.html):

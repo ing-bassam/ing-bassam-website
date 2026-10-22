@@ -10,13 +10,13 @@
  * („Auswahl senden“, „Zum Inhalt springen“) dürfen diesen Teil deshalb nie
  * ersetzen – sie werden abgefangen und scrollen nur zum Ziel.
  */
-import { PAKET } from "./paket.js";
-import { UI } from "./oberflaeche.js";
+import { PAKET } from "./paket.js?v=2ad89b72a4";
+import { UI } from "./oberflaeche.js?v=c21b9a44f9";
 import {
   OBJEKTE, anfrage, aufzaehlung, bruttoCent, cent, eingabeLesen, entschluesseln, ersetzen, euro, euroSpanne, fragmentAktion,
   hinweise, kostenlos, linkBauen, linkLesen, optionBrutto, optionenFuer, preisBerechnen, schalterListe, sprungZiel, unterlagen,
   zuschlaegeFuer,
-} from "./angebot.js";
+} from "./angebot.js?v=4f5ae81865";
 
 const wurzel = document.getElementById("angebot");
 const status = document.querySelector(".angebot-status");
