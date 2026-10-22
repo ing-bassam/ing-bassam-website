@@ -142,7 +142,7 @@ function rendern(e) {
         <h3>Streit über den Mangel? Dann zählt die Feststellung vor der Beseitigung</h3>
         <p>Bestreitet das Unternehmen den Mangel oder bessert es nach, ohne dass die Ursache geklärt ist, geht der Befund verloren. Eine technische Beweissicherung hält den Zustand fest; eine gutachterliche Stellungnahme liefert Ihrem Anwalt Ort, Erscheinungsbild, Ursache und Kosten.</p>
         <div class="aktionen">
-          <a class="btn btn-primary" href="/leistungen/technische-beweissicherung/">Beweissicherung ab 690 €</a>
+          <a class="btn btn-primary" href="/leistungen/technische-beweissicherung/">Zur Beweissicherung</a>
           <a class="btn btn-ghost" href="/leistungen/privatgutachten-bauprozess/">Stellungnahme für den Streitfall</a>
         </div>
         <p class="klein">Rückmeldung innerhalb eines Werktags · Berlin und Brandenburg</p>

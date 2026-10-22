@@ -170,7 +170,7 @@ function rendern(e) {
           ? "Eine Begehung einige Monate vor dem Fristende findet die Mängel, die Sie noch rügen können. Wir prüfen Dach, Fassade, Keller, Fenster und Haustechnik und liefern das Mängelprotokoll für die Anzeige an den Vertragspartner."
           : "Ob Ansprüche trotz Ablauf bestehen – etwa bei arglistig verschwiegenen Mängeln oder abweichenden Vertragsfristen – beurteilt ein Rechtsanwalt. Wir liefern dafür die technische Feststellung."}</p>
         <div class="aktionen">
-          <a class="btn btn-primary" href="/leistungen/baubegleitung-bauabnahme/">Gewährleistungsbegehung ab 490 €</a>
+          <a class="btn btn-primary" href="/leistungen/baubegleitung-bauabnahme/">Gewährleistungsbegehung anfragen</a>
           <a class="btn btn-ghost" href="/werkzeuge/maengelanzeige/">Mängelanzeige erstellen</a>
         </div>
         <p class="klein">Rückmeldung innerhalb eines Werktags · Berlin und Brandenburg</p>
