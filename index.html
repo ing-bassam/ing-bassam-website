@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BIB Ingenieurbüro für Bauwesen GmbH | Baugutachten in Berlin</title>
-<meta name="description" content="BIB begutachtet Bauschäden und überwacht Bauvorhaben in Berlin: Versicherungs- und Gerichtsgutachten, technische Beweissicherung und Objektüberwachung.">
+<meta name="description" content="BIB prüft Gebäude in Berlin: Kaufbegutachtung, technische Beweissicherung, Versicherungs- und Gerichtsgutachten, Schimmel- und Wasserschäden.">
 <link rel="canonical" href="https://ing-bassam.de/">
 <link rel="alternate" hreflang="de" href="https://ing-bassam.de/">
 <link rel="alternate" hreflang="en" href="https://ing-bassam.de/en/">
@@ -16,7 +16,7 @@
 <meta property="og:locale" content="de_DE">
 <meta property="og:site_name" content="BIB Ingenieurbüro für Bauwesen">
 <meta property="og:title" content="BIB Ingenieurbüro für Bauwesen GmbH | Baugutachten in Berlin">
-<meta property="og:description" content="Versicherungsgutachten, Gerichtsgutachten, technische Beweissicherung und Objektüberwachung (LP 8) – Befund und Bewertung getrennt, nachvollziehbar dokumentiert.">
+<meta property="og:description" content="Kaufbegutachtung, technische Beweissicherung, Versicherungs- und Gerichtsgutachten in Berlin – Befund und Bewertung getrennt, nachvollziehbar dokumentiert.">
 <meta property="og:url" content="https://ing-bassam.de/">
 <meta property="og:image" content="https://ing-bassam.de/vorschau.png">
 <meta property="og:image:width" content="1200">
@@ -47,7 +47,7 @@
   "url": "https://ing-bassam.de/",
   "image": "https://ing-bassam.de/vorschau.png",
   "logo": "https://ing-bassam.de/vorschau.png",
-  "description": "BIB begutachtet, dokumentiert und überwacht Bauvorhaben und Bauschäden – für Versicherungen, Gerichte und Bauherren. Versicherungsgutachten, Gerichtsgutachten, technische Beweissicherung und Objektüberwachung in Berlin.",
+  "description": "BIB prüft Gebäude in Berlin und Brandenburg: Kaufbegutachtung, technische Beweissicherung, Versicherungs- und Gerichtsgutachten, Schimmel- und Wasserschäden sowie Baubegleitung und Bauabnahme.",
   "telephone": "+4917623581339",
   "email": "info@ing-bassam.de",
   "vatID": "DE455794705",
@@ -104,6 +104,8 @@
 
   /* =====================================================================
      DESIGN-TOKENS
+     Gestaltungsidee: Planblatt. Blattrahmen, Schriftfeld und Maßkette aus
+     der technischen Zeichnung statt Karten, Nummern und Schmuckelementen.
      ===================================================================== */
   :root{
     /* Dunkle Flächen (Tinte) */
@@ -125,7 +127,7 @@
     --text-2:#475262;
     --text-3:#5e6876;
 
-    /* Akzent: Signalorange, sparsam eingesetzt */
+    /* Akzent: Signalorange, nur für Handlungen und Messpunkte */
     --accent:#c2410c;
     --accent-hover:#a3360a;
     --accent-bright:#f26b2a;
@@ -136,10 +138,11 @@
     --font-body:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --font-display:'Space Grotesk', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     --font-logo:'Fira Sans', 'Inter', system-ui, sans-serif;
+    /* Beschriftungen wie auf einer Zeichnung: Systemschrift mit fester Breite, kein Download */
+    --font-plan:ui-monospace, 'Cascadia Mono', 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
 
-    --radius-sm:6px;
-    --radius:10px;
-    --radius-lg:16px;
+    --radius-sm:4px;
+    --radius:8px;
 
     --ease:cubic-bezier(.2,.7,.2,1);
     --ease-io:cubic-bezier(.65,0,.35,1);
@@ -148,7 +151,7 @@
 
     --wrap:1200px;
     --gutter:clamp(20px, 4vw, 40px);
-    --section-y:clamp(80px, 11vw, 136px);
+    --section-y:clamp(80px, 10vw, 128px);
     --header-h:76px;
   }
 
@@ -173,9 +176,9 @@
   button,input,select,textarea{font:inherit; color:inherit;}
   h1,h2,h3,h4{margin:0; font-family:var(--font-display); font-weight:600; line-height:1.12; letter-spacing:-.015em; text-wrap:balance;}
   p{margin:0; text-wrap:pretty;}
-  ul{margin:0; padding:0; list-style:none;}
+  ul,ol{margin:0; padding:0; list-style:none;}
   ::selection{background:var(--accent); color:#fff;}
-  :focus-visible{outline:2px solid var(--accent-bright); outline-offset:3px; border-radius:4px;}
+  :focus-visible{outline:2px solid var(--accent-bright); outline-offset:3px; border-radius:2px;}
 
   .wrap{width:100%; max-width:var(--wrap); margin-inline:auto; padding-inline:var(--gutter);}
   .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
@@ -202,16 +205,17 @@
   .btn:active{transform:translateY(1px);}
   .btn-primary{background:var(--accent); color:#fff;}
   .btn-primary:hover{background:var(--accent-hover);}
-  .btn-ghost{border-color:var(--ink-line-2); color:var(--on-ink);}
-  .btn-ghost:hover{border-color:rgba(255,255,255,.4); background:rgba(255,255,255,.04);}
   .btn-outline{border-color:var(--line-strong); color:var(--text); background:transparent;}
   .btn-outline:hover{border-color:var(--text);}
 
-  /* ---------- Textlink mit Pfeil ---------- */
+  /* ---------- Textlink: Unterstrich füllt sich beim Zeigen ---------- */
   .text-link{
     display:inline-flex; align-items:center; gap:8px; min-height:44px;
     font-weight:500; font-size:.9375rem;
+    background:linear-gradient(currentColor, currentColor) left calc(50% + .8em) / 0 1px no-repeat;
+    transition:background-size var(--dur) var(--ease), color var(--dur) var(--ease);
   }
+  .text-link:hover{background-size:100% 1px;}
   .text-link .icon{width:18px; height:18px; transition:transform var(--dur) var(--ease);}
   .text-link:hover .icon{transform:translateX(3px);}
 
@@ -226,7 +230,7 @@
   }
   .site-header.is-scrolled,
   .site-header.nav-open{
-    background:rgba(10,18,29,.9);
+    background:rgba(10,18,29,.92);
     -webkit-backdrop-filter:saturate(140%) blur(14px);
     backdrop-filter:saturate(140%) blur(14px);
     border-bottom-color:var(--ink-line);
@@ -275,52 +279,47 @@
   .nav-open .nav-toggle .icon-close{display:block;}
 
   /* =====================================================================
-     HERO
+     HERO – als Planblatt: Rahmen mit Teilung, Zeichnung, Schriftfeld
      ===================================================================== */
   .hero{
     position:relative; isolation:isolate; overflow:hidden;
     background:var(--ink-950); color:var(--on-ink);
-    padding-top:calc(var(--header-h) + clamp(48px, 9vh, 104px));
+    padding-top:calc(var(--header-h) + clamp(44px, 8vh, 96px));
   }
-  /* feines Raster wie auf einem Planblatt */
-  .hero::before{
-    content:""; position:absolute; inset:0; z-index:-1;
-    background-image:
-      linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-    background-size:56px 56px;
-    background-position:center -1px;
-    -webkit-mask-image:radial-gradient(ellipse 75% 70% at 72% 38%, #000 25%, transparent 78%);
-    mask-image:radial-gradient(ellipse 75% 70% at 72% 38%, #000 25%, transparent 78%);
+  /* Blattrahmen mit Teilung am oberen und linken Rand */
+  .blatt{
+    position:absolute; z-index:-1; pointer-events:none;
+    inset:calc(var(--header-h) + 10px) 12px 12px;
+    border:1px solid var(--ink-line);
   }
+  .blatt::before,
+  .blatt::after{content:""; position:absolute;}
+  .blatt::before{left:0; right:0; top:0; height:7px; background:repeating-linear-gradient(90deg, var(--ink-line-2) 0 1px, transparent 1px 96px);}
+  .blatt::after{top:0; bottom:0; left:0; width:7px; background:repeating-linear-gradient(180deg, var(--ink-line-2) 0 1px, transparent 1px 96px);}
+
   .hero-grid{
-    display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+    display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
     gap:clamp(32px, 5vw, 72px); align-items:center;
-    padding-bottom:clamp(56px, 8vh, 96px);
   }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:14px; margin-bottom:28px;
-    font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
-    color:var(--on-ink-2);
-  }
-  .eyebrow::before{content:""; width:32px; height:1px; background:var(--accent-bright);}
   .hero h1{
-    font-size:clamp(2.5rem, 4.9vw, 4.125rem);
-    line-height:1.03; letter-spacing:-.028em;
-    color:#fff; margin-bottom:28px;
+    font-size:clamp(2.25rem, 4.3vw, 3.75rem);
+    line-height:1.05; letter-spacing:-.026em;
+    color:#fff; margin-bottom:26px;
   }
-  .hero h1 .accent{color:var(--accent-bright);}
+  /* Ort und Fach als ruhige erste Zeile der Überschrift – kein Schmuck-Etikett */
+  .hero h1 .h1-ort{
+    display:block; margin-bottom:20px;
+    font-family:var(--font-plan); font-size:.8125rem; font-weight:400; line-height:1.4; letter-spacing:.04em;
+    color:var(--on-ink-3);
+  }
   .hero-lead{
-    max-width:34em; margin-bottom:40px;
-    font-size:clamp(1.0625rem, 1.35vw, 1.1875rem); line-height:1.65; color:var(--on-ink-2);
-    text-wrap:balance;
+    max-width:33em; margin-bottom:36px;
+    font-size:clamp(1.0625rem, 1.3vw, 1.1875rem); line-height:1.65; color:var(--on-ink-2);
   }
-  .hero-actions{display:flex; flex-wrap:wrap; gap:12px;}
-  .hero-meta{
-    display:flex; align-items:center; gap:10px; margin-top:44px;
-    font-size:.8125rem; color:var(--on-ink-3);
-  }
-  .hero-meta .icon{width:16px; height:16px; color:var(--accent-bright);}
+  .hero-actions{display:flex; flex-wrap:wrap; align-items:center; gap:14px 28px;}
+  .hero-tel{font-size:.9375rem; color:var(--on-ink-3);}
+  .hero-tel a{color:#fff; white-space:nowrap; border-bottom:1px solid var(--ink-line-2); transition:border-color var(--dur) var(--ease);}
+  .hero-tel a:hover{border-color:var(--accent-bright);}
 
   /* ---------- Technische Zeichnung (reines SVG, keine Bilder) ---------- */
   .hero-drawing{position:relative;}
@@ -330,42 +329,30 @@
   .dwg .x{fill:none; stroke:var(--on-ink-3); stroke-width:1; stroke-dasharray:3 4; opacity:0; animation:fadeTo55 .8s ease both; animation-delay:1.3s;}
   .dwg .h{fill:none; stroke:var(--on-ink-3); stroke-width:.9; opacity:.5;}
   .dwg .a{fill:none; stroke:var(--accent-bright); stroke-width:1.4;}
-  .dwg text{font-family:var(--font-display); font-size:11px; font-weight:500; letter-spacing:.06em; fill:var(--on-ink-3);}
+  .dwg text{font-family:var(--font-plan); font-size:10.5px; letter-spacing:.04em; fill:var(--on-ink-3);}
   .dwg text.ta{fill:var(--accent-bright);}
   .dwg [pathLength]{
     stroke-dasharray:1; stroke-dashoffset:1;
     animation:draw 1.5s var(--ease-io) both;
     animation-delay:calc(.35s + var(--i, 0) * 70ms);
   }
-  .dwg text{opacity:0; animation:fadeIn .8s ease both; animation-delay:1.45s;}
+  .dwg text{opacity:0; animation:fadeIn .8s ease both; animation-delay:var(--t, 1.45s);}
+  /* Messung: ein Prüfstrahl fährt einmal über den Schnitt, danach erscheinen die Befunde */
+  .dwg .scan{opacity:0; animation:scan 2.4s var(--ease-io) 1.9s both;}
+  .dwg .scan line{stroke:var(--accent-bright); stroke-width:1;}
+  .dwg .scan rect{fill:url(#scanVerlauf);}
+  .dwg .feuchte{fill:url(#feuchteVerlauf); opacity:0; animation:fadeIn 1.4s ease 2.6s both;}
+  .dwg .riss{fill:none; stroke:var(--accent-bright); stroke-width:1.3; stroke-linejoin:round;}
 
-  /* ---------- Einstieg nach Zielgruppe ---------- */
-  .audience{border-top:1px solid var(--ink-line);}
-  .audience-grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); margin-inline:-20px;}
-  .audience-item{
-    position:relative; display:flex; flex-direction:column; gap:10px;
-    padding:30px 20px 34px;
-    transition:background-color var(--dur) var(--ease);
+  /* ---------- Schriftfeld: echte Angaben zum Büro statt Werbeversprechen ---------- */
+  .schriftfeld{
+    display:grid; grid-template-columns:repeat(5, minmax(0,1fr));
+    margin:clamp(48px, 7vh, 80px) 0 0; border-top:1px solid var(--ink-line-2);
   }
-  .audience-item + .audience-item{border-left:1px solid var(--ink-line);}
-  .audience-item::before{
-    content:""; position:absolute; left:0; right:0; top:-1px; height:2px;
-    background:var(--accent-bright);
-    transform:scaleX(0); transform-origin:left;
-    transition:transform var(--dur-slow) var(--ease);
-  }
-  .audience-item:hover{background:rgba(255,255,255,.025);}
-  .audience-item:hover::before,
-  .audience-item:focus-visible::before{transform:scaleX(1);}
-  .audience-kicker{font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--on-ink-3);}
-  .audience-title{font-family:var(--font-display); font-size:1.3125rem; font-weight:600; letter-spacing:-.01em; color:#fff;}
-  .audience-text{font-size:.9375rem; line-height:1.55; color:var(--on-ink-2);}
-  .audience-link{
-    display:inline-flex; align-items:center; gap:8px; margin-top:auto; padding-top:10px;
-    font-size:.875rem; font-weight:500; color:var(--accent-bright);
-  }
-  .audience-link .icon{width:16px; height:16px; transition:transform var(--dur) var(--ease);}
-  .audience-item:hover .audience-link .icon{transform:translateX(3px);}
+  .schriftfeld div{padding:16px 18px 30px 0;}
+  .schriftfeld div + div{padding-left:18px; border-left:1px solid var(--ink-line);}
+  .schriftfeld dt{margin-bottom:6px; font-family:var(--font-plan); font-size:.6875rem; letter-spacing:.06em; text-transform:uppercase; color:var(--on-ink-3);}
+  .schriftfeld dd{margin:0; font-size:.9375rem; line-height:1.45; color:var(--on-ink);}
 
   /* =====================================================================
      SEKTIONEN – gemeinsam
@@ -373,165 +360,115 @@
   .section{padding-block:var(--section-y);}
   .section-alt{background:var(--surface); border-top:1px solid var(--line);}
   .section-dark{background:var(--ink-900); color:var(--on-ink);}
-
-  .section-head{
-    display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-    gap:24px 72px; align-items:end;
-    margin-bottom:clamp(40px, 6vw, 72px);
-  }
-  .section-label{
-    display:flex; align-items:center; gap:14px; margin-bottom:20px;
-    font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
-    color:var(--accent);
-  }
-  .section-label .num{font-family:var(--font-display); font-weight:500; letter-spacing:.04em; color:var(--text-3);}
-  .section-label .rule{width:32px; height:1px; background:currentColor; opacity:.5;}
-  .section-dark .section-label{color:var(--accent-bright);}
-  .section-dark .section-label .num{color:var(--on-ink-3);}
-  .section-head h2{font-size:clamp(2rem, 3.8vw, 3rem);}
-  .section-intro{max-width:36em; font-size:1.0625rem; line-height:1.7; color:var(--text-2);}
+  .section h2{font-size:clamp(2rem, 3.6vw, 2.875rem);}
+  .section-intro{max-width:34em; font-size:1.0625rem; line-height:1.7; color:var(--text-2);}
 
   /* =====================================================================
-     LEISTUNGEN
+     LEISTUNGEN – ruhige Liste nach Anlass statt Kartenraster
      ===================================================================== */
-  .services-grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px;}
-  .service-card{
-    position:relative; overflow:hidden;
-    display:flex; flex-direction:column;
-    padding:clamp(28px, 3.4vw, 40px);
-    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
-    scroll-margin-top:110px;
-    transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+  .leistungen-grid{display:grid; grid-template-columns:minmax(0,.78fr) minmax(0,1.42fr); gap:clamp(40px, 6vw, 104px); align-items:start;}
+  .leistungen-kopf{position:sticky; top:104px;}
+  .leistungen-kopf h2{margin-bottom:20px;}
+  .leistungen-kopf .section-intro{margin-bottom:28px;}
+  .zielgruppen{margin-top:36px; padding-top:18px; border-top:1px solid var(--line); font-size:.9375rem; line-height:1.7; color:var(--text-2);}
+  .zielgruppen a{color:var(--text); text-decoration:underline; text-decoration-color:var(--line-strong); text-underline-offset:3px; transition:text-decoration-color var(--dur) var(--ease);}
+  .zielgruppen a:hover{text-decoration-color:var(--accent);}
+
+  .leistung-liste{border-bottom:1px solid var(--line-strong);}
+  .leistung{
+    position:relative;
+    display:grid; grid-template-columns:minmax(0,1fr) 44px; gap:0 24px;
+    padding:30px 0 32px; scroll-margin-top:110px;
   }
-  .service-card::before{
-    content:""; position:absolute; left:0; right:0; top:0; height:2px;
-    background:var(--accent);
-    transform:scaleX(0); transform-origin:left;
-    transition:transform var(--dur-slow) var(--ease);
-  }
-  .service-card:hover{
-    border-color:var(--line-strong);
-    box-shadow:0 1px 2px rgba(15,26,40,.04), 0 16px 36px -18px rgba(15,26,40,.18);
-    transform:translateY(-2px);
-  }
-  .service-card:hover::before{transform:scaleX(1);}
-  .service-card:target{border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-soft);}
-  .service-top{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:36px;}
-  .service-icon{
-    display:grid; place-items:center; width:48px; height:48px;
-    border:1px solid var(--line); border-radius:8px; color:var(--accent);
-    transition:background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
-  }
-  .service-icon .icon{width:22px; height:22px;}
-  .service-card:hover .service-icon{background:var(--accent); border-color:var(--accent); color:#fff;}
-  .service-num{font-family:var(--font-display); font-size:.875rem; font-weight:500; letter-spacing:.04em; color:var(--text-3);}
-  .service-card h3{font-size:1.375rem; margin-bottom:12px;}
-  .service-card p{font-size:.984375rem; line-height:1.68; color:var(--text-2);}
-  .service-card .text-link{margin-top:auto; padding-top:24px; align-self:flex-start; color:var(--text);}
-  .service-card .text-link:hover{color:var(--accent);}
-  /* Zwei Verweise je Karte: zur Leistungsseite und zur Anfrage */
-  .service-card .service-links{display:flex; flex-wrap:wrap; gap:4px 24px; margin-top:auto; padding-top:24px;}
-  .service-card .service-links .text-link{margin-top:0; padding-top:0;}
-  .services-mehr{display:flex; justify-content:center; margin-top:28px;}
+  /* Trennlinie, die sich beim Erscheinen zieht; Orange markiert die Zeile beim Zeigen */
+  .leistung::before,
+  .leistung::after{content:""; position:absolute; left:0; top:0; height:1px; transform-origin:left;}
+  .leistung::before{right:0; background:var(--line-strong); transition:transform 1s var(--ease-io) var(--d, 0s);}
+  .leistung::after{width:72px; height:2px; top:-1px; background:var(--accent); transform:scaleX(0); transition:transform var(--dur-slow) var(--ease);}
+  html.js .leistung.reveal:not(.is-visible)::before{transform:scaleX(0);}
+  .leistung:hover::after,
+  .leistung:focus-within::after,
+  .leistung:target::after{transform:scaleX(1);}
+  .leistung-anlass{display:block; margin-bottom:8px; font-size:.875rem; color:var(--text-3);}
+  .leistung h3{font-size:clamp(1.375rem, 2.1vw, 1.75rem); margin-bottom:12px; transition:transform var(--dur-slow) var(--ease);}
+  .leistung h3 a::after{content:""; position:absolute; inset:0;}  /* ganze Zeile führt zur Leistungsseite */
+  .leistung:hover h3{transform:translateX(6px);}
+  .leistung p{max-width:54ch; font-size:.984375rem; line-height:1.68; color:var(--text-2);}
+  .leistung-weiter{display:flex; flex-wrap:wrap; gap:0 24px; margin-top:8px;}
+  .leistung-weiter a{position:relative; z-index:1; color:var(--text-2);}
+  .leistung-weiter a:hover{color:var(--accent);}
+  .leistung-pfeil{grid-column:2; grid-row:1 / span 4; align-self:center; color:var(--text-3); transition:transform var(--dur-slow) var(--ease), color var(--dur) var(--ease);}
+  .leistung-pfeil .icon{width:26px; height:26px;}
+  .leistung:hover .leistung-pfeil{transform:translateX(6px); color:var(--accent);}
 
   /* =====================================================================
-     FACHWISSEN
+     ARBEITSWEISE – Ablauf als Maßkette
      ===================================================================== */
-    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
-    padding-block:22px; border-block:1px solid var(--line);
-    cursor:pointer;
+  .arbeitsweise-kopf{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:20px 72px; align-items:end; margin-bottom:clamp(48px, 6vw, 80px);}
+  .masskette{display:grid; grid-template-columns:repeat(4, minmax(0,1fr));}
+  .masskette li{position:relative; padding-right:28px;}
+  .masskette li:last-child{padding-right:0;}
+  .mk-titel{display:block; min-height:30px; font-family:var(--font-plan); font-size:.8125rem; letter-spacing:.04em; text-transform:uppercase; color:var(--text);}
+  /* Maßlinie mit Schrägstrichen an den Teilungen wie in einer Bemaßung */
+  .mk-linie{position:relative; display:block; height:24px; margin-bottom:22px;}
+  .mk-linie::before{
+    content:""; position:absolute; left:0; right:-28px; top:12px; height:1px; background:var(--text);
+    transform-origin:left; transition:transform .8s var(--ease-io); transition-delay:calc(var(--i, 0) * .32s);
   }
-  .fw-summary .btn{pointer-events:none;}
-  .fw-summary:hover .btn{border-color:var(--text);}
+  .masskette li:last-child .mk-linie::before{right:0;}
+  .mk-linie::after,
+  .mk-ende{
+    content:""; position:absolute; top:5px; width:14px; height:14px;
+    background:linear-gradient(135deg, transparent calc(50% - .9px), var(--accent) calc(50% - .9px) calc(50% + .9px), transparent calc(50% + .9px));
+  }
+  .mk-linie::after{left:-7px; transition:opacity .3s ease; transition-delay:calc(var(--i, 0) * .32s);}
+  .mk-ende{right:-7px; transition:opacity .3s ease 1.3s;}
+  .mk-text{display:block; max-width:30ch; font-size:.96875rem; line-height:1.65; color:var(--text-2);}
+  .mk-text strong{display:block; margin-bottom:6px; font-family:var(--font-display); font-size:1.1875rem; font-weight:600; letter-spacing:-.01em; color:var(--text);}
+  html.js .masskette:not(.is-visible) .mk-linie::before{transform:scaleX(0);}
+  html.js .masskette:not(.is-visible) .mk-linie::after,
+  html.js .masskette:not(.is-visible) .mk-ende{opacity:0;}
 
-    min-height:44px; padding:0 18px;
-    background:transparent; border:1px solid var(--line); border-radius:999px;
-    font-size:.875rem; font-weight:500; color:var(--text-2);
-    cursor:pointer;
-    transition:background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+  /* =====================================================================
+     FACHWISSEN UND WERKZEUGE
+     ===================================================================== */
+  .fw-grid{display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(40px, 6vw, 104px); align-items:start;}
+  .fw-grid h2{margin-bottom:20px;}
+  .fw-grid .section-intro{margin-bottom:32px;}
+  .werkzeuge{border-bottom:1px solid var(--line-strong);}
+  .werkzeuge li{border-top:1px solid var(--line-strong);}
+  .werkzeuge a{
+    display:grid; grid-template-columns:minmax(0,1fr) auto; gap:2px 20px; align-items:center;
+    padding:18px 0;
   }
-
-    --cat:var(--accent);
-    position:relative; overflow:hidden;
-    display:flex; flex-direction:column;
-    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
-    transition:border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
-  }
-  [data-category="bauphysik"]{--cat:#2f5d8a;}
-  [data-category="bauschaden"]{--cat:#c2410c;}
-  [data-category="recht"]{--cat:#3f6b5a;}
-    border-color:var(--line-strong);
-    box-shadow:0 16px 36px -18px rgba(15,26,40,.2);
-    transform:translateY(-2px);
-  }
-    display:flex; align-items:flex-end; justify-content:space-between;
-    height:84px; padding:14px 20px;
-    border-bottom:1px solid var(--line);
-    background:repeating-linear-gradient(135deg, color-mix(in srgb, var(--cat) 22%, transparent) 0 1px, transparent 1px 11px);
-  }
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:.75rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text);
-    background:var(--paper); padding:4px 8px 4px 0;
-  }
-    display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
-    min-height:44px; margin-top:auto; padding:6px 0 0;
-    background:none; border:0; cursor:pointer;
-    font-size:.9375rem; font-weight:500; color:var(--accent);
-  }
-  .article-open .icon{width:18px; height:18px; transition:transform var(--dur) var(--ease);}
-  .article-card:hover .article-open .icon{transform:translateX(3px);}
-
-  /* ---------- Lesefenster ---------- */
-    width:100%; height:100%; max-width:none; max-height:none; margin:0;
-    padding:clamp(12px, 4vw, 40px);
-    background:transparent; border:0; color:var(--text);
-    overflow-y:auto; overscroll-behavior:contain;
-  }
-    position:relative; max-width:780px; margin:0 auto;
-    background:var(--surface); border-radius:var(--radius-lg);
-    box-shadow:0 40px 90px -30px rgba(0,0,0,.55);
-  }
-    position:sticky; top:calc(-1 * clamp(12px, 4vw, 40px)); z-index:1;
-    display:flex; align-items:center; justify-content:space-between; gap:16px;
-    padding:14px 16px 14px clamp(24px, 5vw, 56px);
-    background:rgba(255,255,255,.94);
-    -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-    border-radius:var(--radius-lg) var(--radius-lg) 0 0;
-  }
-    display:grid; place-items:center; width:44px; height:44px; padding:0;
-    background:transparent; border:1px solid var(--line); border-radius:8px;
-    cursor:pointer; transition:border-color var(--dur) var(--ease);
-  }
-    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px 16px;
-    padding:18px clamp(24px, 5vw, 56px) 22px;
-    border-top:1px solid var(--line);
-    font-size:.875rem; color:var(--text-3);
-  }
-  .dialog-footer .text-link{color:var(--accent);}
+  .wz-titel{font-weight:600; font-size:1.0625rem; color:var(--text); transition:color var(--dur) var(--ease);}
+  .wz-text{grid-column:1; font-size:.9375rem; color:var(--text-3);}
+  .werkzeuge .icon{grid-column:2; grid-row:1 / span 2; color:var(--text-3); transition:transform var(--dur) var(--ease), color var(--dur) var(--ease);}
+  .werkzeuge a:hover .wz-titel{color:var(--accent);}
+  .werkzeuge a:hover .icon{transform:translateX(4px); color:var(--accent);}
 
   /* =====================================================================
      KONTAKT
      ===================================================================== */
   .contact-grid{display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr); gap:clamp(40px, 6vw, 96px); align-items:start;}
-  .contact-info h2{font-size:clamp(2rem, 3.8vw, 3rem); color:#fff; margin-bottom:20px;}
+  .contact-info h2{color:#fff; margin-bottom:20px;}
   .contact-lead{max-width:30em; margin-bottom:40px; font-size:1.0625rem; line-height:1.7; color:var(--on-ink-2);}
   .contact-list{border-top:1px solid var(--ink-line);}
   .contact-list li{border-bottom:1px solid var(--ink-line);}
   .contact-row{display:flex; align-items:center; gap:16px; min-height:76px; padding-block:14px;}
   .contact-icon{
     display:grid; place-items:center; width:42px; height:42px; flex-shrink:0;
-    border:1px solid var(--ink-line-2); border-radius:8px; color:var(--accent-bright);
+    border:1px solid var(--ink-line-2); border-radius:50%; color:var(--accent-bright);
     transition:background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
   }
-  .contact-k{display:block; margin-bottom:2px; font-size:.75rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--on-ink-3);}
+  .contact-k{display:block; margin-bottom:2px; font-family:var(--font-plan); font-size:.6875rem; letter-spacing:.06em; text-transform:uppercase; color:var(--on-ink-3);}
   .contact-v{display:block; font-size:1.0625rem; color:#fff; transition:color var(--dur) var(--ease);}
   a.contact-row:hover .contact-v{color:var(--accent-bright);}
   a.contact-row:hover .contact-icon{background:var(--accent); border-color:var(--accent); color:#fff;}
 
   .form-card{
     background:var(--surface); color:var(--text);
-    border-radius:var(--radius-lg);
+    border-radius:var(--radius);
     padding:clamp(28px, 4vw, 48px);
     box-shadow:0 40px 80px -40px rgba(0,0,0,.5);
   }
@@ -595,8 +532,8 @@
   }
   .footer-brand p{max-width:24em; margin-top:18px; font-size:.875rem; line-height:1.65; color:var(--on-ink-3);}
   .footer-col h4{
-    margin-bottom:14px; font-family:var(--font-body);
-    font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--on-ink-3);
+    margin-bottom:14px; font-family:var(--font-plan);
+    font-size:.6875rem; font-weight:400; letter-spacing:.06em; text-transform:uppercase; color:var(--on-ink-3);
   }
   .footer-col a{display:flex; align-items:center; min-height:36px; font-size:.9375rem; color:var(--on-ink-2); transition:color var(--dur) var(--ease);}
   .footer-col a:hover{color:#fff;}
@@ -631,27 +568,31 @@
   .bottom-bar::before{content:""; position:absolute; top:0; left:var(--gutter); right:var(--gutter); height:1px; background:var(--ink-line);}
 
   /* =====================================================================
-     MOTION – dezent
+     BEWEGUNG – sparsam und mit Bedeutung: Linien werden gezeichnet,
+     gemessen wird einmal, nichts läuft endlos.
      ===================================================================== */
   @keyframes fadeUp{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:none;}}
   @keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
   @keyframes fadeTo55{from{opacity:0;} to{opacity:.55;}}
   @keyframes draw{to{stroke-dashoffset:0;}}
-  @keyframes dialogIn{from{opacity:0; transform:translateY(12px) scale(.985);} to{opacity:1; transform:none;}}
+  @keyframes scan{
+    0%{opacity:0; transform:translateX(0);}
+    12%{opacity:1;}
+    85%{opacity:1;}
+    100%{opacity:0; transform:translateX(312px);}
+  }
 
   .hero-copy > *{animation:fadeUp .8s var(--ease) both;}
   .hero-copy > :nth-child(1){animation-delay:.05s;}
-  .hero-copy > :nth-child(2){animation-delay:.12s;}
-  .hero-copy > :nth-child(3){animation-delay:.2s;}
-  .hero-copy > :nth-child(4){animation-delay:.28s;}
-  .hero-copy > :nth-child(5){animation-delay:.36s;}
-  .audience-item{animation:fadeUp .8s var(--ease) both;}
-  .audience-item:nth-child(1){animation-delay:.5s;}
-  .audience-item:nth-child(2){animation-delay:.58s;}
-  .audience-item:nth-child(3){animation-delay:.66s;}
+  .hero-copy > :nth-child(2){animation-delay:.14s;}
+  .hero-copy > :nth-child(3){animation-delay:.24s;}
+  .schriftfeld{animation:fadeIn 1s ease .6s both;}
 
   html.js .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s var(--ease), transform .7s var(--ease); transition-delay:var(--d, 0s);}
   html.js .reveal.is-visible{opacity:1; transform:none;}
+  /* Leistungszeilen und Maßkette: nur die Linien ziehen sich, der Text blendet ruhig ein */
+  html.js .leistung.reveal,
+  html.js .masskette.reveal{transform:none;}
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
@@ -663,7 +604,8 @@
       transition-delay:0s !important;
     }
     html.js .reveal{opacity:1; transform:none;}
-    .service-card:hover,
+    .leistung:hover h3,
+    .leistung:hover .leistung-pfeil{transform:none;}
   }
 
   /* =====================================================================
@@ -673,7 +615,13 @@
     .hero-grid{grid-template-columns:1fr;}
     .hero-drawing{max-width:420px; width:100%; margin-inline:auto;}
     .dwg{margin-inline:auto;}
-    .section-head{grid-template-columns:1fr; gap:16px;}
+    .schriftfeld{grid-template-columns:repeat(3, minmax(0,1fr));}
+    .schriftfeld div:nth-child(4){padding-left:0; border-left:0;}
+    .schriftfeld div:nth-child(n+4){border-top:1px solid var(--ink-line);}
+    .leistungen-grid,
+    .fw-grid,
+    .arbeitsweise-kopf{grid-template-columns:1fr;}
+    .leistungen-kopf{position:static;}
     .contact-grid{grid-template-columns:1fr;}
     .footer-top{grid-template-columns:repeat(3, minmax(0,1fr));}
     .footer-brand{grid-column:1 / -1;}
@@ -694,19 +642,35 @@
     .nav-links a::after{display:none;}
     .nav-links a.is-active{color:var(--accent-bright);}
     .header-cta{min-height:50px;}
+
+    /* Maßkette senkrecht: Linie links, Abschnitte untereinander */
+    .masskette{grid-template-columns:1fr;}
+    .masskette li,
+    .masskette li:last-child{padding:0 0 32px 32px;}
+    .mk-titel{min-height:0; margin-bottom:8px;}
+    .mk-linie{position:absolute; left:0; top:0; bottom:0; width:1px; height:auto; margin:0;}
+    .mk-linie::before,
+    .masskette li:last-child .mk-linie::before{left:0; right:auto; top:0; bottom:0; width:1px; height:auto; transform-origin:top;}
+    .mk-linie::after{left:-7px; top:-7px;}
+    html.js .masskette:not(.is-visible) .mk-linie::before{transform:scaleY(0);}
+    .mk-ende{right:auto; left:-7px; top:auto; bottom:-7px;}
+    .mk-text{max-width:none;}
   }
 
   @media (max-width:640px){
     .hero-drawing{display:none;}
+    .blatt{inset:calc(var(--header-h) + 6px) 6px 6px;}
     .hero-actions .btn{flex:1 1 auto;}
-    .audience-grid{grid-template-columns:1fr; margin-inline:0;}
-    .audience-item{padding:24px 0 26px;}
-    .audience-item + .audience-item{border-left:0; border-top:1px solid var(--ink-line);}
-    .services-grid,
+    .schriftfeld{grid-template-columns:repeat(2, minmax(0,1fr));}
+    .schriftfeld div,
+    .schriftfeld div + div{padding:14px 14px 18px 0; border-left:0; border-top:1px solid var(--ink-line);}
+    .schriftfeld div:first-child{grid-column:1 / -1; border-top:0;}
+    .schriftfeld div:nth-child(odd):not(:first-child){padding-left:14px; border-left:1px solid var(--ink-line);}
+    .leistung{grid-template-columns:minmax(0,1fr); padding:26px 0 28px;}
+    .leistung-pfeil{display:none;}
     .field-row{grid-template-columns:1fr;}
     .legal-grid{grid-template-columns:1fr;}
     .footer-top{grid-template-columns:repeat(2, minmax(0,1fr)); padding-block:56px 40px;}
-    .fw-summary .btn{width:100%;}
   }
 
   /* =====================================================================
@@ -737,10 +701,6 @@
     .schnellkontakt .icon{width:18px; height:18px;}
   }
   @media print{.schnellkontakt{display:none !important;}}
-
-  /* Verweis auf die eigenständigen Fachbeitrags-Seiten */
-  .fw-verweis{display:flex; flex-wrap:wrap; align-items:center; gap:20px 28px; padding:28px 0 4px; border-top:1px solid var(--line);}
-  .fw-verweis p{margin:0; flex:1 1 320px; color:var(--text-2); max-width:62ch;}
 </style>
 </head>
 <body>
@@ -780,7 +740,7 @@
         <li><a href="#kontakt">Kontakt</a></li>
         <li><a href="/en/" lang="en" hreflang="en">English</a></li>
       </ul>
-      <a href="#kontakt" class="btn btn-primary header-cta">Kontakt aufnehmen</a>
+      <a href="#kontakt" class="btn btn-primary header-cta">Anfrage senden</a>
     </nav>
 
     <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Menü öffnen">
@@ -794,187 +754,223 @@
 
   <!-- ================= HERO / START ================= -->
   <section id="start" class="hero" aria-labelledby="heroTitle">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow">Erfahrene Bauingenieure</span>
-        <h1 id="heroTitle">Technische Gutachten. <span class="accent">Präzise.</span> Rechtssicher.</h1>
-        <p class="hero-lead">BIB begutachtet, dokumentiert und überwacht Bauvorhaben und Bauschäden – für Versicherungen, Gerichte und Bauherren.</p>
-        <div class="hero-actions">
-          <a href="#kontakt" class="btn btn-primary">Kontakt aufnehmen <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          <a href="#leistungen" class="btn btn-ghost">Leistungen ansehen</a>
+    <div class="blatt" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <h1 id="heroTitle"><span class="h1-ort">Baugutachten in Berlin und Brandenburg</span>Wir prüfen Gebäude, wenn es um Schaden, Streit oder Kauf geht.</h1>
+          <p class="hero-lead">Wir stellen Schäden und Mängel fest, klären ihre Ursachen und dokumentieren den Zustand von Gebäuden – für Gerichte, Versicherer, Hausverwaltungen, Käufer und Bauherren.</p>
+          <div class="hero-actions">
+            <a href="#kontakt" class="btn btn-primary">Anfrage senden <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <p class="hero-tel">Lieber direkt sprechen? <a href="tel:+4917623581339">+49 176 23581339</a></p>
+          </div>
         </div>
-        <p class="hero-meta"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Bassam Ingenieurbüro für Bauwesen GmbH · Berlin</p>
-      </div>
 
-      <!-- Dekorative Schnittzeichnung: Gebäude mit Maßketten und Detailpunkt -->
-      <div class="hero-drawing" aria-hidden="true">
-        <svg class="dwg" viewBox="0 0 520 540" focusable="false">
-          <!-- Gelände mit Schraffur -->
-          <path class="h" pathLength="1" style="--i:0" d="M20 400H108M412 400H440"/>
-          <path class="h" pathLength="1" style="--i:1" d="M28 412L40 400M40 412L52 400M52 412L64 400M64 412L76 400M76 412L88 400M88 412L100 400M416 412L428 400M428 412L440 400"/>
+        <!-- Dekorative Schnittzeichnung: Gebäude mit Maßketten; ein Prüfstrahl
+             fährt einmal darüber, danach erscheinen Riss und Feuchtestelle -->
+        <div class="hero-drawing" aria-hidden="true">
+          <svg class="dwg" viewBox="0 0 520 540" focusable="false">
+            <defs>
+              <linearGradient id="scanVerlauf" x1="0" x2="1">
+                <stop offset="0" stop-color="#f26b2a" stop-opacity="0"/>
+                <stop offset="1" stop-color="#f26b2a" stop-opacity=".16"/>
+              </linearGradient>
+              <radialGradient id="feuchteVerlauf">
+                <stop offset="0" stop-color="#f26b2a" stop-opacity=".42"/>
+                <stop offset=".6" stop-color="#f26b2a" stop-opacity=".12"/>
+                <stop offset="1" stop-color="#f26b2a" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
 
-          <!-- Bodenplatte / Fundament -->
-          <path class="s" pathLength="1" style="--i:2" d="M104 462H416V476H104Z"/>
-          <!-- Außenwände -->
-          <path class="s" pathLength="1" style="--i:3" d="M116 462V208H128V462"/>
-          <path class="s" pathLength="1" style="--i:3" d="M392 462V208H404V462"/>
-          <!-- Decken -->
-          <path class="s" pathLength="1" style="--i:4" d="M128 384H392V394H128"/>
-          <path class="s" pathLength="1" style="--i:5" d="M128 296H392V306H128"/>
-          <path class="s" pathLength="1" style="--i:6" d="M116 208H404V218H128"/>
-          <!-- Dach -->
-          <path class="s" pathLength="1" style="--i:7" d="M92 212L260 86L428 212"/>
-          <path class="s" pathLength="1" style="--i:7" d="M116 208L260 100L404 208"/>
-          <!-- Treppe -->
-          <path class="s" pathLength="1" style="--i:8" d="M298 462H312V449H326V436H340V423H354V410H368V397H382V394"/>
-          <!-- Innenwand -->
-          <path class="s" pathLength="1" style="--i:8" d="M248 384V306M254 384V306"/>
+            <!-- Gelände mit Schraffur -->
+            <path class="h" pathLength="1" style="--i:0" d="M20 400H108M412 400H440"/>
+            <path class="h" pathLength="1" style="--i:1" d="M28 412L40 400M40 412L52 400M52 412L64 400M64 412L76 400M76 412L88 400M88 412L100 400M416 412L428 400M428 412L440 400"/>
 
-          <!-- Hilfslinien zu den Höhenkoten -->
-          <path class="x" d="M410 100H454M410 208H454M410 296H454M410 384H454M420 462H454"/>
+            <!-- Feuchtestelle am Wandfuß (erscheint nach der Messung) -->
+            <ellipse class="feuchte" cx="132" cy="446" rx="40" ry="30"/>
 
-          <!-- Vertikale Maßkette -->
-          <path class="d" pathLength="1" style="--i:9" d="M460 92V470"/>
-          <path class="a" pathLength="1" style="--i:10" d="M455 105L465 95M455 213L465 203M455 301L465 291M455 389L465 379M455 467L465 457"/>
-          <text x="474" y="104">+9,70</text>
-          <text x="474" y="212">+6,00</text>
-          <text x="474" y="300">+3,00</text>
-          <text class="ta" x="474" y="388">±0,00</text>
-          <text x="474" y="466">−2,65</text>
+            <!-- Bodenplatte / Fundament -->
+            <path class="s" pathLength="1" style="--i:2" d="M104 462H416V476H104Z"/>
+            <!-- Außenwände -->
+            <path class="s" pathLength="1" style="--i:3" d="M116 462V208H128V462"/>
+            <path class="s" pathLength="1" style="--i:3" d="M392 462V208H404V462"/>
+            <!-- Decken -->
+            <path class="s" pathLength="1" style="--i:4" d="M128 384H392V394H128"/>
+            <path class="s" pathLength="1" style="--i:5" d="M128 296H392V306H128"/>
+            <path class="s" pathLength="1" style="--i:6" d="M116 208H404V218H128"/>
+            <!-- Dach -->
+            <path class="s" pathLength="1" style="--i:7" d="M92 212L260 86L428 212"/>
+            <path class="s" pathLength="1" style="--i:7" d="M116 208L260 100L404 208"/>
+            <!-- Treppe -->
+            <path class="s" pathLength="1" style="--i:8" d="M298 462H312V449H326V436H340V423H354V410H368V397H382V394"/>
+            <!-- Innenwand -->
+            <path class="s" pathLength="1" style="--i:8" d="M248 384V306M254 384V306"/>
 
-          <!-- Horizontale Maßkette -->
-          <path class="d" pathLength="1" style="--i:10" d="M108 504H412M116 484V512M404 484V512"/>
-          <path class="a" pathLength="1" style="--i:11" d="M111 509L121 499M399 509L409 499"/>
-          <text x="260" y="496" text-anchor="middle">9,60</text>
+            <!-- Hilfslinien zu den Höhenkoten -->
+            <path class="x" d="M410 100H454M410 208H454M410 296H454M410 384H454M420 462H454"/>
 
-          <!-- Geschossbezeichnungen -->
-          <text x="142" y="282">OG</text>
-          <text x="142" y="370">EG</text>
-          <text x="160" y="448">KG</text>
+            <!-- Vertikale Maßkette -->
+            <path class="d" pathLength="1" style="--i:9" d="M460 92V470"/>
+            <path class="a" pathLength="1" style="--i:10" d="M455 105L465 95M455 213L465 203M455 301L465 291M455 389L465 379M455 467L465 457"/>
+            <text x="474" y="104">+9,70</text>
+            <text x="474" y="212">+6,00</text>
+            <text x="474" y="300">+3,00</text>
+            <text class="ta" x="474" y="388">±0,00</text>
+            <text x="474" y="466">−2,65</text>
 
-          <!-- Detailpunkt: Anschluss Bodenplatte / Kellerwand -->
-          <circle class="a" pathLength="1" style="--i:12" cx="116" cy="462" r="30"/>
-          <path class="a" pathLength="1" style="--i:13" d="M130 440L124 448L130 454L123 462L128 470"/>
-          <path class="a" pathLength="1" style="--i:13" d="M95 483L78 500H20"/>
-          <text class="ta" x="20" y="517">DETAIL A</text>
-        </svg>
-      </div>
-    </div>
+            <!-- Horizontale Maßkette -->
+            <path class="d" pathLength="1" style="--i:10" d="M108 504H412M116 484V512M404 484V512"/>
+            <path class="a" pathLength="1" style="--i:11" d="M111 509L121 499M399 509L409 499"/>
+            <text x="260" y="496" text-anchor="middle">9,60</text>
 
-    <!-- Einstieg nach Zielgruppe -->
-    <div class="audience">
-      <div class="wrap">
-        <h2 class="sr-only">Ihr Anliegen</h2>
-        <div class="audience-grid">
-          <a class="audience-item" id="leistung-objektueberwachung" href="/leistungen/baubegleitung-bauabnahme/">
-            <span class="audience-kicker">Ihr Anliegen</span>
-            <span class="audience-title">Private Bauherren</span>
-            <span class="audience-text">Wir begleiten Ihre Bauausführung vor Ort und vertreten Ihre Interessen gegenüber den ausführenden Firmen.</span>
-            <span class="audience-link">Objektüberwachung (LP&nbsp;8) <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-          </a>
-          <a class="audience-item" href="/leistungen/technische-beweissicherung/">
-            <span class="audience-kicker">Ihr Anliegen</span>
-            <span class="audience-title">Unternehmen &amp; Partner</span>
-            <span class="audience-text">Lückenlose Dokumentation des Gebäudezustands vor, während und nach Bauarbeiten.</span>
-            <span class="audience-link">Technische Beweissicherung <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-          </a>
-          <a class="audience-item" href="/leistungen/#geschaeftskunden">
-            <span class="audience-kicker">Ihr Anliegen</span>
-            <span class="audience-title">Verwaltungen, Kanzleien, Versicherer</span>
-            <span class="audience-text">Gutachten und Beweissicherung für Hausverwaltungen, Rechtsanwälte und Versicherer – mit Ablauf und Ansprechweg.</span>
-            <span class="audience-link">Für Geschäftskunden <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
-          </a>
+            <!-- Geschossbezeichnungen -->
+            <text x="142" y="282">OG</text>
+            <text x="142" y="370">EG</text>
+            <text x="160" y="448">KG</text>
+
+            <!-- Prüfstrahl: fährt einmal von links nach rechts über den Schnitt -->
+            <g class="scan">
+              <rect x="64" y="86" width="40" height="390"/>
+              <line x1="104" y1="86" x2="104" y2="476"/>
+            </g>
+
+            <!-- Befund 1: Riss in der Außenwand OG, mit Hinweislinie -->
+            <path class="riss" pathLength="1" style="--i:36" d="M122 236l-3 7 4 6-3 8 3 7-4 8 3 6"/>
+            <path class="a" pathLength="1" style="--i:38" d="M116 262L96 272H24"/>
+            <text class="ta" x="24" y="266" style="--t:3.2s">RISS 0,3 mm</text>
+
+            <!-- Befund 2: Detailpunkt Anschluss Bodenplatte / Kellerwand, Feuchte -->
+            <circle class="a" pathLength="1" style="--i:34" cx="116" cy="462" r="30"/>
+            <path class="a" pathLength="1" style="--i:35" d="M130 440L124 448L130 454L123 462L128 470"/>
+            <path class="a" pathLength="1" style="--i:35" d="M95 483L78 500H20"/>
+            <text class="ta" x="20" y="517" style="--t:3.4s">DETAIL A · FEUCHTE</text>
+          </svg>
         </div>
       </div>
+
+      <!-- Schriftfeld wie auf einer Zeichnung: belegbare Angaben zum Büro -->
+      <dl class="schriftfeld">
+        <div><dt>Büro</dt><dd>Bassam Ingenieurbüro für Bauwesen GmbH</dd></div>
+        <div><dt>Anschrift</dt><dd>Straße am Flugplatz 6a, 12487 Berlin</dd></div>
+        <div><dt>Kammer</dt><dd>Baukammer Berlin</dd></div>
+        <div><dt>Berichte</dt><dd>Deutsch und Englisch</dd></div>
+        <div><dt>Rückmeldung</dt><dd>innerhalb eines Werktags</dd></div>
+      </dl>
     </div>
   </section>
 
   <!-- ================= LEISTUNGEN ================= -->
   <section id="leistungen" class="section" aria-labelledby="leistungenTitle">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="reveal">
-          <p class="section-label"><span class="num">01</span><span class="rule"></span><span>Leistungen</span></p>
-          <h2 id="leistungenTitle">Bauingenieure für Bauschäden, Bauphysik und Baubetrieb</h2>
-        </div>
-        <p class="section-intro reveal" style="--d:.08s">Vier Kernbereiche, in denen wir Käufer, Bauherren, Versicherungen und Gerichte mit nachvollziehbaren technischen Feststellungen unterstützen.</p>
+    <div class="wrap leistungen-grid">
+      <div class="leistungen-kopf reveal">
+        <h2 id="leistungenTitle">Leistungen nach Anlass</h2>
+        <p class="section-intro">Bauingenieure für Bauschäden, Bauphysik und Baubetrieb. Suchen Sie sich den Anlass aus, der zu Ihnen passt – auf jeder Leistungsseite stehen Umfang und Ablauf.</p>
+        <a class="btn btn-outline" href="/leistungen/">Alle Leistungen <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <p class="zielgruppen">Für Geschäftskunden: <a href="/leistungen/hausverwaltungen/">Hausverwaltungen</a>, <a href="/leistungen/rechtsanwaelte/">Rechtsanwälte</a> und <a href="/leistungen/versicherer/">Versicherer</a> – mit Ablauf und Ansprechweg.</p>
       </div>
 
-      <div class="services-grid">
-        <article class="service-card reveal" id="leistung-versicherungsgutachten">
-          <div class="service-top">
-            <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
-            <span class="service-num">01</span>
-          </div>
-          <h3>Versicherungsgutachten</h3>
-          <p>Wir ermitteln Schadensursache und &#8209;umfang bei Gebäudeschäden und liefern Versicherungen eine nachvollziehbare Bewertungsgrundlage für die Regulierung.</p>
-          <div class="service-links">
-            <a href="/leistungen/versicherer/" class="text-link">Leistung und Ablauf <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a href="#kontakt" class="text-link" data-topic="Versicherungsgutachten">Anfrage stellen</a>
-          </div>
+      <div class="leistung-liste">
+        <article class="leistung reveal" id="leistung-kaufbegutachtung">
+          <span class="leistung-anlass">Sie wollen ein Haus oder eine Wohnung kaufen</span>
+          <h3><a href="/leistungen/kaufbegutachtung/">Kaufbegutachtung</a></h3>
+          <p>Wir begehen das Objekt, werten die Unterlagen aus und zeigen Mängel und die Kosten der nächsten 10–15 Jahre – bevor Sie zum Notar gehen.</p>
+          <div class="leistung-weiter"><a href="#kontakt" class="text-link" data-topic="Kaufbegutachtung (Haus oder Wohnung)">Anfrage stellen</a></div>
+          <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
 
-        <article class="service-card reveal" style="--d:.08s" id="leistung-gerichtsgutachten">
-          <div class="service-top">
-            <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg></span>
-            <span class="service-num">02</span>
-          </div>
-          <h3>Gerichtsgutachten</h3>
-          <p>Für Gerichte erstatten wir Gutachten nach Beweisbeschluss – gegliedert nach den Beweisfragen, Befund und Bewertung getrennt, Grenzen der Untersuchung benannt.</p>
-          <div class="service-links">
-            <a href="/leistungen/gerichte-versicherer/" class="text-link">Sachgebiete und Ablauf <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a href="#kontakt" class="text-link" data-topic="Gerichtsgutachten">Anfrage stellen</a>
-          </div>
+        <article class="leistung reveal" style="--d:.08s" id="leistung-beweissicherung">
+          <span class="leistung-anlass">Nebenan wird gebaut oder abgerissen</span>
+          <h3><a href="/leistungen/technische-beweissicherung/">Technische Beweissicherung</a></h3>
+          <p>Wir dokumentieren den Zustand von Gebäuden vor, während und nach Bauarbeiten – als Nachweis, falls später strittig ist, woher ein Schaden kommt.</p>
+          <div class="leistung-weiter"><a href="#kontakt" class="text-link" data-topic="Technische Beweissicherung">Anfrage stellen</a></div>
+          <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
 
-        <article class="service-card reveal" id="leistung-beweissicherung">
-          <div class="service-top">
-            <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg></span>
-            <span class="service-num">03</span>
-          </div>
-          <h3>Technische Beweissicherung</h3>
-          <p>Vor, während und nach Bauarbeiten dokumentieren wir den Zustand von Gebäuden lückenlos – als belastbarer Nachweis für spätere Auseinandersetzungen.</p>
-          <div class="service-links">
-            <a href="/leistungen/technische-beweissicherung/" class="text-link">Leistung und Ablauf <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a href="#kontakt" class="text-link" data-topic="Technische Beweissicherung">Anfrage stellen</a>
-          </div>
+        <article class="leistung reveal" id="leistung-versicherungsgutachten">
+          <span class="leistung-anlass">Ein Gebäudeschaden ist eingetreten</span>
+          <h3><a href="/leistungen/versicherer/">Versicherungsgutachten</a></h3>
+          <p>Wir ermitteln Ursache und Umfang des Schadens und liefern Versicherern eine nachvollziehbare Grundlage für die Regulierung.</p>
+          <div class="leistung-weiter"><a href="#kontakt" class="text-link" data-topic="Versicherungsgutachten">Anfrage stellen</a></div>
+          <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
 
-        <article class="service-card reveal" style="--d:.08s" id="leistung-kaufbegutachtung">
-          <div class="service-top">
-            <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg></span>
-            <span class="service-num">04</span>
-          </div>
-          <h3>Kaufbegutachtung</h3>
-          <p>Haus oder Wohnung vor dem Kauf prüfen: Wir begehen das Objekt, werten die Unterlagen aus und zeigen Mängel und die Kosten der nächsten 10–15 Jahre – bevor Sie zum Notar gehen.</p>
-          <div class="service-links">
-            <a href="/leistungen/kaufbegutachtung/" class="text-link">Leistung und Ablauf <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a href="#kontakt" class="text-link" data-topic="Kaufbegutachtung (Haus oder Wohnung)">Anfrage stellen</a>
-          </div>
+        <article class="leistung reveal" style="--d:.08s" id="leistung-gerichtsgutachten">
+          <span class="leistung-anlass">Ein Gericht oder eine Kanzlei braucht Antworten</span>
+          <h3><a href="/leistungen/gerichte-versicherer/">Gerichtsgutachten</a></h3>
+          <p>Gutachten nach Beweisbeschluss: gegliedert nach den Beweisfragen, Befund und Bewertung getrennt, Grenzen der Untersuchung benannt.</p>
+          <div class="leistung-weiter"><a href="#kontakt" class="text-link" data-topic="Gerichtsgutachten">Anfrage stellen</a></div>
+          <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
+        </article>
+
+        <article class="leistung reveal" id="leistung-feuchte">
+          <span class="leistung-anlass">Feuchte Wände, Schimmel oder Wasser in der Decke</span>
+          <h3><a href="/leistungen/schimmelgutachten/">Schimmel und Wasserschäden</a></h3>
+          <p>Wir messen die Feuchte, suchen die Ursache und halten fest, was vor der Sanierung geklärt sein muss.</p>
+          <div class="leistung-weiter"><a href="/leistungen/wasserschaden-gutachten/" class="text-link">Wasserschaden-Gutachten</a><a href="#kontakt" class="text-link" data-topic="Schimmel oder Wasserschaden">Anfrage stellen</a></div>
+          <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
+        </article>
+
+        <article class="leistung reveal" style="--d:.08s" id="leistung-objektueberwachung">
+          <span class="leistung-anlass">Sie bauen oder sanieren</span>
+          <h3><a href="/leistungen/baubegleitung-bauabnahme/">Baubegleitung und Bauabnahme</a></h3>
+          <p>Wir begleiten die Ausführung vor Ort, prüfen die Leistungen vor der Abnahme und halten Mängel schriftlich fest.</p>
+          <div class="leistung-weiter"><a href="#kontakt" class="text-link" data-topic="Baubegleitung und Bauabnahme">Anfrage stellen</a></div>
+          <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
       </div>
-      <p class="services-mehr reveal"><a class="btn btn-outline" href="/leistungen/">Alle Leistungen mit Umfang und Ablauf <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
     </div>
   </section>
 
-  <!-- ================= FACHWISSEN / FACHPORTAL ================= -->
-  <section id="fachwissen" class="section section-alt" aria-labelledby="fachwissenTitle">
+  <!-- ================= ARBEITSWEISE ================= -->
+  <section id="arbeitsweise" class="section section-alt" aria-labelledby="arbeitsweiseTitle">
     <div class="wrap">
-      <div class="section-head">
-        <div class="reveal">
-          <p class="section-label"><span class="num">02</span><span class="rule"></span><span>Fachwissen &amp; Publikationen</span></p>
-          <h2 id="fachwissenTitle">Einblicke ins Bauwesen</h2>
-        </div>
-        <p class="section-intro reveal" style="--d:.08s">Fachbeiträge zu Bauphysik, Bauschäden und baurechtlichen Fragestellungen aus dem Bauwesen.</p>
+      <div class="arbeitsweise-kopf reveal">
+        <h2 id="arbeitsweiseTitle">So entsteht ein Gutachten</h2>
+        <p class="section-intro">Erst feststellen, dann bewerten. Was wir nicht sehen oder messen konnten, steht ausdrücklich im Bericht.</p>
       </div>
+      <ol class="masskette reveal">
+        <li style="--i:0">
+          <span class="mk-titel" aria-hidden="true">Vor Ort</span>
+          <span class="mk-linie" aria-hidden="true"></span>
+          <span class="mk-text"><strong>Ortstermin</strong>Wir sehen uns das Gebäude an, soweit es zugänglich ist, und sprechen mit den Beteiligten.</span>
+        </li>
+        <li style="--i:1">
+          <span class="mk-titel" aria-hidden="true">Befund</span>
+          <span class="mk-linie" aria-hidden="true"></span>
+          <span class="mk-text"><strong>Messen und dokumentieren</strong>Fotos, Risse, Feuchte – je nach Auftrag auch Wärmebilder oder Proben für das Labor.</span>
+        </li>
+        <li style="--i:2">
+          <span class="mk-titel" aria-hidden="true">Bewertung</span>
+          <span class="mk-linie" aria-hidden="true"></span>
+          <span class="mk-text"><strong>Ursache und Bewertung</strong>Befund und Bewertung bleiben getrennt, damit jeder nachvollziehen kann, worauf ein Ergebnis beruht.</span>
+        </li>
+        <li style="--i:3">
+          <span class="mk-titel" aria-hidden="true">Bericht</span>
+          <span class="mk-linie" aria-hidden="true"><span class="mk-ende"></span></span>
+          <span class="mk-text"><strong>Schriftlicher Bericht</strong>Mit Fotos, Messwerten und den Grenzen der Untersuchung – auf Wunsch auch auf Englisch.</span>
+        </li>
+      </ol>
+    </div>
+  </section>
 
+  <!-- ================= FACHWISSEN UND WERKZEUGE ================= -->
+  <section id="fachwissen" class="section" aria-labelledby="fachwissenTitle">
+    <div class="wrap fw-grid">
       <!-- Die Beiträge liegen als eigene, statische Seiten unter /fachwissen/.
            Bewusst echte Links statt JavaScript: KI-Crawler führen kein JavaScript
            aus und sehen sonst weder Titel noch Text. -->
-      <div class="fw-verweis reveal" style="--d:.08s">
-        <p>Die Fachbeiträge erscheinen als eigenständige Seiten mit Quellenangaben – jeder Beitrag unter einer eigenen Adresse, zitierfähig und ohne Cookies.</p>
+      <div class="reveal">
+        <h2 id="fachwissenTitle">Fachwissen und Werkzeuge</h2>
+        <p class="section-intro">Fachbeiträge zu Bauphysik, Bauschäden und Baurecht – jeder Beitrag mit Quellenangaben und eigener Adresse, zitierfähig und ohne Cookies. Dazu Rechner und Vorlagen, die Sie ohne Anmeldung nutzen können.</p>
         <a class="btn btn-primary" href="/fachwissen/">Zu den Fachbeiträgen <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
+      <ul class="werkzeuge reveal" style="--d:.08s">
+        <li><a href="/wertrechner/"><span class="wz-titel">Wertrechner Berlin</span><span class="wz-text">Kostenlose Wertindikation für Wohnungen und Häuser</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/werkzeuge/taupunkt/"><span class="wz-titel">Taupunkt und Schimmelrisiko</span><span class="wz-text">Rechner nach DIN 4108-2</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/werkzeuge/gewaehrleistungsfrist/"><span class="wz-titel">Gewährleistungsfrist</span><span class="wz-text">Fristende nach BGB und VOB/B berechnen</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/werkzeuge/maengelanzeige/"><span class="wz-titel">Mängelanzeige</span><span class="wz-text">Schreiben mit Fristsetzung erstellen</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/fachwissen/vorlagen/"><span class="wz-titel">Checklisten und Vorlagen</span><span class="wz-text">Zum Herunterladen als PDF, Word oder Excel</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
     </div>
   </section>
 
@@ -982,9 +978,8 @@
   <section id="kontakt" class="section section-dark" aria-labelledby="kontaktTitle">
     <div class="wrap contact-grid">
       <div class="contact-info reveal">
-        <p class="section-label"><span class="num">03</span><span class="rule"></span><span>Kontakt</span></p>
-        <h2 id="kontaktTitle">Sprechen wir über Ihr Projekt</h2>
-        <p class="contact-lead">Ob Schadensfall, Rechtsstreit, Hauskauf oder laufende Baumaßnahme – schildern Sie uns Ihr Anliegen. Sie erhalten innerhalb eines Werktags eine Rückmeldung.</p>
+        <h2 id="kontaktTitle">Schildern Sie uns Ihren Fall</h2>
+        <p class="contact-lead">Ob Schadensfall, Rechtsstreit, Hauskauf oder laufende Baumaßnahme – schreiben Sie uns, worum es geht. Sie erhalten innerhalb eines Werktags eine Rückmeldung.</p>
         <ul class="contact-list">
           <li>
             <a class="contact-row" href="tel:+4917623581339">
@@ -1035,7 +1030,8 @@
                 <option>Gerichtsgutachten</option>
                 <option>Technische Beweissicherung</option>
                 <option>Kaufbegutachtung (Haus oder Wohnung)</option>
-                <option>Objektüberwachung (LP 8)</option>
+                <option>Schimmel oder Wasserschaden</option>
+                <option>Baubegleitung und Bauabnahme</option>
                 <option>Technische Due Diligence / Kaufberatung</option>
                 <option>Sonstiges</option>
               </select>
@@ -1201,17 +1197,6 @@
 </nav>
 
 <script>
-  /* =====================================================================
-     FACHBEITRÄGE
-     So fügen Sie einen neuen Beitrag hinzu: einen weiteren Eintrag in
-     diese Liste kopieren und anpassen. Neueste Beiträge nach oben.
-       category: 'bauphysik' | 'bauschaden' | 'recht'
-       meta:     kurze Zeile über dem Titel
-       teaser:   1–2 Sätze für die Übersichtskarte
-       body:     der eigentliche Artikel als HTML (<p>, <h3>, <ul><li>)
-     ===================================================================== */
-
-
   (() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -1283,8 +1268,6 @@
     });
     window.addEventListener('hashchange', () => openLegal(location.hash));
     openLegal(location.hash);
-
-
 
     /* ---------- Kontaktformular (mailto) ---------- */
     const form = document.getElementById('kontaktForm');
