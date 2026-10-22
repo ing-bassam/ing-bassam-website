@@ -421,6 +421,138 @@ dl.parameter dd{margin:0; font-weight:500; color:var(--text);}
   body.brief-druck .brief{position:absolute; left:0; top:0; width:100%; margin:0; padding:0; border:0; font-size:11pt; color:#000;}
 }
 
+/* ---------------------------------------------------- Kaufbegutachtung
+   Leistungsseite mit Preis- und Hinweisrechner (leistungen/kaufbegutachtung/,
+   en/pre-purchase-inspection-berlin/). Texte mindestens 14 px, Eingaben und
+   Fließtext 16 px; Kategorien und Prioritäten stehen immer auch als Text da. */
+.hero-kauf h1{max-width:22ch;}
+.nutzen-liste{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin:30px 0 0; padding:0; list-style:none;}
+.nutzen-liste li{display:grid; gap:4px; align-content:start; padding:16px 18px; border:1px solid var(--ink-line-2); border-radius:var(--radius); background:rgba(255,255,255,.03);}
+.nutzen-liste b{font-family:var(--font-display); font-weight:600; font-size:1.0625rem; color:#fff;}
+.nutzen-liste span{font-size:.9375rem; line-height:1.5; color:var(--on-ink-2);}
+.nutzen-liste small{font-size:.75rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-bright);}
+.vertrauen-satz{max-width:62ch; margin-top:22px; padding-left:16px; border-left:2px solid var(--accent-bright); font-size:1rem; line-height:1.6; color:var(--on-ink);}
+
+.kauf-anker{display:block; height:0; scroll-margin-top:16px;}
+.kauf-form{display:grid; gap:0;}
+.kauf-form .block > label, .kauf-form .block > .legende{font-size:1rem;}
+.kauf-schritt{margin-top:10px; padding-top:28px; border-top:1px solid var(--line);}
+.schritt-titel{display:flex; align-items:center; gap:12px; font-size:clamp(1.25rem, 2.4vw, 1.5rem); margin-bottom:16px;}
+.schritt-nr{display:inline-grid; place-items:center; width:32px; height:32px; flex-shrink:0; border-radius:50%; background:var(--accent); color:#fff; font-size:1rem;}
+.schritt-text{margin:-4px 0 20px; color:var(--text-2); line-height:1.6; max-width:68ch;}
+.schritt-text strong{color:var(--text);}
+.kauf-form .gruppe-titel{margin:18px 0 10px;}
+.kauf-optionen{display:grid; gap:10px; margin:0; padding:0; list-style:none;}
+.kauf-option{display:grid; grid-template-columns:22px minmax(0, 1fr); gap:12px; align-items:start; padding:14px 16px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);}
+.kauf-option > input{width:20px; height:20px; margin:3px 0 0; accent-color:var(--accent);}
+.kauf-option:has(> input:checked){background:#fff; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft);}
+.kauf-option.grund{background:#fff; border-color:var(--line-strong);}
+.kauf-grund-marke{display:grid; place-items:center; width:22px; height:22px; border-radius:50%; background:var(--ok); color:#fff; font-size:.8125rem; font-weight:600; margin-top:2px;}
+.kauf-option-inhalt{display:grid; gap:6px; min-width:0;}
+.kauf-option label, .kauf-option-kopf{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:4px 16px; margin:0; cursor:pointer;}
+.kauf-option-kopf{cursor:default;}
+.kauf-option-name{font-weight:600; color:var(--text); line-height:1.35; overflow-wrap:anywhere;}
+.kauf-preis{display:inline-flex; flex-direction:column; align-items:flex-end; text-align:right; white-space:nowrap;}
+.kauf-preis b{font-family:var(--font-display); font-weight:600; font-size:1.0625rem; color:var(--text);}
+.kauf-preis small{font-size:.875rem; color:var(--text-3);}
+.kauf-option-text{font-size:.9375rem; line-height:1.55; color:var(--text-2);}
+.kauf-option-text b{color:var(--text); font-weight:600;}
+.kauf-zuschlag-marke{display:grid; place-items:center; width:22px; height:22px; border-radius:50%; border:1px solid var(--line-strong); background:#fff; color:var(--text-3); font-size:.8125rem; font-weight:600; margin-top:2px;}
+.kauf-zuschlag.trifft-zu{background:#fff; border-color:var(--ok);}
+.kauf-zuschlag.trifft-zu .kauf-zuschlag-marke{background:var(--ok); border-color:var(--ok); color:#fff;}
+.kauf-zuschlag:not(.trifft-zu) .kauf-preis b{color:var(--text-3); font-weight:500;}
+.kauf-zuschlag-status{font-size:.875rem; font-weight:600; color:var(--text-3);}
+.kauf-zuschlag.trifft-zu .kauf-zuschlag-status{color:var(--ok);}
+.sprach-hinweis{max-width:62ch; margin-top:14px; font-size:1rem; line-height:1.6; color:var(--on-ink-2);}
+.marke-empfohlen{justify-self:start; padding:3px 10px; border:1px solid var(--accent); border-radius:999px; background:var(--accent-soft); color:var(--accent-hover); font-size:.875rem; font-weight:600;}
+.marke-empfohlen::before{content:"★ "; }
+.kauf-summe{margin-top:22px;}
+.kauf-summe .spanne .mitte{font-size:1rem;}
+.kauf-summe .spanne .stand{font-size:.875rem; color:var(--on-ink-2);}
+.kauf-status{margin:6px 0 0; font-size:.9375rem; font-weight:500; color:var(--text-2);}
+.kauf-status:empty{display:none;}
+.schalter-liste{display:grid; gap:2px;}
+.schalter-liste .haken{font-size:1rem; padding:8px 0;}
+.kauf-form .fehler{font-size:.875rem;}
+.kauf-form .hilfe, .kauf-form .optional{font-size:.875rem;}
+.hinweis-karten{display:grid; gap:10px; margin:0 0 6px; padding:0; list-style:none;}
+.hinweis-karte{display:grid; gap:6px; padding:14px 16px 14px 18px; background:var(--paper); border:1px solid var(--line); border-left:4px solid var(--text-3); border-radius:var(--radius); font-size:.9375rem; line-height:1.6; color:var(--text-2);}
+.hinweis-karte .hinweis-titel{font-family:var(--font-display); font-weight:600; font-size:1.0625rem; color:var(--text);}
+.kauf-form .hinweis-gruppe h4{margin:22px 0 10px; font-size:1.0625rem;}
+.hinweis-gruppe[data-kategorie="pflicht"] .hinweis-karte, .hinweis-gruppe[data-kategorie="pflicht"] .hinweis{border-left-color:var(--accent);}
+.hinweis-gruppe[data-kategorie="miete"] .hinweis-karte, .hinweis-gruppe[data-kategorie="miete"] .hinweis{border-left-color:var(--ok);}
+.hinweis-gruppe[data-kategorie="pruefen"] .hinweis-karte, .hinweis-gruppe[data-kategorie="pruefen"] .hinweis{border-left-color:var(--ink-800);}
+.hinweis-gruppe[data-kategorie="foerderung"] .hinweis-karte, .hinweis-gruppe[data-kategorie="foerderung"] .hinweis{border-left-color:var(--warn);}
+.quelle{font-size:.875rem; color:var(--text-3); overflow-wrap:anywhere;}
+.rechtsstand{margin:16px 0 0; font-size:.875rem; color:var(--text-3);}
+.kauf-form .prio{margin:20px 0 6px; font-size:1rem;}
+.unterlagen-haken{margin:0; padding:0; list-style:none;}
+.unterlagen-haken li{padding:4px 0 8px; border-bottom:1px dashed var(--line);}
+.unterlagen-haken .haken{font-size:1rem; padding:6px 0 0;}
+.unterlagen-haken .liegt-vor{color:var(--text-3); font-size:.875rem;}
+.unterlagen-haken .erklaerung{margin-left:30px;}
+.unterlagen-haken .erklaerung summary{font-size:.875rem;}
+.kopiertext{width:100%; min-height:160px; margin-top:12px; padding:12px; border:1px solid var(--line-strong); border-radius:var(--radius-sm); font:inherit; font-size:.9375rem; line-height:1.5; background:#fff; color:var(--text);}
+.mail-vorschau{margin-top:14px;}
+.mail-vorschau summary{font-size:.9375rem;}
+.mail-vorschau pre{margin:8px 0 0; padding:14px 16px; max-height:340px; overflow:auto; white-space:pre-wrap; overflow-wrap:anywhere; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm); font-family:var(--font-body); font-size:.9375rem; line-height:1.55; color:var(--text-2);}
+.anteil-bruch{display:flex; align-items:center; gap:10px;}
+.anteil-bruch .eingabe{max-width:130px;}
+.anteil-ergebnis{font-family:var(--font-display); font-size:1.25rem; font-weight:600; color:var(--text);}
+
+/* Feste Abschnitte (ohne JavaScript lesbar) */
+.pauschal{margin:-6px 0 22px; font-size:1rem;}
+.preis-spalten{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap:24px; margin-bottom:18px;}
+.preisblock h3{display:grid; gap:2px;}
+.preisblock h3 small{font-family:var(--font-body); font-weight:400; font-size:.9375rem; color:var(--text-3);}
+table.preistabelle{width:100%; border-collapse:collapse; font-size:.9375rem;}
+table.preistabelle th, table.preistabelle td{padding:12px 10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top;}
+table.preistabelle thead th{font-size:.8125rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--text-3);}
+table.preistabelle thead th:last-child, table.preistabelle td{text-align:right;}
+table.preistabelle tbody th{font-weight:400; color:var(--text-2);}
+table.preistabelle tbody th b{display:block; color:var(--text); font-weight:600;}
+table.preistabelle .kurz{display:block; color:var(--text); font-size:.9375rem;}
+table.preistabelle .beschreibung{display:block; margin-top:4px; font-size:.875rem; line-height:1.5; color:var(--text-3);}
+table.preistabelle td b{display:block; font-family:var(--font-display); font-size:1.0625rem; color:var(--text); white-space:nowrap;}
+table.preistabelle td small{display:block; font-size:.875rem; color:var(--text-3); white-space:nowrap;}
+table.preistabelle tr.zwischen th{padding-top:18px; font-family:var(--font-display); font-weight:600; font-size:1rem; color:var(--text); background:transparent;}
+table.preistabelle tr.grund{background:var(--paper);}
+.anteil-beispiel{margin-top:14px; padding:14px 16px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); font-size:.9375rem;}
+.stundensatz{margin:0 0 48px; font-size:1rem;}
+.hinweise-einleitung{max-width:70ch;}
+.hinweis-gruppen{display:grid; gap:8px; margin-bottom:48px;}
+.infos .hinweis-gruppe h3{margin:26px 0 4px;}
+details.hinweis{margin-top:10px; border-left:4px solid var(--text-3);}
+details.hinweis > summary{min-height:56px; padding-block:10px;}
+.hinweis-kopf{display:grid; gap:2px;}
+.hinweis-bedingung{font-family:var(--font-body); font-weight:400; font-size:.875rem; color:var(--text-3);}
+.unterlagen-einleitung{max-width:70ch; margin-bottom:8px;}
+.unterlagen-spalten{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap:12px 32px; margin-bottom:48px;}
+.unterlagen-spalten h3{margin-top:18px;}
+.unterlagen-spalten .prio{margin:16px 0 6px; font-family:var(--font-body); font-size:.875rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-3);}
+.unterlagen-spalten .prio-1{color:var(--accent-hover);}
+.unterlagen-liste{margin:0; padding:0; list-style:none;}
+.unterlagen-liste li{display:grid; gap:2px; padding:8px 0; border-bottom:1px solid var(--line); color:var(--text);}
+.unterlagen-liste small{font-size:.875rem; color:var(--text-3);}
+.ablauf .wann{display:inline-block; margin:0 4px; padding:1px 8px; border-radius:999px; background:#fff; border:1px solid var(--line); font-size:.875rem; color:var(--text-2);}
+.liste-haken, .liste-grenzen{margin:0; padding:0; list-style:none; display:grid; gap:8px;}
+.liste-haken li, .liste-grenzen li{position:relative; padding-left:28px; color:var(--text-2); line-height:1.55;}
+.liste-haken li::before{content:""; position:absolute; left:2px; top:.45em; width:12px; height:7px; border-left:2px solid var(--ok); border-bottom:2px solid var(--ok); transform:rotate(-45deg);}
+.liste-grenzen li::before{content:"–"; position:absolute; left:4px; top:0; color:var(--text-3); font-weight:600;}
+.leistung .beauftragen b{color:#fff;}
+@media (max-width:520px){
+  .kauf-option{padding:12px 12px; gap:10px;}
+  .kauf-preis{flex-direction:row; flex-wrap:wrap; align-items:baseline; gap:2px 8px; text-align:left;}
+  /* Schmale Bildschirme: Leistung und Preis untereinander statt nebeneinander. */
+  table.preistabelle, table.preistabelle tbody, table.preistabelle tr, table.preistabelle th, table.preistabelle td{display:block; width:100%;}
+  table.preistabelle thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);}
+  table.preistabelle tbody th{padding:12px 8px 4px; border-bottom:0;}
+  table.preistabelle td{padding:0 8px 12px; text-align:left;}
+  table.preistabelle td b, table.preistabelle td small{display:inline; margin-right:8px;}
+  table.preistabelle tr.zwischen th{padding-bottom:12px; border-bottom:1px solid var(--line);}
+}
+@media print{.kauf-rechner{display:none;}}
+
 /* ------------------------------------------------- Mobiler Schnellkontakt
    Feste Leiste am unteren Rand (Anruf, Anfrage), nur bis 860 px Breite –
    dieselbe Leiste wie auf Startseite und Fachbeiträgen. */

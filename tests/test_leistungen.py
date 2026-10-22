@@ -46,8 +46,25 @@ class Zuordnung(unittest.TestCase):
         self.assertEqual(seite.schluessel, "beweissicherung")
 
     def test_kaufberatung(self):
+        # Private Käufer von Haus oder Wohnung landen bei der Kaufbegutachtung.
         seite = l.passende_seite(["Kaufberatung", "Gutachten"], ["Checkliste Hauskauf"])
-        self.assertEqual(seite.schluessel, "due-diligence")
+        self.assertEqual(seite.schluessel, "kaufbegutachtung")
+        seite = l.passende_seite(["Kaufberatung"], ["Checkliste Altbaukauf: Schwachstellen nach Baujahr"])
+        self.assertEqual(seite.schluessel, "kaufbegutachtung")
+
+    def test_kaufthemen_nach_stichwort(self):
+        for titel in ("Checkliste Wohnungskauf: Sonder- und Gemeinschaftseigentum", "Altbaukauf in Berlin",
+                      "Immobilienkauf ohne Reue", "Die Kaufentscheidung absichern", "Hauskauf: Unterlagen"):
+            with self.subTest(titel=titel):
+                self.assertEqual(l.passende_seite(["Gutachten"], [titel]).schluessel, "kaufbegutachtung")
+
+    def test_due_diligence_bleibt(self):
+        # „Due Diligence“ (Mietwohnhäuser, Investoren) bleibt bei der Due Diligence –
+        # auch wenn im Titel zugleich vom Immobilienkauf die Rede ist.
+        self.assertEqual(l.passende_seite(["Due Diligence"], ["Ankauf eines Mietshauses"]).schluessel,
+                         "due-diligence")
+        self.assertEqual(l.passende_seite(["Gutachten"], ["Technische Due Diligence beim Immobilienkauf"]).schluessel,
+                         "due-diligence")
 
     def test_unbekannt_und_leer_fuehren_zur_uebersicht(self):
         self.assertEqual(l.passende_seite([], ["Werklohn", "Widerruf"]).schluessel, "uebersicht")
