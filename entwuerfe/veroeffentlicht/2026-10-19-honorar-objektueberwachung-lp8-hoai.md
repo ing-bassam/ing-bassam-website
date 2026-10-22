@@ -13,7 +13,7 @@ qualifikation:
 kurzform: honorar-objektueberwachung-lp8-hoai
 erstellt: 2026-10-19
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3eed96ad-00b4-813f-af95-fc99eec7128d
 notion_url: https://app.notion.com/p/Honorar-der-Objekt-berwachung-Was-Leistungsphase-8-nach-HOAI-kostet-3eed96ad00b4813faf95fc99eec7128d

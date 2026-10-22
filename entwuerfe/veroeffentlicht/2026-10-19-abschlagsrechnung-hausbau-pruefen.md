@@ -13,7 +13,7 @@ qualifikation:
 kurzform: abschlagsrechnung-hausbau-pruefen
 erstellt: 2026-10-19
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3eed96ad-00b4-814c-914b-da45e0ae8cd8
 notion_url: https://app.notion.com/p/Abschlagsrechnungen-beim-Hausbau-pr-fen-Was-vor-jeder-Zahlung-kontrolliert-werden-sollte-3eed96ad00b4814c914bda45e0ae8cd8
