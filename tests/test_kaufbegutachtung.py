@@ -148,9 +148,10 @@ class AndereSeiten(unittest.TestCase):
 
     def test_startseite_fuehrt_zur_kaufbegutachtung(self):
         # Der Leistungseintrag „Objektüberwachung (LP 8)“ ist durch die Kaufbegutachtung ersetzt;
-        # der Anker #leistung-objektueberwachung bleibt für ältere Links aus Fachbeiträgen erhalten.
+        # der Anker #leistung-objektueberwachung bleibt für ältere Links aus Fachbeiträgen erhalten
+        # und führt jetzt zur Zeile „Baubegleitung und Bauabnahme“.
         start = (WURZEL / "index.html").read_text(encoding="utf-8")
-        karte = re.search(r'<article class="service-card[^"]*"[^>]*id="leistung-kaufbegutachtung">(.*?)</article>', start, re.S)
+        karte = re.search(r'<article class="leistung[^"]*"[^>]*id="leistung-kaufbegutachtung">(.*?)</article>', start, re.S)
         self.assertIsNotNone(karte)
         self.assertIn("Kaufbegutachtung", karte.group(1))
         self.assertIn('href="/leistungen/kaufbegutachtung/"', karte.group(1))

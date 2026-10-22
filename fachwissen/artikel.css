@@ -38,8 +38,8 @@
   --font-display:'Space Grotesk', 'Inter', system-ui, sans-serif;
   --font-logo:'Fira Sans', 'Inter', system-ui, sans-serif;
 
-  --radius-sm:6px;
-  --radius:10px;
+  --radius-sm:4px;
+  --radius:8px;
 
   --wrap:1200px;
   --gutter:clamp(20px, 4vw, 40px);
@@ -76,15 +76,15 @@ a:hover{color:var(--accent-hover);}
 /* ---------------------------------------------------------------- Kopf */
 .seiten-kopf{background:var(--ink-950); color:var(--on-ink); border-bottom:1px solid var(--ink-line);}
 .kopf-innen{display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:76px; flex-wrap:wrap;}
-.logo{display:inline-flex; align-items:baseline; gap:10px; text-decoration:none; color:inherit; padding-block:14px;}
-.logo b{font-family:var(--font-display); font-weight:600; font-size:1.375rem; letter-spacing:.02em; color:#fff;}
-.logo span{font-family:var(--font-logo); font-weight:300; font-size:.8125rem; color:var(--on-ink-3);}
+.logo{display:inline-flex; flex-direction:column; line-height:1; text-decoration:none; color:inherit; padding-block:12px;}
+.logo b{font-family:var(--font-logo); font-weight:300; font-size:26px; letter-spacing:.02em; color:#fff;}
+.logo span{margin-top:5px; font-family:var(--font-body); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--on-ink-2);}
 .seiten-kopf nav{display:flex; gap:24px; flex-wrap:wrap; padding-bottom:6px;}
 .seiten-kopf nav a{color:var(--on-ink-2); text-decoration:none; font-size:.9375rem;}
 .seiten-kopf nav a:hover{color:#fff;}
 /* Sprachumschalter (Beiträge mit englischer Fassung, englische Leitfäden unter /en/guides/) */
 .seiten-kopf nav{align-items:center;}
-.seiten-kopf nav .sprache{display:inline-flex; align-items:center; min-height:32px; padding:0 12px; border:1px solid var(--ink-line-2); border-radius:999px; font-size:.8125rem; letter-spacing:.04em;}
+.seiten-kopf nav .sprache{display:inline-flex; align-items:center; min-height:32px; padding:0 12px; border:1px solid var(--ink-line-2); border-radius:var(--radius-sm); font-size:.8125rem; letter-spacing:.04em;}
 
 /* --------------------------------------------------------- Brotkrumen */
 .brotkrumen{font-size:.8125rem; color:var(--text-3); margin:28px 0 0;}
@@ -96,7 +96,7 @@ a:hover{color:var(--accent-hover);}
 .artikel-kopf{margin:20px 0 40px; padding-bottom:28px; border-bottom:1px solid var(--line);}
 .marke{
   display:inline-block; margin:0 6px 10px 0; padding:3px 10px;
-  border:1px solid var(--line-strong); border-radius:999px;
+  border:1px solid var(--line-strong); border-radius:var(--radius-sm);
   font-size:.75rem; letter-spacing:.04em; text-transform:uppercase; color:var(--text-3);
 }
 
@@ -197,7 +197,7 @@ a:hover{color:var(--accent-hover);}
 .chips label{
   --chip:var(--text-2);
   display:inline-flex; align-items:center; gap:6px; min-height:36px; padding:0 14px;
-  border:1px solid var(--line-strong); border-radius:999px; background:var(--surface);
+  border:1px solid var(--line-strong); border-radius:var(--radius-sm); background:var(--surface);
   font-size:.875rem; font-weight:500; color:var(--chip); cursor:pointer; user-select:none;
   transition:border-color .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease;
 }
