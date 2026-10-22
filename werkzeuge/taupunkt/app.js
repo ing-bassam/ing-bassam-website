@@ -121,7 +121,7 @@ function rendern(e) {
         <h3>${e.status === "unkritisch" ? "Trotzdem Schimmel? Dann steckt meist das Bauteil dahinter" : "Bauteil oder Nutzung – wir klären die Ursache"}</h3>
         <p>${esc(empfehlung)}</p>
         <div class="aktionen">
-          <a class="btn btn-primary" href="/leistungen/schimmelgutachten/">Schimmel-Check ab 350 €</a>
+          <a class="btn btn-primary" href="/leistungen/schimmelgutachten/">Schimmel-Check anfragen</a>
           <a class="btn btn-ghost" href="/fachwissen/raumklima-protokoll-schimmelverdacht/">Raumklima-Protokoll zum Selbstführen</a>
         </div>
         <p class="klein">Rückmeldung innerhalb eines Werktags · Berlin und Brandenburg</p>

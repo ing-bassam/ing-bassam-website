@@ -1,34 +1,35 @@
-// Kaufbegutachtung – Preise, Optionen, Hinweisregeln, Unterlagen und Texte (Deutsch und Englisch).
+// Kaufbegutachtung – Leistungsumfang, Hinweisregeln, Unterlagen und Texte (Deutsch und Englisch).
 //
 // EINZIGE QUELLE für die Seiten leistungen/kaufbegutachtung/ und
-// en/pre-purchase-inspection-berlin/ sowie für den Rechner (kaufbegutachtung.js, app.js).
+// en/pre-purchase-inspection-berlin/ sowie für den Hinweis-Assistenten (kaufbegutachtung.js, app.js).
+//
+// Diese Datei ist öffentlich abrufbar. Deshalb stehen hier KEINE Preise: Preise und
+// die Übersicht aller Leistungen und Optionen verschickt das Büro nur auf Anfrage per
+// E-Mail. tests/test_leistungen.py prüft, dass hier keine Eurobeträge des Büros stehen.
 //
 // Ändern: Werte und Texte hier anpassen, dann
 //     python tools/kaufbegutachtung_bauen.py
-// ausführen – das schreibt die festen Abschnitte beider Seiten (Preistabellen,
+// ausführen – das schreibt die festen Abschnitte beider Seiten (Leistungsumfang,
 // Hinweise, Unterlagen, FAQ, Strukturdaten) neu. tests/test_kaufbegutachtung.py
 // prüft, dass Seiten und Daten übereinstimmen.
 //
 // Zwischen den Markierungen steht reines JSON (doppelte Anführungszeichen, keine
 // Kommentare, kein Komma am Ende), damit auch Python die Daten lesen kann.
 //
-// Bedeutung: Preise netto in Euro; brutto = netto × (1 + mwst), auf Cent gerundet.
-// zuschlaege[].auto: fällt an ab der Wohnfläche flaeche_ab und/oder wenn der Schalter
-// (eingaben.preis_schalter) an ist – Zuschläge sind keine frei wählbaren Optionen.
+// Bedeutung: leistungen.*: Leistungsumfang je Objektart (Liste, ohne Preise).
+// eingaben.schalter: Merkmale des Objekts mit der Objektart, für die sie gelten; sie
+// gehen in die Anfrage-E-Mail, einige davon sind zugleich Bedingungen von Regeln.
 // regeln[]: Bedingungen sind UND-verknüpft (objekt, von/bis = Baujahr inklusive,
-// heizung/nutzung/region = Liste, fertighaus/mfh6/milieuschutz = Schalter an);
-// empfiehlt = Optionen, die bei dieser Regel als „empfohlen“ markiert werden.
+// heizung/nutzung/region = Liste, fertighaus/mfh6/milieuschutz = Schalter an).
 // unterlagen.*[].prio: 1 unverzichtbar, 2 wichtig, 3 wenn vorhanden.
 // seite: Texte nur für die Website (Oberfläche, FAQ, Kategorien); in seite.*.faq
-// und sprach_hinweis stehen Platzhalter {brutto:ID}, {netto:ID} und {text:SCHLUESSEL}.
+// und sprach_hinweis steht der Platzhalter {text:SCHLUESSEL} für einen Text aus text.*.
 
 export const DATEN = /* DATEN-ANFANG */ {
   "stand": {
     "de": "Oktober 2026",
     "en": "October 2026"
   },
-  "mwst": 0.19,
-  "stundensatz_netto": 75,
   "urls": {
     "de": "https://ing-bassam.de/leistungen/kaufbegutachtung/",
     "en": "https://ing-bassam.de/en/pre-purchase-inspection-berlin/"
@@ -52,193 +53,14 @@ export const DATEN = /* DATEN-ANFANG */ {
     "gf": "M. Sc. Abdel Karim Abu Elkheir",
     "register": "HRB 274183 B (AG Charlottenburg) · USt-ID DE455794705"
   },
-  "pakete": {
+  "leistungen": {
     "etw": {
-      "grund": {
-        "id": "grund_etw",
-        "netto": 890,
-        "de": {
-          "name": "Kaufbegutachtung Eigentumswohnung",
-          "kurz": "bis ca. 100 m², keine Maisonette oder Dachgeschosswohnung",
-          "text": "Auswertung der WEG-Unterlagen, Begehung der Wohnung und des zugänglichen Gemeinschaftseigentums (ca. 2–3 Std.), mündliches Fazit vor Ort, schriftlicher Zustandsbericht mit Mängelliste, Kostenrahmen für 10–15 Jahre, Rücklagen-Einschätzung und Ihr Kostenanteil, Pflichten nach dem Kauf."
-        },
-        "en": {
-          "name": "Pre-purchase inspection, flat",
-          "kurz": "up to approx. 100 m², not a maisonette or attic flat",
-          "text": "Review of the owners’ association (WEG) records, inspection of the flat and the accessible common property (approx. 2–3 h), verbal summary on site, written condition report with defect list, 10–15-year cost outlook, assessment of the maintenance reserve and your cost share, duties after purchase."
-        }
-      },
-      "zuschlaege": [
-        {
-          "id": "gross_etw",
-          "netto": 200,
-          "auto": {
-            "flaeche_ab": 100.01,
-            "schalter": "maisonette"
-          },
-          "de": {
-            "name": "Über 100 m², Maisonette oder Dachgeschoss",
-            "text": "Mehraufwand bei Begehung und Bericht."
-          },
-          "en": {
-            "name": "Above 100 m², maisonette or attic flat",
-            "text": "Additional inspection and reporting effort."
-          }
-        }
-      ],
-      "optionen": ["vermietung", "thermo_etw", "schadstoff", "bauakte", "englisch", "express", "zweit"]
+      "de": ["Auswertung der WEG-Unterlagen: Teilungserklärung, Protokolle, Wirtschaftsplan, Abrechnungen", "Begehung der Wohnung und des zugänglichen Gemeinschaftseigentums (ca. 2–3 Std.)", "Mündliches Fazit vor Ort", "Schriftlicher Zustandsbericht mit Mängelliste", "Kostenrahmen für 10–15 Jahre", "Einschätzung der Erhaltungsrücklage und Ihres Kostenanteils", "Pflichten nach dem Kauf"],
+      "en": ["Review of the owners’ association (WEG) records: declaration of division, minutes, budget, accounts", "Inspection of the flat and the accessible common property (approx. 2–3 h)", "Verbal summary on site", "Written condition report with defect list", "10–15-year cost outlook", "Assessment of the maintenance reserve and your cost share", "Duties after purchase"]
     },
     "efh": {
-      "grund": {
-        "id": "grund_efh",
-        "netto": 1490,
-        "de": {
-          "name": "Kaufbegutachtung Einfamilienhaus",
-          "kurz": "bis ca. 200 m² Wohnfläche, ohne Vollkeller",
-          "text": "Vorbereitung und Unterlagenauswertung, Begehung vom Dach bis zum Keller, soweit zugänglich (ca. 4–5 Std.), mündliches Fazit vor Ort, schriftlicher Zustandsbericht mit Mängelliste, Kostenrahmen für 10–15 Jahre, Lage-Check aus amtlichen Karten, Pflichten nach dem Kauf."
-        },
-        "en": {
-          "name": "Pre-purchase inspection, house",
-          "kurz": "up to approx. 200 m² living area, without full basement",
-          "text": "Preparation and document review, inspection from roof to basement as far as accessible (approx. 4–5 h), verbal summary on site, written condition report with defect list, 10–15-year cost outlook, location check from official maps, duties after purchase."
-        }
-      },
-      "zuschlaege": [
-        {
-          "id": "keller",
-          "netto": 150,
-          "de": {
-            "name": "Vollunterkellerung",
-            "text": "Erweiterte Begehung und Feuchtemessung im Keller."
-          },
-          "en": {
-            "name": "Full basement",
-            "text": "Extended inspection and moisture readings in the basement."
-          },
-          "auto": {
-            "schalter": "vollkeller"
-          }
-        },
-        {
-          "id": "gross_efh",
-          "netto": 200,
-          "auto": {
-            "flaeche_ab": 200.01,
-            "schalter": "einlieger"
-          },
-          "de": {
-            "name": "Über 200 m² Wohnfläche oder Einliegerwohnung",
-            "text": "Mehraufwand bei Begehung und Bericht."
-          },
-          "en": {
-            "name": "Above 200 m² living area or granny flat",
-            "text": "Additional inspection and reporting effort."
-          }
-        }
-      ],
-      "optionen": ["thermo_efh", "drohne", "schadstoff", "bauakte", "englisch", "express", "zweit"]
-    }
-  },
-  "optionen": {
-    "vermietung": {
-      "netto": 290,
-      "de": {
-        "name": "Vermietungs-Check",
-        "text": "Alle Merkmale der Mietspiegel-Orientierungshilfe vor Ort aufgenommen, Mietspiegel-Einordnung (Ist-Zustand und Verbesserungen), Wohnflächen-Plausibilität, Vermieterpflichten technisch geprüft. Keine Rechtsberatung."
-      },
-      "en": {
-        "name": "Rental check",
-        "text": "All features of Berlin’s rent-index guidance recorded on site, rent-index classification (as is and with upgrades), living-area plausibility, landlord duties checked technically. No legal advice."
-      }
-    },
-    "thermo_etw": {
-      "netto": 190,
-      "de": {
-        "name": "Thermografie der Wohnung",
-        "text": "Wärmebilder nach DIN EN ISO 6781-1, nur bei ausreichendem Temperaturunterschied innen/außen (Faustregel mind. 10 K; meist November bis März, frühmorgens); ggf. Kurztermin ohne Mehrkosten."
-      },
-      "en": {
-        "name": "Thermal imaging of the flat",
-        "text": "Thermography to DIN EN ISO 6781-1, only with a sufficient indoor/outdoor temperature difference (rule of thumb at least 10 K; usually November to March, early morning); a short separate visit at no extra cost if needed."
-      }
-    },
-    "thermo_efh": {
-      "netto": 290,
-      "de": {
-        "name": "Thermografie der Gebäudehülle",
-        "text": "Wärmebilder außen und innen nach DIN EN ISO 6781-1, nur bei ausreichendem Temperaturunterschied innen/außen (Faustregel mind. 10 K; meist November bis März, frühmorgens); ggf. Kurztermin ohne Mehrkosten."
-      },
-      "en": {
-        "name": "Thermal imaging of the building envelope",
-        "text": "External and internal thermography to DIN EN ISO 6781-1, only with a sufficient indoor/outdoor temperature difference (rule of thumb at least 10 K; usually November to March, early morning); a short separate visit at no extra cost if needed."
-      }
-    },
-    "drohne": {
-      "netto": 250,
-      "de": {
-        "name": "Drohnenaufnahmen von Dach und Fassade",
-        "text": "Nur wenn der Flug zulässig ist (Geozonen, Zustimmung der überflogenen Eigentümer). Ist er es nicht, entfällt die Option ohne Kosten."
-      },
-      "en": {
-        "name": "Drone images of roof and façade",
-        "text": "Only where the flight is permitted (geo-zones, consent of the owners overflown). If it is not, the option is dropped at no cost."
-      }
-    },
-    "schadstoff": {
-      "netto": 240,
-      "de": {
-        "name": "Schadstoffproben mit Laboranalyse",
-        "text": "Bis zu 3 Materialproben (z. B. Asbest, alte Mineralwolle, PAK) im akkreditierten Labor, jede weitere 71,40 € (60 € netto). Nur mit Zustimmung des Eigentümers."
-      },
-      "en": {
-        "name": "Pollutant samples with lab analysis",
-        "text": "Up to 3 material samples (e.g. asbestos, old mineral wool, PAH) analysed by an accredited lab, each further sample €71.40 (€60 net). Only with the owner’s consent."
-      }
-    },
-    "bauakte": {
-      "netto_von": 225,
-      "netto_bis": 300,
-      "de": {
-        "name": "Einsicht in die Bauakte",
-        "text": "Beim Bauaktenarchiv des Bezirks mit Vollmacht des Eigentümers; 89,25 € je Stunde (75 € netto), meist 3–4 Std. Amtsgebühren (ab ca. 36 €) reichen wir ohne Aufschlag weiter."
-      },
-      "en": {
-        "name": "Building-file review",
-        "text": "At the district building-file archive with the owner’s power of attorney; €89.25 per hour (€75 net), usually 3–4 h. Office fees (from approx. €36) passed on without mark-up."
-      }
-    },
-    "englisch": {
-      "netto": 120,
-      "de": {
-        "name": "Bericht auf Englisch",
-        "text": "Zustandsbericht auf Englisch, mit Glossar der deutschen Fachbegriffe (Hausgeld, Erhaltungsrücklage, Teilungserklärung)."
-      },
-      "en": {
-        "name": "Report in English",
-        "text": "Condition report in English, with a glossary of the German terms (Hausgeld, maintenance reserve, declaration of division)."
-      }
-    },
-    "express": {
-      "netto": 190,
-      "de": {
-        "name": "Express-Bericht",
-        "text": "Schriftlicher Bericht innerhalb von 3 Werktagen statt 7–10."
-      },
-      "en": {
-        "name": "Express report",
-        "text": "Written report within 3 working days instead of 7–10."
-      }
-    },
-    "zweit": {
-      "netto": 290,
-      "de": {
-        "name": "Zweittermin",
-        "text": "Z. B. nach dem Öffnen von Bauteilen, zur Nachverhandlung oder vor der Übergabe."
-      },
-      "en": {
-        "name": "Second visit",
-        "text": "E.g. after building parts have been opened, for renegotiation or before handover."
-      }
+      "de": ["Vorbereitung und Auswertung der Unterlagen", "Begehung vom Dach bis zum Keller, soweit zugänglich (ca. 4–5 Std.)", "Mündliches Fazit vor Ort", "Schriftlicher Zustandsbericht mit Mängelliste", "Kostenrahmen für 10–15 Jahre", "Lage-Check aus amtlichen Karten", "Pflichten nach dem Kauf"],
+      "en": ["Preparation and document review", "Inspection from roof to basement as far as accessible (approx. 4–5 h)", "Verbal summary on site", "Written condition report with defect list", "10–15-year cost outlook", "Location check from official maps", "Duties after purchase"]
     }
   },
   "eingaben": {
@@ -324,10 +146,10 @@ export const DATEN = /* DATEN-ANFANG */ {
       }
     ],
     "schalter": {
-      "fertighaus": {
-        "objekt": "efh",
-        "de": "Fertighaus / Holztafelbau",
-        "en": "Prefabricated / timber-frame house"
+      "maisonette": {
+        "objekt": "etw",
+        "de": "Maisonette oder Dachgeschoss",
+        "en": "Maisonette or attic flat"
       },
       "mfh6": {
         "objekt": "etw",
@@ -338,13 +160,6 @@ export const DATEN = /* DATEN-ANFANG */ {
         "objekt": "etw",
         "de": "Lage im Milieuschutzgebiet (soziales Erhaltungsgebiet)",
         "en": "In a social preservation area (Milieuschutz)"
-      }
-    },
-    "preis_schalter": {
-      "maisonette": {
-        "objekt": "etw",
-        "de": "Maisonette oder Dachgeschoss",
-        "en": "Maisonette or attic flat"
       },
       "vollkeller": {
         "objekt": "efh",
@@ -355,6 +170,11 @@ export const DATEN = /* DATEN-ANFANG */ {
         "objekt": "efh",
         "de": "Mit Einliegerwohnung",
         "en": "With a granny flat (Einliegerwohnung)"
+      },
+      "fertighaus": {
+        "objekt": "efh",
+        "de": "Fertighaus / Holztafelbau",
+        "en": "Prefabricated / timber-frame house"
       }
     }
   },
@@ -364,7 +184,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pflicht",
       "objekt": "efh",
       "bis": 2001,
-      "empfiehlt": [],
       "de": {
         "titel": "Dämmpflicht nach dem Kauf",
         "text": "Erfüllt die Decke zum unbeheizten Dachboden den Mindestwärmeschutz nicht und ist das Dach ungedämmt, muss sie gedämmt werden (U ≤ 0,24) – binnen 2 Jahren nach dem Kauf, wenn der Verkäufer seit 2002 selbst darin wohnte, sonst sofort. Gleiches gilt für offene Heizungsrohre in unbeheizten Räumen. Wir prüfen beides."
@@ -383,7 +202,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pflicht",
       "objekt": "etw",
       "bis": 1994,
-      "empfiehlt": [],
       "de": {
         "titel": "Dämmpflicht der Gemeinschaft",
         "text": "Im Mehrfamilienhaus muss eine ungedämmte oberste Geschossdecke gedämmt sein – das ist Sache der Eigentümergemeinschaft. Ist das offen, kommt ein Kostenanteil auf Sie zu."
@@ -402,7 +220,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pflicht",
       "objekt": "beide",
       "heizung": ["gas", "gasetage", "oel"],
-      "empfiehlt": [],
       "de": {
         "titel": "Gas oder Öl: kein Austauschzwang",
         "text": "Vorhandene Heizungen dürfen weiterlaufen; die frühere Austauschpflicht für alte Kessel ist entfallen. Wer nach dem 29.07.2026 eine neue Gas- oder Ölheizung einbaut, braucht ab 2029 einen Anteil aus Biomethan, Bioöl oder Wasserstoff: 10 % (2029), 15 % (2030), 30 % (2035), 60 % (2040). Solarthermie oder eine Wärmepumpen-Hybridheizung zählen mit."
@@ -421,7 +238,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pruefen",
       "objekt": "etw",
       "heizung": ["gasetage"],
-      "empfiehlt": [],
       "de": {
         "titel": "Gasetagenheizung",
         "text": "Die früheren Sonderfristen für Eigentümergemeinschaften mit Gasetagenheizungen sind entfallen. Wir klären Alter, Abgasanlage und ob die Therme zu Ihrem Sondereigentum gehört."
@@ -441,7 +257,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "etw",
       "heizung": ["gas", "oel", "fernwaerme", "unbekannt"],
       "mfh6": true,
-      "empfiehlt": [],
       "de": {
         "titel": "Heizungsprüfung bis 30.09.2027",
         "text": "In Häusern ab 6 Wohnungen muss eine wasserführende Heizung mit Einbau vor Oktober 2009 bis 30.09.2027 geprüft und optimiert werden – Pflicht der Gemeinschaft. Wir sehen nach, ob es dazu einen Beschluss gibt."
@@ -460,7 +275,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pflicht",
       "objekt": "etw",
       "heizung": ["gas", "oel", "fernwaerme", "unbekannt"],
-      "empfiehlt": [],
       "de": {
         "titel": "Fernablesbare Zähler bis 31.12.2026",
         "text": "Heizkostenverteiler und Wasserzähler müssen bis Ende 2026 fernablesbar sein. Sonst dürfen Mieter die Heizkosten um 3 % kürzen."
@@ -479,7 +293,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pflicht",
       "objekt": "beide",
       "bis": 1973,
-      "empfiehlt": [],
       "de": {
         "titel": "Bleileitungen möglich",
         "text": "Bis in die 1970er wurden Trinkwasserleitungen aus Blei verlegt. Die Frist zum Entfernen oder Stilllegen ist am 12.01.2026 abgelaufen; noch vorhandene Leitungen müssen sofort ersetzt werden, außer das Gesundheitsamt hat die Frist verlängert. Wir prüfen sichtbare Leitungen; Gewissheit gibt eine Wasseranalyse."
@@ -498,7 +311,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pflicht",
       "objekt": "beide",
       "heizung": ["holz"],
-      "empfiehlt": [],
       "de": {
         "titel": "Kamin- oder Kachelofen",
         "text": "Kamin- oder Kachelofen, errichtet vor dem 22.03.2010: ohne Nachweis der Grenzwerte seit 2025 nicht mehr zulässig – außer z. B. Grundofen, offener Kamin oder Ofen als einzige Heizung. Bitte die Bescheinigung des Schornsteinfegers anfordern."
@@ -517,7 +329,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pflicht",
       "objekt": "efh",
       "heizung": ["oel"],
-      "empfiehlt": [],
       "de": {
         "titel": "Öltank",
         "text": "Mit dem Kauf werden Sie Betreiber des Tanks; je nach Größe und Lage sind Sachverständigenprüfungen Pflicht. Letzten Prüfbericht anfordern – eine spätere Stilllegung kostet Geld."
@@ -537,7 +348,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "beide",
       "bis": 1984,
       "heizung": ["nachtspeicher"],
-      "empfiehlt": [],
       "de": {
         "titel": "Nachtspeicheröfen",
         "text": "Geräte aus der Zeit bis etwa 1984 können Asbest enthalten. Nicht öffnen; der Ausbau gehört in die Hand einer Fachfirma. Der Tausch gegen eine Wärmepumpe wird gefördert."
@@ -556,7 +366,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pruefen",
       "objekt": "beide",
       "heizung": ["fernwaerme"],
-      "empfiehlt": [],
       "de": {
         "titel": "Fernwärme",
         "text": "Wir sehen uns Übergabestation und Alter an; Liefervertrag und Preisklausel bitte mitschicken. Der Berliner Wärmeplan zeigt Netzgebiete, schreibt aber nichts vor."
@@ -575,7 +384,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pruefen",
       "objekt": "beide",
       "heizung": ["waermepumpe"],
-      "empfiehlt": [],
       "de": {
         "titel": "Wärmepumpe",
         "text": "Wir prüfen Typ, Alter, Vorlauftemperatur und Wartung. Wichtig für die Kosten ist die Jahresarbeitszahl – Stromabrechnungen bitte mitschicken."
@@ -594,7 +402,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pruefen",
       "objekt": "beide",
       "bis": 1918,
-      "empfiehlt": [],
       "de": {
         "titel": "Altbau bis 1918",
         "text": "Holzbalkendecken mit verdeckten Balkenköpfen in Außenwänden und unter Bädern können faulen; auch Echter Hausschwamm ist möglich. Im Keller fehlt oft eine Horizontalsperre. Darauf achten wir gezielt."
@@ -614,7 +421,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "beide",
       "von": 1919,
       "bis": 1948,
-      "empfiehlt": [],
       "de": {
         "titel": "Bauzeit 1919–1948",
         "text": "Kaum Wärmeschutz, oft noch Holzbalkendecken. Rechnen Sie mit höheren Heizkosten und Schimmelrisiko an kalten Ecken."
@@ -634,7 +440,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "beide",
       "von": 1945,
       "bis": 1965,
-      "empfiehlt": [],
       "de": {
         "titel": "Nachkriegsbau",
         "text": "Teils Trümmerziegel oder Ziegelsplittbeton mit schwankender Festigkeit. Vor Wanddurchbrüchen oder einem Ausbau die Tragfähigkeit prüfen lassen."
@@ -653,7 +458,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pruefen",
       "objekt": "beide",
       "bis": 1993,
-      "empfiehlt": ["schadstoff"],
       "de": {
         "titel": "Asbest möglich",
         "text": "Bis 1993 (vereinzelt noch kurz danach) wurde Asbest verbaut, z. B. in Fliesenkleber, Spachtel, Floor-Flex-Platten, Dach- und Fassadenplatten. Intakt meist unkritisch – wichtig wird es beim Umbau. Dann müssen Sie der Firma das Baujahr und bekannte Hinweise auf Schadstoffe geben (Pflicht)."
@@ -673,7 +477,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "beide",
       "von": 1950,
       "bis": 1978,
-      "empfiehlt": ["schadstoff"],
       "de": {
         "titel": "PCB und PAK möglich",
         "text": "Dauerelastische Fugen können PCB enthalten, schwarzer Parkettkleber und Teerpappe PAK. Altparkett nicht abschleifen, bevor der Kleber geprüft ist."
@@ -693,7 +496,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "beide",
       "von": 1930,
       "bis": 2000,
-      "empfiehlt": [],
       "de": {
         "titel": "Alte Mineralwolle",
         "text": "Dämmwolle, die vor 1996 eingebaut wurde, gilt als krebserzeugend; bis 2000 kann noch alte Ware verbaut worden sein. Nicht selbst ausbauen – nur durch einen Fachbetrieb mit Schutzmaßnahmen."
@@ -712,7 +514,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pruefen",
       "objekt": "beide",
       "bis": 1972,
-      "empfiehlt": [],
       "de": {
         "titel": "Alte Elektroanlage",
         "text": "Anlagen von vor 1973 haben oft keinen Schutzleiter. Bestandsschutz heißt nicht sicher – ein Elektro-Check durch einen Fachbetrieb ist ratsam."
@@ -732,7 +533,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "beide",
       "von": 1973,
       "bis": 1991,
-      "empfiehlt": [],
       "de": {
         "titel": "Elektroanlage über 35 Jahre",
         "text": "Leitungen und Klemmen gelten nach etwa 35 Jahren als verbraucht; ein FI-Schutzschalter fehlt oft. Prüfung durch einen Fachbetrieb empfohlen."
@@ -753,7 +553,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "von": 1949,
       "bis": 1990,
       "region": ["ost", "brandenburg"],
-      "empfiehlt": [],
       "de": {
         "titel": "DDR-Bauzeit",
         "text": "Möglich sind Aluminiumleitungen (Brandrisiko an Klemmen), Asbestzement und Sokalit-Platten sowie mit Hylotox behandelte Dachstühle. Wir achten darauf; Klarheit bringt nur eine Analyse."
@@ -774,7 +573,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "von": 1956,
       "bis": 1991,
       "fertighaus": true,
-      "empfiehlt": [],
       "de": {
         "titel": "Fertighaus dieser Zeit",
         "text": "Holzschutzmittel (PCP, Lindan), Formaldehyd und muffiger Geruch durch Chloranisole sind möglich. Vor dem Kauf eine Raumluftanalyse erwägen – auf Wunsch organisieren wir sie über ein Partnerlabor."
@@ -794,7 +592,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "efh",
       "von": 1960,
       "bis": 1990,
-      "empfiehlt": [],
       "de": {
         "titel": "Flachdächer dieser Zeit",
         "text": "Abdichtungen halten etwa 30–35 Jahre und sind meist erneuert oder fällig. Nachweise zur letzten Sanierung bitte mitschicken."
@@ -814,7 +611,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "etw",
       "von": 1950,
       "bis": 1980,
-      "empfiehlt": [],
       "de": {
         "titel": "Leitungsstränge",
         "text": "Wasser- und Abwasserstränge stammen oft noch aus der Bauzeit. Eine Strangsanierung ist häufig der größte Einzelposten der Gemeinschaft – wir suchen in den Protokollen danach."
@@ -834,7 +630,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "etw",
       "von": 1950,
       "bis": 1995,
-      "empfiehlt": [],
       "de": {
         "titel": "Betonbalkone",
         "text": "Auskragende Balkone ohne Wärmetrennung zeigen oft Rost und Abplatzungen. Eine Sanierung je Balkon ist schnell fünfstellig; wer zahlt, regelt die Teilungserklärung."
@@ -855,7 +650,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "von": 1965,
       "bis": 1990,
       "region": ["ost"],
-      "empfiehlt": [],
       "de": {
         "titel": "Plattenbau",
         "text": "Fugen, Balkonplatten und Außenwände prüfen wir gezielt. Viele Sanierungen der 1990er (Dämmung, Fenster, Stränge) stehen vor dem zweiten Zyklus – das kann Sonderumlagen bedeuten."
@@ -875,7 +669,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "beide",
       "von": 1995,
       "bis": 2009,
-      "empfiehlt": [],
       "de": {
         "titel": "Erste Erneuerungen fällig",
         "text": "Heizkessel (ca. 18–20 Jahre), Fensterdichtungen und Fugen sind in diesem Alter oft fällig. Wartungs- und Austauschbelege bitte mitschicken."
@@ -894,7 +687,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pruefen",
       "objekt": "beide",
       "von": 2010,
-      "empfiehlt": [],
       "de": {
         "titel": "Jüngerer Bau",
         "text": "Häufig sind Abdichtungsmängel an Duschen, Balkonen und Flachdächern. Mängelansprüche verjähren meist 5 Jahre nach der Abnahme – Abnahmeprotokolle und Mängellisten bitte mitschicken."
@@ -913,7 +705,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pruefen",
       "objekt": "beide",
       "bis": 2000,
-      "empfiehlt": [],
       "de": {
         "titel": "Wärmebrücken und Schimmel",
         "text": "Vor 2001 gab es keine einheitlichen Anforderungen an Wärmebrücken. Schimmel droht an Ecken, Laibungen und hinter Möbeln, besonders nach einem Fenstertausch. Wir messen an kritischen Stellen."
@@ -933,7 +724,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "etw",
       "bis": 2024,
       "nutzung": ["vermieten"],
-      "empfiehlt": ["vermietung"],
       "de": {
         "titel": "Was Ausstattung an Miete bringt",
         "text": "Laut Orientierungshilfe zum Berliner Mietspiegel 2026 verschiebt jede Merkmalgruppe die Miete um 20 % des Abstands zwischen Mittel- und Ober- bzw. Unterwert. Beispiel 57 m² Altbau in Neukölln: Wird die Gruppe „Gebäude“ positiv, etwa durch eine Video-Gegensprechanlage, und gleichen sich die übrigen aus, sind rund 40–47 € mehr im Monat möglich."
@@ -953,7 +743,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "etw",
       "von": 2025,
       "nutzung": ["vermieten"],
-      "empfiehlt": [],
       "de": {
         "titel": "Neubau ab 2025",
         "text": "Für Wohnungen, die ab 2025 bezugsfertig wurden, gilt der Mietspiegel 2026 nicht. Die Vergleichsmiete lässt sich nur über Vergleichswohnungen oder ein Gutachten bestimmen."
@@ -972,7 +761,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "miete",
       "objekt": "beide",
       "nutzung": ["vermieten"],
-      "empfiehlt": [],
       "de": {
         "titel": "Mietpreisbremse bis 2029",
         "text": "Bei Neuvermietung höchstens 10 % über der Vergleichsmiete (Berlin, bis 31.12.2029); Mieterhöhungen höchstens 15 % in 3 Jahren. Ausnahme: Erstvermietung nach dem 01.10.2014. Rechtliche Details klärt ein Mieterverein oder Anwalt."
@@ -991,7 +779,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "miete",
       "objekt": "beide",
       "nutzung": ["vermieten", "vermietet_selbst"],
-      "empfiehlt": [],
       "de": {
         "titel": "Wohnfläche nachmessen",
         "text": "Ist die Fläche mehr als 10 % kleiner als im Mietvertrag, ist die Miete gemindert. Wir plausibilisieren die angegebene Fläche."
@@ -1010,7 +797,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "miete",
       "objekt": "etw",
       "milieuschutz": true,
-      "empfiehlt": [],
       "de": {
         "titel": "Milieuschutzgebiet",
         "text": "Modernisierungen brauchen hier eine Genehmigung. Video-Gegensprechanlage, Fußbodenheizung oder ein zweites Bad sind meist nicht genehmigungsfähig – das begrenzt Aufwertung und Mietpotenzial."
@@ -1029,7 +815,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "miete",
       "objekt": "etw",
       "nutzung": ["vermietet_selbst"],
-      "empfiehlt": [],
       "de": {
         "titel": "Eigenbedarf kann gesperrt sein",
         "text": "Wurde die Wohnung erst nach Mietbeginn in Eigentum umgewandelt, ist eine Eigenbedarfskündigung in Berlin 10 Jahre gesperrt. Kauf bricht nicht Miete. Bitte vor dem Notartermin rechtlich prüfen lassen."
@@ -1048,7 +833,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "miete",
       "objekt": "beide",
       "nutzung": ["vermieten"],
-      "empfiehlt": [],
       "de": {
         "titel": "Pflichten als Vermieter",
         "text": "Energieausweis bei der Besichtigung vorlegen, CO2-Kosten nach Stufenmodell aufteilen, Rauchwarnmelder in Aufenthaltsräumen und Fluren. Bei neuer Gas- oder Ölheizung tragen Sie ab 2028 zusätzlich Kosten anteilig."
@@ -1066,7 +850,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "id": "beratung_ea",
       "kategorie": "foerderung",
       "objekt": "efh",
-      "empfiehlt": [],
       "de": {
         "titel": "Beratung zum Energieausweis",
         "text": "Beim Kauf eines Hauses mit höchstens 2 Wohnungen müssen Sie bis Ende 2026 ein kostenloses Beratungsgespräch zum Energieausweis führen, wenn es angeboten wird."
@@ -1086,7 +869,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "foerderung",
       "objekt": "beide",
       "bis": 1994,
-      "empfiehlt": [],
       "de": {
         "titel": "Förderkredit „Jung kauft Alt“",
         "text": "Familien mit Kind unter 18 und Einkommen bis 90.000 € (plus 10.000 € je weiteres Kind) bekommen für Häuser und Wohnungen der Energieklassen F, G oder H einen zinsverbilligten KfW-Kredit, wenn sie binnen 4,5 Jahren sanieren. Wichtig: Antrag vor dem Kaufvertrag."
@@ -1106,7 +888,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "foerderung",
       "objekt": "beide",
       "heizung": ["oel", "gasetage", "nachtspeicher", "gas"],
-      "empfiehlt": [],
       "de": {
         "titel": "Heizungstausch: Bonus befristet",
         "text": "Wer selbst einzieht und die Heizung tauscht, bekommt Zuschüsse. Der Bonus von 16 % gilt nur bei Antrag bis 31.01.2027 und sinkt danach schrittweise; dazu kann ein Einkommensbonus kommen."
@@ -1126,7 +907,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "objekt": "efh",
       "bis": 1995,
       "region": ["west", "ost"],
-      "empfiehlt": [],
       "de": {
         "titel": "Dach sanieren in Berlin",
         "text": "Wer in Berlin das Dach grundlegend saniert, muss eine Photovoltaikanlage installieren (Solargesetz Berlin). Bei der Kostenplanung berücksichtigen."
@@ -1144,7 +924,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "id": "thermo_saison",
       "kategorie": "foerderung",
       "objekt": "beide",
-      "empfiehlt": [],
       "de": {
         "titel": "Thermografie nur im Winter",
         "text": "Wärmebilder sind nur bei ausreichendem Unterschied zwischen innen und außen aussagekräftig (Faustregel mind. 10 K, keine Sonne) – meist von November bis März, frühmorgens."
@@ -1163,7 +942,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       "kategorie": "pflicht",
       "objekt": "beide",
       "region": ["west", "ost"],
-      "empfiehlt": [],
       "de": {
         "titel": "Rauchwarnmelder",
         "text": "In Berlin sind Rauchwarnmelder in Aufenthaltsräumen (außer Küche) und Fluren Pflicht, auch im Bestand."
@@ -1453,13 +1231,13 @@ export const DATEN = /* DATEN-ANFANG */ {
         "d": "Rücklage, Beschlüsse, Sonderumlagen – und Ihr Anteil daran."
       },
       "vertrauen": "In diesem Auftrag arbeiten wir ausschließlich für Sie. Provisionen von Maklern, Verkäufern oder Handwerksbetrieben schließt die Berufsordnung der Baukammer Berlin aus.",
-      "pauschal": "Festpreis inkl. 19 % USt und Anfahrt in Berlin. Zuschläge richten sich nach dem Objekt, Optionen wählen Sie selbst; Amtsgebühren reichen wir ohne Aufschlag weiter.",
-      "ausserhalb": "Außerhalb Berlins nennen wir Ihnen die Anfahrtspauschale vorab im Angebot.",
+      "preise": "Preise und die Übersicht aller Leistungen und Optionen senden wir Ihnen auf Anfrage per E-Mail – Rückmeldung innerhalb eines Werktags.",
+      "ausserhalb": "Außerhalb Berlins nennen wir Ihnen die Anfahrtskosten vorab im Angebot.",
       "ablauf": [
         {
           "t": "Anfrage",
           "w": "heute",
-          "d": "Adresse, Exposé und vorhandene Unterlagen per E-Mail."
+          "d": "Adresse, Exposé und vorhandene Unterlagen per E-Mail – Sie erhalten unser Angebot mit Preisen und Leistungsübersicht."
         },
         {
           "t": "Termin",
@@ -1479,7 +1257,7 @@ export const DATEN = /* DATEN-ANFANG */ {
       ],
       "bekommen": ["Mündliches Fazit direkt nach der Begehung", "Zustandsbericht als PDF mit Fotos", "Mängelliste mit Ampel: akut · mittelfristig · beobachten", "Kostenrahmen je Position und für 10–15 Jahre", "Pflichten nach dem Kauf mit Fristen", "Hinweise zu Förderung und nächsten Schritten"],
       "grenzen": ["Zerstörungsfrei und soweit zugänglich: keine Bauteilöffnungen; Proben nur als Option und mit Zustimmung des Eigentümers", "Nicht zugängliche oder verdeckte Bauteile (z. B. Dach ohne sicheren Zugang, Leitungen in Wänden) bewerten wir nur nach Indizien", "Keine Funktionsprüfung von Heizung, Elektro und Leitungen (das machen Fachbetriebe) und keine Standsicherheitsprüfung", "Feuchtemessungen sind Vergleichsmessungen; Kosten sind Schätzspannen, keine Angebote", "Keine Wertermittlung und keine Rechtsberatung – rechtliche Fragen, etwa zum Kaufvertrag, klärt bei Bedarf Ihr Anwalt"],
-      "beauftragen": "Sie erhalten zuerst unser Angebot mit Bedingungen und Widerrufsbelehrung. Dann beauftragen Sie uns per E-Mail; soll die Begehung innerhalb der 14-tägigen Widerrufsfrist stattfinden, bestätigen Sie das bitte ausdrücklich.",
+      "beauftragen": "Sie erhalten zuerst unser Angebot mit Preisen, Bedingungen und Widerrufsbelehrung. Dann beauftragen Sie uns per E-Mail; soll die Begehung innerhalb der 14-tägigen Widerrufsfrist stattfinden, bestätigen Sie das bitte ausdrücklich.",
       "rechtsstand": "Rechtsstand Oktober 2026 · allgemeine Hinweise, keine Rechtsberatung",
       "qualifikation": ["Begutachtung durch den Geschäftsführer M. Sc. Abdel Karim Abu Elkheir persönlich", "B. Eng. Bauingenieurwesen, M. Sc. Wirtschaftsingenieurwesen (Bautechnik)", "Mitglied der Baukammer Berlin", "Berufshaftpflicht: 3 Mio. € Personen-, 300.000 € Vermögensschäden"],
       "unterlagen_titel": "Diese Unterlagen helfen uns",
@@ -1489,8 +1267,8 @@ export const DATEN = /* DATEN-ANFANG */ {
         "2": "Wichtig",
         "3": "Wenn vorhanden"
       },
-      "qr_titel": "Preis berechnen und Hinweise zu Ihrem Baujahr",
-      "qr_text": "Baujahr, Heizung und Nutzung eingeben – der Rechner zeigt Ihren Preis, passende Hinweise und die Unterlagen für Ihr Objekt."
+      "qr_titel": "Hinweise und Unterlagen zu Ihrem Objekt",
+      "qr_text": "Baujahr, Heizung und Nutzung eingeben – die Seite zeigt passende Hinweise und die Unterlagen für Ihr Objekt. Mit einem Klick fordern Sie dann Ihr Angebot per E-Mail an."
     },
     "en": {
       "kopf_unter": "Pre-purchase inspections · Berlin",
@@ -1518,13 +1296,13 @@ export const DATEN = /* DATEN-ANFANG */ {
         "d": "Owners’ association: reserve, resolutions, special levies – and your share."
       },
       "vertrauen": "On this job we work solely for you. The Berlin Chamber of Engineers’ code of conduct rules out commissions from agents, sellers or contractors.",
-      "pauschal": "Fixed price incl. 19% VAT and travel within Berlin. Surcharges depend on the property, options are your choice; office fees are passed on without mark-up.",
-      "ausserhalb": "Outside Berlin we state the travel fee in advance in our quote.",
+      "preise": "We send prices and a full list of services and options on request by email – we reply within one working day.",
+      "ausserhalb": "Outside Berlin we state the travel costs in advance in our quote.",
       "ablauf": [
         {
           "t": "Enquiry",
           "w": "today",
-          "d": "Address, property listing (exposé) and any documents by email."
+          "d": "Address, property listing (exposé) and any documents by email – you receive our quote with prices and the list of services."
         },
         {
           "t": "Appointment",
@@ -1544,7 +1322,7 @@ export const DATEN = /* DATEN-ANFANG */ {
       ],
       "bekommen": ["Verbal summary right after the inspection", "Condition report as PDF with photos", "Defect list with traffic lights: urgent · medium-term · monitor", "Cost ranges per item and for 10–15 years", "Duties after purchase, with deadlines", "Notes on subsidies and next steps"],
       "grenzen": ["Non-destructive and as far as accessible: no opening-up; samples only as an option and with the owner’s consent", "Inaccessible or concealed parts (e.g. a roof without safe access, pipes inside walls) are assessed from indications only", "No function test of heating, electrics or pipes (done by specialist firms) and no structural assessment", "Moisture readings are comparative; costs are estimate ranges, not quotes", "No valuation and no legal advice – legal questions, e.g. on the purchase contract, are for your lawyer"],
-      "beauftragen": "You first receive our quote with our terms and information on your right of withdrawal. You then instruct us by email; if the inspection is to take place within the 14-day withdrawal period, please confirm this expressly.",
+      "beauftragen": "You first receive our quote with prices, terms and information on your right of withdrawal. You then instruct us by email; if the inspection is to take place within the 14-day withdrawal period, please confirm this expressly.",
       "rechtsstand": "Legal position October 2026 · general information, not legal advice",
       "qualifikation": ["Inspection by the managing director, M. Sc. Abdel Karim Abu Elkheir, in person", "B. Eng. Civil Engineering, M. Sc. Industrial Engineering (construction)", "Member of the Berlin Chamber of Engineers (Baukammer Berlin)", "Professional indemnity: €3m personal injury, €300,000 financial loss"],
       "unterlagen_titel": "Documents that help us",
@@ -1554,13 +1332,13 @@ export const DATEN = /* DATEN-ANFANG */ {
         "2": "Important",
         "3": "If available"
       },
-      "qr_titel": "Calculate your price and get notes for your building’s age",
-      "qr_text": "Enter year of construction, heating and use – the calculator shows your price, relevant notes and the documents for your property."
+      "qr_titel": "Notes and documents for your property",
+      "qr_text": "Enter year of construction, heating and use – the page shows relevant notes and the documents for your property. One click then requests your quote by email."
     }
   },
   "seite": {
     "de": {
-      "unterzeile": "Begehung, Auswertung der Unterlagen und ein schriftlicher Zustandsbericht mit Mängelliste und Kostenrahmen für 10–15 Jahre – für Eigentumswohnung und Einfamilienhaus, zum Festpreis.",
+      "unterzeile": "Begehung, Auswertung der Unterlagen und ein schriftlicher Zustandsbericht mit Mängelliste und Kostenrahmen für 10–15 Jahre – für Eigentumswohnung und Einfamilienhaus. Preise und Leistungsübersicht senden wir Ihnen auf Anfrage per E-Mail.",
       "dienst": "Kaufbegutachtung von Eigentumswohnungen und Einfamilienhäusern in Berlin: Auswertung der Unterlagen, Begehung soweit zugänglich, mündliches Fazit vor Ort, schriftlicher Zustandsbericht mit Mängelliste, Kostenrahmen für 10–15 Jahre und Pflichten nach dem Kauf.",
       "kategorien": {
         "pflicht": "Pflichten nach dem Kauf",
@@ -1570,7 +1348,6 @@ export const DATEN = /* DATEN-ANFANG */ {
       },
       "hinweise_titel": "Hinweise nach Baujahr, Heizung und Nutzung",
       "hinweise_unter": "Allgemeine Prüfhinweise: worauf wir bei Objekten dieser Art achten. Sie sind kein Befund zu Ihrem Objekt.",
-      "stundensatz": "Zusatzleistungen außerhalb der beschriebenen Leistungen: {brutto} je Stunde ({netto} netto).",
       "sprach_hinweis": "",
       "anteil": {
         "titel": "Ihr Anteil an Gemeinschaftskosten",
@@ -1588,12 +1365,16 @@ export const DATEN = /* DATEN-ANFANG */ {
           "a": "Nein. Den Zugang stimmen Sie mit dem Makler ab – oder wir. Sind Sie nicht vor Ort, besprechen wir das Fazit anschließend per Telefon oder Video mit Ihnen; den Zustandsbericht erhalten Sie als PDF mit Fotos."
         },
         {
+          "f": "Was kostet die Kaufbegutachtung?",
+          "a": "{text:preise} Schreiben Sie uns an info@ing-bassam.de oder rufen Sie an: +49 176 23581339. Mit „Angebot anfordern“ auf dieser Seite stehen Ihre Angaben zum Objekt gleich in der E-Mail. Beauftragt ist erst etwas, wenn Sie unser Angebot annehmen."
+        },
+        {
           "f": "Bekomme ich den Bericht auf Englisch?",
-          "a": "Ja. Der Bericht ist standardmäßig auf Deutsch. Mit der Option „Bericht auf Englisch“ für {brutto:englisch} inkl. USt ({netto:englisch} netto) erhalten Sie ihn auf Englisch, mit Glossar der deutschen Fachbegriffe (Hausgeld, Erhaltungsrücklage, Teilungserklärung)."
+          "a": "Ja, auf Wunsch. Der Bericht ist standardmäßig auf Deutsch; auf Englisch erhalten Sie ihn mit Glossar der deutschen Fachbegriffe (Hausgeld, Erhaltungsrücklage, Teilungserklärung). Den Preis dafür nennen wir Ihnen im Angebot."
         },
         {
           "f": "Arbeiten Sie auch außerhalb Berlins?",
-          "a": "Ja. In Berlin ist die Anfahrt im Festpreis enthalten. {text:ausserhalb}"
+          "a": "Ja, auch im Berliner Umland. {text:ausserhalb}"
         },
         {
           "f": "Wie beauftrage ich Sie – und kann ich widerrufen?",
@@ -1608,6 +1389,7 @@ export const DATEN = /* DATEN-ANFANG */ {
         "nur_wohnung": "Bei Eigentumswohnungen",
         "bekommen_titel": "Das bekommen Sie",
         "grenzen_titel": "Was nicht enthalten ist",
+        "leistung_titel": "Im Leistungsumfang enthalten",
         "u_baujahr_bis": "nur bei Baujahr bis {bis}",
         "u_baujahr_ab": "nur bei Baujahr ab {von}",
         "u_baujahr_von_bis": "nur bei Baujahr {von}–{bis}",
@@ -1615,22 +1397,10 @@ export const DATEN = /* DATEN-ANFANG */ {
         "u_vermietet": "nur falls vermietet",
         "u_schalter": "nur bei {name}",
         "anteil_kurz": "Ihr Anteil an Gemeinschaftskosten",
-        "grund": "Im Grundpreis enthalten",
-        "zuschlaege": "Zuschläge – falls zutreffend",
-        "zuschlag_ja": "fällt an",
-        "zuschlag_nein": "entfällt",
-        "zuschlag_flaeche": "Wohnfläche über {n} m²",
-        "optionen": "Optionen – nach Wahl",
-        "empfohlen": "Empfohlen für Ihr Objekt",
-        "summe": "Ihr Preis",
-        "inkl": "inkl. 19 % USt",
-        "netto": "netto",
-        "ust": "darin 19 % USt",
         "hinweise_leer": "Geben Sie Baujahr, Heizung und Nutzung ein – dann erscheinen die passenden Hinweise.",
         "hinweise_anzahl": "{n} Hinweise für Ihr Objekt",
         "hinweise_eins": "1 Hinweis für Ihr Objekt",
         "quelle": "Quelle",
-        "passende_option": "Passende Option",
         "liegt_vor": "liegt vor",
         "wo": "Wo bekomme ich das?",
         "wo_kurz": "Erhältlich bei",
@@ -1648,15 +1418,14 @@ export const DATEN = /* DATEN-ANFANG */ {
         "nutzung": "Nutzung",
         "region": "Lage",
         "besonderheiten": "Besonderheiten",
-        "leistungen": "Leistungen laut Preisrechner",
-        "gesamt": "Gesamt",
         "vorhanden": "Diese Unterlagen liegen vor (im Anhang)",
         "vorhanden_anzahl": "{n} Unterlagen liegen vor (im Anhang).",
         "fehlen": "Noch fehlende unverzichtbare Unterlagen",
         "weitere": "… und {n} weitere",
         "anhang": "Hinweis: Unterlagen bitte an diese E-Mail anhängen; Namen und Bankdaten von Mietern bitte schwärzen.",
         "anrede": "Guten Tag,",
-        "einleitung": "ich interessiere mich für eine Kaufbegutachtung und bitte um Ihr Angebot.",
+        "einleitung": "ich interessiere mich für eine Kaufbegutachtung.",
+        "angebot_bitte": "Bitte senden Sie mir Ihr Angebot mit Preisen und der Leistungsübersicht.",
         "gruss": "Mit freundlichen Grüßen",
         "betreff": "Anfrage Kaufbegutachtung",
         "keine": "keine",
@@ -1674,8 +1443,6 @@ export const DATEN = /* DATEN-ANFANG */ {
         "oder": "oder",
         "unbekannt": "unbekannt",
         "bitte_waehlen": "Bitte wählen",
-        "leistung": "Leistung",
-        "preis": "Preis inkl. 19 % USt",
         "fehler_flaeche": "Bitte eine Wohnfläche zwischen 10 und 2.000 m² eingeben.",
         "fehler_baujahr": "Bitte ein Baujahr zwischen 1800 und 2030 eingeben.",
         "anteil_ergebnis": "Ihr Anteil: {betrag}",
@@ -1683,7 +1450,7 @@ export const DATEN = /* DATEN-ANFANG */ {
       }
     },
     "en": {
-      "unterzeile": "Inspection, document review and a written condition report with defect list and a 10–15-year cost outlook – for flats and houses, at a fixed price.",
+      "unterzeile": "Inspection, document review and a written condition report with defect list and a 10–15-year cost outlook – for flats and houses. We send prices and a full list of services on request by email.",
       "dienst": "Pre-purchase inspection of flats and houses in Berlin: document review, inspection as far as accessible, verbal summary on site, written condition report with defect list, 10–15-year cost outlook and duties after purchase.",
       "kategorien": {
         "pflicht": "Duties after purchase",
@@ -1693,8 +1460,7 @@ export const DATEN = /* DATEN-ANFANG */ {
       },
       "hinweise_titel": "Notes by year of construction, heating and use",
       "hinweise_unter": "General inspection notes: what we look out for in properties of this kind. They are not a finding about your property.",
-      "stundensatz": "Additional work outside the described services: {brutto} per hour ({netto} net).",
-      "sprach_hinweis": "Our reports are written in German as standard. A report in English is an option for {brutto:englisch} incl. VAT ({netto:englisch} net) – the inspection itself and all calls can be in English.",
+      "sprach_hinweis": "Our reports are written in German as standard; a report in English is available on request. The inspection itself and all calls can be in English.",
       "anteil": {
         "titel": "Your share of common costs",
         "text": "Cost of a measure taken by the owners’ association × your co-ownership share = your share.",
@@ -1711,12 +1477,16 @@ export const DATEN = /* DATEN-ANFANG */ {
           "a": "No. You arrange access with the agent – or we do. If you are not on site, we go through the summary with you afterwards by phone or video; you receive the condition report as a PDF with photos."
         },
         {
+          "f": "What does the pre-purchase inspection cost?",
+          "a": "{text:preise} Write to info@ing-bassam.de or call +49 176 23581339. With “Request a quote” on this page, your details on the property go straight into the email. Nothing is commissioned until you accept our quote."
+        },
+        {
           "f": "Is the report in English?",
-          "a": "Not as standard – our reports are written in German. With the option “Report in English” for {brutto:englisch} incl. VAT ({netto:englisch} net) you receive the condition report in English, with a glossary of the German terms (Hausgeld, maintenance reserve, declaration of division). The inspection itself and all calls can be in English."
+          "a": "On request. Our reports are written in German as standard; in English you receive the condition report with a glossary of the German terms (Hausgeld, maintenance reserve, declaration of division). We state the price for this in our quote. The inspection itself and all calls can be in English."
         },
         {
           "f": "Do you work outside Berlin?",
-          "a": "Yes. Within Berlin, travel is included in the fixed price. {text:ausserhalb}"
+          "a": "Yes, also in the area around Berlin. {text:ausserhalb}"
         },
         {
           "f": "How do I instruct you – and can I withdraw?",
@@ -1731,6 +1501,7 @@ export const DATEN = /* DATEN-ANFANG */ {
         "nur_wohnung": "For flats",
         "bekommen_titel": "What you receive",
         "grenzen_titel": "What is not included",
+        "leistung_titel": "Included in the service",
         "u_baujahr_bis": "only for buildings up to {bis}",
         "u_baujahr_ab": "only for buildings from {von}",
         "u_baujahr_von_bis": "only for buildings from {von}–{bis}",
@@ -1738,22 +1509,10 @@ export const DATEN = /* DATEN-ANFANG */ {
         "u_vermietet": "only if let",
         "u_schalter": "only for {name}",
         "anteil_kurz": "Your share of common costs",
-        "grund": "Included in the base price",
-        "zuschlaege": "Surcharges – where applicable",
-        "zuschlag_ja": "applies",
-        "zuschlag_nein": "does not apply",
-        "zuschlag_flaeche": "living area above {n} m²",
-        "optionen": "Options – your choice",
-        "empfohlen": "Recommended for your property",
-        "summe": "Your price",
-        "inkl": "incl. 19% VAT",
-        "netto": "net",
-        "ust": "of which 19% VAT",
         "hinweise_leer": "Enter year of construction, heating and use – the relevant notes will then appear.",
         "hinweise_anzahl": "{n} notes for your property",
         "hinweise_eins": "1 note for your property",
         "quelle": "Source",
-        "passende_option": "Matching option",
         "liegt_vor": "available",
         "wo": "Where do I get it?",
         "wo_kurz": "Available from",
@@ -1771,15 +1530,14 @@ export const DATEN = /* DATEN-ANFANG */ {
         "nutzung": "Use",
         "region": "Location",
         "besonderheiten": "Particulars",
-        "leistungen": "Services according to the price calculator",
-        "gesamt": "Total",
         "vorhanden": "These documents are available (attached)",
         "vorhanden_anzahl": "{n} documents are available (attached).",
         "fehlen": "Essential documents still missing",
         "weitere": "… and {n} more",
         "anhang": "Note: please attach the documents to this email; black out tenants’ names and bank details.",
         "anrede": "Hello,",
-        "einleitung": "I am interested in a pre-purchase inspection and would like to receive your quote.",
+        "einleitung": "I am interested in a pre-purchase inspection.",
+        "angebot_bitte": "Please send me your quote with prices and the list of services.",
         "gruss": "Kind regards",
         "betreff": "Enquiry: pre-purchase inspection",
         "keine": "none",
@@ -1797,8 +1555,6 @@ export const DATEN = /* DATEN-ANFANG */ {
         "oder": "or",
         "unbekannt": "unknown",
         "bitte_waehlen": "Please choose",
-        "leistung": "Service",
-        "preis": "Price incl. 19% VAT",
         "fehler_flaeche": "Please enter a living area between 10 and 2,000 m².",
         "fehler_baujahr": "Please enter a year of construction between 1800 and 2030.",
         "anteil_ergebnis": "Your share: {betrag}",

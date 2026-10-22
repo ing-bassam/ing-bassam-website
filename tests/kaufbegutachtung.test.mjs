@@ -1,94 +1,55 @@
-// Tests für den Rechenkern der Kaufbegutachtung (werkzeuge/kaufbegutachtung/kaufbegutachtung.js).
-// Prüfwerte: Preise aus daten.js, brutto = netto × 1,19 auf Cent gerundet.
+// Tests für den Kern des Hinweis-Assistenten der Kaufbegutachtung
+// (werkzeuge/kaufbegutachtung/kaufbegutachtung.js). Preise gibt es dort bewusst nicht:
+// Sie kommen nur auf Anfrage per E-Mail.
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
-  DATEN, MAIL_GRENZE, anfrage, anteil, brutto, bruttoCent, eingabeLesen, euro, euroSpanne, hinweise, paket,
-  preisBerechnen, unterlagen, unterlagenText, zuschlaegeFuer, zuschlaegeFuerFlaeche,
+  DATEN, MAIL_GRENZE, SCHALTER, anfrage, anteil, eingabeLesen, euro, hinweise, leistungsumfang, unterlagen,
+  unterlagenText,
 } from "../werkzeuge/kaufbegutachtung/kaufbegutachtung.js";
+import * as kern from "../werkzeuge/kaufbegutachtung/kaufbegutachtung.js";
 
 const e = (roh) => eingabeLesen(roh).eingabe;
 const ids = (h) => [...h.ids].sort();
+// Eurobetrag wie „1.059,10 €“, „150 €“, „€1,059.10“ oder „EUR 150“.
+const EUROBETRAG = /\d[\d.,]*\s?(?:€|EUR\b)|(?:€|\bEUR)\s?\d/;
 
-test("Bruttopreise: netto × 1,19, auf Cent gerundet", () => {
-  assert.equal(brutto(890), 1059.1);
-  assert.equal(brutto(1490), 1773.1);
-  assert.equal(brutto(290), 345.1);
-  assert.equal(brutto(120), 142.8);
-  assert.equal(brutto(75), 89.25);
-  assert.equal(brutto(225), 267.75);
-  assert.equal(brutto(10.01), 11.91);        // 11,9119 → 11,91
-  assert.equal(brutto(10.05), 11.96);        // 11,9595 → 11,96
-  // Keine Gleitkomma-Reste bei allen Preisen aus den Daten.
-  const netto = [...Object.values(DATEN.pakete).flatMap((p) => [p.grund.netto, ...p.zuschlaege.map((z) => z.netto)]),
-    ...Object.values(DATEN.optionen).flatMap((o) => (o.netto !== undefined ? [o.netto] : [o.netto_von, o.netto_bis]))];
-  for (const n of netto) assert.equal(bruttoCent(n), n * 119, `netto ${n}`);
+test("Keine Preise im Kern und in den Daten", () => {
+  for (const name of ["preisBerechnen", "paket", "brutto", "bruttoCent", "euroSpanne", "zuschlaegeFuer"]) {
+    assert.equal(kern[name], undefined, name);
+  }
+  for (const feld of ["mwst", "stundensatz_netto", "pakete", "optionen"]) assert.equal(DATEN[feld], undefined, feld);
+  assert.equal(DATEN.eingaben.preis_schalter, undefined);
+  const json = JSON.stringify(DATEN);
+  for (const feld of ["\"netto\"", "\"netto_von\"", "\"netto_bis\"", "\"zuschlaege\"", "\"empfiehlt\""]) {
+    assert.ok(!json.includes(feld), feld);
+  }
 });
 
-test("Betragsformat Deutsch und Englisch", () => {
-  assert.equal(euro(1059.1, "de"), "1.059,10 €");
-  assert.equal(euro(1059.1, "en"), "€1,059.10");
-  assert.equal(euro(89.25, "de"), "89,25 €");
-  assert.equal(euro(12345678.5, "de"), "12.345.678,50 €");
-  assert.equal(euroSpanne(267.75, 357, "de"), "267,75 – 357,00 €");
-  assert.equal(euroSpanne(267.75, 357, "en"), "€267.75 – €357.00");
-  assert.equal(euroSpanne(5, 5, "de"), "5,00 €");
+test("Leistungsumfang je Objektart, ohne Beträge", () => {
+  for (const objekt of ["etw", "efh"]) {
+    for (const sprache of ["de", "en"]) {
+      const liste = leistungsumfang(objekt, sprache);
+      assert.ok(liste.length >= 5, `${objekt}/${sprache}`);
+      for (const punkt of liste) assert.doesNotMatch(punkt, EUROBETRAG, punkt);
+    }
+  }
+  assert.ok(leistungsumfang("etw").some((x) => x.includes("WEG-Unterlagen")));
+  assert.ok(leistungsumfang("efh", "en").some((x) => x.includes("roof to basement")));
 });
 
-test("Grundpreis ohne Angaben", () => {
-  const w = preisBerechnen({ objekt: "etw" });
-  assert.deepEqual(w.positionen.map((p) => p.id), ["grund_etw"]);
-  assert.equal(w.bruttoVon, 1059.1);
-  assert.equal(w.nettoVon, 890);
-  assert.equal(w.ustVon, 169.1);
-  assert.equal(preisBerechnen({ objekt: "efh" }).bruttoVon, 1773.1);
-});
-
-test("Flächenzuschlag fällt automatisch an (ab flaeche_ab)", () => {
-  assert.deepEqual(zuschlaegeFuerFlaeche("etw", 100), []);
-  assert.deepEqual(zuschlaegeFuerFlaeche("etw", 100.5), ["gross_etw"]);
-  assert.deepEqual(zuschlaegeFuerFlaeche("etw", null), []);
-  assert.deepEqual(zuschlaegeFuerFlaeche("efh", 200), []);
-  assert.deepEqual(zuschlaegeFuerFlaeche("efh", 201), ["gross_efh"]);
-  const w = preisBerechnen(e({ objekt: "etw", flaeche: "120" }));
-  assert.deepEqual(w.positionen.map((p) => p.id), ["grund_etw", "gross_etw"]);
-  assert.equal(w.bruttoVon, 1297.1);
-  // Unter der Grenze nur mit Schalter: Maisonette/Dachgeschoss löst denselben Zuschlag aus.
-  assert.deepEqual(preisBerechnen(e({ objekt: "etw", flaeche: "80" })).positionen.map((p) => p.id), ["grund_etw"]);
-  const maisonette = e({ objekt: "etw", flaeche: "80", maisonette: true });
-  assert.deepEqual(zuschlaegeFuer(maisonette).filter((z) => z.trifftZu), [{ id: "gross_etw", trifftZu: true, gruende: ["schalter"] }]);
-  assert.equal(preisBerechnen(maisonette).bruttoVon, 1297.1);
-  // Zuschlag nur einmal, auch wenn Fläche und Schalter zutreffen.
-  const beides = e({ objekt: "etw", flaeche: "130", maisonette: true });
-  assert.deepEqual(zuschlaegeFuer(beides)[0].gruende, ["flaeche", "schalter"]);
-  assert.equal(preisBerechnen(beides).positionen.length, 2);
-});
-
-test("Zuschläge beim Haus: Vollkeller, über 200 m² oder Einliegerwohnung; keine freie Wahl", () => {
-  const haus = e({ objekt: "efh", flaeche: "250", vollkeller: true });
-  assert.deepEqual(preisBerechnen(haus).positionen.map((p) => p.id), ["grund_efh", "keller", "gross_efh"]);
-  assert.equal(preisBerechnen(haus).bruttoVon, 1773.1 + 178.5 + 238);
-  assert.deepEqual(preisBerechnen(e({ objekt: "efh", einlieger: true })).positionen.map((p) => p.id), ["grund_efh", "gross_efh"]);
-  // Ein Zuschlag in der Auswahl zählt nicht – er fällt nur an, wenn er zutrifft.
-  assert.deepEqual(preisBerechnen({ ...e({ objekt: "efh" }), auswahl: ["keller", "gross_efh"] }).positionen.map((p) => p.id), ["grund_efh"]);
-  // Schalter gelten nur für ihre Objektart.
+test("Merkmale gelten nur für ihre Objektart", () => {
+  assert.deepEqual([...SCHALTER].sort(), ["einlieger", "fertighaus", "maisonette", "mfh6", "milieuschutz", "vollkeller"]);
   assert.equal(e({ objekt: "efh", maisonette: true }).maisonette, false);
+  assert.equal(e({ objekt: "etw", maisonette: true }).maisonette, true);
   assert.equal(e({ objekt: "etw", vollkeller: true }).vollkeller, false);
+  assert.equal(e({ objekt: "efh", vollkeller: true, einlieger: true }).einlieger, true);
 });
 
-test("Bauakte als Spanne: Summe von – bis", () => {
-  const w = preisBerechnen({ objekt: "etw", auswahl: ["bauakte"] });
-  assert.equal(w.spanne, true);
-  assert.equal(w.bruttoVon, 1326.85);
-  assert.equal(w.bruttoBis, 1416.1);
-  assert.equal(w.nettoVon, 1115);
-  assert.equal(w.nettoBis, 1190);
-  assert.equal(euroSpanne(w.bruttoVon, w.bruttoBis, "de"), "1.326,85 – 1.416,10 €");
-  const alle = preisBerechnen({ objekt: "efh", auswahl: paket("efh").optionen.map((o) => o.id) });
-  const summe = alle.positionen.reduce((s, p) => s + p.bruttoVon * 100, 0) / 100;
-  assert.equal(Math.round(summe * 100), Math.round(alle.bruttoVon * 100));
-  // Optionen, die es bei der Objektart nicht gibt, zählen nicht (Vermietungs-Check nur bei Wohnungen).
-  assert.equal(preisBerechnen({ objekt: "efh", auswahl: ["vermietung"] }).positionen.length, 1);
+test("Betragsformat für den Anteil an Gemeinschaftskosten", () => {
+  assert.equal(euro(4500, "de"), "4.500,00 €");
+  assert.equal(euro(4500, "en"), "€4,500.00");
+  assert.equal(euro(1045.5, "de"), "1.045,50 €");
 });
 
 test("Regeln: Wohnung, Baujahr 1905, vermieten, Gasetagenheizung, Milieuschutz", () => {
@@ -97,7 +58,7 @@ test("Regeln: Wohnung, Baujahr 1905, vermieten, Gasetagenheizung, Milieuschutz",
     "asbest", "blei", "daemmpflicht_etw", "elektro_alt", "flaeche", "gasetage", "gruenderzeit", "heizung_fossil",
     "mietpreisbremse", "mietspiegel", "milieuschutz", "schimmel", "thermo_saison", "vermieterpflichten",
   ].sort());
-  assert.deepEqual([...h.empfohlen].sort(), ["schadstoff", "vermietung"]);
+  assert.equal(h.empfohlen, undefined, "keine Empfehlung von Optionen mehr");
   assert.deepEqual(h.gruppen.map((g) => g.kategorie), ["pflicht", "miete", "pruefen", "foerderung"]);
   // Nicht dabei: Hausregeln, Lage-Regeln ohne gewählte Lage, andere Nutzung, andere Heizung –
   // und die Förderhinweise, die Selbstnutzung voraussetzen (KfW 308, Heizungstausch-Bonus).
@@ -115,14 +76,12 @@ test("Regeln: Haus, Baujahr 1975, Fertighaus, Öl, Brandenburg, selbst nutzen", 
     "asbest", "beratung_ea", "daemmpflicht_efh", "ddr", "elektro_35", "fertighaus", "flachdach", "heizung_fossil",
     "heizungsfoerderung", "kfw308", "mineralwolle", "oeltank", "pcb_pak", "schimmel", "thermo_saison",
   ].sort());
-  assert.deepEqual(h.empfohlen, ["schadstoff"]);
   for (const id of ["blei", "rauchmelder", "solarpflicht", "elektro_alt", "strang", "platte"]) assert.ok(!h.ids.includes(id), id);
 });
 
 test("Regeln: Haus, Baujahr 2015, Wärmepumpe", () => {
   const h = hinweise(e({ objekt: "efh", baujahr: "2015", heizung: "waermepumpe" }));
   assert.deepEqual(ids(h), ["beratung_ea", "neubau", "thermo_saison", "waermepumpe"]);
-  assert.deepEqual(h.empfohlen, []);
 });
 
 test("Regeln mit Baujahr oder Feld erscheinen erst nach der Eingabe", () => {
@@ -164,40 +123,44 @@ test("Unterlagen: Filter nach Bedingungen, sortiert nach Priorität", () => {
   assert.match(unterlagenText(e({ objekt: "efh" }), [], "en"), /pre-purchase-inspection-berlin\/#house$/);
 });
 
-test("Anfrage per E-Mail: Inhalt und Länge unter 1.800 Zeichen", () => {
+test("Angebot anfordern: Inhalt der E-Mail ohne Preise, Länge unter 1.800 Zeichen", () => {
   const eingabe = e({ objekt: "etw", flaeche: "85", baujahr: "1905", heizung: "gasetage", nutzung: "vermieten",
     region: "ost", milieuschutz: true, mfh6: true, maisonette: true });
-  const a = anfrage({ eingabe, auswahl: ["vermietung", "englisch"], vorhanden: ["expose"],
-    adresse: "Musterstraße 1, 10115 Berlin", termin: "ab 10. November" });
+  const a = anfrage({ eingabe, vorhanden: ["expose"], adresse: "Musterstraße 1, 10115 Berlin", termin: "ab 10. November" });
   assert.ok(a.href.startsWith("mailto:info@ing-bassam.de?subject="));
   assert.ok(a.href.includes("%0D%0A"), "Zeilenumbrüche als CRLF");
-  for (const teil of ["Eigentumswohnung", "Musterstraße 1", "ab 10. November", "Baujahr: 1905", "Vermietungs-Check: 345,10 €",
-    "Gesamt: 1.785,00 € inkl. 19 % USt (netto 1.500,00 €)", "Maisonette oder Dachgeschoss",
+  for (const teil of ["Objekt: Eigentumswohnung", "Adresse: Musterstraße 1", "Wunschtermin: ab 10. November",
+    "Wohnfläche: 85 m²", "Baujahr: 1905", "Heizung: Gasetagenheizung", "Nutzung: Vermieten", "Lage: Berlin (Ost)",
+    "Maisonette oder Dachgeschoss", "Bitte senden Sie mir Ihr Angebot mit Preisen und der Leistungsübersicht.",
     "Noch fehlende unverzichtbare Unterlagen", "Namen und Bankdaten von Mietern bitte schwärzen"]) {
     assert.ok(a.text.includes(teil), teil);
   }
   assert.ok(a.text.includes("- Exposé"));
   assert.ok(!a.text.split("Noch fehlende")[1].includes("Exposé"), "Vorhandenes steht nicht bei den fehlenden");
+  assert.doesNotMatch(`${a.betreff}\n${a.text}`, EUROBETRAG);
+  assert.doesNotMatch(a.text, /Gesamt|Preisrechner|inkl\. 19/);
   assert.equal(decodeURIComponent(a.href.split("&body=")[1]).replace(/\r\n/g, "\n"), a.text);
   assert.ok(a.laenge <= MAIL_GRENZE);
 
-  // Schlimmster Fall: alle Optionen, alle Unterlagen vorhanden, lange Adresse.
+  // Schlimmster Fall: alle Unterlagen vorhanden, alle Merkmale, lange Adresse.
   const haus = e({ objekt: "efh", flaeche: "250", baujahr: "1960", heizung: "oel", nutzung: "vermietet_selbst",
     region: "brandenburg", fertighaus: true, vollkeller: true, einlieger: true });
   const alle = unterlagen(haus).map((u) => u.id);
-  const voll = anfrage({ eingabe: haus, auswahl: paket("efh").optionen.map((o) => o.id), vorhanden: alle,
-    adresse: "x".repeat(400), termin: "y".repeat(300) });
+  const voll = anfrage({ eingabe: haus, vorhanden: alle, adresse: "x".repeat(400), termin: "y".repeat(300) });
   assert.ok(voll.laenge <= MAIL_GRENZE, `Länge ${voll.laenge}`);
+  assert.ok(voll.text.includes("Voll unterkellert; Mit Einliegerwohnung; Fertighaus / Holztafelbau"));
   // Mit enger Grenze wird die Unterlagenliste gekürzt, die Pflichtangaben bleiben.
-  const eng = anfrage({ eingabe: haus, auswahl: ["englisch"], vorhanden: [], grenze: 1100 });
-  assert.ok(eng.laenge <= 1100, `Länge ${eng.laenge}`);
-  assert.ok(eng.text.includes("Gesamt:"));
+  const eng = anfrage({ eingabe: haus, vorhanden: [], grenze: 800 });
+  assert.ok(eng.laenge <= 800, `Länge ${eng.laenge}`);
+  assert.ok(eng.text.includes("Bitte senden Sie mir Ihr Angebot"));
   assert.ok(eng.text.includes("Namen und Bankdaten"));
   assert.match(eng.text, /… und \d+ weitere|Exposé/);
 
   const englisch = anfrage({ eingabe: e({ objekt: "efh" }), sprache: "en" });
-  assert.ok(englisch.text.includes("Total: €1,773.10 incl. 19% VAT (net €1,490.00)"));
+  assert.ok(englisch.text.includes("Please send me your quote with prices and the list of services."));
+  assert.ok(englisch.text.includes("Property: House"));
   assert.ok(englisch.betreff.startsWith("Enquiry: pre-purchase inspection"));
+  assert.doesNotMatch(englisch.text, EUROBETRAG);
 });
 
 test("Anteil an Gemeinschaftskosten", () => {
