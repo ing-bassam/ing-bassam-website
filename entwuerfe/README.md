@@ -7,10 +7,12 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (7)
+## 🟡 Entwurf (9)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 22.10.2026 | [Technische Due Diligence: Prüfumfang und Bericht](entwurf/2026-10-22-technische-due-diligence-immobilienkauf.md) | Grundlagen | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/technische-due-diligence-immobilienkauf/) |
+| 22.10.2026 | [Instandhaltungsstau und CapEx-Prognose in der Due Diligence](entwurf/2026-10-22-instandhaltungsstau-capex-prognose-due-diligence.md) | Fachbeitrag | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/instandhaltungsstau-capex-prognose-due-diligence/) |
 | 21.10.2026 | [Fernablesbare Heizkostenverteiler: Was bis Ende 2026 gilt](entwurf/2026-10-21-heizkostenverteiler-fernablesbar-frist-2026.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/heizkostenverteiler-fernablesbar-frist-2026/) |
 | 21.10.2026 | [Zu viel Betondeckung: Wer haftet für die Risse?](entwurf/2026-10-21-betondeckung-nennmass-haftungsquote.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/betondeckung-nennmass-haftungsquote/) |
 | 20.10.2026 | [Zu wenig Gefälle auf der Terrasse: Wer haftet wofür?](entwurf/2026-10-20-terrasse-gefaelle-hinweispflicht.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/terrasse-gefaelle-hinweispflicht/) |
