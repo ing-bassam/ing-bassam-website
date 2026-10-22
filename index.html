@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BIB Ingenieurbüro für Bauwesen GmbH | Baugutachten in Berlin</title>
-<meta name="description" content="BIB prüft Gebäude in Berlin: Kaufbegutachtung, technische Beweissicherung, Versicherungs- und Gerichtsgutachten, Schimmel- und Wasserschäden.">
+<meta name="description" content="BIB prüft Gebäude und Bauschäden in Berlin: Kaufbegutachtung, Beweissicherung, Versicherungs- und Gerichtsgutachten, Schimmel- und Wasserschäden.">
 <link rel="canonical" href="https://ing-bassam.de/">
 <link rel="alternate" hreflang="de" href="https://ing-bassam.de/">
 <link rel="alternate" hreflang="en" href="https://ing-bassam.de/en/">
@@ -77,7 +77,7 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gerichtsgutachten", "url": "https://ing-bassam.de/leistungen/gerichte-versicherer/" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technische Beweissicherung", "url": "https://ing-bassam.de/leistungen/technische-beweissicherung/" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kaufbegutachtung von Wohnung und Haus", "url": "https://ing-bassam.de/leistungen/kaufbegutachtung/" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Objektüberwachung (LP 8)", "url": "https://ing-bassam.de/#leistung-objektueberwachung" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Objektüberwachung (LP 8)", "url": "https://ing-bassam.de/leistungen/baubegleitung-bauabnahme/" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Baubegleitung und Bauabnahme", "url": "https://ing-bassam.de/leistungen/baubegleitung-bauabnahme/" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Schimmelgutachten und Feuchteschäden", "url": "https://ing-bassam.de/leistungen/schimmelgutachten/" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wasserschaden-Gutachten", "url": "https://ing-bassam.de/leistungen/wasserschaden-gutachten/" } },
@@ -178,7 +178,11 @@
   p{margin:0; text-wrap:pretty;}
   ul,ol{margin:0; padding:0; list-style:none;}
   ::selection{background:var(--accent); color:#fff;}
-  :focus-visible{outline:2px solid var(--accent-bright); outline-offset:3px; border-radius:2px;}
+  /* Fokus: dunkles Orange auf hellem Grund, helles Orange auf dunklem Grund (jeweils mind. 3:1) */
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px;}
+  .site-header :focus-visible, .hero :focus-visible, .section-dark :focus-visible,
+  .site-footer :focus-visible, .schnellkontakt :focus-visible{outline-color:var(--accent-bright);}
+  .section-dark .form-card :focus-visible{outline-color:var(--accent);}
 
   .wrap{width:100%; max-width:var(--wrap); margin-inline:auto; padding-inline:var(--gutter);}
   .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
@@ -323,7 +327,7 @@
 
   /* ---------- Technische Zeichnung (reines SVG, keine Bilder) ---------- */
   .hero-drawing{position:relative;}
-  .dwg{width:100%; height:auto; max-width:540px; margin-left:auto; overflow:visible;}
+  .dwg{width:100%; height:auto; max-width:500px; margin-left:auto; overflow:visible;}
   .dwg .s{fill:none; stroke:#c4cad3; stroke-width:1.25; stroke-linecap:butt; stroke-linejoin:miter; opacity:.62;}
   .dwg .d{fill:none; stroke:var(--on-ink-3); stroke-width:1; opacity:.85;}
   .dwg .x{fill:none; stroke:var(--on-ink-3); stroke-width:1; stroke-dasharray:3 4; opacity:0; animation:fadeTo55 .8s ease both; animation-delay:1.3s;}
@@ -344,15 +348,32 @@
   .dwg .feuchte{fill:url(#feuchteVerlauf); opacity:0; animation:fadeIn 1.4s ease 2.6s both;}
   .dwg .riss{fill:none; stroke:var(--accent-bright); stroke-width:1.3; stroke-linejoin:round;}
 
-  /* ---------- Schriftfeld: echte Angaben zum Büro statt Werbeversprechen ---------- */
+  /* ---------- Schriftfeld: echte Angaben zum Büro statt Werbeversprechen.
+     Breit: als Block in der rechten unteren Blattecke wie auf einer Zeichnung.
+     Schmaler: als Leiste unter dem Text, innerhalb des Rahmens. ---------- */
   .schriftfeld{
-    display:grid; grid-template-columns:repeat(5, minmax(0,1fr));
-    margin:clamp(48px, 7vh, 80px) 0 0; border-top:1px solid var(--ink-line-2);
+    display:grid; grid-template-columns:repeat(3, minmax(0,1fr));
+    margin:clamp(48px, 7vh, 80px) 0 12px; border-top:1px solid var(--ink-line-2);
   }
-  .schriftfeld div{padding:16px 18px 30px 0;}
-  .schriftfeld div + div{padding-left:18px; border-left:1px solid var(--ink-line);}
+  .schriftfeld div{padding:14px 16px 18px; border-left:1px solid var(--ink-line); border-top:1px solid var(--ink-line);}
+  .schriftfeld div:nth-child(-n+3){border-top:0;}
+  .schriftfeld div:nth-child(3n+1){border-left:0; padding-left:0;}
   .schriftfeld dt{margin-bottom:6px; font-family:var(--font-plan); font-size:.6875rem; letter-spacing:.06em; text-transform:uppercase; color:var(--on-ink-3);}
   .schriftfeld dd{margin:0; font-size:.9375rem; line-height:1.45; color:var(--on-ink);}
+  @media (min-width:1025px){
+    .hero{padding-bottom:228px;}
+    .schriftfeld{
+      position:absolute; right:12px; bottom:12px; margin:0;
+      width:min(680px, 52vw); grid-template-columns:1.35fr 1fr 1fr;
+      border-top:1px solid var(--ink-line-2); border-left:1px solid var(--ink-line-2);
+    }
+    .schriftfeld div,
+    .schriftfeld div:nth-child(n){padding:10px 14px 12px; border-left:1px solid var(--ink-line); border-top:1px solid var(--ink-line);}
+    .schriftfeld div:first-child{grid-row:span 2; display:flex; flex-direction:column; justify-content:space-between; border-left:0;}
+    .schriftfeld div:nth-child(2),
+    .schriftfeld div:nth-child(3){border-top:0;}
+    .schriftfeld div:first-child dd{font-family:var(--font-display); font-size:1.1875rem; font-weight:500; line-height:1.25; letter-spacing:-.01em; color:#fff;}
+  }
 
   /* =====================================================================
      SEKTIONEN – gemeinsam
@@ -390,9 +411,12 @@
   .leistung:focus-within::after,
   .leistung:target::after{transform:scaleX(1);}
   .leistung-anlass{display:block; margin-bottom:8px; font-size:.875rem; color:var(--text-3);}
-  .leistung h3{font-size:clamp(1.375rem, 2.1vw, 1.75rem); margin-bottom:12px; transition:transform var(--dur-slow) var(--ease);}
-  .leistung h3 a::after{content:""; position:absolute; inset:0;}  /* ganze Zeile führt zur Leistungsseite */
-  .leistung:hover h3{transform:translateX(6px);}
+  .leistung h3{font-size:clamp(1.375rem, 2.1vw, 1.75rem); margin-bottom:12px;}
+  /* Die ganze Zeile führt zur Leistungsseite. Kein transform auf h3 oder a:
+     es würde die Klickfläche auf die Überschrift schrumpfen lassen. */
+  .leistung h3 a::after{content:""; position:absolute; inset:0;}
+  .leistung:hover h3 a{color:var(--accent-hover);}
+  .leistung h3 a{transition:color var(--dur) var(--ease);}
   .leistung p{max-width:54ch; font-size:.984375rem; line-height:1.68; color:var(--text-2);}
   .leistung-weiter{display:flex; flex-wrap:wrap; gap:0 24px; margin-top:8px;}
   .leistung-weiter a{position:relative; z-index:1; color:var(--text-2);}
@@ -405,10 +429,10 @@
      ARBEITSWEISE – Ablauf als Maßkette
      ===================================================================== */
   .arbeitsweise-kopf{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:20px 72px; align-items:end; margin-bottom:clamp(48px, 6vw, 80px);}
-  .masskette{display:grid; grid-template-columns:repeat(4, minmax(0,1fr));}
+  /* Abschnitte verschieden lang wie in einer echten Bemaßung */
+  .masskette{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) minmax(0,1.3fr) minmax(0,1fr);}
   .masskette li{position:relative; padding-right:28px;}
   .masskette li:last-child{padding-right:0;}
-  .mk-titel{display:block; min-height:30px; font-family:var(--font-plan); font-size:.8125rem; letter-spacing:.04em; text-transform:uppercase; color:var(--text);}
   /* Maßlinie mit Schrägstrichen an den Teilungen wie in einer Bemaßung */
   .mk-linie{position:relative; display:block; height:24px; margin-bottom:22px;}
   .mk-linie::before{
@@ -423,7 +447,7 @@
   }
   .mk-linie::after{left:-7px; transition:opacity .3s ease; transition-delay:calc(var(--i, 0) * .32s);}
   .mk-ende{right:-7px; transition:opacity .3s ease 1.3s;}
-  .mk-text{display:block; max-width:30ch; font-size:.96875rem; line-height:1.65; color:var(--text-2);}
+  .mk-text{display:block; max-width:34ch; font-size:.96875rem; line-height:1.65; color:var(--text-2);}
   .mk-text strong{display:block; margin-bottom:6px; font-family:var(--font-display); font-size:1.1875rem; font-weight:600; letter-spacing:-.01em; color:var(--text);}
   html.js .masskette:not(.is-visible) .mk-linie::before{transform:scaleX(0);}
   html.js .masskette:not(.is-visible) .mk-linie::after,
@@ -458,7 +482,7 @@
   .contact-row{display:flex; align-items:center; gap:16px; min-height:76px; padding-block:14px;}
   .contact-icon{
     display:grid; place-items:center; width:42px; height:42px; flex-shrink:0;
-    border:1px solid var(--ink-line-2); border-radius:50%; color:var(--accent-bright);
+    border:1px solid var(--ink-line-2); border-radius:50%; color:var(--on-ink-2);
     transition:background-color var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease);
   }
   .contact-k{display:block; margin-bottom:2px; font-family:var(--font-plan); font-size:.6875rem; letter-spacing:.06em; text-transform:uppercase; color:var(--on-ink-3);}
@@ -571,7 +595,6 @@
      BEWEGUNG – sparsam und mit Bedeutung: Linien werden gezeichnet,
      gemessen wird einmal, nichts läuft endlos.
      ===================================================================== */
-  @keyframes fadeUp{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:none;}}
   @keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
   @keyframes fadeTo55{from{opacity:0;} to{opacity:.55;}}
   @keyframes draw{to{stroke-dashoffset:0;}}
@@ -582,17 +605,12 @@
     100%{opacity:0; transform:translateX(312px);}
   }
 
-  .hero-copy > *{animation:fadeUp .8s var(--ease) both;}
-  .hero-copy > :nth-child(1){animation-delay:.05s;}
-  .hero-copy > :nth-child(2){animation-delay:.14s;}
-  .hero-copy > :nth-child(3){animation-delay:.24s;}
-  .schriftfeld{animation:fadeIn 1s ease .6s both;}
-
-  html.js .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s var(--ease), transform .7s var(--ease); transition-delay:var(--d, 0s);}
-  html.js .reveal.is-visible{opacity:1; transform:none;}
-  /* Leistungszeilen und Maßkette: nur die Linien ziehen sich, der Text blendet ruhig ein */
-  html.js .leistung.reveal,
-  html.js .masskette.reveal{transform:none;}
+  /* Text steht sofort da. Beim Scrollen werden nur Linien gezogen
+     (Trennlinien der Leistungen, Maßkette); .reveal markiert diese Stellen. */
+  @media print{
+    .leistung::before, .mk-linie::before{transform:none !important;}
+    .mk-linie::after, .mk-ende{opacity:1 !important;}
+  }
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
@@ -603,8 +621,6 @@
       transition-duration:.01ms !important;
       transition-delay:0s !important;
     }
-    html.js .reveal{opacity:1; transform:none;}
-    .leistung:hover h3,
     .leistung:hover .leistung-pfeil{transform:none;}
   }
 
@@ -615,9 +631,6 @@
     .hero-grid{grid-template-columns:1fr;}
     .hero-drawing{max-width:420px; width:100%; margin-inline:auto;}
     .dwg{margin-inline:auto;}
-    .schriftfeld{grid-template-columns:repeat(3, minmax(0,1fr));}
-    .schriftfeld div:nth-child(4){padding-left:0; border-left:0;}
-    .schriftfeld div:nth-child(n+4){border-top:1px solid var(--ink-line);}
     .leistungen-grid,
     .fw-grid,
     .arbeitsweise-kopf{grid-template-columns:1fr;}
@@ -647,7 +660,7 @@
     .masskette{grid-template-columns:1fr;}
     .masskette li,
     .masskette li:last-child{padding:0 0 32px 32px;}
-    .mk-titel{min-height:0; margin-bottom:8px;}
+    .mk-text strong{margin-top:-4px;}
     .mk-linie{position:absolute; left:0; top:0; bottom:0; width:1px; height:auto; margin:0;}
     .mk-linie::before,
     .masskette li:last-child .mk-linie::before{left:0; right:auto; top:0; bottom:0; width:1px; height:auto; transform-origin:top;}
@@ -661,11 +674,11 @@
     .hero-drawing{display:none;}
     .blatt{inset:calc(var(--header-h) + 6px) 6px 6px;}
     .hero-actions .btn{flex:1 1 auto;}
-    .schriftfeld{grid-template-columns:repeat(2, minmax(0,1fr));}
+    .schriftfeld{grid-template-columns:repeat(2, minmax(0,1fr)); margin-bottom:6px;}
     .schriftfeld div,
-    .schriftfeld div + div{padding:14px 14px 18px 0; border-left:0; border-top:1px solid var(--ink-line);}
-    .schriftfeld div:first-child{grid-column:1 / -1; border-top:0;}
-    .schriftfeld div:nth-child(odd):not(:first-child){padding-left:14px; border-left:1px solid var(--ink-line);}
+    .schriftfeld div:nth-child(n){padding:12px 12px 14px; border-left:1px solid var(--ink-line); border-top:1px solid var(--ink-line);}
+    .schriftfeld div:first-child{grid-column:1 / -1; border-top:0; border-left:0; padding-left:0;}
+    .schriftfeld div:nth-child(even){border-left:0; padding-left:0;}
     .leistung{grid-template-columns:minmax(0,1fr); padding:26px 0 28px;}
     .leistung-pfeil{display:none;}
     .field-row{grid-template-columns:1fr;}
@@ -680,6 +693,7 @@
      ===================================================================== */
   .schnellkontakt{display:none;}
   @media (max-width:860px){
+    html{scroll-padding-bottom:calc(80px + env(safe-area-inset-bottom));}
     body{padding-bottom:calc(66px + env(safe-area-inset-bottom));}
     .schnellkontakt{
       position:fixed; left:0; right:0; bottom:0; z-index:90;
@@ -714,11 +728,6 @@
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
   <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
-  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="m9 12 2 2 4-4"/></symbol>
-  <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
-  <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="11.5" cy="11.5" r="3.5"/><path d="m17 17-2.5-2.5"/></symbol>
-  <symbol id="i-helmet" viewBox="0 0 24 24"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 6 6v3"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><rect x="2" y="15" width="20" height="4" rx="1"/></symbol>
-  <symbol id="i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
 </svg>
 
@@ -758,7 +767,7 @@
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-copy">
-          <h1 id="heroTitle"><span class="h1-ort">Baugutachten in Berlin und Brandenburg</span>Wir prüfen Gebäude, wenn es um Schaden, Streit oder Kauf geht.</h1>
+          <h1 id="heroTitle"><span class="h1-ort">Baugutachten in Berlin und Brandenburg</span> Wir prüfen Gebäude, wenn es um Schaden, Streit oder Kauf geht.</h1>
           <p class="hero-lead">Wir stellen Schäden und Mängel fest, klären ihre Ursachen und dokumentieren den Zustand von Gebäuden – für Gerichte, Versicherer, Hausverwaltungen, Käufer und Bauherren.</p>
           <div class="hero-actions">
             <a href="#kontakt" class="btn btn-primary">Anfrage senden <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -853,7 +862,7 @@
         <div><dt>Büro</dt><dd>Bassam Ingenieurbüro für Bauwesen GmbH</dd></div>
         <div><dt>Anschrift</dt><dd>Straße am Flugplatz 6a, 12487 Berlin</dd></div>
         <div><dt>Kammer</dt><dd>Baukammer Berlin</dd></div>
-        <div><dt>Berichte</dt><dd>Deutsch und Englisch</dd></div>
+        <div><dt>Berichte</dt><dd>Deutsch, auf Wunsch Englisch</dd></div>
         <div><dt>Rückmeldung</dt><dd>innerhalb eines Werktags</dd></div>
       </dl>
     </div>
@@ -862,7 +871,7 @@
   <!-- ================= LEISTUNGEN ================= -->
   <section id="leistungen" class="section" aria-labelledby="leistungenTitle">
     <div class="wrap leistungen-grid">
-      <div class="leistungen-kopf reveal">
+      <div class="leistungen-kopf">
         <h2 id="leistungenTitle">Leistungen nach Anlass</h2>
         <p class="section-intro">Bauingenieure für Bauschäden, Bauphysik und Baubetrieb. Suchen Sie sich den Anlass aus, der zu Ihnen passt – auf jeder Leistungsseite stehen Umfang und Ablauf.</p>
         <a class="btn btn-outline" href="/leistungen/">Alle Leistungen <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -873,32 +882,29 @@
         <article class="leistung reveal" id="leistung-kaufbegutachtung">
           <span class="leistung-anlass">Sie wollen ein Haus oder eine Wohnung kaufen</span>
           <h3><a href="/leistungen/kaufbegutachtung/">Kaufbegutachtung</a></h3>
-          <p>Wir begehen das Objekt, werten die Unterlagen aus und zeigen Mängel und die Kosten der nächsten 10–15 Jahre – bevor Sie zum Notar gehen.</p>
-          <div class="leistung-weiter"><a href="#kontakt" class="text-link" data-topic="Kaufbegutachtung (Haus oder Wohnung)">Anfrage stellen</a></div>
+          <p>Wir begehen das Objekt, werten die Unterlagen aus, benennen Mängel und geben einen Kostenrahmen für die nächsten 10–15 Jahre – bevor Sie zum Notar gehen.</p>
           <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
 
         <article class="leistung reveal" style="--d:.08s" id="leistung-beweissicherung">
-          <span class="leistung-anlass">Nebenan wird gebaut oder abgerissen</span>
+          <span class="leistung-anlass">Bauarbeiten stehen bevor – nebenan oder am eigenen Haus</span>
           <h3><a href="/leistungen/technische-beweissicherung/">Technische Beweissicherung</a></h3>
-          <p>Wir dokumentieren den Zustand von Gebäuden vor, während und nach Bauarbeiten – als Nachweis, falls später strittig ist, woher ein Schaden kommt.</p>
-          <div class="leistung-weiter"><a href="#kontakt" class="text-link" data-topic="Technische Beweissicherung">Anfrage stellen</a></div>
+          <p>Wir dokumentieren den Zustand von Gebäuden vor, während und nach Bauarbeiten – damit sich später zeigen lässt, ob ein Riss schon vor Baubeginn da war.</p>
           <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
 
         <article class="leistung reveal" id="leistung-versicherungsgutachten">
           <span class="leistung-anlass">Ein Gebäudeschaden ist eingetreten</span>
           <h3><a href="/leistungen/versicherer/">Versicherungsgutachten</a></h3>
-          <p>Wir ermitteln Ursache und Umfang des Schadens und liefern Versicherern eine nachvollziehbare Grundlage für die Regulierung.</p>
-          <div class="leistung-weiter"><a href="#kontakt" class="text-link" data-topic="Versicherungsgutachten">Anfrage stellen</a></div>
+          <p>Wir ermitteln Ursache und Umfang eines Gebäudeschadens und die nötigen Maßnahmen – als nachvollziehbare Grundlage für die Regulierung, im Auftrag des Versicherers oder des Eigentümers.</p>
           <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
 
         <article class="leistung reveal" style="--d:.08s" id="leistung-gerichtsgutachten">
-          <span class="leistung-anlass">Ein Gericht oder eine Kanzlei braucht Antworten</span>
+          <span class="leistung-anlass">Ein Gericht hat einen Beweisbeschluss erlassen</span>
           <h3><a href="/leistungen/gerichte-versicherer/">Gerichtsgutachten</a></h3>
-          <p>Gutachten nach Beweisbeschluss: gegliedert nach den Beweisfragen, Befund und Bewertung getrennt, Grenzen der Untersuchung benannt.</p>
-          <div class="leistung-weiter"><a href="#kontakt" class="text-link" data-topic="Gerichtsgutachten">Anfrage stellen</a></div>
+          <p>Gutachten nach Beweisbeschluss oder im selbständigen Beweisverfahren – Ortstermin mit Ladung aller Beteiligten, Antworten Beweisfrage für Beweisfrage.</p>
+          <div class="leistung-weiter"><a href="/leistungen/privatgutachten-bauprozess/" class="text-link">Privatgutachten für Parteien und Kanzleien</a></div>
           <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
 
@@ -906,15 +912,14 @@
           <span class="leistung-anlass">Feuchte Wände, Schimmel oder Wasser in der Decke</span>
           <h3><a href="/leistungen/schimmelgutachten/">Schimmel und Wasserschäden</a></h3>
           <p>Wir messen die Feuchte, suchen die Ursache und halten fest, was vor der Sanierung geklärt sein muss.</p>
-          <div class="leistung-weiter"><a href="/leistungen/wasserschaden-gutachten/" class="text-link">Wasserschaden-Gutachten</a><a href="#kontakt" class="text-link" data-topic="Schimmel oder Wasserschaden">Anfrage stellen</a></div>
+          <div class="leistung-weiter"><a href="/leistungen/wasserschaden-gutachten/" class="text-link">Wasserschaden-Gutachten</a></div>
           <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
 
         <article class="leistung reveal" style="--d:.08s" id="leistung-objektueberwachung">
           <span class="leistung-anlass">Sie bauen oder sanieren</span>
           <h3><a href="/leistungen/baubegleitung-bauabnahme/">Baubegleitung und Bauabnahme</a></h3>
-          <p>Wir begleiten die Ausführung vor Ort, prüfen die Leistungen vor der Abnahme und halten Mängel schriftlich fest.</p>
-          <div class="leistung-weiter"><a href="#kontakt" class="text-link" data-topic="Baubegleitung und Bauabnahme">Anfrage stellen</a></div>
+          <p>Wir prüfen die Ausführung zu den entscheidenden Bauständen, solange Bauteile noch offen sind, begleiten die Abnahme und halten Mängel mit Fotos fest. Eine Objektüberwachung (Leistungsphase 8 HOAI) bieten wir gesondert an.</p>
           <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
       </div>
@@ -924,30 +929,26 @@
   <!-- ================= ARBEITSWEISE ================= -->
   <section id="arbeitsweise" class="section section-alt" aria-labelledby="arbeitsweiseTitle">
     <div class="wrap">
-      <div class="arbeitsweise-kopf reveal">
+      <div class="arbeitsweise-kopf">
         <h2 id="arbeitsweiseTitle">So entsteht ein Gutachten</h2>
         <p class="section-intro">Erst feststellen, dann bewerten. Was wir nicht sehen oder messen konnten, steht ausdrücklich im Bericht.</p>
       </div>
-      <ol class="masskette reveal">
+      <ol class="masskette reveal" role="list">
         <li style="--i:0">
-          <span class="mk-titel" aria-hidden="true">Vor Ort</span>
           <span class="mk-linie" aria-hidden="true"></span>
           <span class="mk-text"><strong>Ortstermin</strong>Wir sehen uns das Gebäude an, soweit es zugänglich ist, und sprechen mit den Beteiligten.</span>
         </li>
         <li style="--i:1">
-          <span class="mk-titel" aria-hidden="true">Befund</span>
           <span class="mk-linie" aria-hidden="true"></span>
           <span class="mk-text"><strong>Messen und dokumentieren</strong>Fotos, Risse, Feuchte – je nach Auftrag auch Wärmebilder oder Proben für das Labor.</span>
         </li>
         <li style="--i:2">
-          <span class="mk-titel" aria-hidden="true">Bewertung</span>
           <span class="mk-linie" aria-hidden="true"></span>
           <span class="mk-text"><strong>Ursache und Bewertung</strong>Befund und Bewertung bleiben getrennt, damit jeder nachvollziehen kann, worauf ein Ergebnis beruht.</span>
         </li>
         <li style="--i:3">
-          <span class="mk-titel" aria-hidden="true">Bericht</span>
           <span class="mk-linie" aria-hidden="true"><span class="mk-ende"></span></span>
-          <span class="mk-text"><strong>Schriftlicher Bericht</strong>Mit Fotos, Messwerten und den Grenzen der Untersuchung – auf Wunsch auch auf Englisch.</span>
+          <span class="mk-text"><strong>Schriftlicher Bericht</strong>Mit Fotos, Messwerten und den Grenzen der Untersuchung.</span>
         </li>
       </ol>
     </div>
@@ -959,13 +960,13 @@
       <!-- Die Beiträge liegen als eigene, statische Seiten unter /fachwissen/.
            Bewusst echte Links statt JavaScript: KI-Crawler führen kein JavaScript
            aus und sehen sonst weder Titel noch Text. -->
-      <div class="reveal">
+      <div>
         <h2 id="fachwissenTitle">Fachwissen und Werkzeuge</h2>
         <p class="section-intro">Fachbeiträge zu Bauphysik, Bauschäden und Baurecht – jeder Beitrag mit Quellenangaben und eigener Adresse, zitierfähig und ohne Cookies. Dazu Rechner und Vorlagen, die Sie ohne Anmeldung nutzen können.</p>
         <a class="btn btn-primary" href="/fachwissen/">Zu den Fachbeiträgen <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
-      <ul class="werkzeuge reveal" style="--d:.08s">
-        <li><a href="/wertrechner/"><span class="wz-titel">Wertrechner Berlin</span><span class="wz-text">Kostenlose Wertindikation für Wohnungen und Häuser</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <ul class="werkzeuge" role="list">
+        <li><a href="/wertrechner/"><span class="wz-titel">Wertrechner Berlin</span><span class="wz-text">Kostenlose Wertindikation für Häuser in Berlin</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
         <li><a href="/werkzeuge/taupunkt/"><span class="wz-titel">Taupunkt und Schimmelrisiko</span><span class="wz-text">Rechner nach DIN 4108-2</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
         <li><a href="/werkzeuge/gewaehrleistungsfrist/"><span class="wz-titel">Gewährleistungsfrist</span><span class="wz-text">Fristende nach BGB und VOB/B berechnen</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
         <li><a href="/werkzeuge/maengelanzeige/"><span class="wz-titel">Mängelanzeige</span><span class="wz-text">Schreiben mit Fristsetzung erstellen</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
@@ -977,7 +978,7 @@
   <!-- ================= KONTAKT ================= -->
   <section id="kontakt" class="section section-dark" aria-labelledby="kontaktTitle">
     <div class="wrap contact-grid">
-      <div class="contact-info reveal">
+      <div class="contact-info">
         <h2 id="kontaktTitle">Schildern Sie uns Ihren Fall</h2>
         <p class="contact-lead">Ob Schadensfall, Rechtsstreit, Hauskauf oder laufende Baumaßnahme – schreiben Sie uns, worum es geht. Sie erhalten innerhalb eines Werktags eine Rückmeldung.</p>
         <ul class="contact-list">
@@ -1002,12 +1003,12 @@
         </ul>
       </div>
 
-      <div class="form-card reveal" style="--d:.1s">
+      <div class="form-card">
         <!-- Kontaktformular: öffnet das E-Mail-Programm (mailto). Es werden keine Daten auf dem Webserver gespeichert. -->
         <form id="kontaktForm" action="mailto:info@ing-bassam.de" method="post" enctype="text/plain" novalidate>
           <div id="formFields">
             <h3>Anfrage senden</h3>
-            <p class="form-sub">Felder mit <span aria-hidden="true">*</span><span class="sr-only">Stern</span> sind Pflichtfelder. Rückmeldung innerhalb eines Werktags.</p>
+            <p class="form-sub">Felder mit <span aria-hidden="true">*</span><span class="sr-only">Stern</span> sind Pflichtfelder.</p>
 
             <div class="field-row">
               <div class="field">
@@ -1219,7 +1220,9 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && header.classList.contains('nav-open')) { setNavOpen(false); navToggle.focus(); }
     });
-    window.matchMedia('(min-width: 861px)').addEventListener('change', (e) => { if (e.matches) setNavOpen(false); });
+    const breit = window.matchMedia('(min-width: 861px)');
+    const beiBreite = (e) => { if (e.matches) setNavOpen(false); };
+    if (breit.addEventListener) breit.addEventListener('change', beiBreite); else breit.addListener(beiBreite);
 
     /* ---------- Aktiver Menüpunkt ---------- */
     const navLinks = [...document.querySelectorAll('.nav-links a')];
@@ -1233,7 +1236,7 @@
       document.querySelectorAll('main > section[id]').forEach((s) => spy.observe(s));
     }
 
-    /* ---------- Sanftes Einblenden beim Scrollen ---------- */
+    /* ---------- Linien ziehen, sobald Leistungen und Maßkette ins Bild kommen ---------- */
     const revealEls = document.querySelectorAll('.reveal');
     if (reduceMotion || !('IntersectionObserver' in window)) {
       revealEls.forEach((el) => el.classList.add('is-visible'));
