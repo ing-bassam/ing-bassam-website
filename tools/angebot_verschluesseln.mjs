@@ -80,7 +80,11 @@ export function paketBauen(inhalte) {
   for (const [id, o] of Object.entries(optionen)) {
     const fest = zahl(o.netto) && o.netto > 0;
     const spanne = zahl(o.netto_von) && zahl(o.netto_bis) && o.netto_von > 0 && o.netto_bis >= o.netto_von;
-    pruefe(fest || spanne, `Option ${id}: netto oder netto_von/netto_bis fehlt`);
+    // Kostenlose Extras: "kostenlos": true und/oder "netto": 0 – die Seite zeigt dann „kostenlos“.
+    const frei = (o.kostenlos === true && o.netto === undefined) || (o.netto === 0 && o.netto_von === undefined);
+    pruefe(fest || spanne || frei, `Option ${id}: netto oder netto_von/netto_bis fehlt`);
+    pruefe(o.kostenlos === undefined || typeof o.kostenlos === "boolean", `Option ${id}: kostenlos muss true oder false sein`);
+    pruefe(o.kostenlos !== true || (!fest && !spanne), `Option ${id}: kostenlos, aber mit Preis`);
     for (const s of ["de", "en"]) pruefe(o[s] && o[s].name && o[s].text, `Option ${id}: Name/Text ${s} fehlt`);
   }
 

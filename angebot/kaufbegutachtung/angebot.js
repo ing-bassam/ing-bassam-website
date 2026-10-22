@@ -9,9 +9,12 @@
  *
  * Diese Datei enthält nur, was öffentlich sein darf:
  *   - Link lesen und Paket entschlüsseln (WebCrypto, im Browser und in Node),
+ *   - entscheiden, was bei einer Änderung des Teils nach „#“ passiert (der
+ *     Schlüssel darf dabei nie verloren gehen),
  *   - Eingaben prüfen,
  *   - Preis berechnen: Grundpaket + zutreffende Zuschläge + gewählte Extras,
- *     alles in Cent, Bruttopreis aus dem Nettopreis (Umsatzsteuer aus dem Paket),
+ *     alles in Cent; jede Position brutto aus ihrem Nettopreis auf Cent gerundet,
+ *     der Gesamtpreis ist die Summe dieser Bruttobeträge (Umsatzsteuer aus dem Paket),
  *   - passende Hinweise und Unterlagen auswählen (Bedingungen UND-verknüpft),
  *   - den Text der E-Mail „Auswahl senden“ bauen.
  *
@@ -87,6 +90,49 @@ export function linkBauen({ basis = "", schluessel, objekt = "etw", sprache = "d
   return `${basis}#k=${schluessel}&o=${o}&l=${sprachen(sprache)}`;
 }
 
+/** Hat der Text die Form eines Schlüssels (32 Bytes als Base64url, 43 Zeichen)? Ob er passt, zeigt erst das Entschlüsseln. */
+export function schluesselForm(text) {
+  const t = String(text || "");
+  if (!/^[A-Za-z0-9_-]{43}$/.test(t)) return false;
+  const bytes = base64ZuBytes(t);
+  return Boolean(bytes && bytes.length === SCHLUESSEL_BYTES);
+}
+
+/**
+ * Ziel eines Sprungs innerhalb der Seite: „#senden“ → "senden".
+ * null, wenn es kein einfacher Abschnittsname ist (z. B. ein Link mit „k=…“).
+ */
+export function sprungZiel(href) {
+  const text = String(href || "");
+  if (!text.startsWith("#") || text.length < 2 || text.includes("=")) return null;
+  try {
+    return decodeURIComponent(text.slice(1));
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Was tun, wenn sich der Teil nach „#“ ändert (Ereignis „hashchange“)?
+ * Hintergrund: Ein Sprung wie „#senden“ ersetzt den ganzen Teil nach „#“ – und
+ * damit den Schlüssel. Ist die Seite schon geöffnet, darf das nie zum Hinweis
+ * „Dieser Link ist nicht vollständig“ führen.
+ *
+ *   "starten"          – Seite (neu) entschlüsseln: Sie ist noch nicht geöffnet,
+ *                        oder der neue Teil enthält einen ANDEREN gültigen Schlüssel.
+ *   "behalten"         – gleicher Schlüssel, nichts zu tun.
+ *   "wiederherstellen" – kein (gültiger) Schlüssel mehr, die Seite ist aber offen:
+ *                        alten Teil nach „#“ zurückschreiben, nichts neu starten;
+ *                        ziel nennt den Abschnitt, zu dem gesprungen werden sollte.
+ */
+export function fragmentAktion(fragment, { schluessel = "", geoeffnet = false } = {}) {
+  if (!geoeffnet || !schluessel) return { aktion: "starten", ziel: null };
+  const neu = linkLesen(fragment).schluessel;
+  if (neu === schluessel) return { aktion: "behalten", ziel: null };
+  if (schluesselForm(neu)) return { aktion: "starten", ziel: null };
+  return { aktion: "wiederherstellen", ziel: sprungZiel(fragment) };
+}
+
 // ------------------------------------------------------------ Krypto
 
 function subtle() {
@@ -140,9 +186,27 @@ const mwstProzent = (mwst) => Math.round(Number(mwst) * 100);
 /** Euro → Cent (ganzzahlig). */
 export const cent = (euroBetrag) => Math.round(Number(euroBetrag) * 100);
 
-/** Bruttobetrag in Cent aus dem Nettobetrag in Cent. */
-export function brutto(nettoCent, mwst) {
-  return Math.round((nettoCent * (100 + mwstProzent(mwst))) / 100);
+/**
+ * Bruttobetrag in Cent aus dem Nettopreis in Euro, auf Cent gerundet.
+ * Der Nettopreis darf ungerundet sein (z. B. 600 / 1,19 = 504,2016…), damit runde
+ * Endpreise exakt herauskommen. Winzige Rechenungenauigkeiten des
+ * Computers (…,4999999) werden vor dem Runden geglättet.
+ */
+export function bruttoCent(nettoEuro, mwst) {
+  const roh = Number(nettoEuro) * (100 + mwstProzent(mwst));
+  return Math.round(Math.round(roh * 1e6) / 1e6);
+}
+
+/** Nettobetrag in Cent aus einem Bruttobetrag in Cent (für die Zeile „netto + USt“). */
+export function nettoCent(bruttoBetrag, mwst) {
+  return Math.round((bruttoBetrag * 100) / (100 + mwstProzent(mwst)));
+}
+
+/** Kostenlose Leistung: im Paket als „kostenlos: true“ oder mit Nettopreis 0 eingetragen. */
+export function kostenlos(eintrag) {
+  if (!eintrag) return false;
+  if (eintrag.kostenlos === true) return true;
+  return eintrag.netto_von === undefined && eintrag.netto !== undefined && Number(eintrag.netto) === 0;
 }
 
 /** Cent → Betrag als Text: deutsch mit Komma und Eurozeichen hinten, englisch mit Punkt und Eurozeichen vorn. */
@@ -226,40 +290,47 @@ export function optionenFuer(daten, objekt) {
   return daten.pakete[objekt === "efh" ? "efh" : "etw"].optionen.map((id) => ({ id, ...daten.optionen[id] }));
 }
 
-/** Netto-Spanne einer Option in Cent (fester Preis: von = bis). */
-export function optionNetto(option) {
-  if (option.netto_von !== undefined) return [cent(option.netto_von), cent(option.netto_bis)];
-  return [cent(option.netto), cent(option.netto)];
+/**
+ * Bruttopreis einer Option in Cent als [von, bis] (fester Preis: von = bis,
+ * Abrechnung nach Aufwand: Spanne, kostenlos: 0).
+ */
+export function optionBrutto(option, mwst) {
+  if (kostenlos(option)) return [0, 0];
+  if (option.netto_von !== undefined) return [bruttoCent(option.netto_von, mwst), bruttoCent(option.netto_bis, mwst)];
+  const betrag = bruttoCent(option.netto, mwst);
+  return [betrag, betrag];
 }
 
 /**
  * Preis aus Grundpaket, zutreffenden Zuschlägen und gewählten Extras.
- * Alle Beträge in Cent. Der Gesamtbruttopreis wird aus der Nettosumme berechnet,
+ * Alle Beträge in Cent. Jede Position wird brutto (netto × 1,19) auf Cent gerundet;
+ * der Gesamtbruttopreis ist die Summe dieser Bruttobeträge – so stimmt die Summe
+ * immer mit den angezeigten Einzelpreisen überein. Netto = brutto / 1,19 (gerundet),
  * die Umsatzsteuer ist die Differenz.
  */
 export function preisBerechnen(daten, e, gewaehlt = []) {
   const wahl = new Set(gewaehlt);
   const paket = daten.pakete[e.objekt];
   const posten = [];
-  const dazu = (art, id, eintrag, von, bis, extra = {}) => posten.push({
-    art, id, eintrag, netto_von: von, netto_bis: bis, brutto_von: brutto(von, daten.mwst), brutto_bis: brutto(bis, daten.mwst), ...extra,
+  const dazu = (art, id, eintrag, [von, bis], extra = {}) => posten.push({
+    art, id, eintrag, brutto_von: von, brutto_bis: bis, kostenlos: kostenlos(eintrag), ...extra,
   });
-  const grund = cent(paket.grund.netto);
-  dazu("grund", paket.grund.id, paket.grund, grund, grund);
+  const fest = (netto) => {
+    const betrag = bruttoCent(netto, daten.mwst);
+    return [betrag, betrag];
+  };
+  dazu("grund", paket.grund.id, paket.grund, fest(paket.grund.netto));
   for (const z of zuschlaegeFuer(daten, e)) {
-    if (z.aktiv) dazu("zuschlag", z.id, z.eintrag, cent(z.eintrag.netto), cent(z.eintrag.netto), { grund: z.grund });
+    if (z.aktiv) dazu("zuschlag", z.id, z.eintrag, fest(z.eintrag.netto), { grund: z.grund });
   }
   for (const o of optionenFuer(daten, e.objekt)) {
-    if (wahl.has(o.id)) {
-      const [von, bis] = optionNetto(o);
-      dazu("option", o.id, o, von, bis);
-    }
+    if (wahl.has(o.id)) dazu("option", o.id, o, optionBrutto(o, daten.mwst));
   }
   const summe = (feld, art) => posten.filter((p) => !art || p.art === art).reduce((s, p) => s + p[feld], 0);
-  const nettoVon = summe("netto_von");
-  const nettoBis = summe("netto_bis");
-  const bruttoVon = brutto(nettoVon, daten.mwst);
-  const bruttoBis = brutto(nettoBis, daten.mwst);
+  const bruttoVon = summe("brutto_von");
+  const bruttoBis = summe("brutto_bis");
+  const nettoVon = nettoCent(bruttoVon, daten.mwst);
+  const nettoBis = nettoCent(bruttoBis, daten.mwst);
   return {
     posten,
     mwst_prozent: mwstProzent(daten.mwst),
@@ -269,7 +340,7 @@ export function preisBerechnen(daten, e, gewaehlt = []) {
     brutto_bis: bruttoBis,
     ust_von: bruttoVon - nettoVon,
     ust_bis: bruttoBis - nettoBis,
-    spanne: nettoVon !== nettoBis,
+    spanne: bruttoVon !== bruttoBis,
     // Anteile für die Balkengrafik (brutto): obere Grenze und – bei Spannen – untere Grenze
     anteile: { grund: summe("brutto_bis", "grund"), zuschlag: summe("brutto_bis", "zuschlag"), option: summe("brutto_bis", "option") },
     anteile_von: { grund: summe("brutto_von", "grund"), zuschlag: summe("brutto_von", "zuschlag"), option: summe("brutto_von", "option") },
@@ -350,6 +421,10 @@ export function unterlagen(daten, e, sprache = "de") {
     .map(({ u }) => ({ id: u.id, prio: u.prio, text: u[s], wo: u[`wo_${s}`] }));
 }
 
+// Ein Komma vor diesen Wörtern leitet eine Einschränkung ein und keinen neuen Punkt:
+// „Begehung vom Dach bis zum Keller, soweit zugänglich (ca. 4–5 Std.)“ bleibt ein Punkt.
+const EINSCHRAENKUNG = /^(?:soweit|sofern|falls|wenn|sobald|as far as)\b/;
+
 /** Kommaliste (außerhalb von Klammern) → Aufzählungspunkte, erster Buchstabe groß. */
 export function aufzaehlung(text) {
   const teile = [];
@@ -360,7 +435,7 @@ export function aufzaehlung(text) {
     const z = t[i];
     if (z === "(") tiefe += 1;
     if (z === ")") tiefe = Math.max(0, tiefe - 1);
-    if (z === "," && tiefe === 0 && t[i + 1] === " ") {
+    if (z === "," && tiefe === 0 && t[i + 1] === " " && !EINSCHRAENKUNG.test(t.slice(i + 2))) {
       teile.push(aktuell);
       aktuell = "";
       i += 1;
@@ -387,7 +462,7 @@ const einzeilig = (text, laenge) => kuerzen(String(text || "").replace(/\s+/g, "
 
 /**
  * Text und mailto-Adresse für „Auswahl senden“: Objekt, Eckdaten, gewählte
- * Leistungen mit Bruttopreisen, Gesamtpreis brutto, Termine, vorhandene und
+ * Leistungen mit Bruttopreisen (kostenlose als „kostenlos“), Gesamtpreis brutto, Termine, vorhandene und
  * fehlende unverzichtbare Unterlagen und die Bitte um das verbindliche Angebot.
  * t sind die Texte der Oberfläche (oberflaeche.js, Abschnitt mail).
  *
@@ -421,7 +496,8 @@ export function anfrage({ daten, t, eingabe: e, gewaehlt = [], vorhanden = [], f
   kopf.push("", `${t.leistungen}:`);
   for (const p of preis.posten) {
     const vorsatz = p.art === "zuschlag" ? `${t.zuschlag}: ` : "";
-    kopf.push(`- ${vorsatz}${p.eintrag[s].name}: ${euroSpanne(p.brutto_von, p.brutto_bis, s)}`);
+    const betrag = p.kostenlos ? t.kostenlos : euroSpanne(p.brutto_von, p.brutto_bis, s);
+    kopf.push(`- ${vorsatz}${p.eintrag[s].name}: ${betrag}`);
   }
   kopf.push(`${ersetzen(t.gesamt, { mwst: preis.mwst_prozent })}: ${euroSpanne(preis.brutto_von, preis.brutto_bis, s)}`);
   if (termin || notar) kopf.push("");
