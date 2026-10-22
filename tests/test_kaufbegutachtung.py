@@ -1,17 +1,20 @@
 """Prüft die Seiten zur Kaufbegutachtung gegen ihre einzige Datenquelle.
 
-werkzeuge/kaufbegutachtung/daten.js enthält Preise, Regeln, Unterlagen und
-Texte. Der Rechner liest sie im Browser; die festen Abschnitte der Seiten (für
-Besucher ohne JavaScript, Suchmaschinen und KI-Crawler) erzeugt
+werkzeuge/kaufbegutachtung/daten.js enthält Leistungsumfang, Regeln, Unterlagen
+und Texte. Der Hinweis-Assistent liest sie im Browser; die festen Abschnitte der
+Seiten (für Besucher ohne JavaScript, Suchmaschinen und KI-Crawler) erzeugt
 tools/kaufbegutachtung_bauen.py daraus. Dieser Test stellt sicher:
 
-- Die Daten sind in sich stimmig (Verweise auf Optionen, Eingaben, Kategorien).
-- Jede Regel-ID und jeder Bruttopreis steht im HTML beider Sprachfassungen.
+- Die Daten sind in sich stimmig (Verweise auf Eingaben, Merkmale, Kategorien).
+- In den Daten stehen keine Preisfelder mehr (die Datei ist öffentlich abrufbar):
+  Preise und Leistungsübersicht verschickt das Büro nur auf Anfrage per E-Mail.
+- Jede Regel-ID, jede Unterlage und der Leistungsumfang stehen im HTML beider
+  Sprachfassungen; die Seiten nennen „Preise auf Anfrage per E-Mail“.
 - Die festen Abschnitte entsprechen den Daten (sonst Skript ausführen).
-- Jeder Betrag mit Cent auf den betroffenen Seiten ist ein Preis aus den Daten –
-  ein veralteter Preis fällt so auf, auch auf der Due-Diligence-Seite.
-- „x € (y € netto)“ in den Texten passt zu y × 1,19.
 - Die Anker der QR-Codes (#wohnung, #haus, #flat, #house) bleiben erhalten.
+
+Dass auf den Seiten und in den Skripten keine Eurobeträge des Büros stehen, prüft
+tests/test_leistungen.py für alle Leistungsseiten gemeinsam.
 
 Aufruf: python -m unittest discover -s tests
 """
@@ -33,21 +36,27 @@ SEITEN = kb.SEITEN
 DUE_DILIGENCE = {"de": WURZEL / "leistungen" / "technische-due-diligence" / "index.html",
                  "en": WURZEL / "en" / "technical-due-diligence-berlin" / "index.html"}
 UEBERSICHTEN = {"de": WURZEL / "leistungen" / "index.html", "en": WURZEL / "en" / "index.html"}
-BETRAG = {"de": re.compile(r"(\d{1,3}(?:\.\d{3})*,\d{2}) €"), "en": re.compile(r"€(\d{1,3}(?:,\d{3})*\.\d{2})")}
-BRUTTO_NETTO = {"de": re.compile(r"(\d{1,3}(?:\.\d{3})*,\d{2}) €(?: je Stunde)? \((\d+(?:,\d{2})?) € netto\)"),
-                "en": re.compile(r"€(\d{1,3}(?:,\d{3})*\.\d{2})(?: per hour)? \(€(\d+(?:\.\d{2})?) net\)")}
+PREISFELDER = {"mwst", "netto", "netto_von", "netto_bis", "brutto", "stundensatz_netto", "zuschlaege",
+               "preis_schalter", "optionen", "pakete", "empfiehlt", "pauschal", "stundensatz"}
+PREISE_AUF_ANFRAGE = {"de": "Preise und die Übersicht aller Leistungen und Optionen senden wir Ihnen auf Anfrage per E-Mail",
+                      "en": "We send prices and a full list of services and options on request by email"}
 
 
 def text(pfad: Path) -> str:
     return unescape(pfad.read_text(encoding="utf-8"))
 
 
-def cent(betrag: str, sprache: str) -> int:
-    if sprache == "de":
-        betrag = betrag.replace(".", "").replace(",", ".")
-    else:
-        betrag = betrag.replace(",", "")
-    return round(float(betrag) * 100)
+def schluessel(knoten, pfad="") -> list[tuple[str, str]]:
+    """Alle Schlüssel eines JSON-Baums mit ihrem Pfad."""
+    gefunden = []
+    if isinstance(knoten, dict):
+        for k, v in knoten.items():
+            gefunden.append((k, f"{pfad}.{k}"))
+            gefunden += schluessel(v, f"{pfad}.{k}")
+    elif isinstance(knoten, list):
+        for i, v in enumerate(knoten):
+            gefunden += schluessel(v, f"{pfad}[{i}]")
+    return gefunden
 
 
 class Daten(unittest.TestCase):
@@ -71,20 +80,19 @@ class Daten(unittest.TestCase):
                 self.assertLessEqual(set(r.get("nutzung", [])), nutzung)
                 self.assertLessEqual(set(r.get("region", [])), region)
                 self.assertLessEqual(set(r) & {"fertighaus", "mfh6", "milieuschutz"}, schalter)
-                self.assertLessEqual(set(r.get("empfiehlt", [])), set(d["optionen"]))
                 if "von" in r and "bis" in r:
                     self.assertLessEqual(r["von"], r["bis"])
                 for sprache in ("de", "en"):
                     self.assertTrue(r[sprache]["titel"] and r[sprache]["text"])
                 self.assertTrue(r["quelle"]["titel"])
                 self.assertTrue(r["quelle"]["url"] == "" or r["quelle"]["url"].startswith("https://"))
+        for name, s in d["eingaben"]["schalter"].items():
+            self.assertIn(s["objekt"], kb.OBJEKTE, name)
+            self.assertTrue(s["de"] and s["en"], name)
         for objekt in kb.OBJEKTE:
-            paket = d["pakete"][objekt]
-            self.assertLessEqual(set(paket["optionen"]), set(d["optionen"]), objekt)
-            for z in paket["zuschlaege"]:
-                schalter_id = z.get("auto", {}).get("schalter")
-                if schalter_id:
-                    self.assertEqual(d["eingaben"]["preis_schalter"][schalter_id]["objekt"], objekt, z["id"])
+            for sprache in ("de", "en"):
+                self.assertGreaterEqual(len(d["leistungen"][objekt][sprache]), 5, (objekt, sprache))
+            self.assertEqual(len(d["leistungen"][objekt]["de"]), len(d["leistungen"][objekt]["en"]), objekt)
             unterlagen = [u["id"] for u in d["unterlagen"][objekt]]
             self.assertEqual(len(unterlagen), len(set(unterlagen)), objekt)
             for u in d["unterlagen"][objekt]:
@@ -93,18 +101,21 @@ class Daten(unittest.TestCase):
                 self.assertLessEqual(set(u.get("nutzung", [])), nutzung)
         self.assertEqual(set(d["seite"]["de"]["kategorien"]), set(kb.KATEGORIEN))
         self.assertEqual(set(d["seite"]["de"]["ui"]), set(d["seite"]["en"]["ui"]))
+        self.assertEqual(set(d["text"]["de"]), set(d["text"]["en"]))
 
-    def test_brutto_und_netto_in_texten_passen(self):
-        # „71,40 € (60 € netto)“: der Bruttobetrag muss netto × 1,19 sein.
-        gefunden = 0
-        quellen = [text(kb.DATEN_JS), *(text(p) for p in DUE_DILIGENCE.values()), *(text(p) for p in UEBERSICHTEN.values())]
-        for sprache in ("de", "en"):
-            for brutto, netto in (paar for q in quellen for paar in BRUTTO_NETTO[sprache].findall(q)):
-                gefunden += 1
-                with self.subTest(sprache=sprache, brutto=brutto, netto=netto):
-                    netto_wert = netto.replace(",", ".") if sprache == "de" else netto
-                    self.assertEqual(cent(brutto, sprache), kb.brutto_cent(netto_wert, self.d["mwst"]))
-        self.assertGreater(gefunden, 3)
+    def test_keine_preisfelder(self):
+        # daten.js ist öffentlich abrufbar: keine Preise, Zuschläge, Optionen oder Stundensätze.
+        gefunden = [pfad for name, pfad in schluessel(self.d) if name in PREISFELDER]
+        self.assertEqual(gefunden, [])
+        roh = kb.DATEN_JS.read_text(encoding="utf-8")
+        self.assertNotRegex(roh, r"\{(?:brutto|netto):")
+
+    def test_anfrage_bittet_um_angebot_mit_preisen(self):
+        self.assertEqual(self.d["seite"]["de"]["ui"]["angebot_bitte"],
+                         "Bitte senden Sie mir Ihr Angebot mit Preisen und der Leistungsübersicht.")
+        self.assertIn("quote with prices", self.d["seite"]["en"]["ui"]["angebot_bitte"])
+        for sprache, satz in PREISE_AUF_ANFRAGE.items():
+            self.assertTrue(self.d["text"][sprache]["preise"].startswith(satz), sprache)
 
 
 class Seiten(unittest.TestCase):
@@ -125,12 +136,27 @@ class Seiten(unittest.TestCase):
                     self.assertIn(r[sprache]["titel"], self.html[sprache])
                     self.assertIn(r[sprache]["text"], self.html[sprache])
 
-    def test_jeder_bruttopreis_in_beiden_sprachen(self):
+    def test_leistungsumfang_in_beiden_sprachen(self):
         for sprache, inhalt in self.html.items():
-            for p in kb.posten(self.d):
-                with self.subTest(sprache=sprache, posten=p["id"]):
-                    self.assertIn(kb.euro_spanne(p["brutto_von"], p["brutto_bis"], sprache), inhalt)
-                    self.assertIn(kb.euro_spanne(p["netto_von"], p["netto_bis"], sprache), inhalt)
+            for objekt in kb.OBJEKTE:
+                for punkt in self.d["leistungen"][objekt][sprache]:
+                    with self.subTest(sprache=sprache, punkt=punkt):
+                        self.assertIn(punkt, inhalt)
+
+    def test_preise_auf_anfrage(self):
+        # Statt Preisen: der Hinweis auf die E-Mail, ein Kontaktweg und „Angebot anfordern“.
+        for sprache, inhalt in self.html.items():
+            with self.subTest(sprache=sprache):
+                self.assertIn(PREISE_AUF_ANFRAGE[sprache], inhalt)
+                self.assertIn('href="mailto:info@ing-bassam.de', inhalt)
+                self.assertIn('href="tel:+4917623581339"', inhalt)
+                self.assertIn('id="anfrage-link"', inhalt)
+                self.assertIn("Angebot anfordern" if sprache == "de" else "Request a quote", inhalt)
+                for wort in ("Preis berechnen", "Calculate your price", "Preisrechner", "price calculator",
+                             'id="summe"', 'id="optionen"', "preistabelle", "data-preis="):
+                    self.assertNotIn(wort, inhalt)
+                kopf = re.search(r"<head>.*?</head>", inhalt, re.S).group(0)
+                self.assertNotRegex(kopf, r'"(?:price|minPrice|maxPrice|priceRange|priceSpecification)"|"Offer"')
 
     def test_unterlagen_in_beiden_sprachen(self):
         for sprache, inhalt in self.html.items():
@@ -150,6 +176,7 @@ class Seiten(unittest.TestCase):
         for sprache, roh in self.roh.items():
             titel = re.search(r"<title>(.*?)</title>", roh).group(1)
             self.assertLessEqual(len(unescape(titel)), 60, titel)
+            self.assertNotRegex(titel, r"[Pp]reis|[Pp]rice")
             self.assertIn('<script type="module" src="/werkzeuge/kaufbegutachtung/app.js"></script>', roh)
             self.assertIn("script-src 'self'", roh)
             self.assertNotIn("http://", roh.replace("http://www.w3.org", ""))
@@ -164,43 +191,15 @@ class Seiten(unittest.TestCase):
             self.assertTrue(website_bauen.zur_website(pfad.relative_to(WURZEL).as_posix()), pfad)
 
 
-class Preisangaben(unittest.TestCase):
-    """Beträge mit Cent auf den betroffenen Seiten stammen aus den Daten."""
-
-    @classmethod
-    def setUpClass(cls):
-        d = kb.daten_laden()
-        bekannt = set()
-        for p in kb.posten(d):
-            bekannt |= {p["brutto_von"], p["brutto_bis"], p["netto_von"], p["netto_bis"]}
-        # Preise, die in den Texten als „brutto (netto)“ stehen, z. B. jede weitere Schadstoffprobe.
-        for brutto, _ in BRUTTO_NETTO["de"].findall(text(kb.DATEN_JS)):
-            bekannt.add(cent(brutto, "de"))
-        cls.bekannt = bekannt
-        cls.d = d
-
-    def test_nur_bekannte_betraege(self):
-        seiten = {**{("neu", s): p for s, p in SEITEN.items()},
-                  **{("dd", s): p for s, p in DUE_DILIGENCE.items()},
-                  **{("uebersicht", s): p for s, p in UEBERSICHTEN.items()}}
-        for (art, sprache), pfad in seiten.items():
-            inhalt = text(pfad)
-            for betrag in BETRAG[sprache].findall(inhalt):
-                with self.subTest(seite=pfad.relative_to(WURZEL).as_posix(), betrag=betrag):
-                    self.assertIn(cent(betrag, sprache), self.bekannt)
-
+class AndereSeiten(unittest.TestCase):
     def test_due_diligence_verweist_auf_kaufbegutachtung(self):
         for sprache, pfad in DUE_DILIGENCE.items():
             inhalt = text(pfad)
             ziel = "/leistungen/kaufbegutachtung/" if sprache == "de" else "/en/pre-purchase-inspection-berlin/"
             self.assertIn(f'href="{ziel}"', inhalt)
-            for objekt in kb.OBJEKTE:
-                grund = kb.preis_von(self.d, self.d["pakete"][objekt]["grund"]["id"])
-                self.assertIn(kb.euro(grund["brutto_von"], sprache), inhalt)
-            # Der frühere „Technische Kurzbericht ab 1.290 €“ ist ersetzt.
+            # Der frühere „Technische Kurzbericht“ ist ersetzt.
             self.assertNotIn("Technischer Kurzbericht", inhalt)
             self.assertNotIn("Building survey report", inhalt)
-            self.assertNotIn('"price": "1290"', inhalt)
 
     def test_uebersichten_verlinken_die_seite(self):
         self.assertIn('href="/leistungen/kaufbegutachtung/"', text(UEBERSICHTEN["de"]))

@@ -1,14 +1,14 @@
-// Kaufbegutachtung – Oberfläche des Preis- und Hinweisrechners für die deutsche
-// und die englische Seite (Sprache aus <html lang>). Rechnet ausschließlich im
-// Browser (Rechenkern: kaufbegutachtung.js, Daten: daten.js). Nichts wird
-// gesendet oder gespeichert – keine Cookies, kein localStorage. Die Anfrage
-// entsteht als E-Mail im eigenen E-Mail-Programm; Unterlagen hängt man dort an.
+// Kaufbegutachtung – Oberfläche des Hinweis-Assistenten für die deutsche und die
+// englische Seite (Sprache aus <html lang>). Läuft ausschließlich im Browser
+// (Kern: kaufbegutachtung.js, Daten: daten.js). Nichts wird gesendet oder
+// gespeichert – keine Cookies, kein localStorage. Die Anfrage entsteht als E-Mail
+// im eigenen E-Mail-Programm; Unterlagen hängt man dort an. Preise zeigt die Seite
+// nicht: Sie kommen mit dem Angebot per E-Mail.
 //
 // Anker: #wohnung / #haus (deutsch) und #flat / #house (englisch) wählen die
 // Objektart vor – das sind die Ziele der QR-Codes in den Broschüren.
 import {
-  DATEN, PREIS_SCHALTER, SCHALTER, anfrage, anteil, eingabeLesen, euro, euroSpanne, hinweise, paket, preisBerechnen,
-  unterlagen, unterlagenText, zuschlaegeFuer,
+  DATEN, SCHALTER, anfrage, anteil, eingabeLesen, euro, hinweise, unterlagen, unterlagenText,
 } from "./kaufbegutachtung.js";
 
 const sprache = document.documentElement.lang === "en" ? "en" : "de";
@@ -19,7 +19,6 @@ const $ = (id) => document.getElementById(id);
 // Zustand, der nicht im Formular steht.
 const zustand = {
   objekt: "etw",
-  gewaehlt: new Set(),           // gewählte Optionen (bleiben beim Wechsel der Objektart erhalten)
   vorhanden: { etw: new Set(), efh: new Set() },
   unterlagenSchluessel: "",
 };
@@ -46,60 +45,10 @@ function schalterAufbauen(ziel, namen, quelle) {
   }).join("");
 }
 
-function preisHtml(p) {
-  return `<span class="kauf-preis"><b>${esc(euroSpanne(p.bruttoVon, p.bruttoBis, sprache))}</b><small>${esc(t.netto)} ${esc(euroSpanne(p.nettoVon, p.nettoBis, sprache))}</small></span>`;
-}
-
-function optionHtml(p) {
-  const id = `wahl-${p.id}`;
-  return `
-      <li class="kauf-option" data-id="${p.id}">
-        <input type="checkbox" id="${id}" name="auswahl" value="${p.id}" aria-describedby="${id}-text">
-        <div class="kauf-option-inhalt">
-          <label for="${id}"><span class="kauf-option-name">${esc(p.name)}</span>${preisHtml(p)}</label>
-          <p class="kauf-option-text" id="${id}-text">${esc(p.text)}</p>
-          <p class="marke-empfohlen" hidden>${esc(t.empfohlen)}</p>
-        </div>
-      </li>`;
-}
-
-function zuschlagHtml(p) {
-  return `
-      <li class="kauf-option kauf-zuschlag" data-zuschlag="${p.id}">
-        <span class="kauf-zuschlag-marke" aria-hidden="true"></span>
-        <div class="kauf-option-inhalt">
-          <p class="kauf-option-kopf"><span class="kauf-option-name">${esc(p.name)}</span>${preisHtml(p)}</p>
-          <p class="kauf-option-text">${esc(p.text)}</p>
-          <p class="kauf-zuschlag-status"></p>
-        </div>
-      </li>`;
-}
-
-function optionenAufbauen() {
-  const p = paket(zustand.objekt, sprache);
-  const g = p.grund;
-  $("optionen").innerHTML = `
-    <ul class="kauf-optionen">
-      <li class="kauf-option grund">
-        <span class="kauf-grund-marke" aria-hidden="true">✓</span>
-        <div class="kauf-option-inhalt">
-          <p class="kauf-option-kopf"><span class="kauf-option-name">${esc(g.name)}</span>${preisHtml(g)}</p>
-          <p class="kauf-option-text"><b>${esc(t.grund)}</b> · ${esc(g.kurz)}. ${esc(g.text)}</p>
-        </div>
-      </li>
-    </ul>
-    <p class="gruppe-titel">${esc(t.zuschlaege)}</p>
-    <ul class="kauf-optionen">${p.zuschlaege.map(zuschlagHtml).join("")}</ul>
-    <p class="gruppe-titel">${esc(t.optionen)}</p>
-    <ul class="kauf-optionen">${p.optionen.map(optionHtml).join("")}</ul>`;
-  for (const box of form.querySelectorAll("input[name=auswahl]")) box.checked = zustand.gewaehlt.has(box.value);
-}
-
 function objektSetzen(objekt, { anker = true } = {}) {
   zustand.objekt = objekt === "efh" ? "efh" : "etw";
   const radio = form.querySelector(`input[name=objekt][value="${zustand.objekt}"]`);
   if (radio) radio.checked = true;
-  optionenAufbauen();
   document.querySelectorAll("[data-objekt-nur]").forEach((el) => { el.hidden = el.dataset.objektNur !== zustand.objekt; });
   document.querySelectorAll("[data-schalter-objekt]").forEach((el) => { el.hidden = el.dataset.schalterObjekt !== zustand.objekt; });
   if (anker) {
@@ -120,52 +69,16 @@ function formularLesen() {
     nutzung: d.get("nutzung"),
     region: d.get("region"),
   };
-  for (const name of [...SCHALTER, ...PREIS_SCHALTER]) roh[name] = d.get(name) === "1";
+  for (const name of SCHALTER) roh[name] = d.get(name) === "1";
   return eingabeLesen(roh, sprache);
 }
 
-const auswahlLesen = () => [...form.querySelectorAll("input[name=auswahl]:checked")].map((box) => box.value);
-
 // ------------------------------------------------------------ Ausgabe
-
-function zuschlaegeZeigen(e) {
-  for (const z of zuschlaegeFuer(e)) {
-    const li = form.querySelector(`[data-zuschlag="${z.id}"]`);
-    if (!li) continue;
-    const daten = DATEN.pakete[e.objekt].zuschlaege.find((x) => x.id === z.id);
-    const gruende = z.gruende.map((g) => (g === "flaeche"
-      ? ersetzen(t.zuschlag_flaeche, { n: Math.floor(daten.auto.flaeche_ab) })
-      : DATEN.eingaben.preis_schalter[daten.auto.schalter][sprache]));
-    li.classList.toggle("trifft-zu", z.trifftZu);
-    li.querySelector(".kauf-zuschlag-marke").textContent = z.trifftZu ? "✓" : "–";
-    li.querySelector(".kauf-zuschlag-status").textContent = z.trifftZu
-      ? `${t.zuschlag_ja}: ${gruende.join(", ")}`
-      : t.zuschlag_nein;
-  }
-}
-
-function summeZeigen(preis) {
-  const ustText = preis.spanne ? euroSpanne(preis.ustVon, preis.ustBis, sprache) : euro(preis.ustVon, sprache);
-  $("summe").innerHTML = `
-      <div class="spanne">
-        <span class="label">${esc(t.summe)}</span>
-        <div class="zahlen">${esc(euroSpanne(preis.bruttoVon, preis.bruttoBis, sprache))}</div>
-        <p class="mitte"><b>${esc(t.inkl)}</b> · ${esc(t.netto)} ${esc(euroSpanne(preis.nettoVon, preis.nettoBis, sprache))} · ${esc(t.ust)} ${esc(ustText)}</p>
-        <p class="stand">${esc(DATEN.text[sprache].pauschal)}</p>
-      </div>`;
-}
 
 function hinweiseZeigen(e) {
   const h = hinweise(e, sprache);
-  const empfohlen = new Set(h.empfohlen);
-  for (const li of form.querySelectorAll(".kauf-option[data-id]")) {
-    const ja = empfohlen.has(li.dataset.id);
-    li.classList.toggle("empfohlen", ja);
-    li.querySelector(".marke-empfohlen").hidden = !ja;
-  }
   const mitAngaben = e.baujahr !== null || e.heizung || e.nutzung || e.region || SCHALTER.some((n) => e[n]);
   $("hinweise-status").textContent = h.anzahl === 1 ? t.hinweise_eins : ersetzen(t.hinweise_anzahl, { n: h.anzahl });
-  const optionName = (id) => DATEN.optionen[id][sprache].name;
   const sprachAttr = sprache === "en" ? ' lang="de"' : "";
   const quelle = (q) => (q.url
     ? `${esc(t.quelle)}: <a href="${esc(q.url)}" rel="noopener"${sprachAttr}>${esc(q.titel)}</a>`
@@ -177,7 +90,6 @@ function hinweiseZeigen(e) {
           <li class="hinweis-karte">
             <p class="hinweis-titel">${esc(r.titel)}</p>
             <p>${esc(r.text)}</p>
-            ${r.empfiehlt.length ? `<p class="quelle">${esc(t.passende_option)}: ${esc(r.empfiehlt.map(optionName).join(", "))}</p>` : ""}
             <p class="quelle">${quelle(r.quelle)}</p>
           </li>`).join("")}
         </ul>
@@ -212,7 +124,7 @@ function unterlagenZeigen(e) {
 
 function anfrageZeigen(e) {
   const a = anfrage({
-    eingabe: e, auswahl: auswahlLesen(), vorhanden: [...zustand.vorhanden[e.objekt]],
+    eingabe: e, vorhanden: [...zustand.vorhanden[e.objekt]],
     adresse: $("adresse").value, termin: $("termin").value, sprache,
   });
   $("anfrage-link").href = a.href;
@@ -235,8 +147,6 @@ function fehlerZeigen(fehler) {
 function aktualisieren() {
   const { eingabe, fehler } = formularLesen();
   fehlerZeigen(fehler);
-  zuschlaegeZeigen(eingabe);
-  summeZeigen(preisBerechnen({ ...eingabe, auswahl: auswahlLesen(), sprache }));
   hinweiseZeigen(eingabe);
   unterlagenZeigen(eingabe);
   anfrageZeigen(eingabe);
@@ -278,8 +188,6 @@ form.addEventListener("change", (ev) => {
   const ziel = ev.target;
   if (ziel.name === "objekt") {
     objektSetzen(ziel.value);
-  } else if (ziel.name === "auswahl") {
-    if (ziel.checked) zustand.gewaehlt.add(ziel.value); else zustand.gewaehlt.delete(ziel.value);
   } else if (ziel.name === "vorhanden") {
     if (ziel.checked) zustand.vorhanden[zustand.objekt].add(ziel.value); else zustand.vorhanden[zustand.objekt].delete(ziel.value);
   }
@@ -306,7 +214,6 @@ auswahlFuellen("heizung", DATEN.eingaben.heizung);
 auswahlFuellen("nutzung", DATEN.eingaben.nutzung);
 auswahlFuellen("region", DATEN.eingaben.region);
 schalterAufbauen("schalter", SCHALTER, DATEN.eingaben.schalter);
-schalterAufbauen("preis-schalter", PREIS_SCHALTER, DATEN.eingaben.preis_schalter);
 const start = objektAusAnker();
 objektSetzen(start || form.querySelector("input[name=objekt]:checked")?.value || "etw", { anker: Boolean(start) });
 form.hidden = false;

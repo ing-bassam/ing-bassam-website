@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """Schreibt die festen Abschnitte der Seiten zur Kaufbegutachtung aus daten.js.
 
-Warum: Preise, Hinweise, Unterlagen und Texte der Kaufbegutachtung stehen an
-EINER Stelle – werkzeuge/kaufbegutachtung/daten.js. Der Rechner im Browser
-liest sie dort. Damit Suchmaschinen und KI-Crawler (die kein JavaScript
-ausführen) dieselben Inhalte sehen, stehen sie zusätzlich als festes HTML in
-den Seiten. Dieses Skript erzeugt dieses HTML aus den Daten und ersetzt die
-Abschnitte zwischen den Markierungen
+Warum: Leistungsumfang, Hinweise, Unterlagen und Texte der Kaufbegutachtung
+stehen an EINER Stelle – werkzeuge/kaufbegutachtung/daten.js. Der
+Hinweis-Assistent im Browser liest sie dort. Preise stehen nirgends auf der
+Website: Preise und Leistungsübersicht verschickt das Büro nur auf Anfrage per
+E-Mail (deshalb auch keine Offer-/Preisangaben in den Strukturdaten).
+
+Damit Suchmaschinen und KI-Crawler (die kein JavaScript ausführen) dieselben
+Inhalte sehen, stehen sie zusätzlich als festes HTML in den Seiten. Dieses
+Skript erzeugt dieses HTML aus den Daten und ersetzt die Abschnitte zwischen
+den Markierungen
 
     <!-- DATEN:name -->  …  <!-- /DATEN:name -->
 
@@ -28,7 +32,6 @@ import html
 import json
 import re
 import sys
-from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
 WURZEL = Path(__file__).resolve().parent.parent
@@ -40,8 +43,8 @@ SEITEN = {
 KATEGORIEN = ["pflicht", "miete", "pruefen", "foerderung"]
 OBJEKTE = ["etw", "efh"]
 # Kennungen der festen Abschnitte je Objektart und Sprache (Ziele der Anker auf der Seite).
-PREIS_ID = {"de": {"etw": "preise-wohnung", "efh": "preise-haus"},
-            "en": {"etw": "prices-flat", "efh": "prices-house"}}
+LEISTUNG_ID = {"de": {"etw": "leistung-wohnung", "efh": "leistung-haus"},
+               "en": {"etw": "service-flat", "efh": "service-house"}}
 UNTERLAGEN_ID = {"de": {"etw": "unterlagen-wohnung", "efh": "unterlagen-haus"},
                  "en": {"etw": "documents-flat", "efh": "documents-house"}}
 MARKE = re.compile(r"^([ \t]*)<!-- DATEN:([a-z_]+) -->\n.*?^[ \t]*<!-- /DATEN:\2 -->$", re.S | re.M)
@@ -58,59 +61,6 @@ def daten_laden(pfad: Path = DATEN_JS) -> dict:
     return json.loads(treffer.group(1))
 
 
-def brutto_cent(netto, mwst) -> int:
-    """Wie bruttoCent() in kaufbegutachtung.js: netto × (1 + mwst), auf Cent gerundet."""
-    return int((Decimal(str(netto)) * 100 * (1 + Decimal(str(mwst)))).quantize(Decimal(1), ROUND_HALF_UP))
-
-
-def euro(cent: int, sprache: str) -> str:
-    """„1.059,10 €“ oder „€1,059.10“ – wie euro() in kaufbegutachtung.js."""
-    ganz, rest = divmod(abs(cent), 100)
-    if sprache == "en":
-        return f"€{ganz:,}.{rest:02d}"
-    return f"{ganz:,}".replace(",", ".") + f",{rest:02d} €"
-
-
-def euro_spanne(von: int, bis: int, sprache: str) -> str:
-    if von == bis:
-        return euro(von, sprache)
-    if sprache == "en":
-        return f"{euro(von, 'en')} – {euro(bis, 'en')}"
-    return f"{euro(von, 'de')[:-2]} – {euro(bis, 'de')}"
-
-
-def posten(daten: dict) -> list[dict]:
-    """Alle Preisposten (Grundpakete, Zuschläge, Optionen, Stundensatz) mit Cent-Beträgen."""
-    mwst = daten["mwst"]
-    liste = []
-
-    def neu(pid, eintrag, art):
-        von = eintrag.get("netto", eintrag.get("netto_von"))
-        bis = eintrag.get("netto", eintrag.get("netto_bis"))
-        liste.append({"id": pid, "art": art, "eintrag": eintrag,
-                      "netto_von": von * 100, "netto_bis": bis * 100,
-                      "brutto_von": brutto_cent(von, mwst), "brutto_bis": brutto_cent(bis, mwst)})
-
-    for objekt in OBJEKTE:
-        paket = daten["pakete"][objekt]
-        neu(paket["grund"]["id"], paket["grund"], "grund")
-        for z in paket["zuschlaege"]:
-            neu(z["id"], z, "zuschlag")
-            liste[-1]["objekt"] = objekt
-    gesehen = set()
-    for objekt in OBJEKTE:
-        for oid in daten["pakete"][objekt]["optionen"]:
-            if oid not in gesehen:
-                gesehen.add(oid)
-                neu(oid, daten["optionen"][oid], "option")
-    neu("stundensatz", {"netto": daten["stundensatz_netto"]}, "stunde")
-    return liste
-
-
-def preis_von(daten: dict, pid: str) -> dict:
-    return next(p for p in posten(daten) if p["id"] == pid)
-
-
 # ------------------------------------------------------------- Bausteine
 
 def e(text) -> str:
@@ -122,17 +72,8 @@ def ersetzen(vorlage: str, **werte) -> str:
 
 
 def einsetzen(daten: dict, text: str, sprache: str) -> str:
-    """Platzhalter in Seitentexten: {brutto:ID}/{netto:ID} (Preis eines Postens), {text:SCHLUESSEL}."""
-    alle = {p["id"]: p for p in posten(daten)}
-
-    def ersetze(m: re.Match) -> str:
-        art, schluessel = m.group(1), m.group(2)
-        if art == "text":
-            return daten["text"][sprache][schluessel]
-        p = alle[schluessel]
-        return euro_spanne(p[f"{art}_von"], p[f"{art}_bis"], sprache)
-
-    return re.sub(r"\{(brutto|netto|text):(\w+)\}", ersetze, text)
+    """Platzhalter in Seitentexten: {text:SCHLUESSEL} wird durch daten.text[sprache][SCHLUESSEL] ersetzt."""
+    return re.sub(r"\{text:(\w+)\}", lambda m: daten["text"][sprache][m.group(1)], text)
 
 
 def oder(liste: list[str], sprache_ui: dict) -> str:
@@ -161,7 +102,7 @@ def bedingung_regel(daten: dict, regel: dict, sprache: str) -> str:
     for feld, vorlage in (("heizung", "heizung_bed"), ("nutzung", "nutzung_bed"), ("region", "region_bed")):
         if feld in regel:
             teile.append(ersetzen(t[vorlage], liste=oder(label(daten, feld, regel[feld], sprache), t)))
-    for name in ("fertighaus", "mfh6", "milieuschutz"):
+    for name in daten["eingaben"]["schalter"]:
         if regel.get(name):
             teile.append(daten["eingaben"]["schalter"][name][sprache])
     return " · ".join(teile)
@@ -180,7 +121,7 @@ def bedingung_unterlage(daten: dict, u: dict, sprache: str) -> str:
         teile.append(ersetzen(t["u_heizung"], liste=oder(label(daten, "heizung", u["heizung"], sprache), t)))
     if "nutzung" in u:
         teile.append(t["u_vermietet"])
-    for name in ("fertighaus", "mfh6", "milieuschutz"):
+    for name in daten["eingaben"]["schalter"]:
         if u.get(name):
             teile.append(ersetzen(t["u_schalter"], name=daten["eingaben"]["schalter"][name][sprache]))
     return " · ".join(teile)
@@ -238,55 +179,37 @@ def block_objektwahl(daten: dict, sprache: str) -> str:
     return "\n".join(zeilen)
 
 
-def preis_zelle(p: dict, sprache: str, t: dict) -> str:
-    return (f'<td><b>{e(euro_spanne(p["brutto_von"], p["brutto_bis"], sprache))}</b>'
-            f'<small>{e(t["netto"])} {e(euro_spanne(p["netto_von"], p["netto_bis"], sprache))}</small></td>')
-
-
-def block_preise(daten: dict, sprache: str) -> str:
+def block_leistungsumfang(daten: dict, sprache: str) -> str:
+    """Leistungsumfang je Objektart (ohne Preise) und der Hinweis „Preise auf Anfrage per E-Mail“."""
     text = daten["text"][sprache]
     seite = daten["seite"][sprache]
     t = seite["ui"]
-    alle = {p["id"]: p for p in posten(daten)}
-    zeilen = [f'<p class="pauschal">{e(text["pauschal"])} {e(text["ausserhalb"])}</p>']
+    kontakt = daten["kontakt"]
+    zeilen = []
     if seite.get("sprach_hinweis"):
         zeilen.append(f'<p class="pauschal">{e(einsetzen(daten, seite["sprach_hinweis"], sprache))}</p>')
-    zeilen.append('<div class="preis-spalten">')
+    zeilen.append('<div class="leistung-spalten">')
     for objekt in OBJEKTE:
-        paket = daten["pakete"][objekt]
-        kennung = PREIS_ID[sprache][objekt]
-        grund = paket["grund"]
-        g = grund[sprache]
+        kennung = LEISTUNG_ID[sprache][objekt]
         zeilen += [
-            f'  <section class="preisblock" id="{kennung}" aria-labelledby="{kennung}-titel">',
+            f'  <section class="leistungsblock" id="{kennung}" aria-labelledby="{kennung}-titel">',
             f'    <h3 id="{kennung}-titel">{e(text["objekt_" + objekt])} <small>{e(text["objekt_" + objekt + "_unter"])}</small></h3>',
-            '    <div class="tabelle-huelle">',
-            '      <table class="preistabelle">',
-            f'        <thead><tr><th scope="col">{e(t["leistung"])}</th><th scope="col">{e(t["preis"])}</th></tr></thead>',
-            '        <tbody>',
-            f'          <tr class="grund" data-preis="{grund["id"]}"><th scope="row"><b>{e(g["name"])}</b>'
-            f'<span class="kurz">{e(g["kurz"])}</span><span class="beschreibung">{e(g["text"])}</span></th>'
-            f'{preis_zelle(alle[grund["id"]], sprache, t)}</tr>',
-            '        </tbody>',
+            f'    <p class="leistung-unter">{e(t["leistung_titel"])}</p>',
+            '    <ul class="liste-haken">',
+            *(f"      <li>{e(x)}</li>" for x in daten["leistungen"][objekt][sprache]),
+            '    </ul>',
         ]
-        for titel, eintraege in ((t["zuschlaege"], paket["zuschlaege"]),
-                                 (t["optionen"], [dict(daten["optionen"][o], id=o) for o in paket["optionen"]])):
-            zeilen += ['        <tbody>', f'          <tr class="zwischen"><th colspan="2" scope="rowgroup">{e(titel)}</th></tr>']
-            for z in eintraege:
-                zt = z[sprache]
-                zeilen.append(f'          <tr data-preis="{z["id"]}"><th scope="row"><b>{e(zt["name"])}</b>'
-                              f'<span class="beschreibung">{e(zt["text"])}</span></th>'
-                              f'{preis_zelle(alle[z["id"]], sprache, t)}</tr>')
-            zeilen.append('        </tbody>')
-        zeilen += ['      </table>', '    </div>']
         if objekt == "etw":
             a = seite["anteil"]
             zeilen.append(f'    <p class="anteil-beispiel"><b>{e(a["titel"])}:</b> {e(a["text"])} {e(a["beispiel"])}. '
                           f'{e(a["hinweis"])}</p>')
         zeilen.append('  </section>')
-    stunde = alle["stundensatz"]
-    zeilen += ['</div>', f'<p class="stundensatz" data-preis="stundensatz">' + e(ersetzen(
-        seite["stundensatz"], brutto=euro(stunde["brutto_von"], sprache), netto=euro(stunde["netto_von"], sprache))) + "</p>"]
+    telefon = re.sub(r"[^+\d]", "", kontakt["telefon"])
+    zeilen += ['</div>',
+               f'<p class="preise-anfrage"><b>{e(text["preise"])}</b> '
+               f'<a href="mailto:{e(kontakt["email"])}">{e(kontakt["email"])}</a> · '
+               f'<a href="tel:{telefon}">{e(kontakt["telefon"])}</a></p>',
+               f'<p class="pauschal">{e(text["ausserhalb"])}</p>']
     return "\n".join(zeilen)
 
 
@@ -303,9 +226,6 @@ def block_hinweise(daten: dict, sprache: str) -> str:
         for regel in (r for r in daten["regeln"] if r["kategorie"] == kategorie):
             rt = regel[sprache]
             inhalt = [f'<p>{e(rt["text"])}</p>']
-            empfiehlt = [daten["optionen"][o][sprache]["name"] for o in regel.get("empfiehlt", [])]
-            if empfiehlt:
-                inhalt.append(f'<p class="quelle">{e(t["passende_option"])}: {e(", ".join(empfiehlt))}</p>')
             inhalt.append(f'<p class="quelle">{quelle_html(regel, sprache, t)}</p>')
             zeilen += [
                 f'    <details class="abschnitt hinweis" data-regel="{regel["id"]}">',
@@ -366,12 +286,17 @@ def block_beauftragen(daten: dict, sprache: str) -> str:
         '<ul class="leistung-liste">', *(f"  <li>{e(x)}</li>" for x in text["qualifikation"]), "</ul>",
         f'<p>{e(text["vertrauen"])}</p>',
         f'<p class="beauftragen"><b>{e(text["beauftragen"])}</b></p>',
-        f'<p>{e(text["pauschal"])} {e(text["ausserhalb"])}</p>',
+        f'<p>{e(text["preise"])} {e(text["ausserhalb"])}</p>',
     ])
 
 
 def block_beauftragen_hinweis(daten: dict, sprache: str) -> str:
-    return f'<p class="hilfe">{e(daten["text"][sprache]["beauftragen"])}</p>'
+    """Unter dem Knopf „Angebot anfordern“: Preise auf Anfrage, dann Beauftragung und Widerruf."""
+    text = daten["text"][sprache]
+    return "\n".join([
+        f'<p class="hilfe preise-anfrage-kurz"><b>{e(text["preise"])}</b></p>',
+        f'<p class="hilfe">{e(text["beauftragen"])}</p>',
+    ])
 
 
 def block_anteil_kopf(daten: dict, sprache: str) -> str:
@@ -387,7 +312,7 @@ def block_anteil_hinweis(daten: dict, sprache: str) -> str:
 
 
 def faq(daten: dict, sprache: str) -> list[tuple[str, str]]:
-    """Fragen und Antworten mit eingesetzten Preisen und Texten (sichtbar und in den Strukturdaten gleich)."""
+    """Fragen und Antworten mit eingesetzten Texten (sichtbar und in den Strukturdaten gleich)."""
     return [(f["f"], einsetzen(daten, f["a"], sprache)) for f in daten["seite"][sprache]["faq"]]
 
 
@@ -401,34 +326,7 @@ def strukturdaten(daten: dict, sprache: str) -> dict:
     seite = daten["seite"][sprache]
     text = daten["text"][sprache]
     url = daten["urls"][sprache]
-    alle = posten(daten)
-
-    def angebot(p: dict) -> dict:
-        eintrag = p["eintrag"]
-        if p["art"] == "stunde":
-            preis = f'{p["brutto_von"] / 100:.2f}'
-            return {"@type": "Offer", "name": "Zusatzleistungen nach Aufwand" if sprache == "de" else "Additional work by time",
-                    "price": preis, "priceCurrency": "EUR",
-                    "priceSpecification": {"@type": "UnitPriceSpecification", "price": preis, "priceCurrency": "EUR",
-                                           "unitText": "Stunde" if sprache == "de" else "hour",
-                                           "valueAddedTaxIncluded": True}}
-        t = eintrag[sprache]
-        beschreibung = f'{t["kurz"]}: {t["text"]}' if t.get("kurz") else t["text"]
-        name = t["name"]
-        if p["art"] == "zuschlag":
-            name = f'{seite["ui"]["objekt_kurz"][p["objekt"]]}: {name}'
-        o = {"@type": "Offer", "name": name, "description": beschreibung}
-        if p["brutto_von"] == p["brutto_bis"]:
-            preis = f'{p["brutto_von"] / 100:.2f}'
-            o.update({"price": preis, "priceCurrency": "EUR",
-                      "priceSpecification": {"@type": "PriceSpecification", "price": preis, "priceCurrency": "EUR",
-                                             "valueAddedTaxIncluded": True}})
-        else:
-            o["priceSpecification"] = {"@type": "PriceSpecification", "minPrice": f'{p["brutto_von"] / 100:.2f}',
-                                       "maxPrice": f'{p["brutto_bis"] / 100:.2f}', "priceCurrency": "EUR",
-                                       "valueAddedTaxIncluded": True}
-        return o
-
+    # Bewusst ohne Offer, price oder priceSpecification: Preise gibt es nur auf Anfrage per E-Mail.
     if sprache == "de":
         krumen = [("Start", "https://ing-bassam.de/"), ("Leistungen", "https://ing-bassam.de/leistungen/"),
                   ("Kaufbegutachtung", url)]
@@ -446,9 +344,7 @@ def strukturdaten(daten: dict, sprache: str) -> dict:
              "provider": {"@id": "https://ing-bassam.de/#organization"},
              "areaServed": [{"@type": "City", "name": "Berlin"}, {"@type": "State", "name": "Brandenburg"}],
              "availableChannel": {"@type": "ServiceChannel", "availableLanguage": ["de", "en"]},
-             "url": url,
-             "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Pakete und Optionen" if sprache == "de" else
-                                 "Packages and options", "itemListElement": [angebot(p) for p in alle]}},
+             "url": url},
             {"@type": "FAQPage", "mainEntity": [
                 {"@type": "Question", "name": frage, "acceptedAnswer": {"@type": "Answer", "text": antwort}}
                 for frage, antwort in faq(daten, sprache)]},
@@ -481,7 +377,7 @@ BLOECKE = {
     "kopf": block_kopf,
     "rechner_kopf": block_rechner_kopf,
     "objektwahl": block_objektwahl,
-    "preise": block_preise,
+    "leistungsumfang": block_leistungsumfang,
     "hinweise": block_hinweise,
     "unterlagen": block_unterlagen,
     "ablauf": block_ablauf,
