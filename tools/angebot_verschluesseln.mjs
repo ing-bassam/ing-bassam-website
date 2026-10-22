@@ -25,12 +25,20 @@
  *   --links schreibt zusätzlich die vier fertigen Links (Deutsch/Englisch,
  *   Wohnung/Haus) mit einer kurzen Anleitung in eine Datei außerhalb des Repositorys.
  *
+ *   Nach dem Verschlüsseln setzt das Werkzeug die Versionskennungen („?v=…“) in
+ *   index.html und app.js neu, damit Browser die neue Fassung laden (siehe unten).
+ *
+ *   Nur die Versionskennungen neu setzen (nach Änderungen an app.js, angebot.js,
+ *   oberflaeche.js, angebot.css oder wertrechner.css; braucht keinen Schlüssel):
+ *     node tools/angebot_verschluesseln.mjs --versionen
+ *
  * Neu verschlüsseln mit demselben Schlüssel: Die Links bleiben gültig.
  * Neuer Schlüssel: Alle bisher verschickten Links funktionieren nicht mehr.
  *
  * tests/angebot.test.mjs prüft Paketbau, Ver- und Entschlüsselung mit Beispieldaten.
  */
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { dirname, isAbsolute, relative, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import {
@@ -180,6 +188,74 @@ export function paketDatei(paket) {
   ].join("\n");
 }
 
+// ------------------------------------------------------------ Versionskennungen
+//
+// Browser und der Zwischenspeicher von GitHub Pages heben Skripte und Stylesheets auf.
+// Damit Besucher nach neuen Preisen nicht die alte Fassung sehen, hängt jeder Verweis
+// der Seite eine Kennung an, z. B. „paket.js?v=3f9a0c12de“: die ersten 10 Zeichen des
+// SHA-256 über den Dateiinhalt. Ändert sich eine Datei, ändert sich ihre Adresse – und
+// der Browser lädt sie neu. app.js trägt die Kennungen seiner Importe in sich; deshalb
+// ändert sich mit paket.js auch die Kennung von app.js und damit index.html.
+// Die Kennungen setzt das Werkzeug selbst (nach dem Verschlüsseln oder mit --versionen);
+// tests/angebot.test.mjs prüft, dass sie zum aktuellen Inhalt passen.
+
+/** Seite, deren Verweise versioniert werden (Pfad relativ zum Hauptordner). */
+export const SEITE = "angebot/kaufbegutachtung/index.html";
+const KENNUNG = "[0-9a-f]{10}";
+// index.html: href/src auf eigene .js/.css-Dateien unter /angebot/ und /wertrechner/.
+const HTML_VERWEIS = new RegExp(`(\\b(?:href|src)=")(/(?:angebot|wertrechner)/[\\w./-]+\\.(?:js|css))(?:\\?v=${KENNUNG})?(")`, "g");
+// Module: statische Importe „from "./name.js"“ (der Notfall-Import „./paket.js?frisch=…“ bleibt unberührt).
+const JS_VERWEIS = new RegExp(`(\\bfrom\\s*")(\\.{1,2}/[\\w./-]+\\.js)(?:\\?v=${KENNUNG})?(")`, "g");
+
+const lf = (text) => text.replace(/\r\n/g, "\n");
+/** Kurze Kennung eines Inhalts (unabhängig von CRLF/LF). */
+export function kennung(text) {
+  return createHash("sha256").update(lf(text), "utf8").digest("hex").slice(0, 10);
+}
+
+/**
+ * Berechnet die Dateien der Seite mit aktuellen Kennungen, ohne etwas zu schreiben.
+ * Ergebnis: Map absoluter Pfad → { alt, neu } für jede Datei, die Verweise enthält.
+ */
+export function versionenBerechnen(wurzel = WURZEL) {
+  const fassungen = new Map(); // Pfad → Inhalt mit aktuellen Kennungen
+  const ergebnis = new Map();
+  const fassung = (pfad, kette = []) => {
+    if (fassungen.has(pfad)) return fassungen.get(pfad);
+    if (kette.includes(pfad)) throw new Error(`Kreisverweis: ${[...kette, pfad].map((p) => relative(wurzel, p)).join(" → ")}`);
+    if (!existsSync(pfad)) throw new Error(`Verweis auf fehlende Datei: ${relative(wurzel, pfad)}`);
+    const alt = readFileSync(pfad, "utf8");
+    // .html verweist absolut (ab Hauptordner), .js relativ zum eigenen Ordner; .css bleibt, wie es ist.
+    const muster = pfad.endsWith(".html") ? HTML_VERWEIS : pfad.endsWith(".js") ? JS_VERWEIS : null;
+    const ziel = (name) => (name.startsWith("/") ? resolve(wurzel, `.${name}`) : resolve(dirname(pfad), name));
+    let neu = alt;
+    if (muster && alt.match(muster)) {
+      neu = alt.replace(muster, (_, vor, name, nach) => `${vor}${name}?v=${kennung(fassung(ziel(name), [...kette, pfad]))}${nach}`);
+      ergebnis.set(pfad, { alt, neu });
+    }
+    fassungen.set(pfad, neu);
+    return neu;
+  };
+  fassung(resolve(wurzel, SEITE));
+  return ergebnis;
+}
+
+/** Dateien, deren Kennungen nicht zum aktuellen Inhalt passen (relative Pfade). */
+export function versionenVeraltet(wurzel = WURZEL) {
+  return [...versionenBerechnen(wurzel)].filter(([, x]) => x.alt !== x.neu).map(([p]) => relative(wurzel, p).replace(/\\/g, "/"));
+}
+
+/** Schreibt die aktuellen Kennungen in index.html und app.js. Gibt die geänderten Dateien zurück. */
+export function versionenSetzen(wurzel = WURZEL) {
+  const geaendert = [];
+  for (const [pfad, x] of versionenBerechnen(wurzel)) {
+    if (x.alt === x.neu) continue;
+    schreiben(pfad, x.neu);
+    geaendert.push(relative(wurzel, pfad).replace(/\\/g, "/"));
+  }
+  return geaendert;
+}
+
 /** Die vier privaten Links. */
 export function links(schluessel, basis = ADRESSE) {
   return [
@@ -218,8 +294,9 @@ Der Teil \`&o=wohnung\` oder \`&o=haus\` wählt nur vor, welches Objekt beim Öf
    node tools/angebot_verschluesseln.mjs --daten "${datenPfad}" --schluessel "${schluesselPfad}"
    \`\`\`
 
-3. Die geänderte Datei \`angebot/kaufbegutachtung/paket.js\` per Pull Request einreichen und mergen.
-   Der Schlüssel bleibt gleich – alle verschickten Links funktionieren weiter und zeigen die neuen Preise.
+3. Die geänderten Dateien \`angebot/kaufbegutachtung/paket.js\`, \`index.html\` und \`app.js\` per Pull Request
+   einreichen und mergen. (Das Werkzeug hat in \`index.html\` und \`app.js\` neue Versionskennungen gesetzt, damit
+   Browser nicht die alte Fassung aus dem Zwischenspeicher zeigen.) Der Schlüssel bleibt gleich – alle verschickten Links funktionieren weiter und zeigen die neuen Preise.
 
 ## Schlüssel wechseln (z. B. wenn ein Link in falsche Hände geraten ist)
 
@@ -235,7 +312,7 @@ Der Teil \`&o=wohnung\` oder \`&o=haus\` wählt nur vor, welches Objekt beim Öf
    node tools/angebot_verschluesseln.mjs --daten "${datenPfad}" --schluessel "${schluesselPfad}" --links "${linksPfad}"
    \`\`\`
 
-3. \`paket.js\` per Pull Request einreichen und mergen. Danach funktionieren **alle alten Links nicht mehr**;
+3. \`paket.js\`, \`index.html\` und \`app.js\` per Pull Request einreichen und mergen. Danach funktionieren **alle alten Links nicht mehr**;
    wer noch einen alten Link hat, sieht nur den Hinweis „Dieser Link ist nicht vollständig“.
 `;
 }
@@ -246,10 +323,11 @@ function schreiben(pfad, inhalt) {
 }
 
 function argumente(liste) {
-  const a = { ueberschreiben: false };
+  const a = { ueberschreiben: false, versionen: false };
   for (let i = 0; i < liste.length; i += 1) {
     const name = liste[i];
     if (name === "--ueberschreiben") a.ueberschreiben = true;
+    else if (name === "--versionen") a.versionen = true;
     else if (["--daten", "--schluessel", "--ausgabe", "--links", "--schluessel-erzeugen"].includes(name)) {
       const wert = liste[i + 1];
       if (!wert || wert.startsWith("--")) throw new Error(`${name} braucht einen Pfad`);
@@ -288,8 +366,15 @@ export async function main(liste = process.argv.slice(2)) {
     if (!a.daten) return 0;
   }
 
+  if (a.versionen && !a.daten) {
+    const geaendert = versionenSetzen();
+    console.log(geaendert.length ? `Versionskennungen neu gesetzt: ${geaendert.join(", ")}.` : "Versionskennungen sind aktuell.");
+    return 0;
+  }
+
   if (!a.daten || !a.schluessel) {
-    throw new Error("Aufruf: --daten <inhalte.json> --schluessel <schluessel.txt> [--ausgabe <paket.js>] [--links <Private_Links.md>]");
+    throw new Error("Aufruf: --daten <inhalte.json> --schluessel <schluessel.txt> [--ausgabe <paket.js>] [--links <Private_Links.md>]"
+      + " oder --versionen");
   }
   const schluessel = schluesselLesen(a.schluessel);
   const inhalt = paketBauen(JSON.parse(readFileSync(a.daten, "utf8")));
@@ -299,6 +384,10 @@ export async function main(liste = process.argv.slice(2)) {
   const optionen = Object.keys(inhalt.optionen).length;
   console.log(`Paket geschrieben: ${imRepository(ausgabe) ? relative(WURZEL, ausgabe) : ausgabe} (${inhalt.regeln.length} Regeln, ${optionen} Optionen, `
     + `${Math.round(paket.daten.length / 1024)} KB verschlüsselt).`);
+  if (ausgabe === STANDARD_AUSGABE) {
+    const geaendert = versionenSetzen();
+    if (geaendert.length) console.log(`Versionskennungen neu gesetzt: ${geaendert.join(", ")}.`);
+  }
   if (a.links) {
     schreiben(a.links, linksDatei({ schluessel, datenPfad: a.daten, schluesselPfad: a.schluessel, linksPfad: a.links }));
     console.log(`Links geschrieben: ${a.links} (Inhalt wird nicht angezeigt).`);
