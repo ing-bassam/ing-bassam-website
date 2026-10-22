@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kaufbegutachtung – Ihr Angebot | BIB</title>
+<!-- PRIVAT: Diese Seite ist nur über einen persönlichen Link erreichbar, den das Büro nach einer
+     Anfrage per E-Mail verschickt. Sie wird nirgends verlinkt, steht nicht in Sitemap oder llms.txt
+     und soll nicht in Suchmaschinen erscheinen. Alle Inhalte liegen verschlüsselt in paket.js; den
+     Schlüssel enthält nur der Teil des Links nach „#“, den der Browser nie an den Server sendet. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0a121d">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/inter-v20-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/space-grotesk-v22-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/wertrechner/wertrechner.css">
+<link rel="stylesheet" href="/angebot/kaufbegutachtung/angebot.css">
+<link rel="modulepreload" href="/angebot/kaufbegutachtung/angebot.js">
+<link rel="modulepreload" href="/angebot/kaufbegutachtung/paket.js">
+</head>
+<body class="angebot-seite">
+
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
+
+<header class="seiten-kopf">
+  <div class="wrap kopf-innen">
+    <a href="/" class="logo" aria-label="BIB Ingenieurbüro für Bauwesen – zur Startseite"><b>BIB</b><span>Ingenieurbüro für Bauwesen</span></a>
+    <nav aria-label="Sprache" id="sprachwahl" hidden></nav>
+  </div>
+</header>
+
+<main id="inhalt">
+  <section class="angebot-status" aria-live="polite">
+    <div class="wrap schmal">
+      <p class="meldung info" id="oeffnen">Ihr Angebot wird geöffnet …</p>
+      <div class="meldung warnung" id="link-fehlt" hidden>
+        <p><strong>Dieser Link ist nicht vollständig.</strong> Bitte verwenden Sie den Link aus unserer E-Mail oder schreiben Sie an <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a>.</p>
+        <p lang="en"><strong>This link is incomplete.</strong> Please use the link from our email or write to <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a>.</p>
+      </div>
+      <noscript>
+        <div class="meldung warnung">
+          <p><strong>Diese Seite braucht JavaScript.</strong> Bitte schalten Sie es ein oder schreiben Sie an <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a>.</p>
+          <p lang="en"><strong>This page needs JavaScript.</strong> Please switch it on or write to <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a>.</p>
+        </div>
+      </noscript>
+    </div>
+  </section>
+  <div id="angebot" hidden></div>
+</main>
+
+<footer class="seiten-fuss">
+  <div class="wrap">
+    <p><strong>Bassam Ingenieurbüro für Bauwesen GmbH</strong> · Straße am Flugplatz 6a, 12487 Berlin · <a href="tel:+4917623581339">+49 176 23581339</a> · <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a></p>
+    <p><a href="/#impressum" id="fuss-impressum">Impressum</a> · <a href="/#datenschutz" id="fuss-datenschutz">Datenschutzerklärung</a></p>
+    <p class="klein" id="fuss-text">Diese Seite ist nur über Ihren persönlichen Link erreichbar. Ihre Eingaben bleiben in Ihrem Browser; an uns geht nur, was Sie selbst per E-Mail abschicken.</p>
+  </div>
+</footer>
+
+<script type="module" src="/angebot/kaufbegutachtung/app.js"></script>
+</body>
+</html>

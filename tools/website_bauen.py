@@ -57,6 +57,10 @@ ORDNER = {
     "en": {".html"},
     "werkzeuge": {".html", ".js"},
     "wertrechner": {".html", ".css", ".js", ".json"},
+    # Private Angebotsseiten: nur über einen persönlichen Link nutzbar, Inhalte
+    # verschlüsselt in paket.js (tools/angebot_verschluesseln.mjs). Nicht verlinkt,
+    # nicht in Sitemap oder llms.txt (tests/test_angebot.py).
+    "angebot": {".html", ".js", ".css"},
     "fonts": {".woff2"},
     # Nur die Downloads; die .yml-Quellen der Vorlagen bleiben intern.
     "vorlagen": {".pdf", ".docx", ".xlsx"},
