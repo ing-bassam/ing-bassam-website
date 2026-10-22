@@ -180,6 +180,9 @@ class EchterBestand(unittest.TestCase):
         # seit dem 20.10.2026 deckt die Checkliste zum Gemeinschaftseigentum dieses Thema schon ab.
         self.assertIn(beitrag, [e["kurzform"] for e, _, _ in ergebnis["verwandte"]])
         self.assertEqual([e["kurzform"] for e, _, _ in ergebnis["doppelungen"] if e["art"] != "vorlage"], [])
+        vorlage = "abnahme-gemeinschaftseigentum-checkliste"
+        if vorlage in self.nach_kurzform:
+            self.assertIn(vorlage, [e["kurzform"] for e, _, _ in ergebnis["doppelungen"]])
 
     def test_eigener_entwurf_heisst_vorhanden(self):
         mit_id = [e for e in self.bestand if e.get("notion_id")]
