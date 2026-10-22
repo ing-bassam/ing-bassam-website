@@ -488,7 +488,7 @@ def strukturierte_daten(l: Leitfaden) -> str:
 def leistungskasten(l: Leitfaden) -> str:
     seite = leistungsseite(l.leistung) or leistungsseite("en/")
     ziel = f"/{seite.pfad}"
-    knopf = "All services and fees" if seite.pfad == "en/" else "Scope and prices"
+    knopf = "All services" if seite.pfad == "en/" else "Scope and process"
     return f"""      <aside class="leistungskasten" aria-labelledby="leistung-titel">
         <span class="eyebrow">Related service</span>
         <h2 id="leistung-titel"><a href="{ziel}">{html.escape(seite.name)}</a></h2>
@@ -657,8 +657,8 @@ def uebersicht(oeffentlich: list[Leitfaden]) -> str:
       <span class="eyebrow">Need an engineer on site?</span>
       <h2 id="leistung-titel"><a href="/en/">Building surveyors in Berlin – reports in English</a></h2>
       <p>Pre-purchase surveys, mould and water damage, new-build inspections, condition surveys and expert reports for
-      disputes. Fixed prices for defined scopes, otherwise €150 per hour; travel within Berlin included.</p>
-      <p class="aktionen"><a class="btn btn-primary" href="/en/#services">All services and fees</a><a class="btn btn-outline" href="/en/#contact">Send enquiry</a></p>
+      disputes. We send prices and a full list of services on request by email; travel within Berlin included.</p>
+      <p class="aktionen"><a class="btn btn-primary" href="/en/#services">All services</a><a class="btn btn-outline" href="/en/#contact">Send enquiry</a></p>
       <p class="klein">We reply within one working day · Berlin and Brandenburg · Reports in English or German</p>
     </aside>
   </div>

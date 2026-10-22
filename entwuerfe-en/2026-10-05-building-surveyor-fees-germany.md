@@ -14,7 +14,7 @@ status: Veröffentlicht
 
 If you want to know what a building surveyor costs in Germany, you look for a fee scale first – and find none. For a privately commissioned building survey there is no price list in Germany. The fee is agreed freely, usually as an hourly rate, a flat fee or a percentage, plus incidental costs and VAT.[^keldungs-16] The amount follows the work that the question triggers. A fee fixed by law exists only for experts appointed by a court.[^timm-248] Whether a report pays off depends on the ratio between fee, the amount in dispute and the risk.
 
-> This guide is the English version of our German article on the same topic and cites the same sources. German terms you will meet in offers, contracts and court documents are given in brackets. It is not legal advice. Our own fees are listed on our [page for international clients](/en/#fees).
+> This guide is the English version of our German article on the same topic and cites the same sources. German terms you will meet in offers, contracts and court documents are given in brackets. It is not legal advice. We send our own prices and a full list of services on request by email – see our [page for international clients](/en/#fees).
 
 ## Why there is no price list for building surveys
 

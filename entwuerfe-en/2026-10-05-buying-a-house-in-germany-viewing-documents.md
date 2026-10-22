@@ -124,7 +124,7 @@ If no waterproofing was ever installed, a damp basement is to be expected in an 
 
 **What does a survey before buying a house cost?**
 
-The price depends on the size and age of the building, the effort on site and whether you need an assessment in conversation or a written report. Measurements and laboratory tests cost extra. Have the scope confirmed in writing beforehand. Our fixed prices for pre-purchase surveys in Berlin are listed on our page on [technical due diligence](/en/technical-due-diligence-berlin/); more on how surveyors' fees work in Germany is in our guide [What does a building surveyor cost in Germany?](/en/guides/building-surveyor-fees-germany/)
+The price depends on the size and age of the building, the effort on site and whether you need an assessment in conversation or a written report. Measurements and laboratory tests cost extra. Have the scope confirmed in writing beforehand. We send our prices for pre-purchase surveys in Berlin on request by email; the scope is described on our page on the [pre-purchase inspection](/en/pre-purchase-inspection-berlin/); more on how surveyors' fees work in Germany is in our guide [What does a building surveyor cost in Germany?](/en/guides/building-surveyor-fees-germany/)
 
 ## Note
 

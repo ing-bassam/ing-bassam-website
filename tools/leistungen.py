@@ -29,8 +29,8 @@ SEITEN: dict[str, Leistungsseite] = {s.schluessel: s for s in (
     Leistungsseite(
         "uebersicht", "leistungen/", "Alle Leistungen",
         "Gutachten, Beweissicherung, Baubegleitung – unsere Leistungen in Berlin",
-        "Umfang, Ablauf und Richtpreise aller Leistungen des Büros auf einen Blick – vom "
-        "Schimmelgutachten bis zur technischen Due Diligence."),
+        "Umfang und Ablauf aller Leistungen des Büros auf einen Blick – vom Schimmelgutachten bis "
+        "zur technischen Due Diligence; Preise und Leistungsübersicht auf Anfrage per E-Mail."),
     Leistungsseite(
         "schimmel", "leistungen/schimmelgutachten/", "Schimmelgutachten",
         "Schimmelgutachten in Berlin: erst die Ursache, dann die Sanierung",
@@ -55,8 +55,8 @@ SEITEN: dict[str, Leistungsseite] = {s.schluessel: s for s in (
         "kaufbegutachtung", "leistungen/kaufbegutachtung/", "Kaufbegutachtung",
         "Kaufbegutachtung in Berlin: wissen, was Sie kaufen – bevor Sie zum Notar gehen",
         "Eigentumswohnung oder Einfamilienhaus vor dem Kauf: Begehung, Auswertung der Unterlagen und "
-        "Zustandsbericht mit Mängelliste und Kostenrahmen für 10–15 Jahre – zum Festpreis, mit "
-        "Preis- und Hinweisrechner."),
+        "Zustandsbericht mit Mängelliste und Kostenrahmen für 10–15 Jahre, mit Hinweisen nach Baujahr "
+        "und Unterlagen-Checkliste."),
     Leistungsseite(
         "due-diligence", "leistungen/technische-due-diligence/", "Technische Due Diligence",
         "Technische Due Diligence und Kaufberatung in Berlin",
@@ -78,7 +78,7 @@ SEITEN: dict[str, Leistungsseite] = {s.schluessel: s for s in (
         "Für Hausverwaltungen und WEG-Verwaltungen: Schäden feststellen, Befunde zuordnen",
         "Wasserschaden, Schimmel, Nachbarbaustelle, Abnahme und Gewährleistung am Gemeinschaftseigentum – "
         "mehrere Einheiten an einem Termin, im Wasserschaden-Gutachten nach Gemeinschafts- und "
-        "Sondereigentum getrennt, Preise netto."),
+        "Sondereigentum getrennt."),
     Leistungsseite(
         "rechtsanwaelte", "leistungen/rechtsanwaelte/", "Für Rechtsanwälte",
         "Für Rechtsanwälte und Kanzleien: die technische Seite des Mandats",
@@ -148,7 +148,7 @@ def alle() -> list[Leistungsseite]:
 
 # Zielgruppe eines Beitrags (Frontmatter „zielgruppe“, klein geschrieben) → Seite für
 # diese Zielgruppe. Der Kasten „Passende Leistung“ zeigt sie zusätzlich als Hinweis,
-# damit Verwaltungen von Themenseiten mit Bruttopreisen zu ihrer Seite finden.
+# damit Verwaltungen von den Themenseiten zu ihrer Seite finden.
 ZIELGRUPPEN = {
     "hausverwaltung": "hausverwaltungen",
     "wohnungsbaugesellschaft": "hausverwaltungen",
@@ -177,12 +177,12 @@ class EnglischeSeite:
 # deutsche und englische Fassung gegenseitig per hreflang aufeinander zeigen.
 ENGLISCH: list[EnglischeSeite] = [
     EnglischeSeite("en/", "Building surveyors in Berlin – services in English",
-                   "Overview of all services for international clients, fees, a glossary of German building "
-                   "terms and contact – reports in English or German.", ""),
+                   "Overview of all services for international clients, a glossary of German building terms "
+                   "and contact – reports in English or German; prices on request by email.", ""),
     EnglischeSeite("en/pre-purchase-inspection-berlin/", "Pre-purchase inspection of a flat or house",
                    "Inspection, document review and a condition report with defect list and a 10–15-year cost "
-                   "outlook before you buy a flat or house in Berlin – fixed prices incl. VAT, report in German "
-                   "(English as an option), with a price and notes calculator.",
+                   "outlook before you buy a flat or house in Berlin – report in German (English on request), "
+                   "with notes by year of construction and a document checklist.",
                    "leistungen/kaufbegutachtung/"),
     EnglischeSeite("en/technical-due-diligence-berlin/", "Technical due diligence and pre-purchase surveys",
                    "Inspection and document review before buying a house, flat or apartment building in Berlin: "

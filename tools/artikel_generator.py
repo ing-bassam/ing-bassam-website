@@ -1109,8 +1109,9 @@ def leistungskasten_html(artikel: "Artikel") -> str:
 
     Gesteuert über das Frontmatter-Feld ``leistung``; bei „Gutachten“ entscheidet
     das Thema des Beitrags. Die Regeln stehen in tools/leistungen.py, damit sie
-    getestet werden können. Der Kasten nennt keine Preise – die stehen auf der
-    Leistungsseite; der Beitrag selbst bleibt werbefrei.
+    getestet werden können. Der Kasten nennt keine Preise – Preise und
+    Leistungsübersicht verschickt das Büro nur auf Anfrage per E-Mail; der Beitrag
+    selbst bleibt werbefrei.
     """
     seite = leistungen.passende_seite(
         artikel.leistungen,
@@ -1118,12 +1119,12 @@ def leistungskasten_html(artikel: "Artikel") -> str:
         artikel.schlagwoerter + [artikel.kategorie],
     )
     ziel = f"../../{seite.pfad}"
-    knopf = "Alle Leistungen" if seite.schluessel == "uebersicht" else "Leistung und Preise"
+    knopf = "Alle Leistungen" if seite.schluessel == "uebersicht" else "Leistung und Ablauf"
     # Hinweis für die Zielgruppe des Beitrags (Hausverwaltungen), sofern der Kasten
-    # nicht schon auf deren Seite führt – sie finden dort Preise netto.
+    # nicht schon auf deren Seite führt.
     gruppe = leistungen.zielgruppen_seite(artikel.zielgruppe, seite.schluessel)
     hinweis = (f'\n        <p class="zielgruppen-hinweis"><a href="../../{gruppe.pfad}">{html.escape(gruppe.name)}: '
-               f'mehrere Einheiten an einem Termin, Preise netto →</a></p>' if gruppe else "")
+               f'mehrere Einheiten an einem Termin →</a></p>' if gruppe else "")
     return f"""      <aside class="leistungskasten" aria-labelledby="leistung-titel">
         <span class="eyebrow">Passende Leistung</span>
         <h2 id="leistung-titel"><a href="{ziel}">{html.escape(seite.titel)}</a></h2>
