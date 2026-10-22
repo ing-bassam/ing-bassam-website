@@ -137,7 +137,12 @@ class EchterBestand(unittest.TestCase):
         paare = set()
         for a in self.bestand:
             for b in self.bestand:
-                if a is not b and self.vergleich.urteil(a, b)[0] == "doppelung":
+                # Eine Vorlage vertritt nur Beiträge, die nach ihr kommen. Entstand sie zu einem schon
+                # vorhandenen Fachbeitrag, ergänzt sie ihn (Regel im Kopf von tools/doppelungen.py) –
+                # der ältere Beitrag wird darum nicht als neues Thema gegen sie geprüft.
+                if a is b or (a["art"] == "beitrag" and b["art"] == "vorlage" and a["erstellt"] < b["erstellt"]):
+                    continue
+                if self.vergleich.urteil(a, b)[0] == "doppelung":
                     paare.add(frozenset({a["kurzform"], b["kurzform"]}))
         self.assertEqual(paare - BEKANNTE_PAARE, set())
 
@@ -164,12 +169,20 @@ class EchterBestand(unittest.TestCase):
                          "neu")
 
     def test_vorlage_zum_thema_eines_fachbeitrags_ist_keine_doppelung(self):
-        if "abnahme-bautraeger-sonder-gemeinschaftseigentum" not in self.nach_kurzform:
+        beitrag = "abnahme-bautraeger-sonder-gemeinschaftseigentum"
+        if beitrag not in self.nach_kurzform:
             self.skipTest("Beitrag nicht mehr im Bestand")
         t = thema("Checkliste Abnahme vom Bauträger: Sonder- und Gemeinschaftseigentum",
                   "Wie läuft die Abnahme einer neuen Eigentumswohnung ab, und wer nimmt das Gemeinschaftseigentum ab?",
                   art="vorlage")
-        self.assertNotEqual(self.pruefen(t)["urteil"], "doppelung")
+        ergebnis = self.pruefen(t)
+        # Der Fachbeitrag ist nur verwandt. Doppelung kann eine Vorlage nur mit einer anderen Vorlage sein –
+        # seit dem 20.10.2026 deckt die Checkliste zum Gemeinschaftseigentum dieses Thema schon ab.
+        self.assertIn(beitrag, [e["kurzform"] for e, _, _ in ergebnis["verwandte"]])
+        self.assertEqual([e["kurzform"] for e, _, _ in ergebnis["doppelungen"] if e["art"] != "vorlage"], [])
+        vorlage = "abnahme-gemeinschaftseigentum-checkliste"
+        if vorlage in self.nach_kurzform:
+            self.assertIn(vorlage, [e["kurzform"] for e, _, _ in ergebnis["doppelungen"]])
 
     def test_eigener_entwurf_heisst_vorhanden(self):
         mit_id = [e for e in self.bestand if e.get("notion_id")]
