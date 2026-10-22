@@ -10,8 +10,9 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 import {
-  HOECHSTENS_HINWEISE, anfrage, aufzaehlung, bytesZuBase64url, brutto, cent, eingabeLesen, entschluesseln, euro, euroSpanne,
-  hinweise, kurzfassung, linkBauen, linkLesen, preisBerechnen, schluesselErzeugen, unterlagen, verschluesseln, zuschlaegeFuer,
+  HOECHSTENS_HINWEISE, anfrage, aufzaehlung, bruttoCent, bytesZuBase64url, eingabeLesen, entschluesseln, euro, euroSpanne,
+  fragmentAktion, hinweise, kostenlos, kurzfassung, linkBauen, linkLesen, nettoCent, optionBrutto, preisBerechnen,
+  schluesselErzeugen, schluesselForm, sprungZiel, unterlagen, verschluesseln, zuschlaegeFuer,
 } from "../angebot/kaufbegutachtung/angebot.js";
 import { UI } from "../angebot/kaufbegutachtung/oberflaeche.js";
 import { PAKET } from "../angebot/kaufbegutachtung/paket.js";
@@ -40,7 +41,7 @@ const BEISPIEL = {
     etw: {
       grund: { id: "grund_etw", netto: 600, ...nameText("Grundpaket Wohnung", "Begehung (ca. 2 Std., innen), Bericht mit Mängelliste, Fazit vor Ort.") },
       zuschlaege: [{ id: "gross_etw", netto: 110, auto: { flaeche_ab: 80.01 }, ...nameText("Groß", "Mehr Aufwand.") }],
-      optionen: ["foto", "akte", "check"],
+      optionen: ["foto", "akte", "check", "messung"],
     },
     efh: {
       grund: { id: "grund_efh", netto: 1100, ...nameText("Grundpaket Haus", "Begehung, Bericht.") },
@@ -48,7 +49,7 @@ const BEISPIEL = {
         { id: "keller", netto: 170, ...nameText("Keller", "Mehr Keller.") },
         { id: "gross_efh", netto: 210, auto: { flaeche_ab: 150.01 }, ...nameText("Groß", "Mehr Haus.") },
       ],
-      optionen: ["foto_efh", "akte"],
+      optionen: ["foto_efh", "akte", "messung"],
     },
   },
   optionen: {
@@ -56,6 +57,7 @@ const BEISPIEL = {
     foto_efh: { netto: 160, ...nameText("Fotos Haus", "Bilder.") },
     akte: { netto_von: 140, netto_bis: 210, ...nameText("Akte", "Nach Aufwand.") },
     check: { netto: 70, ...nameText("Check", "Prüfung.") },
+    messung: { netto: 0, kostenlos: true, ...nameText("Messung", "Ohne Aufpreis.") },
   },
   eingaben: {
     heizung: [{ id: "gas", ...zweisprachig("Gas") }, { id: "oel", ...zweisprachig("Öl") }],
@@ -118,9 +120,13 @@ test("Paketbau meldet alle Lücken auf einmal", () => {
   kaputt.pakete.etw.optionen.push("fehlt");
   kaputt.pakete.etw.zuschlaege.push({ id: "raetsel", netto: 10, ...nameText("X", "Y") });
   kaputt.regeln[2].quelle.url = "http://unsicher.example";
+  kaputt.optionen.messung.netto = 50;
+  kaputt.optionen.check.netto = 0;
+  kaputt.optionen.check.kostenlos = "ja";
   assert.throws(() => paketBauen(kaputt), (fehler) => {
     for (const teil of ["mwst", "Kategorie werbung", "unbekannte Option gibtsnicht", "Option fehlt unbekannt",
-      "Zuschlag raetsel: weder Wohnfläche noch Merkmal", "https://"]) {
+      "Zuschlag raetsel: weder Wohnfläche noch Merkmal", "https://", "Option messung: kostenlos, aber mit Preis",
+      "Option check: kostenlos muss true oder false sein"]) {
       assert.ok(fehler.message.includes(teil), teil);
     }
     return true;
@@ -179,12 +185,90 @@ test("Link: Schlüssel, Objektart und Sprache aus dem Teil nach #", () => {
   assert.deepEqual(linkLesen(new URL(link).hash), { schluessel: TESTSCHLUESSEL, objekt: "efh", sprache: "en" });
 });
 
+test("Schlüsselform: 43 Zeichen Base64url (32 Bytes), sonst nicht", () => {
+  assert.equal(schluesselForm(TESTSCHLUESSEL), true);
+  assert.equal(schluesselForm(schluesselErzeugen()), true);
+  for (const falsch of ["", "abc", `${TESTSCHLUESSEL}A`, TESTSCHLUESSEL.slice(1), `${TESTSCHLUESSEL.slice(0, 42)}+`, null, undefined]) {
+    assert.equal(schluesselForm(falsch), false, String(falsch));
+  }
+});
+
+test("Sprungziel: nur einfache Abschnittsnamen nach #", () => {
+  assert.equal(sprungZiel("#senden"), "senden");
+  assert.equal(sprungZiel("#inhalt"), "inhalt");
+  assert.equal(sprungZiel("#preis"), "preis");
+  assert.equal(sprungZiel("#"), null);
+  assert.equal(sprungZiel(""), null);
+  assert.equal(sprungZiel("senden"), null);
+  assert.equal(sprungZiel(`#k=${TESTSCHLUESSEL}&o=haus&l=de`), null);
+  assert.equal(sprungZiel("#%E4%"), null, "kaputte Kodierung");
+});
+
+// Fehler (Oktober 2026, live): Ein Klick auf „Auswahl senden“ (href="#senden") ersetzte den Teil
+// nach „#“ samt Schlüssel; der hashchange-Handler startete neu und zeigte „Dieser Link ist nicht
+// vollständig“. fragmentAktion entscheidet jetzt, was bei einer Änderung passiert.
+test("Fragment: „Auswahl senden“ und Skip-Link auf geöffneter Seite stellen den Link wieder her", () => {
+  const offen = { schluessel: TESTSCHLUESSEL, geoeffnet: true };
+  assert.deepEqual(fragmentAktion("#senden", offen), { aktion: "wiederherstellen", ziel: "senden" });
+  assert.deepEqual(fragmentAktion("#inhalt", offen), { aktion: "wiederherstellen", ziel: "inhalt" });
+  assert.deepEqual(fragmentAktion("", offen), { aktion: "wiederherstellen", ziel: null });
+  assert.deepEqual(fragmentAktion("#", offen), { aktion: "wiederherstellen", ziel: null });
+  assert.deepEqual(fragmentAktion("#o=haus&l=en", offen), { aktion: "wiederherstellen", ziel: null }, "o/l ohne k");
+  assert.deepEqual(fragmentAktion("#k=abc&o=haus", offen), { aktion: "wiederherstellen", ziel: null }, "kaputter Schlüssel");
+
+  // Ablauf wie im Browser: Link geöffnet, Klick auf „Auswahl senden“ setzt „#senden“,
+  // die Seite schreibt den alten Teil nach „#“ zurück (history.replaceState).
+  const vorher = linkBauen({ schluessel: TESTSCHLUESSEL, objekt: "efh", sprache: "de" });
+  assert.equal(fragmentAktion(vorher, offen).aktion, "behalten");
+  const { aktion, ziel } = fragmentAktion("#senden", offen);
+  assert.deepEqual([aktion, ziel], ["wiederherstellen", "senden"]);
+  const nachher = linkBauen({ schluessel: TESTSCHLUESSEL, objekt: "efh", sprache: "de" });
+  assert.equal(nachher, vorher);
+  assert.deepEqual(linkLesen(nachher), { schluessel: TESTSCHLUESSEL, objekt: "efh", sprache: "de" });
+});
+
+test("Fragment: gleicher Schlüssel bleibt, nur ein anderer gültiger Schlüssel startet neu", () => {
+  const offen = { schluessel: TESTSCHLUESSEL, geoeffnet: true };
+  assert.equal(fragmentAktion(`#k=${TESTSCHLUESSEL}&o=haus&l=en`, offen).aktion, "behalten");
+  assert.equal(fragmentAktion(`#k=${TESTSCHLUESSEL}`, offen).aktion, "behalten");
+  assert.equal(fragmentAktion(`#k=${schluesselErzeugen()}&o=wohnung&l=de`, offen).aktion, "starten");
+  // Noch nicht geöffnet (z. B. erst ein unvollständiger Link, dann der richtige): immer neu starten.
+  for (const fragment of ["", "#senden", `#k=${TESTSCHLUESSEL}`]) {
+    assert.equal(fragmentAktion(fragment, { schluessel: "", geoeffnet: false }).aktion, "starten", fragment);
+  }
+});
+
+test("Fragment: Objekt- und Sprachumschalter behalten den Schlüssel", () => {
+  for (const objekt of ["etw", "efh"]) {
+    for (const sprache of ["de", "en"]) {
+      const fragment = linkBauen({ schluessel: TESTSCHLUESSEL, objekt, sprache });
+      assert.deepEqual(linkLesen(fragment), { schluessel: TESTSCHLUESSEL, objekt, sprache });
+      assert.equal(fragmentAktion(fragment, { schluessel: TESTSCHLUESSEL, geoeffnet: true }).aktion, "behalten");
+    }
+  }
+});
+
+test("Seite: interne Sprünge werden abgefangen, Sprungziele sind fokussierbar", () => {
+  const app = readFileSync(join(WURZEL, "angebot", "kaufbegutachtung", "app.js"), "utf8");
+  const html = readFileSync(join(WURZEL, "angebot", "kaufbegutachtung", "index.html"), "utf8");
+  assert.ok(app.includes(`closest('a[href^="#"]')`), "Klick auf interne Links wird abgefangen");
+  assert.ok(app.includes("ereignis.preventDefault()"));
+  assert.ok(app.includes("scrollIntoView"));
+  assert.match(app, /addEventListener\("hashchange"[\s\S]*?fragmentAktion\(/, "hashchange entscheidet über fragmentAktion");
+  assert.ok(app.includes("if (!schluessel) return;"), "adresseMerken schreibt nie einen Link ohne Schlüssel");
+  assert.ok(html.includes('<a class="skip-link" href="#inhalt">'));
+  assert.ok(html.includes('<main id="inhalt" tabindex="-1">'));
+});
+
 // ------------------------------------------------------------------ Preis
 
 test("Beträge: Brutto aus Netto in Cent, deutsches und englisches Format", () => {
-  assert.equal(brutto(cent(1000), 0.19), 119000);
-  assert.equal(brutto(cent(55), 0.19), 6545);
-  assert.equal(brutto(cent(12.34), 0.19), 1468, "auf Cent gerundet");
+  assert.equal(bruttoCent(1000, 0.19), 119000);
+  assert.equal(bruttoCent(55, 0.19), 6545);
+  assert.equal(bruttoCent(12.34, 0.19), 1468, "auf Cent gerundet");
+  assert.equal(bruttoCent(300, 0.19), 35700);
+  assert.equal(nettoCent(119000, 0.19), 100000);
+  assert.equal(nettoCent(60000, 0.19), 50420, "600 / 1,19 = 504,20");
   assert.equal(euro(119000, "de"), "1.190,00 €");
   assert.equal(euro(119000, "en"), "€1,190.00");
   assert.equal(euroSpanne(16660, 24990, "de"), "166,60 – 249,90 €");
@@ -209,6 +293,7 @@ test("Preis Wohnung: Grundpaket, Zuschlag über Fläche, Extras mit Spanne", () 
   assert.equal(p.spanne, true);
   assert.equal(p.mwst_prozent, 19);
   assert.equal(p.posten.reduce((s, x) => s + x.brutto_bis, 0), p.brutto_bis, "Summe der Posten = Gesamtbrutto");
+  assert.equal(p.netto_von + p.ust_von, p.brutto_von);
   assert.deepEqual(p.anteile, { grund: 71400, zuschlag: 13090, option: 40460 });
   assert.deepEqual(p.anteile_von, { grund: 71400, zuschlag: 13090, option: 32130 });
   assert.equal(zuschlaegeFuer(DATEN, ein)[0].grund, "flaeche");
@@ -225,6 +310,68 @@ test("Preis Haus: Merkmale Vollkeller und Einliegerwohnung, Merkmale nur für ih
   assert.deepEqual(p.posten.map((x) => x.id), ["grund_efh", "keller", "gross_efh"]);
   assert.equal(p.brutto_von, 176120);
   assert.equal(euro(p.brutto_von, "de"), "1.761,20 €");
+});
+
+test("Runde Endpreise: ungerundeter Nettopreis (600 / 1,19) ergibt genau 600,00 €", () => {
+  const rund = structuredClone(BEISPIEL);
+  rund.pakete.efh.grund.netto = 600 / 1.19;
+  rund.pakete.etw.grund.netto = 400 / 1.19;
+  rund.optionen.akte = { netto: 300, ...nameText("Bauakte", "Festpreis.") };
+  const daten = paketBauen(rund);
+  const ein = (roh) => eingabeLesen(roh, daten).eingabe;
+
+  const wohnung = preisBerechnen(daten, ein({ objekt: "etw" }));
+  assert.equal(euro(wohnung.brutto_von, "de"), "400,00 €");
+  assert.deepEqual([wohnung.netto_von, wohnung.ust_von], [33613, 6387]);
+  const haus = preisBerechnen(daten, ein({ objekt: "efh" }));
+  assert.equal(euro(haus.brutto_von, "de"), "600,00 €");
+  assert.equal(euro(haus.brutto_von, "en"), "€600.00");
+  assert.deepEqual([haus.netto_von, haus.ust_von], [50420, 9580]);
+
+  // Bauakte mit Festpreis: 300 € netto = 357,00 € brutto, keine Spanne
+  assert.deepEqual(optionBrutto(daten.optionen.akte, daten.mwst), [35700, 35700]);
+  const mitAkte = preisBerechnen(daten, ein({ objekt: "efh" }), ["akte"]);
+  assert.equal(euro(mitAkte.brutto_von, "de"), "957,00 €");
+  assert.equal(mitAkte.spanne, false);
+  assert.deepEqual([mitAkte.netto_von, mitAkte.ust_von], [80420, 15280]);
+  assert.equal(euroSpanne(mitAkte.brutto_von, mitAkte.brutto_bis, "de"), "957,00 €");
+  const mail = anfrage({ daten, t: UI.de.mail, eingabe: ein({ objekt: "efh" }), gewaehlt: ["akte"], sprache: "de" });
+  assert.ok(mail.text.includes("- Grundpaket Haus: 600,00 €"));
+  assert.ok(mail.text.includes("- Bauakte: 357,00 €"));
+  assert.ok(mail.text.includes("Gesamtpreis inkl. 19 % USt: 957,00 €"));
+
+  // Jeder runde Endpreis von 1 bis 3.000 € kommt exakt heraus (keine Rechenungenauigkeit).
+  for (let endpreis = 1; endpreis <= 3000; endpreis += 1) {
+    assert.equal(bruttoCent(endpreis / 1.19, 0.19), endpreis * 100, `${endpreis} €`);
+  }
+});
+
+test("Kostenlose Extras: an- und abwählbar, „kostenlos“ statt Betrag, Summe bleibt gleich", () => {
+  assert.equal(kostenlos(DATEN.optionen.messung), true);
+  assert.equal(kostenlos({ netto: 0 }), true, "Nettopreis 0 reicht");
+  assert.equal(kostenlos({ netto: 70 }), false);
+  assert.equal(kostenlos({ netto_von: 140, netto_bis: 210 }), false);
+  assert.deepEqual(optionBrutto(DATEN.optionen.messung, DATEN.mwst), [0, 0]);
+
+  for (const objekt of ["etw", "efh"]) {
+    const ohne = preisBerechnen(DATEN, e({ objekt }), []);
+    const mit = preisBerechnen(DATEN, e({ objekt }), ["messung"]);
+    assert.equal(mit.brutto_von, ohne.brutto_von, objekt);
+    assert.equal(mit.netto_von, ohne.netto_von, objekt);
+    assert.equal(mit.spanne, false);
+    const posten = mit.posten.find((x) => x.id === "messung");
+    assert.deepEqual([posten.kostenlos, posten.brutto_von, posten.brutto_bis], [true, 0, 0]);
+    assert.equal(mit.anteile.option, 0);
+  }
+  assert.equal(preisBerechnen(DATEN, e({ objekt: "etw" }), ["foto"]).posten.find((x) => x.id === "foto").kostenlos, false);
+
+  const de = anfrage({ daten: DATEN, t: UI.de.mail, eingabe: e({ objekt: "etw" }), gewaehlt: ["messung"], sprache: "de" });
+  assert.ok(de.text.includes("- Messung: kostenlos"));
+  assert.ok(de.text.includes("Gesamtpreis inkl. 19 % USt: 714,00 €"));
+  const en = anfrage({ daten: DATEN, t: UI.en.mail, eingabe: e({ objekt: "efh" }), gewaehlt: ["messung"], sprache: "en" });
+  assert.ok(en.text.includes("- Messung EN: free of charge"));
+  assert.equal(UI.de.kostenlos, "kostenlos");
+  assert.equal(UI.en.kostenlos, "free of charge");
 });
 
 test("Eingaben: ungültige Zahlen werden als Fehler gemeldet und nicht verwendet", () => {
@@ -270,6 +417,9 @@ test("Unterlagen nach Priorität, Bedingungen wie bei den Hinweisen", () => {
 test("Leistungsumfang als Aufzählung, Kommas in Klammern bleiben zusammen", () => {
   assert.deepEqual(aufzaehlung("Begehung (ca. 2 Std., innen), Bericht mit Mängelliste, fazit vor Ort."),
     ["Begehung (ca. 2 Std., innen)", "Bericht mit Mängelliste", "Fazit vor Ort"]);
+  // „…, soweit zugänglich“ schränkt ein und bleibt beim Punkt davor.
+  assert.deepEqual(aufzaehlung("Vorbereitung, Begehung vom Dach bis zum Keller, soweit zugänglich (ca. 4–5 Std.), mündliches Fazit vor Ort."),
+    ["Vorbereitung", "Begehung vom Dach bis zum Keller, soweit zugänglich (ca. 4–5 Std.)", "Mündliches Fazit vor Ort"]);
 });
 
 // ---------------------------------------------------------------- E-Mail

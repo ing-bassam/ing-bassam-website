@@ -5,12 +5,17 @@
  * Seite aufbauen. Ohne gültigen Schlüssel bleibt nur der Hinweis „Dieser Link ist
  * nicht vollständig“ stehen. Alles läuft im Browser; nichts wird gesendet oder
  * gespeichert. Die E-Mail „Auswahl senden“ öffnet das eigene E-Mail-Programm.
+ *
+ * Wichtig: Der Schlüssel steht im Teil nach „#“. Sprünge innerhalb der Seite
+ * („Auswahl senden“, „Zum Inhalt springen“) dürfen diesen Teil deshalb nie
+ * ersetzen – sie werden abgefangen und scrollen nur zum Ziel.
  */
 import { PAKET } from "./paket.js";
 import { UI } from "./oberflaeche.js";
 import {
-  OBJEKTE, anfrage, aufzaehlung, brutto, cent, eingabeLesen, entschluesseln, ersetzen, euro, euroSpanne, hinweise,
-  linkBauen, linkLesen, optionNetto, optionenFuer, preisBerechnen, schalterListe, unterlagen, zuschlaegeFuer,
+  OBJEKTE, anfrage, aufzaehlung, bruttoCent, cent, eingabeLesen, entschluesseln, ersetzen, euro, euroSpanne, fragmentAktion,
+  hinweise, kostenlos, linkBauen, linkLesen, optionBrutto, optionenFuer, preisBerechnen, schalterListe, sprungZiel, unterlagen,
+  zuschlaegeFuer,
 } from "./angebot.js";
 
 const wurzel = document.getElementById("angebot");
@@ -143,7 +148,7 @@ function kopfBauen() {
 function preisBauen() {
   const paket = daten.pakete[zustand.objekt];
   const g = paket.grund[s()];
-  const grundBrutto = brutto(cent(paket.grund.netto), daten.mwst);
+  const grundBrutto = bruttoCent(paket.grund.netto, daten.mwst);
   const grundpaket = el("article", { class: "grundpaket", "aria-labelledby": "grund-name" },
     el("p", { class: "klein-titel", text: t().grund_titel }),
     el("div", { class: "posten-kopf" },
@@ -160,7 +165,7 @@ function preisBauen() {
     const zeile = el("li", { class: "zuschlag" },
       el("div", { class: "posten-kopf" },
         el("span", { class: "zuschlag-name", text: z[s()].name }),
-        el("span", { class: "posten-preis", text: `+ ${euro(brutto(cent(z.netto), daten.mwst), s())}` })),
+        el("span", { class: "posten-preis", text: `+ ${euro(bruttoCent(z.netto, daten.mwst), s())}` })),
       el("p", { class: "zuschlag-text", text: z[s()].text }),
       el("div", { class: "zuschlag-fuss" },
         z.schalter && daten.eingaben.schalter[z.schalter]
@@ -177,7 +182,8 @@ function preisBauen() {
   // Extras als Karten zum Ankreuzen
   r.extras = {};
   const extrasListe = el("ul", { class: "extras-liste" }, optionenFuer(daten, zustand.objekt).map((o) => {
-    const [von, bis] = optionNetto(o);
+    const [von, bis] = optionBrutto(o, daten.mwst);
+    const frei = kostenlos(o);
     const input = el("input", { type: "checkbox", id: `extra-${o.id}` });
     input.checked = zustand.gewaehlt.has(o.id);
     input.addEventListener("change", () => {
@@ -190,7 +196,9 @@ function preisBauen() {
       el("span", { class: "extra-inhalt" },
         el("span", { class: "extra-kopf" },
           el("span", { class: "extra-name", text: o[s()].name }),
-          el("span", { class: "extra-preis", text: euroSpanne(brutto(von, daten.mwst), brutto(bis, daten.mwst), s()) })),
+          frei
+            ? el("span", { class: "extra-preis extra-kostenlos", text: t().kostenlos })
+            : el("span", { class: "extra-preis", text: euroSpanne(von, bis, s()) })),
         el("span", { class: "extra-text", text: o[s()].text }),
         empfohlen)));
   }));
@@ -208,7 +216,7 @@ function preisBauen() {
   r.summeNetto = el("p", { class: "summe-netto" });
   r.summeSpanne = el("p", { class: "summe-hinweis", text: t().summe_spanne, hidden: true });
   r.ansage = el("p", { class: "sr-only", "aria-live": "polite" });
-  const stunde = cent(daten.stundensatz_netto);
+  const stunde = { brutto: bruttoCent(daten.stundensatz_netto, daten.mwst), netto: cent(daten.stundensatz_netto) };
   const summe = el("aside", { class: "preis-summe", id: "summe", "aria-labelledby": "summe-titel" },
     el("p", { class: "label", id: "summe-titel", text: t().summe_titel }),
     r.summeBrutto, r.summeMwst,
@@ -216,7 +224,7 @@ function preisBauen() {
     r.legende, r.posten, r.summeNetto, r.summeSpanne,
     el("p", { class: "summe-hinweis", text: txt().pauschal }),
     el("p", { class: "summe-hinweis", text: txt().ausserhalb }),
-    el("p", { class: "summe-hinweis", text: ersetzen(t().stundensatz, { brutto: euro(brutto(stunde, daten.mwst), s()), netto: euro(stunde, s()) }) }),
+    el("p", { class: "summe-hinweis", text: ersetzen(t().stundensatz, { brutto: euro(stunde.brutto, s()), netto: euro(stunde.netto, s()) }) }),
     el("a", { class: "btn btn-primary", href: "#senden", text: t().zur_auswahl }),
     r.ansage);
 
@@ -362,7 +370,7 @@ function preisZeigen(e) {
   r.legende.replaceChildren(...(legende.length > 1 ? legende : []));
   r.posten.replaceChildren(...p.posten.map((x) => el("li", {},
     el("span", { text: x.art === "zuschlag" ? `${t().posten_zuschlag}: ${x.eintrag[s()].name}` : x.eintrag[s()].name }),
-    el("b", { text: euroSpanne(x.brutto_von, x.brutto_bis, s()) }))));
+    el("b", { text: x.kostenlos ? t().kostenlos : euroSpanne(x.brutto_von, x.brutto_bis, s()) }))));
   r.leisteBetrag.textContent = betrag;
   r.ansage.textContent = `${t().summe_titel}: ${betrag} ${r.summeMwst.textContent}`;
 
@@ -451,7 +459,19 @@ function aktualisieren({ unterlagen: liste = false } = {}) {
 
 function adresseMerken() {
   // Nur der Teil nach „#“ ändert sich; der Browser sendet ihn nie an den Server.
+  // Objektart (o) und Sprache (l) werden ersetzt, der Schlüssel (k) bleibt immer stehen.
+  // replaceState löst kein „hashchange“ aus und legt keinen neuen Verlaufseintrag an.
+  if (!schluessel) return;
   history.replaceState(null, "", linkBauen({ schluessel, objekt: zustand.objekt, sprache: zustand.sprache }));
+}
+
+/** Zu einem Abschnitt der Seite scrollen und ihn fokussieren, ohne den Teil nach „#“ zu ändern. */
+function springen(id) {
+  const ziel = id ? document.getElementById(id) : null;
+  if (!ziel) return;
+  if (!ziel.hasAttribute("tabindex")) ziel.setAttribute("tabindex", "-1");
+  ziel.scrollIntoView({ block: "start" });
+  ziel.focus({ preventScroll: true });
 }
 
 function objektWechseln(objekt) {
@@ -541,12 +561,32 @@ async function starten() {
   }
   daten = entschluesselt;
   schluessel = link.schluessel;
+  linkFehlt.hidden = true;
   status.hidden = true;
   aufbauen();
 }
 
+// Seiteninterne Links (href="#…", z. B. „Auswahl senden“ und „Zum Inhalt springen“) würden
+// den Teil nach „#“ und damit den Schlüssel ersetzen. Deshalb: Klick abfangen, Ziel ansteuern.
+document.addEventListener("click", (ereignis) => {
+  if (ereignis.defaultPrevented || ereignis.button !== 0) return;
+  const link = ereignis.target instanceof Element ? ereignis.target.closest('a[href^="#"]') : null;
+  if (!link) return;
+  ereignis.preventDefault();
+  springen(sprungZiel(link.getAttribute("href")));
+});
+
+// Ändert sich der Teil nach „#“ doch einmal (z. B. von Hand oder durch den Browser), entscheidet
+// fragmentAktion: Ohne Schlüssel wird der alte Teil wiederhergestellt, nur ein anderer gültiger
+// Schlüssel öffnet die Seite neu.
 window.addEventListener("hashchange", () => {
-  if (linkLesen(location.hash).schluessel !== schluessel) starten();
+  const { aktion, ziel } = fragmentAktion(location.hash, { schluessel, geoeffnet: Boolean(daten) });
+  if (aktion === "starten") {
+    starten();
+  } else if (aktion === "wiederherstellen") {
+    adresseMerken();
+    springen(ziel);
+  }
 });
 
 starten();
