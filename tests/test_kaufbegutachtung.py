@@ -1,19 +1,19 @@
-"""Prüft die Seiten zur Kaufbegutachtung gegen ihre einzige Datenquelle.
+"""Prüft die öffentlichen Seiten zur Kaufbegutachtung (Deutsch und Englisch).
 
-werkzeuge/kaufbegutachtung/daten.js enthält Leistungsumfang, Regeln, Unterlagen
-und Texte. Der Hinweis-Assistent liest sie im Browser; die festen Abschnitte der
-Seiten (für Besucher ohne JavaScript, Suchmaschinen und KI-Crawler) erzeugt
-tools/kaufbegutachtung_bauen.py daraus. Dieser Test stellt sicher:
+Seit Oktober 2026 stehen dort nur noch Nutzen, Leistungsumfang, Ablauf, Grenzen,
+Qualifikation und FAQ. Preise, Optionen, Hinweise nach Baujahr, Pflichten nach
+dem Kauf und Unterlagenlisten verschickt das Büro erst nach einer Anfrage – über
+die private, verschlüsselte Angebotsseite (angebot/kaufbegutachtung/, geprüft in
+tests/test_angebot.py). Dieser Test stellt sicher:
 
-- Die Daten sind in sich stimmig (Verweise auf Eingaben, Merkmale, Kategorien).
-- In den Daten stehen keine Preisfelder mehr (die Datei ist öffentlich abrufbar):
-  Preise und Leistungsübersicht verschickt das Büro nur auf Anfrage per E-Mail.
-- Jede Regel-ID, jede Unterlage und der Leistungsumfang stehen im HTML beider
-  Sprachfassungen; die Seiten nennen „Preise auf Anfrage per E-Mail“.
-- Die festen Abschnitte entsprechen den Daten (sonst Skript ausführen).
+- Kein interaktiver Teil mehr: kein Formular, kein Skript, keine Regeltexte,
+  keine Unterlagenliste, kein Anteilsrechner.
+- Der Knopf „Angebot anfordern“ öffnet eine E-Mail mit der vorgegebenen Vorlage.
+- „Preise und Leistungsübersicht senden wir Ihnen nach Ihrer Anfrage“ steht da.
 - Die Anker der QR-Codes (#wohnung, #haus, #flat, #house) bleiben erhalten.
+- Andere Seiten verweisen weiter auf die Kaufbegutachtung.
 
-Dass auf den Seiten und in den Skripten keine Eurobeträge des Büros stehen, prüft
+Dass auf den Seiten keine Eurobeträge des Büros stehen, prüft
 tests/test_leistungen.py für alle Leistungsseiten gemeinsam.
 
 Aufruf: python -m unittest discover -s tests
@@ -21,180 +21,121 @@ Aufruf: python -m unittest discover -s tests
 from __future__ import annotations
 
 import re
-import sys
 import unittest
 from html import unescape
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 WURZEL = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(WURZEL / "tools"))
 
-import kaufbegutachtung_bauen as kb  # noqa: E402
-import website_bauen  # noqa: E402
-
-SEITEN = kb.SEITEN
+SEITEN = {"de": WURZEL / "leistungen" / "kaufbegutachtung" / "index.html",
+          "en": WURZEL / "en" / "pre-purchase-inspection-berlin" / "index.html"}
 DUE_DILIGENCE = {"de": WURZEL / "leistungen" / "technische-due-diligence" / "index.html",
                  "en": WURZEL / "en" / "technical-due-diligence-berlin" / "index.html"}
 UEBERSICHTEN = {"de": WURZEL / "leistungen" / "index.html", "en": WURZEL / "en" / "index.html"}
-PREISFELDER = {"mwst", "netto", "netto_von", "netto_bis", "brutto", "stundensatz_netto", "zuschlaege",
-               "preis_schalter", "optionen", "pakete", "empfiehlt", "pauschal", "stundensatz"}
-PREISE_AUF_ANFRAGE = {"de": "Preise und die Übersicht aller Leistungen und Optionen senden wir Ihnen auf Anfrage per E-Mail",
-                      "en": "We send prices and a full list of services and options on request by email"}
+
+PREISE_NACH_ANFRAGE = {"de": "Preise und Leistungsübersicht senden wir Ihnen nach Ihrer Anfrage",
+                       "en": "We send you prices and the list of services after your enquiry"}
+MAIL = {
+    "de": ("Anfrage: Kaufbegutachtung",
+           "Guten Tag,\r\n\r\nich interessiere mich für eine Kaufbegutachtung.\r\n\r\n"
+           "Objekt (Haus oder Wohnung), Ort/Bezirk, geplanter Notartermin: …\r\n\r\n"
+           "Bitte senden Sie mir Ihr Angebot."),
+    "en": ("Enquiry: pre-purchase inspection",
+           "Hello,\r\n\r\nI am interested in a pre-purchase inspection.\r\n\r\n"
+           "Property (house or flat), location/district, planned notary date: …\r\n\r\n"
+           "Please send me your quote."),
+}
+KNOPF = {"de": "Angebot anfordern", "en": "Request a quote"}
+ANKER = {"de": ("wohnung", "haus"), "en": ("flat", "house")}
+# Was es öffentlich nicht mehr gibt: Hinweis-Assistent, Regeln, Unterlagen, Anteilsrechner.
+VERBOTEN = (
+    "<form", "<script type=\"module\"", "<script src", "werkzeuge/kaufbegutachtung", "data-regel", "data-unterlage",
+    "Hinweise nach Baujahr", "Notes by year of construction", "Diese Unterlagen helfen uns", "Documents that help us",
+    "Liste kopieren", "Copy list", "Miteigentumsanteil", "co-ownership share", "Anteil an Gemeinschaftskosten",
+    "share of common costs", "Bleileitungen", "lead pipes", "GModG", "TrinkwV", "Mietspiegel", "rent index",
+    "Rechtsstand", "Legal position", "/angebot/",
+)
 
 
-def text(pfad: Path) -> str:
-    return unescape(pfad.read_text(encoding="utf-8"))
+def roh(sprache: str) -> str:
+    return SEITEN[sprache].read_text(encoding="utf-8")
 
 
-def schluessel(knoten, pfad="") -> list[tuple[str, str]]:
-    """Alle Schlüssel eines JSON-Baums mit ihrem Pfad."""
-    gefunden = []
-    if isinstance(knoten, dict):
-        for k, v in knoten.items():
-            gefunden.append((k, f"{pfad}.{k}"))
-            gefunden += schluessel(v, f"{pfad}.{k}")
-    elif isinstance(knoten, list):
-        for i, v in enumerate(knoten):
-            gefunden += schluessel(v, f"{pfad}[{i}]")
-    return gefunden
+def mail_links(text: str) -> list[str]:
+    return [unescape(h) for h in re.findall(r'href="(mailto:[^"]*)"', text)]
 
 
-class Daten(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.d = kb.daten_laden()
+class OeffentlicheSeiten(unittest.TestCase):
+    def test_kein_interaktiver_teil(self):
+        for sprache in SEITEN:
+            text = unescape(roh(sprache))
+            for wort in VERBOTEN:
+                with self.subTest(sprache=sprache, wort=wort):
+                    self.assertNotIn(wort, text)
 
-    def test_verweise_stimmen(self):
-        d = self.d
-        heizung = {x["id"] for x in d["eingaben"]["heizung"]}
-        nutzung = {x["id"] for x in d["eingaben"]["nutzung"]}
-        region = {x["id"] for x in d["eingaben"]["region"]}
-        schalter = set(d["eingaben"]["schalter"])
-        ids = [r["id"] for r in d["regeln"]]
-        self.assertEqual(len(ids), len(set(ids)), "Regel-IDs doppelt")
-        for r in d["regeln"]:
-            with self.subTest(regel=r["id"]):
-                self.assertIn(r["kategorie"], kb.KATEGORIEN)
-                self.assertIn(r["objekt"], {"etw", "efh", "beide"})
-                self.assertLessEqual(set(r.get("heizung", [])), heizung)
-                self.assertLessEqual(set(r.get("nutzung", [])), nutzung)
-                self.assertLessEqual(set(r.get("region", [])), region)
-                self.assertLessEqual(set(r) & {"fertighaus", "mfh6", "milieuschutz"}, schalter)
-                if "von" in r and "bis" in r:
-                    self.assertLessEqual(r["von"], r["bis"])
-                for sprache in ("de", "en"):
-                    self.assertTrue(r[sprache]["titel"] and r[sprache]["text"])
-                self.assertTrue(r["quelle"]["titel"])
-                self.assertTrue(r["quelle"]["url"] == "" or r["quelle"]["url"].startswith("https://"))
-        for name, s in d["eingaben"]["schalter"].items():
-            self.assertIn(s["objekt"], kb.OBJEKTE, name)
-            self.assertTrue(s["de"] and s["en"], name)
-        for objekt in kb.OBJEKTE:
-            for sprache in ("de", "en"):
-                self.assertGreaterEqual(len(d["leistungen"][objekt][sprache]), 5, (objekt, sprache))
-            self.assertEqual(len(d["leistungen"][objekt]["de"]), len(d["leistungen"][objekt]["en"]), objekt)
-            unterlagen = [u["id"] for u in d["unterlagen"][objekt]]
-            self.assertEqual(len(unterlagen), len(set(unterlagen)), objekt)
-            for u in d["unterlagen"][objekt]:
-                self.assertIn(u["prio"], (1, 2, 3))
-                self.assertLessEqual(set(u.get("heizung", [])), heizung)
-                self.assertLessEqual(set(u.get("nutzung", [])), nutzung)
-        self.assertEqual(set(d["seite"]["de"]["kategorien"]), set(kb.KATEGORIEN))
-        self.assertEqual(set(d["seite"]["de"]["ui"]), set(d["seite"]["en"]["ui"]))
-        self.assertEqual(set(d["text"]["de"]), set(d["text"]["en"]))
+    def test_angebot_anfordern_mit_vorlage(self):
+        for sprache, (betreff, text) in MAIL.items():
+            seite = roh(sprache)
+            self.assertIn(f">{KNOPF[sprache]}</a>", seite)
+            mit_text = [h for h in mail_links(seite) if "body=" in h]
+            self.assertGreaterEqual(len(mit_text), 2, sprache)
+            for link in mit_text:
+                teile = urlsplit(link)
+                self.assertEqual(teile.path, "info@ing-bassam.de")
+                werte = parse_qs(teile.query)
+                self.assertEqual(werte["subject"], [betreff])
+                self.assertEqual(werte["body"], [text])
 
-    def test_keine_preisfelder(self):
-        # daten.js ist öffentlich abrufbar: keine Preise, Zuschläge, Optionen oder Stundensätze.
-        gefunden = [pfad for name, pfad in schluessel(self.d) if name in PREISFELDER]
-        self.assertEqual(gefunden, [])
-        roh = kb.DATEN_JS.read_text(encoding="utf-8")
-        self.assertNotRegex(roh, r"\{(?:brutto|netto):")
+    def test_preise_nach_anfrage(self):
+        for sprache, satz in PREISE_NACH_ANFRAGE.items():
+            seite = unescape(roh(sprache))
+            self.assertIn(satz, seite)
+            self.assertIn('href="tel:+4917623581339"', seite)
+            for wort in ("Preis berechnen", "Calculate your price", "Preisrechner", "price calculator", "data-preis="):
+                self.assertNotIn(wort, seite)
+            kopf = re.search(r"<head>.*?</head>", seite, re.S).group(0)
+            self.assertNotRegex(kopf, r'"(?:price|minPrice|maxPrice|priceRange|priceSpecification)"|"Offer"')
 
-    def test_anfrage_bittet_um_angebot_mit_preisen(self):
-        self.assertEqual(self.d["seite"]["de"]["ui"]["angebot_bitte"],
-                         "Bitte senden Sie mir Ihr Angebot mit Preisen und der Leistungsübersicht.")
-        self.assertIn("quote with prices", self.d["seite"]["en"]["ui"]["angebot_bitte"])
-        for sprache, satz in PREISE_AUF_ANFRAGE.items():
-            self.assertTrue(self.d["text"][sprache]["preise"].startswith(satz), sprache)
-
-
-class Seiten(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.d = kb.daten_laden()
-        cls.html = {sprache: text(pfad) for sprache, pfad in SEITEN.items()}
-        cls.roh = {sprache: pfad.read_text(encoding="utf-8") for sprache, pfad in SEITEN.items()}
-
-    def test_feste_abschnitte_entsprechen_den_daten(self):
-        self.assertEqual(kb.pruefen(self.d), [], "python tools/kaufbegutachtung_bauen.py ausführen")
-
-    def test_jede_regel_in_beiden_sprachen(self):
-        for sprache, roh in self.roh.items():
-            for r in self.d["regeln"]:
-                with self.subTest(sprache=sprache, regel=r["id"]):
-                    self.assertIn(f'data-regel="{r["id"]}"', roh)
-                    self.assertIn(r[sprache]["titel"], self.html[sprache])
-                    self.assertIn(r[sprache]["text"], self.html[sprache])
-
-    def test_leistungsumfang_in_beiden_sprachen(self):
-        for sprache, inhalt in self.html.items():
-            for objekt in kb.OBJEKTE:
-                for punkt in self.d["leistungen"][objekt][sprache]:
-                    with self.subTest(sprache=sprache, punkt=punkt):
-                        self.assertIn(punkt, inhalt)
-
-    def test_preise_auf_anfrage(self):
-        # Statt Preisen: der Hinweis auf die E-Mail, ein Kontaktweg und „Angebot anfordern“.
-        for sprache, inhalt in self.html.items():
-            with self.subTest(sprache=sprache):
-                self.assertIn(PREISE_AUF_ANFRAGE[sprache], inhalt)
-                self.assertIn('href="mailto:info@ing-bassam.de', inhalt)
-                self.assertIn('href="tel:+4917623581339"', inhalt)
-                self.assertIn('id="anfrage-link"', inhalt)
-                self.assertIn("Angebot anfordern" if sprache == "de" else "Request a quote", inhalt)
-                for wort in ("Preis berechnen", "Calculate your price", "Preisrechner", "price calculator",
-                             'id="summe"', 'id="optionen"', "preistabelle", "data-preis="):
-                    self.assertNotIn(wort, inhalt)
-                kopf = re.search(r"<head>.*?</head>", inhalt, re.S).group(0)
-                self.assertNotRegex(kopf, r'"(?:price|minPrice|maxPrice|priceRange|priceSpecification)"|"Offer"')
-
-    def test_unterlagen_in_beiden_sprachen(self):
-        for sprache, inhalt in self.html.items():
-            for objekt in kb.OBJEKTE:
-                for u in self.d["unterlagen"][objekt]:
-                    with self.subTest(sprache=sprache, unterlage=u["id"]):
-                        self.assertIn(u[sprache], inhalt)
+    def test_abschnitte_vorhanden(self):
+        erwartet = {
+            "de": ("Leistungsumfang", "Eigentumswohnung", "Einfamilienhaus", "So läuft es ab", "Was nicht enthalten ist",
+                   "Qualifikation", "Mitglied der Baukammer Berlin", "Häufige Fragen"),
+            "en": ("Scope of services", "Flat (condominium)", "House", "How it works", "What is not included",
+                   "Qualifications", "Member of the Berlin Chamber of Engineers", "Frequently asked questions"),
+        }
+        for sprache, teile in erwartet.items():
+            seite = unescape(roh(sprache))
+            for teil in teile:
+                with self.subTest(sprache=sprache, teil=teil):
+                    self.assertIn(teil, seite)
 
     def test_anker_der_qr_codes(self):
-        # Ziele der QR-Codes in den Broschüren – diese Adressen müssen stabil bleiben.
-        for sprache, anker in (("de", ("wohnung", "haus")), ("en", ("flat", "house"))):
-            for name in anker:
-                self.assertIn(f'id="{name}"', self.roh[sprache], name)
-            self.assertEqual(set(self.d["anker"][sprache].values()), set(anker))
+        # Ziele der QR-Codes in den Broschüren – diese Adressen bleiben stabil.
+        for sprache, namen in ANKER.items():
+            for name in namen:
+                self.assertIn(f'id="{name}"', roh(sprache), name)
 
-    def test_titel_und_skripte(self):
-        for sprache, roh in self.roh.items():
-            titel = re.search(r"<title>(.*?)</title>", roh).group(1)
+    def test_titel_und_sicherheit(self):
+        for sprache in SEITEN:
+            seite = roh(sprache)
+            titel = re.search(r"<title>(.*?)</title>", seite).group(1)
             self.assertLessEqual(len(unescape(titel)), 60, titel)
             self.assertNotRegex(titel, r"[Pp]reis|[Pp]rice")
-            self.assertIn('<script type="module" src="/werkzeuge/kaufbegutachtung/app.js"></script>', roh)
-            self.assertIn("script-src 'self'", roh)
-            self.assertNotIn("http://", roh.replace("http://www.w3.org", ""))
+            self.assertIn("script-src 'self'", seite)
+            self.assertNotIn("http://", seite.replace("http://www.w3.org", ""))
 
-    def test_skripte_werden_ausgeliefert(self):
-        # Positivliste in tools/website_bauen.py: unter werkzeuge/ dürfen .js-Dateien online gehen.
-        for datei in ("app.js", "kaufbegutachtung.js", "daten.js"):
-            pfad = f"werkzeuge/kaufbegutachtung/{datei}"
-            self.assertTrue((WURZEL / pfad).is_file(), pfad)
-            self.assertTrue(website_bauen.zur_website(pfad), pfad)
-        for pfad in SEITEN.values():
-            self.assertTrue(website_bauen.zur_website(pfad.relative_to(WURZEL).as_posix()), pfad)
+    def test_alte_skripte_entfernt(self):
+        # Regeln und Unterlagen lagen bis Oktober 2026 öffentlich in werkzeuge/kaufbegutachtung/daten.js.
+        ordner = WURZEL / "werkzeuge" / "kaufbegutachtung"
+        self.assertEqual(sorted(p.name for p in ordner.rglob("*")) if ordner.exists() else [], [])
+        self.assertFalse((WURZEL / "tools" / "kaufbegutachtung_bauen.py").exists())
 
 
 class AndereSeiten(unittest.TestCase):
     def test_due_diligence_verweist_auf_kaufbegutachtung(self):
         for sprache, pfad in DUE_DILIGENCE.items():
-            inhalt = text(pfad)
+            inhalt = unescape(pfad.read_text(encoding="utf-8"))
             ziel = "/leistungen/kaufbegutachtung/" if sprache == "de" else "/en/pre-purchase-inspection-berlin/"
             self.assertIn(f'href="{ziel}"', inhalt)
             # Der frühere „Technische Kurzbericht“ ist ersetzt.
@@ -202,8 +143,20 @@ class AndereSeiten(unittest.TestCase):
             self.assertNotIn("Building survey report", inhalt)
 
     def test_uebersichten_verlinken_die_seite(self):
-        self.assertIn('href="/leistungen/kaufbegutachtung/"', text(UEBERSICHTEN["de"]))
-        self.assertIn('href="/en/pre-purchase-inspection-berlin/"', text(UEBERSICHTEN["en"]))
+        self.assertIn('href="/leistungen/kaufbegutachtung/"', UEBERSICHTEN["de"].read_text(encoding="utf-8"))
+        self.assertIn('href="/en/pre-purchase-inspection-berlin/"', UEBERSICHTEN["en"].read_text(encoding="utf-8"))
+
+    def test_startseite_fuehrt_zur_kaufbegutachtung(self):
+        # Der Leistungseintrag „Objektüberwachung (LP 8)“ ist durch die Kaufbegutachtung ersetzt;
+        # der Anker #leistung-objektueberwachung bleibt für ältere Links aus Fachbeiträgen erhalten.
+        start = (WURZEL / "index.html").read_text(encoding="utf-8")
+        karte = re.search(r'<article class="service-card[^"]*"[^>]*id="leistung-kaufbegutachtung">(.*?)</article>', start, re.S)
+        self.assertIsNotNone(karte)
+        self.assertIn("Kaufbegutachtung", karte.group(1))
+        self.assertIn('href="/leistungen/kaufbegutachtung/"', karte.group(1))
+        self.assertIn('id="leistung-objektueberwachung"', start)
+        self.assertNotRegex(start, r'<h3>Objektüberwachung')
+        self.assertIn('"url": "https://ing-bassam.de/leistungen/kaufbegutachtung/"', start)
 
 
 if __name__ == "__main__":

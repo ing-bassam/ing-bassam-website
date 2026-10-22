@@ -4,6 +4,7 @@ Website des Bassam Ingenieurbüros für Bauwesen in Berlin: statische Seiten auf
 
 ## Aufbau
 - `index.html`, `leistungen/`, `en/` (ohne `en/guides/`), `werkzeuge/`, `wertrechner/`, `fachwissen/artikel.css` – von Hand gepflegt
+- `angebot/` – private Angebotsseiten, nur per persönlichem Link nutzbar: Inhalte verschlüsselt in `paket.js` (`tools/angebot_verschluesseln.mjs`), Schlüssel und Klartext nie im Repo; nie verlinken, nicht in Sitemap oder llms.txt
 - `entwuerfe/`, `entwuerfe-en/` – Markdown-Quellen der Beiträge; `status:` im Dateikopf steuert die Veröffentlichung
 - `fachwissen/`, `en/guides/`, `sitemap.xml`, `llms.txt`, `entwuerfe/README.md` – vom Seitenbau erzeugt, nie von Hand ändern
 - `vorlagen/<kurzform>.yml` – Quelle der Downloads; PDF, Word und Excel daneben erzeugt `tools/vorlage_bauen.py`

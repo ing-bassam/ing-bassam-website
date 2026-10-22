@@ -68,7 +68,7 @@
     "availableLanguage": ["German", "English"],
     "areaServed": "DE"
   },
-  "knowsAbout": ["Versicherungsgutachten", "Gerichtsgutachten", "Technische Beweissicherung", "Objektüberwachung (LP 8)", "Technische Due Diligence", "Bauschäden", "Bauphysik", "Immobilienbewertung"],
+  "knowsAbout": ["Versicherungsgutachten", "Gerichtsgutachten", "Technische Beweissicherung", "Kaufbegutachtung", "Objektüberwachung (LP 8)", "Technische Due Diligence", "Bauschäden", "Bauphysik", "Immobilienbewertung"],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Leistungen",
@@ -76,6 +76,7 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Versicherungsgutachten", "url": "https://ing-bassam.de/leistungen/versicherer/" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gerichtsgutachten", "url": "https://ing-bassam.de/leistungen/gerichte-versicherer/" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technische Beweissicherung", "url": "https://ing-bassam.de/leistungen/technische-beweissicherung/" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kaufbegutachtung von Wohnung und Haus", "url": "https://ing-bassam.de/leistungen/kaufbegutachtung/" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Objektüberwachung (LP 8)", "url": "https://ing-bassam.de/#leistung-objektueberwachung" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Baubegleitung und Bauabnahme", "url": "https://ing-bassam.de/leistungen/baubegleitung-bauabnahme/" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Schimmelgutachten und Feuchteschäden", "url": "https://ing-bassam.de/leistungen/schimmelgutachten/" } },
@@ -757,6 +758,7 @@
   <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
   <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="11.5" cy="11.5" r="3.5"/><path d="m17 17-2.5-2.5"/></symbol>
   <symbol id="i-helmet" viewBox="0 0 24 24"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 6 6v3"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><rect x="2" y="15" width="20" height="4" rx="1"/></symbol>
+  <symbol id="i-house" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
 </svg>
 
@@ -864,7 +866,7 @@
       <div class="wrap">
         <h2 class="sr-only">Ihr Anliegen</h2>
         <div class="audience-grid">
-          <a class="audience-item" href="/leistungen/baubegleitung-bauabnahme/">
+          <a class="audience-item" id="leistung-objektueberwachung" href="/leistungen/baubegleitung-bauabnahme/">
             <span class="audience-kicker">Ihr Anliegen</span>
             <span class="audience-title">Private Bauherren</span>
             <span class="audience-text">Wir begleiten Ihre Bauausführung vor Ort und vertreten Ihre Interessen gegenüber den ausführenden Firmen.</span>
@@ -895,7 +897,7 @@
           <p class="section-label"><span class="num">01</span><span class="rule"></span><span>Leistungen</span></p>
           <h2 id="leistungenTitle">Bauingenieure für Bauschäden, Bauphysik und Baubetrieb</h2>
         </div>
-        <p class="section-intro reveal" style="--d:.08s">Vier Kernbereiche, in denen wir Bauherren, Versicherungen und Gerichte mit nachvollziehbaren technischen Feststellungen unterstützen.</p>
+        <p class="section-intro reveal" style="--d:.08s">Vier Kernbereiche, in denen wir Käufer, Bauherren, Versicherungen und Gerichte mit nachvollziehbaren technischen Feststellungen unterstützen.</p>
       </div>
 
       <div class="services-grid">
@@ -938,16 +940,16 @@
           </div>
         </article>
 
-        <article class="service-card reveal" style="--d:.08s" id="leistung-objektueberwachung">
+        <article class="service-card reveal" style="--d:.08s" id="leistung-kaufbegutachtung">
           <div class="service-top">
-            <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-helmet"/></svg></span>
+            <span class="service-icon"><svg class="icon" aria-hidden="true"><use href="#i-house"/></svg></span>
             <span class="service-num">04</span>
           </div>
-          <h3>Objektüberwachung (LP&nbsp;8)</h3>
-          <p>Als Bauherrenvertretung begleiten wir die Bauausführung vor Ort, sichern Qualität, Kosten und Termine und vertreten Ihre Interessen gegenüber den ausführenden Firmen.</p>
+          <h3>Kaufbegutachtung</h3>
+          <p>Haus oder Wohnung vor dem Kauf prüfen: Wir begehen das Objekt, werten die Unterlagen aus und zeigen Mängel und die Kosten der nächsten 10–15 Jahre – bevor Sie zum Notar gehen.</p>
           <div class="service-links">
-            <a href="/leistungen/baubegleitung-bauabnahme/" class="text-link">Baubegleitung und Bauabnahme <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a href="#kontakt" class="text-link" data-topic="Objektüberwachung (LP 8)">Anfrage stellen</a>
+            <a href="/leistungen/kaufbegutachtung/" class="text-link">Leistung und Ablauf <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="#kontakt" class="text-link" data-topic="Kaufbegutachtung (Haus oder Wohnung)">Anfrage stellen</a>
           </div>
         </article>
       </div>
@@ -1032,6 +1034,7 @@
                 <option>Versicherungsgutachten</option>
                 <option>Gerichtsgutachten</option>
                 <option>Technische Beweissicherung</option>
+                <option>Kaufbegutachtung (Haus oder Wohnung)</option>
                 <option>Objektüberwachung (LP 8)</option>
                 <option>Technische Due Diligence / Kaufberatung</option>
                 <option>Sonstiges</option>
@@ -1082,6 +1085,7 @@
       <a href="/wertrechner/">Wertrechner</a>
       <a href="/werkzeuge/">Werkzeuge</a>
       <a href="/fachwissen/vorlagen/">Vorlagen</a>
+      <a href="/leistungen/kaufbegutachtung/">Kaufbegutachtung</a>
       <a href="/leistungen/technische-due-diligence/">Due Diligence</a>
       <a href="/leistungen/hausverwaltungen/">Für Hausverwaltungen</a>
       <a href="/leistungen/rechtsanwaelte/">Für Rechtsanwälte</a>

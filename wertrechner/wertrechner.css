@@ -419,9 +419,10 @@ dl.parameter dd{margin:0; font-weight:500; color:var(--text);}
 }
 
 /* ---------------------------------------------------- Kaufbegutachtung
-   Leistungsseite mit Hinweis-Assistent, ohne Preise (leistungen/kaufbegutachtung/,
-   en/pre-purchase-inspection-berlin/). Texte mindestens 14 px, Eingaben und
-   Fließtext 16 px; Kategorien und Prioritäten stehen immer auch als Text da. */
+   Leistungsseite ohne Preise (leistungen/kaufbegutachtung/, en/pre-purchase-inspection-berlin/)
+   und Bausteine der privaten Angebotsseite (angebot/kaufbegutachtung/, ergänzt durch
+   angebot.css). Texte mindestens 14 px, Eingaben und Fließtext 16 px; Kategorien und
+   Prioritäten stehen immer auch als Text da. */
 .hero-kauf h1{max-width:22ch;}
 .nutzen-liste{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin:30px 0 0; padding:0; list-style:none;}
 .nutzen-liste li{display:grid; gap:4px; align-content:start; padding:16px 18px; border:1px solid var(--ink-line-2); border-radius:var(--radius); background:rgba(255,255,255,.03);}
