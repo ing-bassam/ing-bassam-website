@@ -333,6 +333,12 @@
   .dwg .x{fill:none; stroke:var(--on-ink-3); stroke-width:1; stroke-dasharray:3 4; opacity:0; animation:fadeTo55 .8s ease both; animation-delay:1.3s;}
   .dwg .h{fill:none; stroke:var(--on-ink-3); stroke-width:.9; opacity:.5;}
   .dwg .a{fill:none; stroke:var(--accent-bright); stroke-width:1.4;}
+  /* Höhenkoten nach DIN 1356: Dreieckssymbol je Ebene, eine Hälfte gefüllt */
+  .dwg .kote{fill:none; stroke:#c4cad3; stroke-width:1; stroke-linejoin:round; opacity:.62;}
+  .dwg .kote-f{fill:#c4cad3; opacity:.62;}
+  .dwg .kote-a{fill:none; stroke:var(--accent-bright); stroke-width:1.2; stroke-linejoin:round;}
+  .dwg .kote-af{fill:var(--accent-bright);}
+  .dwg .hoehe{opacity:0; animation:fadeIn .8s ease both; animation-delay:1.5s;}
   .dwg text{font-family:var(--font-plan); font-size:10.5px; letter-spacing:.04em; fill:var(--on-ink-3);}
   .dwg text.ta{fill:var(--accent-bright);}
   .dwg [pathLength]{
@@ -775,7 +781,7 @@
           </div>
         </div>
 
-        <!-- Dekorative Schnittzeichnung: Gebäude mit Maßketten; ein Prüfstrahl
+        <!-- Dekorative Schnittzeichnung: Gebäude mit Höhenkoten und Maßkette; ein Prüfstrahl
              fährt einmal darüber, danach erscheinen Riss und Feuchtestelle -->
         <div class="hero-drawing" aria-hidden="true">
           <svg class="dwg" viewBox="0 0 520 540" focusable="false">
@@ -816,16 +822,22 @@
             <path class="s" pathLength="1" style="--i:8" d="M248 384V306M254 384V306"/>
 
             <!-- Hilfslinien zu den Höhenkoten -->
-            <path class="x" d="M410 100H454M410 208H454M410 296H454M410 384H454M420 462H454"/>
+            <path class="x" d="M410 100H460M410 208H460M410 296H460M410 384H460M420 462H460"/>
 
-            <!-- Vertikale Maßkette -->
-            <path class="d" pathLength="1" style="--i:9" d="M460 92V470"/>
-            <path class="a" pathLength="1" style="--i:10" d="M455 105L465 95M455 213L465 203M455 301L465 291M455 389L465 379M455 467L465 457"/>
-            <text x="474" y="104">+9,70</text>
-            <text x="474" y="212">+6,00</text>
-            <text x="474" y="300">+3,00</text>
-            <text class="ta" x="474" y="388">±0,00</text>
-            <text x="474" y="466">−2,65</text>
+            <!-- Höhenkoten (DIN 1356): Dreieckssymbol je Ebene, eine Hälfte gefüllt;
+                 ±0,00 = Oberkante Fertigfußboden Erdgeschoss als Bezugshöhe (Akzent) -->
+            <g class="hoehe">
+              <path class="kote" d="M453 90H467L460 100Z"/><path class="kote-f" d="M460 90H467L460 100Z"/>
+              <path class="kote" d="M453 198H467L460 208Z"/><path class="kote-f" d="M460 198H467L460 208Z"/>
+              <path class="kote" d="M453 286H467L460 296Z"/><path class="kote-f" d="M460 286H467L460 296Z"/>
+              <path class="kote-a" d="M453 374H467L460 384Z"/><path class="kote-af" d="M460 374H467L460 384Z"/>
+              <path class="kote" d="M453 452H467L460 462Z"/><path class="kote-f" d="M460 452H467L460 462Z"/>
+            </g>
+            <text x="472" y="104">+9,70</text>
+            <text x="472" y="212">+6,00</text>
+            <text x="472" y="300">+3,00</text>
+            <text class="ta" x="472" y="388">±0,00</text>
+            <text x="472" y="466">−2,65</text>
 
             <!-- Horizontale Maßkette -->
             <path class="d" pathLength="1" style="--i:10" d="M108 504H412M116 484V512M404 484V512"/>
