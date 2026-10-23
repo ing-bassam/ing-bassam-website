@@ -330,9 +330,14 @@
   .dwg{width:100%; height:auto; max-width:500px; margin-left:auto; overflow:visible;}
   .dwg .s{fill:none; stroke:#c4cad3; stroke-width:1.25; stroke-linecap:butt; stroke-linejoin:miter; opacity:.62;}
   .dwg .d{fill:none; stroke:var(--on-ink-3); stroke-width:1; opacity:.85;}
-  .dwg .x{fill:none; stroke:var(--on-ink-3); stroke-width:1; stroke-dasharray:3 4; opacity:0; animation:fadeTo55 .8s ease both; animation-delay:1.3s;}
+  /* Maßhilfslinien: schmale Volllinien (DIN 1356-1), nicht gestrichelt */
+  .dwg .mh{fill:none; stroke:var(--on-ink-3); stroke-width:.8; opacity:0; animation:fadeTo55 .8s ease both; animation-delay:1.3s;}
   .dwg .h{fill:none; stroke:var(--on-ink-3); stroke-width:.9; opacity:.5;}
   .dwg .a{fill:none; stroke:var(--accent-bright); stroke-width:1.4;}
+  /* Höhenkote nach DIN 1356-1: offenes Dreieck = Oberfläche Fertigkonstruktion,
+     Spitze auf der Bezugslinie, Zahl darüber */
+  .dwg .kote{fill:none; stroke:var(--on-ink-3); stroke-width:1; opacity:0; animation:fadeIn .8s ease both; animation-delay:1.45s;}
+  .dwg .kote.ka{stroke:var(--accent-bright);}
   .dwg text{font-family:var(--font-plan); font-size:10.5px; letter-spacing:.04em; fill:var(--on-ink-3);}
   .dwg text.ta{fill:var(--accent-bright);}
   .dwg [pathLength]{
@@ -775,8 +780,9 @@
           </div>
         </div>
 
-        <!-- Dekorative Schnittzeichnung: Gebäude mit Maßketten; ein Prüfstrahl
-             fährt einmal darüber, danach erscheinen Riss und Feuchtestelle -->
+        <!-- Dekorative Schnittzeichnung wie ein Werkplan-Schnitt: Höhenkoten im
+             Gebäude, außen je drei Maßketten (nur Längen); ein Prüfstrahl fährt
+             einmal darüber, danach erscheinen Riss und Feuchtestelle -->
         <div class="hero-drawing" aria-hidden="true">
           <svg class="dwg" viewBox="0 0 520 540" focusable="false">
             <defs>
@@ -815,22 +821,49 @@
             <!-- Innenwand -->
             <path class="s" pathLength="1" style="--i:8" d="M248 384V306M254 384V306"/>
 
-            <!-- Hilfslinien zu den Höhenkoten -->
-            <path class="x" d="M410 100H454M410 208H454M410 296H454M410 384H454M420 462H454"/>
+            <!-- Bezugshöhe wie im Plankopf eines Werkplans -->
+            <text x="20" y="40">±0,00 = OKFF EG</text>
 
-            <!-- Vertikale Maßkette -->
-            <path class="d" pathLength="1" style="--i:9" d="M460 92V470"/>
-            <path class="a" pathLength="1" style="--i:10" d="M455 105L465 95M455 213L465 203M455 301L465 291M455 389L465 379M455 467L465 457"/>
-            <text x="474" y="104">+9,70</text>
-            <text x="474" y="212">+6,00</text>
-            <text x="474" y="300">+3,00</text>
-            <text class="ta" x="474" y="388">±0,00</text>
-            <text x="474" y="466">−2,65</text>
+            <!-- Höhenkoten (DIN 1356-1) im Gebäude auf den Fußbodenoberkanten,
+                 außen nur First und Gelände; ±0,00 als Bezugshöhe im Akzent -->
+            <path class="kote" d="M266 79h8l-4 7z"/>
+            <text x="277" y="83">+10,15</text>
+            <path class="kote" d="M302 201h8l-4 7z"/>
+            <text x="313" y="205">+6,00</text>
+            <path class="kote" d="M302 289h8l-4 7z"/>
+            <text x="313" y="293">+3,00</text>
+            <path class="kote ka" d="M302 377h8l-4 7z"/>
+            <text class="ta" x="313" y="381">±0,00</text>
+            <path class="kote" d="M198 455h8l-4 7z"/>
+            <text x="209" y="459">−2,65</text>
+            <path class="kote" d="M32 393h8l-4 7z"/>
+            <text x="43" y="397">−0,55 GOK</text>
 
-            <!-- Horizontale Maßkette -->
-            <path class="d" pathLength="1" style="--i:10" d="M108 504H412M116 484V512M404 484V512"/>
-            <path class="a" pathLength="1" style="--i:11" d="M111 509L121 499M399 509L409 499"/>
-            <text x="260" y="496" text-anchor="middle">9,60</text>
+            <!-- Senkrechte Maßketten ab Unterkante Bodenplatte, von innen nach außen:
+                 Bodenplatte und Geschosshöhen OKFF–OKFF, unter/über Gelände, Gesamthöhe;
+                 die kleine 50 steht versetzt neben der Kette -->
+            <path class="mh" d="M264 86H496M432 208H452M410 296H452M410 384H452M444 400H474M420 462H452M420 476H496"/>
+            <path class="d" pathLength="1" style="--i:9" d="M448 82V480M470 82V480M492 82V480"/>
+            <path class="a" pathLength="1" style="--i:10" d="M444.5 89.5l7-7M444.5 211.5l7-7M444.5 299.5l7-7M444.5 387.5l7-7M444.5 465.5l7-7M444.5 479.5l7-7M466.5 89.5l7-7M466.5 403.5l7-7M466.5 479.5l7-7M488.5 89.5l7-7M488.5 479.5l7-7"/>
+            <text x="444" y="147" text-anchor="middle" transform="rotate(-90 444 147)">4,15</text>
+            <text x="444" y="252" text-anchor="middle" transform="rotate(-90 444 252)">3,00</text>
+            <text x="444" y="340" text-anchor="middle" transform="rotate(-90 444 340)">3,00</text>
+            <text x="444" y="423" text-anchor="middle" transform="rotate(-90 444 423)">2,65</text>
+            <text x="460" y="469" text-anchor="middle" transform="rotate(-90 460 469)">50</text>
+            <text x="466" y="243" text-anchor="middle" transform="rotate(-90 466 243)">10,70</text>
+            <text x="466" y="438" text-anchor="middle" transform="rotate(-90 466 438)">2,60</text>
+            <text x="488" y="281" text-anchor="middle" transform="rotate(-90 488 281)">13,30</text>
+
+            <!-- Waagerechte Maßketten, von innen nach außen: Innenwand, Außenmaß,
+                 Gesamtmaß mit Bodenplatte; die kleine 20 steht versetzt darüber -->
+            <path class="mh" d="M104 486V536M116 486V518M248 489V500M254 489V500M404 486V518M416 486V536"/>
+            <path class="d" pathLength="1" style="--i:10" d="M112 496H408M112 514H408M100 532H420"/>
+            <path class="a" pathLength="1" style="--i:11" d="M112.5 499.5l7-7M244.5 499.5l7-7M250.5 499.5l7-7M400.5 499.5l7-7M112.5 517.5l7-7M400.5 517.5l7-7M100.5 535.5l7-7M412.5 535.5l7-7"/>
+            <text x="182" y="492" text-anchor="middle">4,40</text>
+            <text x="251" y="486" text-anchor="middle">20</text>
+            <text x="329" y="492" text-anchor="middle">5,00</text>
+            <text x="260" y="510" text-anchor="middle">9,60</text>
+            <text x="260" y="528" text-anchor="middle">10,40</text>
 
             <!-- Geschossbezeichnungen -->
             <text x="142" y="282">OG</text>
@@ -849,10 +882,11 @@
             <text class="ta" x="24" y="266" style="--t:3.2s">RISS 0,3 mm</text>
 
             <!-- Befund 2: Detailpunkt Anschluss Bodenplatte / Kellerwand, Feuchte -->
-            <circle class="a" pathLength="1" style="--i:34" cx="116" cy="462" r="30"/>
-            <path class="a" pathLength="1" style="--i:35" d="M130 440L124 448L130 454L123 462L128 470"/>
-            <path class="a" pathLength="1" style="--i:35" d="M95 483L78 500H20"/>
-            <text class="ta" x="20" y="517" style="--t:3.4s">DETAIL A · FEUCHTE</text>
+            <circle class="a" pathLength="1" style="--i:34" cx="116" cy="462" r="22"/>
+            <path class="a" pathLength="1" style="--i:35" d="M128 446L124 451L130 456L123 462L128 470"/>
+            <path class="a" pathLength="1" style="--i:35" d="M96 453L88 446H20"/>
+            <text class="ta" x="20" y="442" style="--t:3.4s">DETAIL A</text>
+            <text class="ta" x="20" y="459" style="--t:3.4s">FEUCHTE</text>
           </svg>
         </div>
       </div>
