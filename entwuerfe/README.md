@@ -7,7 +7,7 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der Seite ändert sich dabei nicht.
 
-## 🟡 Entwurf (7)
+## 🟡 Entwurf (5)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
@@ -16,13 +16,13 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 | 21.10.2026 | [Fernablesbare Heizkostenverteiler: Was bis Ende 2026 gilt](entwurf/2026-10-21-heizkostenverteiler-fernablesbar-frist-2026.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/heizkostenverteiler-fernablesbar-frist-2026/) |
 | 21.10.2026 | [Zu viel Betondeckung: Wer haftet für die Risse?](entwurf/2026-10-21-betondeckung-nennmass-haftungsquote.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/betondeckung-nennmass-haftungsquote/) |
 | 20.10.2026 | [Zu wenig Gefälle auf der Terrasse: Wer haftet wofür?](entwurf/2026-10-20-terrasse-gefaelle-hinweispflicht.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/terrasse-gefaelle-hinweispflicht/) |
-| 20.10.2026 | [Checkliste Beweissicherung vor Nachbarbaustellen](entwurf/2026-10-20-beweissicherung-nachbarbaustelle-checkliste.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/beweissicherung-nachbarbaustelle-checkliste/) |
-| 20.10.2026 | [Checkliste Abnahme Gemeinschaftseigentum im Neubau](entwurf/2026-10-20-abnahme-gemeinschaftseigentum-checkliste.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/abnahme-gemeinschaftseigentum-checkliste/) |
 
-## 🟢 Veröffentlicht (70)
+## 🟢 Veröffentlicht (72)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 20.10.2026 | [Checkliste Beweissicherung vor Nachbarbaustellen](veroeffentlicht/2026-10-20-beweissicherung-nachbarbaustelle-checkliste.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/beweissicherung-nachbarbaustelle-checkliste/) |
+| 20.10.2026 | [Checkliste Abnahme Gemeinschaftseigentum im Neubau](veroeffentlicht/2026-10-20-abnahme-gemeinschaftseigentum-checkliste.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/abnahme-gemeinschaftseigentum-checkliste/) |
 | 19.10.2026 | [Objektüberwachung: Was kostet Leistungsphase 8 nach HOAI?](veroeffentlicht/2026-10-19-honorar-objektueberwachung-lp8-hoai.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/honorar-objektueberwachung-lp8-hoai/) |
 | 19.10.2026 | [Abschlagsrechnung prüfen: was vor der Zahlung zu klären ist](veroeffentlicht/2026-10-19-abschlagsrechnung-hausbau-pruefen.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/abschlagsrechnung-hausbau-pruefen/) |
 | 15.10.2026 | [Wasserschaden: eigener Gutachter oder der des Versicherers?](veroeffentlicht/2026-10-15-wasserschaden-eigener-sachverstaendiger.md) | Ratgeber | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/wasserschaden-eigener-sachverstaendiger/) |

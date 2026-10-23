@@ -14,7 +14,7 @@ kurzform: abnahme-gemeinschaftseigentum-checkliste
 dateien: vorlagen/abnahme-gemeinschaftseigentum-checkliste/abnahme-gemeinschaftseigentum-checkliste.pdf, vorlagen/abnahme-gemeinschaftseigentum-checkliste/abnahme-gemeinschaftseigentum-checkliste-ausfuellbar.pdf
 erstellt: 2026-10-20
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-8159-9266-c6703b9d30f8
 notion_url: https://app.notion.com/p/Checkliste-Abnahme-Gemeinschaftseigentum-bei-Neubau-Eigentumswohnungen-3e5d96ad00b481599266c6703b9d30f8

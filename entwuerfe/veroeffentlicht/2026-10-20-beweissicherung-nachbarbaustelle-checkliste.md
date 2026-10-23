@@ -14,7 +14,7 @@ kurzform: beweissicherung-nachbarbaustelle-checkliste
 dateien: vorlagen/beweissicherung-nachbarbaustelle-checkliste/beweissicherung-nachbarbaustelle-checkliste.pdf, vorlagen/beweissicherung-nachbarbaustelle-checkliste/beweissicherung-nachbarbaustelle-checkliste-ausfuellbar.pdf
 erstellt: 2026-10-20
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-8135-8ae9-f9a9501a2e86
 notion_url: https://app.notion.com/p/Checkliste-Beweissicherung-vor-Nachbarbaustellen-3e5d96ad00b481358ae9f9a9501a2e86
