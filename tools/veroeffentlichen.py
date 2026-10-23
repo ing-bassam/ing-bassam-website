@@ -18,9 +18,18 @@ Zurückgehalten werden – mit Grund in der Ausgabe – Entwürfe
       oder Schlussprüfung, die zu spät kamen (Anlass: Am 02.10.2026 waren fünf
       Entwürfe zusammengeführt worden, bevor die Prüfungen fertig waren; einer
       ging so ohne Korrekturen online);
-    - die ein offener Pull Request noch ändert.
-Die beiden letzten Prüfungen brauchen die GitHub-CLI; ohne sie entfallen sie
-mit einem Hinweis.
+    - die ein offener Pull Request noch ändert;
+    - nur mit --wortgleich: die wörtlich mit der Fachbibliothek übereinstimmen
+      oder für die diese Prüfung nicht möglich war (Ergebnis von
+      tools/wortgleich_pruefen.py --json). Fehlt die Datei, ist sie unlesbar
+      oder meldet sie „nicht geprüft“, bleibt jeder Entwurf zurück
+      (fail-closed: ungeprüft geht nichts online); ebenso, wenn sich ein
+      Treffer keinem der Entwürfe zuordnen lässt. Ein Treffer in einem nicht
+      gewählten Entwurf hält nur diesen zurück. Im Probelauf ohne
+      --wortgleich (Wochenbericht) steht im Hinweis, dass die Prüfung erst am
+      Veröffentlichungstag läuft.
+Die beiden Prüfungen der Pull Requests brauchen die GitHub-CLI; ohne sie
+entfallen sie mit einem Hinweis.
 
 Aufruf:
     python tools/veroeffentlichen.py                       alle Entwürfe
@@ -28,6 +37,7 @@ Aufruf:
     python tools/veroeffentlichen.py --automatisch --max 2 die ältesten freigegebenen, höchstens 2
     python tools/veroeffentlichen.py --probelauf           nur anzeigen, nichts ändern
     … --bericht DATEI                                      Ergebnis zusätzlich als JSON
+    … --wortgleich DATEI                                   JSON der Prüfung auf wörtliche Übernahmen
 
 Letzte Ausgabezeile: Zahl der veröffentlichten Entwürfe (für den Workflow).
 """
@@ -136,6 +146,125 @@ def offene_korrekturen(dateinamen: set[str]) -> tuple[dict[str, str], str]:
     return gruende, ""
 
 
+# Ergebnis von tools/wortgleich_pruefen.py --json. Vorausgesetzt wird nur, was die Prüfung
+# laut Absprache je Treffer nennt (Entwurfsdatei, Werk-Kennung, gedruckte Seite) und dass sie
+# „nicht-geprueft“ meldet, wenn die Bibliothek fehlt. Was sich nicht eindeutig einem Entwurf
+# zuordnen lässt, hält alle zurück – im Zweifel geht nichts online (fail-closed).
+# Werk und Seite dienen nur zum Erkennen eines Treffers: In Ausgabe, --bericht und damit in
+# Protokoll, Zusammenfassung und Wochenbericht stehen nur Entwurfsdatei und Zahl der Stellen.
+WORTGLEICH_NICHT_MOEGLICH = ("Wortgleich-Prüfung nicht möglich (Fachbibliothek fehlt oder Ergebnis unlesbar) – "
+                             "ungeprüft geht nichts online")
+WORTGLEICH_ERST_AM_TAG = ("Die Prüfung auf wörtliche Übernahmen aus der Fachbibliothek läuft erst am "
+                          "Veröffentlichungstag – Entwürfe mit Treffern bleiben dann noch zurück.")
+NICHT_GEPRUEFT = {"nicht-geprueft", "nicht-geprüft", "nicht geprueft", "nicht geprüft"}
+DATEI_FELDER = ("entwurf", "entwurfsdatei", "datei", "pfad", "file")          # nennt die Entwurfsdatei
+WERK_FELDER = ("werk", "werke", "werk_kennung", "kennung", "seite", "gedruckte_seite")   # nur Treffer haben sie
+TREFFER_LISTEN = ("treffer", "fundstellen", "funde", "uebereinstimmungen")
+TREFFER_ZAHLEN = ("treffer", "anzahl_treffer", "trefferzahl", "treffer_anzahl")
+GEPRUEFT_LISTEN = ("dateien", "entwuerfe", "geprueft", "gepruefte_dateien", "gepruefte_entwuerfe")
+ALLE = "*"   # Befund, der keinem einzelnen Entwurf zuzuordnen ist: gilt für alle
+
+
+def wortgleich_lesen(pfad: Path, dateinamen: set[str]) -> dict[str, str]:
+    """Dateiname → Grund zum Zurückhalten, aus dem JSON der Prüfung auf wörtliche Übernahmen."""
+    try:
+        daten = json.loads(pfad.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, ValueError):
+        return {name: WORTGLEICH_NICHT_MOEGLICH for name in dateinamen}
+
+    treffer: dict[str, int] = {}     # Datei (oder ALLE) → gezählte Treffer-Einträge
+    gemeldet: dict[str, int] = {}    # Datei (oder ALLE) → gemeldete Trefferzahl
+    ungeprueft: set[str] = set()     # Dateien (oder ALLE), die nicht geprüft wurden
+    gelistet: set[str] = set()       # ausdrücklich als geprüft genannte Dateien (falls das JSON sie nennt)
+
+    def name_von(wert) -> str:
+        return Path(str(wert).replace("\\", "/")).name
+
+    def zuordnen(text: str) -> str:
+        return next((name for name in dateinamen if name in text), ALLE)
+
+    def zaehlen(ziel: str, anzahl: int = 1) -> None:
+        treffer[ziel] = treffer.get(ziel, 0) + anzahl
+
+    def gehen(knoten, datei: str, liste: str = "") -> None:
+        if isinstance(knoten, str):
+            if knoten.strip().lower() in NICHT_GEPRUEFT:
+                ungeprueft.add(datei or ALLE)
+            return
+        if isinstance(knoten, list):
+            for element in knoten:
+                if liste in TREFFER_LISTEN:
+                    # Jedes Element einer Trefferliste ist ein Treffer.
+                    if isinstance(element, dict):
+                        eigene = next((name_von(element[f]) for f in DATEI_FELDER
+                                       if isinstance(element.get(f), str)), "")
+                        zaehlen(eigene or datei or ALLE)
+                    else:
+                        zaehlen(datei or zuordnen(json.dumps(element, ensure_ascii=False)))
+                elif liste in GEPRUEFT_LISTEN and isinstance(element, str):
+                    gelistet.add(name_von(element))
+                else:
+                    gehen(element, datei, liste)
+            return
+        if not isinstance(knoten, dict):
+            return
+        eigene = next((name_von(knoten[f]) for f in DATEI_FELDER if isinstance(knoten.get(f), str)), "")
+        ziel = eigene or datei
+        if eigene and liste in GEPRUEFT_LISTEN:
+            gelistet.add(eigene)
+        # Ein Eintrag mit Entwurfsdatei und Werk oder Seite ist ein Treffer, auch außerhalb einer Liste.
+        if eigene and any(knoten.get(f) not in (None, "", 0, [], {}) for f in WERK_FELDER):
+            zaehlen(eigene)
+        for schluessel, wert in knoten.items():
+            feld = str(schluessel).lower()
+            if feld.endswith(".md"):                        # Ergebnis je Datei, Dateiname als Schlüssel
+                unter = name_von(schluessel)
+                if liste in GEPRUEFT_LISTEN:
+                    gelistet.add(unter)
+                if isinstance(wert, list) and wert:
+                    gehen(wert, unter, "treffer")
+                elif isinstance(wert, int) and not isinstance(wert, bool) and wert > 0:
+                    gemeldet[unter] = max(gemeldet.get(unter, 0), wert)
+                else:
+                    gehen(wert, unter)
+            elif feld in ("geprueft", "geprüft") and wert is False:
+                ungeprueft.add(ziel or ALLE)
+            elif feld in TREFFER_ZAHLEN and isinstance(wert, int) and not isinstance(wert, bool):
+                if wert > 0:
+                    gemeldet[ziel or ALLE] = max(gemeldet.get(ziel or ALLE, 0), wert)
+            elif feld in TREFFER_LISTEN or feld in GEPRUEFT_LISTEN:
+                gehen(wert, ziel, feld)
+            else:
+                gehen(wert, ziel)
+
+    gehen(daten, "")
+    # Gemeldete Zahlen, die die einzelnen Einträge übersteigen, gelten ebenfalls als Treffer.
+    for ziel, anzahl in gemeldet.items():
+        if ziel == ALLE:
+            rest = anzahl - sum(treffer.values())
+            if rest > 0:
+                zaehlen(ALLE, rest)
+        elif anzahl > treffer.get(ziel, 0):
+            treffer[ziel] = anzahl
+    # Treffer in einer Datei, die keiner der Entwürfe ist (anderer Pfad, fremdes Ergebnis), lassen
+    # sich nicht zuordnen und gelten für alle (fail-closed). Treffer in einem anderen Entwurf als
+    # der Auswahl halten dagegen nur diesen zurück – die Auswahl geht trotzdem online.
+    for ziel in [z for z in treffer if z != ALLE and z not in dateinamen]:
+        zaehlen(ALLE, treffer.pop(ziel))
+
+    gruende: dict[str, str] = {}
+    for name in dateinamen:
+        if ALLE in ungeprueft or name in ungeprueft or (gelistet and name not in gelistet and name not in treffer):
+            gruende[name] = WORTGLEICH_NICHT_MOEGLICH
+        elif treffer.get(name):
+            gruende[name] = (f"wörtliche Übereinstimmung mit der Fachbibliothek ({treffer[name]} Stelle(n)) – "
+                             "in eigene Worte fassen und erneut prüfen")
+        elif treffer.get(ALLE):
+            gruende[name] = ("wörtliche Übereinstimmung mit der Fachbibliothek (Treffer keinem Entwurf "
+                             "zuzuordnen) – Prüfbericht ansehen")
+    return gruende
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     p.add_argument("--auswahl", default="alle",
@@ -146,6 +275,8 @@ def main() -> int:
     p.add_argument("--probelauf", action="store_true")
     p.add_argument("--ohne-github", action="store_true", help="Pull Requests nicht abfragen (Tests)")
     p.add_argument("--bericht", type=Path, help="Ergebnis zusätzlich als JSON in diese Datei")
+    p.add_argument("--wortgleich", type=Path,
+                   help="JSON von tools/wortgleich_pruefen.py: Entwürfe mit Treffern oder ohne Prüfung zurückhalten")
     a = p.parse_args()
 
     wunsch = set() if a.automatisch else {w.strip().removesuffix(".md") for w in a.auswahl.split(",") if w.strip()}
@@ -157,6 +288,12 @@ def main() -> int:
     korrekturen: dict[str, str] = {}
     if not a.ohne_github:
         korrekturen, hinweis = offene_korrekturen({d.name for d in dateien})
+    if a.probelauf and not a.wortgleich:
+        # Probelauf des Wochenberichts: Die Prüfung auf wörtliche Übernahmen braucht die
+        # Fachbibliothek und läuft erst im Workflow „Entwürfe veröffentlichen“.
+        hinweis = " ".join(filter(None, [hinweis, WORTGLEICH_ERST_AM_TAG]))
+    # Ohne --wortgleich bleibt alles wie bisher (etwa im Probelauf des Wochenberichts).
+    wortgleich = wortgleich_lesen(a.wortgleich, {d.name for d in dateien}) if a.wortgleich else {}
 
     veroeffentlicht, uebersprungen, gefunden, bericht = [], [], set(), []
     texte = {datei: datei.read_text(encoding="utf-8") for datei in dateien}
@@ -192,6 +329,8 @@ def main() -> int:
             gruende.append(f"Doppelung ({grund}) zu {doppelungen.beschreibung(anderer)}")
         if datei.name in korrekturen:
             gruende.append(korrekturen[datei.name])
+        if datei.name in wortgleich:
+            gruende.append(wortgleich[datei.name])
         if gruende:
             uebersprungen.append(f"{name}: " + "; ".join(gruende))
             bericht.append({"kurzform": kurz, "datei": datei.name, "titel": titel, "format": feld(kopf, "format"), "ergebnis": "zurückgehalten", "gruende": gruende})

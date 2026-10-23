@@ -1,0 +1,24 @@
+# Vom Inhaber freigegebene feste Wendungen für tools/wortgleich_pruefen.py
+#
+# Regel des Inhabers:
+# „Aus Fachbüchern, Fachaufsätzen, Normen, Regelwerken und Leistungsverzeichnissen
+# wird nichts wörtlich übernommen: kein Satz, kein Satzteil, keine Tabelle, keine
+# Abbildung, kein Rechenbeispiel – auch nicht in Anführungszeichen. Diese Quellen
+# dienen nur dazu, Fakten zu prüfen; die Aussage steht in eigenen Worten mit
+# Fundstelle (Werk, Ausgabe, Seite oder Abschnitt). Kurze wörtliche Zitate sind nur
+# aus amtlichen Werken (Gesetze, Verordnungen, Gerichtsentscheidungen, § 5 UrhG)
+# erlaubt, mit Fundstelle. Wörtliche Belegstücke aus Büchern oder Normen stehen nie
+# an öffentlichen Stellen (Repository-Dateien, PR-Texte, PR-Kommentare, Issues,
+# Logs, Job-Zusammenfassungen), sondern nur in Arbeitsdateien im Runner-Temp.“
+#
+# Was hier steht, meldet die Wortgleich-Prüfung nicht mehr – auch dann nicht,
+# wenn dieselbe Wortfolge in einem Fachbuch steht. Deshalb gilt:
+# - Einträge ergänzt NUR der Inhaber, kein Agent und kein Workflow.
+# - Nur eigene, feste Wendungen der Beiträge (Bausteine), nie Sätze aus Büchern,
+#   Normen oder Leistungsverzeichnissen. Diese Datei ist öffentlich.
+# - Je Zeile eine Wendung. Zeilen mit # am Anfang sind Kommentare.
+# - Eine Wendung wirkt erst ab so vielen Wörtern wie die Prüfgrenze (Standard 8);
+#   kürzere Wendungen werden ohnehin nie allein gemeldet.
+#
+# Fester Hinweis-Baustein am Ende jedes Beitrags (Abschnitt „## Hinweis“):
+Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er ist keine Rechtsberatung und ersetzt keine Begutachtung des Einzelfalls. Ob und wie Ansprüche bestehen und durchgesetzt werden können, beurteilt ein Rechtsanwalt. Genannte Normen und Regelwerke sind in der jeweils gültigen Fassung zu prüfen.

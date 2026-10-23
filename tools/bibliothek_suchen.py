@@ -14,6 +14,12 @@ Nacht ergänzt; die Suche umfasst alles:
     quellen/     Steckbriefe geprüfter Webquellen aus freigegebenen Beiträgen
                  (Kennung wq-…) – Adresse, belegte Aussagen, Belegstück; kein Volltext
     erfahrungen.md  das Erfahrungsbuch (wird gelesen, nicht durchsucht)
+    normen/ausgaben.yml  Normenindex: je Norm neueste und ältere Ausgaben,
+                 Änderungen, Berichtigungen – nur Metadaten, kein Normtext
+
+Die Texte dienen nur dazu, Fakten zu prüfen. Übernommen wird nichts wörtlich
+(kein Satz, kein Satzteil, keine Tabelle, keine Abbildung, kein
+Rechenbeispiel); die Aussage steht in eigenen Worten mit Fundstelle.
 
 Aufrufe:
     python tools/bibliothek_suchen.py <bibliothek> --index
@@ -32,11 +38,17 @@ Aufrufe:
     python tools/bibliothek_suchen.py <bibliothek> --gliederung <kennung> [--tiefe 2]
         Inhaltsverzeichnis eines Werkes mit Seitenzahlen
     python tools/bibliothek_suchen.py <bibliothek> --werk <kennung> --seite <S> [--bis <S>]
-        Text der gedruckten Seite(n) – zum Lesen und Zitieren
+        Text der gedruckten Seite(n) – zum Prüfen, nicht zum Übernehmen
+    python tools/bibliothek_suchen.py --norm "DIN 4109-1" [--bibliothek <bibliothek>]
+        neueste Ausgabe einer Norm laut Normenindex, dazu Änderungen,
+        Berichtigungen und ältere Ausgaben (Standard-Ordner: .bibliothek).
+        Rückgabewert 0 = gefunden, 1 = nicht im Index, 2 = Index fehlt.
+        Den Status bestätigt danach die Primärquelle (DIN Media).
 """
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import re
 import sqlite3
 import sys
@@ -47,6 +59,12 @@ GLIEDERUNG = re.compile(r"^( *)- (.+) \(S\. ([^,]+), PDF (\d+)\)$")
 JE_WERK = 3   # höchstens so viele Treffer aus demselben Werk
 # Teile der Bibliothek: Fachbücher (oberste Ebene), Forschungsarbeiten, Steckbriefe von Webquellen
 BEREICHE = ("", "forschung", "quellen")
+# Normenindex (nur Metadaten) und sein Höchstalter – dieselbe Grenze meldet die Wöchentliche Prüfung.
+NORMENINDEX = Path("normen") / "ausgaben.yml"
+INDEX_HOECHSTALTER = 45   # Tage
+# Steht nach jeder gelesenen Seite: Die Bibliothek dient der Prüfung, nicht als Textvorlage.
+NICHT_UEBERNEHMEN = ("Nur zum Prüfen: nichts wörtlich übernehmen (kein Satz, kein Satzteil, keine Tabelle, "
+                     "keine Abbildung, kein Rechenbeispiel) – die Aussage in eigenen Worten mit dieser Fundstelle.")
 
 
 def katalog_laden(bibliothek: Path) -> list[dict]:
@@ -226,7 +244,8 @@ def suchen(bibliothek: Path, suchtext: str, werk: str, anzahl: int, alle: bool =
             art = f" · {eintrag.get('art')}" if eintrag.get("_bereich") == "forschung" else ""
             print(f"[{nummer}] {kennung}{art} · S. {seite}" + (f" · Kap.: {titel}" if titel else ""))
         print("    " + " ".join(auszug.split()))
-    print("\nZitierweise in der Fußnote (Seite einsetzen, Abrufdatum = Laufdatum):")
+    print("\nFundstelle für die Fußnote (Seite einsetzen, Abrufdatum = Laufdatum; "
+          "die Aussage selbst in eigenen Worten):")
     for kennung in dict.fromkeys(z[0] for z in auswahl):
         if kennung in katalog:
             print(f"  {kennung}: {fussnote(katalog[kennung])}")
@@ -269,15 +288,20 @@ def seiten_zeigen(bibliothek: Path, werk: str, von: str, bis: str | None) -> Non
               "für geltende Aussagen dort nachsehen.")
     seite_text = von if not bis or bis == von else f"{von}–{bis}"
     print(f"Fußnote: {fussnote(eintrag, seite_text)}")
+    print(NICHT_UEBERNEHMEN)
+    # Bücher und Arbeiten zitieren oft ältere Normausgaben; die neueste nennt der Normenindex.
+    neueste = 'Neueste Ausgabe einer Norm: python tools/bibliothek_suchen.py --norm "<Norm>".'
     if ist_webquelle(eintrag):
         print(f"Zuletzt in einem freigegebenen Beitrag belegt: {eintrag.get('zuletzt_belegt') or 'unbekannt'}. "
               "Den aktuellen Stand – Normstatus, Gesetzesfassung, geänderte Seite – zeigt nur die Adresse.")
     elif eintrag.get("_bereich") == "forschung":
         print(f"Stand der Arbeit: {eintrag.get('jahr') or 'unbekannt'} ({eintrag.get('art')}, frei zugänglich, "
-              f"Lizenz {eintrag.get('lizenz') or 'unbekannt'}) – bei Normaussagen prüfen, ob die Fassung noch gilt.")
+              f"Lizenz {eintrag.get('lizenz') or 'unbekannt'}) – bei Normaussagen prüfen, ob die Fassung noch gilt. "
+              + neueste)
     else:
         print(f"Stand des Werkes: {eintrag.get('jahr') or 'unbekannt'} – bei Normaussagen prüfen, "
-              "ob die zitierte Fassung noch gilt.")
+              "ob die zitierte Fassung noch gilt; eine Buchaussage zu einer Norm nur übernehmen, wenn die "
+              "neueste Ausgabe sie trägt. " + neueste)
 
 
 def katalog_zeigen(bibliothek: Path, thema: str | None, teil: str = "") -> None:
@@ -314,10 +338,124 @@ def gliederung_zeigen(bibliothek: Path, werk: str, tiefe: int) -> None:
             print(zeile)
 
 
+def norm_schluessel(bezeichnung: str) -> str:
+    """Normbezeichnung in der Form des Feldes `schluessel` im Normenindex: Großbuchstaben,
+    einfache Leerzeichen, ohne Ausgabe, Änderung und Berichtigung.
+
+    „din 4109-1:2018-01“ → „DIN 4109-1“, „DIN 4109-1/A1:2026-09“ → „DIN 4109-1“, „VDI4100“ → „VDI 4100“.
+    Dieselben Regeln wie normstand_pruefen.schluessel und normen_index.py (FachwissenAgent): Änderung
+    als „/A1“ oder „-A1“, „DIN-TS“, „DIN/TS“ und „DIN TS“ → „DIN TS“ (ebenso SPEC), „-NA“ → „/NA“.
+    """
+    s = " ".join(bezeichnung.replace(" ", " ").upper().split())
+    s = re.sub(r"\b([A-ZÄÖÜ]{2,})(?=\d)", r"\1 ", s)                 # „DIN4109“ → „DIN 4109“
+    s = re.sub(r"\s*:\s*\d{4}(-\d{1,2})?\b.*$", "", s)                # Ausgabe
+    s = re.sub(r"\s*[/-]\s*A\d+\b.*$", "", s)                         # Änderung A1, A2 … („/A1“, „-A1“)
+    s = re.sub(r"\s+(BERICHTIGUNG|BER\.)\s*\d*.*$", "", s)             # Berichtigung
+    s = re.sub(r"^DIN\s*[/-]?\s*(TS|SPEC)\b", r"DIN \1", s)          # DIN-TS, DIN/TS, DIN TS
+    s = re.sub(r"\s*[/-]\s*NA\b", "/NA", s)                           # Nationaler Anhang: /NA oder -NA
+    return s.strip()
+
+
+def als_liste(wert) -> list[str]:
+    if not wert:
+        return []
+    if isinstance(wert, (list, tuple)):
+        return [str(w).strip() for w in wert if str(w).strip()]
+    return [str(wert).strip()]
+
+
+def index_alter(stand, heute: dt.date | None = None) -> int | None:
+    """Alter des Normenindex in Tagen; None, wenn `stand_index` fehlt oder kein Datum ist."""
+    try:
+        datum = stand if isinstance(stand, dt.date) else dt.date.fromisoformat(str(stand).strip())
+    except ValueError:
+        return None
+    return ((heute or dt.date.today()) - datum).days
+
+
+def norm_zeigen(bibliothek: Path, bezeichnung: str, heute: dt.date | None = None) -> int:
+    """Zeigt Ausgaben einer Norm aus normen/ausgaben.yml – nur Metadaten, nie Normtext.
+
+    Rückgabewert: 0 gefunden, 1 nicht im Index, 2 Index fehlt oder ist unlesbar.
+    """
+    pfad = bibliothek / NORMENINDEX
+    if not pfad.is_file():
+        print(f"Kein Normenindex unter {pfad.as_posix()} – Fachbibliothek nicht geladen oder ohne "
+              "normen/ausgaben.yml. Ausgabe und Status dann nur über Stufe 2 bestimmen "
+              "(Status bei DIN Media bestätigen).")
+        return 2
+    try:
+        import yaml  # nur hier nötig; im Workflow installiert
+        index = yaml.safe_load(pfad.read_text(encoding="utf-8")) or {}
+    except Exception as fehler:  # noqa: BLE001 – jede Störung heißt: Index nicht nutzbar
+        print(f"Normenindex {pfad.as_posix()} nicht lesbar ({type(fehler).__name__}). Ausgabe und Status "
+              "dann nur über Stufe 2 bestimmen (Status bei DIN Media bestätigen).")
+        return 2
+    if not isinstance(index, dict):
+        print(f"Normenindex {pfad.as_posix()} hat nicht den erwarteten Aufbau (Schlüssel „normen“ fehlt).")
+        return 2
+
+    gesucht = norm_schluessel(bezeichnung)
+    normen = [n for n in index.get("normen") or [] if isinstance(n, dict)]
+
+    def schluessel(n: dict) -> str:
+        return norm_schluessel(str(n.get("schluessel") or n.get("norm") or ""))
+
+    treffer = [n for n in normen if schluessel(n) == gesucht]
+    if not treffer:
+        print(f"„{gesucht}“ steht nicht im Normenindex der Fachbibliothek.")
+        # Eine Reihe („DIN 4109“) steht dort nur mit ihren Teilen („DIN 4109-1“ …).
+        teile = sorted({str(n.get("norm") or schluessel(n)) for n in normen
+                        if schluessel(n).startswith(gesucht + "-")})
+        if teile:
+            print("Teile dieser Reihe im Index: " + ", ".join(teile[:20]) + (" …" if len(teile) > 20 else ""))
+            print(f'Einzeln abfragen, etwa: python tools/bibliothek_suchen.py --norm "{teile[0]}"')
+        print("Ausgabe und Status nur über Stufe 2 bestimmen – Status bei DIN Media bestätigen.")
+        index_stand_zeigen(index, heute)
+        return 1
+
+    for n in treffer:
+        print(str(n.get("norm") or gesucht))
+        thema = str(n.get("thema") or "").strip()
+        sachgebiet = str(n.get("sachgebiet") or "").strip()
+        if thema or sachgebiet:
+            print(f"  Thema laut Index: {thema or '–'}" + (f" (Sachgebiet {sachgebiet})" if sachgebiet else "")
+                  + " – Gruppenbezeichnung, kein amtlicher Titel")
+        print(f"  Neueste Ausgabe in der Fachbibliothek: {str(n.get('neueste') or '').strip() or 'unbekannt'}")
+        print(f"  Änderungen: {', '.join(als_liste(n.get('aenderungen'))) or 'keine'}")
+        print(f"  Berichtigungen: {', '.join(als_liste(n.get('berichtigungen'))) or 'keine'}")
+        print(f"  Ältere Ausgaben: {', '.join(als_liste(n.get('aeltere'))) or 'keine'}")
+        if n.get("sprache"):
+            print(f"  Sprache: {n['sprache']}")
+        if n.get("pruefen") is True:
+            print("  Im Index auffällig (pruefen: true) – Ausgabe besonders sorgfältig an der Primärquelle prüfen.")
+    index_stand_zeigen(index, heute)
+    print("Status bei DIN Media bestätigen (Stufe 2): Ob die neueste Ausgabe gilt oder inzwischen ersetzt ist, "
+          "zeigt nur der Herausgeber.")
+    print("Bücher zitieren oft ältere Ausgaben: Eine Buchaussage zu dieser Norm nur übernehmen, wenn die "
+          "neueste Ausgabe sie trägt.")
+    return 0
+
+
+def index_stand_zeigen(index: dict, heute: dt.date | None = None) -> None:
+    stand = index.get("stand_index")
+    quelle = f" (aus {index['quelle']})" if index.get("quelle") else ""
+    print(f"Stand des Normenindex: {stand or 'unbekannt'}{quelle}. Nur Metadaten – kein Normtext.")
+    alter = index_alter(stand, heute)
+    if alter is None or alter > INDEX_HOECHSTALTER:
+        print(f"Achtung: Der Normenindex ist {'unbekannten Alters' if alter is None else f'{alter} Tage alt'} – "
+              "neuere Ausgaben sind möglich.")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    parser.add_argument("bibliothek", type=Path)
+    parser.add_argument("bibliothek", type=Path, nargs="?",
+                        help="Ordner der Fachbibliothek (Standard: .bibliothek)")
     parser.add_argument("suchtext", nargs="?")
+    parser.add_argument("--norm", metavar="NORM",
+                        help="Ausgaben einer Norm aus dem Normenindex, etwa „DIN 4109-1“")
+    parser.add_argument("--bibliothek", dest="bibliothek_ordner", type=Path, metavar="ORDNER",
+                        help="Ordner der Fachbibliothek (statt des ersten Arguments)")
     parser.add_argument("--index", action="store_true")
     parser.add_argument("--katalog", action="store_true")
     parser.add_argument("--forschung", action="store_true", help="alle Forschungsarbeiten")
@@ -332,27 +470,31 @@ def main() -> int:
     parser.add_argument("--alle-auflagen", action="store_true",
                         help="auch ältere Auflagen durchsuchen")
     args = parser.parse_args()
+    bibliothek = args.bibliothek_ordner or args.bibliothek or Path(".bibliothek")
 
-    if not (args.bibliothek / "katalog.yml").exists():
-        print(f"Keine Fachbibliothek unter {args.bibliothek} (katalog.yml fehlt).")
+    # Der Normenindex braucht nur normen/ausgaben.yml, nicht den Katalog der Bücher.
+    if args.norm:
+        return norm_zeigen(bibliothek, args.norm)
+    if not (bibliothek / "katalog.yml").exists():
+        print(f"Keine Fachbibliothek unter {bibliothek} (katalog.yml fehlt).")
         return 2
     if args.index:
-        index_bauen(args.bibliothek)
+        index_bauen(bibliothek)
     elif args.katalog:
-        katalog_zeigen(args.bibliothek, args.thema)
+        katalog_zeigen(bibliothek, args.thema)
     elif args.forschung:
-        katalog_zeigen(args.bibliothek, args.thema, "forschung")
+        katalog_zeigen(bibliothek, args.thema, "forschung")
     elif args.webquellen:
-        katalog_zeigen(args.bibliothek, args.thema, "quellen")
+        katalog_zeigen(bibliothek, args.thema, "quellen")
     elif args.gliederung:
-        gliederung_zeigen(args.bibliothek, args.gliederung, args.tiefe)
+        gliederung_zeigen(bibliothek, args.gliederung, args.tiefe)
     elif args.seite:
         if not args.werk:
             print("--seite braucht --werk <kennung>.")
             return 2
-        seiten_zeigen(args.bibliothek, args.werk, args.seite, args.bis)
+        seiten_zeigen(bibliothek, args.werk, args.seite, args.bis)
     elif args.suchtext:
-        suchen(args.bibliothek, args.suchtext, args.werk, args.anzahl, args.alle_auflagen)
+        suchen(bibliothek, args.suchtext, args.werk, args.anzahl, args.alle_auflagen)
     else:
         parser.print_help()
     return 0

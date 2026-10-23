@@ -10,7 +10,10 @@ gibt drei Dinge aus:
 
     1. die Abschlussmeldung des Agenten (ERGEBNIS-Block), gekürzt
     2. abgelehnte Berechtigungen: welches Werkzeug, welcher Befehl
-    3. die letzten Werkzeugfehler (Fehlermeldungen, gekürzt)
+    3. die letzten Werkzeugfehler (Fehlermeldungen, gekürzt – ohne den Text,
+       den Edit oder Write mitmelden, ohne Befehlsargumente oder
+       Suchbegriffe und von tools/wortgleich_pruefen.py nur Rückgabewert und
+       „treffer=…“, nie Werk oder Seite: Das Protokoll ist öffentlich)
 
 Jede Zeile beginnt mit „| “, damit der Runner nichts davon als
 Workflow-Befehl auswertet. Die Ausgabe geht ins Protokoll und – falls
@@ -35,18 +38,61 @@ import sys
 from pathlib import Path
 
 
+# Protokoll und Job-Zusammenfassung sind öffentlich. Werkzeuge, die Text schreiben oder
+# ersetzen, melden bei einem Fehler den gesuchten Text mit („String: …“) – er kann eine
+# Buchpassage sein, die der Agent gerade umformulieren wollte. Deshalb erscheinen von
+# Fehlern nur Werkzeug und Fehlerart, von Befehlen nur das Programm und von Suchen nie der
+# Suchbegriff.
+TEXTWERKZEUGE = {"Edit", "MultiEdit", "Write", "NotebookEdit"}
+TEXT_IM_FEHLER = re.compile(r"\b(?:String|old_string|new_string|content)\s*:", re.I)
+# Befehle, deren Ausgabe nie ins Protokoll kommt: Mit Treffern endet die Prüfung auf wörtliche
+# Übernahmen mit Rückgabewert 1 (für den Agenten ein Werkzeugfehler), und mit --intern nennt sie
+# Werk und Seite – das dient nur seiner eigenen Überarbeitung. Gezeigt werden nur Rückgabewert
+# und letzte Zeile (treffer=…).
+STILLE_BEFEHLE = ("wortgleich_pruefen.py",)
+
+
 def kurz(text: str, laenge: int) -> str:
     text = " ".join(str(text).split())
     return text if len(text) <= laenge else text[: laenge - 1] + "…"
 
 
+def befehl_kurz(befehl: str) -> str:
+    """Nur das Programm (bei python, node, git, gh auch Skript bzw. Unterbefehl), ohne Argumente."""
+    teile = str(befehl).split()
+    if not teile:
+        return ""
+    zahl = 2 if teile[0] in ("python", "python3", "node", "bash", "sh", "git", "gh") else 1
+    if teile[0] == "gh":
+        zahl = 3
+    return " ".join(teile[:zahl]) + (" …" if len(teile) > zahl else "")
+
+
 def eingabe_beschreiben(eingabe) -> str:
     if isinstance(eingabe, dict):
-        for schluessel in ("command", "file_path", "path", "pattern", "url", "query"):
+        if eingabe.get("command"):
+            return f"command: {befehl_kurz(eingabe['command'])}"
+        for schluessel in ("file_path", "path", "url"):
             if eingabe.get(schluessel):
                 return f"{schluessel}: {eingabe[schluessel]}"
-        return json.dumps(eingabe, ensure_ascii=False)
-    return str(eingabe)
+        if eingabe.get("pattern") or eingabe.get("query"):
+            return "Suche (Suchbegriff nicht ausgegeben)"
+        return "Eingabe mit " + ", ".join(sorted(map(str, eingabe))) if eingabe else "ohne Eingabe"
+    return "Eingabe nicht ausgegeben"
+
+
+def fehler_beschreiben(werkzeug: str, text: str, befehl: str = "") -> str:
+    """Fehlermeldung ohne mitgelieferten Text: bis „String:“, bei Schreibwerkzeugen nur die erste Zeile,
+    bei der Prüfung auf wörtliche Übernahmen nur Rückgabewert und „treffer=…“."""
+    if any(teil in str(befehl) for teil in STILLE_BEFEHLE):
+        zeilen = str(text).splitlines()
+        code = next((z.strip() for z in zeilen if re.fullmatch(r"\s*Exit code \d+\s*", z)), "")
+        schluss = next((z.strip() for z in reversed(zeilen) if re.fullmatch(r"\s*treffer=[\w-]+\s*", z)), "")
+        return " · ".join(filter(None, [code, schluss, "Ausgabe nicht gezeigt"]))
+    text = TEXT_IM_FEHLER.split(str(text), maxsplit=1)[0].strip()
+    if werkzeug in TEXTWERKZEUGE:
+        text = text.splitlines()[0] if text else ""
+    return kurz(text, 240)
 
 
 def nachrichten(daten) -> list[dict]:
@@ -119,6 +165,8 @@ def main() -> int:
     ergebnis = next((m for m in reversed(liste) if m.get("type") == "result"), {})
     letzter_text = ""
     werkzeuge: dict[str, str] = {}
+    namen: dict[str, str] = {}
+    befehle: dict[str, str] = {}
     fehler: list[str] = []
     for m in liste:
         # Nicht jeder Eintrag trägt ein Nachrichtenobjekt: Die Startmeldung hat
@@ -134,12 +182,17 @@ def main() -> int:
             if m.get("type") == "assistant" and teil.get("type") == "text" and teil.get("text", "").strip():
                 letzter_text = teil["text"]
             if teil.get("type") == "tool_use":
-                werkzeuge[teil.get("id", "")] = f"{teil.get('name', '?')} ({kurz(eingabe_beschreiben(teil.get('input')), 160)})"
+                namen[teil.get("id", "")] = str(teil.get("name", "?"))
+                eingabe = teil.get("input")
+                befehle[teil.get("id", "")] = str(eingabe.get("command") or "") if isinstance(eingabe, dict) else ""
+                werkzeuge[teil.get("id", "")] = f"{teil.get('name', '?')} ({kurz(eingabe_beschreiben(eingabe), 160)})"
             if teil.get("type") == "tool_result" and teil.get("is_error"):
                 text = teil.get("content")
                 if isinstance(text, list):
-                    text = " ".join(t.get("text", "") for t in text if isinstance(t, dict))
-                fehler.append(f"{werkzeuge.get(teil.get('tool_use_id', ''), '?')} → {kurz(text or '', 240)}")
+                    text = "\n".join(t.get("text", "") for t in text if isinstance(t, dict))
+                kennung = teil.get("tool_use_id", "")
+                fehler.append(f"{werkzeuge.get(kennung, '?')} → "
+                              f"{fehler_beschreiben(namen.get(kennung, '?'), text or '', befehle.get(kennung, ''))}")
 
     meldung = ergebnis.get("result") or letzter_text or "(keine Abschlussmeldung im Verlauf)"
     zeilen += [f"Züge: {ergebnis.get('num_turns', '?')} · Ende: {ergebnis.get('subtype', '?')}"

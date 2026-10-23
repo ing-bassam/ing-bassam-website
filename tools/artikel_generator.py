@@ -1271,9 +1271,11 @@ def uebersicht_bauen(artikel: list["Artikel"]) -> str:
         "erreichbar, aber für Suchmaschinen gesperrt.",
         "- **`veroeffentlicht/`** – auf der Website sichtbar (Status „Veröffentlicht“).",
         "",
-        "**Veröffentlichen:** Datei öffnen, im Kopf `status: Entwurf` in `status: Veröffentlicht` ändern und "
-        "speichern. Der Seitenbau verschiebt die Datei danach selbst in den richtigen Ordner. Die Adresse der "
-        "Seite ändert sich dabei nicht.",
+        "**Veröffentlichen:** Actions → „Entwürfe veröffentlichen“ → Run workflow (Auswahl: die Kurzform oder "
+        "„alle“). Der Workflow prüft vorher auf wörtliche Übernahmen aus der Fachbibliothek, setzt den Status "
+        "und verschiebt die Datei in den richtigen Ordner; die Adresse der Seite ändert sich dabei nicht. Wer "
+        "`status: Veröffentlicht` von Hand setzt, löst dieselbe Prüfung im Seitenbau aus – mit Befund oder ohne "
+        "mögliche Prüfung setzt der Seitenbau den Status auf „Entwurf“ zurück.",
         "",
         f"## 🟡 Entwurf ({len(entwurf)})",
         "",

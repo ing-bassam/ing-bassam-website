@@ -5,12 +5,17 @@ name: Entwürfe veröffentlichen
 # zwei freigegebene (zusammengeführte) Entwürfe online, die ältesten zuerst.
 # Von Hand: Actions → Entwürfe veröffentlichen → Run workflow (Standard: alle).
 #
+#   0. Prüft alle Entwürfe ohne KI auf wörtliche Übernahmen aus der
+#      Fachbibliothek (tools/wortgleich_pruefen.py; die Bibliothek wird dazu
+#      aus dem privaten Repository FachwissenAgent geladen).
 #   1. Setzt die gewählten Entwürfe auf „Veröffentlicht“
 #      (tools/veroeffentlichen.py). Zurück bleiben – mit Grund in der
 #      Zusammenfassung – Entwürfe mit offenen Prüfpunkten, mit
 #      „zurueckhalten: ja“, Doppelungen (dasselbe Urteil oder Thema wie ein
-#      anderer Beitrag) und Entwürfe, deren Prüfkorrekturen noch nicht auf main
-#      sind.
+#      anderer Beitrag), Entwürfe, deren Prüfkorrekturen noch nicht auf main
+#      sind, und Entwürfe mit wörtlicher Übereinstimmung mit der
+#      Fachbibliothek. Fail-closed: Ist diese Prüfung nicht möglich (etwa weil
+#      BIBLIOTHEK_TOKEN fehlt oder abgelaufen ist), geht nichts online.
 #   2. Baut die Seiten, sortiert die Dateien nach entwuerfe/veroeffentlicht/
 #      und erneuert Übersicht, Sitemap und llms.txt.
 #   3. Schreibt alles in einem Commit auf den Hauptzweig.
@@ -80,6 +85,77 @@ jobs:
           python -m pip install --upgrade pip --quiet
           python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2'
 
+      # -----------------------------------------------------------------
+      # Fachbibliothek (wie in entwurf-pruefen.yml) – hier nur für die
+      # Prüfung auf wörtliche Übernahmen. Ohne Secret oder bei einem Fehler
+      # bricht der Lauf nicht ab; veröffentlicht wird dann aber nichts.
+      # -----------------------------------------------------------------
+      - name: Fachbibliothek prüfen
+        id: bib
+        env:
+          # Nur Ja/Nein, nie der Wert selbst.
+          TOKEN_DA: ${{ secrets.BIBLIOTHEK_TOKEN != '' }}
+        run: |
+          echo "vorhanden=$TOKEN_DA" >> "$GITHUB_OUTPUT"
+          if [ "$TOKEN_DA" != "true" ]; then
+            echo "::warning title=Fachbibliothek::Secret BIBLIOTHEK_TOKEN fehlt – ohne Prüfung auf wörtliche Übernahmen wird nichts veröffentlicht."
+          fi
+
+      - name: Fachbibliothek laden
+        id: bibladen
+        if: steps.bib.outputs.vorhanden == 'true'
+        continue-on-error: true
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ing-bassam/FachwissenAgent
+          token: ${{ secrets.BIBLIOTHEK_TOKEN }}
+          path: .bibliothek
+          # Der Zugangsschlüssel bleibt nicht im Arbeitsverzeichnis liegen.
+          persist-credentials: false
+
+      - name: Fachbibliothek nicht ladbar
+        if: steps.bibladen.outcome == 'failure'
+        run: |
+          echo "::warning title=Fachbibliothek::Die Fachbibliothek konnte nicht geladen werden. Meist ist der Zugangsschlüssel BIBLIOTHEK_TOKEN abgelaufen – bitte erneuern. Ohne Prüfung auf wörtliche Übernahmen wird nichts veröffentlicht."
+
+      # Ohne KI: Wortfolgen der Entwürfe, die wörtlich in der Fachbibliothek stehen.
+      # Das JSON nennt Datei, Abschnitt, Zeile, Werk und Seite – nie Text – und bleibt im
+      # Runner-Temp: Nur tools/veroeffentlichen.py liest es (und gibt je Entwurf nur die Zahl
+      # der Stellen aus); ins Protokoll kommt nur die letzte Zeile der Prüfung (treffer=…).
+      - name: Wörtliche Übernahmen prüfen (ohne KI)
+        id: wortgleich
+        run: |
+          set -uo pipefail
+          # GitHub startet run-Schritte mit „bash -e“: Rückgabewert 1 (Treffer) oder 2 (nicht
+          # geprüft) würde den Schritt sonst abbrechen – dann ginge auch kein sauberer Entwurf
+          # online. Der Rückgabewert wird ausdrücklich ausgewertet.
+          set +e
+          JSON="$RUNNER_TEMP/wortgleich.json"
+          rm -f "$JSON"
+          shopt -s nullglob
+          KANDIDATEN=(entwuerfe/entwurf/*.md)
+          if [ "${#KANDIDATEN[@]}" -eq 0 ]; then
+            echo "Keine Entwürfe – nichts zu prüfen."
+            echo "rueckgabe=0" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Fehlerausgabe nur ins Runner-Temp: Bei einem Absturz könnte sie Text aus der
+          # Bibliothek enthalten, und dieses Protokoll ist öffentlich.
+          python tools/wortgleich_pruefen.py "${KANDIDATEN[@]}" --bibliothek .bibliothek --json "$JSON" \
+            > "$RUNNER_TEMP/wortgleich.txt" 2> "$RUNNER_TEMP/wortgleich.err"
+          RUECKGABE=$?
+          echo "Wörtliche Übernahmen: $(tail -n 1 "$RUNNER_TEMP/wortgleich.txt" 2> /dev/null) (Rückgabewert $RUECKGABE, ${#KANDIDATEN[@]} Entwürfe)"
+          case "$RUECKGABE" in
+            0) ;;
+            1) echo "::warning title=Wörtliche Übernahmen::Mindestens ein Entwurf stimmt stellenweise wörtlich mit der Fachbibliothek überein – er bleibt zurück (Grund in der Zusammenfassung)." ;;
+            *)
+              # Nicht geprüft: tools/veroeffentlichen.py hält dann jeden Entwurf zurück.
+              printf '{"geprueft": false, "treffer": "nicht-geprueft"}\n' > "$JSON"
+              echo "::error title=Wörtliche Übernahmen::Prüfung nicht möglich (Rückgabewert $RUECKGABE, meist fehlt die Fachbibliothek) – heute wird nichts veröffentlicht."
+              ;;
+          esac
+          echo "rueckgabe=$RUECKGABE" >> "$GITHUB_OUTPUT"
+
       - name: Entwürfe auf „Veröffentlicht“ setzen
         id: status
         env:
@@ -87,6 +163,7 @@ jobs:
           AUSWAHL: ${{ inputs.auswahl || 'automatisch' }}
           PROBELAUF: ${{ inputs.probelauf }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WORTGLEICH_RUECKGABE: ${{ steps.wortgleich.outputs.rueckgabe }}
         run: |
           set -euo pipefail
           PROBE=()
@@ -96,7 +173,17 @@ jobs:
           else
             WAHL=(--auswahl "$AUSWAHL")
           fi
-          python tools/veroeffentlichen.py "${WAHL[@]}" "${PROBE[@]}" --bericht "$RUNNER_TEMP/veroeffentlichen.json" | tee "$RUNNER_TEMP/veroeffentlichen.log"
+          # Gegenprobe vor jeder Änderung: Meldet die Prüfung Treffer (Rückgabewert 1), muss ihr JSON
+          # sie auch zählen – sonst ließ sich das Ergebnis nicht lesen, und es geht nichts online.
+          # Die Zuordnung zu den Entwürfen prüft tools/veroeffentlichen.py selbst: Treffer in einem
+          # nicht gewählten Entwurf halten nur diesen zurück, nicht zuzuordnende Treffer alle.
+          if [ "${WORTGLEICH_RUECKGABE:-}" = "1" ] && ! python -c 'import json, sys; sys.exit(0 if (json.load(open(sys.argv[1], encoding="utf-8")).get("anzahl_treffer") or 0) > 0 else 1)' "$RUNNER_TEMP/wortgleich.json"; then
+            echo "::error title=Veröffentlichen::Die Prüfung auf wörtliche Übernahmen meldet Treffer, ihr Ergebnis ist aber nicht lesbar – es wird nichts veröffentlicht."
+            exit 1
+          fi
+          # Fail-closed: Fehlt das JSON der Prüfung, hält tools/veroeffentlichen.py jeden Entwurf zurück.
+          python tools/veroeffentlichen.py "${WAHL[@]}" "${PROBE[@]}" --bericht "$RUNNER_TEMP/veroeffentlichen.json" \
+            --wortgleich "$RUNNER_TEMP/wortgleich.json" | tee "$RUNNER_TEMP/veroeffentlichen.log"
           echo "anzahl=$(tail -n 1 "$RUNNER_TEMP/veroeffentlichen.log")" >> "$GITHUB_OUTPUT"
           {
             echo "## Entwürfe veröffentlichen"

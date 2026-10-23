@@ -8,6 +8,9 @@
     - Geplante Läufe haben keine Eingaben: Jede, die das Verhalten bestimmt,
       braucht einen Standardwert.
     - Der Commit der Veröffentlichung gilt der Hauptzweig-Kontrolle als erlaubt.
+    - Urheberrecht (Regel des Inhabers): Jeder Agent prüft vor der Freigabe ohne
+      KI auf wörtliche Übernahmen aus der Fachbibliothek und auf den Normstand,
+      fail-closed; die Skills erlauben keine wörtlichen Buchzitate mehr.
 
 Aufruf: python -m unittest discover -s tests
 """
@@ -136,6 +139,200 @@ class Veroeffentlichen(unittest.TestCase):
     def test_commit_ist_fuer_die_hauptzweig_kontrolle_erlaubt(self):
         erste_zeile = re.search(r'git commit -q -m "([^"]+)"', text("veroeffentlichen.yml")).group(1)
         self.assertIn(erste_zeile, hauptzweig_pruefen.ERLAUBTE_BOT_COMMITS)
+
+
+INHABERREGEL = (
+    "Aus Fachbüchern, Fachaufsätzen, Normen, Regelwerken und Leistungsverzeichnissen wird nichts wörtlich übernommen: "
+    "kein Satz, kein Satzteil, keine Tabelle, keine Abbildung, kein Rechenbeispiel – auch nicht in Anführungszeichen. "
+    "Diese Quellen dienen nur dazu, Fakten zu prüfen; die Aussage steht in eigenen Worten mit Fundstelle (Werk, Ausgabe, "
+    "Seite oder Abschnitt). Kurze wörtliche Zitate sind nur aus amtlichen Werken (Gesetze, Verordnungen, "
+    "Gerichtsentscheidungen, § 5 UrhG) erlaubt, mit Fundstelle. Wörtliche Belegstücke aus Büchern oder Normen stehen nie "
+    "an öffentlichen Stellen (Repository-Dateien, PR-Texte, PR-Kommentare, Issues, Logs, Job-Zusammenfassungen), sondern "
+    "nur in Arbeitsdateien im Runner-Temp.")
+
+
+def skill(name: str) -> str:
+    return (WURZEL / ".claude" / "skills" / name / "SKILL.md").read_text(encoding="utf-8")
+
+
+def schritte(name: str) -> list[dict]:
+    import yaml
+    daten = yaml.safe_load(text(name))
+    return [s for job in (daten.get("jobs") or {}).values() for s in job.get("steps") or []]
+
+
+class Urheberrecht(unittest.TestCase):
+    def test_pruefwerkzeuge_in_agenten_und_entwurfspruefung(self):
+        for name in (*AGENTEN, "entwurf-pruefen.yml"):
+            inhalt = text(name)
+            with self.subTest(workflow=name):
+                self.assertIn("wortgleich_pruefen.py", inhalt)
+                self.assertIn("normstand_pruefen.py", inhalt)
+                self.assertIn("Bash(python tools/wortgleich_pruefen.py:*)", inhalt)
+                self.assertIn("Bash(python tools/normstand_pruefen.py:*)", inhalt)
+
+    def test_veroeffentlichen_prueft_wortgleich(self):
+        inhalt = text("veroeffentlichen.yml")
+        self.assertIn("wortgleich_pruefen.py", inhalt)
+        self.assertIn("--wortgleich", inhalt)
+        self.assertIn("path: .bibliothek", inhalt)
+        self.assertIn("persist-credentials: false", inhalt)
+
+    def test_freigabe_nur_nach_der_pruefung_fail_closed(self):
+        try:
+            import yaml  # noqa: F401
+        except ImportError:
+            self.skipTest("PyYAML fehlt")
+        for name in AGENTEN:
+            liste = schritte(name)
+            namen = [s.get("name") for s in liste]
+            with self.subTest(workflow=name):
+                pruefung = namen.index("Wörtliche Übernahmen und Normstand prüfen (ohne KI)")
+                freigabe = namen.index("Zum Mergen freigeben")
+                self.assertLess(pruefung, freigabe)
+                self.assertEqual(liste[pruefung].get("id"), "wortlaut")
+                self.assertIn("steps.wortlaut.outputs.freigabe == 'true'", liste[freigabe]["if"])
+                skript = liste[pruefung]["run"]
+                self.assertNotIn("${{", skript)
+                self.assertIn("--bibliothek .bibliothek", skript)
+                self.assertIn("--ausgaben .bibliothek/normen/ausgaben.yml", skript)
+                self.assertIn("gh pr comment", skript)
+                self.assertIn("::error", skript)
+                # Freigegeben wird nur, wenn kein Grund vorliegt; Exit 1 und 2 sind Gründe.
+                self.assertEqual(skript.count("freigabe=true"), 1)
+
+    def test_entwurfspruefung_meldet_befund_als_fehler(self):
+        try:
+            import yaml  # noqa: F401
+        except ImportError:
+            self.skipTest("PyYAML fehlt")
+        liste = schritte("entwurf-pruefen.yml")
+        namen = [s.get("name") for s in liste]
+        pruefung = namen.index("Wörtliche Übernahmen und Normstand prüfen (ohne KI)")
+        vorlegen = namen.index("Korrekturen als Pull Request vorlegen")
+        self.assertLess(namen.index("Schlussprüfung gegen die Quellen"), pruefung)
+        self.assertLess(pruefung, vorlegen)
+        skript = liste[vorlegen]["run"]
+        self.assertIn("WORTLAUTBERICHT", skript)
+        self.assertIn("--draft", skript)
+        self.assertIn("exit 1", skript)
+
+    def test_wochenpruefung_meldet_normenindex(self):
+        inhalt = text("wochenpruefung.yml")
+        self.assertIn("normen/ausgaben.yml", inhalt)
+        self.assertIn("stand_index", inhalt)
+        self.assertIn("HOECHSTALTER=45", inhalt)
+
+    def test_pruefwerkzeuge_vom_hauptzweig(self):
+        """Werkzeug und Freigabeliste kommen nie aus dem Zweig des Agenten (er könnte sie ändern)."""
+        try:
+            import yaml  # noqa: F401
+        except ImportError:
+            self.skipTest("PyYAML fehlt")
+        for name in (*AGENTEN, "entwurf-pruefen.yml"):
+            liste = schritte(name)
+            ids = [s.get("id") for s in liste]
+            with self.subTest(workflow=name):
+                werkzeug = liste[ids.index("werkzeug")]
+                self.assertIn('git show "FETCH_HEAD:tools/$datei"', werkzeug["run"])
+                self.assertIn("wortgleich_erlaubt.txt", werkzeug["run"])
+                self.assertLess(ids.index("werkzeug"), ids.index("wortlaut"))
+                pruefung = liste[ids.index("wortlaut")]
+                self.assertEqual(pruefung["env"]["WERKZEUG"], "${{ steps.werkzeug.outputs.ordner }}")
+                self.assertIn('"$WERKZEUG/wortgleich_pruefen.py"', pruefung["run"])
+                aufrufe = re.findall(r"(?m)^\s*python (\S*wortgleich_pruefen\.py\"?)", pruefung["run"])
+                self.assertEqual(aufrufe, ['"$WERKZEUG/wortgleich_pruefen.py"'])
+                self.assertIn("set +e", pruefung["run"])        # bash -e bricht sonst bei Rückgabewert 1/2 ab
+                # Jeder Push und jeder Bericht der Prüf-Agenten kommt erst nach der Prüfung
+                for schritt in liste:
+                    skript = schritt.get("run") or ""
+                    if 'git push -q origin "HEAD:$ZWEIG"' in skript:
+                        self.assertIn("if geaenderte_texte_frei; then", skript)
+                        self.assertIn('wortgleich_frei "$BERICHT"', skript)
+                        self.assertLess(liste.index(werkzeug), liste.index(schritt))
+
+    def test_seitenbau_prueft_von_hand_veroeffentlichte(self):
+        inhalt = text("seiten-bauen.yml")
+        self.assertIn("Von Hand veröffentlichte Beiträge prüfen (ohne KI)", inhalt)
+        self.assertIn("python tools/wortgleich_pruefen.py \"$datei\" --bibliothek .bibliothek", inhalt)
+        self.assertIn("status: Entwurf", inhalt)
+
+    def test_wochenpruefung_ohne_oeffentliches_bestandsissue(self):
+        """Ein öffentliches Issue mit den wörtlichen Übereinstimmungen veröffentlichter Beiträge wäre
+        selbst ein Risiko: Den Bestand prüft nur der Inhaber lokal (tools/bestandspruefung.py)."""
+        try:
+            import yaml
+        except ImportError:
+            self.skipTest("PyYAML fehlt")
+        inhalt = text("wochenpruefung.yml")
+        self.assertNotIn("bestand", yaml.safe_load(inhalt)["jobs"])
+        for verboten in ("bestandspruefung.py", "wortgleich_pruefen.py", "Veröffentlichte Beiträge: wörtliche"):
+            self.assertNotIn(verboten, inhalt)
+        for datei in sorted(WORKFLOWS.glob("*.yml")):
+            with self.subTest(workflow=datei.name):
+                self.assertNotIn("bestandspruefung.py", datei.read_text(encoding="utf-8"))
+
+    def test_kein_workflow_nutzt_intern(self):
+        """--intern nennt Werk und Seite – das gehört nie in Logs, Zusammenfassungen oder Kommentare."""
+        for datei in sorted(WORKFLOWS.glob("*.yml")):
+            inhalt = datei.read_text(encoding="utf-8")
+            with self.subTest(workflow=datei.name):
+                self.assertFalse("--intern" in inhalt, "--intern im Workflow")
+                # Berichte und Ausgabe nennen öffentlich weder Werk noch Seite.
+                self.assertIsNone(re.search(r"(?:nennen|nennt) nur Datei, Abschnitt, Zeile,\s+(?:#\s*)?Werk", inhalt))
+
+    def test_wortgleich_json_nie_ins_protokoll(self):
+        """Das JSON der Prüfung nennt Werk und Seite: Es bleibt im Runner-Temp – kein Befehl gibt es aus,
+        keine Zusammenfassung, kein Kommentar und kein Artefakt enthält es."""
+        ausgeben = re.compile(r"\b(?:cat|head|tail|less|more|jq|tee)\b[^|;]*(?:wortgleich\.json|\"\$JSON\")"
+                              r"|(?:wortgleich\.json|\"\$JSON\")[^|;]*(?:GITHUB_STEP_SUMMARY|--body-file)")
+        for datei in sorted(WORKFLOWS.glob("*.yml")):
+            inhalt = datei.read_text(encoding="utf-8")
+            with self.subTest(workflow=datei.name):
+                self.assertNotIn("upload-artifact", inhalt)
+                for zeile in inhalt.splitlines():
+                    if not zeile.lstrip().startswith("#"):
+                        self.assertNotRegex(zeile, ausgeben)
+
+    def test_skills_werk_und_seite_nur_intern(self):
+        for name in ("fachartikel", "schlusspruefung", "urteilsbesprechung", "urteil-verstaendlich", "vorlage"):
+            inhalt = skill(name)
+            with self.subTest(skill=name):
+                self.assertIn("--intern", inhalt)
+                self.assertIn("nur zur eigenen Überarbeitung", inhalt)
+                self.assertIn("pr-body.md", inhalt)
+        claude = (WURZEL / "CLAUDE.md").read_text(encoding="utf-8")
+        self.assertIn("--intern", claude)
+        self.assertIn("nur zur eigenen Überarbeitung", claude)
+
+    def test_skills_ohne_woertliche_buchzitate(self):
+        for name in ("fachartikel", "schlusspruefung"):
+            inhalt = skill(name)
+            with self.subTest(skill=name):
+                for verboten in ("höchstens 25 Wörter", "Belegstück (wörtlich)", "Belegstück Stufe 3 (wörtlich)",
+                                 "nur mit dem Wortlaut einer Quelle"):
+                    self.assertNotIn(verboten, inhalt)
+        self.assertNotIn("höchstens 25 Wörter", (WURZEL / "tools" / "bibliothek_auszug.py").read_text(encoding="utf-8"))
+
+    def test_regel_des_inhabers_wortgleich(self):
+        self.assertIn(INHABERREGEL, (WURZEL / "CLAUDE.md").read_text(encoding="utf-8"))
+        for name in ("fachartikel", "schlusspruefung"):
+            with self.subTest(skill=name):
+                self.assertIn(INHABERREGEL, skill(name))
+
+    def test_stand_der_technik_in_den_schreib_skills(self):
+        for name in ("fachartikel", "vorlage", "urteilsbesprechung"):
+            inhalt = skill(name)
+            with self.subTest(skill=name):
+                self.assertIn("bibliothek_suchen.py --norm", inhalt)
+                self.assertIn("normstand_pruefen.py", inhalt)
+                self.assertIn("wortgleich_pruefen.py", inhalt)
+                self.assertIn("Stand der Technik – Normausgaben", inhalt)
+        pr_vorlage = skill("fachartikel")
+        self.assertIn("### Wörtliche Übernahmen (automatische Prüfung)", pr_vorlage)
+        self.assertIn("Fundstelle Stufe 3 (Abschnitt/Seite/Rn., kein Wortlaut)", pr_vorlage)
+        self.assertIn("Geprüfte Aussage (eigene Worte)", pr_vorlage)
+        self.assertIn("VOB-Gesamtausgabe 2019", pr_vorlage)
 
 
 class Ausdruecke(unittest.TestCase):
