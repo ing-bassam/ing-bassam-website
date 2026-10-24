@@ -37,7 +37,7 @@ Der Termin ist knapp, die Baufirma hat den nächsten Kunden, und Sie sollen unte
 
 Ein Abnahmeprotokoll für die Endabnahme eines Hauses ist die gemeinsame Niederschrift über Rundgang, festgestellte Mängel und erklärte Vorbehalte. Gedacht ist die Vorlage für private Bauherren, die einen Neubau übernehmen. Sie passt für das Einfamilienhaus vom Bauträger ebenso wie für den Bau mit einem Generalunternehmer.
 
-Die Abnahme ist der wichtigste Termin des ganzen Bauvorhabens. Mit ihr beginnt die Verjährung der Mängelansprüche, die bei einem Bauwerk fünf Jahre beträgt.[^2] Mit ihr wird die Vergütung fällig, beim Bauvertrag zusammen mit einer prüffähigen Schlussrechnung.[^3] Außerdem verschiebt sich die Beweislast: Vor der Abnahme muss der Unternehmer die Mangelfreiheit beweisen, nach der Abnahme muss der Bauherr den Mangel beweisen.[^4] Für Mängel, die bei der Abnahme vorbehalten werden, bleibt es nach der Rechtsprechung bei der Beweislast des Unternehmers.[^5] Was das für Ihren Vertrag bedeutet, beurteilt ein Rechtsanwalt.
+Die Abnahme ist der wichtigste Termin des ganzen Bauvorhabens. Ab diesem Zeitpunkt läuft für Mängelansprüche die Verjährungsfrist, bei einem Bauwerk fünf Jahre.[^2] Zugleich wird die Vergütung fällig; beim Bauvertrag muss dafür außerdem eine prüffähige Schlussrechnung vorliegen.[^3] Auch die Beweislast kehrt sich um. Bis zur Abnahme hat der Unternehmer zu beweisen, dass seine Leistung mangelfrei ist; danach liegt der Beweis eines Mangels beim Bauherrn.[^4] Behält sich der Bauherr bei der Abnahme einen Mangel vor, trägt nach der Rechtsprechung insoweit weiterhin der Unternehmer die Beweislast.[^5] Was das für Ihren Vertrag bedeutet, beurteilt ein Rechtsanwalt.
 
 Das ausgefüllte Abnahmeprotokoll ist deshalb ein Beweisstück. Es belegt, welche Feststellungen und Erklärungen bei der Abnahmebegehung getroffen wurden.[^6] Fotos mit Nummern, eine klare Ortsangabe je Mangel und die Unterschriften aller Beteiligten machen es belastbar.
 
@@ -75,7 +75,7 @@ Der fünfte Fehler ist die pauschale Rüge. Silikonfugen sind Wartungsfugen, den
 
 Viele Abnahmen bewältigen Bauherren gut allein. Wird die Mängelliste lang, bleiben Ursachen unklar oder wird über Toleranzen gestritten, stößt die eigene Beurteilung an ihre Grenze. Auch feuchte Stellen, Risse im frischen Putz und Auffälligkeiten an Abdichtungen gehören in fachkundige Hände.
 
-Zum Abnahmetermin kann ein Sachverständiger hinzugezogen werden, was sich aus Gründen der Beweiserleichterung empfiehlt.[^14] Er begeht das Haus mit Ihnen, ordnet Auffälligkeiten technisch ein und beschreibt sie so, dass ein Dritter sie wiederfindet. Seine Feststellungen sind für die Vertragsparteien allerdings nicht verbindlich.[^14] Wenn Sie diese Unterstützung wünschen, führt der Weg über die [Bauherrenvertretung und Abnahmebegleitung](https://ing-bassam.de/#kontakt).
+Einen Sachverständigen zum Abnahmetermin hinzuzuziehen, ist möglich und wegen der leichteren Beweisführung empfehlenswert.[^14] Er begeht das Haus mit Ihnen, ordnet Auffälligkeiten technisch ein und beschreibt sie so, dass ein Dritter sie wiederfindet. Die Vertragsparteien sind an seine Feststellungen jedoch nicht gebunden.[^14] Wenn Sie diese Unterstützung wünschen, führt der Weg über die [Bauherrenvertretung und Abnahmebegleitung](https://ing-bassam.de/#kontakt).
 
 Nach der Abnahme beginnt die Nachverfolgung. Tragen Sie die Fristen aus der Mängelliste in Ihren Kalender ein. Prüfen Sie nach Ablauf jeder Frist, ob der Mangel wirklich beseitigt ist, und halten Sie das Ergebnis in der Spalte für die Erledigung fest.
 

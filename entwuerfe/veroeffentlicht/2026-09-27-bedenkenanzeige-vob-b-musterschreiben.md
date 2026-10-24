@@ -7,7 +7,7 @@ leistung: Claim Management, Objektüberwachung LP 8
 kernfrage: Wie melde ich als Auftragnehmer Bedenken gegen die vorgesehene Ausführung, Vorleistungen anderer Gewerke oder vorgegebene Stoffe richtig an, um nicht für Mängel zu haften?
 meta_beschreibung: "Musterschreiben Bedenkenanzeige nach § 4 Abs. 3 VOB/B: Inhalt, Form, Adressat und Frist, mit Prüfliste vor dem Absenden, kostenlos als Word und PDF."
 schlagwoerter: Bedenkenanzeige, VOB/B, Prüf- und Hinweispflicht, Vorleistung, Mängelhaftung, Auftragnehmer, Behinderungsanzeige, Bauvertrag
-definition: Eine Bedenkenanzeige nach § 4 Abs. 3 VOB/B ist die schriftliche Mitteilung des Auftragnehmers an den Auftraggeber über Bedenken gegen die vorgesehene Ausführung, gelieferte Stoffe oder Vorleistungen.
+definition: Mit einer Bedenkenanzeige nach § 4 Abs. 3 VOB/B teilt der Auftragnehmer dem Auftraggeber schriftlich mit, dass er die vorgesehene Ausführung, gelieferte Stoffe oder Vorleistungen für bedenklich hält.
 autor: M. Sc. Karim Abu Elkheir
 qualifikation:
 kurzform: bedenkenanzeige-vob-b-musterschreiben
@@ -31,11 +31,11 @@ regelwerke_bestaetigt: "§ 4 Abs. 3 VOB/B, § 13 Abs. 3 VOB/B, § 6 Abs. 1 VOB/B
 
 # Bedenkenanzeige nach § 4 Abs. 3 VOB/B: Musterschreiben
 
-Der Untergrund ist sichtbar zu feucht. Die Bauleitung drängt auf den Estrich, der Termin steht. Wer jetzt einfach ausführt, trägt später den Schaden allein. Als Auftragnehmer müssen Sie Bedenken gegen die vorgesehene Art der Ausführung, gegen die vom Auftraggeber gelieferten Stoffe und gegen die Leistungen anderer Unternehmer schriftlich mitteilen. Das verlangt § 4 Abs. 3 VOB/B, und zwar unverzüglich und möglichst schon vor Beginn der Arbeiten.[^1] Das Musterschreiben zum Herunterladen führt Sie durch Befund, drohende Folgen, Fristsetzung und Anlagen. Eine Prüfliste am Ende geht die Punkte durch, an denen Bedenkenanzeigen in der Praxis scheitern.
+Der Untergrund ist sichtbar zu feucht. Die Bauleitung drängt auf den Estrich, der Termin steht. Wer jetzt einfach ausführt, trägt später den Schaden allein. Halten Sie als Auftragnehmer die geplante Ausführungsart, die vom Auftraggeber bereitgestellten Stoffe oder die Arbeiten vorleistender Unternehmen für bedenklich, müssen Sie das dem Auftraggeber schriftlich mitteilen. So will es § 4 Abs. 3 VOB/B: unverzüglich und nach Möglichkeit, bevor Sie mit den Arbeiten anfangen.[^1] Das Musterschreiben zum Herunterladen führt Sie durch Befund, drohende Folgen, Fristsetzung und Anlagen. Eine Prüfliste am Ende geht die Punkte durch, an denen Bedenkenanzeigen in der Praxis scheitern.
 
 ## Wofür das Musterschreiben zur Bedenkenanzeige gut ist
 
-Eine Bedenkenanzeige nach § 4 Abs. 3 VOB/B ist die schriftliche Mitteilung des Auftragnehmers an den Auftraggeber über Bedenken gegen die vorgesehene Ausführung, gelieferte Stoffe oder Vorleistungen. Gedacht ist die Vorlage für ausführende Unternehmen, Nachunternehmer und deren Bauleitung.
+Mit einer Bedenkenanzeige nach § 4 Abs. 3 VOB/B teilt der Auftragnehmer dem Auftraggeber schriftlich mit, dass er die vorgesehene Ausführung, gelieferte Stoffe oder Vorleistungen für bedenklich hält. Gedacht ist die Vorlage für ausführende Unternehmen, Nachunternehmer und deren Bauleitung.
 
 Die VOB/B gilt nicht von allein. Sie wird Vertragsbestandteil, wenn die Parteien sie vereinbaren. Prüfen Sie deshalb zuerst Ihren Bauvertrag. Ist die VOB/B nicht einbezogen, bleibt die Prüf- und Hinweispflicht dennoch bestehen: Im Bauvertrag nach dem Bürgerlichen Gesetzbuch gelten diese Grundsätze nach der Fachliteratur in gleicher Weise.[^2] Eine Schriftform ist dort nicht vorgeschrieben. Aus Beweisgründen ist das Schreiben trotzdem der sichere Weg.
 
@@ -47,11 +47,11 @@ Die VOB/B kennt noch eine zweite Hinweispflicht. Nach § 3 Abs. 3 VOB/B prüfen 
 
 Die Vorschrift nennt drei Gegenstände einer Bedenkenanzeige. Der erste ist die vorgesehene Art der Ausführung. Dazu zählt ausdrücklich auch die Sicherung gegen Unfallgefahren.[^1] Gemeint sind die Planung, das Leistungsverzeichnis und die Anordnungen des Auftraggebers. Widerspricht das Leistungsverzeichnis dem erkennbaren Verwendungszweck oder den anerkannten Regeln der Technik, müssen Sie reagieren.[^3]
 
-Der zweite Gegenstand ist die Güte der vom Auftraggeber gelieferten Stoffe und Bauteile. Auch der Baugrund gilt dabei als Stoff, den der Auftraggeber liefert. Bedenken sind etwa anzumelden, wenn der gelieferte Boden für den vorgesehenen Zweck nicht geeignet ist, weil ihm die nötige Versickerungsfähigkeit oder Frostsicherheit fehlt.[^5]
+Zweitens geht es um die Qualität der Stoffe und Bauteile, die der Auftraggeber selbst beistellt. Zu diesen Stoffen zählt auch der Baugrund. Bedenken sind zum Beispiel angezeigt, wenn sich der beigestellte Boden für seinen Zweck nicht eignet, etwa weil er nicht ausreichend versickerungsfähig oder nicht frostsicher ist.[^5]
 
 Der dritte Gegenstand sind die Leistungen anderer Unternehmer, also die Vorleistungen, auf denen Sie aufbauen. Sie müssen sich vergewissern, ob diese Vorleistung eine vertragsgemäße Grundlage für Ihre eigene Arbeit ist. Auf die Ordnungsgemäßheit einer Vorleistung dürfen Sie sich nicht blind verlassen, auch dann nicht, wenn ein Dritter die Bauausführung überwacht.[^5]
 
-Die Sicherung gegen Unfallgefahren nennt die Vorschrift ausdrücklich.[^1] Auf Baustellen mit mehreren Gewerken hat der Auftraggeber für die allgemeine Ordnung zu sorgen und das Zusammenwirken der Unternehmen zu regeln. Fehlt für die Baustelle ein Sicherheits- und Gesundheitsschutzplan, sind generelle Bedenken zu Sicherheit und Gesundheitsschutz angebracht.[^5]
+Die Sicherung gegen Unfallgefahren nennt die Vorschrift ausdrücklich.[^1] Arbeiten mehrere Gewerke auf einer Baustelle, ist es Sache des Auftraggebers, dort die allgemeine Ordnung zu wahren und die Arbeit der Unternehmen aufeinander abzustimmen. Gibt es für die Baustelle keinen Sicherheits- und Gesundheitsschutzplan, sind grundsätzliche Bedenken in Bezug auf Sicherheit und Gesundheitsschutz angebracht.[^5]
 
 Der Maßstab für alle drei Fälle ist Ihr eigenes Fachwissen. Unterstellt wird das branchenübliche Fachwissen Ihres Gewerks. Spezialkenntnisse eines Sonderfachmanns müssen Sie nicht haben.[^3] Bei der Leistungsbeschreibung und der Planung schulden Sie im Rahmen dieser Vorschrift eine Plausibilitätsprüfung erkennbarer Fehler.[^6]
 
@@ -59,7 +59,7 @@ Der Maßstab für alle drei Fälle ist Ihr eigenes Fachwissen. Unterstellt wird 
 
 An den Inhalt stellt die Rechtsprechung hohe Anforderungen. Verlangt wird eine konkrete und hinreichende Darstellung des Mangelrisikos. Die Umstände, die Ihre Bedenken auslösen, legen Sie im Einzelnen dar und erläutern sie. Der Auftraggeber soll ein vollständiges Bild der Lage bekommen.[^7]
 
-Nicht ausreichend sind allgemeine Hinweise. Wer nur von Bedenken technischer Art spricht, ohne sie zu erläutern, erreicht nichts.[^7] Ebenso wenig genügt der Verweis auf eine mangelhafte Vorleistung oder einen mangelhaften Untergrund ohne Angabe von Tatsachen. Die Anzeige muss so klar sein, dass der Auftraggeber erkennt, welche konkreten Gefahren mit dem Zustand verbunden sind. Ihm muss die Tragweite der Nichtbefolgung klar werden.[^8]
+Allgemeine Hinweise reichen nicht. Wer bloß von technischen Bedenken spricht und sie nicht erläutert, erreicht nichts.[^7] Ebenso wenig hilft es, eine Vorleistung oder einen Untergrund pauschal als mangelhaft zu bezeichnen, ohne Tatsachen zu nennen. Aus der Anzeige muss für den Auftraggeber deutlich hervorgehen, welche konkreten Gefahren der Zustand mit sich bringt und was es bedeutet, wenn er den Hinweis übergeht.[^8]
 
 Das Musterschreiben trennt deshalb vier Schritte: den Befund mit Ort, Datum und Maßangaben, die Art der Prüfung, den fachlichen Grund der Bedenken und die drohenden Schäden. Beschreiben Sie die Folgen so, dass ein Kaufmann ohne Bautechnik sie versteht.
 
@@ -69,15 +69,15 @@ Einen eigenen Lösungsvorschlag müssen Sie nicht machen.[^8] Das ist wichtiger,
 
 Die Vorschrift verlangt Schriftform. Bei wirksamer Einbeziehung der VOB/B liegt darin ein vertraglich vereinbartes Formerfordernis. Eine einfache, nicht unterschriebene E-Mail kann diesen Anforderungen nach der Fachliteratur nicht entsprechen. Ein eingescannter und unterzeichneter Brief müsste dagegen ausreichen.[^9]
 
-Richtiger Adressat ist zunächst der Auftraggeber selbst.[^9] Nach der Fachliteratur soll der örtliche Bauleiter regelmäßig auch ohne ausdrückliche Bevollmächtigung als Empfangsvertreter gelten.[^9] Diese Erleichterung hat eine wichtige Grenze. Richten sich Ihre Bedenken gerade gegen einen Fehler des bauleitenden Architekten, der auch die Planung erstellt hat, dürfen Sie nicht darauf vertrauen, dass er sie weiterleitet.[^9] In der Praxis werden Bedenkenanzeigen regelmäßig dem bauüberwachenden Architekten vorgelegt. Verschließt er sich den Bedenken, muss der Auftraggeber unmittelbar damit konfrontiert werden.[^8]
+Die Anzeige richtet sich in erster Linie an den Auftraggeber selbst.[^9] Den örtlichen Bauleiter sieht die Fachliteratur in der Regel auch ohne ausdrückliche Vollmacht als berechtigt an, die Anzeige für den Auftraggeber entgegenzunehmen.[^9] Diese Erleichterung hat eine wichtige Grenze. Betreffen Ihre Bedenken gerade einen Fehler des bauleitenden Architekten, von dem auch die Planung stammt, können Sie sich nicht darauf verlassen, dass er die Anzeige an den Auftraggeber weitergibt.[^9] Üblicherweise geht eine Bedenkenanzeige zunächst an den Architekten, der die Bauüberwachung führt. Weist er die Bedenken zurück, müssen Sie sich direkt an den Auftraggeber wenden.[^8]
 
 Der Zeitpunkt ist der dritte kritische Punkt. Unverzüglich bedeutet ohne schuldhaftes Zögern, gerechnet ab dem Moment, in dem Sie den Mangel erkannt haben oder hätten erkennen müssen.[^8] Möglichst liegt die Anzeige vor Beginn der Arbeiten.[^1]
 
-Denken Sie an den Nachweis. Empfohlen wird, den Auftraggeber aufzufordern, innerhalb einer bestimmten Frist mitzuteilen, wie er reagieren will.[^10] Das Musterschreiben enthält diese Fristsetzung. Die Prüfliste erinnert an Einwurfeinschreiben, Boten oder Empfangsbestätigung und an die Kopie für die Bauakte.
+Denken Sie an den Nachweis. Die Fachliteratur rät, dem Auftraggeber eine Frist zu setzen, bis zu der er erklären soll, wie er mit den Bedenken umgeht.[^10] Das Musterschreiben enthält diese Fristsetzung. Die Prüfliste erinnert an Einwurfeinschreiben, Boten oder Empfangsbestätigung und an die Kopie für die Bauakte.
 
 ## Nach dem Absenden: Weisung, Behinderung und Enthaftung
 
-Die Wirkung der Bedenkenanzeige steht in einer anderen Vorschrift. Ist ein Mangel auf die Leistungsbeschreibung, auf Anordnungen des Auftraggebers, auf von ihm gelieferte Stoffe oder auf die Vorleistung eines anderen Unternehmers zurückzuführen, haftet der Auftragnehmer nach § 13 Abs. 3 VOB/B nicht, wenn er die Mitteilung nach § 4 Abs. 3 VOB/B gemacht hat.[^11] Diese Befreiung tritt nach der Fachliteratur auch dann ein, wenn der Auftraggeber auf die Bedenkenanzeige überhaupt nicht reagiert.[^10]
+Welche Wirkung die Bedenkenanzeige hat, regelt eine andere Vorschrift. Nach § 13 Abs. 3 VOB/B bleibt der Auftragnehmer von der Haftung für einen Mangel frei, dessen Ursache in der Leistungsbeschreibung, in einer Anordnung des Auftraggebers, in von diesem beigestellten Stoffen oder in der Vorleistung eines anderen Unternehmens liegt, sofern er seine Bedenken nach § 4 Abs. 3 VOB/B mitgeteilt hat.[^11] Diese Befreiung tritt nach der Fachliteratur auch dann ein, wenn der Auftraggeber auf die Bedenkenanzeige überhaupt nicht reagiert.[^10]
 
 Ein allgemeines Recht, die Arbeit bis zu einer Antwort einzustellen, folgt daraus nicht. Ein Leistungsverweigerungsrecht besteht grundsätzlich nicht. Ausnahmen sind eng: wenn die weitere Ausführung gegen gesetzliche oder behördliche Bestimmungen verstößt, und in engen Grenzen, wenn ein erheblicher Schaden mit an Sicherheit grenzender Wahrscheinlichkeit eintritt.[^10] Hält der Auftraggeber seine Anordnung aufrecht, führen Sie sie aus, sofern keine gesetzlichen oder behördlichen Bestimmungen entgegenstehen. Entsteht dadurch eine ungerechtfertigte Erschwerung, trägt der Auftraggeber die Mehrkosten.[^12] Welche Ansprüche Ihnen in Ihrem Fall zustehen, beurteilt ein Rechtsanwalt.
 
@@ -97,7 +97,7 @@ Bei streitigen Nachträgen und Bauzeitfragen begleitet unser Büro Auftragnehmer
 
 **Gilt die Bedenkenanzeige auch ohne VOB/B im Bauvertrag?**
 
-Die VOB/B gilt nur, wenn die Vertragsparteien sie vereinbart haben. Die Prüf- und Hinweispflicht besteht aber auch im Bauvertrag nach dem Bürgerlichen Gesetzbuch: Nach der Fachliteratur gelten dort dieselben Grundsätze.[^2] Eine gesetzliche Schriftform gibt es dort nicht. Ist der Hinweis nicht schriftlich erfolgt, kommt es darauf an, ob er klar, vollständig und erschöpfend war.[^8]
+Die VOB/B gilt nur, wenn die Vertragsparteien sie vereinbart haben. Die Prüf- und Hinweispflicht besteht aber auch im Bauvertrag nach dem Bürgerlichen Gesetzbuch: Nach der Fachliteratur gelten dort dieselben Grundsätze.[^2] Eine gesetzliche Schriftform gibt es dort nicht. Bei einem nicht schriftlich erteilten Hinweis zählt, ob er inhaltlich klar, vollständig und erschöpfend gewesen ist.[^8]
 
 **Reicht eine E-Mail für die Bedenkenanzeige aus?**
 

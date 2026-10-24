@@ -94,7 +94,7 @@ Das Urteil entscheidet einen Streit zwischen einem Bauunternehmen, einem Projekt
 
 **Kann ich als Bauherr einen Bauvertrag jederzeit kündigen?**
 
-Das Kündigungsrecht des Bestellers erlaubt es dem Auftraggeber, den Werkvertrag bis zur Vollendung des Werkes jederzeit zu kündigen.[^4] Kostenlos ist das nicht. Der Unternehmer behält seinen Vergütungsanspruch abzüglich dessen, was er erspart oder anderweitig verdient.[^4] Das Gesetz vermutet dabei mindestens 5 vom Hundert der Vergütung für die noch nicht erbrachte Leistung.[^4][^5] Im besprochenen Fall sprach das Gericht genau diesen Satz zu (Rn. 62, Rn. 63). Ob Ihr Vertrag abweichende Regeln enthält, prüft ein Rechtsanwalt.
+Nach dem Kündigungsrecht des Bestellers kann der Auftraggeber den Werkvertrag zu jedem Zeitpunkt beenden, solange das Werk noch nicht fertiggestellt ist.[^4] Kostenlos ist das nicht. Dem Unternehmer bleibt die Vergütung, von der jedoch abgezogen wird, was er erspart oder durch anderweitigen Einsatz verdient.[^4] Für den noch nicht ausgeführten Teil vermutet das Gesetz dabei einen Anspruch von mindestens 5 vom Hundert der darauf entfallenden Vergütung.[^4][^5] Im besprochenen Fall sprach das Gericht genau diesen Satz zu (Rn. 62, Rn. 63). Ob Ihr Vertrag abweichende Regeln enthält, prüft ein Rechtsanwalt.
 
 **Gilt das auch, wenn in meinem Vertrag die VOB/B vereinbart ist?**
 

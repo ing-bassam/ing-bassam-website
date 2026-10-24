@@ -20,7 +20,7 @@ Maßstab sind die allgemein anerkannten Regeln der Technik. DIN-Normen geben sie
 
 Das Dach war eine Dicht-Dicht-Konstruktion: Dämmung zwischen den Sparren, beide Seiten dampfdicht. Das Gericht sah die Vermutung vor allem durch die Holzschutznorm DIN 68800-2 entkräftet. Ihre Neufassung vom Februar 2012 ließ diese Bauweise nicht mehr zu. Der Aufbau entsprach schon ab 2009, spätestens 2011 nicht mehr den anerkannten Regeln.
 
-Nach dem Leitsatz begründen der Verstoß gegen die allgemein anerkannten Regeln der Technik und die damit verbundene Schadensneigung einen Mangel. Das gilt auch, wenn noch keine Mangelsymptome aufgetreten sind.
+Nach dem Leitsatz ist ein Werk schon mangelhaft, wenn es die allgemein anerkannten Regeln der Technik missachtet und deshalb zu Schäden neigt. Das gilt auch, wenn noch keine Mangelsymptome aufgetreten sind.
 
 Das Urteil erklärt nicht jedes unbelüftete Holzflachdach für mangelhaft. Im Streitfall zeigten die geöffneten Dächer Auffeuchtungen. Ob ein Dach betroffen ist, klärt sich nur am Objekt. Ob Ansprüche bestehen, beurteilt ein Rechtsanwalt.
 
@@ -41,7 +41,7 @@ Für Kanzleien: https://ing-bassam.de/leistungen/rechtsanwaelte/
 - "Das Gericht sah die Vermutung vor allem durch die Holzschutznorm DIN 68800-2 entkräftet." – [Artikel: „Warum die eingehaltene DIN-Norm den Mangel nicht ausschloss“]; [Fn 4] (Normbezeichnung DIN 68800-2)
 - "Ihre Neufassung vom Februar 2012 ließ diese Bauweise nicht mehr zu." – [Artikel: „Warum die eingehaltene DIN-Norm den Mangel nicht ausschloss“]; [Fn 4] (Ausgabe 2012-02)
 - "Der Aufbau entsprach schon ab 2009, spätestens 2011 nicht mehr den anerkannten Regeln." – [Artikel: „Wie weit die Entscheidung reicht und wo sie endet“]
-- "Nach dem Leitsatz begründen der Verstoß gegen die allgemein anerkannten Regeln der Technik und die damit verbundene Schadensneigung einen Mangel." – [Artikel: „Was daraus für Begutachtung, Dokumentation und Kalkulation folgt“]; [Artikel: „Häufige Fragen“]
+- "Nach dem Leitsatz ist ein Werk schon mangelhaft, wenn es die allgemein anerkannten Regeln der Technik missachtet und deshalb zu Schäden neigt." – [Artikel: „Was daraus für Begutachtung, Dokumentation und Kalkulation folgt“]; [Artikel: „Häufige Fragen“]
 - "Das gilt auch, wenn noch keine Mangelsymptome aufgetreten sind." – [Artikel: „Was daraus für Begutachtung, Dokumentation und Kalkulation folgt“]; [Artikel: „Häufige Fragen“]
 - "Das Urteil erklärt nicht jedes unbelüftete Holzflachdach für mangelhaft." – [Artikel: „Wie weit die Entscheidung reicht und wo sie endet“]
 - "Im Streitfall zeigten die geöffneten Dächer Auffeuchtungen." – [Artikel: „Wie weit die Entscheidung reicht und wo sie endet“]

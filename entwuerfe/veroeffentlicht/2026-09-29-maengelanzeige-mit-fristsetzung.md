@@ -53,13 +53,13 @@ Beschreiben Sie also Ort und Bild getrennt. Zum Ort gehören Gebäude, Geschoss,
 
 Fotos gehören als Anlage dazu. Verbraucherorganisationen empfehlen, alle Baumängel schriftlich und am besten mit Foto zu dokumentieren.[^2] Hilfreich ist ein Bild, das die Lage im Raum zeigt, und ein zweites aus der Nähe mit einem Maßstab, etwa einem Zollstock. Bei mehr als drei Mängeln legen Sie eine nummerierte Mängelliste bei und verweisen im Brief darauf.
 
-Die Beschreibung wirkt weiter, als sie aussieht. Ist das Nacherfüllungsverlangen hinreichend bestimmt, erfasst es alle in Betracht kommenden Ursachen der beschriebenen Erscheinung.[^1] Sie sperren sich also nicht auf eine Vermutung fest, wenn Sie nur beschreiben, was zu sehen ist. Umgekehrt kann eine falsche Ursachenbehauptung die Diskussion in eine Richtung lenken, die Ihnen nicht hilft.
+Die Beschreibung wirkt weiter, als sie aussieht. Beschreiben Sie die Erscheinung ausreichend bestimmt, deckt Ihr Nacherfüllungsverlangen jede Ursache ab, die für diese Erscheinung infrage kommt.[^1] Sie sperren sich also nicht auf eine Vermutung fest, wenn Sie nur beschreiben, was zu sehen ist. Umgekehrt kann eine falsche Ursachenbehauptung die Diskussion in eine Richtung lenken, die Ihnen nicht hilft.
 
 ## Die Frist braucht ein Datum, kein umgehend
 
 Die Frist entscheidet darüber, ob das Schreiben später trägt. „Umgehend“, „unverzüglich“ oder „schnellstmöglich“ ist keine Frist. Nach der Mängeldokumentation wird das Unternehmen aufgefordert, die Mängel in einer angemessenen Frist zu beseitigen. Dabei muss ein konkretes Datum angegeben werden, um das Unternehmen wirksam in Verzug zu setzen.[^5] Tragen Sie also ein Kalenderdatum ein.
 
-Die Frist zielt auf das Ende der Arbeiten. Das Erfordernis der Fristsetzung bezieht sich grundsätzlich nur auf den Abschluss der Nacherfüllungsleistung, also auf die Mangelbeseitigung.[^6] Es genügt deshalb nicht, das Unternehmen aufzufordern, innerhalb der Frist mit den Arbeiten zu beginnen. Schreiben Sie, dass der Mangel bis zum genannten Datum beseitigt sein soll.
+Die Frist zielt auf das Ende der Arbeiten. Gemessen wird die Frist grundsätzlich nur daran, ob die Nacherfüllung abgeschlossen und der Mangel damit beseitigt ist.[^6] Es genügt deshalb nicht, das Unternehmen aufzufordern, innerhalb der Frist mit den Arbeiten zu beginnen. Schreiben Sie, dass der Mangel bis zum genannten Datum beseitigt sein soll.
 
 Wie lang die Frist sein muss, lässt sich nicht pauschal sagen. Feste Zeiträume gelten nicht. Maßgebend ist die Zeit, die für die Arbeiten objektiv nötig ist. Die Frist muss dabei nicht so bemessen sein wie bei der erstmaligen Ausführung. Ein sofortiger Beginn und eine zügige Ausführung unter erhöhter Anstrengung dürfen vorausgesetzt werden.[^6]
 
@@ -67,7 +67,7 @@ Eine zu kurze Frist ist nicht wertlos. Nach der Fachliteratur setzt sie eine ang
 
 ## Vor oder nach der Abnahme ist Ihre Lage verschieden
 
-Die Abnahme ist der Wendepunkt des Bauvertrags. Vor der Abnahme gilt eine klare Pflicht. Leistungen, die schon während der Ausführung als mangelhaft oder vertragswidrig erkannt werden, hat das Unternehmen auf eigene Kosten durch mangelfreie zu ersetzen.[^7] Eine Aufforderung oder Fristsetzung ist dafür nach der Fachliteratur nicht Voraussetzung.[^8] Anzeigen und befristen sollten Sie trotzdem.
+Die Abnahme ist der Wendepunkt des Bauvertrags. Vor der Abnahme gilt eine klare Pflicht. Stellt sich schon während der Ausführung heraus, dass eine Leistung mangelhaft oder vertragswidrig ist, muss das Unternehmen sie auf eigene Rechnung durch eine mangelfreie Leistung ersetzen.[^7] Eine Aufforderung oder Fristsetzung ist dafür nach der Fachliteratur nicht Voraussetzung.[^8] Anzeigen und befristen sollten Sie trotzdem.
 
 Mit der Abnahme dreht sich die Beweislast. Ab dem Tag der Bauabnahme muss der Bauherr beweisen, dass spätere, nicht bereits gerügte Mängel vom Bauunternehmer verursacht wurden.[^9] Vor der Abnahme trägt das Unternehmen die Last, die mangelfreie Leistung zu belegen.[^8] Das ist der praktische Grund, jeden Befund vor der Abnahme schriftlich festzuhalten.
 
@@ -87,7 +87,7 @@ Verlangen Sie eine Rückmeldung mit eigenem Termin. Bitten Sie um eine Bestätig
 
 ## Hausverwaltung und Wohnungseigentum brauchen eine Vorprüfung
 
-Verwalter und Erwerber müssen vor dem Schreiben eine Frage klären: Wo tritt der Mangel auf? Alles, was innerhalb der Wohnung liegt, ist Sondereigentum, solange es nicht für die übrigen Wohnungen gebraucht wird. Alles andere ist Gemeinschaftseigentum.[^18] Von dieser Zuordnung hängt ab, wer welche Rechte geltend machen kann.
+Verwalter und Erwerber müssen vor dem Schreiben eine Frage klären: Wo tritt der Mangel auf? Zum Sondereigentum zählt, was sich innerhalb der Wohnung befindet und nicht zugleich den anderen Wohnungen dient. Der Rest gehört zum Gemeinschaftseigentum.[^18] Von dieser Zuordnung hängt ab, wer welche Rechte geltend machen kann.
 
 Beim Sondereigentum ist die Lage einfach. Jeder Erwerber kann Mängelrechte am Sondereigentum uneingeschränkt geltend machen.[^18] Der Brief geht dann an das Unternehmen oder den Bauträger, mit dem der Erwerber den Vertrag geschlossen hat. Eine Abstimmung mit der Verwaltung ist dafür nicht nötig.
 
@@ -121,7 +121,7 @@ Nein. Es genügt, die Symptome, also die Mangelerscheinungen, hinreichend konkre
 
 **Wie weise ich nach, dass mein Brief angekommen ist?**
 
-Sinnvoll ist, den Empfänger zur Bestätigung des Eingangs aufzufordern. Ein Weg ist das Einschreiben mit Rückschein, weil der Rückschein den Erhalt bestätigt und die Person benennt, die es entgegengenommen hat.[^20] Sicher ist auch die Übergabe durch einen Boten mit Empfangsbestätigung.[^20] Bei einfacher Briefpost oder E-Mail ohne Rückbestätigung ist der Zugang in der Regel nicht nachzuweisen.[^20]
+Bitten Sie den Empfänger im Schreiben, den Eingang zu bestätigen. Geeignet ist das Einschreiben mit Rückschein: Auf dem Rückschein wird der Empfang quittiert, und er nennt, wer die Sendung angenommen hat.[^20] Ebenso verlässlich ist es, das Schreiben durch einen Boten zu übergeben, der sich den Empfang quittieren lässt.[^20] Ein gewöhnlicher Brief oder eine E-Mail, auf die keine Bestätigung folgt, lässt sich als zugegangen meist nicht beweisen.[^20]
 
 ## Hinweis
 

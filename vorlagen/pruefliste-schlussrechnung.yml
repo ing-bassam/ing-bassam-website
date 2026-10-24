@@ -105,7 +105,7 @@ abschnitte:
           den Plänen her. Grundlage sind in der Regel die Ausführungspläne, ergänzt um die
           Maße, die dort nicht enthalten sind.
       - text: Belege sind beigefügt, etwa Lieferscheine, Wiegekarten oder Nachunternehmerrechnungen
-      - text: Änderungen und Ergänzungen des Vertrags sind in der Rechnung besonders kenntlich gemacht
+      - text: Vertragsänderungen und -ergänzungen sind in der Rechnung deutlich hervorgehoben
         hinweis: >-
           Woran erkennen: Nachträge stehen in eigenen Titeln oder sind deutlich markiert.
           klären: Nachtragsleistungen sind in den Hauptpositionen versteckt – getrennte
@@ -146,10 +146,10 @@ abschnitte:
       - text: "Stichprobe: die größten Positionen und zwei zufällig gewählte sind nachgerechnet"
       - text: Mengenabweichung gegenüber dem Leistungsverzeichnis ist je Position geprüft
         hinweis: >-
-          Weicht die ausgeführte Menge einer Position um nicht mehr als 10 v. H. vom
-          Vertrag ab, gilt der vertragliche Einheitspreis. Erst darüber hinaus ist auf
-          Verlangen ein neuer Preis unter Berücksichtigung der Mehr- oder Minderkosten
-          zu vereinbaren, bei Überschreitung wie bei Unterschreitung des Mengenansatzes.
+          Liegt die ausgeführte Menge einer Position höchstens 10 v. H. über oder unter
+          der Menge im Vertrag, bleibt der vertragliche Einheitspreis maßgebend. Erst bei
+          einer größeren Abweichung, nach oben wie nach unten, wird auf Verlangen ein
+          neuer Preis vereinbart, der die Mehr- oder Minderkosten einbezieht.
       - text: Mengen aus Abschlagsrechnungen sind nicht zusätzlich abgerechnet
       - text: Rechenprüfung der Einzel-, Titel- und Endsummen ist erfolgt
   - titel: 5 Positionen, Preise und Stundenlohn
@@ -208,8 +208,8 @@ abschnitte:
           Gewerks erfasst, also kein Nachtrag.
       - text: Preis ist aus den Preisermittlungsgrundlagen des Vertrags entwickelt
         hinweis: >-
-          Maßgeblich sind die Grundlagen der Preisermittlung für die vertragliche Leistung
-          und die besonderen Kosten der geforderten Leistung. klären: freie Preisbildung
+          Den Maßstab bilden die Preisermittlungsgrundlagen der vertraglichen Leistung
+          sowie die besonderen Kosten, die die verlangte Leistung verursacht. klären: freie Preisbildung
           ohne Bezug zur Urkalkulation – Kalkulationsnachweis verlangen.
       - text: Leistungen ohne Auftrag sind erkannt und gesondert bewertet
         hinweis: >-
@@ -230,10 +230,10 @@ abschnitte:
       - text: Vom Auftraggeber selbst übernommene Leistungen und Lieferungen sind abgesetzt
       - text: Beim Pauschalvertrag sind entfallene oder erheblich geänderte Leistungen bewertet
         hinweis: >-
-          Beim Pauschalvertrag bleibt die Vergütung grundsätzlich unverändert. Weicht die
-          ausgeführte Leistung so erheblich ab, dass ein Festhalten an der Pauschalsumme
-          nicht zumutbar ist, ist auf Verlangen ein Ausgleich zu gewähren; Grundlage sind
-          die Preisermittlungsgrundlagen.
+          Beim Pauschalvertrag ändert sich die Vergütung im Grundsatz nicht. Entfernt sich
+          die ausgeführte Leistung aber so weit von der vereinbarten, dass es unzumutbar
+          wäre, an der Pauschalsumme festzuhalten, kann ein Ausgleich verlangt werden; er
+          wird aus den Preisermittlungsgrundlagen abgeleitet.
   - titel: 8 Abzüge und Einbehalte
     notizen: 2
     punkte:
@@ -263,8 +263,8 @@ abschnitte:
           muss zunächst nur grob schätzen und den Einbehalt schriftlich begründen.
       - text: Gegenforderungen aus Ersatzvornahme oder Schadensersatz sind getrennt aufgeführt
         hinweis: >-
-          Gegenforderungen können einbehalten werden; andere Einbehalte sind nur in den im
-          Vertrag und in den gesetzlichen Bestimmungen vorgesehenen Fällen zulässig.
+          Gegenforderungen darf der Auftraggeber einbehalten. Für andere Einbehalte braucht
+          er eine Grundlage im Vertrag oder im Gesetz.
           Trennen Sie Kürzungen der Leistung von Gegenforderungen, sonst wird die
           Zahlungsabrechnung unklar.
       - text: Steuerabzug bei Bauleistungen ist einbehalten oder eine gültige Freistellungsbescheinigung liegt vor
@@ -299,10 +299,10 @@ abschnitte:
           Mängelansprüche abgelöst werden darf.
       - text: Bürgschaftsurkunde ist geprüft – unbefristet, mit Verzicht auf die Einrede der Vorausklage, nicht auf erstes Anfordern
         hinweis: >-
-          Die Bürgschaftserklärung ist schriftlich unter Verzicht auf die Einrede der
-          Vorausklage abzugeben, darf nicht auf bestimmte Zeit begrenzt sein und muss nach
-          Vorschrift des Auftraggebers ausgestellt sein. Eine Bürgschaft auf erstes
-          Anfordern kann der Auftraggeber nicht fordern.
+          Der Bürge muss schriftlich erklären, dass er auf die Einrede der Vorausklage
+          verzichtet. Die Bürgschaft darf zeitlich nicht befristet sein und ist nach den
+          Vorgaben des Auftraggebers auszustellen. Eine Bürgschaft auf erstes Anfordern
+          darf der Auftraggeber nicht verlangen.
   - titel: 10 Fristen, Prüfvermerk und Freigabe
     bewertung: false
     notizen: 2
