@@ -107,7 +107,7 @@ jobs:
         continue-on-error: true
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: ing-bassam/FachwissenAgent
+          repository: bib-ingenieurbuero/FachwissenAgent
           token: ${{ secrets.BIBLIOTHEK_TOKEN }}
           path: .bibliothek
           # Der Zugangsschlüssel bleibt nicht im Arbeitsverzeichnis liegen.
