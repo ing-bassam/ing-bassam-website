@@ -16,7 +16,7 @@ Kann die Hausverwaltung das Gemeinschaftseigentum für alle Eigentümer abnehmen
 
 Bei einer neuen Eigentumswohnung gibt es zwei getrennte Abnahmen. Die eine betrifft das Sondereigentum, also die Wohnung selbst. Die andere das Gemeinschaftseigentum, etwa Dach, Treppenhaus und Keller.
 
-Grundsätzlich nimmt jeder Eigentümer das Gemeinschaftseigentum gesondert ab. Denn jeder Erwerber hat einen eigenen Vertrag mit dem Bauträger. Ein Beschluss der Gemeinschaft zur gebündelten Abnahme bindet nur, wer ihn tatsächlich gefasst hat. Ohne Vollmacht kann die Verwaltung die Abnahme nicht für einzelne Eigentümer verbindlich erklären.
+Im Grundsatz muss jeder Erwerber das Gemeinschaftseigentum einzeln abnehmen. Denn jeder Erwerber hat einen eigenen Vertrag mit dem Bauträger. Ein Beschluss der Gemeinschaft zur gebündelten Abnahme bindet nur, wer ihn tatsächlich gefasst hat. Ohne Vollmacht kann die Verwaltung die Abnahme nicht für einzelne Eigentümer verbindlich erklären.
 
 Mängelansprüche bei einem Bauwerk verjähren grundsätzlich in fünf Jahren ab der Abnahme. Der Abnahmezeitpunkt ist für jeden Eigentümer gesondert zu ermitteln. Bei dreißig Wohnungen kann es dreißig verschiedene Fristen für dieselbe Tiefgaragenabdichtung geben.
 
@@ -33,7 +33,7 @@ Für Hausverwaltungen und WEG-Verwaltungen: https://ing-bassam.de/leistungen/hau
 - "Bei einer neuen Eigentumswohnung gibt es zwei getrennte Abnahmen." – [Fn 3]
 - "Die eine betrifft das Sondereigentum, also die Wohnung selbst." – [Fn 3] (getrennte Abnahme des Sondereigentums); [Fn 1] (Begriff Sondereigentum: alles, was innerhalb der Wohnung liegt)
 - "Die andere das Gemeinschaftseigentum, etwa Dach, Treppenhaus und Keller." – [Fn 3]
-- "Grundsätzlich nimmt jeder Eigentümer das Gemeinschaftseigentum gesondert ab." – [Fn 3]
+- "Im Grundsatz muss jeder Erwerber das Gemeinschaftseigentum einzeln abnehmen." – [Fn 3]
 - "Denn jeder Erwerber hat einen eigenen Vertrag mit dem Bauträger." – [Fn 3] (Antwort auf „Muss ich als Käufer das Gemeinschaftseigentum selbst abnehmen?“ unter „Häufige Fragen“); [Artikel: „Wer das Gemeinschaftseigentum abnimmt und wer es nicht darf“]
 - "Ein Beschluss der Gemeinschaft zur gebündelten Abnahme bindet nur, wer ihn tatsächlich gefasst hat." – [Fn 5]
 - "Ohne Vollmacht kann die Verwaltung die Abnahme nicht für einzelne Eigentümer verbindlich erklären." – [Artikel: „Wer das Gemeinschaftseigentum abnimmt und wer es nicht darf“]; [Artikel: „Sonderfälle für Hausverwaltung und später hinzukommende Erwerber“] (Autorenaussage, ohne Fußnote)

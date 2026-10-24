@@ -35,7 +35,7 @@ abschnitte:
         hinweis: "Steht im Bauvertrag. Ohne besondere Vereinbarung verjähren Mängelansprüche bei einem Bauwerk nach dem BGB in fünf Jahren; ist die VOB/B vereinbart, sind es vier Jahre, wenn im Vertrag nichts anderes steht."
       - text: Abnahmedatum aus dem Abnahmeprotokoll ermittelt
         ja_nein: true
-        hinweis: "Die Frist beginnt mit der Abnahme der gesamten Leistung, nicht mit Einzug oder Schlussrechnung. Für in sich abgeschlossene Teile, die gesondert abgenommen wurden, läuft eine eigene Frist."
+        hinweis: "Maßgeblich für den Fristbeginn ist die Abnahme der Gesamtleistung, nicht der Einzug und nicht die Schlussrechnung. Wurden in sich abgeschlossene Teile gesondert abgenommen, gilt für sie eine eigene Frist."
       - text: Im Vertrag vereinbarte Verjährungsfrist
         auswahl: ["5 Jahre", "4 Jahre", "andere Frist", "keine Regelung gefunden"]
         hinweis: "Eine längere Frist kann vereinbart werden und geht der Regelfrist vor. Findet sich keine Regelung, gilt die Frist des Gesetzes oder der VOB/B."

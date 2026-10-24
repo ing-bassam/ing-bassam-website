@@ -35,7 +35,7 @@ Die Wohnung ist bezogen, da liegt ein Brief des Bauträgers im Kasten: Abnahme d
 
 ## So benutzen Sie die Checkliste und die vier Bewertungsstufen
 
-Eine Checkliste für die Abnahme des Gemeinschaftseigentums ist eine geordnete Liste der gemeinsamen Bauteile und Unterlagen einer neuen Wohnanlage zur Prüfung vor der Abnahme. Gemeinschaftseigentum sind zum Beispiel Dächer, Fassaden, Treppenhäuser, Keller und Außenanlagen.[^1] Die Checkliste ist für Käufer einer Neubauwohnung gemacht und für Hausverwaltungen, die die Begehung organisieren.
+Eine Checkliste für die Abnahme des Gemeinschaftseigentums ist eine geordnete Liste der gemeinsamen Bauteile und Unterlagen einer neuen Wohnanlage zur Prüfung vor der Abnahme. Zum Gemeinschaftseigentum zählen etwa das Treppenhaus, das Dach, die Fassade, der Keller und die Außenanlagen.[^1] Die Checkliste ist für Käufer einer Neubauwohnung gemacht und für Hausverwaltungen, die die Begehung organisieren.
 
 Die Checkliste folgt dem Weg durch das Haus. Zuerst klären Sie am Schreibtisch Vertrag, Abnahmeweg und Fristen. Dann prüfen Sie die Unterlagen. Danach gehen Sie von außen nach innen: Außenanlagen, Keller und Tiefgarage, Fassade, Dach, Balkone, Treppenhaus, Brandschutz und Haustechnik. Der letzte Abschnitt hält fest, was ins gemeinsame Protokoll gehört.
 
@@ -45,9 +45,9 @@ Bei vielen Punkten der Checkliste steht ein kurzer Hinweis, woran Sie die Stufen
 
 ## Wer das Gemeinschaftseigentum abnimmt und was Sie vorher klären
 
-Beim Bauträgerkauf gibt es zwei Abnahmen: die Wohnung, also das Sondereigentum, und das Gemeinschaftseigentum. Die Abnahme der Wohnung bedeutet nicht zwangsläufig, dass der Erwerber auch das Gemeinschaftseigentum als im Wesentlichen vertragsgemäß akzeptiert.[^2] Eine konkludente Abnahme des Gemeinschaftseigentums durch Benutzung, also ohne ausdrückliche Erklärung, setzt voraus, dass die gesamte Wohnanlage fertiggestellt ist.[^2]
+Beim Bauträgerkauf gibt es zwei Abnahmen: die Wohnung, also das Sondereigentum, und das Gemeinschaftseigentum. Wer seine Wohnung abnimmt, billigt damit nicht ohne Weiteres auch das Gemeinschaftseigentum als im Wesentlichen vertragsgemäß.[^2] Eine konkludente Abnahme durch Benutzung, also eine Abnahme ohne ausdrückliche Erklärung, kommt beim Gemeinschaftseigentum erst in Betracht, wenn die Wohnanlage insgesamt fertig ist.[^2]
 
-Grundsätzlich nimmt jeder Eigentümer das Gemeinschaftseigentum gesondert ab.[^1] In der Praxis wird häufig versucht, die Abnahme über einen Bevollmächtigten oder einen Dritten zu bündeln.[^1] Eine Klausel, nach der ein vom Bauträger bestimmter, mit ihm wirtschaftlich verbundener Erstverwalter das Gemeinschaftseigentum abnimmt, hat der Bundesgerichtshof für unwirksam erklärt.[^3] Auch die Abnahme durch einen vom Bauträger beauftragten Sachverständigen ist regelmäßig unwirksam.[^4] Ob die Klausel in Ihrem Vertrag wirksam ist, kann nur ein Rechtsanwalt beurteilen.
+Die Abnahme des Gemeinschaftseigentums erklärt im Grundsatz jeder Eigentümer für sich.[^1] Oft wird in der Praxis versucht, die Abnahmen zusammenzufassen und einem Bevollmächtigten oder einem Dritten zu übertragen.[^1] Der Bundesgerichtshof hat eine Klausel für unwirksam erklärt, nach der ein Erstverwalter das Gemeinschaftseigentum abnimmt, den der Bauträger bestimmt und der mit ihm wirtschaftlich verbunden ist.[^3] Regelmäßig unwirksam ist es ebenso, wenn ein Sachverständiger abnimmt, den der Bauträger beauftragt hat.[^4] Ob die Klausel in Ihrem Vertrag wirksam ist, kann nur ein Rechtsanwalt beurteilen.
 
 Für Hausverwaltungen gilt eine wichtige Grenze. Ein Beschluss der Gemeinschaft, die Abnahme gebündelt durchzuführen, bindet nur die Eigentümer, die ihn tatsächlich gefasst haben.[^2] Die Verwaltung kann Termine abstimmen, Unterlagen sammeln und das Ergebnis verteilen. Der Abnahmezeitpunkt ist für jeden Eigentümer gesondert zu ermitteln.[^2] Eine Übersicht mit Datum und Form der Abnahme je Einheit erspart der Gemeinschaft später die Suche.
 
@@ -93,7 +93,7 @@ Wie Sie die Abnahme rechtlich einordnen, erklärt der Beitrag [Abnahme vom Bautr
 
 **Muss jeder Eigentümer das Gemeinschaftseigentum selbst abnehmen?**
 
-Grundsätzlich nimmt jeder Eigentümer das Gemeinschaftseigentum gesondert ab.[^1] Sie können sich begleiten lassen und jemanden bevollmächtigen. Klauseln, nach denen ein mit dem Bauträger verbundener Erstverwalter abnimmt, hat der Bundesgerichtshof für unwirksam erklärt.[^3] Was in Ihrem Vertrag gilt, prüft ein Rechtsanwalt.
+Im Grundsatz erklärt jeder Eigentümer die Abnahme des Gemeinschaftseigentums für sich.[^1] Sie können sich begleiten lassen und jemanden bevollmächtigen. Klauseln, nach denen ein mit dem Bauträger verbundener Erstverwalter abnimmt, hat der Bundesgerichtshof für unwirksam erklärt.[^3] Was in Ihrem Vertrag gilt, prüft ein Rechtsanwalt.
 
 **Kann die Hausverwaltung das Gemeinschaftseigentum für alle abnehmen?**
 

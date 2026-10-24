@@ -43,7 +43,7 @@ Füllen Sie die Checkliste nicht am Vorabend aus, sondern etwa zwei Wochen vorhe
 
 ## Welche Unterlagen wirklich zählen
 
-Die Unterlagen entscheiden darüber, ob am Terminstag überhaupt etwas beurteilt werden kann. Für die Bereitstellung der Bestandsdaten ist der Bauherr verantwortlich.[^2] Das gilt sinngemäß auch für Eigentümer und Verwaltungen. Fachliteratur führt dafür eine feste Übersicht: Genehmigungsunterlagen, Objekt- und Ausführungspläne, statische Berechnung, Trassenpläne der Leitungen, Unterlagen zu Umbauten und Angaben zu besonderen Ereignissen wie Bränden oder Wasserschäden.[^2]
+Die Unterlagen entscheiden darüber, ob am Terminstag überhaupt etwas beurteilt werden kann. Die Bestandsdaten zur Verfügung zu stellen, ist Sache des Bauherrn.[^2] Das gilt sinngemäß auch für Eigentümer und Verwaltungen. Was dazu gehört, fasst die Fachliteratur in einer festen Übersicht zusammen: die Unterlagen der Baugenehmigung, die Objekt- und Ausführungspläne, die Statik, die Trassenpläne der Leitungen, Unterlagen über Umbauten sowie Hinweise auf besondere Vorkommnisse, etwa einen Brand oder einen Wasserschaden.[^2]
 
 Wichtiger als die Menge ist eine bestimmte Gruppe: die Unterlagen, die sagen, was geschuldet war. Dazu gehören der Bauvertrag mit allen Anlagen, die Bau- und Leistungsbeschreibung und jeder Nachtrag. Ein Nachtrag ist eine spätere Vereinbarung über zusätzliche oder geänderte Leistungen. Nachträge verschieben das vereinbarte Ergebnis und werden bei der Vorbereitung am häufigsten vergessen. Ohne sie lässt sich oft nicht sagen, ob ein Mangel vorliegt oder nur eine andere Ausführung vereinbart war.
 

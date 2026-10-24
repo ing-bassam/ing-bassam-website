@@ -37,9 +37,9 @@ Die Wohnung ist hell, das Bad ist neu, der Preis wirkt fair. Zwei Jahre später 
 
 Die Checkliste richtet sich an private Käufer einer Eigentumswohnung, im Bestand wie im Neubau. Sie ersetzt keine Begutachtung. Sie sorgt dafür, dass Sie nichts Wichtiges vergessen, wenn Sie unter Zeitdruck und mit anderen Interessenten im Treppenhaus stehen.
 
-Wer eine Eigentumswohnung kauft, erwirbt zwei Dinge auf einmal. Er erhält Sondereigentum an der Wohnung und einen Anteil am Gemeinschaftseigentum.[^1] Zum Gemeinschaftseigentum gehören zum Beispiel Dächer, Fassaden, Treppenhäuser, Keller und Außenanlagen.[^1] Diese Teile kosten Geld, auch wenn sie außerhalb der Wohnungstür liegen.
+Wer eine Eigentumswohnung kauft, erwirbt zwei Dinge auf einmal. Die Wohnung selbst wird sein Sondereigentum. Dazu kommt ein Miteigentumsanteil am Gemeinschaftseigentum.[^1] Zum Gemeinschaftseigentum gehören zum Beispiel Dächer, Fassaden, Treppenhäuser, Keller und Außenanlagen.[^1] Diese Teile kosten Geld, auch wenn sie außerhalb der Wohnungstür liegen.
 
-Als Faustregel gilt: Alles, was innerhalb der Wohnung liegt, ist Sondereigentum, solange es nicht zum Bestand oder zur Benutzbarkeit der übrigen Wohnungen benötigt wird.[^2] Alles andere ist Gemeinschaftseigentum.[^2] Die genaue Zuordnung steht in der Teilungserklärung, also der Urkunde, mit der das Gebäude in einzelne Wohnungen aufgeteilt wurde. Deshalb beginnt die Checkliste mit den Unterlagen und nicht mit dem Bad.
+Als Faustregel gilt: Was sich innerhalb der Wohnung befindet, zählt zum Sondereigentum. Ausgenommen sind Teile, auf die die anderen Wohnungen für ihren Bestand oder ihre Nutzung angewiesen sind.[^2] Alles andere ist Gemeinschaftseigentum.[^2] Die genaue Zuordnung steht in der Teilungserklärung, also der Urkunde, mit der das Gebäude in einzelne Wohnungen aufgeteilt wurde. Deshalb beginnt die Checkliste mit den Unterlagen und nicht mit dem Bad.
 
 Die Vorlage gliedert sich in sieben Abschnitte. Sie führen von den Unterlagen über die Zahlen der Gemeinschaft, das Gebäude von außen und die gemeinschaftliche Technik bis zur Wohnung, zum Abgleich mit den Plänen und zur Zusammenfassung der offenen Fragen.
 
@@ -57,7 +57,7 @@ Nach dem Termin kommt der wichtigste Abschnitt. Ordnen Sie Ihre Befunde nach dri
 
 Die Zuordnung von Fenstern und Balkonen entscheidet über viel Geld. Sie steht in der Teilungserklärung, nicht im Kaufvertrag. Lesen Sie die Urkunde vor dem Notartermin, und notieren Sie, wer Fenster, Balkonbeläge und Geländer bezahlt.
 
-Balkone und Dachterrassen verdienen einen genauen Blick von unten. Die Abdichtung eines Gebäudes ist zwingender Bestandteil des Gemeinschaftseigentums.[^3] Ist sie undicht, gelangt Wasser in die Geschossdecke darunter.[^3] Typische Merkmale sind Wasserflecken mit dunklen Rändern, abblätternde Deckenfarbe und muffiger Geruch in den dahinterliegenden Räumen.[^3] Solche Spuren an der Decke des Nachbarn sagen mehr als ein frisch gestrichener Balkon.
+Balkone und Dachterrassen verdienen einen genauen Blick von unten. Die Gebäudeabdichtung gehört zwingend zum Gemeinschaftseigentum.[^3] Ist sie undicht, gelangt Wasser in die Geschossdecke darunter.[^3] Typische Merkmale sind Wasserflecken mit dunklen Rändern, abblätternde Deckenfarbe und muffiger Geruch in den dahinterliegenden Räumen.[^3] Solche Spuren an der Decke des Nachbarn sagen mehr als ein frisch gestrichener Balkon.
 
 Der Energieausweis gehört in Ihre Unterlagen. Beim Verkauf legt der Verkäufer oder der Makler ihn dem Kaufinteressenten spätestens bei der Besichtigung vor.[^4] Er bezieht sich auf das gesamte Gebäude, auch beim Verkauf einer einzelnen Wohnung.[^4] Ein Verbrauchsausweis zeigt gemessene Werte, und der Verbrauch hängt stark vom Verhalten der bisherigen Nutzer ab.[^4] Rechnen Sie ihn deshalb nicht in Ihre eigene Heizkostenprognose um.
 
@@ -67,15 +67,15 @@ Im Keller lohnt der Blick hinter die Verkleidung. Feuchte, muffige Kellerräume 
 
 Der häufigste Fehler ist der zu kurze Blick. Wer nur die Wohnung prüft, übersieht den Teil des Gebäudes, der die großen Rechnungen verursacht. Dach, Fassade, Leitungen und Aufzug stehen in keinem Exposé, aber in den Protokollen der Eigentümerversammlungen.
 
-Risse werden oft falsch eingeordnet. Risse sind in der Regel nur die optischen Symptome für einen komplexen Schadensmechanismus.[^6] Die technische Bewertung eines Risses kann ergeben, dass kein technischer Mangel vorliegt, während die juristische Bewertung desselben Risses einen Mangel ergibt.[^6] Der Begriff Mangel ist ein Rechtsbegriff.[^6] Notieren Sie Lage, Länge und Verlauf, und verzichten Sie auf eine eigene Bewertung.
+Risse werden oft falsch eingeordnet. Meist zeigt ein Riss nur an der Oberfläche, dass im Bauteil ein vielschichtiger Schadensvorgang abläuft.[^6] Ein Riss kann technisch gesehen kein Mangel sein und rechtlich dennoch einer.[^6] Der Begriff Mangel ist ein Rechtsbegriff.[^6] Notieren Sie Lage, Länge und Verlauf, und verzichten Sie auf eine eigene Bewertung.
 
-Beim Neubau vom Bauträger lohnt ein zweiter Blick auf die Abnahme. Bei der Abnahme von Wohnungseigentum ist zwischen Sonder- und Gemeinschaftseigentum streng zu differenzieren.[^7] Die Abnahme des Sondereigentums durch den Erwerber hat nicht zwangsläufig zur Folge, dass er auch das Gemeinschaftseigentum als im Wesentlichen vertragsgemäß akzeptiert.[^7] Welche Wirkung eine Abnahmeklausel im Erwerbsvertrag hat, beurteilt ein Rechtsanwalt; die Checkliste hält nur den technischen Zustand fest.
+Beim Neubau vom Bauträger lohnt ein zweiter Blick auf die Abnahme. Wird Wohnungseigentum abgenommen, sind Sondereigentum und Gemeinschaftseigentum strikt getrennt zu betrachten.[^7] Die Abnahme der eigenen Wohnung bedeutet nicht zwangsläufig, dass der Käufer auch das Gemeinschaftseigentum billigt und es in den wesentlichen Punkten als vertragsgerecht hinnimmt.[^7] Welche Wirkung eine Abnahmeklausel im Erwerbsvertrag hat, beurteilt ein Rechtsanwalt; die Checkliste hält nur den technischen Zustand fest.
 
 Ein ausgefülltes Blatt ist eine Momentaufnahme. Eine Analyse des Gebäudezustands ist nur befristet gültig, und der Verschleiß der einzelnen Bauteile verläuft unterschiedlich.[^8] Ein Protokoll aus dem Vorjahr ersetzt Ihren eigenen Rundgang daher nicht.
 
 ## Wann ein Sachverständiger vor dem Notartermin hilft
 
-Bei der Sanierung eines Gebäudes sollte nach der augenscheinlichen Bestandsaufnahme durch den Bauherrn ein kompetenter Fachplaner das Gebäude begutachten.[^8] Für den Wohnungskauf ist diese Checkliste genau diese Vorarbeit. Sie hält den Zustand so weit fest, dass ein Termin mit einem Sachverständigen kurz und günstig bleibt.
+Für Sanierungen wird empfohlen, dass der Bauherr das Gebäude zunächst selbst in Augenschein nimmt und erst danach ein fachkundiger Planer eine Begutachtung vornimmt.[^8] Für den Wohnungskauf ist diese Checkliste genau diese Vorarbeit. Sie hält den Zustand so weit fest, dass ein Termin mit einem Sachverständigen kurz und günstig bleibt.
 
 Ein Sachverständiger liest die Unterlagen der Gemeinschaft, ordnet die Befunde ein und schätzt den Instandhaltungsstau am Gemeinschaftseigentum ein. Er sagt Ihnen, welche Arbeiten am Gebäude anstehen und welcher Aufwand dahintersteckt. Was er nicht tut: Er entscheidet keine Rechtsfragen und gibt keine Garantie für verdeckte Schäden.
 
@@ -91,7 +91,7 @@ Die Checkliste nennt sie im ersten Abschnitt. Dazu gehören die Teilungserkläru
 
 **Gehören Fenster und Balkone zur Wohnung oder zur Gemeinschaft?**
 
-Das hängt von der Teilungserklärung ab und lässt sich nicht pauschal beantworten. Als Faustregel ist alles innerhalb der Wohnung Sondereigentum, solange es nicht zum Bestand oder zur Benutzbarkeit der übrigen Wohnungen benötigt wird.[^2] Die Abdichtung eines Gebäudes ist zwingender Bestandteil des Gemeinschaftseigentums.[^3] Beim Balkon kann deshalb der Bodenbelag zum Sondereigentum und die Abdichtungsbahn auf der tragenden Decke darunter zum Gemeinschaftseigentum gehören.[^3]
+Das hängt von der Teilungserklärung ab und lässt sich nicht pauschal beantworten. Als Faustregel ist alles innerhalb der Wohnung Sondereigentum, solange es nicht zum Bestand oder zur Benutzbarkeit der übrigen Wohnungen benötigt wird.[^2] Die Gebäudeabdichtung gehört zwingend zum Gemeinschaftseigentum.[^3] Beim Balkon kann deshalb der Bodenbelag zum Sondereigentum und die Abdichtungsbahn auf der tragenden Decke darunter zum Gemeinschaftseigentum gehören.[^3]
 
 **Reicht die Checkliste ohne einen Sachverständigen aus?**
 

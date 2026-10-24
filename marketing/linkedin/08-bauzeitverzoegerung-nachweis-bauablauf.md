@@ -18,7 +18,7 @@ Das Landgericht Karlsruhe hat mit Urteil vom 5. Oktober 2018 (6 O 340/15) die Kl
 
 Ob die Planer den Stillstand zu verantworten hatten, blieb offen. Die Bauherrin konnte nur verlangen, was ihr Rohbauunternehmen hätte durchsetzen können. Das legte sie trotz zweier gerichtlicher Hinweise nicht konkret dar. Unter anderem daran scheiterte die Rückforderung.
 
-Verlangt ist eine baustellenbezogene Darstellung der Ist- und Soll-Abläufe. Dazu gehört eine genaue Aufstellung, welche Arbeitskräfte und Geräte entgegen einer konkreten Planung weder auf dieser noch auf anderen Baustellen noch sonst eingesetzt werden konnten. Es zählen nur Stillstände, die sich durch rechtzeitig geplante und vorgezogene andere Maßnahmen nicht ausgleichen ließen.
+Verlangt wird ein Soll-Ist-Vergleich der Abläufe, bezogen auf genau diese Baustelle. Dazu gehört eine genaue Aufstellung, welche Arbeitskräfte und Geräte entgegen einer konkreten Planung weder auf dieser noch auf anderen Baustellen noch sonst eingesetzt werden konnten. Es zählen nur Stillstände, die sich durch rechtzeitig geplante und vorgezogene andere Maßnahmen nicht ausgleichen ließen.
 
 Angaben zu solchen Stillständen entstehen nur, während die Baustelle läuft. Tagesberichte mit Mannschaftsstärken, Geräteeinsatzzeiten und Zuordnung zu Bauteilen sind der Anspruch in Papierform. Ein Sachverständiger kann die fehlende Dokumentation nicht ersetzen, er setzt sie voraus. Welche Anspruchsgrundlage im eigenen Vertrag greift, klärt im Einzelfall ein Rechtsanwalt.
 
@@ -35,7 +35,7 @@ Für Kanzleien: https://ing-bassam.de/leistungen/rechtsanwaelte/
 - "Die Bauherrin konnte nur verlangen, was ihr Rohbauunternehmen hätte durchsetzen können." – [Artikel: „Was die Kammer unter einer baustellenbezogenen Ist- und Soll-Darstellung versteht“]
 - "Das legte sie trotz zweier gerichtlicher Hinweise nicht konkret dar." – [Artikel: „Was die Kammer unter einer baustellenbezogenen Ist- und Soll-Darstellung versteht“]
 - "Unter anderem daran scheiterte die Rückforderung." – [Artikel: „Die Aktennotiz band die Bauherrin, nicht die Planer“], [Artikel: „Was die Entscheidung nicht sagt, und was heute gilt“]
-- "Verlangt ist eine baustellenbezogene Darstellung der Ist- und Soll-Abläufe." – [Artikel: „Was die Kammer unter einer baustellenbezogenen Ist- und Soll-Darstellung versteht“]
+- "Verlangt wird ein Soll-Ist-Vergleich der Abläufe, bezogen auf genau diese Baustelle." – [Artikel: „Was die Kammer unter einer baustellenbezogenen Ist- und Soll-Darstellung versteht“]
 - "Dazu gehört eine genaue Aufstellung, welche Arbeitskräfte und Geräte entgegen einer konkreten Planung weder auf dieser noch auf anderen Baustellen noch sonst eingesetzt werden konnten." – [Artikel: „Was die Kammer unter einer baustellenbezogenen Ist- und Soll-Darstellung versteht“]
 - "Es zählen nur Stillstände, die sich durch rechtzeitig geplante und vorgezogene andere Maßnahmen nicht ausgleichen ließen." – [Artikel: „Was die Kammer unter einer baustellenbezogenen Ist- und Soll-Darstellung versteht“]
 - "Angaben zu solchen Stillständen entstehen nur, während die Baustelle läuft." – [Artikel: „Was daraus für Dokumentation, Bauzeitnachweis und Nachtrag folgt“]

@@ -40,8 +40,9 @@ abschnitte:
         auswahl: [BGB-Bauvertrag, VOB/B vereinbart, Kaufvertrag, Mietvertrag, kein schriftlicher Vertrag, unbekannt]
         hinweis: >-
           Steht auf der ersten Seite des Vertrages oder in den
-          Vertragsbedingungen. Ist von der Vergabe- und Vertragsordnung für
-          Bauleistungen Teil B die Rede, gilt die VOB/B.
+          Vertragsbedingungen. Taucht dort die VOB/B auf, auch ausgeschrieben
+          als Vergabe- und Vertragsordnung für Bauleistungen mit dem Zusatz
+          Teil B, gilt sie.
       - text: Stand des Vorhabens
         auswahl: [vor der Abnahme, nach der Abnahme, Bestandsgebäude, vor dem Kauf, unbekannt]
         hinweis: >-

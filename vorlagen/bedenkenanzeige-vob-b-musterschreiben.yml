@@ -4,14 +4,14 @@ kurzform: bedenkenanzeige-vob-b-musterschreiben
 typ: Musterschreiben
 stand: 2026-09-27
 dateien: [docx, pdf]
-einleitung: "Mit diesem Musterschreiben melden Sie als Auftragnehmer Bedenken gegen die vorgesehene Art der Ausführung, gegen vom Auftraggeber gelieferte Stoffe oder Bauteile oder gegen die Vorleistung eines anderen Unternehmers an. Ersetzen Sie die Platzhalter in eckigen Klammern durch Ihre Angaben und streichen Sie, was nicht zutrifft. Die Prüfliste am Ende führt durch die Punkte, an denen Bedenkenanzeigen in der Praxis scheitern."
+einleitung: "Mit diesem Musterschreiben melden Sie als Auftragnehmer Bedenken an. Sie können sich gegen die geplante Ausführungsweise richten, gegen Stoffe oder Bauteile, die der Auftraggeber geliefert hat, oder gegen die Vorleistung eines anderen Unternehmers. Ersetzen Sie die Platzhalter in eckigen Klammern durch Ihre Angaben und streichen Sie, was nicht zutrifft. Die Prüfliste am Ende führt durch die Punkte, an denen Bedenkenanzeigen in der Praxis scheitern."
 
 brief:
   betreff: "Bedenkenanzeige nach § 4 Abs. 3 VOB/B – Bauvorhaben [Bezeichnung], [betroffene Leistung]"
   anrede: Sehr geehrte Damen und Herren,
   absaetze:
     - "zwischen Ihnen als Auftraggeber und uns als Auftragnehmer besteht der Bauvertrag vom [Datum] über [Leistung, z. B. die Estricharbeiten im 2. Obergeschoss]. Nach unseren Unterlagen ist die VOB/B in diesen Vertrag einbezogen. Gegen die vorgesehene Ausführung melden wir hiermit Bedenken an."
-    - "Unsere Bedenken betreffen [Zutreffendes wählen: die vorgesehene Art der Ausführung / die Güte der von Ihnen gelieferten oder vorgeschriebenen Stoffe oder Bauteile / die Leistung eines anderen Unternehmers als Vorleistung]."
+    - "Unsere Bedenken richten sich gegen [Zutreffendes wählen: die geplante Ausführungsweise / die Beschaffenheit von Stoffen oder Bauteilen, die Sie geliefert oder vorgeschrieben haben / die Vorleistung eines anderen Unternehmers, auf der unsere Leistung aufbaut]."
     - "Am [Datum] haben wir Folgendes festgestellt: [Befund sachlich, mit Ort und Maßangaben beschreiben, z. B. der Betonuntergrund im Raum 2.14 ist auf rund 30 Quadratmetern ungleichmäßig saugend und weist Ausblühungen auf]."
     - "Festgestellt haben wir das durch [Art der Prüfung, z. B. Inaugenscheinnahme, Kratzprobe, Feuchtemessung] am [Datum]. Die Einzelheiten, Lichtbilder und Messwerte finden Sie in der Anlage."
     - "Aus unserer fachlichen Sicht ist die vorgesehene Ausführung aus folgendem Grund bedenklich: [Grund, z. B. weil der Untergrund für den vorgesehenen Belag nicht ausreichend fest und nicht ausreichend trocken ist]."
@@ -57,13 +57,13 @@ tabelle:
 
 hinweise:
   - "Platzhalter in eckigen Klammern durch eigene Angaben ersetzen. Absätze, die nicht zutreffen, ersatzlos streichen."
-  - "§ 4 Abs. 3 VOB/B verlangt die Mitteilung unverzüglich, möglichst schon vor Beginn der Arbeiten, schriftlich und gegenüber dem Auftraggeber."
+  - "Nach § 4 Abs. 3 VOB/B muss die Mitteilung schriftlich an den Auftraggeber gehen, und zwar unverzüglich und nach Möglichkeit noch bevor die Arbeiten beginnen."
   - "Die VOB/B gilt nur, wenn sie im Bauvertrag vereinbart ist. Ohne VOB/B bestehen Prüf- und Hinweispflichten nach der Fachliteratur in gleicher Weise; eine Schriftform ist dann nicht vorgeschrieben, aus Beweisgründen aber zu empfehlen."
   - "Ein allgemeiner Hinweis auf eine mangelhafte Vorleistung genügt nicht. Der Auftraggeber muss erkennen, welche konkrete Gefahr mit dem beschriebenen Zustand verbunden ist."
   - "Ein eigener Lösungsvorschlag ist nicht geschuldet. Wer einen unterbreitet, kann für dessen Planung einstehen müssen."
   - "Richtiger Adressat ist der Auftraggeber. Ein Hinweis allein an den bauleitenden Architekten reicht nicht aus, wenn sich die Bedenken gerade gegen dessen Planung richten."
   - "Eine einfache, nicht unterschriebene E-Mail kann die vereinbarte Schriftform verfehlen. Ein unterschriebener und eingescannter Brief müsste nach der Fachliteratur genügen."
-  - "Besteht der Auftraggeber nach der Bedenkenanzeige auf seiner Anordnung, ist sie auszuführen, wenn nicht gesetzliche oder behördliche Bestimmungen entgegenstehen."
+  - "Hält der Auftraggeber trotz der Bedenkenanzeige an seiner Anordnung fest, muss sie ausgeführt werden; das gilt nicht, soweit gesetzliche oder behördliche Vorschriften dem entgegenstehen."
   - "Ein allgemeines Recht, die Leistung bis zur Antwort des Auftraggebers zu verweigern, besteht nicht."
   - "Reagiert der Auftraggeber gar nicht, bleibt die Wirkung der Bedenkenanzeige nach der Fachliteratur erhalten. Ein Zweitschreiben nach Fristablauf sichert den Nachweis."
   - "Die Bedenkenanzeige ersetzt weder eine Behinderungsanzeige noch einen Nachtrag. Verzögerungen und Mehrkosten sind gesondert anzuzeigen."

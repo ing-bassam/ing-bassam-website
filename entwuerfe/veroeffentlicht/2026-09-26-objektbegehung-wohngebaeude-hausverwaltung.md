@@ -39,7 +39,7 @@ Eine Checkliste für die Objektbegehung ist eine geordnete Liste von Sichtprüfp
 
 Die Fachsprache nennt diese Sichtprüfung Inspektion. Eine Inspektion ist das Erfassen und Beurteilen des Ist-Zustandes. Die Wartung bewahrt den Soll-Zustand, die Instandsetzung stellt ihn wieder her.[^1] Die Grundbegriffe der Instandhaltung regelt DIN 31051, die Norm für die Grundlagen der Instandhaltung.[^2] Die Begehung ist also der erste Schritt. Sie liefert die Grundlage für die Entscheidung, ob gewartet, repariert oder genauer untersucht wird.
 
-Die Begehung hat auch einen Sicherheitsgrund. Wer auf einem Grundstück einen Verkehr eröffnet und die tatsächliche Verfügungsgewalt ausübt, muss die für die Sicherung erforderlichen Maßnahmen durchführen. Diese Verkehrssicherungspflicht wird aus § 823 BGB abgeleitet, der Vorschrift über unerlaubte Handlungen im Bürgerlichen Gesetzbuch.[^3] Was das im einzelnen Objekt bedeutet, wer welche Pflicht trägt und wie weit die Übertragung auf einen Dienstleister wirkt, beurteilt ein Rechtsanwalt. Die Checkliste hilft nur bei der Frage, ob Sie hingesehen und das Ergebnis festgehalten haben.
+Die Begehung hat auch einen Sicherheitsgrund. Wer auf einem Grundstück Verkehr eröffnet und die tatsächliche Herrschaft darüber hat, muss die zur Sicherung notwendigen Vorkehrungen treffen. Abgeleitet wird diese Verkehrssicherungspflicht aus § 823 BGB, der Vorschrift des Bürgerlichen Gesetzbuchs über unerlaubte Handlungen.[^3] Was das im einzelnen Objekt bedeutet, wer welche Pflicht trägt und wie weit die Übertragung auf einen Dienstleister wirkt, beurteilt ein Rechtsanwalt. Die Checkliste hilft nur bei der Frage, ob Sie hingesehen und das Ergebnis festgehalten haben.
 
 ## So gehen Sie mit der Liste durch das Objekt
 
