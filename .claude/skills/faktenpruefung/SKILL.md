@@ -69,7 +69,7 @@ Jede ist so beim ersten Artikel dieses Agenten tatsächlich vorgekommen.
 ## Wie du korrigierst
 
 - **Nur mit Beleg einsetzen, sonst streichen.** Eine Korrektur setzt nur Inhalt ein, der an der genannten Randnummer wörtlich oder sinngleich steht. Lässt sich ein Satz so nicht retten, streichst du ihn; du formulierst ihn nicht um. *Beispiel (OVG 6 A 1/25):* Beim Korrigieren eines unbelegten Satzes setzte die Faktenprüfung „Über marktübliche Preise hat der Senat keinen Beweis erhoben“ ein – das steht nicht im Urteil. Ein neuer Fehler ist schlimmer als ein gestrichener Satz.
-- **Belegstück ins Protokoll.** Für jede Korrektur steht im Bericht das tragende Belegstück aus dem Volltext, höchstens 20 Wörter, mit Randnummer. Findest du keines, ist die richtige Korrektur das Streichen.
+- **Belegstück ins Protokoll.** Für jede Korrektur steht im Bericht das tragende Belegstück aus dem Volltext, höchstens 20 Wörter, mit Randnummer. Findest du keines, ist die richtige Korrektur das Streichen. Das ist erlaubt, weil die Entscheidung ein amtliches Werk ist (§ 5 UrhG) – aber nur ihr eigener Text: Tenor, Leitsätze des Gerichts, Tatbestand und Gründe. Orientierungssätze der Dokumentationsstelle (juris), redaktionelle Leitsätze, Kommentare und Bücher, die das Gericht anführt oder ein Portal mitliefert, sind keine amtlichen Werke: Daraus steht nie etwas wörtlich im Bericht oder im Entwurf, nur die Fundstelle. Es gilt die Regel des Inhabers in `CLAUDE.md` (Urheberrecht).
 - **Minimal und im Stil des Artikels:** Fließtext, keine Aufzählungen, keine Überschriften ab H3, Anführungszeichen „so“. Der Satz lautet danach so, wie der Volltext es trägt – nicht vorsichtiger und nicht blasser.
 - **Randnummer anfügen:** Jeder korrigierte Satz über die Entscheidung endet mit „(Rn. n)“ oder „(Rn. n–m)“.
 - **Der Absatz bleibt lesbar.** Nach einer Streichung liest du den Absatz im Zusammenhang; ein Folgesatz, der sich auf den gestrichenen bezieht, wird angepasst oder ebenfalls gestrichen.
@@ -104,7 +104,7 @@ Schreibe nach `Bericht:` eine Markdown-Datei, die als Kommentar im Pull Request 
 </details>
 ```
 
-Die Zeile nach `<summary>` bleibt leer, sonst stellt GitHub die Tabelle nicht dar. Zitate aus dem Volltext im Bericht höchstens 20 Wörter je Zelle.
+Die Zeile nach `<summary>` bleibt leer, sonst stellt GitHub die Tabelle nicht dar. Zitate aus dem Volltext im Bericht höchstens 20 Wörter je Zelle und nur aus dem Text des Gerichts – nie aus juris-Orientierungssätzen, Kommentaren oder Büchern.
 
 ## Abschlussnachricht
 

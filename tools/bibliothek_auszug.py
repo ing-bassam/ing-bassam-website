@@ -13,6 +13,9 @@ FachwissenAgent kommen nur:
 Aufruf (auf dem Rechner mit den PDFs):
     python tools/bibliothek_auszug.py <pdf-ordner> <bibliothek-ordner> [--auslassen Ordner ...]
 
+Normtexte gehören nicht in die Bibliothek: Ist der PDF-Ordner der Ordner „DIN Normen“, die Wurzel
+von 04_Wissen oder liegt eine PDF in einem Ordner „DIN Normen“, bricht das Werkzeug ab.
+
 Läuft schrittweise: Ein Werk, dessen PDF sich nicht geändert hat (gleiche
 Prüfsumme), wird nicht neu verarbeitet. Doppelte PDFs werden erkannt und nur
 einmal aufgenommen; die Ordner, in denen sie liegen, gehen als Themen in den
@@ -45,6 +48,12 @@ MARC = {"m": "http://www.loc.gov/MARC21/slim"}
 KENNUNG = "BIB-Fachbibliothek/1.0 (+https://ing-bassam.de)"
 STOPPWOERTER = {"der", "die", "das", "des", "ein", "eine", "und", "in", "im", "zur",
                 "zum", "fuer", "für", "von", "the", "a", "an", "of", "bei", "mit"}
+# Zeile 3 jeder Textdatei, Wortlaut vom Inhaber vorgegeben. Wortgleich mit Zeile 3 von texte/*.txt
+# und forschung/texte/*.txt in FachwissenAgent.
+HINWEIS = ("Hinweis: Nur für die interne Prüfung von Fakten. Nichts wörtlich übernehmen – kein Satz, keine "
+           "Tabelle, keine Abbildung; Aussagen nur in eigenen Worten mit Fundstelle.")
+# Normtexte gehören nicht in die Fachbibliothek: dieser Ordner von 04_Wissen wird nie eingelesen.
+NORMORDNER = "DIN Normen"
 
 
 # ---------------------------------------------------------------------------
@@ -379,6 +388,23 @@ def katalog_auffrischen(ziel: Path, katalog: list[dict], ergaenzungen: dict) -> 
 # Hauptprogramm
 # ---------------------------------------------------------------------------
 
+def normordner_grund(pdf_ordner: Path, pdfs: list[Path]) -> str:
+    """Grund, warum der Ordner nicht eingelesen werden darf, sonst „“: Er ist der Ordner „DIN Normen“
+    oder liegt darin, er ist die Wurzel von 04_Wissen (00_inhalt.md oder „DIN Normen“ darin), oder
+    eine der PDFs liegt in einem Ordner „DIN Normen“."""
+    name = NORMORDNER.casefold()
+    ordner = pdf_ordner.resolve()
+    if any(teil.casefold() == name for teil in ordner.parts):
+        return f"„{pdf_ordner}“ ist der Ordner „{NORMORDNER}“ oder liegt darin"
+    if (ordner / "00_inhalt.md").is_file() or (ordner / NORMORDNER).is_dir():
+        return (f"„{pdf_ordner}“ ist die Wurzel der Fachbibliothek 04_Wissen – "
+                "nur den Unterordner „Literatur“ angeben")
+    for pfad in pdfs:
+        if any(teil.casefold() == name for teil in pfad.relative_to(pdf_ordner).parts[:-1]):
+            return f"„{pfad}“ liegt in einem Ordner „{NORMORDNER}“"
+    return ""
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     parser.add_argument("pdf_ordner", type=Path)
@@ -391,6 +417,15 @@ def main() -> int:
                         help="nur Zitate, Ergänzungen und Auflagenverweise auffrischen; "
                              "die PDFs werden nicht gelesen")
     args = parser.parse_args()
+
+    pdfs: list[Path] = []
+    if not args.nur_katalog:
+        pdfs = sorted(args.pdf_ordner.rglob("*.pdf"), key=lambda p: str(p).lower())
+        grund = normordner_grund(args.pdf_ordner, pdfs)
+        if grund:
+            print(f"Abbruch: {grund}. Normtexte gehören nicht in die Fachbibliothek – für Normen gibt es "
+                  "nur den Normenindex (normen/ausgaben.yml).", file=sys.stderr)
+            return 2
 
     ziel = args.bibliothek
     (ziel / "texte").mkdir(parents=True, exist_ok=True)
@@ -415,7 +450,7 @@ def main() -> int:
 
     # PDFs sammeln, Dubletten über die Prüfsumme zusammenfassen.
     werke: dict[str, dict] = {}
-    for pfad in sorted(args.pdf_ordner.rglob("*.pdf"), key=lambda p: str(p).lower()):
+    for pfad in pdfs:
         teile = pfad.relative_to(args.pdf_ordner).parts
         thema = teile[0] if len(teile) > 1 else "Allgemein"
         if thema in args.auslassen:
@@ -495,8 +530,7 @@ def main() -> int:
 
             isbn_teil = f" ISBN {eintrag['isbn']}." if eintrag["isbn"] else ""
             kopf = (f"Werk: {kennung}\nZitat: {eintrag['zitat']}, S. <Seite>.{isbn_teil}\n"
-                    "Hinweis: Text aus der PDF-Ausgabe, Seitenzahlen wie gedruckt. Nur für die "
-                    "interne Prüfung; wörtlich höchstens 25 Wörter zitieren.\n" + "=" * 70 + "\n")
+                    f"{HINWEIS}\n" + "=" * 70 + "\n")
             koerper = "\n".join(f"=== S. {etikett} | PDF {i + 1} ===\n{text}\n"
                                 for i, (etikett, text) in enumerate(zip(gelesen["etiketten"],
                                                                          gelesen["seiten"])))

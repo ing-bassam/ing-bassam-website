@@ -23,7 +23,9 @@ name: Trend-Agent
 # Doppelungen: Neue Vorschläge und das zu schreibende Thema werden ohne KI
 # gegen Website und Pull Requests geprüft (tools/doppelungen.py); ein schon
 # abgedecktes Thema bekommt in Notion den Status „Doppelung“. Der Pull Request
-# bleibt bis zum Ende der Schlussprüfung ein Entwurf.
+# bleibt bis zum Ende der Schlussprüfung und der Prüfung auf wörtliche
+# Übernahmen und Normstand (ohne KI) ein Entwurf – findet diese etwas oder ist
+# sie nicht möglich, auch danach.
 #
 # Steuerung in Notion: „Freigegeben“ zieht ein Thema beim nächsten Lauf vor,
 # „Verworfen“ schließt es aus. Von Hand: Actions → Trend-Agent → Run workflow –
@@ -935,6 +937,8 @@ jobs:
       # Repository FachwissenAgent, mit gedruckten Seitenzahlen und Katalog.
       # Ohne das Secret BIBLIOTHEK_TOKEN oder bei einem Fehler arbeitet der
       # Agent wie bisher ohne Bibliothek; der Lauf bricht deswegen nicht ab.
+      # Freigegeben wird der Pull Request dann aber nicht: Die Prüfung auf
+      # wörtliche Übernahmen braucht die Bibliothek (fail-closed).
       # -----------------------------------------------------------------
       - name: Fachbibliothek prüfen
         id: bib
@@ -944,7 +948,7 @@ jobs:
         run: |
           echo "vorhanden=$TOKEN_DA" >> "$GITHUB_OUTPUT"
           if [ "$TOKEN_DA" != "true" ]; then
-            echo "::notice title=Fachbibliothek::Secret BIBLIOTHEK_TOKEN fehlt – der Agent arbeitet ohne Fachbibliothek."
+            echo "::notice title=Fachbibliothek::Secret BIBLIOTHEK_TOKEN fehlt – der Agent arbeitet ohne Fachbibliothek, und ohne Prüfung auf wörtliche Übernahmen bleibt der Pull Request ein Entwurf."
           fi
 
       - name: Fachbibliothek laden
@@ -1026,7 +1030,7 @@ jobs:
             --max-turns 170
             --model claude-opus-5-5
             --add-dir ${{ steps.thema.outputs.auftrag_verzeichnis }}
-            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
+            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*),Bash(python tools/wortgleich_pruefen.py:*),Bash(python tools/normstand_pruefen.py:*)"
 
       # Fehlalarm des Sicherheitsfilters (02.10.2026, Fachartikel Runde 3): Die
       # API bricht mit „safeguards flagged this message“ ab und empfiehlt eine
@@ -1092,7 +1096,7 @@ jobs:
             --max-turns 170
             --model claude-opus-5
             --add-dir ${{ steps.thema.outputs.auftrag_verzeichnis }}
-            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*)"
+            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*),Bash(python tools/wortgleich_pruefen.py:*),Bash(python tools/normstand_pruefen.py:*)"
 
       # Wochenlimit des Claude-Abos erreicht? Dann pausieren die geplanten Läufe
       # bis zum Neustart (Issue „Agenten pausieren bis …“, tools/kontingent.py).
@@ -1420,6 +1424,14 @@ jobs:
           # Nur der eigene Entwurf dieses Laufs (Format und Notion-Seite im Dateikopf).
           ZEILE="$(python tools/eigener_entwurf.py --seit "$JOBSTART" --ohne-format "Rechtsprechung,Urteil verständlich,Vorlage" --notion-id "$NOTION_ID")"
           if [ -z "$ZEILE" ]; then
+            # Kein eigener Entwurf erkannt (abweichender Dateikopf, GitHub-Fehler): Ein in diesem
+            # Lauf entstandener Pull Request bleibt dann ein Entwurf – ungeprüft wird nichts mergebar.
+            gh pr list --state open --author "app/github-actions" --search "created:>=$JOBSTART" \
+              --json number,isDraft --jq '.[] | select(.isDraft | not) | .number' 2> /dev/null \
+              | while IFS= read -r OFFEN; do
+                  gh pr ready "$OFFEN" --undo > /dev/null 2>&1 \
+                    && echo "::warning title=Prüfung::Pull Request #$OFFEN als Entwurf markiert – kein geprüfter Entwurf erkannt, bitte selbst prüfen."
+                done || true
             echo "::notice title=Schlussprüfung::Kein neuer Entwurf – nichts zu prüfen."
             echo "bereit=false" >> "$GITHUB_OUTPUT"
             exit 0
@@ -1449,6 +1461,31 @@ jobs:
             echo "arbeit=$ARBEIT"
             echo "bericht=$ARBEIT/schlusspruefung.md"
           } >> "$GITHUB_OUTPUT"
+
+      # Prüfwerkzeuge und Freigabeliste immer vom Hauptzweig, nie aus dem Zweig
+      # des Agenten: Dort könnte tools/wortgleich_pruefen.py oder
+      # tools/wortgleich_erlaubt.txt geändert sein. Ohne sie gilt alles Folgende
+      # als nicht geprüft – keine Korrektur wird gepusht, kein Bericht
+      # kommentiert, nichts freigegeben (fail-closed).
+      - name: Prüfwerkzeuge vom Hauptzweig holen
+        id: werkzeug
+        if: ${{ !cancelled() && steps.ziel.outputs.nummer != '' }}
+        run: |
+          set -uo pipefail
+          ZIEL="$RUNNER_TEMP/pruefwerkzeug"
+          rm -rf "$ZIEL"
+          mkdir -p "$ZIEL"
+          if ! git fetch -q --no-tags --depth=1 origin main; then
+            echo "::warning title=Prüfwerkzeuge::Hauptzweig nicht ladbar – wörtliche Übernahmen und Normstand bleiben ungeprüft, der Pull Request bleibt ein Entwurf."
+            exit 0
+          fi
+          for datei in wortgleich_pruefen.py wortgleich_erlaubt.txt normstand_pruefen.py bibliothek_suchen.py; do
+            if ! git show "FETCH_HEAD:tools/$datei" > "$ZIEL/$datei"; then
+              echo "::warning title=Prüfwerkzeuge::tools/$datei fehlt auf dem Hauptzweig – wörtliche Übernahmen und Normstand bleiben ungeprüft."
+              exit 0
+            fi
+          done
+          echo "ordner=$ZIEL" >> "$GITHUB_OUTPUT"
 
       - name: Quellen für die Schlussprüfung laden
         id: quellen
@@ -1492,11 +1529,12 @@ jobs:
             --max-turns 80
             --model claude-opus-5-5
             --add-dir ${{ steps.ziel.outputs.arbeit }}
-            --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,WebFetch,WebSearch,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*),Bash(wc:*)"
+            --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,WebFetch,WebSearch,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*),Bash(python tools/wortgleich_pruefen.py:*),Bash(python tools/normstand_pruefen.py:*),Bash(wc:*)"
 
       - name: Ergebnis der Schlussprüfung übernehmen
         if: ${{ !cancelled() && steps.quellen.outputs.bereit == 'true' }}
         env:
+          WERKZEUG: ${{ steps.werkzeug.outputs.ordner }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NR: ${{ steps.ziel.outputs.nummer }}
           ZWEIG: ${{ steps.ziel.outputs.zweig }}
@@ -1506,22 +1544,185 @@ jobs:
           set -euo pipefail
           # Fehler in fremden Entwürfen dürfen hier nicht stoppen.
           python tools/artikel_generator.py > /dev/null || true
+          # Was in den öffentlichen Zweig oder Pull Request geht, wird vorher auf wörtliche
+          # Übernahmen geprüft (Werkzeug vom Hauptzweig, Fachbibliothek und geladene Quelltexte).
+          # Rückgabewert 0 nur ohne Treffer; ohne Werkzeug oder Bibliothek nicht 0 (fail-closed).
+          wortgleich_frei() {
+            local zusatz=() ordner
+            if [ -z "${WERKZEUG:-}" ] || [ ! -f "$WERKZEUG/wortgleich_pruefen.py" ]; then return 2; fi
+            if [ -d .bibliothek/.git ] && { ! git -C .bibliothek diff --quiet HEAD -- \
+                 || [ -n "$(git -C .bibliothek ls-files --others --exclude-standard -- texte forschung gemeinfrei normen katalog.yml)" ]; }; then
+              return 2
+            fi
+            while IFS= read -r ordner; do zusatz+=(--zusatz "$ordner"); done \
+              < <(find "$RUNNER_TEMP" -mindepth 1 -maxdepth 4 -type d -name quellen 2> /dev/null)
+            python "$WERKZEUG/wortgleich_pruefen.py" "$@" --bibliothek .bibliothek "${zusatz[@]}" > /dev/null 2>&1
+          }
+          geaenderte_texte_frei() {
+            local dateien=() pfad
+            while IFS= read -r pfad; do
+              if [ -f "$pfad" ]; then dateien+=("$pfad"); fi
+            done < <(git diff --name-only -- 'entwuerfe/*.md' 'entwuerfe-en/*.md' 'vorlagen/*.yml')
+            if [ "${#dateien[@]}" -eq 0 ]; then return 0; fi
+            wortgleich_frei "${dateien[@]}"
+          }
           if ! git diff --quiet -- entwuerfe fachwissen sitemap.xml; then
-            git add entwuerfe fachwissen sitemap.xml
-            git commit -q -m "Schlusspruefung: Korrekturen gegen die Quellen" \
-                          -m "Automatisch nach dem Schreiben geprueft. Einzelheiten im Kommentar des Pull Requests."
-            git push -q origin "HEAD:$ZWEIG"
+            if geaenderte_texte_frei; then
+              git add entwuerfe fachwissen sitemap.xml
+              git commit -q -m "Schlusspruefung: Korrekturen gegen die Quellen" \
+                            -m "Automatisch nach dem Schreiben geprueft. Einzelheiten im Kommentar des Pull Requests."
+              git push -q origin "HEAD:$ZWEIG"
+            else
+              # Nicht in den öffentlichen Zweig: Die Korrekturen bleiben im Runner.
+              git reset -q --hard HEAD
+              if [ -n "${DIFF:-}" ]; then : > "$DIFF"; fi
+              echo "::warning title=Schlussprüfung::Korrekturen nicht übernommen – die geänderte Fassung stimmt stellenweise wörtlich mit der Fachbibliothek oder einer geladenen Quelle überein, oder die Prüfung war nicht möglich."
+              gh pr comment "$NR" --body "⚠️ Die Korrekturen der Schlussprüfung sind nicht übernommen: Die geänderte Fassung stimmt stellenweise wörtlich mit der Fachbibliothek oder einer geladenen Quelle überein, oder diese Prüfung war nicht möglich. Der Pull Request bleibt ein Entwurf; bitte die Aussagen vor dem Merge selbst prüfen."
+            fi
           fi
-          if [ -s "$BERICHT" ]; then
+          if [ -s "$BERICHT" ] && wortgleich_frei "$BERICHT"; then
             gh pr comment "$NR" --body-file "$BERICHT"
+          elif [ -s "$BERICHT" ]; then
+            gh pr comment "$NR" --body "⚠️ Der Bericht der Schlussprüfung erscheint hier nicht: Er stimmt stellenweise wörtlich mit der Fachbibliothek oder einer geladenen Quelle überein, oder diese Prüfung war nicht möglich. Er bleibt im Runner; bitte die Aussagen vor dem Merge selbst prüfen."
           else
             gh pr comment "$NR" --body "⚠️ Die Schlussprüfung gegen die Quellen ist nicht vollständig durchgelaufen (Ergebnis: ${PRUEFUNG}). Bitte Zahlen und Fußnoten vor dem Merge selbst an den Quellen prüfen."
           fi
 
-      # Erst jetzt – nach der Schlussprüfung und ihren Korrekturen – wird der Pull
-      # Request zum Zusammenführen freigegeben. GitHub benachrichtigt dabei.
-      - name: Zum Mergen freigeben
+      # -----------------------------------------------------------------
+      # Wörtliche Übernahmen und Normstand – ohne KI, nach der Schlussprüfung
+      # und vor der Freigabe. tools/wortgleich_pruefen.py sucht Wortfolgen der
+      # Entwürfe und Vorlagen-Beschreibungen (vorlagen/<kurzform>.yml, sie
+      # werden als PDF, DOCX und XLSX veröffentlicht), die wörtlich in der
+      # Fachbibliothek oder in den für die Schlussprüfung geladenen
+      # Quelltexten stehen; tools/normstand_pruefen.py vergleicht die genannten
+      # Normausgaben mit dem Normenindex der Bibliothek (normen/ausgaben.yml).
+      # Beide Werkzeuge kommen vom Hauptzweig (Schritt „Prüfwerkzeuge vom
+      # Hauptzweig holen“), nie aus dem Zweig des Agenten. Die Berichte nennen
+      # nur Stellen im Entwurf (Datei, Abschnitt, Zeile, Länge) – nie Werk,
+      # Seite oder Text aus der Bibliothek – und kommen als Kommentar in den
+      # Pull Request. Fail-closed:
+      # Meldet ein Werkzeug einen Befund, kann es nicht prüfen (Werkzeug,
+      # Bibliothek oder Normenindex fehlt, Bibliothek im Lauf verändert) oder
+      # ändert der Pull Request Werkzeuge, Workflows oder Anweisungen, bleibt
+      # er ein Entwurf.
+      # -----------------------------------------------------------------
+      - name: Wörtliche Übernahmen und Normstand prüfen (ohne KI)
+        id: wortlaut
         if: ${{ !cancelled() && steps.ziel.outputs.nummer != '' }}
+        env:
+          WERKZEUG: ${{ steps.werkzeug.outputs.ordner }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ steps.ziel.outputs.nummer }}
+          TITEL: "Trend-Agent"
+        run: |
+          set -uo pipefail
+          # GitHub startet run-Schritte mit „bash -e“. Rückgabewert 1 (Befund) oder 2 (nicht
+          # geprüft) der Werkzeuge würde den Schritt sonst ohne Bericht abbrechen. Jeder
+          # Rückgabewert wird ausdrücklich ausgewertet; freigegeben wird nur ohne Grund.
+          set +e
+          ARBEIT="$RUNNER_TEMP/wortlaut"
+          rm -rf "$ARBEIT"
+          mkdir -p "$ARBEIT"
+          KOMMENTAR="$ARBEIT/kommentar.md"
+          GRUENDE=()
+          # Dateien des Pull Requests: Entwürfe (deutsch und englisch, ohne Übersichten) und
+          # Vorlagen-Beschreibungen werden geprüft. Ändert er Prüfwerkzeuge, Workflows oder
+          # Anweisungen, gibt ihn nur der Inhaber frei.
+          ENTWUERFE=()
+          if gh pr view "$NR" --json files --jq '.files[].path' > "$ARBEIT/dateien.txt"; then
+            while IFS= read -r pfad; do
+              case "$pfad" in
+                tools/*|.github/*|.claude/*|tests/*|CLAUDE.md|.bibliothek/*)
+                  GRUENDE+=("der Pull Request ändert $pfad – Prüfwerkzeuge, Workflows und Anweisungen ändert nur der Inhaber") ;;
+                *[Rr][Ee][Aa][Dd][Mm][Ee].md) ;;
+                entwuerfe/*.md|entwuerfe-en/*.md|vorlagen/*.yml)
+                  if [ -f "$pfad" ]; then ENTWUERFE+=("$pfad"); fi ;;
+              esac
+            done < "$ARBEIT/dateien.txt"
+          fi
+          if [ "${#ENTWUERFE[@]}" -eq 0 ]; then
+            echo "::error title=$TITEL::Pull Request #$NR: keine Entwurfsdatei gefunden (oder Pull Request nicht lesbar) – wörtliche Übernahmen und Normstand nicht geprüft. Der Pull Request bleibt ein Entwurf."
+            gh pr comment "$NR" --body "⛔ Die automatische Prüfung auf wörtliche Übernahmen und Normstand hat keine Entwurfsdatei gefunden. Der Pull Request bleibt ein Entwurf; bitte vor dem Merge selbst prüfen." || true
+            echo "freigabe=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          WORT=2
+          NORM=2
+          if [ -z "${WERKZEUG:-}" ] || [ ! -f "$WERKZEUG/wortgleich_pruefen.py" ] || [ ! -f "$WERKZEUG/normstand_pruefen.py" ]; then
+            GRUENDE+=("Prüfwerkzeuge vom Hauptzweig nicht verfügbar – nichts geprüft")
+          elif [ -d .bibliothek/.git ] && { ! git -C .bibliothek diff --quiet HEAD -- \
+                 || [ -n "$(git -C .bibliothek ls-files --others --exclude-standard -- texte forschung gemeinfrei normen katalog.yml)" ]; }; then
+            GRUENDE+=("Fachbibliothek während des Laufs verändert – nichts geprüft")
+          else
+            # Für die Schlussprüfung geladene Quelltexte (Fachaufsätze; amtliche Seiten nimmt das Werkzeug aus)
+            ZUSATZ=()
+            while IFS= read -r ordner; do ZUSATZ+=(--zusatz "$ordner"); done \
+              < <(find "$RUNNER_TEMP" -mindepth 1 -maxdepth 4 -type d -name quellen 2>/dev/null)
+            # Auf stdout und in die Berichte schreiben die Werkzeuge nur Stellen im Entwurf –
+            # nie Werk, Seite oder Text aus der Bibliothek. Ihre
+            # Fehlerausgabe bleibt im Runner-Temp: Bei einem Absturz könnte sie Text aus der
+            # Bibliothek enthalten, und dieses Protokoll ist öffentlich.
+            python "$WERKZEUG/wortgleich_pruefen.py" "${ENTWUERFE[@]}" --bibliothek .bibliothek "${ZUSATZ[@]}" \
+              --bericht "$ARBEIT/wortgleich.md" > "$ARBEIT/wortgleich.txt" 2> "$ARBEIT/wortgleich.err"
+            WORT=$?
+            python "$WERKZEUG/normstand_pruefen.py" "${ENTWUERFE[@]}" --ausgaben .bibliothek/normen/ausgaben.yml \
+              --bericht "$ARBEIT/normstand.md" > "$ARBEIT/normstand.txt" 2> "$ARBEIT/normstand.err"
+            NORM=$?
+          fi
+          WORT_ZEILE="$(tail -n 1 "$ARBEIT/wortgleich.txt" 2> /dev/null)"
+          NORM_ZEILE="$(tail -n 1 "$ARBEIT/normstand.txt" 2> /dev/null)"
+          echo "Wörtliche Übernahmen: ${WORT_ZEILE:-keine Ausgabe} (Rückgabewert $WORT)"
+          echo "Normstand: ${NORM_ZEILE:-keine Ausgabe} (Rückgabewert $NORM)"
+          case "$WORT" in
+            0) ;;
+            1) GRUENDE+=("wörtliche Übereinstimmung mit der Fachbibliothek oder einer geladenen Quelle – die genannten Stellen in eigene Worte fassen") ;;
+            *) GRUENDE+=("Wortgleich-Prüfung nicht möglich (Werkzeug oder Fachbibliothek fehlt oder ist unlesbar, Rückgabewert $WORT)") ;;
+          esac
+          case "$NORM" in
+            0) ;;
+            1) GRUENDE+=("genannte Normausgabe passt nicht zum Normenindex der Fachbibliothek – Ausgabe korrigieren oder weglassen") ;;
+            *) GRUENDE+=("Normstand-Prüfung nicht möglich (Werkzeug oder Normenindex fehlt oder ist unlesbar, Rückgabewert $NORM)") ;;
+          esac
+          {
+            echo "## Wörtliche Übernahmen und Normstand (automatische Prüfung)"
+            echo
+            echo "- Wörtliche Übernahmen aus der Fachbibliothek und den geladenen Quellen: \`${WORT_ZEILE:-keine Ausgabe}\`"
+            echo "- Normausgaben gegen den Normenindex: \`${NORM_ZEILE:-keine Ausgabe}\`"
+            echo "- Geprüft: ${#ENTWUERFE[@]} Datei(en) des Pull Requests, Entwürfe und Vorlagen-Beschreibungen"
+            echo
+            for bericht in "$ARBEIT/wortgleich.md" "$ARBEIT/normstand.md"; do
+              if [ -s "$bericht" ]; then cat "$bericht"; echo; fi
+            done
+            if [ "${#GRUENDE[@]}" -eq 0 ]; then
+              echo "✅ Keine wörtlichen Übernahmen aus der Fachbibliothek oder den geladenen Quellen; die genannten Normausgaben entsprechen dem Normenindex."
+            else
+              echo "⛔ **Nicht zum Mergen freigegeben** – der Pull Request bleibt ein Entwurf:"
+              for grund in "${GRUENDE[@]}"; do echo "- $grund"; done
+              echo
+              echo "Die Berichte nennen nur Stellen im Entwurf (Datei, Abschnitt, Zeile) – nie Werk, Seite oder Text aus der Bibliothek. Bitte die Stellen auf diesem Zweig in eigene Worte fassen bzw. die Ausgabe korrigieren, mit \`python tools/wortgleich_pruefen.py <Entwurf> --bibliothek <Fachbibliothek>\` und \`python tools/normstand_pruefen.py <Entwurf> --ausgaben <Fachbibliothek>/normen/ausgaben.yml\` erneut prüfen und erst dann auf „Ready for review“ klicken."
+            fi
+          } > "$KOMMENTAR"
+          gh pr comment "$NR" --body-file "$KOMMENTAR" \
+            || echo "::warning title=$TITEL::Der Prüfbericht ließ sich nicht in Pull Request #$NR kommentieren."
+          {
+            echo "## Wörtliche Übernahmen und Normstand"
+            echo "- Wortgleich: ${WORT_ZEILE:-keine Ausgabe} · Normstand: ${NORM_ZEILE:-keine Ausgabe}"
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "${#GRUENDE[@]}" -eq 0 ]; then
+            echo "freigabe=true" >> "$GITHUB_OUTPUT"
+          else
+            for grund in "${GRUENDE[@]}"; do
+              echo "::error title=$TITEL::Pull Request #$NR bleibt ein Entwurf: $grund"
+            done
+            echo "freigabe=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Erst jetzt – nach den Prüfungen, ihren Korrekturen und der Prüfung auf
+      # wörtliche Übernahmen und Normstand – wird der Pull Request zum
+      # Zusammenführen freigegeben, und nur, wenn diese nichts gefunden hat.
+      # GitHub benachrichtigt dabei.
+      - name: Zum Mergen freigeben
+        if: ${{ !cancelled() && steps.ziel.outputs.nummer != '' && steps.wortlaut.outputs.freigabe == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NR: ${{ steps.ziel.outputs.nummer }}

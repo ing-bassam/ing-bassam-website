@@ -7,6 +7,9 @@ name: Wöchentliche Prüfung
 #      Freigabe bereitliegt, was online ging, was zurückgehalten oder als
 #      Doppelung übersprungen wurde, wie die Läufe ausgingen. GitHub schickt
 #      dazu eine E-Mail. Der Bericht der Vorwoche wird geschlossen.
+#  0a. Prüft, ob die Fachbibliothek erreichbar ist und ob ihr Normenindex
+#      (normen/ausgaben.yml) vorhanden und höchstens 45 Tage alt ist – je mit
+#      einem Issue, das sich wieder schließt, sobald alles in Ordnung ist.
 #   1. Prüft die Quellen-Links aller veröffentlichten Beiträge
 #      (tools/links_pruefen.py). Führt eine Adresse nicht mehr zur Quelle –
 #      Seite gelöscht oder nur noch Umleitung auf eine Startseite –, entsteht
@@ -105,7 +108,10 @@ jobs:
           token: ${{ secrets.BIBLIOTHEK_TOKEN }}
           path: .bibliothek
           persist-credentials: false
-          sparse-checkout: katalog.yml
+          # Nur der Katalog und der Normenindex (Metadaten, kein Buch- oder Normtext).
+          sparse-checkout: |
+            katalog.yml
+            normen/ausgaben.yml
           sparse-checkout-cone-mode: false
 
       - name: Zugang zur Fachbibliothek festhalten
@@ -126,13 +132,65 @@ jobs:
                 "" \
                 "So erneuern Sie ihn: GitHub → Profilbild → Settings → Developer settings → Personal access tokens → Fine-grained tokens → den Schlüssel „Fachbibliothek lesen“ öffnen → Regenerate token. Den neuen Wert unter ing-bassam-website → Settings → Secrets and variables → Actions → BIBLIOTHEK_TOKEN → Update eintragen." \
                 "" \
-                "Bis dahin schreiben die Agenten ohne Fachbibliothek. Dieses Issue schließt sich, sobald die Prüfung wieder erfolgreich ist." \
+                "Bis dahin schreiben die Agenten ohne Fachbibliothek. Ohne sie ist auch die Prüfung auf wörtliche Übernahmen nicht möglich: Neue Pull Requests bleiben Entwürfe, und „Entwürfe veröffentlichen“ stellt nichts online. Dieses Issue schließt sich, sobald die Prüfung wieder erfolgreich ist." \
                 > "$RUNNER_TEMP/bibliothek-issue.md"
               gh issue create --title "$TITEL" --body-file "$RUNNER_TEMP/bibliothek-issue.md"
             fi
             echo "::warning title=Fachbibliothek::Die Fachbibliothek ist nicht erreichbar – Zugangsschlüssel erneuern."
           elif [ -n "$NR" ]; then
             gh issue close "$NR" --comment "Die Fachbibliothek ist wieder erreichbar."
+          fi
+
+      # Normenindex der Fachbibliothek (normen/ausgaben.yml, nur Metadaten): Gegen
+      # ihn prüfen die Agenten jede genannte Norm (tools/bibliothek_suchen.py
+      # --norm) und vor jeder Freigabe tools/normstand_pruefen.py. Fehlt er,
+      # bleiben neue Pull Requests Entwürfe; ist er älter als 45 Tage, können
+      # neuere Ausgaben unerkannt bleiben. Gemeldet wird ohne KI im selben
+      # Issue-Verfahren wie oben: anlegen, still aktualisieren, schließen.
+      - name: Normenindex der Fachbibliothek aktuell?
+        if: steps.bibladen.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TITEL="Fachbibliothek: Normenindex fehlt oder ist veraltet"
+          DATEI=".bibliothek/normen/ausgaben.yml"
+          HOECHSTALTER=45
+          BEFUND=""
+          STAND=""
+          if [ ! -f "$DATEI" ]; then
+            BEFUND="Der Normenindex normen/ausgaben.yml fehlt in der Fachbibliothek (Repository FachwissenAgent)."
+          else
+            STAND="$(sed -n "s/^stand_index:[[:space:]]*['\"]\{0,1\}\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}\).*/\1/p" "$DATEI" | head -n 1)"
+            if [ -z "$STAND" ] || ! STAND_SEK="$(date -u -d "$STAND" +%s 2>/dev/null)"; then
+              BEFUND="Im Normenindex normen/ausgaben.yml fehlt ein lesbares Datum im Feld stand_index."
+            else
+              ALTER=$(( ( $(date -u +%s) - STAND_SEK ) / 86400 ))
+              echo "Normenindex: Stand $STAND, $ALTER Tage alt (Grenze $HOECHSTALTER Tage)."
+              if [ "$ALTER" -gt "$HOECHSTALTER" ]; then
+                BEFUND="Der Normenindex normen/ausgaben.yml hat den Stand $STAND und ist damit $ALTER Tage alt (Grenze: $HOECHSTALTER Tage)."
+              fi
+            fi
+          fi
+          NR="$(gh issue list --state open --limit 200 --json number,title \
+                  --jq '.[] | "\(.number)\t\(.title)"' \
+                | awk -F '\t' -v t="$TITEL" '$2 == t { print $1; exit }')"
+          if [ -n "$BEFUND" ]; then
+            printf '%s\n' \
+              "$BEFUND" \
+              "" \
+              "Die Agenten prüfen jede genannte Norm zuerst gegen diesen Index (python tools/bibliothek_suchen.py --norm …), und vor jeder Freigabe vergleicht tools/normstand_pruefen.py die Normausgaben im Entwurf damit. Fehlt der Index, bleiben neue Pull Requests Entwürfe; ist er veraltet, können neuere Ausgaben unerkannt bleiben." \
+              "" \
+              "Bitte den Normenindex im Repository FachwissenAgent auffrischen (stand_index = Datum des Index). Maßgeblich für den Status einer Norm bleibt DIN Media. Dieses Issue schließt sich, sobald die Prüfung wieder in Ordnung ist." \
+              > "$RUNNER_TEMP/normenindex-issue.md"
+            if [ -n "$NR" ]; then
+              gh issue edit "$NR" --body-file "$RUNNER_TEMP/normenindex-issue.md"
+            else
+              gh issue create --title "$TITEL" --body-file "$RUNNER_TEMP/normenindex-issue.md"
+            fi
+            echo "::warning title=Normenindex::$BEFUND"
+          elif [ -n "$NR" ]; then
+            gh issue close "$NR" --comment "Der Normenindex ist wieder aktuell (Stand $STAND)."
           fi
 
       - name: Quellen-Links prüfen

@@ -14,7 +14,8 @@ name: Fachwissen-Seiten bauen
 #     (die Seite landet dann im selben Pull Request wie der Entwurf),
 #   - wenn im Pull Request am Entwurf nachgebessert wird,
 #   - wenn der Entwurf nach dem Mergen auf main liegt,
-#   - wenn im Entwurf „status: Veröffentlicht" gesetzt wird,
+#   - wenn im Entwurf „status: Veröffentlicht" gesetzt wird (von Hand gesetzt:
+#     erst nach der Prüfung auf wörtliche Übernahmen, sonst zurück auf „Entwurf“),
 #   - von Hand über Actions -> Fachwissen-Seiten bauen -> Run workflow.
 #
 # Kein Kreislauf: Der Lauf schreibt ausschließlich nach fachwissen/, en/guides/,
@@ -78,6 +79,69 @@ jobs:
           # markdown wandelt den Entwurf in HTML (inkl. Fußnoten und Tabellen),
           # PyYAML liest das Frontmatter.
           python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2'
+
+      # -----------------------------------------------------------------
+      # Von Hand veröffentlicht? Wer im Entwurf `status: Veröffentlicht` setzt,
+      # statt den Workflow „Entwürfe veröffentlichen“ zu nutzen, umginge dessen
+      # Prüfung auf wörtliche Übernahmen. Deshalb gilt hier dieselbe Sperre:
+      # Jeder Beitrag mit diesem Status, der noch nicht unter
+      # entwuerfe/veroeffentlicht/ liegt, wird mit tools/wortgleich_pruefen.py
+      # geprüft. Mit Treffer oder ohne mögliche Prüfung (Fachbibliothek fehlt)
+      # setzt der Lauf den Status auf „Entwurf“ zurück – die Seite bleibt
+      # gesperrt (noindex), die Stellen im Entwurf (Datei, Abschnitt, Zeile –
+      # nie Werk oder Seite) stehen im Protokoll. Nur auf main.
+      # -----------------------------------------------------------------
+      - name: Von Hand veröffentlichte Beiträge finden
+        id: handarbeit
+        if: github.ref_name == 'main'
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          LISTE="$RUNNER_TEMP/handarbeit.txt"
+          : > "$LISTE"
+          for datei in entwuerfe/entwurf/*.md entwuerfe/*.md; do
+            case "$(basename "$datei")" in [Rr][Ee][Aa][Dd][Mm][Ee].md) continue ;; esac
+            # Nur der Dateikopf zählt (bis zur zweiten Zeile „---“).
+            if awk 'NR == 1 && $0 != "---" { exit 1 } NR > 1 && $0 == "---" { exit 1 }
+                    /^status:[[:space:]]*"?Veröffentlicht/ { gefunden = 1; exit 0 } END { exit !gefunden }' "$datei"; then
+              echo "$datei" >> "$LISTE"
+            fi
+          done
+          echo "anzahl=$(wc -l < "$LISTE" | tr -d ' ')" >> "$GITHUB_OUTPUT"
+          echo "liste=$LISTE" >> "$GITHUB_OUTPUT"
+
+      - name: Fachbibliothek laden (von Hand veröffentlicht)
+        id: bibladen
+        if: steps.handarbeit.outputs.anzahl != '' && steps.handarbeit.outputs.anzahl != '0'
+        continue-on-error: true
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ing-bassam/FachwissenAgent
+          token: ${{ secrets.BIBLIOTHEK_TOKEN }}
+          path: .bibliothek
+          persist-credentials: false
+
+      - name: Von Hand veröffentlichte Beiträge prüfen (ohne KI)
+        if: steps.handarbeit.outputs.anzahl != '' && steps.handarbeit.outputs.anzahl != '0'
+        env:
+          LISTE: ${{ steps.handarbeit.outputs.liste }}
+        run: |
+          set -uo pipefail
+          # Rückgabewert 1 (Treffer) oder 2 (nicht geprüft) ist ein Ergebnis, kein Abbruch.
+          set +e
+          while IFS= read -r datei; do
+            # Fehlerausgabe nur ins Runner-Temp: Sie könnte Text aus der Bibliothek enthalten.
+            python tools/wortgleich_pruefen.py "$datei" --bibliothek .bibliothek \
+              > "$RUNNER_TEMP/handarbeit-pruefung.txt" 2> "$RUNNER_TEMP/handarbeit-pruefung.err"
+            RUECKGABE=$?
+            # Die Ausgabe nennt nur Datei, Abschnitt, Zeile und Länge – nie Werk, Seite oder Text.
+            cat "$RUNNER_TEMP/handarbeit-pruefung.txt"
+            if [ "$RUECKGABE" != 0 ]; then
+              sed -i '0,/^status:/s/^status:.*$/status: Entwurf/' "$datei"
+              echo "::error title=Veröffentlichen::$datei bleibt ein Entwurf: Prüfung auf wörtliche Übernahmen mit Befund oder nicht möglich (Rückgabewert $RUECKGABE). Bitte die Stellen in eigene Worte fassen und über „Entwürfe veröffentlichen“ veröffentlichen."
+            fi
+          done < "$LISTE"
+          exit 0
 
       - name: Seiten bauen
         id: bauen
