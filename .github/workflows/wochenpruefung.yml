@@ -104,7 +104,7 @@ jobs:
         continue-on-error: true
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: ing-bassam/FachwissenAgent
+          repository: bib-ingenieurbuero/FachwissenAgent
           token: ${{ secrets.BIBLIOTHEK_TOKEN }}
           path: .bibliothek
           persist-credentials: false
@@ -130,7 +130,7 @@ jobs:
               printf '%s\n' \
                 "Die Agenten konnten die Fachbibliothek (privates Repository FachwissenAgent) nicht laden. Meist ist der Zugangsschlüssel abgelaufen." \
                 "" \
-                "So erneuern Sie ihn: GitHub → Profilbild → Settings → Developer settings → Personal access tokens → Fine-grained tokens → den Schlüssel „Fachbibliothek lesen“ öffnen → Regenerate token. Den neuen Wert unter ing-bassam-website → Settings → Secrets and variables → Actions → BIBLIOTHEK_TOKEN → Update eintragen." \
+                "So erneuern Sie ihn: GitHub → Profilbild → Settings → Developer settings → Personal access tokens → Fine-grained tokens → den Schlüssel für die Fachbibliothek öffnen → Regenerate token (oder neu anlegen: Resource owner bib-ingenieurbuero, nur Repository FachwissenAgent, Contents: Read-only). Den neuen Wert unter ing-bassam-website → Settings → Secrets and variables → Actions → BIBLIOTHEK_TOKEN → Update eintragen." \
                 "" \
                 "Bis dahin schreiben die Agenten ohne Fachbibliothek. Ohne sie ist auch die Prüfung auf wörtliche Übernahmen nicht möglich: Neue Pull Requests bleiben Entwürfe, und „Entwürfe veröffentlichen“ stellt nichts online. Dieses Issue schließt sich, sobald die Prüfung wieder erfolgreich ist." \
                 > "$RUNNER_TEMP/bibliothek-issue.md"
