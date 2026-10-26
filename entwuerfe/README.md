@@ -7,20 +7,20 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Actions → „Entwürfe veröffentlichen“ → Run workflow (Auswahl: die Kurzform oder „alle“). Der Workflow prüft vorher auf wörtliche Übernahmen aus der Fachbibliothek, setzt den Status und verschiebt die Datei in den richtigen Ordner; die Adresse der Seite ändert sich dabei nicht. Wer `status: Veröffentlicht` von Hand setzt, löst dieselbe Prüfung im Seitenbau aus – mit Befund oder ohne mögliche Prüfung setzt der Seitenbau den Status auf „Entwurf“ zurück.
 
-## 🟡 Entwurf (5)
+## 🟡 Entwurf (3)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
 | 22.10.2026 | [Technische Due Diligence: Prüfumfang und Bericht](entwurf/2026-10-22-technische-due-diligence-immobilienkauf.md) | Grundlagen | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/technische-due-diligence-immobilienkauf/) |
 | 22.10.2026 | [Instandhaltungsstau und CapEx-Prognose in der Due Diligence](entwurf/2026-10-22-instandhaltungsstau-capex-prognose-due-diligence.md) | Fachbeitrag | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/instandhaltungsstau-capex-prognose-due-diligence/) |
-| 21.10.2026 | [Fernablesbare Heizkostenverteiler: Was bis Ende 2026 gilt](entwurf/2026-10-21-heizkostenverteiler-fernablesbar-frist-2026.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/heizkostenverteiler-fernablesbar-frist-2026/) |
 | 21.10.2026 | [Zu viel Betondeckung: Wer haftet für die Risse?](entwurf/2026-10-21-betondeckung-nennmass-haftungsquote.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/betondeckung-nennmass-haftungsquote/) |
-| 20.10.2026 | [Zu wenig Gefälle auf der Terrasse: Wer haftet wofür?](entwurf/2026-10-20-terrasse-gefaelle-hinweispflicht.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/terrasse-gefaelle-hinweispflicht/) |
 
-## 🟢 Veröffentlicht (72)
+## 🟢 Veröffentlicht (74)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 21.10.2026 | [Fernablesbare Heizkostenverteiler: Was bis Ende 2026 gilt](veroeffentlicht/2026-10-21-heizkostenverteiler-fernablesbar-frist-2026.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/heizkostenverteiler-fernablesbar-frist-2026/) |
+| 20.10.2026 | [Zu wenig Gefälle auf der Terrasse: Wer haftet wofür?](veroeffentlicht/2026-10-20-terrasse-gefaelle-hinweispflicht.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/terrasse-gefaelle-hinweispflicht/) |
 | 20.10.2026 | [Checkliste Beweissicherung vor Nachbarbaustellen](veroeffentlicht/2026-10-20-beweissicherung-nachbarbaustelle-checkliste.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/beweissicherung-nachbarbaustelle-checkliste/) |
 | 20.10.2026 | [Checkliste Abnahme Gemeinschaftseigentum im Neubau](veroeffentlicht/2026-10-20-abnahme-gemeinschaftseigentum-checkliste.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/abnahme-gemeinschaftseigentum-checkliste/) |
 | 19.10.2026 | [Objektüberwachung: Was kostet Leistungsphase 8 nach HOAI?](veroeffentlicht/2026-10-19-honorar-objektueberwachung-lp8-hoai.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/honorar-objektueberwachung-lp8-hoai/) |

@@ -13,7 +13,7 @@ qualifikation:
 kurzform: heizkostenverteiler-fernablesbar-frist-2026
 erstellt: 2026-10-21
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3edd96ad-00b4-818b-bef0-d735feec613c
 notion_url: https://app.notion.com/p/Fernablesbare-Heizkostenverteiler-Frist-31-12-2026-im-Bestand-3edd96ad00b4818bbef0d735feec613c
