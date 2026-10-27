@@ -84,7 +84,7 @@ Für Eigentümergemeinschaften zeigt der Fall außerdem: Ein Fehler des Planers,
 
 ## Was das Urteil nicht sagt
 
-Das Urteil sagt nicht, dass eine Bauüberwachung immer zur Hälfte haftet. Die Quote beruht auf der Abwägung der Fehler in diesem Fall (Rn. 92 bis 94). Es sagt auch nicht, wo an einer anderen Fassade Brandriegel liegen müssen; die genaue Lage bestimmt nach dem Senat ein Brandschutzkonzept (Rn. 72). Die Revision zum Bundesgerichtshof hat das Oberlandesgericht nicht zugelassen (Rn. 112).
+Das Urteil sagt nicht, dass eine Bauüberwachung immer zur Hälfte haftet. Die Quote beruht auf der Abwägung der Fehler in diesem Fall (Rn. 92 bis 94). Es sagt auch nicht, wo an einer anderen Fassade Brandriegel liegen müssen; die genaue Lage bestimmt nach dem Senat ein Brandschutzkonzept (Rn. 72). Die Revision hat das Oberlandesgericht nicht zugelassen (Rn. 112).
 
 Das Urteil stammt vom September 2025. Der Senat wendet das Bürgerliche Gesetzbuch in der Fassung für Verträge an, die bis zum 31. Dezember 2017 geschlossen wurden (Rn. 44). Für Schuldverhältnisse, die vor dem 1. Januar 2018 entstanden sind, gilt das Gesetz in der bis dahin geltenden Fassung.[^2] Für neuere Verträge enthält § 650t BGB eine Sonderregel zur Haftung der Bauüberwachung. Danach kann sie die Leistung verweigern, wenn auch die ausführende Baufirma für den Mangel haftet. Voraussetzung ist, dass der Bauherr dieser Firma noch nicht erfolglos eine angemessene Frist zur Nacherfüllung, also zur Nachbesserung, gesetzt hat.[^3] Der Senat erwähnt diese Vorschrift nicht; er wendet das alte Recht an (Rn. 44).
 
