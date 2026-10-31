@@ -1,0 +1,84 @@
+titel: Abnahmeverlangen mit Fristsetzung
+untertitel: Musterschreiben für Auftragnehmer nach § 640 Abs. 2 BGB
+kurzform: abnahmeverlangen-fristsetzung-musterschreiben
+typ: Musterschreiben
+stand: 2026-10-27
+dateien: [docx, pdf]
+einleitung: "Mit diesem Musterschreiben fordern Sie als Auftragnehmer Ihren Auftraggeber auf, Ihre fertiggestellte Leistung abzunehmen, und setzen ihm dafür eine Frist. Verweigert der Auftraggeber die Abnahme nicht innerhalb der Frist unter Angabe mindestens eines Mangels, gilt die Leistung nach dem Gesetz als abgenommen. Ersetzen Sie die Platzhalter in eckigen Klammern, streichen Sie Absätze, die nicht passen, und gehen Sie vor dem Absenden die Prüfliste durch."
+
+brief:
+  betreff: "Aufforderung zur Abnahme mit Fristsetzung nach § 640 BGB – Bauvorhaben [Bezeichnung], [Leistung]"
+  anrede: Sehr geehrte Damen und Herren,
+  absaetze:
+    - "zwischen Ihnen als Auftraggeber und uns als Auftragnehmer besteht der Vertrag vom [Datum] über [Leistung, z. B. die Fenster- und Fassadenarbeiten am Wohngebäude Haus B]. [Zutreffendes wählen: In den Vertrag ist die VOB/B einbezogen. / Für den Vertrag gelten die Vorschriften des Bürgerlichen Gesetzbuchs.]"
+    - "Unsere vertraglich geschuldete Leistung haben wir am [Datum der Fertigstellung] fertiggestellt. [Optional: Abweichend davon ist Folgendes noch offen, was die Nutzung nicht einschränkt: (z. B. Nachlieferung von zwei Abdeckleisten).]"
+    - "Wir fordern Sie hiermit auf, unsere Leistung abzunehmen."
+    - "Für die Abnahme setzen wir Ihnen eine Frist bis zum [Datum; die Frist muss angemessen sein, als Anhalt gelten zwölf Werktage ab Zugang dieses Schreibens]."
+    - "Für eine gemeinsame Begehung schlagen wir Ihnen den [Datum] um [Uhrzeit] Uhr vor. Treffpunkt ist [Ort, z. B. der Haupteingang des Gebäudes]. Passt Ihnen dieser Termin nicht, nennen Sie uns bitte innerhalb der Frist einen anderen Termin."
+    - "[Absatz nur bei einem Vertrag mit VOB/B verwenden:] Wir verlangen eine förmliche Abnahme nach § 12 Abs. 4 VOB/B. Das Ergebnis der Begehung halten wir gern gemeinsam mit Ihnen in einem Protokoll fest."
+    - "Bitte beachten Sie § 640 Abs. 2 Satz 1 BGB: Lassen Sie die Frist verstreichen, ohne die Abnahme abzulehnen und dabei wenigstens einen Mangel zu benennen, tritt die Wirkung der Abnahme mit dem Fristende ein."
+    - "[Absatz zwingend verwenden, wenn der Auftraggeber Verbraucher ist:] Hinweis auf die Folgen nach § 640 Abs. 2 Satz 2 BGB: Erklären Sie die Abnahme bis zum Ablauf der Frist nicht, gilt unsere Leistung mit Fristablauf als abgenommen. Dasselbe gilt, wenn Sie die Abnahme innerhalb der Frist verweigern, dabei aber keinen Mangel angeben. Die Abnahme hat unter anderem folgende Folgen: Die Vergütung wird fällig, die Verjährungsfrist für Ihre Mängelansprüche beginnt, und die Gefahr einer zufälligen Beschädigung geht auf Sie über."
+    - "Sehen Sie Mängel an unserer Leistung, bitten wir Sie, diese innerhalb der Frist schriftlich zu benennen und so genau zu beschreiben, dass wir sie finden können, also mit Ort, Bauteil und Erscheinungsbild. Wir prüfen jeden Hinweis und beseitigen berechtigte Mängel."
+    - "[Absatz nur bei einem Bauvertrag verwenden:] Verweigern Sie die Abnahme unter Angabe von Mängeln, werden wir eine gemeinsame Feststellung des Zustands unserer Leistung nach § 650g Abs. 1 BGB verlangen. Einen Termin dafür schlagen wir Ihnen dann gesondert vor."
+    - "Die Unterlagen zu unserer Leistung, die wir Ihnen übergeben, finden Sie in der Anlage. [Optional: Die Schlussrechnung übersenden wir gesondert.]"
+    - "Für Rückfragen erreichen Sie [Name] unter [Telefon] oder [E-Mail]. Bitte bestätigen Sie uns den Erhalt dieses Schreibens."
+  gruss: Mit freundlichen Grüßen
+  anlagen:
+    - Fotodokumentation der fertiggestellten Leistung mit Datum
+    - Aufmaß oder Leistungsübersicht
+    - Prüf-, Mess- oder Inbetriebnahmeprotokolle
+    - Bedienungs- und Wartungsunterlagen, Herstellernachweise
+
+tabelle:
+  titel: Vor dem Absenden prüfen
+  spalten: ["Nr.", Prüfpunkt, erledigt]
+  breiten: [1, 12, 2]
+  zeilen:
+    - ["1", "Die Vertragsgrundlage ist geklärt: BGB-Vertrag oder Vertrag mit einbezogener VOB/B.", ""]
+    - ["2", "Der Vertrag ist daraufhin gelesen, ob er eine bestimmte Form der Abnahme oder eine eigene Abnahmefrist vorsieht.", ""]
+    - ["3", "Es ist geklärt, ob der Auftraggeber Verbraucher ist, also eine Privatperson, die nicht für ihr Gewerbe oder ihren Beruf baut.", ""]
+    - ["4", "Bei einem Verbraucher steht der Absatz mit dem Hinweis auf die Folgen im Schreiben, und das Schreiben geht in Textform hinaus.", ""]
+    - ["5", "Die geschuldete Leistung ist vollständig fertiggestellt; Restarbeiten sind ehrlich benannt.", ""]
+    - ["6", "Eine eigene Schlussbegehung hat stattgefunden; die Leistung ist nach eigener Prüfung frei von wesentlichen Mängeln.", ""]
+    - ["7", "Mängel, die der Auftraggeber schon früher gerügt hat, sind geprüft und, soweit berechtigt, beseitigt.", ""]
+    - ["8", "Der Zustand bei Fertigstellung ist mit datierten Fotos dokumentiert.", ""]
+    - ["9", "Das Schreiben ist an den Auftraggeber selbst gerichtet; Bauleitung oder Architekt erhalten nur eine Kopie, wenn keine besondere Vollmacht vorliegt.", ""]
+    - ["10", "Bauvorhaben, Vertrag mit Datum und abzunehmende Leistung sind eindeutig bezeichnet.", ""]
+    - ["11", "Das Datum der Fertigstellung ist eingetragen.", ""]
+    - ["12", "Die Frist ist als festes Kalenderdatum angegeben und lässt genug Zeit, die Leistung zu besichtigen und zu prüfen.", ""]
+    - ["13", "Bei der Fristberechnung sind Postlaufzeit, Samstage als Werktage, Feiertage und Betriebsferien des Auftraggebers bedacht.", ""]
+    - ["14", "Das Fristende fällt nicht auf ein Wochenende oder einen Feiertag.", ""]
+    - ["15", "Ein Termin für eine gemeinsame Begehung ist vorgeschlagen.", ""]
+    - ["16", "Bei einem Vertrag mit VOB/B ist entschieden, ob eine förmliche Abnahme verlangt wird.", ""]
+    - ["17", "Absätze, die nicht passen (VOB/B, Verbraucher, Bauvertrag), sind gestrichen; alle Platzhalter sind ersetzt.", ""]
+    - ["18", "Die Anlagen sind vollständig und im Schreiben genannt.", ""]
+    - ["19", "Das Schreiben ist unterschrieben.", ""]
+    - ["20", "Der Zugang ist nachweisbar, etwa durch Boten mit Empfangsbestätigung oder Einwurfeinschreiben.", ""]
+    - ["21", "Eine Kopie des Schreibens und der Zugangsnachweis liegen in der Bauakte.", ""]
+    - ["22", "Das Fristende ist als Wiedervorlage notiert.", ""]
+    - ["23", "Für den Fall einer Verweigerung mit Mängelangabe ist ein Termin zur Zustandsfeststellung vorbereitet.", ""]
+    - ["24", "Bei hohen Beträgen oder Streit über die Fertigstellung ist eine anwaltliche Prüfung vor dem Absenden erwogen.", ""]
+  leerzeilen: 2
+
+hinweise:
+  - "Platzhalter in eckigen Klammern durch eigene Angaben ersetzen. Absätze, die nicht zutreffen, ersatzlos streichen."
+  - "Das Schreiben unverzüglich nach der Fertigstellung versenden und den Zugang nachweisen. Die Frist sollte erst ab Zugang laufen."
+  - "Die Abnahmefiktion nach § 640 Abs. 2 BGB setzt voraus, dass das Werk fertiggestellt ist. Ob daneben die Leistung frei von wesentlichen Mängeln sein muss, beurteilt die Fachliteratur unterschiedlich. Sicherer ist es, erst dann aufzufordern."
+  - "Wie lang eine angemessene Frist ist, hängt vom Einzelfall ab. In der Fachliteratur gelten die zwölf Werktage aus § 12 VOB/B als Anhalt. Eine zu kurz bemessene Frist ist nach einer Darstellung der Handwerkspresse nicht wirkungslos, sondern setzt eine angemessene Frist in Gang."
+  - "Der Auftraggeber kann die Fiktion schon dadurch verhindern, dass er innerhalb der Frist einen einzigen Mangel benennt. Ob dieser Mangel wesentlich ist, spielt dafür keine Rolle. Ob er die Abnahme zu Recht verweigert hat, ist eine andere Frage."
+  - "Gegenüber einem Verbraucher wirkt die Fiktion nur, wenn der Hinweis auf die Folgen zusammen mit der Aufforderung in Textform erteilt wird. Von dieser Regel kann nicht zum Nachteil des Verbrauchers abgewichen werden."
+  - "§ 640 Abs. 2 BGB gilt nach der Fachliteratur auch in Verträgen mit VOB/B. Wer ausdrücklich die Abnahme verlangt, kann sich dann nicht mehr auf die Fiktion nach § 12 Abs. 5 VOB/B stützen, die eine bloße Fertigstellungsmitteilung voraussetzt."
+  - "Im Vertrag mit VOB/B können Sie nach § 12 Abs. 2 eine eigene Abnahme für einen Leistungsteil verlangen, der für sich abgeschlossen ist. Bezeichnen Sie diesen Teil im Schreiben genau."
+  - "Ein Architekt oder eine Bauleitung ist nach der Fachliteratur nicht schon durch den Planervertrag bevollmächtigt, die Abnahme zu erklären. Die Aufforderung geht deshalb an den Auftraggeber selbst."
+  - "Hat der Auftraggeber die Abnahme bereits verweigert, empfiehlt die Fachliteratur trotzdem, ihm eine Frist zur Abnahme zu setzen."
+  - "Verweigert der Auftraggeber beim Bauvertrag die Abnahme unter Angabe von Mängeln, muss er auf Verlangen an einer gemeinsamen Zustandsfeststellung mitwirken. Bleibt er einem angemessen bestimmten Termin fern, kann der Auftragnehmer den Zustand nach § 650g Abs. 2 BGB auch allein feststellen."
+  - "Dieses Muster ist keine Rechtsberatung. Bei hohen Beträgen, Streit über die Fertigstellung oder einer drohenden Kündigung sollte ein Rechtsanwalt das Schreiben vor dem Absenden prüfen."
+
+quellen:
+  - "§§ 13, 126b, 634a, 640, 641, 644, 650a, 650g, 650o BGB, amtlicher Text nach gesetze-im-internet.de, Stand 26.09.2026"
+  - "§ 12 VOB/B (DIN 1961:2016-09); Wortlaut nach VOB-Gesamtausgabe 2019, S. 151"
+  - "Wirth/Pfisterer/Schellenberg: Privates Baurecht praxisnah, 3. Aufl. 2021, S. 75–78"
+  - "Heiermann u. a.: VOB/B-Musterbriefe für Auftraggeber, 9. Aufl. 2021, S. 187–189, 198 f."
+  - "Zanner: VOB/B nach Ansprüchen, 7. Aufl. 2021, S. 122, 133, 140 f."
+  - "Rode/Weller: AVA-Handbuch, 11. Aufl. 2025, S. 79; Berner u. a.: Grundlagen der Baubetriebslehre 3, 3. Aufl. 2025, S. 339 f."
+  - "IHK Frankfurt am Main: Werkvertrag (Merkblatt, abgerufen am 27.10.2026)"
