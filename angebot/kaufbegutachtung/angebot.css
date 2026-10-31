@@ -1,65 +1,83 @@
 /* =====================================================================
    Private Angebotsseite Kaufbegutachtung – Ergänzung zu /wertrechner/wertrechner.css
    (Farben, Schriften, Knöpfe, Eingabefelder kommen von dort).
+   Gestaltung wie ing-bassam.de: Planblatt mit feinen Linien statt Karten,
+   Beschriftungen in Schrift fester Breite, Akzent nur für Handlungen.
    Mobil zuerst, ab 320 px; Texte mindestens 12 px, Eingaben 16 px.
-   Farben tragen nie allein Bedeutung: Kategorien, Status und Anteile stehen
-   immer auch als Text da.
    ===================================================================== */
 
 .angebot-status{padding:clamp(32px, 6vw, 64px) 0;}
 .angebot-status .meldung p + p{margin-top:8px;}
 
 /* Sprachumschalter im Kopf */
-.sprache-knopf{display:inline-flex; align-items:center; min-height:40px; padding:0 16px; border:1px solid var(--ink-line-2); border-radius:999px; background:transparent; color:var(--on-ink); font-size:.8125rem; font-weight:500; letter-spacing:.04em; cursor:pointer;}
+.sprache-knopf{display:inline-flex; align-items:center; min-height:40px; padding:0 14px; border:1px solid var(--ink-line-2); border-radius:var(--radius-sm); background:transparent; color:var(--on-ink-2); font-family:var(--font-plan); font-size:.8125rem; letter-spacing:.04em; cursor:pointer;}
 .sprache-knopf:hover{border-color:rgba(255,255,255,.45); color:#fff;}
 
 /* ------------------------------------------------------------ Kopf */
-.hero-angebot h1{max-width:20ch;}
+.hero.hero-angebot{padding-block:clamp(36px, 6vw, 64px) clamp(36px, 5vw, 56px);}
+.hero-angebot h1{max-width:24ch;}
 .hero-angebot h1:focus{outline:none;}
+.hero-angebot .hero-lead{margin-top:14px;}
 /* Sprungziele („Zum Inhalt springen“, „Auswahl senden“) erhalten den Fokus für Tastatur und Screenreader, ohne Rahmen */
 #inhalt:focus, .angebot-abschnitt:focus{outline:none;}
-.objektwahl{margin-top:30px; border:0; padding:0; min-width:0;}
-.objektwahl legend{margin-bottom:12px; font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--on-ink-3);}
-.umschalter{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:12px; max-width:600px;}
-.umschalter label{position:relative; display:grid; grid-template-columns:34px minmax(0, 1fr); column-gap:14px; row-gap:2px; align-items:center; min-height:72px; padding:14px 16px; border:1px solid var(--ink-line-2); border-radius:var(--radius); background:rgba(255,255,255,.03); color:var(--on-ink); cursor:pointer; transition:border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);}
-.umschalter label:hover{border-color:rgba(255,255,255,.4);}
+.objektwahl{margin-top:28px; border:0; padding:0; min-width:0;}
+.objektwahl legend{margin-bottom:10px; font-family:var(--font-plan); font-size:.8125rem; letter-spacing:.04em; color:var(--on-ink-3);}
+.umschalter{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); max-width:560px; border:1px solid var(--ink-line-2);}
+.umschalter label{position:relative; display:grid; row-gap:2px; padding:14px 16px; color:var(--on-ink); cursor:pointer; transition:background-color var(--dur) var(--ease);}
+.umschalter label + label{border-left:1px solid var(--ink-line-2);}
+.umschalter label:hover{background:rgba(255,255,255,.04);}
 .umschalter input{position:absolute; opacity:0; width:1px; height:1px; margin:0;}
-.umschalter svg{grid-row:1 / span 2; width:30px; height:30px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; color:var(--on-ink-2);}
-.umschalter .titel{font-family:var(--font-display); font-weight:600; font-size:1.0625rem; line-height:1.25; color:#fff; overflow-wrap:break-word; hyphens:auto;}
-.umschalter .text{font-size:.8125rem; line-height:1.4; color:var(--on-ink-2); overflow-wrap:break-word; hyphens:auto;}
-.umschalter label:has(input:checked){border-color:var(--accent-bright); background:rgba(242,107,42,.12); box-shadow:0 0 0 3px rgba(242,107,42,.2);}
-.umschalter label:has(input:checked) svg{color:var(--accent-bright);}
-.umschalter label:has(input:focus-visible){outline:2px solid #fff; outline-offset:3px;}
+.umschalter .titel{font-family:var(--font-display); font-weight:600; font-size:1.0625rem; line-height:1.25; color:var(--on-ink-2); overflow-wrap:break-word; hyphens:auto;}
+.umschalter .text{font-size:.8125rem; line-height:1.4; color:var(--on-ink-3); overflow-wrap:break-word; hyphens:auto;}
+.umschalter label:has(input:checked){background:rgba(255,255,255,.07); box-shadow:inset 0 -2px 0 var(--accent-bright);}
+.umschalter label:has(input:checked) .titel{color:#fff;}
+.umschalter label:has(input:checked) .text{color:var(--on-ink-2);}
+.umschalter label:has(input:focus-visible){outline:2px solid #fff; outline-offset:2px;}
 @media (max-width:460px){
   .umschalter{grid-template-columns:1fr;}
+  .umschalter label + label{border-left:0; border-top:1px solid var(--ink-line-2);}
 }
 
 /* ------------------------------------------------------- Abschnitte */
-.angebot-inhalt{display:grid; gap:clamp(20px, 3vw, 28px); padding-block:clamp(24px, 5vw, 48px) clamp(56px, 8vw, 96px);}
-.angebot-abschnitt{min-width:0; padding:clamp(18px, 4vw, 40px); background:var(--surface); border:1px solid var(--line); border-radius:var(--radius-lg); box-shadow:0 24px 60px -48px rgba(10,18,29,.45);}
-.angebot-abschnitt .schritt-titel{margin-bottom:12px;}
+.angebot-inhalt{display:grid; padding-block:clamp(16px, 3vw, 32px) clamp(56px, 8vw, 96px);}
+.angebot-abschnitt{min-width:0; padding-block:clamp(26px, 4vw, 44px); border-bottom:1px solid var(--line-strong);}
+.angebot-abschnitt:last-child{border-bottom:0;}
+.angebot-abschnitt .schritt-titel{align-items:baseline; gap:14px; margin-bottom:18px; font-size:clamp(1.25rem, 2.2vw, 1.5rem);}
+.angebot-abschnitt .schritt-nr{display:inline; width:auto; height:auto; border-radius:0; background:none; color:var(--text-3); font-family:var(--font-plan); font-size:.8125rem; font-weight:400; letter-spacing:.04em;}
 .angebot-abschnitt .schritt-text{margin:0 0 22px;}
-.angebot-abschnitt h3{font-size:1.1875rem; margin:0 0 6px;}
+.angebot-abschnitt h3{font-size:1.0625rem; margin:0 0 10px;}
 .hilfe-text{margin:0 0 16px; font-size:.9375rem; color:var(--text-2); max-width:68ch;}
-.klein-titel{font-size:.75rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-3); margin-bottom:6px;}
+.klein-titel{font-family:var(--font-plan); font-size:.8125rem; letter-spacing:.04em; color:var(--text-3); margin-bottom:8px;}
 .angebot-abschnitt .block > label{font-size:1rem;}
 .angebot-abschnitt .fehler{font-size:.875rem;}
 .angebot-abschnitt .optional, .angebot-abschnitt .hilfe{font-size:.875rem;}
 
+/* Aufklappbare Abschnitte: Hinweise und Unterlagen */
+.klapp{padding-block:0;}
+.klapp > summary{display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding-block:clamp(20px, 3vw, 28px); list-style:none; cursor:pointer;}
+.klapp > summary::-webkit-details-marker{display:none;}
+.klapp > summary::after{content:"+"; font-family:var(--font-plan); font-size:1.125rem; line-height:1; color:var(--text-3);}
+.klapp[open] > summary::after{content:"–";}
+.klapp > summary:hover .schritt-titel{color:var(--accent-hover);}
+.klapp > summary:focus-visible{outline:2px solid var(--accent-bright); outline-offset:2px;}
+.klapp > summary .schritt-titel{margin-bottom:0;}
+.klapp[open]{padding-bottom:clamp(26px, 4vw, 44px);}
+
 /* ------------------------------------------------------------- Preis */
-.preis-raster{display:grid; gap:24px; align-items:start;}
-.preis-auswahl{display:grid; gap:28px; min-width:0;}
+.preis-raster{display:grid; gap:32px; align-items:start;}
+.preis-auswahl{display:grid; gap:36px; min-width:0;}
 @media (min-width:960px){
-  .preis-raster{grid-template-columns:minmax(0, 1fr) 340px;}
+  .preis-raster{grid-template-columns:minmax(0, 1fr) 320px; gap:48px;}
   .preis-summe{position:sticky; top:16px;}
 }
 .posten-kopf{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:4px 14px;}
 .posten-name{font-family:var(--font-display); font-weight:600; font-size:1.125rem; line-height:1.3; margin:0;}
-.posten-preis{font-family:var(--font-display); font-weight:600; font-size:1.0625rem; white-space:nowrap; color:var(--text);}
+.posten-preis{font-family:var(--font-display); font-weight:600; font-size:1.125rem; white-space:nowrap; color:var(--text);}
 
-.grundpaket{padding:18px 20px 20px; background:var(--paper); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:var(--radius);}
-.grundpaket .kurz{margin:4px 0 14px; font-size:.875rem; color:var(--text-3);}
-.grundpaket .liste-haken li{font-size:.9375rem;}
+.grundpaket .posten-kopf{padding-bottom:12px; border-bottom:1px solid var(--line-strong);}
+.grundpaket .liste-haken{display:block; margin-top:4px;}
+.grundpaket .liste-haken li{padding:9px 0; border-bottom:1px solid var(--line); font-size:.9375rem; line-height:1.5; color:var(--text);}
+.grundpaket .liste-haken li::before{content:none;}
 
 .zuschlag-liste{list-style:none; margin:4px 0 0; padding:0;}
 .zuschlag{padding:14px 0; border-top:1px solid var(--line);}
@@ -68,41 +86,31 @@
 .zuschlag-text{margin-top:2px; font-size:.875rem; color:var(--text-2);}
 .zuschlag-fuss{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:6px 16px; margin-top:6px;}
 .zuschlag-fuss .haken{padding:6px 0; font-size:.9375rem;}
-.status-chip{display:inline-flex; align-items:center; gap:6px; padding:3px 10px; border:1px solid var(--line); border-radius:999px; background:var(--paper); font-size:.75rem; font-weight:600; letter-spacing:.03em; color:var(--text-3);}
-.zuschlag[data-aktiv="true"] .status-chip{border-color:rgba(194,65,12,.35); background:var(--accent-soft); color:var(--accent-hover);}
+.status-chip{font-family:var(--font-plan); font-size:.75rem; color:var(--text-3);}
+.zuschlag[data-aktiv="true"] .status-chip{color:var(--accent-hover);}
 .zuschlag[data-aktiv="false"] .posten-preis{color:var(--text-3);}
 
-.extras-liste{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap:12px;}
-.extras-liste li{display:flex; min-width:0;}
-.extra{flex:1 1 auto; display:grid; grid-template-columns:20px minmax(0, 1fr); column-gap:12px; align-items:start; padding:16px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); cursor:pointer; transition:border-color var(--dur) var(--ease), background-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);}
-.extra:hover{border-color:var(--line-strong); background:#fff;}
+/* Extras: Zeilen statt Karten */
+.extras h3{padding-bottom:12px; margin-bottom:0; border-bottom:1px solid var(--line-strong);}
+.extras-liste{list-style:none; margin:0; padding:0;}
+.extra{display:grid; grid-template-columns:18px minmax(0, 1fr); column-gap:14px; align-items:start; padding:13px 0; border-bottom:1px solid var(--line); cursor:pointer;}
 .extra input{width:18px; height:18px; margin:3px 0 0; accent-color:var(--accent);}
 .extra input:focus-visible{outline:none;}
-.extra:has(input:checked){border-color:var(--accent); background:#fff; box-shadow:0 0 0 3px var(--accent-soft);}
 .extra:has(input:focus-visible){outline:2px solid var(--accent-bright); outline-offset:2px;}
-.extra-inhalt{display:grid; gap:6px; min-width:0;}
-.extra-kopf{display:flex; flex-wrap:wrap; justify-content:space-between; gap:2px 12px;}
-.extra-name{font-weight:600; line-height:1.35; color:var(--text); overflow-wrap:break-word; hyphens:auto;}
-.extra-preis{font-family:var(--font-display); font-weight:600; white-space:nowrap; color:var(--text);}
-.extra-preis.extra-kostenlos{font-size:1.25rem; line-height:1.2; color:var(--ok);}
-.extra-text{font-size:.8125rem; line-height:1.5; color:var(--text-2); overflow-wrap:break-word;}
-.extra-empfohlen{justify-self:start; padding:2px 10px; border-radius:999px; background:var(--ok-soft); color:var(--ok); font-size:.75rem; font-weight:600;}
+.extra:hover .extra-name{color:var(--accent-hover);}
+.extra-inhalt{display:grid; gap:3px; min-width:0;}
+.extra-kopf{display:flex; flex-wrap:wrap; justify-content:space-between; gap:2px 16px;}
+.extra-name{font-weight:600; font-size:.9375rem; line-height:1.4; color:var(--text); overflow-wrap:break-word; hyphens:auto;}
+.extra-preis{font-size:.9375rem; font-weight:500; line-height:1.4; white-space:nowrap; font-variant-numeric:tabular-nums; color:var(--text);}
+.extra-text{font-size:.875rem; line-height:1.5; color:var(--text-2); max-width:62ch; overflow-wrap:break-word;}
+.extra-empfohlen{justify-self:start; font-family:var(--font-plan); font-size:.75rem; color:var(--accent-hover);}
 
-/* Summe: Bruttopreis groß und zuerst, netto und USt klein darunter */
-.preis-summe{display:grid; gap:0; padding:24px; background:var(--ink-950); color:var(--on-ink); border-radius:var(--radius-lg); min-width:0;}
-.preis-summe .label{font-size:.75rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--on-ink-3);}
-.summe-brutto{margin-top:8px; font-family:var(--font-display); font-weight:600; font-size:clamp(1.875rem, 6vw, 2.625rem); line-height:1.08; letter-spacing:-.02em; color:#fff; overflow-wrap:anywhere;}
-.summe-mwst{margin-top:4px; font-size:.875rem; color:var(--on-ink-2);}
-.balken{display:flex; height:10px; margin:18px 0 10px; border-radius:999px; overflow:hidden; background:rgba(255,255,255,.12);}
-.balken span{display:block; height:100%; width:0; transition:width .4s var(--ease);}
-.b-grund, .balken-legende .l-grund .punkt{background:var(--accent-bright);}
-.b-zuschlag, .balken-legende .l-zuschlag .punkt{background:#e6b566;}
-.b-option, .balken-legende .l-option .punkt{background:#8fd4ad;}
-.balken-legende{list-style:none; margin:0 0 14px; padding:0; display:grid; gap:4px; font-size:.8125rem; color:var(--on-ink-2);}
-.balken-legende li{display:grid; grid-template-columns:10px minmax(0, 1fr) auto; align-items:center; gap:8px;}
-.balken-legende .punkt{width:10px; height:10px; border-radius:50%;}
-.balken-legende b{font-weight:500; color:#fff; white-space:nowrap;}
-.posten-liste{list-style:none; margin:0; padding:12px 0 0; border-top:1px solid var(--ink-line-2); display:grid; gap:8px; font-size:.875rem; color:var(--on-ink-2);}
+/* Summe wie das Schriftfeld einer Zeichnung: Bruttopreis zuerst, netto und USt klein darunter */
+.preis-summe{display:grid; padding:22px; background:var(--ink-950); color:var(--on-ink); min-width:0;}
+.preis-summe .label{font-family:var(--font-plan); font-size:.8125rem; letter-spacing:.04em; color:var(--on-ink-3);}
+.summe-brutto{margin-top:6px; font-family:var(--font-display); font-weight:600; font-size:clamp(1.75rem, 5vw, 2.25rem); line-height:1.1; letter-spacing:-.02em; color:#fff; overflow-wrap:anywhere;}
+.summe-mwst{margin-top:4px; font-size:.8125rem; color:var(--on-ink-2);}
+.posten-liste{list-style:none; margin:16px 0 0; padding:12px 0 0; border-top:1px solid var(--ink-line-2); display:grid; gap:8px; font-size:.875rem; color:var(--on-ink-2);}
 .posten-liste li{display:flex; justify-content:space-between; align-items:baseline; gap:12px;}
 .posten-liste span{min-width:0; overflow-wrap:break-word;}
 .posten-liste b{flex-shrink:0; font-weight:500; color:#fff; white-space:nowrap;}
@@ -110,81 +118,67 @@
 .summe-hinweis{margin-top:8px; font-size:.8125rem; line-height:1.5; color:var(--on-ink-3);}
 .preis-summe .btn{margin-top:18px; width:100%;}
 
-/* ------------------------------------------------------ Ihr Objekt */
+/* ------------------------------------------------------ Hinweise zum Objekt */
 .angebot-abschnitt .zeile{margin-bottom:4px;}
 .angebot-abschnitt .zeile .block{margin-bottom:18px;}
-.hinweise-block{margin-top:10px; padding-top:24px; border-top:1px solid var(--line);}
-.hinweise-block h3{margin-bottom:14px;}
-.hinweise-block .meldung{margin-bottom:12px;}
-.hinweis-liste{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
-.hinweis-eintrag{display:grid; gap:6px; padding:14px 16px 14px 18px; background:var(--paper); border:1px solid var(--line); border-left:4px solid var(--text-3); border-radius:var(--radius);}
-.hinweis-eintrag[data-kategorie="pflicht"]{border-left-color:var(--accent);}
-.hinweis-eintrag[data-kategorie="miete"]{border-left-color:var(--ok);}
-.hinweis-eintrag[data-kategorie="pruefen"]{border-left-color:var(--ink-800);}
-.hinweis-eintrag[data-kategorie="foerderung"]{border-left-color:var(--warn);}
-.hinweis-kat{font-size:.75rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-3);}
+.hinweise-block{margin-top:10px; padding-top:20px; border-top:1px solid var(--line);}
+.hinweise-block .meldung{margin-bottom:12px; padding:0; border:0; background:none; border-radius:0;}
+.hinweis-liste{list-style:none; margin:0; padding:0;}
+.hinweis-eintrag{display:grid; gap:4px; padding:14px 0; border-top:1px solid var(--line);}
+.hinweis-kat{font-family:var(--font-plan); font-size:.75rem; color:var(--text-3);}
 .hinweis-eintrag[data-kategorie="pflicht"] .hinweis-kat{color:var(--accent-hover);}
-.hinweis-eintrag[data-kategorie="miete"] .hinweis-kat{color:var(--ok);}
-.hinweis-eintrag[data-kategorie="foerderung"] .hinweis-kat{color:var(--warn);}
-.hinweis-name{font-size:1.0625rem; margin:0;}
-.hinweis-eintrag p{font-size:.9375rem; line-height:1.6; color:var(--text-2);}
+.hinweis-name{font-size:1rem; margin:0;}
+.hinweis-eintrag p{font-size:.9375rem; line-height:1.6; color:var(--text-2); max-width:72ch;}
 .hinweis-eintrag .quelle{font-size:.8125rem;}
 .hinweise-block .kauf-status{margin-top:12px;}
 .hinweise-block .aktionen-zeile{margin-top:12px;}
 
 /* ------------------------------------------------------ Unterlagen */
-.unterlagen-fortschritt{display:grid; gap:8px; margin-bottom:6px;}
-.unterlagen-fortschritt .schiene{height:8px; border-radius:999px; background:var(--line); overflow:hidden;}
-.unterlagen-fortschritt .schiene span{display:block; height:100%; width:0; background:var(--ok); transition:width .4s var(--ease);}
-.fortschritt-text{font-size:.9375rem; font-weight:500; color:var(--text-2);}
-.prio-titel{margin:22px 0 4px; font-family:var(--font-body); font-size:.8125rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-3);}
-.angebot-abschnitt .prio-titel{font-size:.8125rem;}
-.prio-titel.prio-1{color:var(--accent-hover);}
+.fortschritt-text{margin-bottom:6px; font-family:var(--font-plan); font-size:.8125rem; color:var(--text-3);}
+.angebot-abschnitt .prio-titel{margin:22px 0 4px; font-family:var(--font-plan); font-size:.8125rem; font-weight:400; letter-spacing:.04em; color:var(--text-3);}
+.angebot-abschnitt .prio-titel.prio-1{color:var(--accent-hover);}
 .unterlagen-zeilen{list-style:none; margin:0; padding:0;}
-.unterlage{display:grid; grid-template-columns:minmax(0, 1fr) auto; align-items:center; gap:6px 18px; padding:10px 0; border-bottom:1px solid var(--line);}
+.unterlage{display:grid; grid-template-columns:minmax(0, 1fr) auto; align-items:center; gap:6px 18px; padding:10px 0; border-top:1px solid var(--line);}
 .unterlage-text{display:grid; gap:2px; min-width:0;}
-.unterlage-name{color:var(--text); line-height:1.45; overflow-wrap:break-word;}
+.unterlage-name{color:var(--text); font-size:.9375rem; line-height:1.45; overflow-wrap:break-word;}
 .unterlage small{font-size:.8125rem; color:var(--text-3);}
 .unterlage .haken{padding:6px 0; font-size:.875rem; white-space:nowrap; color:var(--text-2);}
-.unterlage:has(input:checked) .haken{color:var(--ok); font-weight:600;}
 @media (max-width:520px){
   .unterlage{grid-template-columns:1fr;}
 }
 
-/* ------------------------------------------------------ Ablauf (Grafik) */
-.schritte{list-style:none; margin:4px 0 30px; padding:0; display:grid; gap:0;}
-.schritte li{position:relative; display:grid; grid-template-columns:36px minmax(0, 1fr); column-gap:14px; row-gap:2px; padding:0 0 20px;}
-.schritte li:not(:last-child)::after{content:""; position:absolute; left:17px; top:40px; bottom:4px; width:2px; background:var(--line);}
-.schritte li.erledigt::after{background:var(--ok);}
-.schritte .punkt{grid-row:1 / span 3; position:relative; z-index:1; display:grid; place-items:center; width:36px; height:36px; border:2px solid var(--line-strong); border-radius:50%; background:#fff; font-family:var(--font-display); font-weight:600; font-size:.9375rem; color:var(--text-2);}
-.schritte .punkt svg{width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round;}
-.schritte .erledigt .punkt{background:var(--ok); border-color:var(--ok); color:#fff;}
-.schritte .aktuell .punkt{border-color:var(--accent); color:var(--accent); box-shadow:0 0 0 4px var(--accent-soft);}
-.s-titel{font-family:var(--font-display); font-weight:600; font-size:1rem; line-height:1.3; color:var(--text); padding-top:6px;}
-.s-wann{font-size:.8125rem; color:var(--accent-hover); font-weight:500;}
-.s-text{font-size:.875rem; line-height:1.5; color:var(--text-2);}
-@media (min-width:900px){
-  .schritte{grid-template-columns:repeat(6, minmax(0, 1fr));}
-  .schritte li{grid-template-columns:1fr; justify-items:center; text-align:center; padding:0 6px;}
-  .schritte li:not(:last-child)::after{left:calc(50% + 22px); right:auto; width:calc(100% - 44px); top:17px; bottom:auto; height:2px;}
-  .schritte .punkt{grid-row:auto; margin-bottom:8px;}
-  .s-titel{padding-top:0;}
+/* ------------------------------------------------------ Ablauf: Tabelle */
+.schritte{list-style:none; margin:0 0 32px; padding:0; border-top:1px solid var(--line-strong);}
+.schritte li{display:grid; grid-template-columns:28px minmax(0, 1fr); column-gap:10px; row-gap:1px; padding:11px 0; border-bottom:1px solid var(--line);}
+.schritte .punkt{grid-row:1 / span 3; font-family:var(--font-plan); font-size:.8125rem; line-height:1.6; color:var(--text-3);}
+.s-titel{font-weight:600; font-size:.9375rem; line-height:1.4; color:var(--text);}
+.s-wann{font-family:var(--font-plan); font-size:.8125rem; line-height:1.5; color:var(--text-3);}
+.s-text{font-size:.9375rem; line-height:1.5; color:var(--text-2);}
+.schritte .erledigt .s-titel{font-weight:500; color:var(--text-3);}
+.schritte .aktuell .s-titel, .schritte .aktuell .punkt{color:var(--accent-hover);}
+@media (min-width:760px){
+  .schritte li{grid-template-columns:28px 120px 210px minmax(0, 1fr); align-items:baseline;}
+  .schritte .punkt{grid-row:auto;}
+  .s-titel{grid-column:2;}
+  .s-wann{grid-column:3;}
+  .s-text{grid-column:4;}
 }
-
 #ablauf h3{margin-top:6px;}
+.liste-grenzen{gap:6px;}
+.liste-grenzen li{font-size:.875rem; line-height:1.5;}
 
 /* ------------------------------------------------------ Auswahl senden */
 .senden-felder{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap:0 20px;}
 .senden-felder .block{margin-bottom:18px;}
-.beauftragen-hinweis{margin-top:22px; padding:16px 18px; background:var(--paper); border-left:3px solid var(--accent); border-radius:0 var(--radius-sm) var(--radius-sm) 0; font-size:.9375rem; line-height:1.6; color:var(--text);}
+.beauftragen-hinweis{margin-top:20px; font-size:.875rem; line-height:1.6; color:var(--text-2); max-width:72ch;}
 .angebot-abschnitt .aktionen-zeile .btn{white-space:normal; text-align:center;}
 
 /* ----------------------------------- Preisleiste unten (nur schmale Bildschirme) */
 .preis-leiste{display:none;}
 @media (max-width:959px){
-  .preis-leiste{position:fixed; left:0; right:0; bottom:0; z-index:20; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px)); background:var(--ink-950); color:#fff; border-top:1px solid var(--ink-line-2); box-shadow:0 -12px 30px -18px rgba(0,0,0,.5);}
+  .preis-leiste{position:fixed; left:0; right:0; bottom:0; z-index:20; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px)); background:var(--ink-950); color:#fff; border-top:1px solid var(--ink-line-2);}
   .preis-leiste p{min-width:0; line-height:1.2;}
-  .preis-leiste small{display:block; font-size:.6875rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--on-ink-3);}
+  .preis-leiste small{display:block; font-family:var(--font-plan); font-size:.75rem; letter-spacing:.04em; color:var(--on-ink-3);}
   .preis-leiste .betrag{font-family:var(--font-display); font-weight:600; font-size:1.0625rem; overflow-wrap:anywhere;}
   .preis-leiste .btn{flex-shrink:0; min-height:44px; padding:0 16px;}
   body.angebot-seite.bereit{padding-bottom:84px;}
@@ -195,6 +189,6 @@
 
 @media print{
   .preis-leiste, #sprachwahl, .angebot-abschnitt .aktionen-zeile, .preis-summe .btn{display:none !important;}
-  .angebot-abschnitt{box-shadow:none; break-inside:avoid-page;}
+  .angebot-abschnitt{break-inside:avoid-page;}
   .preis-summe{position:static;}
 }

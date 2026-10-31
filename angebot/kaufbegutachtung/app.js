@@ -10,8 +10,8 @@
  * („Auswahl senden“, „Zum Inhalt springen“) dürfen diesen Teil deshalb nie
  * ersetzen – sie werden abgefangen und scrollen nur zum Ziel.
  */
-import { PAKET } from "./paket.js?v=356094e8a0";
-import { UI } from "./oberflaeche.js?v=c21b9a44f9";
+import { PAKET } from "./paket.js?v=494b2225dd";
+import { UI } from "./oberflaeche.js?v=a6b1d0d831";
 import {
   OBJEKTE, anfrage, aufzaehlung, bruttoCent, cent, eingabeLesen, entschluesseln, ersetzen, euro, euroSpanne, fragmentAktion,
   hinweise, kostenlos, linkBauen, linkLesen, optionBrutto, optionenFuer, preisBerechnen, schalterListe, sprungZiel, unterlagen,
@@ -28,18 +28,9 @@ let daten = null;
 let schluessel = "";
 const zustand = {
   sprache: "de", objekt: "etw", flaeche: "", baujahr: "", heizung: "", nutzung: "", region: "",
-  schalter: {}, gewaehlt: new Set(), vorhanden: new Set(), adresse: "", termin: "", notar: "", alleHinweise: false,
+  schalter: {}, gewaehlt: new Set(), vorhanden: new Set(), adresse: "", termin: "", notar: "", alleHinweise: false, offen: new Set(),
 };
 let r = {}; // Verweise auf Elemente, die sich bei Eingaben ändern
-
-const SVG_NS = "http://www.w3.org/2000/svg";
-const ICONS = {
-  etw: ["M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z", "M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2",
-    "M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2", "M10 6h4", "M10 10h4", "M10 14h4", "M10 18h4"],
-  efh: ["M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8",
-    "M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"],
-  haken: ["M20 6 9 17l-5-5"],
-};
 
 // ------------------------------------------------------------ Bausteine
 
@@ -60,19 +51,6 @@ function el(tag, attrs = {}, ...kinder) {
   return knoten;
 }
 
-function icon(name) {
-  const svg = document.createElementNS(SVG_NS, "svg");
-  svg.setAttribute("viewBox", "0 0 24 24");
-  svg.setAttribute("aria-hidden", "true");
-  svg.setAttribute("focusable", "false");
-  for (const d of ICONS[name]) {
-    const pfad = document.createElementNS(SVG_NS, "path");
-    pfad.setAttribute("d", d);
-    svg.append(pfad);
-  }
-  return svg;
-}
-
 const t = () => UI[zustand.sprache];
 const s = () => zustand.sprache;
 const txt = () => daten.text[zustand.sprache];
@@ -88,6 +66,17 @@ function quelle(q) {
 function abschnitt(id, nummer, titel, text, ...inhalt) {
   return el("section", { class: "angebot-abschnitt", id, "aria-labelledby": `${id}-titel` },
     el("h2", { class: "schritt-titel", id: `${id}-titel` }, el("span", { class: "schritt-nr", "aria-hidden": "true" }, nummer), titel),
+    text ? el("p", { class: "schritt-text", text }) : null,
+    ...inhalt);
+}
+
+/** Abschnitt, der zugeklappt startet: Die Seite bleibt übersichtlich, der Inhalt ist einen Klick entfernt. */
+function klappAbschnitt(id, nummer, titel, text, ...inhalt) {
+  return el("details", {
+    class: "angebot-abschnitt klapp", id, open: zustand.offen.has(id),
+    ontoggle: (ereignis) => { if (ereignis.target.open) zustand.offen.add(id); else zustand.offen.delete(id); },
+  },
+    el("summary", {}, el("h2", { class: "schritt-titel", id: `${id}-titel` }, el("span", { class: "schritt-nr", "aria-hidden": "true" }, nummer), titel)),
     text ? el("p", { class: "schritt-text", text }) : null,
     ...inhalt);
 }
@@ -133,7 +122,7 @@ function kopfBauen() {
     const input = el("input", { type: "radio", name: "objekt", value: objekt, id: `objekt-${objekt}` });
     input.checked = zustand.objekt === objekt;
     input.addEventListener("change", () => objektWechseln(objekt));
-    return el("label", { for: `objekt-${objekt}` }, input, icon(objekt),
+    return el("label", { for: `objekt-${objekt}` }, input,
       el("span", { class: "titel", text: txt()[`objekt_${objekt}`] }),
       el("span", { class: "text", text: txt()[`objekt_${objekt}_unter`] }));
   }));
@@ -143,6 +132,18 @@ function kopfBauen() {
       el("h1", { id: "titel", tabindex: "-1" }, `${t().titel} `, el("span", { class: "accent", text: t().titel_akzent })),
       el("p", { class: "hero-lead", text: t().unterzeile }),
       el("fieldset", { class: "objektwahl" }, el("legend", { text: t().objekt_frage }), umschalter)));
+}
+
+/** „baut_auf“: Eine Option setzt eine andere voraus. Wird die Grundlage abgewählt, entfällt auch die aufbauende Option. */
+function extrasAbstimmen(option, gewaehlt) {
+  const setzen = (id, wert) => {
+    if (wert) zustand.gewaehlt.add(id); else zustand.gewaehlt.delete(id);
+    if (r.extras[id]) r.extras[id].input.checked = wert;
+  };
+  if (gewaehlt && option.baut_auf) setzen(option.baut_auf, true);
+  if (!gewaehlt) {
+    for (const andere of optionenFuer(daten, zustand.objekt)) if (andere.baut_auf === option.id) setzen(andere.id, false);
+  }
 }
 
 function preisBauen() {
@@ -157,7 +158,7 @@ function preisBauen() {
     g.kurz ? el("p", { class: "kurz", text: g.kurz }) : null,
     el("ul", { class: "liste-haken" }, aufzaehlung(g.text).map((punkt) => el("li", { text: punkt }))));
 
-  // Zuschläge: Fläche und Merkmale, Status je Zuschlag
+  // Zuschläge: Fläche und Merkmale, Status je Zuschlag (derzeit gibt es keine, dann entfällt der Block samt Flächenfeld)
   const flaeche = zahlFeld({ id: "flaeche", label: t().flaeche, hilfe: t().flaeche_hilfe, einheit: "m²", min: 10, max: 2000, step: "any", inputmode: "decimal" });
   r.zuschlaege = {};
   const zuschlagListe = el("ul", { class: "zuschlag-liste" }, paket.zuschlaege.map((z) => {
@@ -174,10 +175,10 @@ function preisBauen() {
     r.zuschlaege[z.id] = { zeile, statusText };
     return zeile;
   }));
-  const zuschlaege = el("section", { class: "zuschlaege", "aria-labelledby": "zuschlaege-titel" },
+  const zuschlaege = paket.zuschlaege.length ? el("section", { class: "zuschlaege", "aria-labelledby": "zuschlaege-titel" },
     el("h3", { id: "zuschlaege-titel", text: t().zuschlaege_titel }),
     el("p", { class: "hilfe-text", text: t().zuschlaege_text }),
-    flaeche, zuschlagListe);
+    flaeche, zuschlagListe) : null;
 
   // Extras als Karten zum Ankreuzen
   r.extras = {};
@@ -188,10 +189,11 @@ function preisBauen() {
     input.checked = zustand.gewaehlt.has(o.id);
     input.addEventListener("change", () => {
       if (input.checked) zustand.gewaehlt.add(o.id); else zustand.gewaehlt.delete(o.id);
+      extrasAbstimmen(o, input.checked);
       aktualisieren();
     });
     const empfohlen = el("span", { class: "extra-empfohlen", text: t().empfohlen, hidden: true });
-    r.extras[o.id] = { empfohlen };
+    r.extras[o.id] = { empfohlen, input };
     return el("li", {}, el("label", { class: "extra", for: `extra-${o.id}` }, input,
       el("span", { class: "extra-inhalt" },
         el("span", { class: "extra-kopf" },
@@ -204,14 +206,12 @@ function preisBauen() {
   }));
   const extras = el("section", { class: "extras", "aria-labelledby": "extras-titel" },
     el("h3", { id: "extras-titel", text: t().extras_titel }),
-    el("p", { class: "hilfe-text", text: t().extras_text }),
+    t().extras_text ? el("p", { class: "hilfe-text", text: t().extras_text }) : null,
     extrasListe);
 
   // Summe (dunkler Kasten, auf breiten Bildschirmen mitlaufend)
   r.summeBrutto = el("p", { class: "summe-brutto" });
   r.summeMwst = el("p", { class: "summe-mwst" });
-  r.balken = { grund: el("span", { class: "b-grund" }), zuschlag: el("span", { class: "b-zuschlag" }), option: el("span", { class: "b-option" }) };
-  r.legende = el("ul", { class: "balken-legende" });
   r.posten = el("ul", { class: "posten-liste" });
   r.summeNetto = el("p", { class: "summe-netto" });
   r.summeSpanne = el("p", { class: "summe-hinweis", text: t().summe_spanne, hidden: true });
@@ -220,15 +220,14 @@ function preisBauen() {
   const summe = el("aside", { class: "preis-summe", id: "summe", "aria-labelledby": "summe-titel" },
     el("p", { class: "label", id: "summe-titel", text: t().summe_titel }),
     r.summeBrutto, r.summeMwst,
-    el("div", { class: "balken", "aria-hidden": "true" }, r.balken.grund, r.balken.zuschlag, r.balken.option),
-    r.legende, r.posten, r.summeNetto, r.summeSpanne,
+    r.posten, r.summeNetto, r.summeSpanne,
     el("p", { class: "summe-hinweis", text: txt().pauschal }),
     el("p", { class: "summe-hinweis", text: txt().ausserhalb }),
     el("p", { class: "summe-hinweis", text: ersetzen(t().stundensatz, { brutto: euro(stunde.brutto, s()), netto: euro(stunde.netto, s()) }) }),
     el("a", { class: "btn btn-primary", href: "#senden", text: t().zur_auswahl }),
     r.ansage);
 
-  return abschnitt("preis", "1", t().preis_titel, t().preis_text,
+  return abschnitt("preis", "01", t().preis_titel, t().preis_text,
     el("div", { class: "preis-raster" }, el("div", { class: "preis-auswahl" }, grundpaket, zuschlaege, extras), summe));
 }
 
@@ -243,7 +242,7 @@ function objektBauen() {
     zustand.alleHinweise = !zustand.alleHinweise;
     aktualisieren();
   });
-  return abschnitt("objekt", "2", t().objekt_titel, t().objekt_text,
+  return klappAbschnitt("objekt", "02", t().objekt_titel, t().objekt_text,
     el("div", { class: "zeile" },
       zahlFeld({ id: "baujahr", label: t().baujahr, min: 1800, max: 2030, step: 1, inputmode: "numeric" }),
       auswahlFeld("heizung", t().heizung, daten.eingaben.heizung),
@@ -259,11 +258,10 @@ function objektBauen() {
 }
 
 function unterlagenBauen() {
-  r.fortschrittBalken = el("span");
   r.fortschrittText = el("p", { class: "fortschritt-text" });
   r.unterlagen = el("div", { class: "unterlagen-gruppen" });
-  return abschnitt("unterlagen", "3", t().unterlagen_titel, t().unterlagen_text,
-    el("div", { class: "unterlagen-fortschritt" }, el("div", { class: "schiene", "aria-hidden": "true" }, r.fortschrittBalken), r.fortschrittText),
+  return klappAbschnitt("unterlagen", "03", t().unterlagen_titel, t().unterlagen_text,
+    r.fortschrittText,
     r.unterlagen);
 }
 
@@ -276,11 +274,11 @@ function ablaufBauen() {
     t().schritt_notar,
   ];
   const liste = el("ol", { class: "schritte" }, schritte.map((x, i) => el("li", { class: x.zustand || null },
-    el("span", { class: "punkt", "aria-hidden": "true" }, x.zustand === "erledigt" ? icon("haken") : String(i + 1)),
+    el("span", { class: "punkt", "aria-hidden": "true" }, String(i + 1)),
     el("span", { class: "s-titel" }, x.t, x.zustand ? el("span", { class: "sr-only", text: ` (${x.zustand === "erledigt" ? t().erledigt : t().naechstes})` }) : null),
     x.w ? el("span", { class: "s-wann", text: x.w }) : null,
     el("span", { class: "s-text", text: x.d }))));
-  return abschnitt("ablauf", "4", t().ablauf_titel, "",
+  return abschnitt("ablauf", "04", t().ablauf_titel, "",
     liste,
     el("h3", { text: t().grenzen_titel }),
     el("ul", { class: "liste-grenzen" }, txt().grenzen.map((g) => el("li", { text: g }))));
@@ -313,7 +311,7 @@ function sendenBauen() {
       r.mailText.select();
     }
   });
-  return abschnitt("senden", "5", t().senden_titel, t().senden_text,
+  return abschnitt("senden", "05", t().senden_titel, t().senden_text,
     el("div", { class: "senden-felder" },
       textfeld("adresse", t().feld_adresse),
       textfeld("termin", t().feld_termin, t().feld_termin_hilfe),
@@ -357,17 +355,6 @@ function preisZeigen(e) {
     netto: euroSpanne(p.netto_von, p.netto_bis, s()), ust: euroSpanne(p.ust_von, p.ust_bis, s()), mwst: p.mwst_prozent,
   });
   r.summeSpanne.hidden = !p.spanne;
-  const gesamt = p.anteile.grund + p.anteile.zuschlag + p.anteile.option || 1;
-  const legende = [];
-  for (const art of ["grund", "zuschlag", "option"]) {
-    r.balken[art].style.width = `${(100 * p.anteile[art]) / gesamt}%`;
-    if (p.anteile[art]) {
-      legende.push(el("li", { class: `l-${art}` }, el("span", { class: "punkt", "aria-hidden": "true" }),
-        t()[`anteil_${art}`], el("b", { text: euroSpanne(p.anteile_von[art], p.anteile[art], s()) })));
-    }
-  }
-  // Nur Grundpaket: die Legende würde die Postenliste wiederholen.
-  r.legende.replaceChildren(...(legende.length > 1 ? legende : []));
   r.posten.replaceChildren(...p.posten.map((x) => el("li", {},
     el("span", { text: x.art === "zuschlag" ? `${t().posten_zuschlag}: ${x.eintrag[s()].name}` : x.eintrag[s()].name }),
     el("b", { text: x.kostenlos ? t().kostenlos : euroSpanne(x.brutto_von, x.brutto_bis, s()) }))));
@@ -430,7 +417,6 @@ function unterlagenZeigen(e) {
 function fortschrittZeigen(e) {
   const wichtig = unterlagen(daten, e, s()).filter((u) => u.prio === 1);
   const da = wichtig.filter((u) => zustand.vorhanden.has(u.id)).length;
-  r.fortschrittBalken.style.width = wichtig.length ? `${(100 * da) / wichtig.length}%` : "0%";
   r.fortschrittText.textContent = ersetzen(t().fortschritt, { n: da, m: wichtig.length });
 }
 
