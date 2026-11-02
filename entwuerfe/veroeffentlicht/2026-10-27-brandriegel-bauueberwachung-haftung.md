@@ -19,7 +19,7 @@ qualifikation:
 kurzform: brandriegel-bauueberwachung-haftung
 erstellt: 2026-10-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:

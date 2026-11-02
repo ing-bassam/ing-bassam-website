@@ -7,21 +7,22 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Actions → „Entwürfe veröffentlichen“ → Run workflow (Auswahl: die Kurzform oder „alle“). Der Workflow prüft vorher auf wörtliche Übernahmen aus der Fachbibliothek, setzt den Status und verschiebt die Datei in den richtigen Ordner; die Adresse der Seite ändert sich dabei nicht. Wer `status: Veröffentlicht` von Hand setzt, löst dieselbe Prüfung im Seitenbau aus – mit Befund oder ohne mögliche Prüfung setzt der Seitenbau den Status auf „Entwurf“ zurück.
 
-## 🟡 Entwurf (6)
+## 🟡 Entwurf (5)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
 | 29.10.2026 | [Risse in Fassade und Mauerwerk: harmlos oder ernst?](entwurf/2026-10-29-risse-fassade-mauerwerk-bewerten.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/risse-fassade-mauerwerk-bewerten/) |
-| 27.10.2026 | [Fehlende Brandriegel: Wie haftet die Bauüberwachung?](entwurf/2026-10-27-brandriegel-bauueberwachung-haftung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/brandriegel-bauueberwachung-haftung/) |
-| 26.10.2026 | [Feuchter Keller im Altbau: die drei Ursachen unterscheiden](entwurf/2026-10-26-feuchter-keller-altbau-ursachen.md) | Grundlagen | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/feuchter-keller-altbau-ursachen/) |
+| 28.10.2026 | [Vager Bedenkenhinweis: Nachunternehmer haftet voll](entwurf/2026-10-28-bedenkenhinweis-nachunternehmer-baubesprechung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/bedenkenhinweis-nachunternehmer-baubesprechung/) |
 | 22.10.2026 | [Technische Due Diligence: Prüfumfang und Bericht](entwurf/2026-10-22-technische-due-diligence-immobilienkauf.md) | Grundlagen | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/technische-due-diligence-immobilienkauf/) |
 | 22.10.2026 | [Instandhaltungsstau und CapEx-Prognose in der Due Diligence](entwurf/2026-10-22-instandhaltungsstau-capex-prognose-due-diligence.md) | Fachbeitrag | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/instandhaltungsstau-capex-prognose-due-diligence/) |
 | 21.10.2026 | [Zu viel Betondeckung: Wer haftet für die Risse?](entwurf/2026-10-21-betondeckung-nennmass-haftungsquote.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/betondeckung-nennmass-haftungsquote/) |
 
-## 🟢 Veröffentlicht (74)
+## 🟢 Veröffentlicht (76)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 27.10.2026 | [Fehlende Brandriegel: Wie haftet die Bauüberwachung?](veroeffentlicht/2026-10-27-brandriegel-bauueberwachung-haftung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/brandriegel-bauueberwachung-haftung/) |
+| 26.10.2026 | [Feuchter Keller im Altbau: die drei Ursachen unterscheiden](veroeffentlicht/2026-10-26-feuchter-keller-altbau-ursachen.md) | Grundlagen | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/feuchter-keller-altbau-ursachen/) |
 | 21.10.2026 | [Fernablesbare Heizkostenverteiler: Was bis Ende 2026 gilt](veroeffentlicht/2026-10-21-heizkostenverteiler-fernablesbar-frist-2026.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/heizkostenverteiler-fernablesbar-frist-2026/) |
 | 20.10.2026 | [Zu wenig Gefälle auf der Terrasse: Wer haftet wofür?](veroeffentlicht/2026-10-20-terrasse-gefaelle-hinweispflicht.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/terrasse-gefaelle-hinweispflicht/) |
 | 20.10.2026 | [Checkliste Beweissicherung vor Nachbarbaustellen](veroeffentlicht/2026-10-20-beweissicherung-nachbarbaustelle-checkliste.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/beweissicherung-nachbarbaustelle-checkliste/) |

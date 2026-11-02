@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ing-bassam.de/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://ing-bassam.de/fachwissen/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -301,6 +301,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ing-bassam.de/fachwissen/brandriegel-bauueberwachung-haftung/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ing-bassam.de/fachwissen/din-anerkannte-regeln-technik-warmdach/</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>yearly</changefreq>
@@ -327,6 +333,12 @@
   <url>
     <loc>https://ing-bassam.de/fachwissen/fassadenverschmutzung-mangel-gewerbemiete/</loc>
     <lastmod>2026-09-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/fachwissen/feuchter-keller-altbau-ursachen/</loc>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

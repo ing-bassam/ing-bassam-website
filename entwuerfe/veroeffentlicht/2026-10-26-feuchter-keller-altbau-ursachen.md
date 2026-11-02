@@ -13,7 +13,7 @@ qualifikation:
 kurzform: feuchter-keller-altbau-ursachen
 erstellt: 2026-10-26
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-817f-be60-e28603de1ab5
 notion_url: https://app.notion.com/p/Feuchter-Keller-im-Altbau-die-drei-Ursachen-unterscheiden-3dfd96ad00b4817fbe60e28603de1ab5
