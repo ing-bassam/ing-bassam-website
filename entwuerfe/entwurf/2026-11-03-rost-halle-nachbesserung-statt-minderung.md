@@ -54,11 +54,11 @@ Das Gericht holte ein Gutachten ein, das am 18. Dezember 2018 vorlag (Rn. 14). A
 
 ## Warum der Bauherr auf der Reparatur bestehen durfte
 
-Ob der Werklohn geschuldet war, musste das Landgericht Karlsruhe nicht mehr prüfen (Rn. 19). Der Bauherr hatte die Forderung anerkannt, allerdings nur gegen Beseitigung der Mängel (Rn. 19). Offen war allein, ob er wegen der Mängel zahlen musste oder zurückhalten durfte (Rn. 19). Das Gericht stützte sich auf § 641 Abs. 3 BGB, die Regel zum Einbehalt wegen eines Mangels nach der Abnahme (Rn. 20, Rn. 26).[^3]
+Ob der Werklohn geschuldet war, musste das Landgericht Karlsruhe nicht mehr prüfen (Rn. 19). Der Bauherr hatte die Forderung anerkannt, allerdings nur gegen Beseitigung der Mängel (Rn. 19). Offen war allein, ob er wegen der Mängel zahlen musste oder zurückhalten durfte (Rn. 19). Das Gericht stützte sich auf die Einrede des nicht erfüllten Vertrages nach §§ 320, 641 Abs. 3 BGB; § 641 Abs. 3 BGB ist die Regel zum Einbehalt wegen eines Mangels nach der Abnahme (Rn. 20, Rn. 26).[^3]
 
 Zuerst ging es um die Beweislast, also um die Frage, wer einen Umstand beweisen muss (Rn. 23). Mit der Abnahme kehrt sich die Beweislast für Mängel grundsätzlich zum Bauherrn um (Rn. 23).[^2] Beim Bauherrn der Halle blieb sie trotzdem beim Unternehmen (Rn. 23). Grund war sein Vorbehalt wegen der Rostflecken im Abnahmeprotokoll (Rn. 23). Das Unternehmen musste deshalb auch nach der Abnahme beweisen, dass die Paneele mangelfrei waren (Rn. 23).
 
-Dann klärte das Gericht, ob überhaupt ein Mangel vorlag (Rn. 24). Es folgte dem Gutachten, das keine Seite angegriffen hatte (Rn. 24). Danach waren die Rostpunkte kein optischer Fehler (Rn. 24). Die zerstörte Zinkschicht und der Rost verringern die Nutzungsdauer der Paneele (Rn. 24). Mangelfrei ist ein Werk für das Gericht nur, wenn seine dauerhafte Nutzung gewährleistet ist (Rn. 22). Wie das Unternehmen den Rost beseitigt, bleibt ihm überlassen (Rn. 25).
+Dann klärte das Gericht, ob überhaupt ein Mangel vorlag (Rn. 24). Es folgte dem Gutachten, das keine Seite angegriffen hatte (Rn. 24). Danach waren die Rostpunkte kein optischer Fehler (Rn. 24). Die zerstörte Zinkschicht und der Rost verringern die Nutzungsdauer der Paneele (Rn. 24). Mangelfrei ist ein Werk für das Gericht nur, wenn seine dauerhafte Nutzung gewährleistet ist (Rn. 22). Wie das Unternehmen den Rost beseitigt, bleibt ihm grundsätzlich überlassen (Rn. 25).
 
 Wegen des Rosts durfte der Bauherr 2.860 Euro zurückhalten, das Doppelte der Reparaturkosten (Rn. 26, Rn. 28). Dieses Doppelte sieht das Gesetz in der Regel vor (Rn. 28). Der Druckzuschlag ist der Teil des Einbehalts, der über die einfachen Reparaturkosten hinausgeht.[^4] Nimmt der Bauherr eine angebotene Reparatur nicht an, ist der Einbehalt nach dem Urteil auf die einfachen Kosten begrenzt (Rn. 28). Ein solches Angebot hatte das Unternehmen nach dem Urteil nicht vorgetragen (Rn. 28). Es hatte lediglich den Minderungsbetrag abgezogen (Rn. 28).
 
@@ -86,7 +86,7 @@ Ein Sachverständiger kann bei der Abnahme festhalten, welche Mängel bestehen u
 
 ## Was das Urteil nicht entscheidet
 
-Das Urteil betrifft einen Werkvertrag ohne vorgetragene VOB/B (Rn. 21). Eine Prüfung, ob die Reparatur unverhältnismäßig teuer wäre, enthält es nicht. Diese Möglichkeit, die Nachbesserung zu verweigern, sieht das Gesetz in § 635 Abs. 3 BGB vor.[^6] Entschieden hat ein Landgericht in erster Instanz; zu Rechtsmitteln sagt der Volltext nichts. Das Urteil ist von 2019 und wendet das Bürgerliche Gesetzbuch in der bis Ende 2017 geltenden Fassung an (Rn. 21). Die Regel zum doppelten Einbehalt steht heute in § 641 Abs. 3 BGB: Angemessen ist danach in der Regel das Doppelte der Kosten für die Beseitigung des Mangels.[^3]
+Das Urteil betrifft einen Werkvertrag ohne vorgetragene VOB/B (Rn. 21). Eine Prüfung, ob die Reparatur unverhältnismäßig teuer wäre, enthält es nicht. Diese Möglichkeit, die Nachbesserung zu verweigern, sieht das Gesetz in § 635 Abs. 3 BGB vor.[^6] Entschieden hat ein Landgericht in erster Instanz; im Kopf der amtlichen Quelle ist das Urteil als rechtskräftig vermerkt. Das Urteil ist von 2019 und wendet das Bürgerliche Gesetzbuch in der bis Ende 2017 geltenden Fassung an (Rn. 21). Die Regel zum doppelten Einbehalt steht heute in § 641 Abs. 3 BGB: Angemessen ist danach in der Regel das Doppelte der Kosten für die Beseitigung des Mangels.[^3]
 
 ## Häufige Fragen
 
