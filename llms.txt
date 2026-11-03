@@ -107,6 +107,7 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Gutachten & Recht
 
+- [Vager Bedenkenhinweis: Nachunternehmer haftet voll](https://ing-bassam.de/fachwissen/bedenkenhinweis-nachunternehmer-baubesprechung/): OLG Brandenburg 11 U 74/18: Ein pauschaler Bedenkenhinweis in der Baubesprechung genügte nicht. Der Sanitär-Nachunternehmer haftet ohne Kürzung.
 - [Fehlende Brandriegel: Wie haftet die Bauüberwachung?](https://ing-bassam.de/fachwissen/brandriegel-bauueberwachung-haftung/): OLG Karlsruhe: Die Bauüberwachung haftet einer Eigentümergemeinschaft für fehlende Brandriegel, wegen eines Planungsfehlers aber nur zur Hälfte.
 - [Zu wenig Gefälle auf der Terrasse: Wer haftet wofür?](https://ing-bassam.de/fachwissen/terrasse-gefaelle-hinweispflicht/): OLG Brandenburg zu einem Terrassenestrich mit 0,9 statt 3 Prozent Gefälle: Die Baufirma haftet trotz Planungsfehler, aber nur zu einem Drittel.
 - [Wasserschaden: eigener Gutachter oder der des Versicherers?](https://ing-bassam.de/fachwissen/wasserschaden-eigener-sachverstaendiger/): Reicht bei einem Wasserschaden der Gutachter der Versicherung, oder brauchen Sie einen eigenen Sachverständigen? Wann sich ein Privatgutachten lohnt.
@@ -135,6 +136,7 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Hausverwaltung & Bestand
 
+- [Risse in Fassade und Mauerwerk: harmlos oder ernst?](https://ing-bassam.de/fachwissen/risse-fassade-mauerwerk-bewerten/): Risse in Fassade und Mauerwerk einschätzen: welche Rissbilder meist harmlos sind, welche Warnzeichen zählen und wann ein Gutachten sinnvoll ist.
 - [Feuchter Keller im Altbau: die drei Ursachen unterscheiden](https://ing-bassam.de/fachwissen/feuchter-keller-altbau-ursachen/): Erdreich, Tauwasser oder Leckage – woran sich die Ursache der Feuchte in einem Altbaukeller unterscheiden lässt und was daraus für die Sanierung folgt.
 - [Fernablesbare Heizkostenverteiler: Was bis Ende 2026 gilt](https://ing-bassam.de/fachwissen/heizkostenverteiler-fernablesbar-frist-2026/): Fernablesbare Heizkostenverteiler und Zähler nach der Heizkostenverordnung, Frist 31.12.2026 im Bestand, Ausnahmen und Kürzungsrecht.
 - [Sanierungskosten im Altbau realistisch schätzen](https://ing-bassam.de/fachwissen/sanierungskosten-altbau-schaetzen/): Was kostet die Sanierung eines Altbaus? Wie aus einer Zustandserfassung eine belastbare Kostenschätzung wird, und warum Quadratmeterpreise täuschen.

@@ -18,7 +18,7 @@ qualifikation:
 kurzform: bedenkenhinweis-nachunternehmer-baubesprechung
 erstellt: 2026-10-28
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:

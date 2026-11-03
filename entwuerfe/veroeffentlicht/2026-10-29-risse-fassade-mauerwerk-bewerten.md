@@ -13,7 +13,7 @@ qualifikation:
 kurzform: risse-fassade-mauerwerk-bewerten
 erstellt: 2026-10-29
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-81d2-89ec-cafb733fec83
 notion_url: https://app.notion.com/p/Risse-in-Fassade-und-Mauerwerk-harmlos-oder-ernst-3dfd96ad00b481d289eccafb733fec83
