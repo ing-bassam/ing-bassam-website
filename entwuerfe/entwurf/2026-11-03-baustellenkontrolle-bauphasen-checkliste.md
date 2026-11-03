@@ -45,7 +45,7 @@ Ihre Sicherheit geht bei jedem Besuch auf der Baustelle vor. Betreten Sie die Ba
 
 ## Gründung, Kellerabdichtung und Rohbau: prüfen vor dem Verfüllen
 
-Gründung und Kellerabdichtung sind die Bauphasen, die am schnellsten unsichtbar werden. Bei Abdichtung, Gründung und der Montage wichtiger tragender Teile muss nach der Fachliteratur die Bauleitung vor Ort sein.[^3] Die Sohle der Baugrube darf nicht aufgelockert werden.[^4] Vor dem Weiterbau wird sie freigegeben.[^4] Eine Pfütze nach Regen ist ein geringer Befund. Eine aufgeweichte, zertretene Sohle ist deutlich.
+Gründung und Kellerabdichtung sind die Bauphasen, die am schnellsten unsichtbar werden. Bei Abdichtung, Gründung und der Montage wichtiger tragender Teile muss nach der Fachliteratur die Bauüberwachung vor Ort sein.[^3] Die Sohle der Baugrube darf nicht aufgelockert werden.[^4] Vor dem Weiterbau wird sie freigegeben.[^4] Eine Pfütze nach Regen ist ein geringer Befund. Eine aufgeweichte, zertretene Sohle ist deutlich.
 
 Vor jedem Betonieren wird die Bewehrung kontrolliert, also der Betonstahl im Bauteil. Nach dem Tabellenwerk Wendehorst gehört dazu, ob Stahl und Lage den Bewehrungsplänen entsprechen.[^5] Ebenso wird geprüft, ob Abstandhalter die nötige Betondeckung sichern und der Stahl frei von Schmutz und losem Rost ist.[^5] Die Betondeckung ist die Betonschicht, die den Stahl vor Rost schützt. Den Abgleich mit dem Plan machen Fachleute. Sie selbst achten bei der Bodenplatte auf das Sichtbare: Liegt der Stahl direkt auf dem Boden, ist das ein deutlicher Befund.
 
@@ -87,7 +87,7 @@ Für den Verbraucherbauvertrag gelten zusätzliche Regeln. Das ist ein Vertrag, 
 
 ## Wann eine Baubegleitung durch Sachverständige hilft
 
-Die Checkliste macht Sie zu einem aufmerksamen Beobachter Ihrer Baustelle, aber nicht zum Bauleiter. Ob Bewehrung, Abdichtung oder Fugen den Plänen und den Regeln der Technik entsprechen, beurteilen Fachleute. Der Bauherren-Schutzbund hält zwei Kontrollen und eine Abnahme für fragwürdig.[^1] Sein eigenes Angebot zur Baubegleitung sieht acht bis zwölf Baustellenbesuche zu wichtigen Bauabschnitten vor.[^1]
+Die Checkliste macht Sie zu einem aufmerksamen Beobachter Ihrer Baustelle, aber nicht zum Bauleiter. Ob Bewehrung, Abdichtung oder Fugen den Plänen und den Regeln der Technik entsprechen, beurteilen Fachleute. Der Bauherren-Schutzbund hält den Nutzen von Angeboten mit zwei Baustellenterminen und einem Termin zur Abnahme für fragwürdig.[^1] Sein eigenes Angebot zur Baubegleitung sieht acht bis zwölf Baustellenbesuche zu wichtigen Bauabschnitten vor.[^1]
 
 Bei einer Baubegleitung sieht sich eine sachverständige Person die Baustelle zu den wichtigen Bauphasen an. Sie vergleicht die Ausführung mit Plänen, Baubeschreibung und den anerkannten Regeln der Technik. Ihre Befunde hält sie mit Fotos in einem Bericht fest. Sie ersetzt nicht die Bauleitung des Unternehmens und übernimmt nicht dessen Verantwortung für die Ausführung. Eine [Baubegleitung](https://ing-bassam.de/#kontakt) für einzelne Bauphasen oder die ganze Bauzeit können Sie beim Büro des Autors anfragen.
 

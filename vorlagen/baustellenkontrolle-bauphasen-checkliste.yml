@@ -56,7 +56,7 @@ abschnitte:
         ja_nein: true
       - text: Planungsunterlagen für den Nachweis gegenüber Behörden wurden übergeben
         ja_nein: true
-        hinweis: "Beim Verbraucherbauvertrag muss das Unternehmen diese Unterlagen rechtzeitig vor Beginn der jeweiligen Leistung erstellen und herausgeben, wenn es selbst plant (§ 650n BGB)."
+        hinweis: "Beim Verbraucherbauvertrag muss das Unternehmen diese Unterlagen rechtzeitig erstellen und herausgeben, wenn es selbst plant (Regeln des BGB zum Verbraucherbauvertrag)."
       - text: Bauzeitenplan und Zahlungsplan liegen vor
         ja_nein: true
       - text: Ansprechperson der Bauleitung und Regeln für Ihre Baustellenbesuche sind vereinbart
@@ -317,7 +317,7 @@ quellen:
   - "DIN 18533-1:2026-06 (Abdichtung erdberührter Bauteile)"
   - "DIN 18534-1:2025-10 (Abdichtung von Innenräumen)"
   - "DIN 4108-7:2026-04 (Luftdichtheit von Gebäuden)"
-  - "§§ 632a, 650m, 650n BGB"
+  - "§§ 632a, 650m BGB"
   - "Würfele/Bielefeld/Gralla: Bauobjektüberwachung, 3. Aufl. 2017, S. 16–18, 69"
   - "Vismann (Hrsg.): Wendehorst Bautechnische Zahlentafeln, 37. Aufl. 2021, S. 294"
   - "Hestermann/Rongen: Frick/Knöll Baukonstruktionslehre 1, 37. Aufl. 2025, S. 475, 851, 881"
