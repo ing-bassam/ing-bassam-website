@@ -1,0 +1,325 @@
+titel: Checkliste Baustellenkontrolle nach Bauphasen
+untertitel: Für Bauherren – vom Baubeginn bis zum Estrich
+kurzform: baustellenkontrolle-bauphasen-checkliste
+typ: Checkliste
+stand: 2026-11-03
+dateien:
+  - pdf
+  - pdf-ausfuellbar
+einleitung: >-
+  Diese Checkliste begleitet Sie über die Baustelle Ihres Hauses – Bauphase für
+  Bauphase, jeweils bevor ein Bauteil hinter Erde, Putz, Fliesen oder Estrich
+  verschwindet. Bei jedem Punkt bewerten Sie, was Sie sehen, und machen ein Foto.
+  Merkmale halten fest, was eingebaut wurde. Am Ende sagt Ihnen die Auswertung,
+  wann Sie die Bauleitung schriftlich informieren und wann Sie eine fachkundige
+  Person hinzuziehen sollten. Betreten Sie die Baustelle nur nach Absprache mit
+  der Bauleitung und nie Gerüst, Dach oder Baugrube.
+kopffelder:
+  - Bauvorhaben und Anschrift
+  - Bauherrin oder Bauherr
+  - Bauunternehmen oder Bauträger
+  - Vertragsgrundlage (BGB-Bauvertrag / Verbraucherbauvertrag / VOB/B / Bauträgervertrag)
+  - Bauleitung des Unternehmens (Name, Telefon)
+  - Eigene Baubegleitung (falls beauftragt)
+  - Bauart (Massivbau / Holzbau / Fertighaus) und Keller (ja / nein)
+  - Geplanter Baubeginn und geplante Fertigstellung
+bewertung:
+  stufen:
+    - kurz: "o. B."
+      lang: ohne Befund
+      beschreibung: entspricht erkennbar Plan und Vertrag, nichts Auffälliges
+    - kurz: gering
+      lang: geringer Befund
+      beschreibung: kleine, örtliche Auffälligkeit – Foto, bei der Bauleitung nachfragen, beim nächsten Besuch wieder ansehen
+    - kurz: deutlich
+      lang: deutlicher Befund
+      beschreibung: Lücke, Schaden oder Abweichung an Abdichtung, Tragwerk, Dichtheit oder Feuchte – schriftlich melden, Fachmann vor dem Verdecken
+    - kurz: "n. p."
+      lang: nicht prüfbar
+      beschreibung: schon verdeckt, nicht zugänglich oder nicht erkennbar – Fotos, Protokolle oder Nachweise vom Unternehmen anfordern
+abschnitte:
+  - titel: "Vor Baubeginn: Unterlagen und Absprachen"
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Baugenehmigung oder Bestätigung des Genehmigungsfreistellungsverfahrens liegt vor
+        ja_nein: true
+      - text: Ausführungspläne mit Datum und Planstand liegen vor
+        ja_nein: true
+        hinweis: "Bewahren Sie jeden Planstand auf, den Sie erhalten. Nur so lässt sich später klären, nach welchem Plan gebaut wurde."
+      - text: Statische Berechnung und Bewehrungspläne sind erstellt (Einsicht bei der Bauleitung)
+        ja_nein: true
+      - text: Baugrundgutachten liegt vor oder ist ausdrücklich nicht vorgesehen
+        ja_nein: true
+        hinweis: "Das Gutachten beschreibt Boden und Grundwasser. Von ihm hängt ab, wie Gründung und Kellerabdichtung ausgeführt werden müssen."
+      - text: Baubeschreibung und Bauvertrag mit allen Anlagen sind vollständig abgelegt
+        ja_nein: true
+      - text: Planungsunterlagen für den Nachweis gegenüber Behörden wurden übergeben
+        ja_nein: true
+        hinweis: "Beim Verbraucherbauvertrag muss das Unternehmen diese Unterlagen rechtzeitig vor Beginn der jeweiligen Leistung erstellen und herausgeben, wenn es selbst plant (§ 650n BGB)."
+      - text: Bauzeitenplan und Zahlungsplan liegen vor
+        ja_nein: true
+      - text: Ansprechperson der Bauleitung und Regeln für Ihre Baustellenbesuche sind vereinbart
+        ja_nein: true
+        hinweis: "Vereinbaren Sie, dass Sie vor dem Verfüllen, dem Verputzen, dem Fliesen und dem Estrich Bescheid bekommen. Diese Termine kehren in dieser Checkliste wieder."
+      - text: Zustand der Nachbargebäude und der Straße vor Baubeginn fotografiert
+        ja_nein: true
+
+  - titel: Baugrube, Gründung und Bodenplatte
+    notizen: 2
+    punkte:
+      - text: Art der Gründung
+        auswahl: [Bodenplatte, Streifenfundamente, Keller als weiße Wanne, Keller gemauert, unbekannt]
+        hinweis: "Steht in den Plänen und in der Statik. Eine weiße Wanne ist ein Keller aus wasserundurchlässigem Beton, der selbst abdichtet."
+      - text: Lage des Hauses auf dem Grundstück abgesteckt und vermessen
+        hinweis: "Fragen Sie nach dem Protokoll der Absteckung durch die Vermessung. Deutlich: Das Haus steht sichtbar anders als im Lageplan."
+      - text: Sohle der Baugrube vor dem Betonieren
+        hinweis: "Von oben ansehen, nicht hineinsteigen. Woran erkennen: Zustand des Bodens, auf dem gegründet wird. Gering: einzelne Pfützen nach Regen. Deutlich: aufgeweichter, zertretener oder schlammiger Boden. Die Sohle ist freizugeben, bevor darauf gebaut wird – fragen Sie, wer das getan hat."
+      - text: Wasser in der Baugrube
+        hinweis: "Gering: Regenwasser, das abgepumpt wird. Deutlich: Wasser, das ständig nachläuft, obwohl es nicht geregnet hat – dann zum Baugrundgutachten und zur Kellerabdichtung nachfragen."
+      - text: Grundleitungen und Leerrohre unter der Bodenplatte vor dem Betonieren verlegt
+        hinweis: "Abwasserleitungen und Leerrohre für Strom, Wasser und Telefon liegen später im Beton. Fotografieren Sie ihre Lage mit Zollstock als Maßstab."
+      - text: Dämmung und Trennlage unter der Bodenplatte
+        hinweis: "Nur wenn geplant. Woran erkennen: Platten liegen dicht gestoßen. Gering: einzelne kleine Fugen. Deutlich: fehlende Platten, große Lücken oder zerbrochene Platten."
+      - text: Bewehrung der Bodenplatte vor dem Betonieren
+        hinweis: "Woran erkennen: Stahlmatten und Stäbe liegen nach Plan. Gering: etwas Flugrost. Deutlich: Stahl liegt direkt auf dem Boden, Abstandhalter fehlen, Stahl ist verschmutzt oder loser Rost blättert. Die Kontrolle gegen den Bewehrungsplan ist Sache der Fachleute – fragen Sie, wer sie gemacht hat."
+      - text: Abstandhalter unter und neben der Bewehrung
+        hinweis: "Abstandhalter sind kleine Klötze oder Leisten aus Beton oder Kunststoff. Sie halten den Stahl auf Abstand, damit genug Beton ihn vor Rost schützt."
+      - text: Erdungsanlage (Fundamenterder oder Ringerder) eingebaut
+        auswahl: [ja, nein, unbekannt]
+        hinweis: "Ein Band aus Stahl, meist im Beton oder im Erdreich um das Haus. Fragen Sie nach Fotos und dem Prüfprotokoll des Elektrobetriebs."
+      - text: Oberfläche der Bodenplatte nach dem Betonieren
+        hinweis: "Gering: kleine Unebenheiten und feine Haarrisse an der Oberfläche. Deutlich: Kiesnester (grobe, löchrige Stellen), sichtbarer Stahl oder breite Risse."
+
+  - titel: Kellerabdichtung und erdberührte Bauteile vor dem Verfüllen
+    notizen: 2
+    punkte:
+      - text: Art der Abdichtung gegen Erdfeuchte und Wasser
+        auswahl: [weiße Wanne aus WU-Beton, Bitumendickbeschichtung, Bahnen, Kombination, unbekannt]
+        hinweis: "Steht im Abdichtungskonzept oder in der Baubeschreibung. Bitumendickbeschichtung ist ein dicker, schwarzer Anstrich mit Kunststoffanteil. Bitten Sie um das Konzept schriftlich."
+      - text: Abdichtung der Außenwände flächig
+        hinweis: "Woran erkennen: gleichmäßig geschlossene Schicht bis zur geplanten Höhe. Gering: kleine Kratzer an der Oberfläche. Deutlich: Fehlstellen, dünne Stellen, Blasen oder durchscheinender Untergrund."
+      - text: Nachweis der Schichtdicke bei flüssiger Abdichtung
+        ja_nein: true
+        hinweis: "Bei Anstrichen wird die Dicke beim Auftragen gemessen und über die verbrauchte Menge je Quadratmeter kontrolliert. Fragen Sie nach der Dokumentation, bevor verfüllt wird."
+      - text: Übergang zwischen Bodenplatte und Wand (Kehle)
+        hinweis: "Die Ecke unten zwischen Wand und Platte ist eine bekannte Schwachstelle. Deutlich: Abdichtung endet oberhalb der Ecke oder ist dort abgelöst."
+      - text: Fugen bei der weißen Wanne (Fugenbänder oder Fugenbleche)
+        hinweis: "Nur bei WU-Beton. Die Fuge zwischen Bodenplatte und Wand braucht eine eigene Abdichtung, etwa ein eingebautes Blech oder Band. Vor dem Betonieren fotografieren. Deutlich: Band oder Blech fehlt, ist geknickt oder nicht verbunden."
+      - text: Rohr- und Kabeldurchführungen durch die Kellerwand
+        hinweis: "Woran erkennen: Jede Durchführung hat ein Dichtelement, das an die Abdichtung anschließt. Gering: Anschluss da, aber verschmutzt. Deutlich: offener Spalt um das Rohr oder Bauschaum als einzige Dichtung."
+      - text: Lichtschächte und Kellerfenster an die Abdichtung angeschlossen
+      - text: Schutzschicht oder Dämmung vor der Abdichtung
+        hinweis: "Platten schützen die Abdichtung beim Verfüllen. Deutlich: Abdichtung liegt frei, und es wird schon Erde eingefüllt."
+      - text: Verfüllung der Baugrube
+        hinweis: "Gering: lockeres Material. Deutlich: Bauschutt, große Steine oder Betonreste direkt an der Abdichtung. Nach dem Verfüllen ist nichts mehr zu sehen – fotografieren Sie alles vorher."
+
+  - titel: "Rohbau: Wände, Decken, Treppen"
+    notizen: 2
+    punkte:
+      - text: Baustoff der Außenwände
+        auswahl: [Ziegel, Kalksandstein, Porenbeton, Beton, Holz, unbekannt]
+        hinweis: "Steht in der Baubeschreibung. Vergleichen Sie mit dem, was auf der Baustelle angeliefert wird – Lieferscheine und Paletten geben Auskunft."
+      - text: Bauart der Innenwände
+        auswahl: [massiv, Trockenbau, gemischt, unbekannt]
+        hinweis: "Massive Wände werden gemauert oder betoniert. Trockenbau sind Ständer mit Platten. Die Bauart bestimmt Schallschutz und spätere Umbauten."
+      - text: Mauerwerk – Fugen und Verband
+        hinweis: "Woran erkennen: Die senkrechten Fugen zweier Reihen liegen versetzt übereinander. Gering: einzelne offene Stellen. Deutlich: senkrechte Fugen liegen übereinander, große Lücken, Wand sichtbar schief."
+      - text: Mauerwerk vor Regen und Frost geschützt
+        hinweis: "Die Oberseite frischer Wände sollte abgedeckt sein. Durchnässtes Mauerwerk trocknet langsam und kann später Risse im Putz verursachen. Deutlich: offene, nasse Mauerkronen über Tage."
+      - text: Stürze über Fenstern und Türen
+        hinweis: "Ein Sturz ist der Träger über einer Öffnung. Deutlich: fehlt, liegt sichtbar zu kurz auf oder ist gerissen."
+      - text: Art der Decken
+        auswahl: [Ortbeton, Fertigteil mit Aufbeton, Holzbalkendecke, Brettsperrholz, unbekannt]
+        hinweis: "Fertigteile werden als Platten geliefert und auf der Baustelle mit Beton ergänzt. Fragen Sie die Bauleitung."
+      - text: Bewehrung der Decken vor dem Betonieren
+        hinweis: "Nicht auf die Bewehrung steigen. Woran erkennen: Abstandhalter unten und Stützen für die obere Lage vorhanden. Deutlich: Stahl liegt auf der Schalung, Matten durchgetreten. Fragen Sie, wer die Bewehrung abgenommen hat."
+      - text: Aussparungen und Leerrohre in den Decken wie geplant
+        hinweis: "Spätere Durchbrüche schwächen das Bauteil und brauchen eine Freigabe der Statik. Fotografieren Sie die Lage vor dem Betonieren."
+      - text: Witterung und Schutz beim Betonieren
+        hinweis: "Notieren Sie Datum, Wetter und Temperatur. Frischer Beton braucht Schutz vor Austrocknen und Frost. Deutlich: Betonieren bei Frost ohne Schutzmaßnahmen."
+      - text: Risse und Kiesnester an Wänden und Decken
+        hinweis: "Gering: feine Haarrisse. Deutlich: breite oder durchgehende Risse, Risse mit Versatz, Kiesnester oder sichtbarer Stahl."
+      - text: Treppe und Treppenauflager
+        hinweis: "Gering: Schalungsabdrücke, Kantenabplatzungen. Deutlich: Risse am Auflager oder fehlende Trittschallentkopplung, falls sie vereinbart ist."
+
+  - titel: Dachstuhl und Dach
+    notizen: 2
+    punkte:
+      - text: Art der Dachkonstruktion
+        auswahl: [Sparrendach, Pfettendach, Flachdach, Fertigteil-Elemente, unbekannt]
+        hinweis: "Steht in den Plänen. Fragen Sie den Zimmereibetrieb, wenn Sie unsicher sind."
+      - text: Bauholz bei Lieferung und Lagerung trocken und abgedeckt
+        hinweis: "Holz soll trocken eingebaut und auf der Baustelle mit Planen geschützt werden. Gering: kurz beregnet, trocknet wieder. Deutlich: Holz liegt lange nass im Freien, verfärbt oder schimmelig."
+      - text: Holzfeuchte des Bauholzes vom Zimmereibetrieb bestätigt
+        ja_nein: true
+        hinweis: "Fragen Sie nach der Holzart und dem Feuchtenachweis aus dem Lieferschein, etwa bei Konstruktionsvollholz."
+      - text: Holzschutz wie in der Baubeschreibung
+        auswahl: [baulich ohne Chemie, chemisch behandelt, unbekannt]
+        hinweis: "Behandeltes Holz erkennen Sie oft an grünlicher oder bräunlicher Färbung. Fragen Sie nach dem Mittel und dem Nachweis."
+      - text: Verbindungen und Befestigungen des Dachstuhls
+        hinweis: "Vom Boden oder Dachboden aus ansehen. Deutlich: fehlende Verbindungsmittel, gespaltene Hölzer an Verbindungen, Balken sichtbar durchgebogen."
+      - text: Unterdeckung oder Unterspannbahn unter den Ziegeln
+        hinweis: "Die Bahn ist eine zweite wasserführende Schicht unter der Deckung. Sehen Sie vom Dachboden aus nach, solange noch nicht gedämmt ist. Deutlich: Risse, Löcher oder offene Stöße in der Bahn."
+      - text: Anschlüsse an Schornstein, Dachfenster und Lüftungsrohre
+        hinweis: "Nur vom Boden oder durchs Fenster ansehen. Gering: Verschmutzung. Deutlich: offene Spalten, fehlende Bleche oder Wasserflecken innen nach Regen."
+      - text: Dachentwässerung (Rinnen und Fallrohre) montiert und angeschlossen
+        hinweis: "Deutlich: Fallrohr endet frei an der Wand, und Wasser läuft an der Fassade oder am Sockel herab."
+      - text: Wasserflecken im Dachgeschoss nach Regen
+        hinweis: "Sehen Sie nach starkem Regen von innen an Dachschrägen und Decke nach. Deutlich: nasse Holzteile, Tropfen oder Flecken auf Dämmung und Bahn."
+
+  - titel: Fenster und Außentüren
+    notizen: 2
+    punkte:
+      - text: Rahmenmaterial der Fenster
+        auswahl: [Kunststoff, Holz, Holz-Aluminium, Aluminium, unbekannt]
+      - text: Verglasung
+        auswahl: [Zweifach, Dreifach, unbekannt]
+        hinweis: "Am Glasrand steht oft ein Stempel des Herstellers. Vergleichen Sie mit der Baubeschreibung."
+      - text: Fenster wie bestellt (Größe, Öffnungsart, Schallschutz, Sicherheit)
+        hinweis: "Vergleichen Sie mit der Fensterliste. Deutlich: falsche Größe, fehlende Öffnungsflügel oder andere Ausstattung als vereinbart."
+      - text: Befestigung der Fensterrahmen in der Wand
+        hinweis: "Woran erkennen: Schrauben oder Anker rundum, nicht nur Schaum. Deutlich: Fenster nur mit Schaum oder Keilen gehalten oder der Rahmen wackelt."
+      - text: Innere Abdichtung der Anschlussfuge (luftdicht)
+        hinweis: "Innen wird die Fuge rundum mit Folie oder Dichtband luftdicht verschlossen, bevor verputzt wird. Gering: kleine Faltenstelle. Deutlich: Band fehlt, ist abgelöst oder unterbrochen, Schaum liegt offen."
+      - text: Äußere Abdichtung der Anschlussfuge (schlagregendicht)
+        hinweis: "Außen schützt ein Band oder eine Dichtung vor Regen, lässt aber Feuchte heraus. Deutlich: offene Fuge oder nur Silikon auf Schaum."
+      - text: Anschluss unter der Fensterbank und bei bodentiefen Elementen
+        hinweis: "Unten sammelt sich Wasser. Bei bodentiefen Fenstern und Terrassentüren muss die Abdichtung nach unten anschließen. Deutlich: offener Anschluss auf dem Rohboden."
+      - text: Rahmen und Glas während der Bauzeit geschützt
+        hinweis: "Gering: leichte Verschmutzung. Deutlich: Kratzer im Glas, beschädigte Rahmen oder Mörtelreste auf Beschlägen."
+
+  - titel: Haustechnik vor dem Verschließen
+    notizen: 2
+    punkte:
+      - text: Art der Heizung
+        auswahl: [Wärmepumpe, Gas, Fernwärme, Pellets, andere, unbekannt]
+      - text: Art der Wärmeverteilung
+        auswahl: [Fußbodenheizung, Heizkörper, beides, unbekannt]
+      - text: Material der Trinkwasserleitungen
+        auswahl: [Kunststoffverbund, Edelstahl, Kupfer, unbekannt]
+        hinweis: "Steht auf den Rohren aufgedruckt oder in der Baubeschreibung. Fotografieren Sie den Aufdruck."
+      - text: Leitungen in Wänden und Böden fotografiert, bevor sie verschwinden
+        ja_nein: true
+        hinweis: "Fotos mit Zollstock von jeder Wand mit Leitungen. So finden Sie später Rohre und Kabel, ohne anzubohren."
+      - text: Druckprüfung der Wasser- und Heizleitungen dokumentiert
+        ja_nein: true
+        hinweis: "Die Druckprüfung soll stattfinden, solange die Leitungen noch zugänglich sind. Fragen Sie nach dem Protokoll, bevor Schlitze geschlossen und Estrich eingebracht werden."
+      - text: Dämmung der Heiz- und Warmwasserleitungen
+        hinweis: "Woran erkennen: Rohre sind durchgehend ummantelt. Gering: kurze offene Stücke. Deutlich: lange Leitungen ohne Dämmung."
+      - text: Abwasserleitungen mit Gefälle und schallgedämmt befestigt
+        hinweis: "Deutlich: Rohre haben sichtbar kein Gefälle, hängen durch oder sind ohne Schalldämmung fest an der Wand verschraubt."
+      - text: Elektroleitungen in Leerrohren oder Installationszonen geführt
+        hinweis: "Nur ansehen, nichts anfassen. Deutlich: Kabel quer oder schräg durch die Wand statt waagerecht und senkrecht – das erschwert später das Bohren."
+      - text: Durchbrüche für Leitungen durch Decken und Wände wieder verschlossen
+        hinweis: "Offene Durchbrüche stören Brand- und Schallschutz. Deutlich: große offene Löcher zwischen Geschossen, die nicht mehr geschlossen werden sollen."
+      - text: Lüftungsanlage und Leitungen nach Plan verlegt
+        auswahl: [Lüftungsanlage vorhanden, nur Fensterlüftung, unbekannt]
+
+  - titel: Luftdichtheit und Dämmung vor dem Innenausbau
+    notizen: 2
+    punkte:
+      - text: Lage der luftdichten Schicht
+        auswahl: [Innenputz auf Mauerwerk, Folie oder Bahn, Holzwerkstoffplatten, gemischt, unbekannt]
+        hinweis: "Bei Massivwänden bildet meist der Innenputz die luftdichte Schicht. Im Dach und im Holzbau ist es meist eine Folie, oft Dampfbremse genannt."
+      - text: Dämmung im Dach und in den Wänden lückenlos
+        hinweis: "Woran erkennen: Dämmung füllt die Felder ohne Spalten. Gering: kleine Fugen. Deutlich: fehlende Stücke, Spalten an Sparren oder durchnässte Dämmung."
+      - text: Folie oder Bahn an Stößen verklebt
+        hinweis: "Gering: kleine Falte im Klebeband. Deutlich: Stöße nur überlappt und nicht verklebt, Risse oder Löcher in der Folie."
+      - text: Anschlüsse der Folie an Wände, Fenster und Boden
+        hinweis: "Die luftdichte Schicht muss rundum ohne Unterbrechung anschließen. Schwachpunkte sind Traufe, Giebelwände und Durchdringungen. Deutlich: Folie endet frei, Klebeband hält nicht auf staubigem Untergrund."
+      - text: Durchdringungen durch die Folie (Rohre, Kabel, Balken) abgedichtet
+        hinweis: "Woran erkennen: Jede Durchdringung hat eine Manschette oder ist sauber eingeklebt. Deutlich: Kabel oder Rohr durch einen offenen Schlitz in der Folie."
+      - text: Folie nach anderen Arbeiten unbeschädigt
+        hinweis: "Nachfolgende Gewerke beschädigen die Folie leicht. Sehen Sie nach Elektro- und Sanitärarbeiten noch einmal hin."
+      - text: Luftdichtheitsmessung vor dem Verkleiden vorgesehen
+        ja_nein: true
+        hinweis: "Eine Messung mit einem Gebläse in der Haustür (Blower-Door) findet Lecks. Vor dem Verkleiden lassen sie sich noch beheben."
+
+  - titel: Bad und Nassräume vor dem Fliesen
+    notizen: 2
+    punkte:
+      - text: Art der Dusche
+        auswahl: [bodengleich, Duschwanne, Badewanne mit Dusche, unbekannt]
+      - text: Abdichtung im Verbund unter den Fliesen (Boden und Wände im Spritzwasserbereich)
+        hinweis: "Die Abdichtung ist ein meist farbiger Anstrich oder eine Bahn unter den Fliesen. Woran erkennen: geschlossene Fläche ohne Fehlstellen. Deutlich: Fehlstellen, nur eine Lage, wo zwei vorgesehen sind, oder gar keine Abdichtung."
+      - text: Dichtbänder in Ecken und an Übergängen eingearbeitet
+        hinweis: "In Ecken und zwischen Wand und Boden gehört ein Band in die Abdichtung. Deutlich: Band fehlt oder liegt lose obenauf."
+      - text: Manschetten an Rohrdurchführungen und Armaturen
+        hinweis: "Deutlich: Rohre durchstoßen die Abdichtung ohne Manschette."
+      - text: Anschluss der Abdichtung an Bodenablauf oder Duschrinne
+        hinweis: "Der Ablauf braucht einen Flansch, an den die Abdichtung angeklebt wird. Deutlich: Abdichtung endet vor dem Ablauf."
+      - text: Gefälle zum Ablauf bei bodengleicher Dusche
+        hinweis: "Prüfen Sie mit wenig Wasser oder einer Wasserwaage. Deutlich: Wasser bleibt stehen oder läuft vom Ablauf weg."
+
+  - titel: Estrich
+    notizen: 2
+    punkte:
+      - text: Art des Estrichs
+        auswahl: [Zementestrich, Calciumsulfat-/Fließestrich, Trockenestrich, unbekannt]
+        hinweis: "Steht in der Baubeschreibung oder auf dem Lieferschein. Die Art bestimmt Trocknung und Prüfung vor dem Belag."
+      - text: Dämmung und Folie unter dem Estrich vollständig
+        hinweis: "Woran erkennen: Dämmplatten dicht verlegt, Folie überlappt. Gering: kleine Lücken an Rohren, ausgefüllt. Deutlich: große Lücken oder Rohre ohne Ausgleichsschicht."
+      - text: Randdämmstreifen an allen Wänden, Pfosten und Rohren
+        hinweis: "Der Streifen trennt den Estrich von der Wand, damit kein Schall übertragen wird. Deutlich: Streifen fehlt, ist umgeknickt oder später zu früh abgeschnitten."
+      - text: Druckprüfung der Fußbodenheizung vor dem Estrich
+        ja_nein: true
+        hinweis: "Die Rohre stehen beim Einbringen des Estrichs unter Druck. Fragen Sie nach dem Protokoll."
+      - text: Bewegungsfugen im Estrich wie geplant
+        hinweis: "Fugen trennen Flächen, etwa an Türen und in großen Räumen. Deutlich: Fugen fehlen, wo der Plan sie vorsieht, oder Risse quer durch Räume."
+      - text: Estrich nach dem Einbau vor Zugluft, Hitze und Frost geschützt
+        hinweis: "Gering: kurze Zugluft. Deutlich: über Tage offene Fenster bei Frost oder große Hitze direkt nach dem Einbau."
+      - text: Oberfläche und Risse im Estrich
+        hinweis: "Gering: einzelne feine Risse an der Oberfläche. Deutlich: breite Risse, hohl klingende Bereiche oder hochstehende Ecken an Fugen."
+      - text: Aufheizprotokoll bei Fußbodenheizung liegt vor
+        ja_nein: true
+        hinweis: "Das erste Aufheizen prüft nur die Funktion. Bis zur Belegreife wird meist gesondert weiter geheizt – beides sollte protokolliert und unterschrieben sein."
+      - text: Belegreife vor dem Bodenbelag durch Messung nachgewiesen
+        ja_nein: true
+        hinweis: "Belegreif ist der Estrich, wenn er trocken genug für den Belag ist. Die Restfeuchte wird an einer Materialprobe gemessen. Fragen Sie nach dem Messprotokoll mit Messstellen."
+
+  - titel: Baufeuchte, Mängel und Zahlungen während der Bauzeit
+    bewertung: false
+    notizen: 3
+    punkte:
+      - text: Haus wird nach Estrich und Putz regelmäßig gelüftet oder technisch getrocknet
+        ja_nein: true
+        hinweis: "Ein Neubau enthält viel Wasser aus Beton, Mörtel, Putz und Estrich. Feuchteempfindliche Stoffe wie Holzböden sollten erst eingebaut werden, wenn genug getrocknet ist."
+      - text: Fotos jedes Besuchs mit Datum abgelegt
+        ja_nein: true
+        hinweis: "Dokumentieren Sie zeitnah. Ein fortlaufendes Fotoverzeichnis mit Datum und Raum ist später viel wert."
+      - text: Auffälligkeiten der Bauleitung schriftlich mitgeteilt
+        ja_nein: true
+        hinweis: "Schreiben Sie kurz, was Sie wo gesehen haben, mit Foto, und bitten Sie um Antwort. Bewahren Sie einen Nachweis über den Zugang auf."
+      - text: Antwort oder Beseitigung zu jeder gemeldeten Auffälligkeit erhalten
+        ja_nein: true
+      - text: Abschlagsrechnung passt zum sichtbaren Baufortschritt
+        ja_nein: true
+        hinweis: "Ein Abschlag richtet sich nach dem Wert der erbrachten Leistungen. Das Unternehmen muss sie in einer nachvollziehbaren Aufstellung nachweisen (§ 632a BGB). Bei Zweifeln vor der Zahlung beraten lassen."
+      - text: Sicherheit beim Verbraucherbauvertrag geregelt
+        ja_nein: true
+        hinweis: "Beim Verbraucherbauvertrag ist Ihnen bei der ersten Abschlagszahlung eine Sicherheit von 5 Prozent der Gesamtvergütung zu leisten, auf Verlangen des Unternehmens als Einbehalt. Alle Abschläge zusammen dürfen 90 Prozent der Gesamtvergütung nicht übersteigen (§ 650m BGB). Beim Bauträger gelten eigene Regeln."
+      - text: Nachweise und Protokolle gesammelt (Druckprüfungen, Estrich, Messungen)
+        ja_nein: true
+      - text: Termin für die Abnahme und Liste offener Punkte vorbereitet
+        ja_nein: true
+        hinweis: "Übertragen Sie offene deutliche Befunde in Ihre Mängelliste für die Abnahme."
+auswertung:
+  - "Ein deutlicher Befund an Abdichtung, Bewehrung, Tragwerk oder Luftdichtheit: Melden Sie ihn der Bauleitung schriftlich mit Foto und lassen Sie ihn fachkundig ansehen, bevor das Bauteil verdeckt wird."
+  - "Mehrere geringe Befunde im selben Abschnitt: Sprechen Sie die Bauleitung an und sehen Sie die Stellen beim nächsten Besuch erneut an."
+  - "Ein Punkt ist n. p., weil das Bauteil schon verdeckt ist: Fordern Sie Fotos, Protokolle oder Nachweise des Unternehmens an."
+  - "Fehlende Protokolle zu Druckprüfung, Aufheizen oder Belegreife: Lassen Sie den Bodenbelag erst verlegen, wenn die Nachweise vorliegen."
+  - "Zweifel an einer Abschlagsrechnung oder an Ihren Rechten bei Mängeln: Lassen Sie sich vor der Zahlung von einem Rechtsanwalt oder einer Verbraucherberatung beraten."
+hinweise:
+  - "Betreten Sie die Baustelle nur nach Absprache. Steigen Sie nicht auf Gerüste, Dächer oder Bewehrung und nicht in Baugruben."
+  - "Die Checkliste ersetzt keine Bauüberwachung durch Fachleute. Sie hilft Ihnen, Fragen zur richtigen Zeit zu stellen."
+quellen:
+  - "DIN 18533-1:2026-06 (Abdichtung erdberührter Bauteile)"
+  - "DIN 18534-1:2025-10 (Abdichtung von Innenräumen)"
+  - "DIN 4108-7:2026-04 (Luftdichtheit von Gebäuden)"
+  - "§§ 632a, 650m, 650n BGB"
+  - "Würfele/Bielefeld/Gralla: Bauobjektüberwachung, 3. Aufl. 2017, S. 16–18, 69"
+  - "Vismann (Hrsg.): Wendehorst Bautechnische Zahlentafeln, 37. Aufl. 2021, S. 294"
+  - "Hestermann/Rongen: Frick/Knöll Baukonstruktionslehre 1, 37. Aufl. 2025, S. 475, 851, 881"
+  - "Timm/Allmendinger/Strehle: Estriche, Parkett und Bodenbeläge, 6. Aufl. 2019, S. 42–43, 195"
+  - "Bielefeld/Becker (Hrsg.): Kommentar zur VOB/C, 20. Aufl. 2025, S. 40, 1445"
