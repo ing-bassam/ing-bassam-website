@@ -1,0 +1,88 @@
+titel: Aufmaßblatt für Abschlags- und Schlussrechnungen
+untertitel: Mengenermittlung je Position des Leistungsverzeichnisses, nachvollziehbar für die Rechnungsprüfung
+kurzform: aufmassblatt-mengenermittlung-abrechnung
+typ: Tabelle
+stand: 2026-11-03
+dateien: [xlsx, pdf]
+einleitung: >-
+  Auf diesem Blatt halten Sie für einen Einheitspreisvertrag fest, welche Menge Sie je Position
+  des Leistungsverzeichnisses abrechnen und wie Sie darauf kommen. Jede Zeile nennt die Position,
+  den Ort am Bau, die Maße, die Menge und den Beleg. So kann die Bauleitung des Auftraggebers jede
+  Zahl Ihrer Abschlags- oder Schlussrechnung bis zum Maß auf der Baustelle zurückverfolgen.
+kopffelder:
+  - Bauvorhaben und Anschrift
+  - Auftraggeber
+  - Auftragnehmer
+  - Gewerk, Auftrags- oder Vertragsnummer
+  - "Vertragsgrundlage (BGB oder VOB/B; vereinbarte Abrechnungsregeln)"
+  - Aufmaßblatt Nr. / Blatt … von …
+  - Aufmaß für Abschlagsrechnung Nr. … oder Schlussrechnung
+  - Leistungsstand bis Stichtag
+  - "Aufmaß nach Plan (Plan-Nr. und Index) oder vor Ort"
+  - Datum des Aufmaßes
+  - Anwesend für den Auftraggeber
+  - Anwesend für den Auftragnehmer
+  - Unterschrift Auftragnehmer, Datum
+  - Unterschrift Auftraggeber oder Bauleitung, Datum
+tabelle:
+  spalten:
+    - Nr.
+    - OZ im LV
+    - Kurztext der Position
+    - "Ort: Geschoss, Achse, Raum, Bauteil"
+    - Anzahl
+    - Länge m
+    - Breite m
+    - Höhe / Dicke m
+    - Menge (+ / −)
+    - Einheit
+    - Rechenansatz, Abzug, Bemerkung
+    - "Beleg: Plan, Skizze, Foto, Lieferschein"
+    - Feststellung
+  breiten: [0.8, 1.6, 3, 3, 1, 1.1, 1.1, 1.2, 1.4, 0.9, 3.4, 2.6, 1.2]
+  zeilen:
+    - ["B1", "02.03.0010", "Mauerwerk Innenwand", "EG, Achse B / 2–3, Wand W1", "1", "4,25", "", "2,75", "11,69", "m²", "Bruttofläche Wand W1: 4,25 × 2,75", "Abrechnungsplan A-EG-01, Index c", "P"]
+    - ["B2", "02.03.0010", "Mauerwerk Innenwand", "EG, Wand W1, Türöffnung T1", "1", "0,885", "", "2,01", "−1,78", "m²", "Abzug der Öffnung T1; ob abgezogen oder übermessen wird, regelt die vereinbarte Abrechnungsregel", "Abrechnungsplan A-EG-01, Türliste", "P"]
+    - ["B3", "02.03.0010", "Summe dieser Position auf Blatt 3", "", "", "", "", "", "9,91", "m²", "Zeilen B1 und B2", "", ""]
+    - ["B4", "05.01.0020", "Grundleitung DN 150", "Außen, Strang S1, Schacht 1 bis Schacht 2", "1", "12,40", "", "", "12,40", "m", "Länge in der Rohrachse, vor dem Verfüllen gemessen", "Skizze 2, Fotos 14–16", "G"]
+    - ["B5", "03.02.0040", "Frostschutzmaterial liefern und einbauen", "Hof, Fläche F2", "", "", "", "", "18,450", "t", "Wiegeschein Nr. 4711, einzeln übertragen", "Wiegeschein 4711", "L"]
+    - ["B6", "NT 03.01", "Nachtrag 3, Pos. 1: zusätzliche Kernbohrung", "1. OG, Raum 1.05", "4", "", "", "", "4", "St", "Nachtrag 3 vom [Datum]; getrennt von den Positionen des Hauptauftrags", "Fotos 21–24", "E"]
+  leerzeilen: 30
+hinweise:
+  - "Die Zeilen B1 bis B6 sind Beispiele mit ausgedachten Maßen. Sie zeigen, wie eine Zeile aussehen soll. Löschen Sie sie, bevor Sie das Blatt verwenden."
+  - "Spalte Feststellung: G = gemeinsam aufgemessen, E = einseitig aufgemessen, P = nach Plan ermittelt, L = nach Liefer- oder Wiegeschein."
+  - "Kopfangaben: In der Excel-Datei fehlen die Kopffelder der PDF-Fassung. Tragen Sie Bauvorhaben, Auftraggeber, Auftragnehmer, Gewerk, Blatt-Nummer, Stichtag und Datum deshalb auf jedem ausgedruckten Blatt oder in einer eigenen Kopfzeile ein."
+  - "Vor dem ersten Aufmaß: Stimmen Sie mit der Bauleitung des Auftraggebers ab, in welcher Form Aufmaß und Rechnung erwartet werden, etwa die Nummerierung der Blätter und Nachträge, Papier oder Datei und die Zahl der Ausfertigungen. Halten Sie das Ergebnis schriftlich fest."
+  - "Nummerieren Sie die Aufmaßblätter fortlaufend und übernehmen Sie dieselbe Nummer in Mengenermittlung und Rechnung. So bleibt auch bei späteren Änderungen klar, woher eine Menge stammt."
+  - "Jede Zeile gehört zu genau einer Position des Leistungsverzeichnisses. Übernehmen Sie Ordnungszahl, Kurztext und Einheit so, wie sie im Vertrag stehen, und halten Sie in der Rechnung die Reihenfolge der Positionen ein."
+  - "Geben Sie den Ort so genau an, dass eine fremde Person die Stelle am Bau oder im Plan wiederfindet: Geschoss, Achse, Raumnummer, Bauteilbezeichnung."
+  - "Schreiben Sie jedes Maß auf, das in die Menge eingeht, und lassen Sie keinen Rechenschritt aus. Eine Menge ohne erkennbaren Rechenweg kann der Prüfer nicht nachvollziehen."
+  - "Erfassen Sie zuerst die Bruttomenge eines Bauteils. Öffnungen, Aussparungen und Unterbrechungen ziehen Sie in einer eigenen Zeile mit Minuszeichen ab."
+  - "Ob eine Öffnung abgezogen oder übermessen wird, entscheidet nicht das Aufmaßblatt, sondern die vertragliche Abrechnungsregel. Bei einem VOB-Vertrag ist das meist Abschnitt 5 der Allgemeinen Technischen Vertragsbedingungen (ATV) des Gewerks in der vereinbarten Ausgabe."
+  - "Kommt dasselbe Bauteil mehrfach vor, etwa gleiche Stützen, bezeichnen Sie es einmal und tragen die Anzahl ein."
+  - "Arbeiten Sie in einer festen Reihenfolge, etwa von einem Achspunkt aus im Uhrzeigersinn oder Achse für Achse. Das erleichtert Ihnen und dem Prüfer die Kontrolle auf Lücken und Doppelzählungen."
+  - "Aufmaß nach Plan: Verwenden Sie den zur Ausführung freigegebenen Plan, kennzeichnen Sie ihn als Abrechnungsplan, nennen Sie Plannummer und Index und markieren Sie die verwendeten Maße. Abweichungen vom Plan tragen Sie im Plan nach."
+  - "Aufmaß vor Ort: Wo Pläne fehlen oder die Ausführung vom Plan abweicht, messen Sie am Bau auf. Eine einfache Handskizze mit Maßen und Bauteilbezeichnungen gehört als Beleg dazu."
+  - "Leistungen, die später verdeckt werden, etwa Grundleitungen, Dämmungen unter der Bodenplatte oder Leitungen in Schächten: Beantragen Sie rechtzeitig vor dem Verdecken eine gemeinsame Feststellung und fotografieren Sie den Zustand mit Bezug zur Zeile."
+  - "Gemeinsames Aufmaß: Beide Seiten unterschreiben das Blatt, und jede Seite erhält eine Ausfertigung. Ein gemeinsam erstelltes und unterschriebenes Aufmaß kann beide Seiten an die festgestellten Mengen binden."
+  - "Erscheint die andere Seite nicht: Halten Sie die schriftliche Einladung zum Termin fest, messen Sie trotzdem auf, kennzeichnen Sie die Zeilen mit E und bitten Sie die Bauleitung des Auftraggebers um einen Prüfvermerk. Ein einseitiges Aufmaß ersetzt das gemeinsame nicht."
+  - "Ohne gemeinsames Aufmaß muss in der Regel der Auftragnehmer die abgerechneten Mengen nachweisen. Welche Folgen ein abgelehnter oder versäumter Aufmaßtermin im Einzelfall hat, beurteilt ein Rechtsanwalt."
+  - "Geänderte oder zusätzliche Leistungen: Rechnen Sie sie unter eigenen Positionsnummern mit der Nachtragsnummer ab, nicht als angehängte Buchstaben an einer Position des Hauptauftrags. Bei einem VOB-Vertrag muss die Rechnung solche Vertragsänderungen deutlich hervorheben; verlangt der Auftraggeber es, rechnen Sie sie gesondert ab."
+  - "Weicht nur die Menge vom Leistungsverzeichnis ab, ohne dass sich die Leistung geändert hat, zeigt das Aufmaß die Abweichung. Eine besondere Kennzeichnung als Nachtrag ist dafür nicht nötig."
+  - "Stundenlohnarbeiten gehören nicht auf dieses Blatt, sondern auf Stundenlohnzettel. Bei einem VOB-Vertrag sind sie vor Beginn anzuzeigen."
+  - "Liefer- und Wiegescheine: Übertragen Sie jeden Schein einzeln mit seiner Nummer, nicht nur eine Summe."
+  - "Abschlagsrechnung: Tragen Sie je Position die bereits abgerechnete Menge als Vortrag ein und messen Sie nur den Zuwachs seit dem letzten Stichtag. Ermitteln Sie auch Abschlagsmengen schon nach den vereinbarten Abrechnungsregeln, dann lassen sie sich unverändert in die Schlussrechnung übernehmen."
+  - "Nach dem BGB richtet sich ein Abschlag nach dem Wert der erbrachten und nach dem Vertrag geschuldeten Leistung. Die Aufstellung dazu muss eine rasche und sichere Beurteilung ermöglichen; die VOB/B verlangt dafür eine prüfbare Aufstellung."
+  - "Schlussrechnung: Fügen Sie Aufmaßblätter, Abrechnungspläne, Skizzen und Lieferscheine der Rechnung bei. Es genügt in der Regel nicht, sie nur zur Einsicht im eigenen Büro anzubieten."
+  - "Runden Sie so, wie es der Vertrag vorgibt. Manche öffentliche Auftraggeber legen die Zahl der Nachkommastellen für Längen, Flächen, Rauminhalte und Gewichte in ihren Vertragsunterlagen fest."
+  - "Beim Pauschalvertrag ist ein Aufmaß in der Regel nicht nötig. Es kann aber für geänderte oder zusätzliche Leistungen gebraucht werden, wenn dafür keine neue Pauschale vereinbart ist."
+  - "Die Vorlage beschreibt den üblichen Aufbau eines Aufmaßes. Was im Einzelfall vertraglich geschuldet ist und welche Rechtsfolgen ein Aufmaß hat, klärt ein Rechtsanwalt."
+quellen:
+  - "§ 14 Abs. 1 und 2, § 15 Abs. 3, § 16 Abs. 1 Nr. 1 VOB/B, Ausgabe 2016 (DIN 1961:2016-09)"
+  - "§ 632a Abs. 1 und § 650g Abs. 4 BGB"
+  - "ATV DIN 18299:2023-09 und die ATV der Gewerke, jeweils Abschnitt 5"
+  - "Saalbach/Viering/Zanner: Vergütung, Nachträge und Abrechnung nach Ansprüchen, 2023, S. 118–137"
+  - "Berner u. a.: Grundlagen der Baubetriebslehre 3, 3. Aufl. 2025, S. 181–186 und 249–257"
+  - "Würfele/Bielefeld/Gralla: Bauobjektüberwachung, 3. Aufl. 2017, S. 139–156"
+  - "Rode/Weller: AVA-Handbuch, 11. Aufl. 2025, S. 86–91"
+  - "Linnemann/Kaltenborn/Bahner: Kündigungsvergütung von Bauverträgen, 2024, S. 75"
