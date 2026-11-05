@@ -1,0 +1,112 @@
+titel: Nachtragsangebot mit Kalkulationsaufbau
+untertitel: Kalkulationsblatt je Nachtragsposition für geänderte und zusätzliche Leistungen nach § 2 Abs. 5 und 6 VOB/B
+kurzform: nachtragsangebot-mit-kalkulationsaufbau
+typ: Tabelle
+stand: 2026-10-27
+dateien: [xlsx, pdf]
+einleitung: >-
+  Mit diesem Blatt leiten Sie den Preis einer Nachtragsposition Schritt für Schritt her:
+  vom Anlass über die Bezugsposition der Urkalkulation und die Einzelkosten bis zum
+  Einheitspreis und zur Summe. Nutzen Sie je Nachtragsposition ein Blatt. Tragen Sie in
+  die Spalte Urkalkulation die Werte mit Fundstelle ein und begründen Sie jede Abweichung
+  in der Spalte Ansatz Nachtrag. Die Spalte Rechenweg nennt die Zeilen, aus denen sich ein
+  Betrag ergibt.
+tabelle:
+  spalten:
+    - Nr.
+    - Schritt / Kostenart
+    - Was Sie eintragen
+    - Wert aus Urkalkulation (Fundstelle)
+    - Ansatz Nachtrag
+    - Rechenweg
+    - Betrag in Euro
+    - Nachweis / Anlage
+  breiten: [0.8, 3, 5.6, 2.3, 2.3, 1.6, 1.6, 2.4]
+  zeilen:
+    - ["A", "GRUNDLAGEN DES NACHTRAGS", "", "", "", "", "", ""]
+    - ["A1", "Bauvorhaben und Vertrag", "Bezeichnung des Bauvorhabens, Auftraggeber, Vertragsnummer und Datum des Hauptauftrags.", "", "", "", "", "Auftragsschreiben"]
+    - ["A2", "Vertragsgrundlage", "VOB/B vereinbart: ja oder nein, Fassung laut Vertrag. Ist die VOB/B nicht vereinbart, gelten die Regeln des BGB-Bauvertrags; dann passt dieses Blatt nur eingeschränkt.", "", "", "", "", "Vertrag, Besondere Vertragsbedingungen"]
+    - ["A3", "Nachtrag", "Nachtragsnummer, Datum dieses Angebots, Bearbeiter.", "", "", "", "", ""]
+    - ["A4", "Anordnung", "Wer hat die Änderung verlangt, wann und in welcher Form (Schreiben, Protokoll, E-Mail)? Prüfen Sie, ob die Person vertretungsberechtigt ist. Ein Architekt oder Bauleiter des Auftraggebers darf Leistungen mit Kostenfolge nicht ohne Weiteres anordnen.", "", "", "", "", "Kopie der Anordnung"]
+    - ["A5", "Art der Änderung", "Ankreuzen: geänderte Leistung (§ 2 Abs. 5 VOB/B), zusätzliche Leistung (§ 2 Abs. 6 VOB/B) oder beides. Geändert heißt: Die Position steht im Vertrag, ihre Preisgrundlagen ändern sich. Zusätzlich heißt: Die Leistung war im Vertrag nicht vorgesehen.", "", "", "", "", ""]
+    - ["A6", "Ankündigung der Mehrvergütung", "Nur bei zusätzlicher Leistung: Datum, an dem Sie den Anspruch auf Vergütung angekündigt haben, und wie der Zugang beim Auftraggeber nachweisbar ist. Die Ankündigung muss vor Beginn der Ausführung erfolgen.", "", "", "", "", "Ankündigungsschreiben mit Zugangsnachweis"]
+    - ["A7", "Keine Nebenleistung", "Prüfen Sie im Abschnitt 4 der einschlägigen ATV (VOB/C), ob die Leistung als Nebenleistung ohnehin geschuldet ist oder als Besondere Leistung gesondert vergütet wird. Fundstelle eintragen.", "", "", "", "", "Auszug ATV"]
+    - ["A8", "Berechnungsweise", "Ankreuzen: Fortschreibung der Urkalkulation, tatsächlich erforderliche Kosten oder im Vertrag vereinbarte Methode. Bleiben Sie innerhalb eines Nachtrags bei einer Methode und sagen Sie im Angebot, welche Sie gewählt haben.", "", "", "", "", ""]
+    - ["A9", "Urkalkulation", "Wann und wie wurde die Urkalkulation übergeben (verschlossener Umschlag, Formblätter des öffentlichen Auftraggebers, Datei)? Welcher Stand? Nur eine bei Vertragsschluss hinterlegte Kalkulation trägt die Fortschreibung.", "", "", "", "", "Übergabevermerk"]
+    - ["A10", "Vereinbarung zu Nachträgen", "Gibt es eine Vereinbarung mit dem Auftraggeber, wie neue Preise gebildet und Nachträge bearbeitet werden? Wenn ja: Fundstelle und was sie zur Preisbildung sagt.", "", "", "", "", "Vereinbarung"]
+    - ["B", "LEISTUNG: VERTRAG UND ÄNDERUNG", "", "", "", "", "", ""]
+    - ["B1", "Vertragliche Leistung (Bausoll)", "Was schuldet der Vertrag ohne die Änderung? LV-Position mit Ordnungszahl, Vorbemerkungen, Planstand.", "", "", "", "", "LV-Auszug, Planausschnitt"]
+    - ["B2", "Nachtragsleistung", "Kurztext und Langtext der neuen oder geänderten Position, so genau wie eine Position im Leistungsverzeichnis. Ohne eigene Leistungsbeschreibung ist ein Nachtrag kaum prüfbar.", "", "", "", "", "Nachtrags-LV"]
+    - ["B3", "Anlass", "In einem Satz: Was hat die Änderung ausgelöst (Planänderung, Wunsch des Auftraggebers, Anordnung einer Behörde)?", "", "", "", "", ""]
+    - ["B4", "Bezugspositionen", "Ordnungszahlen der vertraglichen Positionen, deren Kalkulationsansätze Sie übernehmen. Gibt es keine vergleichbare Position, schreiben Sie das ausdrücklich hin.", "", "", "", "", "Auszug Urkalkulation"]
+    - ["B5", "Betroffene andere Positionen", "Welche vertraglichen Positionen entfallen, ändern sich in der Menge oder werden teurer oder billiger?", "", "", "", "", ""]
+    - ["B6", "Ausführungszeit und Bauumstände", "Wann wird die Nachtragsleistung voraussichtlich ausgeführt, und ändern sich dabei Bauablauf, Verfahren, Witterung oder Zugänglichkeit gegenüber der Kalkulation?", "", "", "", "", "Bauzeitenplan"]
+    - ["B7", "Menge und Einheit", "Nachtragsmenge mit Einheit (m, m², m³, Stück, t) und wie sie ermittelt wurde.", "", "", "", "", "Mengenermittlung"]
+    - ["C", "LOHNKOSTEN (EIGENE LEISTUNG)", "", "", "", "", "", ""]
+    - ["C1", "Kalkulationslohn", "Mittellohn je Arbeitsstunde aus der Urkalkulation, mit Angabe, ob Aufsicht, Sozialkosten und Lohnnebenkosten enthalten sind.", "", "", "", "", "Kalkulationsschlussblatt"]
+    - ["C2", "Zeitansatz der Bezugsposition", "Arbeitsstunden je Einheit, mit denen die Bezugsposition kalkuliert ist.", "", "", "", "", ""]
+    - ["C3", "Zeitansatz Nachtrag", "Arbeitsstunden je Einheit für die Nachtragsleistung. Weicht der Wert von C2 ab, begründen Sie, welcher Arbeitsschritt hinzukommt oder wegfällt.", "", "", "", "", "Arbeitsablauf, Begründung"]
+    - ["C4", "Erschwernisse", "Nur wenn die Änderung sie verursacht: zusätzliche Stunden etwa durch Nacht- oder Wochenendarbeit, kleinere Teilflächen oder Unterbrechungen. Sonst leer lassen.", "", "", "", "", "Begründung"]
+    - ["C5", "Lohnkosten je Einheit", "Kalkulationslohn mal Zeitansatz Nachtrag, zuzüglich Erschwernisse.", "", "", "C1 × C3 + C4", "", ""]
+    - ["D", "STOFFKOSTEN", "", "", "", "", "", ""]
+    - ["D1", "Stoff mit Ansatz in der Urkalkulation", "Gleicher Stoff wie in einer Vertragsposition (etwa gleiche Betonsorte): Preis je Einheit aus der Urkalkulation übernehmen.", "", "", "", "", "Auszug Urkalkulation"]
+    - ["D2", "Stoff ohne Ansatz", "Neuer Stoff: Preis aus einem aktuellen Lieferantenangebot. Bei Fortschreibung der Urkalkulation das Preisniveau des Vertrags berücksichtigen (siehe Hinweise); bei tatsächlich erforderlichen Kosten den belegten Einkaufspreis.", "", "", "", "", "Lieferantenangebot"]
+    - ["D3", "Verbrauch je Einheit", "Menge Stoff je Einheit der Nachtragsleistung, einschließlich Verschnitt und Hilfsstoffen.", "", "", "", "", ""]
+    - ["D4", "Stoffkosten je Einheit", "Preis mal Verbrauch, für jeden Stoff eine eigene Zeile, wenn nötig.", "", "", "D1 oder D2 × D3", "", ""]
+    - ["E", "GERÄTEKOSTEN", "", "", "", "", "", ""]
+    - ["E1", "Gerät aus der Urkalkulation", "Gerät, das schon für die Vertragsleistung kalkuliert ist: Kostensatz je Stunde oder Tag übernehmen.", "", "", "", "", "Auszug Urkalkulation"]
+    - ["E2", "Zusätzliches Gerät", "Gerät, das nur der Nachtrag braucht: Mietangebot oder interner Verrechnungssatz mit Erläuterung.", "", "", "", "", "Mietangebot"]
+    - ["E3", "Einsatzzeit je Einheit", "Gerätestunden je Einheit der Nachtragsleistung.", "", "", "", "", ""]
+    - ["E4", "Gerätekosten je Einheit", "Kostensatz mal Einsatzzeit.", "", "", "E1 oder E2 × E3", "", ""]
+    - ["F", "NACHUNTERNEHMER UND SONSTIGE KOSTEN", "", "", "", "", "", ""]
+    - ["F1", "Nachunternehmerleistung", "Preis je Einheit laut Angebot des Nachunternehmers. Fügen Sie dessen Angebot oder Kalkulation bei.", "", "", "", "", "Angebot Nachunternehmer"]
+    - ["F2", "Sonstige Kosten", "Kosten, die keiner Kostenart oben zugehören, etwa Entsorgung, Prüfungen oder Transporte, jeweils mit Beleg.", "", "", "", "", "Belege"]
+    - ["F3", "Einzelkosten der Teilleistung", "Summe der Einzelkosten je Einheit, also aller Kosten, die sich der Nachtragsposition direkt zuordnen lassen.", "", "", "C5 + D4 + E4 + F1 + F2", "", ""]
+    - ["G", "ZUSCHLÄGE UND EINHEITSPREIS", "", "", "", "", "", ""]
+    - ["G1", "Baustellengemeinkosten", "Nur ansetzen, wenn der Nachtrag sie verändert, etwa längere Vorhaltung von Kran oder Container. Dann konkret als eigene Kosten ausweisen. Ein pauschaler Zuschlag ist in der Rechtsprechung umstritten (siehe Hinweise).", "", "", "", "", "Aufstellung Gemeinkosten"]
+    - ["G2", "Allgemeine Geschäftskosten", "Zuschlagssatz in Prozent aus der Urkalkulation, getrennt nach Kostenart, wenn die Urkalkulation das so ausweist.", "", "", "", "", "Kalkulationsschlussblatt"]
+    - ["G3", "Wagnis und Gewinn", "Zuschlagssatz in Prozent aus der Urkalkulation.", "", "", "", "", "Kalkulationsschlussblatt"]
+    - ["G4", "Nachlass", "Wurde auf den Hauptauftrag ein Nachlass gewährt, prüfen Sie, ob er nach dem Vertrag auch für Nachträge gilt.", "", "", "", "", "Vertrag"]
+    - ["G5", "Einheitspreis netto", "Einzelkosten plus Gemeinkosten plus Zuschläge, abzüglich eines geltenden Nachlasses.", "", "", "F3 + G1 + Zuschläge G2, G3 – G4", "", ""]
+    - ["H", "SUMME DES NACHTRAGS", "", "", "", "", "", ""]
+    - ["H1", "Gesamtpreis Nachtragsposition", "Einheitspreis mal Nachtragsmenge.", "", "", "G5 × B7", "", ""]
+    - ["H2", "Entfallende oder geänderte Vertragsleistung", "Bei geänderter Leistung: Vergütung für den Teil der Vertragsleistung, der wegfällt (vertraglicher Einheitspreis mal entfallende Menge). Ersparnisse schreiben Sie dem Auftraggeber gut.", "", "", "", "", "Auszug Vertrags-LV"]
+    - ["H3", "Mehr- oder Minderbetrag der Position", "Gesamtpreis der Nachtragsposition abzüglich der entfallenden Vergütung.", "", "", "H1 – H2", "", ""]
+    - ["H4", "Zeitabhängige Kosten", "Verlängert sich die Bauzeit durch den Nachtrag, weisen Sie diese Kosten gesondert nach oder behalten Sie sie ausdrücklich vor. Nicht in den Einheitspreis mischen.", "", "", "", "", "Bauablaufdarstellung"]
+    - ["H5", "Summe netto", "Summe aller Positionen dieses Nachtrags ohne Umsatzsteuer.", "", "", "", "", ""]
+    - ["H6", "Umsatzsteuer", "Zum gesetzlichen Satz, wie im Hauptauftrag.", "", "", "", "", ""]
+    - ["H7", "Summe brutto", "Summe netto plus Umsatzsteuer.", "", "", "H5 + H6", "", ""]
+    - ["I", "ANLAGEN UND ABSCHLUSS", "", "", "", "", "", ""]
+    - ["I1", "Ablauf der Ereignisse", "Kurze Zeitfolge: Anordnung, Ankündigung, Angebot, geplante Ausführung.", "", "", "", "", "Chronologie"]
+    - ["I2", "Unterlagen zur Leistung", "Gegenüberstellung von Bausoll und geänderter Leistung mit LV-Auszug und Plänen.", "", "", "", "", "LV, Pläne"]
+    - ["I3", "Auszug Urkalkulation", "Kalkulationsblätter der Bezugspositionen und Schlussblatt mit den Zuschlägen.", "", "", "", "", "Urkalkulation"]
+    - ["I4", "Fremde Angebote und Belege", "Angebote von Lieferanten, Nachunternehmern und Vermietern.", "", "", "", "", "Angebote"]
+    - ["I5", "Vorbehalt", "Vorbehalt für Kosten, die sich noch nicht beziffern lassen, etwa Folgen für Bauzeit und Bauablauf.", "", "", "", "", "Text im Anschreiben"]
+    - ["I6", "Bindefrist und Bitte um Beauftragung", "Bis wann gilt das Angebot? Bitten Sie um schriftliche Beauftragung vor Beginn der Ausführung.", "", "", "", "", "Anschreiben"]
+    - ["I7", "Unterschrift", "Name, Funktion, Datum, Kontakt für Rückfragen.", "", "", "", "", ""]
+  leerzeilen: 8
+hinweise:
+  - "Je Nachtragsposition ein Blatt. Mehrere Positionen fassen Sie im Anschreiben in einer Übersicht zusammen und übertragen dort die Zeilen H1 bis H3."
+  - "Füllen Sie die Spalte Urkalkulation nur mit Werten aus der hinterlegten Kalkulation und nennen Sie die Fundstelle, etwa Blatt und Ordnungszahl. Neue Werte gehören in die Spalte Ansatz Nachtrag, jeweils mit Beleg."
+  - "Fortschreibung heißt: Sie übernehmen Mittellohn, Stoff- und Gerätepreise sowie die Zuschlagssätze der Urkalkulation und passen nur das an, was sich durch die Änderung wirklich ändert, vor allem die Zeitansätze und Mengen."
+  - "Hat ein Stoff keinen Ansatz in der Urkalkulation, wird bei der Fortschreibung oft das Preisniveau des Vertrags übertragen: Sie vergleichen den kalkulierten Preis eines ähnlichen Vertragsstoffs mit dessen Marktpreis und wenden dieses Verhältnis auf den Marktpreis des neuen Stoffs an. Für Anordnungen nach dem BGB-Bauvertrag soll ein solcher Faktor nach der Gesetzesbegründung nicht verwendet werden."
+  - "Zur Berechnungsweise gibt es Streit. Der Bundesgerichtshof hat 2019 für Mehrmengen nach § 2 Abs. 3 VOB/B entschieden, dass ohne Einigung die tatsächlich erforderlichen Kosten mit angemessenen Zuschlägen gelten. Das Kammergericht wendet diesen Maßstab auch bei § 2 Abs. 5 und 6 VOB/B an und lässt die Kalkulation als Hilfsmittel zu."
+  - "Wer nach tatsächlich erforderlichen Kosten rechnet, braucht Belege für die Kosten, etwa Rechnungen und Angebote. Auch dann gehört die Herleitung in dieses Blatt: Spalte Urkalkulation leer lassen oder zum Vergleich ausfüllen."
+  - "Am sichersten ist eine Vereinbarung mit dem Auftraggeber, wie neue Preise gebildet werden, möglichst schon zu Beginn des Bauvorhabens."
+  - "Bei zusätzlichen Leistungen nach § 2 Abs. 6 VOB/B muss die Ankündigung des Vergütungsanspruchs vor Beginn der Ausführung beim Auftraggeber sein. Kündigen Sie schriftlich an und bewahren Sie den Nachweis des Zugangs auf."
+  - "Der Preis soll nach der VOB/B vor der Ausführung vereinbart werden. Legen Sie das Angebot deshalb so früh wie möglich vor."
+  - "Öffentliche Auftraggeber verlangen die Kalkulation oft auf eigenen Formblättern zur Preisermittlung und zur Aufgliederung der Einheitspreise. Übernehmen Sie die dort angegebenen Zuschläge und Verrechnungslöhne."
+  - "Baustellengemeinkosten: Wer sie in der Urkalkulation mit festen Zuschlagssätzen kalkuliert hat, schreibt sie bei der Fortschreibung oft mit. Das Kammergericht hat einen pauschalen Zuschlag für Baustellengemeinkosten auf Nachträge abgelehnt; sicherer ist der konkrete Nachweis zusätzlicher Gemeinkosten."
+  - "Entfallen durch eine Änderung Teile der Vertragsleistung, rechnen Sie diese in Zeile H2 gegen. Ein Nachtrag kann auch zu einer Minderung führen."
+  - "Folgen für die Bauzeit gehören nicht in den Einheitspreis. Behalten Sie sie im Angebot ausdrücklich vor, sonst kann der Auftraggeber das Angebot als abschließend verstehen."
+  - "Dieses Blatt ersetzt keine Prüfung durch einen Rechtsanwalt, wenn Anspruch oder Methode streitig sind."
+quellen:
+  - "§ 2 Abs. 5 und 6 VOB/B, DIN 1961:2016-09 (VOB Gesamtausgabe 2019, S. 140)"
+  - "§ 650c BGB"
+  - "BGH, Urteil vom 08.08.2019 – VII ZR 34/18"
+  - "KG, Urteil vom 18.07.2025 – 21 U 176/24, Rn. 81"
+  - "ATV DIN 18299:2023-09, Abschnitt 4"
+  - "Malkwitz u. a.: Kostenermittlung und -kalkulation im Bauprojekt, 2022, S. 106–111"
+  - "Saalbach/Viering/Zanner: Vergütung, Nachträge und Abrechnung nach Ansprüchen, 2023, S. 41, 56–63, 89"
+  - "Ahting: Nachtragsmanagement bei gestörten Bauabläufen, 2020, S. 103"
+  - "Hinweise zu den Grundsätzen zur Bearbeitung von Nachträgen zu Bauverträgen, Stand 08.12.2022"
