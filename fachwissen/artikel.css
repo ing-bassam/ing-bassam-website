@@ -170,7 +170,7 @@ a:hover{color:var(--accent-hover);}
 .prosa .footnote hr{display:none;}
 .prosa .footnote ol{padding-left:1.2em;}
 .prosa .footnote li{margin-bottom:10px;}
-.prosa .footnote li p{margin-bottom:6px;}
+.prosa .footnote li p{margin-bottom:6px; overflow-wrap:anywhere;}  /* viele Rücksprung-Pfeile und lange Adressen umbrechen */
 .prosa sup[id^="fnref"] a{text-decoration:none; font-weight:600; padding-inline:2px;}
 .prosa .footnote-backref{text-decoration:none; margin-left:4px;}
 
