@@ -113,7 +113,7 @@ Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er
 
 **Über den Autor**
 
-Karim Abu Elkheir, B.Eng. Bauingenieurwesen, M.Sc. Wirtschaftsingenieurwesen (Schwerpunkt Bautechnik und Management), BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: 2026-09-21.
+Karim Abu Elkheir, B.Eng. Bauingenieurwesen, M.Sc. Wirtschaftsingenieurwesen (Schwerpunkt Bautechnik und Management), BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de. Stand: 2026-09-21.
 
 ## Quellen und Fußnoten
 

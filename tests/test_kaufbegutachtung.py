@@ -46,7 +46,7 @@ MAIL = {
            "Property (house or flat), location/district, planned notary date: …\r\n\r\n"
            "Please send me your quote."),
 }
-KNOPF = {"de": "Angebot anfordern", "en": "Request a quote"}
+KNOPF = {"de": "Anfrage per E-Mail", "en": "Enquiry by email"}
 ANKER = {"de": ("wohnung", "haus"), "en": ("flat", "house")}
 # Was es öffentlich nicht mehr gibt: Hinweis-Assistent, Regeln, Unterlagen, Anteilsrechner.
 VERBOTEN = (
@@ -91,7 +91,7 @@ class OeffentlicheSeiten(unittest.TestCase):
         for sprache, satz in PREISE_NACH_ANFRAGE.items():
             seite = unescape(roh(sprache))
             self.assertIn(satz, seite)
-            self.assertIn('href="tel:+4917623581339"', seite)
+            self.assertNotIn('href="tel:', seite)  # Kontakt nur per E-Mail
             for wort in ("Preis berechnen", "Calculate your price", "Preisrechner", "price calculator", "data-preis="):
                 self.assertNotIn(wort, seite)
             kopf = re.search(r"<head>.*?</head>", seite, re.S).group(0)
@@ -147,9 +147,9 @@ class AndereSeiten(unittest.TestCase):
         self.assertIn('href="/en/pre-purchase-inspection-berlin/"', UEBERSICHTEN["en"].read_text(encoding="utf-8"))
 
     def test_startseite_fuehrt_zur_kaufbegutachtung(self):
-        # Der Leistungseintrag „Objektüberwachung (LP 8)“ ist durch die Kaufbegutachtung ersetzt;
-        # der Anker #leistung-objektueberwachung bleibt für ältere Links aus Fachbeiträgen erhalten
-        # und führt jetzt zur Zeile „Baubegleitung und Bauabnahme“.
+        # Die Kaufbegutachtung hat eine eigene Karte; der Anker #leistung-objektueberwachung
+        # bleibt für ältere Links aus Fachbeiträgen erhalten und führt zur Karte
+        # „Vergabe und Objektüberwachung“ (HOAI-Leistungsphasen 6 bis 8).
         start = (WURZEL / "index.html").read_text(encoding="utf-8")
         karte = re.search(r'<article class="leistung[^"]*"[^>]*id="leistung-kaufbegutachtung">(.*?)</article>', start, re.S)
         self.assertIsNotNone(karte)

@@ -134,7 +134,7 @@ This guide reflects the state of technical knowledge on the date of writing. It 
 
 **About the author**
 
-M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Contact: info@ing-bassam.de, +49 176 23581339. English version as of 5 October 2026, based on the German article as of 26 September 2026.
+M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Contact: info@ing-bassam.de. English version as of 5 October 2026, based on the German article as of 26 September 2026.
 
 ## Sources and footnotes
 
