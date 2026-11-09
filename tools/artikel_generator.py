@@ -105,10 +105,6 @@ EMAIL = "info@ing-bassam.de"
 # Nur dieser Status erscheint öffentlich.
 STATUS_OEFFENTLICH = "veröffentlicht"
 
-# Fachbeitrag, Rechtsprechung und Grundlagen richten sich an ein fachliches
-# Publikum; schema.org kennt dafür TechArticle.
-FACHLICHE_FORMATE = {"fachbeitrag", "rechtsprechung", "grundlagen", "urteilsbesprechung"}
-
 
 # --------------------------------------------------------------------------
 # Hilfsfunktionen
@@ -356,7 +352,10 @@ def json_wert(wert) -> str:
 
 
 def strukturierte_daten(artikel: "Artikel") -> str:
-    typ = "TechArticle" if artikel.format.lower() in FACHLICHE_FORMATE else "Article"
+    # Immer "Article": Suchmaschinen und Prüfwerkzeuge (z. B. Ahrefs) werten nur
+    # Article, NewsArticle und BlogPosting als Artikel-Schema; der Untertyp
+    # TechArticle blieb unerkannt.
+    typ = "Article"
 
     # Ein einziger Firmenknoten mit fester Kennung. Vorher stand dieselbe GmbH
     # dreimal im Datensatz: einmal auf der Startseite, einmal als publisher und
