@@ -29,10 +29,10 @@
   --text-2:#475262;
   --text-3:#5e6876;
 
-  --accent:#c2410c;
-  --accent-hover:#a3360a;
-  --accent-bright:#f26b2a;
-  --accent-soft:rgba(194,65,12,.10);
+  --accent:#2b5a86;
+  --accent-hover:#234a70;
+  --accent-bright:#8fb8de;
+  --accent-soft:rgba(43,90,134,.10);
 
   --font-body:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-display:'Space Grotesk', 'Inter', system-ui, sans-serif;
@@ -64,7 +64,9 @@ body{
 
 a{color:var(--accent); text-decoration:underline; text-underline-offset:2px;}
 a:hover{color:var(--accent-hover);}
-:focus-visible{outline:2px solid var(--accent-bright); outline-offset:3px;}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+/* auf dunklem Grund die helle Stufe (mind. 3:1) */
+.seiten-kopf :focus-visible, .seiten-fuss :focus-visible, .leistungskasten :focus-visible{outline-color:var(--accent-bright);}
 
 .skip-link{
   position:absolute; left:-9999px; top:0; z-index:10;
@@ -111,9 +113,9 @@ a:hover{color:var(--accent-hover);}
   background:var(--kat, var(--line-strong));
 }
 :root{
-  --kat-bauphysik:#2f5d8a; --kat-bauschaeden:#c2410c; --kat-gutachten-recht:#3f6b5a;
+  --kat-bauphysik:#2f5d8a; --kat-bauschaeden:#8a3a2f; --kat-gutachten-recht:#3f6b5a;
   --kat-baubetrieb:#8a5a2f; --kat-bauherrenwissen:#5a4a8a; --kat-hausverwaltung-bestand:#8a2f5d;
-  --kat-energie-foerderung:#2f8a7a;
+  --kat-energie-foerderung:#246b5e;
 }
 [data-kategorie="bauphysik"]{--kat:var(--kat-bauphysik);}
 [data-kategorie="bauschaeden"]{--kat:var(--kat-bauschaeden);}
@@ -311,33 +313,9 @@ a:hover{color:var(--accent-hover);}
   .karten{grid-template-columns:1fr;}
 }
 
-/* ------------------------------------------------- Mobiler Schnellkontakt
-   Feste Leiste am unteren Rand mit Anruf und Anfrage – nur auf kleinen
-   Bildschirmen, wo Telefonnummer und Kontaktformular sonst erst nach langem
-   Scrollen erreichbar sind. Auf dem Desktop bleibt sie ausgeblendet. */
-.schnellkontakt{display:none;}
-@media (max-width:860px){
-  body{padding-bottom:calc(66px + env(safe-area-inset-bottom));}
-  .schnellkontakt{
-    position:fixed; left:0; right:0; bottom:0; z-index:90;
-    display:grid; grid-template-columns:1fr 1fr; gap:8px;
-    padding:8px var(--gutter) calc(8px + env(safe-area-inset-bottom));
-    background:rgba(10,18,29,.94);
-    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
-    border-top:1px solid var(--ink-line);
-  }
-  .schnellkontakt a{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    min-height:48px; padding:0 12px;
-    border:1px solid var(--ink-line-2); border-radius:var(--radius-sm);
-    color:#fff; font-size:.9375rem; font-weight:500; text-decoration:none; white-space:nowrap;
-  }
-  .schnellkontakt a.primaer{background:var(--accent); border-color:var(--accent);}
-  .schnellkontakt svg{width:18px; height:18px; flex-shrink:0; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
-}
 
 @media print{
-  .schnellkontakt,.leistungskasten{display:none;}
+  .leistungskasten{display:none;}
   .seiten-kopf,.seiten-fuss,.brotkrumen,.skip-link,.entwurfswarnung,.weiterlesen{display:none;}
   body{background:#fff; font-size:11pt;}
   .prosa h2{margin-top:24pt;}

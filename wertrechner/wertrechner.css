@@ -17,7 +17,7 @@
   --on-ink:#edeff2; --on-ink-2:#aeb6c2; --on-ink-3:#848e9c;
   --paper:#f4f3ef; --surface:#ffffff; --line:#e0ddd5; --line-strong:#c9c5bb;
   --text:#0f1a28; --text-2:#475262; --text-3:#5e6876;
-  --accent:#c2410c; --accent-hover:#a3360a; --accent-bright:#f26b2a; --accent-soft:rgba(194,65,12,.10);
+  --accent:#2b5a86; --accent-hover:#234a70; --accent-bright:#8fb8de; --accent-soft:rgba(43,90,134,.10); --error-bright:#f0998a;
   --ok:#3f6b5a; --ok-soft:rgba(63,107,90,.12); --warn:#8a5a2f; --warn-soft:rgba(138,90,47,.12); --error:#b42318;
   --font-body:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-display:'Space Grotesk', 'Inter', system-ui, sans-serif;
@@ -38,9 +38,9 @@ a:hover{color:var(--accent-hover);}
 button,input,select,textarea{font:inherit; color:inherit;}
 h1,h2,h3,h4{margin:0; font-family:var(--font-display); font-weight:600; line-height:1.15; letter-spacing:-.015em; text-wrap:balance;}
 p{margin:0;}
-/* Fokus: dunkles Orange auf hellem Grund, helles Orange auf dunklem Grund (jeweils mind. 3:1) */
+/* Fokus: dunkles Blau auf hellem Grund, helles Blau auf dunklem Grund (jeweils mind. 3:1) */
 :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px;}
-.seiten-kopf :focus-visible, .hero :focus-visible, .leistung :focus-visible, .seiten-fuss :focus-visible, .schnellkontakt :focus-visible{outline-color:var(--accent-bright);}
+.seiten-kopf :focus-visible, .hero :focus-visible, .leistung :focus-visible, .seiten-fuss :focus-visible{outline-color:var(--accent-bright);}
 [hidden]{display:none !important;}
 .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
 .wrap{width:100%; max-width:var(--wrap); margin-inline:auto; padding-inline:var(--gutter);}
@@ -69,12 +69,12 @@ p{margin:0;}
     repeating-linear-gradient(90deg, var(--ink-line-2) 0 1px, transparent 1px 96px) top left / 100% 7px no-repeat,
     repeating-linear-gradient(180deg, var(--ink-line-2) 0 1px, transparent 1px 96px) top left / 7px 100% no-repeat;}
 .eyebrow{display:inline-block; margin-bottom:20px; font-family:var(--font-plan); font-size:.8125rem; font-weight:400; letter-spacing:.04em; color:var(--on-ink-3);}
-.hero h1{font-size:clamp(2.125rem, 4.6vw, 3.5rem); line-height:1.05; letter-spacing:-.025em; color:#fff; max-width:18ch;}
+.hero h1{font-size:clamp(1.875rem, 4.3vw, 3.25rem); line-height:1.05; letter-spacing:-.025em; color:#fff; max-width:18ch;}
 .hero h1 .accent{color:inherit;}
-.hero-lead{max-width:60ch; margin-top:22px; font-size:clamp(1rem, 1.3vw, 1.125rem); line-height:1.65; color:var(--on-ink-2);}
-.vertrauen{display:flex; flex-wrap:wrap; gap:8px 0; margin-top:30px; margin-left:-17px; clip-path:inset(0 0 0 17px);}
-.vertrauen li{list-style:none; padding:0 16px; border-left:1px solid var(--ink-line-2); font-size:.875rem; line-height:1.4; color:var(--on-ink-2);}
-.vertrauen{padding-left:0;}
+.hero-lead{max-width:52ch; margin-top:22px; font-size:clamp(1rem, 1.3vw, 1.125rem); line-height:1.65; color:var(--on-ink-2);}
+/* Sachliche Angaben unter der Einleitung (Gebiet, Berichtsform, Sprache): höchstens drei, als Zeilen */
+.vertrauen{display:flex; flex-direction:column; gap:6px; margin:28px 0 0; padding-left:0;}
+.vertrauen li{list-style:none; padding-left:16px; border-left:1px solid var(--ink-line-2); font-size:.9375rem; line-height:1.5; color:var(--on-ink-2);}
 
 /* ------------------------------------------------------------ Assistent */
 .assistent{position:relative; margin-top:clamp(-72px, -9vw, -110px); margin-bottom:clamp(56px, 8vw, 96px);}
@@ -302,7 +302,7 @@ dl.parameter dd{margin:0; font-weight:500; color:var(--text);}
 .faq .abschnitt-inhalt p{margin:14px 0 0;}
 
 /* ----------------------------------------------- Leistungsseite (Due Diligence) */
-.hero-leistung{padding-bottom:clamp(56px, 8vw, 96px);}
+.hero-leistung{padding-bottom:clamp(48px, 7vw, 96px);}
 .hero-leistung h1{max-width:22ch;}
 .hero-actionen{display:flex; flex-wrap:wrap; gap:12px; margin-top:32px;}
 .karten3{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:24px 32px; margin-bottom:48px;}
@@ -397,10 +397,10 @@ dl.parameter dd{margin:0; font-weight:500; color:var(--text);}
 .btn-leer:hover{border-color:var(--text); color:var(--text);}
 .werkzeug-ergebnis{margin-top:30px; padding-top:26px; border-top:1px solid var(--line);}
 .werkzeug-ergebnis[hidden]{display:none;}
-.spanne.status-knapp .zahlen, .spanne.status-schimmel .zahlen, .spanne.status-tauwasser .zahlen{color:var(--accent-bright);}
+.spanne.status-knapp .zahlen, .spanne.status-schimmel .zahlen, .spanne.status-tauwasser .zahlen{color:var(--error-bright);}
 .spanne.status-grenzbereich .zahlen{color:#e6b566;}
 .spanne.status-unkritisch .zahlen{color:#8fd4ad;}
-.spanne.status-abgelaufen .zahlen{color:var(--on-ink-2); text-decoration:line-through; text-decoration-color:var(--accent-bright); text-decoration-thickness:3px;}
+.spanne.status-abgelaufen .zahlen{color:var(--on-ink-2); text-decoration:line-through; text-decoration-color:var(--error-bright); text-decoration-thickness:3px;}
 .spanne .zahlen .wochentag{font-size:.45em; font-weight:500; color:var(--on-ink-2);}
 .hinweise{margin:18px 0 0; padding:0 0 0 1.2em; font-size:.9375rem; color:var(--text-2);}
 .hinweise li{margin-bottom:8px;}
@@ -523,17 +523,6 @@ details.hinweis > summary{min-height:56px; padding-block:10px;}
 .leistung .beauftragen b{color:#fff;}
 @media print{.kauf-rechner{display:none;}}
 
-/* ------------------------------------------------- Mobiler Schnellkontakt
-   Feste Leiste am unteren Rand (Anruf, Anfrage), nur bis 860 px Breite –
-   dieselbe Leiste wie auf Startseite und Fachbeiträgen. */
-.schnellkontakt{display:none;}
-@media (max-width:860px){
-  body{padding-bottom:calc(66px + env(safe-area-inset-bottom));}
-  .schnellkontakt{position:fixed; left:0; right:0; bottom:0; z-index:90; display:grid; grid-template-columns:1fr 1fr; gap:8px; padding:8px var(--gutter) calc(8px + env(safe-area-inset-bottom)); background:rgba(10,18,29,.94); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); border-top:1px solid var(--ink-line);}
-  .schnellkontakt a{display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:0 12px; border:1px solid var(--ink-line-2); border-radius:var(--radius-sm); color:#fff; font-size:.9375rem; font-weight:500; text-decoration:none; white-space:nowrap;}
-  .schnellkontakt a.primaer{background:var(--accent); border-color:var(--accent);}
-  .schnellkontakt svg{width:18px; height:18px; flex-shrink:0; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
-}
 
 /* ----------------------------------------------------------------- Motion */
 .einblenden{animation:einblenden .45s var(--ease) both;}
@@ -557,7 +546,7 @@ details.hinweis > summary{min-height:56px; padding-block:10px;}
 
 /* ----------------------------------------------------------------- Druck */
 @media print{
-  .seiten-kopf,.seiten-fuss,.hero,.navigation,.fortschritt,.cta,.skip-link,.schnellkontakt{display:none !important;}
+  .seiten-kopf,.seiten-fuss,.hero,.navigation,.fortschritt,.cta,.skip-link{display:none !important;}
   body{background:#fff; font-size:10.5pt;}
   .assistent{margin:0;}
   .karte{box-shadow:none; border:0;}

@@ -28,14 +28,14 @@ class Leistungsseite:
 SEITEN: dict[str, Leistungsseite] = {s.schluessel: s for s in (
     Leistungsseite(
         "uebersicht", "leistungen/", "Alle Leistungen",
-        "Gutachten, Beweissicherung, Baubegleitung – unsere Leistungen in Berlin",
-        "Umfang und Ablauf aller Leistungen des Büros auf einen Blick – vom Schimmelgutachten bis "
-        "zur technischen Due Diligence; Preise und Leistungsübersicht auf Anfrage per E-Mail."),
+        "Gutachten, Beweissicherung, Baubegleitung und Objektüberwachung – Leistungen in Berlin",
+        "Umfang und Ablauf aller Leistungen des Büros – vom Schimmelgutachten bis zur Objektüberwachung "
+        "nach HOAI; Angebot mit Leistungsumfang auf Anfrage per E-Mail."),
     Leistungsseite(
         "schimmel", "leistungen/schimmelgutachten/", "Schimmelgutachten",
-        "Schimmelgutachten in Berlin: erst die Ursache, dann die Sanierung",
-        "Wir klären mit Messung und Berechnung, ob Wärmebrücke, Feuchte aus dem Bauteil oder "
-        "Nutzung hinter dem Befall steckt – mit Sanierungsempfehlung und Kostenbandbreite."),
+        "Schimmelgutachten in Berlin: Ursache, Bewertung, Sanierungsempfehlung",
+        "Messung und Berechnung klären, ob Wärmebrücke, Feuchte aus dem Bauteil oder Nutzung die "
+        "Ursache des Befalls ist – mit Sanierungsempfehlung und Kostenbandbreite im Bericht."),
     Leistungsseite(
         "wasserschaden", "leistungen/wasserschaden-gutachten/", "Wasserschaden-Gutachten",
         "Wasserschaden-Gutachten in Berlin: Ursache, Umfang, Sanierung",
@@ -43,17 +43,22 @@ SEITEN: dict[str, Leistungsseite] = {s.schluessel: s for s in (
         "Trocknungskonzept und Kosten prüfen – für Eigentümer, Verwaltungen und Versicherer."),
     Leistungsseite(
         "beweissicherung", "leistungen/technische-beweissicherung/", "Technische Beweissicherung",
-        "Technische Beweissicherung in Berlin: der Zustand, bevor er sich verändert",
+        "Technische Beweissicherung in Berlin: Dokumentation des Zustands vor Bauarbeiten",
         "Dokumentation von Rissen, Verformungen und Feuchte vor Bauarbeiten am Nachbargrundstück, "
-        "vor Sanierungen und vor dem Verdecken von Bauteilen – nachvollziehbar auch Jahre später."),
+        "vor Sanierungen und vor dem Verdecken von Bauteilen – mit Nachbegehung zum Vergleich."),
     Leistungsseite(
         "baubegleitung", "leistungen/baubegleitung-bauabnahme/", "Baubegleitung und Bauabnahme",
-        "Baubegleitung und Bauabnahme in Berlin: ein Bauingenieur auf Ihrer Seite",
-        "Prüfung der Ausführung, wenn Bauteile fertig, aber noch offen sind, und ein Mängelprotokoll "
-        "zur Abnahme, das hält – als Einzeltermin oder Paket."),
+        "Baubegleitung und Bauabnahme in Berlin: Prüfung der Ausführung, Mängelprotokoll zur Abnahme",
+        "Prüfung der Ausführung, wenn Bauteile fertig, aber noch offen sind, und Mängelprotokoll "
+        "zur Abnahme – als Einzeltermin oder Paket."),
+    Leistungsseite(
+        "vergabe-objektueberwachung", "leistungen/vergabe-objektueberwachung/", "Vergabe und Objektüberwachung",
+        "Vergabe und Objektüberwachung nach HOAI in Berlin: Leistungsphasen 6 bis 8",
+        "Leistungsverzeichnisse und Vergabe, Überwachung der Ausführung, Bautagebuch, Aufmaß, "
+        "Rechnungsprüfung und Abnahme – für Bauherren, Eigentümer und Verwaltungen, die bauen oder sanieren lassen."),
     Leistungsseite(
         "kaufbegutachtung", "leistungen/kaufbegutachtung/", "Kaufbegutachtung",
-        "Kaufbegutachtung in Berlin: wissen, was Sie kaufen – bevor Sie zum Notar gehen",
+        "Kaufbegutachtung in Berlin: Zustandsbericht vor dem Kauf von Wohnung oder Haus",
         "Eigentumswohnung oder Einfamilienhaus vor dem Kauf: Begehung, Auswertung der Unterlagen und "
         "Zustandsbericht mit Mängelliste und Kostenrahmen für 10–15 Jahre; Preise und Leistungsübersicht "
         "nach Ihrer Anfrage per E-Mail."),
@@ -65,13 +70,13 @@ SEITEN: dict[str, Leistungsseite] = {s.schluessel: s for s in (
     Leistungsseite(
         "privatgutachten", "leistungen/privatgutachten-bauprozess/", "Privatgutachten für Bauprozesse",
         "Privatgutachten und Parteiberatung im Bauprozess",
-        "Gutachterliche Stellungnahmen zu Mängeln, Schäden, Nachträgen und Bauzeit, Prüfung "
-        "gegnerischer Gutachten und Begleitung im Beweisverfahren – für Kanzleien und Parteien."),
+        "Gutachterliche Stellungnahmen zu Mängeln, Schäden, Nachträgen und Bauzeit, Stellungnahmen "
+        "zu vorliegenden Gutachten und Begleitung im Beweisverfahren – für Kanzleien und Parteien."),
     Leistungsseite(
         "gerichte-versicherer", "leistungen/gerichte-versicherer/", "Für Gerichte und Versicherer",
         "Gerichts- und Versicherungsgutachten: Bauschäden, Baumängel, Bauphysik",
-        "Gutachten nach Beweisbeschluss oder Rahmenvereinbarung mit verbindlichen Bearbeitungszeiten "
-        "– Sachgebiete, Ablauf und Vergütung."),
+        "Gutachten nach Beweisbeschluss oder Rahmenvereinbarung – Sachgebiete, Ablauf und Vergütung; "
+        "die Bearbeitungszeit wird bei Annahme des Auftrags genannt."),
     # Seiten je Zielgruppe (Phase 5): bündeln die Leistungen für Geschäftskunden.
     Leistungsseite(
         "hausverwaltungen", "leistungen/hausverwaltungen/", "Für Hausverwaltungen",
@@ -87,13 +92,13 @@ SEITEN: dict[str, Leistungsseite] = {s.schluessel: s for s in (
     Leistungsseite(
         "versicherer", "leistungen/versicherer/", "Für Versicherer",
         "Für Versicherer und Schadenregulierer: Ursache, Umfang, Kosten",
-        "Leitungswasser-, Folge- und Nachbarschäden: Erstbesichtigung meist innerhalb von drei Werktagen, "
-        "Abgrenzung von Ereignis und Verschleiß, Prüfung von Angeboten und Rechnungen."),
+        "Leitungswasser-, Folge- und Nachbarschäden: Ursache und Umfang, Abgrenzung von Ereignis und "
+        "Verschleiß, Prüfung von Angeboten und Rechnungen; Erstbesichtigung nach Abstimmung."),
 )}
 
 # Anzeige-Reihenfolge in Übersichten (ohne die Übersichtsseite selbst).
 REIHENFOLGE = ["schimmel", "wasserschaden", "beweissicherung", "baubegleitung",
-               "kaufbegutachtung", "due-diligence", "privatgutachten", "gerichte-versicherer",
+               "vergabe-objektueberwachung", "kaufbegutachtung", "due-diligence", "privatgutachten", "gerichte-versicherer",
                "hausverwaltungen", "rechtsanwaelte", "versicherer"]
 
 # Wert des Frontmatter-Felds „leistung“ (klein geschrieben) → Schlüssel der Seite.
@@ -102,9 +107,14 @@ ZUORDNUNG = {
     "beweissicherung": "beweissicherung",
     "baubegleitung": "baubegleitung",
     "bauherrenvertretung": "baubegleitung",
-    "objektüberwachung lp 8": "baubegleitung",
-    "objektueberwachung lp 8": "baubegleitung",
-    "objektüberwachung": "baubegleitung",
+    # Leistungsphasen 6 bis 8 der HOAI haben eine eigene Seite.
+    "objektüberwachung lp 8": "vergabe-objektueberwachung",
+    "objektueberwachung lp 8": "vergabe-objektueberwachung",
+    "objektüberwachung": "vergabe-objektueberwachung",
+    "objektueberwachung": "vergabe-objektueberwachung",
+    "vergabe": "vergabe-objektueberwachung",
+    "ausschreibung": "vergabe-objektueberwachung",
+    "bauleitung": "vergabe-objektueberwachung",
     # Private Käufer von Haus oder Wohnung → Kaufbegutachtung; „Due Diligence“
     # (Mietwohnhäuser, Investoren, Geschäftskunden) bleibt bei der Due Diligence.
     "kaufberatung": "kaufbegutachtung",
@@ -129,7 +139,10 @@ STICHWORTE: list[tuple[tuple[str, ...], str]] = [
     (("due diligence",), "due-diligence"),
     (("kaufberatung", "kaufbegutachtung", "hauskauf", "wohnungskauf", "altbaukauf", "immobilienkauf",
       "kaufentscheidung"), "kaufbegutachtung"),
-    (("abnahme", "bauträger", "bautraeger", "baubegleit", "bautagebuch", "gewährleistung",
+    (("objektüberwachung", "objektueberwachung", "bautagebuch", "aufmaß", "aufmass", "schlussrechnung",
+      "abschlagsrechnung", "leistungsverzeichnis", "ausschreibung", "vergabe", "bauleiter"),
+     "vergabe-objektueberwachung"),
+    (("abnahme", "bauträger", "bautraeger", "baubegleit", "gewährleistung",
       "gewaehrleistung", "qualitätskontrolle", "qualitaetskontrolle"), "baubegleitung"),
     (("beweisverfahren", "privatgutachten", "gerichtsgutachten", "prozess", "klage", "verjährung",
       "verjaehrung", "beweislast", "nachtrag", "bauzeit", "jveg"), "privatgutachten"),
@@ -178,7 +191,7 @@ class EnglischeSeite:
 ENGLISCH: list[EnglischeSeite] = [
     EnglischeSeite("en/", "Building surveyors in Berlin – services in English",
                    "Overview of all services for international clients, a glossary of German building terms "
-                   "and contact – reports in English or German; prices on request by email.", ""),
+                   "and contact – reports in English or German; quote on request by email.", ""),
     EnglischeSeite("en/pre-purchase-inspection-berlin/", "Pre-purchase inspection of a flat or house",
                    "Inspection, document review and a condition report with defect list and a 10–15-year cost "
                    "outlook before you buy a flat or house in Berlin – report in German (English on request); "
@@ -205,12 +218,12 @@ ENGLISCH: list[EnglischeSeite] = [
                    "next door, before repairs or before parts are covered up.",
                    "leistungen/technische-beweissicherung/"),
     EnglischeSeite("en/construction-dispute-expert-berlin/", "Expert reports for construction disputes",
-                   "Party expert reports on defects, damage, variations and delay, review of court-appointed and "
-                   "opposing reports, support in independent evidence proceedings – in English and German.",
+                   "Party expert reports on defects, damage, variations and delay, statements on existing expert "
+                   "reports, support in independent evidence proceedings – in English and German.",
                    "leistungen/privatgutachten-bauprozess/"),
     EnglischeSeite("en/property-valuation/", "Property value calculator Berlin",
-                   "Free, indicative value range for houses and apartment buildings in Berlin based on the market "
-                   "data of the Berlin valuation board; calculated in the browser.",
+                   "Indicative value range for houses and apartment buildings in Berlin based on the market "
+                   "data of the Berlin valuation board; calculated in the browser, no sign-up.",
                    "wertrechner/"),
 ]
 

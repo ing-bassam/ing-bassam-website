@@ -93,7 +93,7 @@ FIRMA_KURZ = "BIB Ingenieurbüro für Bauwesen"
 FIRMA_LANG = "Bassam Ingenieurbüro für Bauwesen GmbH"
 WEBSITE = "ing-bassam.de"
 ANSCHRIFT = "Straße am Flugplatz 6a, 12487 Berlin"
-KONTAKT = "info@ing-bassam.de · +49 176 23581339"
+KONTAKT = "info@ing-bassam.de"
 
 # Farben der Website (fachwissen/artikel.css)
 INK = (0x0a, 0x12, 0x1d)
@@ -1123,7 +1123,7 @@ def checkliste_xlsx_bauen(d: dict, ziel: Path, logo: Path) -> Path:
         ws.cell(row=zeile, column=4, value=f'=COUNTIF(D{kz + 1}:D{letzte},"{s["lang"]}")')
     if d.get("auswertung"):
         zeile += 2
-        ws.cell(row=zeile, column=2, value="So werten Sie Ihre Befunde aus").font = Font(bold=True, color="C2410C")
+        ws.cell(row=zeile, column=2, value="So werten Sie Ihre Befunde aus").font = Font(bold=True, color="2B5A86")
         for regel in d["auswertung"]:
             zeile += 1
             z = ws.cell(row=zeile, column=2, value="• " + regel)

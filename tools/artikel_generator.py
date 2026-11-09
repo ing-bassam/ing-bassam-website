@@ -100,15 +100,10 @@ KURZNAME = "BIB Ingenieurbüro für Bauwesen"
 AUTOR_NAME = "Karim Abu Elkheir"
 AUTOR_GRAD = "M. Sc."
 AUTOR_VORGABE = f"{AUTOR_GRAD} {AUTOR_NAME}"
-TELEFON = "+49 176 23581339"
 EMAIL = "info@ing-bassam.de"
 
 # Nur dieser Status erscheint öffentlich.
 STATUS_OEFFENTLICH = "veröffentlicht"
-
-# Fachbeitrag, Rechtsprechung und Grundlagen richten sich an ein fachliches
-# Publikum; schema.org kennt dafür TechArticle.
-FACHLICHE_FORMATE = {"fachbeitrag", "rechtsprechung", "grundlagen", "urteilsbesprechung"}
 
 
 # --------------------------------------------------------------------------
@@ -357,7 +352,10 @@ def json_wert(wert) -> str:
 
 
 def strukturierte_daten(artikel: "Artikel") -> str:
-    typ = "TechArticle" if artikel.format.lower() in FACHLICHE_FORMATE else "Article"
+    # Immer "Article": Suchmaschinen und Prüfwerkzeuge (z. B. Ahrefs) werten nur
+    # Article, NewsArticle und BlogPosting als Artikel-Schema; der Untertyp
+    # TechArticle blieb unerkannt.
+    typ = "Article"
 
     # Ein einziger Firmenknoten mit fester Kennung. Vorher stand dieselbe GmbH
     # dreimal im Datensatz: einmal auf der Startseite, einmal als publisher und
@@ -778,23 +776,17 @@ KOPF_VORLAGE = """<!DOCTYPE html>
 </header>
 """
 
-# Der Schnellkontakt steht auf jeder Seite im HTML, ist aber nur auf kleinen
-# Bildschirmen sichtbar (artikel.css). Ohne Skript: zwei Links, sonst nichts.
 FUSS_VORLAGE = """
 <footer class="seiten-fuss">
   <div class="wrap">
     <p><strong>{firma}</strong><br>Straße am Flugplatz 6a, 12487 Berlin</p>
-    <p><a href="tel:+4917623581339">{telefon}</a> · <a href="mailto:{email}">{email}</a> · Rückmeldung innerhalb eines Werktags</p>
+    <p><a href="mailto:{email}">{email}</a> · Antwort in der Regel innerhalb eines Werktags</p>
     <p class="rechtliches"><a href="{start}#impressum">Impressum</a> · <a href="{start}#datenschutz">Datenschutz</a> · <a href="{fachwissen}">Alle Fachbeiträge</a> · <a href="{fachwissen}vorlagen/">Vorlagen</a> · <a href="{start}wertrechner/">Wertrechner</a> · <a href="{start}leistungen/technische-due-diligence/">Due Diligence</a></p>
     <p class="rechtliches">Für Geschäftskunden: <a href="{start}leistungen/hausverwaltungen/">Hausverwaltungen</a> · <a href="{start}leistungen/rechtsanwaelte/">Rechtsanwälte</a> · <a href="{start}leistungen/versicherer/">Versicherer</a></p>
     <p class="klein">© {jahr} {firma} · Keine Cookies. Kein Tracking.</p>
   </div>
 </footer>
 
-<nav class="schnellkontakt" aria-label="Schnellkontakt">
-  <a href="tel:+4917623581339"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Anrufen</a>
-  <a href="{start}#kontakt" class="primaer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Anfrage senden</a>
-</nav>
 
 </body>
 </html>
@@ -854,7 +846,6 @@ def kopf_bauen(*, titel_tag: str, beschreibung: str, canonical: str, css: str,
 def fuss_bauen(*, start: str, fachwissen: str) -> str:
     return FUSS_VORLAGE.format(
         firma=html.escape(FIRMA),
-        telefon=html.escape(TELEFON),
         email=html.escape(EMAIL),
         start=start,
         fachwissen=fachwissen,
@@ -1129,8 +1120,8 @@ def leistungskasten_html(artikel: "Artikel") -> str:
         <span class="eyebrow">Passende Leistung</span>
         <h2 id="leistung-titel"><a href="{ziel}">{html.escape(seite.titel)}</a></h2>
         <p>{html.escape(seite.kurztext)}</p>
-        <p class="aktionen"><a class="btn btn-primary" href="{ziel}">{knopf}</a><a class="btn btn-outline" href="../../#kontakt">Anfrage senden</a></p>
-        <p class="klein">Rückmeldung innerhalb eines Werktags · Berlin und Brandenburg</p>{hinweis}
+        <p class="aktionen"><a class="btn btn-primary" href="{ziel}">{knopf}</a><a class="btn btn-outline" href="../../#kontakt">Anfrage per E-Mail</a></p>
+        <p class="klein">Berlin und Brandenburg</p>{hinweis}
       </aside>
 """
 
