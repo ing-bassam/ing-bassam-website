@@ -259,7 +259,7 @@ jobs:
           # Nur lesen und die Zetteldateien schreiben – kein git, kein gh, kein Web.
           claude_args: |
             --max-turns 25
-            --model claude-opus-5-5
+            --model claude-sonnet-5-5
             --add-dir ${{ steps.zettel.outputs.ordner }}
             --allowedTools "Read,Write,Glob,Grep,TodoWrite,Skill"
 
