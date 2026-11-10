@@ -149,7 +149,7 @@
 
     --wrap:1200px;
     --gutter:clamp(20px, 4vw, 40px);
-    --section-y:clamp(56px, 9vw, 120px);
+    --section-y:clamp(56px, 7vw, 88px);
     --header-h:76px;
   }
 
@@ -381,58 +381,65 @@
      SEKTIONEN – gemeinsam
      ===================================================================== */
   .section{padding-block:var(--section-y);}
-  .section-alt{background:var(--surface); border-top:1px solid var(--line);}
+  .section-alt{background:var(--surface); border-block:1px solid var(--line);}
   .section-dark{background:var(--ink-900); color:var(--on-ink);}
   .section h2{font-size:clamp(1.625rem, 3.2vw, 2.5rem);}
   .section-intro{max-width:34em; font-size:1.0625rem; line-height:1.7; color:var(--text-2);}
 
   /* =====================================================================
-     LEISTUNGEN – ruhige Liste nach Anlass statt Kartenraster
+     ABSCHNITTSKOPF – gleich für Leistungen, Arbeitsweise und Fachwissen:
+     Überschrift links, ein Satz rechts, Inhalt darunter auf voller Breite
      ===================================================================== */
-  .leistungen-grid{display:grid; grid-template-columns:minmax(0,.78fr) minmax(0,1.42fr); gap:clamp(40px, 6vw, 104px); align-items:start;}
-  .leistungen-kopf{position:sticky; top:104px;}
-  .leistungen-kopf h2{margin-bottom:20px;}
-  .leistungen-kopf .section-intro{margin-bottom:28px;}
-  .zielgruppen{margin-top:36px; padding-top:18px; border-top:1px solid var(--line); font-size:.9375rem; line-height:1.7; color:var(--text-2);}
-  .zielgruppen a{color:var(--text); text-decoration:underline; text-decoration-color:var(--line-strong); text-underline-offset:3px; transition:text-decoration-color var(--dur) var(--ease);}
-  .zielgruppen a:hover{text-decoration-color:var(--accent);}
+  .section-kopf{display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:16px clamp(32px, 5vw, 72px); align-items:end; margin-bottom:clamp(32px, 4vw, 48px);}
+  .section-kopf .section-intro{max-width:36em;}
 
-  .leistung-liste{border-bottom:1px solid var(--line-strong);}
+  /* =====================================================================
+     LEISTUNGEN – zweispaltige Liste nach Anlass, Titel zuerst
+     ===================================================================== */
+  .leistung-liste{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0 clamp(32px, 5vw, 72px); border-bottom:1px solid var(--line-strong);}
   .leistung{
     position:relative;
-    display:grid; grid-template-columns:minmax(0,1fr) 44px; gap:0 24px;
-    padding:30px 0 32px; scroll-margin-top:110px;
+    display:grid; grid-template-columns:minmax(0,1fr) 28px; gap:0 16px; align-content:start;
+    padding:24px 0 26px; scroll-margin-top:110px;
   }
   /* Trennlinie, die sich beim Erscheinen zieht; der Akzent markiert die Zeile beim Zeigen */
   .leistung::before,
-  .leistung::after{content:""; position:absolute; left:0; top:0; height:1px; transform-origin:left;}
-  .leistung::before{right:0; background:var(--line-strong); transition:transform 1s var(--ease-io) var(--d, 0s);}
+  .leistung::after,
+  .leistung-fuss::before{content:""; position:absolute; left:0; top:0; height:1px; transform-origin:left;}
+  .leistung::before,
+  .leistung-fuss::before{right:0; background:var(--line-strong);}
+  .leistung::before{transition:transform 1s var(--ease-io) var(--d, 0s);}
   .leistung::after{width:72px; height:2px; top:-1px; background:var(--accent); transform:scaleX(0); transition:transform var(--dur-slow) var(--ease);}
   html.js .leistung.reveal:not(.is-visible)::before{transform:scaleX(0);}
   .leistung:hover::after,
   .leistung:focus-within::after,
   .leistung:target::after{transform:scaleX(1);}
-  .leistung-anlass{display:block; margin-bottom:8px; font-size:.875rem; color:var(--text-3);}
-  .leistung h3{font-size:clamp(1.375rem, 2.1vw, 1.75rem); margin-bottom:12px;}
+  /* Reihenfolge: Titel, Anlass, Satz (die HTML-Reihenfolge bleibt für Vorlesegeräte) */
+  .leistung h3{order:1; font-size:clamp(1.1875rem, 1.7vw, 1.375rem); margin-bottom:4px;}
+  .leistung-anlass{order:2; display:block; margin-bottom:10px; font-size:.875rem; line-height:1.5; color:var(--accent);}
+  .leistung p{order:3; max-width:46ch; font-size:.9375rem; line-height:1.62; color:var(--text-2);}
+  .leistung-weiter{order:4; margin-top:8px; font-size:.875rem;}
   /* Die ganze Zeile führt zur Leistungsseite. Kein transform auf h3 oder a:
      es würde die Klickfläche auf die Überschrift schrumpfen lassen. */
   .leistung h3 a::after{content:""; position:absolute; inset:0;}
   .leistung:hover h3 a{color:var(--accent-hover);}
   .leistung h3 a{transition:color var(--dur) var(--ease);}
-  .leistung p{max-width:54ch; font-size:.984375rem; line-height:1.68; color:var(--text-2);}
-  .leistung-weiter{display:flex; flex-wrap:wrap; gap:0 24px; margin-top:8px;}
-  .leistung-weiter a{position:relative; z-index:1; color:var(--text-2);}
-  .leistung-weiter a:hover{color:var(--accent);}
-  .leistung-pfeil{grid-column:2; grid-row:1 / span 4; align-self:center; color:var(--text-3); transition:transform var(--dur-slow) var(--ease), color var(--dur) var(--ease);}
-  .leistung-pfeil .icon{width:26px; height:26px;}
-  .leistung:hover .leistung-pfeil{transform:translateX(6px); color:var(--accent);}
+  .leistung-weiter a{position:relative; z-index:1; min-height:0; color:var(--accent); text-decoration:underline; text-underline-offset:3px; text-decoration-color:var(--line-strong); background:none;}
+  .leistung-weiter a:hover{text-decoration-color:var(--accent);}
+  .leistung-pfeil{grid-column:2; grid-row:1 / span 4; align-self:start; margin-top:3px; color:var(--text-3); transition:transform var(--dur-slow) var(--ease), color var(--dur) var(--ease);}
+  .leistung-pfeil .icon{width:22px; height:22px;}
+  .leistung:hover .leistung-pfeil{transform:translateX(5px); color:var(--accent);}
+
+  /* Fuß der Liste: ein Verweis auf alle Leistungen, dazu die Seiten nach Zielgruppe */
+  .leistung-fuss{position:relative; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:4px; padding:24px 0 26px;}
+  .leistung-fuss .zielgruppen{font-size:.9375rem; line-height:1.65; color:var(--text-2);}
+  .leistung-fuss .zielgruppen a{color:var(--accent); text-decoration:underline; text-decoration-color:var(--line-strong); text-underline-offset:3px; transition:text-decoration-color var(--dur) var(--ease);}
+  .leistung-fuss .zielgruppen a:hover{text-decoration-color:var(--accent);}
 
   /* =====================================================================
      ARBEITSWEISE – Ablauf als Maßkette
      ===================================================================== */
-  .arbeitsweise-kopf{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:20px 72px; align-items:end; margin-bottom:clamp(48px, 6vw, 80px);}
-  /* Abschnitte verschieden lang wie in einer echten Bemaßung */
-  .masskette{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.45fr) minmax(0,1.3fr) minmax(0,1fr);}
+  .masskette{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); counter-reset:schritt;}
   .masskette li{position:relative; padding-right:28px;}
   .masskette li:last-child{padding-right:0;}
   /* Maßlinie mit Schrägstrichen an den Teilungen wie in einer Bemaßung */
@@ -450,6 +457,10 @@
   .mk-linie::after{left:-7px; transition:opacity .3s ease; transition-delay:calc(var(--i, 0) * .32s);}
   .mk-ende{right:-7px; transition:opacity .3s ease 1.3s;}
   .mk-text{display:block; max-width:34ch; font-size:.96875rem; line-height:1.65; color:var(--text-2);}
+  .mk-text strong::before{
+    counter-increment:schritt; content:counter(schritt, decimal-leading-zero);
+    display:block; margin-bottom:6px; font-family:var(--font-plan); font-size:.8125rem; font-weight:400; letter-spacing:.06em; color:var(--accent);
+  }
   .mk-text strong{display:block; margin-bottom:6px; font-family:var(--font-display); font-size:1.1875rem; font-weight:600; letter-spacing:-.01em; color:var(--text);}
   html.js .masskette:not(.is-visible) .mk-linie::before{transform:scaleX(0);}
   html.js .masskette:not(.is-visible) .mk-linie::after,
@@ -458,11 +469,9 @@
   /* =====================================================================
      FACHWISSEN UND WERKZEUGE
      ===================================================================== */
-  .fw-grid{display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:clamp(40px, 6vw, 104px); align-items:start;}
-  .fw-grid h2{margin-bottom:20px;}
-  .fw-grid .section-intro{margin-bottom:32px;}
-  .werkzeuge{border-bottom:1px solid var(--line-strong);}
+  .werkzeuge{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0 clamp(32px, 5vw, 72px); border-bottom:1px solid var(--line-strong);}
   .werkzeuge li{border-top:1px solid var(--line-strong);}
+  .werkzeuge li.wz-fuss{display:flex; align-items:center; padding:18px 0;}
   .werkzeuge a{
     display:grid; grid-template-columns:minmax(0,1fr) auto; gap:2px 20px; align-items:center;
     padding:18px 0;
@@ -478,7 +487,7 @@
      ===================================================================== */
   .contact-grid{display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr); gap:clamp(40px, 6vw, 96px); align-items:start;}
   .contact-info h2{color:#fff; margin-bottom:20px;}
-  .contact-lead{max-width:30em; margin-bottom:40px; font-size:1.0625rem; line-height:1.7; color:var(--on-ink-2);}
+  .contact-lead{max-width:30em; margin-bottom:32px; font-size:1.0625rem; line-height:1.7; color:var(--on-ink-2);}
   .contact-list{border-top:1px solid var(--ink-line);}
   .contact-list li{border-bottom:1px solid var(--ink-line);}
   .contact-row{display:flex; align-items:center; gap:16px; min-height:76px; padding-block:14px;}
@@ -489,6 +498,7 @@
   }
   .contact-k{display:block; margin-bottom:2px; font-family:var(--font-plan); font-size:.6875rem; letter-spacing:.06em; text-transform:uppercase; color:var(--on-ink-3);}
   .contact-v{display:block; font-size:1.0625rem; color:#fff; transition:color var(--dur) var(--ease);}
+  a.contact-row .contact-v{font-size:1.25rem;}
   a.contact-row:hover .contact-v{color:var(--accent-bright);}
   a.contact-row:hover .contact-icon{background:var(--accent); border-color:var(--accent); color:#fff;}
 
@@ -498,7 +508,7 @@
     padding:clamp(28px, 4vw, 48px);
     box-shadow:0 40px 80px -40px rgba(0,0,0,.5);
   }
-  .form-card h3{font-size:1.375rem; margin-bottom:6px;}
+  .form-card h3{font-size:1.125rem; margin-bottom:6px;}
   .form-sub{margin-bottom:28px; font-size:.875rem; color:var(--text-3);}
   .field-row{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0 16px;}
   .field{display:flex; flex-direction:column; gap:8px; margin-bottom:18px;}
@@ -553,15 +563,15 @@
      ===================================================================== */
   .site-footer{background:var(--ink-950); color:var(--on-ink-2); border-top:1px solid var(--ink-line);}
   .footer-top{
-    display:grid; grid-template-columns:minmax(0,1.5fr) repeat(3, minmax(0,1fr));
-    gap:40px; padding-block:72px 56px;
+    display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1.5fr) minmax(0,1fr) minmax(0,1.1fr);
+    gap:40px; padding-block:56px 40px;
   }
   .footer-brand p{max-width:24em; margin-top:18px; font-size:.875rem; line-height:1.65; color:var(--on-ink-3);}
   .footer-col h4{
     margin-bottom:14px; font-family:var(--font-plan);
     font-size:.6875rem; font-weight:400; letter-spacing:.06em; text-transform:uppercase; color:var(--on-ink-3);
   }
-  .footer-col a{display:flex; align-items:center; min-height:36px; font-size:.9375rem; color:var(--on-ink-2); transition:color var(--dur) var(--ease);}
+  .footer-col a{display:flex; align-items:center; min-height:36px; font-size:.9375rem; line-height:1.35; color:var(--on-ink-2); transition:color var(--dur) var(--ease);}
   .footer-col a:hover{color:#fff;}
 
   .legal-item{border-top:1px solid var(--ink-line); scroll-margin-top:72px;}
@@ -633,10 +643,9 @@
     .hero-grid{grid-template-columns:1fr;}
     .hero-drawing{max-width:420px; width:100%; margin-inline:auto;}
     .dwg{margin-inline:auto;}
-    .leistungen-grid,
-    .fw-grid,
-    .arbeitsweise-kopf{grid-template-columns:1fr;}
-    .leistungen-kopf{position:static;}
+    .section-kopf{grid-template-columns:1fr;}
+    .masskette{grid-template-columns:repeat(2, minmax(0,1fr)); row-gap:8px;}
+    .masskette li{padding-bottom:24px;}
     .contact-grid{grid-template-columns:1fr;}
     .footer-top{grid-template-columns:repeat(3, minmax(0,1fr));}
     .footer-brand{grid-column:1 / -1;}
@@ -681,8 +690,8 @@
     .schriftfeld div:nth-child(n){padding:12px 12px 14px; border-left:1px solid var(--ink-line); border-top:1px solid var(--ink-line);}
     .schriftfeld div:first-child{grid-column:1 / -1; border-top:0; border-left:0; padding-left:0;}
     .schriftfeld div:nth-child(even){border-left:0; padding-left:0;}
-    .leistung{grid-template-columns:minmax(0,1fr); padding:26px 0 28px;}
-    .leistung-pfeil{display:none;}
+    .leistung-liste,
+    .werkzeuge{grid-template-columns:1fr;}
     .field-row{grid-template-columns:1fr;}
     .legal-grid{grid-template-columns:1fr;}
     .footer-top{grid-template-columns:repeat(2, minmax(0,1fr)); padding-block:56px 40px;}
@@ -871,12 +880,10 @@
 
   <!-- ================= LEISTUNGEN ================= -->
   <section id="leistungen" class="section" aria-labelledby="leistungenTitle">
-    <div class="wrap leistungen-grid">
-      <div class="leistungen-kopf">
+    <div class="wrap">
+      <div class="section-kopf">
         <h2 id="leistungenTitle">Leistungen nach Anlass</h2>
-        <p class="section-intro">Leistungen nach Anlass geordnet. Jede Leistungsseite nennt Umfang, Ablauf und Form des Berichts.</p>
-        <a class="btn btn-outline" href="/leistungen/">Alle Leistungen <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-        <p class="zielgruppen">Eigene Seiten für <a href="/leistungen/hausverwaltungen/">Hausverwaltungen</a>, <a href="/leistungen/rechtsanwaelte/">Rechtsanwälte</a> und <a href="/leistungen/versicherer/">Versicherer</a>.</p>
+        <p class="section-intro">Jede Leistungsseite nennt Umfang, Ablauf und Form des Berichts.</p>
       </div>
 
       <div class="leistung-liste">
@@ -905,7 +912,7 @@
           <span class="leistung-anlass">Ein Gericht hat einen Beweisbeschluss erlassen</span>
           <h3><a href="/leistungen/gerichte-versicherer/">Gerichtsgutachten</a></h3>
           <p>Gutachten nach Beweisbeschluss oder im selbständigen Beweisverfahren. Ortstermin mit Ladung aller Beteiligten, Beantwortung der Beweisfragen in ihrer Reihenfolge.</p>
-          <div class="leistung-weiter"><a href="/leistungen/privatgutachten-bauprozess/" class="text-link">Privatgutachten für Parteien und Kanzleien</a></div>
+          <div class="leistung-weiter">Auch: <a href="/leistungen/privatgutachten-bauprozess/">Privatgutachten für Parteien und Kanzleien</a></div>
           <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
 
@@ -913,7 +920,7 @@
           <span class="leistung-anlass">Feuchte Wände, Schimmel oder Wasser in der Decke</span>
           <h3><a href="/leistungen/schimmelgutachten/">Schimmel und Wasserschäden</a></h3>
           <p>Messung von Feuchte und Raumklima, Feststellung der Ursache und der Punkte, die vor einer Sanierung zu klären sind.</p>
-          <div class="leistung-weiter"><a href="/leistungen/wasserschaden-gutachten/" class="text-link">Wasserschaden-Gutachten</a></div>
+          <div class="leistung-weiter">Auch: <a href="/leistungen/wasserschaden-gutachten/">Wasserschaden-Gutachten</a></div>
           <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
 
@@ -930,6 +937,11 @@
           <p>Leistungsphasen 6 bis 8 HOAI: Leistungsverzeichnisse und Vergabe, Überwachung der Ausführung, Bautagebuch, Aufmaß, Rechnungsprüfung und Abnahme.</p>
           <span class="leistung-pfeil" aria-hidden="true"><svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
+
+        <div class="leistung-fuss">
+          <a class="text-link" href="/leistungen/">Alle Leistungen <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <p class="zielgruppen">Eigene Seiten für <a href="/leistungen/hausverwaltungen/">Hausverwaltungen</a>, <a href="/leistungen/rechtsanwaelte/">Rechtsanwälte</a> und <a href="/leistungen/versicherer/">Versicherer</a>.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -937,7 +949,7 @@
   <!-- ================= ARBEITSWEISE ================= -->
   <section id="arbeitsweise" class="section section-alt" aria-labelledby="arbeitsweiseTitle">
     <div class="wrap">
-      <div class="arbeitsweise-kopf">
+      <div class="section-kopf">
         <h2 id="arbeitsweiseTitle">So entsteht ein Gutachten</h2>
         <p class="section-intro">Vier Schritte vom Ortstermin zum Bericht. Was nicht zugänglich oder nicht messbar war, steht im Bericht.</p>
       </div>
@@ -964,14 +976,13 @@
 
   <!-- ================= FACHWISSEN UND WERKZEUGE ================= -->
   <section id="fachwissen" class="section" aria-labelledby="fachwissenTitle">
-    <div class="wrap fw-grid">
+    <div class="wrap">
       <!-- Die Beiträge liegen als eigene, statische Seiten unter /fachwissen/.
            Bewusst echte Links statt JavaScript: KI-Crawler führen kein JavaScript
            aus und sehen sonst weder Titel noch Text. -->
-      <div>
+      <div class="section-kopf">
         <h2 id="fachwissenTitle">Fachwissen und Werkzeuge</h2>
         <p class="section-intro">Fachbeiträge zu Bauphysik, Bauschäden und Baurecht mit Quellenangaben, dazu Rechner und Vorlagen ohne Anmeldung.</p>
-        <a class="btn btn-primary" href="/fachwissen/">Zu den Fachbeiträgen <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <ul class="werkzeuge" role="list">
         <li><a href="/wertrechner/"><span class="wz-titel">Wertrechner Berlin</span><span class="wz-text">Wertindikation für Häuser in Berlin</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
@@ -979,6 +990,7 @@
         <li><a href="/werkzeuge/gewaehrleistungsfrist/"><span class="wz-titel">Gewährleistungsfrist</span><span class="wz-text">Fristende nach BGB und VOB/B berechnen</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
         <li><a href="/werkzeuge/maengelanzeige/"><span class="wz-titel">Mängelanzeige</span><span class="wz-text">Schreiben mit Fristsetzung erstellen</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
         <li><a href="/fachwissen/vorlagen/"><span class="wz-titel">Checklisten und Vorlagen</span><span class="wz-text">Zum Herunterladen als PDF, Word oder Excel</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li class="wz-fuss"><a class="text-link" href="/fachwissen/">Zu den Fachbeiträgen <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
       </ul>
     </div>
   </section>
@@ -988,7 +1000,7 @@
     <div class="wrap contact-grid">
       <div class="contact-info">
         <h2 id="kontaktTitle">Anfrage per E-Mail</h2>
-        <p class="contact-lead">Beschreiben Sie Ihr Anliegen per E-Mail oder über das Formular, gern mit Fotos und Unterlagen. Sie erhalten eine Einschätzung, ob und in welchem Umfang ein Gutachten sinnvoll ist, und ein schriftliches Angebot mit Leistungsumfang. Antwort in der Regel innerhalb eines Werktags.</p>
+        <p class="contact-lead">Beschreiben Sie Ihr Anliegen, gern mit Fotos und Unterlagen. Sie erhalten eine Einschätzung, ob und in welchem Umfang ein Gutachten sinnvoll ist, und ein schriftliches Angebot mit Leistungsumfang. Antwort in der Regel innerhalb eines Werktags.</p>
         <ul class="contact-list">
           <li>
             <a class="contact-row" href="mailto:info@ing-bassam.de">
@@ -1009,7 +1021,7 @@
         <!-- Kontaktformular: öffnet das E-Mail-Programm (mailto). Es werden keine Daten auf dem Webserver gespeichert. -->
         <form id="kontaktForm" action="mailto:info@ing-bassam.de" method="post" enctype="text/plain" novalidate>
           <div id="formFields">
-            <h3>Kontaktformular</h3>
+            <h3>Oder über das Formular</h3>
             <p class="form-sub">Felder mit <span aria-hidden="true">*</span><span class="sr-only">Stern</span> sind Pflichtfelder.</p>
 
             <div class="field-row">
@@ -1078,29 +1090,25 @@
       <p>Bassam Ingenieurbüro für Bauwesen GmbH<br>Straße am Flugplatz 6a, 12487 Berlin</p>
     </div>
     <div class="footer-col">
-      <h4>Navigation</h4>
-      <a href="#start">Start</a>
-      <a href="/leistungen/">Leistungen</a>
+      <h4>Leistungen</h4>
+      <a href="/leistungen/">Alle Leistungen</a>
+      <a href="/leistungen/kaufbegutachtung/">Kaufbegutachtung</a>
+      <a href="/leistungen/technische-due-diligence/">Due Diligence</a>
+      <a href="/leistungen/vergabe-objektueberwachung/">Vergabe und Objektüberwachung</a>
+    </div>
+    <div class="footer-col">
+      <h4>Für</h4>
+      <a href="/leistungen/hausverwaltungen/">Hausverwaltungen</a>
+      <a href="/leistungen/rechtsanwaelte/">Rechtsanwälte</a>
+      <a href="/leistungen/versicherer/">Versicherer</a>
+    </div>
+    <div class="footer-col">
+      <h4>Wissen und Kontakt</h4>
       <a href="#fachwissen">Fachwissen</a>
       <a href="/wertrechner/">Wertrechner</a>
       <a href="/werkzeuge/">Werkzeuge</a>
       <a href="/fachwissen/vorlagen/">Vorlagen</a>
-      <a href="/leistungen/kaufbegutachtung/">Kaufbegutachtung</a>
-      <a href="/leistungen/technische-due-diligence/">Due Diligence</a>
-      <a href="/leistungen/vergabe-objektueberwachung/">Vergabe und Objektüberwachung</a>
-      <a href="/leistungen/hausverwaltungen/">Für Hausverwaltungen</a>
-      <a href="/leistungen/rechtsanwaelte/">Für Rechtsanwälte</a>
-      <a href="/leistungen/versicherer/">Für Versicherer</a>
-      <a href="#kontakt">Kontakt</a>
-    </div>
-    <div class="footer-col">
-      <h4>Kontakt</h4>
       <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a>
-    </div>
-    <div class="footer-col">
-      <h4>Rechtliches</h4>
-      <a href="#impressum">Impressum</a>
-      <a href="#datenschutz">Datenschutz</a>
     </div>
   </div>
 
