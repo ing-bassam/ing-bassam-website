@@ -45,7 +45,7 @@ Die Form ist nach dem Gesetz nicht vorgeschrieben: Eine besondere Form, etwa Sch
 
 ## Warum das Erscheinungsbild genügt und die Ursache nicht
 
-Viele Bauherren trauen sich die Mängelanzeige nicht zu, weil sie die Ursache nicht kennen. Das müssen sie auch nicht. Es genügt, die Symptome, also die Mangelerscheinungen, hinreichend konkret zu benennen.[^1] Diesen Grundsatz nennt die Fachliteratur Symptomtheorie; nach gefestigter Rechtsprechung ist nur das Erscheinungsbild des Mangels darzustellen, nicht die Mangelursache.[^4]
+Viele Bauherren trauen sich die Mängelanzeige nicht zu, weil sie die Ursache nicht kennen. Das müssen sie auch nicht. Es reicht, die sichtbaren Mangelerscheinungen, also die Symptome, genau genug zu beschreiben.[^1] Diesen Grundsatz nennt die Fachliteratur Symptomtheorie; nach gefestigter Rechtsprechung ist nur das Erscheinungsbild des Mangels darzustellen, nicht die Mangelursache.[^4]
 
 Genau bezeichnen müssen Sie dagegen, wo und in welcher Form die Erscheinung auftritt.[^1] Das Unternehmen soll sofort mit der Untersuchung beginnen können und die Stelle nicht erst suchen müssen. „Ihre Leistung ist mangelhaft“ genügt deshalb nicht. „Im Bad im ersten Obergeschoss löst sich die Wandfliese neben der Dusche“ genügt.
 
@@ -69,11 +69,11 @@ Eine zu kurze Frist ist nicht wertlos. Nach der Fachliteratur setzt sie eine ang
 
 Die Abnahme ist der Wendepunkt des Bauvertrags. Vor der Abnahme gilt eine klare Pflicht. Stellt sich schon während der Ausführung heraus, dass eine Leistung mangelhaft oder vertragswidrig ist, muss das Unternehmen sie auf eigene Rechnung durch eine mangelfreie Leistung ersetzen.[^7] Eine Aufforderung oder Fristsetzung ist dafür nach der Fachliteratur nicht Voraussetzung.[^8] Anzeigen und befristen sollten Sie trotzdem.
 
-Mit der Abnahme dreht sich die Beweislast. Ab dem Tag der Bauabnahme muss der Bauherr beweisen, dass spätere, nicht bereits gerügte Mängel vom Bauunternehmer verursacht wurden.[^9] Vor der Abnahme trägt das Unternehmen die Last, die mangelfreie Leistung zu belegen.[^8] Das ist der praktische Grund, jeden Befund vor der Abnahme schriftlich festzuhalten.
+Die Abnahme verschiebt die Beweislast. Ab dem Tag der Bauabnahme muss der Bauherr beweisen, dass spätere, nicht bereits gerügte Mängel vom Bauunternehmer verursacht wurden.[^9] Vor der Abnahme trägt das Unternehmen die Last, die mangelfreie Leistung zu belegen.[^8] Das ist der praktische Grund, jeden Befund vor der Abnahme schriftlich festzuhalten.
 
 Bekannte Mängel gehören in das Abnahmeprotokoll. Nimmt der Besteller ein mangelhaftes Werk ab, obwohl er den Mangel kennt, gilt eine Einschränkung. Die in § 634 Nr. 1 bis 3 BGB genannten Rechte stehen ihm dann nur zu, wenn er sich seine Rechte bei der Abnahme vorbehält.[^10] Der Vorbehalt ist nicht formbedürftig; bei einer förmlichen Abnahme nach der VOB/B gehört er in die Niederschrift.[^11] Ob ein Vorbehalt in Ihrem Fall gereicht hat, beurteilt ein Rechtsanwalt.
 
-Die Abnahme startet zugleich die Verjährung. Mängelansprüche verjähren bei einem Bauwerk in fünf Jahren, und die Verjährung beginnt mit der Abnahme.[^12] Ist die VOB/B vereinbart und im Vertrag keine andere Frist bestimmt, beträgt sie für Bauwerke vier Jahre.[^13] Wer eine Wohnung oder ein Haus übernimmt, sollte das Gebäude deshalb rechtzeitig vor Ablauf dieser Frist prüfen lassen. Dafür kommt eine [fachliche Begleitung oder Bauherrenvertretung](https://ing-bassam.de/#kontakt) in Betracht.
+Die Abnahme startet zugleich die Verjährung. Bei Bauwerken verjähren Mängelansprüche fünf Jahre nach der Abnahme.[^12] Ist die VOB/B vereinbart und im Vertrag keine andere Frist bestimmt, beträgt sie für Bauwerke vier Jahre.[^13] Wer eine Wohnung oder ein Haus übernimmt, sollte das Gebäude deshalb rechtzeitig vor Ablauf dieser Frist prüfen lassen. Dafür kommt eine [fachliche Begleitung oder Bauherrenvertretung](https://ing-bassam.de/#kontakt) in Betracht.
 
 ## Was nach dem Fristablauf in Betracht kommt
 
@@ -91,7 +91,7 @@ Verwalter und Erwerber müssen vor dem Schreiben eine Frage klären: Wo tritt de
 
 Beim Sondereigentum ist die Lage einfach. Jeder Erwerber kann Mängelrechte am Sondereigentum uneingeschränkt geltend machen.[^18] Der Brief geht dann an das Unternehmen oder den Bauträger, mit dem der Erwerber den Vertrag geschlossen hat. Eine Abstimmung mit der Verwaltung ist dafür nicht nötig.
 
-Beim Gemeinschaftseigentum ist die Lage anders. Nach der Fachliteratur können hier nur Nacherfüllung oder ein Kostenvorschuss zugunsten der Gemeinschaft verlangt werden.[^18] Über Minderung oder Schadensersatz kann nur die Gemeinschaft entscheiden.[^18] Eine Anzeige mit Fristsetzung zur Beseitigung bleibt also möglich; über die weiteren Schritte entscheidet nicht der einzelne Eigentümer.
+Beim Gemeinschaftseigentum ist die Lage anders. Nach der Fachliteratur können hier nur Nacherfüllung oder ein Kostenvorschuss zugunsten der Gemeinschaft verlangt werden.[^18] Ob gemindert oder Schadensersatz verlangt wird, beschließt allein die Gemeinschaft.[^18] Eine Anzeige mit Fristsetzung zur Beseitigung bleibt also möglich; über die weiteren Schritte entscheidet nicht der einzelne Eigentümer.
 
 Für Verwaltungen heißt das zweierlei. Erstens sollten Vertretungsbefugnis und Beschlusslage vor dem Absenden geklärt sein, denn eine Erklärung ohne Befugnis hilft niemandem. Zweitens sollte jede Anzeige mit Datum, Adressat und Fristende in der Objektakte liegen. Ob eine Beschlussfassung im Einzelfall erforderlich ist, klärt ein Rechtsanwalt; die technische Beschreibung der Erscheinung können Sie selbst leisten.
 
@@ -113,11 +113,11 @@ Eine besondere Form ist für das Nacherfüllungsverlangen nach dem Werkvertragsr
 
 **Wie lang muss die Frist zur Mängelbeseitigung sein?**
 
-Feste Zeiträume gibt es nicht. Maßgebend ist die Zeit, die für die Arbeiten objektiv nötig ist, wobei ein sofortiger Beginn und eine zügige Ausführung vorausgesetzt werden dürfen.[^6] Entscheidend ist, dass Sie ein konkretes Kalenderdatum nennen.[^5] Eine zu kurz bemessene Frist ist nach der Fachliteratur nicht wirkungslos, sondern setzt eine angemessene Frist in Gang.[^6]
+Feste Zeiträume gibt es nicht. Maßgebend ist die Zeit, die für die Arbeiten objektiv nötig ist, wobei ein sofortiger Beginn und eine zügige Ausführung vorausgesetzt werden dürfen.[^6] Entscheidend ist, dass Sie ein konkretes Kalenderdatum nennen.[^5] Nach der Fachliteratur bleibt eine zu kurze Frist nicht folgenlos; an ihre Stelle tritt eine angemessene Frist.[^6]
 
 **Muss ich schreiben, woher der Mangel kommt?**
 
-Nein. Es genügt, die Symptome, also die Mangelerscheinungen, hinreichend konkret zu benennen.[^1] Genau bezeichnen müssen Sie, wo und in welcher Form die Erscheinung auftritt.[^1] Nach gefestigter Rechtsprechung ist nur das Erscheinungsbild darzustellen, nicht die Ursache.[^4] Eine eigene Ursachenvermutung sollten Sie weglassen.
+Nein. Es reicht, die sichtbaren Mangelerscheinungen, also die Symptome, genau genug zu beschreiben.[^1] Genau bezeichnen müssen Sie, wo und in welcher Form die Erscheinung auftritt.[^1] Nach gefestigter Rechtsprechung ist nur das Erscheinungsbild darzustellen, nicht die Ursache.[^4] Eine eigene Ursachenvermutung sollten Sie weglassen.
 
 **Wie weise ich nach, dass mein Brief angekommen ist?**
 

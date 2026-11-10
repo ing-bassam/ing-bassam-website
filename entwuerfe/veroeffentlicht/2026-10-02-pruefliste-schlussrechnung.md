@@ -49,7 +49,7 @@ In der Praxis entscheiden die Anlagen. Zur Prüfbarkeit gehören Abrechnungszeic
 
 Für Bauverträge nach dem Bürgerlichen Gesetzbuch gilt ein eigener Maßstab. Eine Schlussrechnung ist dort prüffähig, wenn sie eine übersichtliche Aufstellung der erbrachten Leistungen enthält und für den Besteller nachvollziehbar ist.[^3] Sie gilt außerdem als prüffähig, wenn der Besteller nicht innerhalb von 30 Tagen nach Zugang begründete Einwendungen erhebt. Die Erteilung einer prüffähigen Schlussrechnung ist Voraussetzung für die Fälligkeit des Werklohns. Ob eine Rüge im Einzelfall rechtzeitig und ausreichend begründet war, beurteilt ein Rechtsanwalt.
 
-Bei einem Vertrag mit VOB/B läuft die Frist parallel. Spätestens 30 Tage, nachdem die Schlussrechnung eingegangen ist, wird die Schlusszahlung fällig.[^4] Auf höchstens 60 Tage verlängert sich die Frist nur, wenn das sachlich gerechtfertigt und ausdrücklich vereinbart ist. Werden Einwendungen gegen die Prüfbarkeit nicht bis zum Fristablauf unter Angabe der Gründe erhoben, kann sich der Auftraggeber später nicht mehr darauf berufen. Verzögert sich die Prüfung, ist das unbestrittene Guthaben sofort als Abschlagszahlung zu zahlen.
+Bei einem Vertrag mit VOB/B läuft die Frist parallel. Spätestens 30 Tage, nachdem die Schlussrechnung eingegangen ist, wird die Schlusszahlung fällig.[^4] Auf höchstens 60 Tage verlängert sich die Frist nur, wenn das sachlich gerechtfertigt und ausdrücklich vereinbart ist. Werden Einwendungen gegen die Prüfbarkeit nicht bis zum Fristablauf unter Angabe der Gründe erhoben, kann sich der Auftraggeber später nicht mehr darauf berufen. Zieht sich die Prüfung hin, muss das unstreitige Guthaben sofort als Abschlag gezahlt werden.
 
 ## Mengen und Aufmaß: wo die großen Beträge liegen
 
@@ -61,7 +61,7 @@ Eine Mengenabweichung kann den Preis ändern. Weicht die ausgeführte Menge eine
 
 ## Nachträge und Stundenlohn richtig zuordnen
 
-Bei Nachträgen entscheidet die Anspruchsgrundlage über den Preis. Wird durch eine Anordnung des Auftraggebers die Grundlage des Preises geändert, ist ein neuer Preis zu vereinbaren.[^8] Verlangt der Auftraggeber eine Leistung, die der Vertrag nicht enthält, steht dem Auftragnehmer dafür eine zusätzliche Vergütung zu. Diesen Anspruch muss er allerdings ankündigen, bevor er mit der Ausführung beginnt. Leistungen ohne Auftrag oder in eigenmächtiger Abweichung werden grundsätzlich nicht vergütet. Ordnen Sie deshalb jeden Nachtrag zuerst zu, bevor Sie die Höhe prüfen.
+Bei Nachträgen entscheidet die Anspruchsgrundlage über den Preis. Wird durch eine Anordnung des Auftraggebers die Grundlage des Preises geändert, ist ein neuer Preis zu vereinbaren.[^8] Verlangt der Auftraggeber eine Leistung, die der Vertrag nicht enthält, steht dem Auftragnehmer dafür eine zusätzliche Vergütung zu. Diesen Anspruch muss er allerdings ankündigen, bevor er mit der Ausführung beginnt. Für Leistungen ohne Auftrag oder eigenmächtige Abweichungen gibt es grundsätzlich keine Vergütung. Ordnen Sie deshalb jeden Nachtrag zuerst zu, bevor Sie die Höhe prüfen.
 
 Die Höhe folgt der Urkalkulation, nicht dem Markt. Den Maßstab bilden die Kalkulationsansätze der vertraglichen Leistung sowie die Kosten, die gerade durch die verlangte Leistung zusätzlich entstehen.[^8] Prüfen Sie außerdem, ob die Leistung nicht schon im vertraglichen Bausoll steckt. Erscheint ein Nachtrag erstmals in der Schlussrechnung, verlangen Sie Anordnung, Kalkulation und Nachweis. Ob ein Anspruch dem Grunde nach besteht, ist eine Rechtsfrage für einen Rechtsanwalt.
 

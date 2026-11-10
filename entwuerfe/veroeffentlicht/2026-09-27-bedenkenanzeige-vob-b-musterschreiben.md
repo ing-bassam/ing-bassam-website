@@ -57,7 +57,7 @@ Der Maßstab für alle drei Fälle ist Ihr eigenes Fachwissen. Unterstellt wird 
 
 ## Was in der Bedenkenanzeige stehen muss, damit sie wirkt
 
-An den Inhalt stellt die Rechtsprechung hohe Anforderungen. Verlangt wird eine konkrete und hinreichende Darstellung des Mangelrisikos. Die Umstände, die Ihre Bedenken auslösen, legen Sie im Einzelnen dar und erläutern sie. Der Auftraggeber soll ein vollständiges Bild der Lage bekommen.[^7]
+Beim Inhalt sind die Gerichte streng. Verlangt wird eine konkrete und hinreichende Darstellung des Mangelrisikos. Die Umstände, die Ihre Bedenken auslösen, legen Sie im Einzelnen dar und erläutern sie. Der Auftraggeber soll ein vollständiges Bild der Lage bekommen.[^7]
 
 Allgemeine Hinweise reichen nicht. Wer bloß von technischen Bedenken spricht und sie nicht erläutert, erreicht nichts.[^7] Ebenso wenig hilft es, eine Vorleistung oder einen Untergrund pauschal als mangelhaft zu bezeichnen, ohne Tatsachen zu nennen. Aus der Anzeige muss für den Auftraggeber deutlich hervorgehen, welche konkreten Gefahren der Zustand mit sich bringt und was es bedeutet, wenn er den Hinweis übergeht.[^8]
 
@@ -67,7 +67,7 @@ Einen eigenen Lösungsvorschlag müssen Sie nicht machen.[^8] Das ist wichtiger,
 
 ## Form, Adressat und Zeitpunkt entscheiden über die Wirkung
 
-Die Vorschrift verlangt Schriftform. Bei wirksamer Einbeziehung der VOB/B liegt darin ein vertraglich vereinbartes Formerfordernis. Eine einfache, nicht unterschriebene E-Mail kann diesen Anforderungen nach der Fachliteratur nicht entsprechen. Ein eingescannter und unterzeichneter Brief müsste dagegen ausreichen.[^9]
+Die Bedenkenanzeige muss schriftlich erfolgen. Ist die VOB/B wirksam Vertragsbestandteil, handelt es sich um eine vertraglich vereinbarte Form, an die sich der Auftragnehmer halten sollte. Eine formlose E-Mail ohne Unterschrift ist dafür nach der Fachliteratur riskant; sicher ist ein unterschriebenes Schreiben, das auch als Scan übermittelt werden dürfte.[^9]
 
 Die Anzeige richtet sich in erster Linie an den Auftraggeber selbst.[^9] Den örtlichen Bauleiter sieht die Fachliteratur in der Regel auch ohne ausdrückliche Vollmacht als berechtigt an, die Anzeige für den Auftraggeber entgegenzunehmen.[^9] Diese Erleichterung hat eine wichtige Grenze. Betreffen Ihre Bedenken gerade einen Fehler des bauleitenden Architekten, von dem auch die Planung stammt, können Sie sich nicht darauf verlassen, dass er die Anzeige an den Auftraggeber weitergibt.[^9] Üblicherweise geht eine Bedenkenanzeige zunächst an den Architekten, der die Bauüberwachung führt. Weist er die Bedenken zurück, müssen Sie sich direkt an den Auftraggeber wenden.[^8]
 

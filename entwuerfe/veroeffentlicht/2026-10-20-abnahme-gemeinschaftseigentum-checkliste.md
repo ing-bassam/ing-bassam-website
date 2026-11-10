@@ -59,7 +59,7 @@ Keller und Tiefgarage sind die Bereiche des Gemeinschaftseigentums, in denen Feu
 
 Den Unterschied zwischen gering und deutlich zeigen die Spuren. Einen trockenen Haarriss ohne Verfärbung stufen Sie in der Checkliste als gering ein und beobachten ihn. Deutlich sind feuchte Oberflächen, weiße Salzränder, sogenannte Ausblühungen, und Tropfsteine an Rissen. Diese Merkmale nennt die Fachliteratur als Hinweise auf Durchfeuchtung und wasserführende Risse. Als Beispiele führt sie Tiefgaragendecken und weiße Wannen an.[^7] Auch Rostfahnen gehören in diese Stufe.[^7]
 
-Zur Planung einer Tiefgarage gehört ein Gefälle des Bodens, damit eingetragenes Wasser abläuft.[^8] Viele Böden erhalten eine Beschichtung. Sie mindert das Eindringen von Chloriden, also Tausalz, in den Beton.[^8] Ein bekanntes Schadensbild sind Abplatzungen und Blasen in der Beschichtung.[^8] Kleine Pfützen nach Regen sind ein geringer Befund. Große stehende Wasserflächen, Gefälle zu Stützen oder fehlende Rinnen sind deutlich.
+Zur Planung einer Tiefgarage gehört ein Gefälle des Bodens, damit eingetragenes Wasser abläuft.[^8] Viele Böden erhalten eine Beschichtung. Sie bremst das Eindringen von Chloriden aus Tausalz in den Beton.[^8] Ein bekanntes Schadensbild sind Abplatzungen und Blasen in der Beschichtung.[^8] Kleine Pfützen nach Regen sind ein geringer Befund. Große stehende Wasserflächen, Gefälle zu Stützen oder fehlende Rinnen sind deutlich.
 
 Liegen im Keller Abläufe unterhalb der Rückstauebene, braucht es eine Sicherung. Die Rückstauebene ist die Höhe, bis zu der Abwasser aus dem Kanal zurückdrücken kann, in der Regel die Straßenoberkante.[^9] Liegen Kellergeschosse mit Entwässerung unterhalb dieser Ebene, ist eine Hebeanlage vorzusehen.[^10] Die Checkliste fragt ab, welche Sicherung vorhanden ist und wo sie sitzt.
 
@@ -81,7 +81,7 @@ Beim Brandschutz prüfen Sie vor allem Türen und Durchbrüche. Bei Türen zum T
 
 ## Befunde auswerten und wann ein Sachverständiger hilft
 
-Am Ende der Begehung zählen Sie die Stufen aus. Jeder bekannte Befund gehört vor der Unterschrift ins gemeinsame Protokoll. Wer ein Werk trotz Kenntnis eines Mangels abnimmt, behält bestimmte Mängelrechte nur, wenn er sie sich bei der Abnahme vorbehält.[^5] Vorbehalte sind bis zur Unterzeichnung zu erklären und in die gemeinsame Niederschrift aufzunehmen.[^19]
+Am Ende der Begehung zählen Sie die Stufen aus. Jeder bekannte Befund gehört vor der Unterschrift ins gemeinsame Protokoll. Wer einen bekannten Mangel bei der Abnahme nicht vorbehält, verliert bestimmte Mängelrechte.[^5] Vorbehalte sind bis zur Unterzeichnung zu erklären und in die gemeinsame Niederschrift aufzunehmen.[^19]
 
 Nur geringe Befunde rechtfertigen keine Verweigerung. Wegen unwesentlicher Mängel kann die Abnahme nicht verweigert werden.[^5] Kleinere Nachbesserungen wie Reinigung oder Beschilderung hat ein Gericht als unwesentlich angesehen.[^20] Ob ein deutlicher Befund die Verweigerung rechtfertigt, ist eine rechtliche Frage. Sie sollte auf Grundlage der technischen Feststellung anwaltlich geklärt werden.
 

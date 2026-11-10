@@ -43,7 +43,7 @@ abschnitte:
     punkte:
       - text: Witterung vormittags
         auswahl: [trocken, Regen, Schnee, Frost, Hitze, unbekannt]
-        hinweis: "Viele Baustoffe reagieren empfindlich auf Frost oder große Hitze. Halten Sie das Wetter fest, auch wenn an diesem Tag nichts Auffälliges passiert."
+        hinweis: "Frost und große Hitze schaden vielen Baustoffen. Halten Sie das Wetter fest, auch wenn an diesem Tag nichts Auffälliges passiert."
       - text: Witterung nachmittags
         auswahl: [trocken, Regen, Schnee, Frost, Hitze, unbekannt]
       - text: Lufttemperatur morgens und mittags in Grad Celsius

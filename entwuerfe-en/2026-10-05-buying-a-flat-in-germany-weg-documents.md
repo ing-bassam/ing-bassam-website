@@ -20,9 +20,9 @@ The flat is bright, the bathroom is new, the price seems fair. Two years later, 
 
 The checklist is meant for private buyers of a flat, in existing buildings as well as in new ones. It does not replace a survey. It makes sure that you do not forget anything important when you are standing in the stairwell under time pressure, with other interested buyers around you.
 
-Anyone who buys a flat acquires two things at once: separate ownership of the flat (Sondereigentum) and a share in the common property (Gemeinschaftseigentum).[^wirth] Common property includes, for example, roofs, facades, stairwells, basements and outdoor areas.[^wirth] These parts cost money, even though they lie outside your front door.
+Anyone who buys a flat acquires two things at once: separate ownership of the flat (Sondereigentum) and a share in the common property (Gemeinschaftseigentum).[^wirth] Typical common property includes the roof, the facade, the stairwell, the basement or the outdoor areas.[^wirth] These parts cost money, even though they lie outside your front door.
 
-As a rule of thumb, everything inside the flat is separate property as long as it is not needed for the existence or the usability of the other flats.[^rode] Everything else is common property.[^rode] The exact allocation is set out in the declaration of division (Teilungserklärung) – the deed by which the building was divided into individual units. That is why the checklist starts with the documents and not with the bathroom.
+Roughly speaking, whatever lies inside the flat is separate property, unless the building or the other flats depend on it.[^rode] Everything else is common property.[^rode] The exact allocation is set out in the declaration of division (Teilungserklärung) – the deed by which the building was divided into individual units. That is why the checklist starts with the documents and not with the bathroom.
 
 ## The documents to request
 
@@ -118,7 +118,7 @@ The declaration of division with the community rules, the division plan, the min
 
 **Do windows and balconies belong to the flat or to the owners' association?**
 
-That depends on the declaration of division and cannot be answered in general. As a rule of thumb, everything inside the flat is separate property as long as it is not needed for the existence or the usability of the other flats.[^rode] The waterproofing of a building is a mandatory part of the common property.[^schulz-72] On a balcony, the floor covering can therefore belong to the flat while the waterproofing membrane on the load-bearing slab underneath belongs to the common property.[^schulz-72]
+That depends on the declaration of division and cannot be answered in general. Roughly speaking, whatever lies inside the flat is separate property, unless the building or the other flats depend on it.[^rode] The waterproofing of a building is a mandatory part of the common property.[^schulz-72] On a balcony, the floor covering can therefore belong to the flat while the waterproofing membrane on the load-bearing slab underneath belongs to the common property.[^schulz-72]
 
 **Does the energy performance certificate tell me what heating will cost?**
 

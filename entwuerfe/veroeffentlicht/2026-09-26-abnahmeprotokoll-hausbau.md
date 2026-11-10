@@ -37,7 +37,7 @@ Der Termin ist knapp, die Baufirma hat den nächsten Kunden, und Sie sollen unte
 
 Ein Abnahmeprotokoll für die Endabnahme eines Hauses ist die gemeinsame Niederschrift über Rundgang, festgestellte Mängel und erklärte Vorbehalte. Gedacht ist die Vorlage für private Bauherren, die einen Neubau übernehmen. Sie passt für das Einfamilienhaus vom Bauträger ebenso wie für den Bau mit einem Generalunternehmer.
 
-Die Abnahme ist der wichtigste Termin des ganzen Bauvorhabens. Ab diesem Zeitpunkt läuft für Mängelansprüche die Verjährungsfrist, bei einem Bauwerk fünf Jahre.[^2] Zugleich wird die Vergütung fällig; beim Bauvertrag muss dafür außerdem eine prüffähige Schlussrechnung vorliegen.[^3] Auch die Beweislast kehrt sich um. Bis zur Abnahme hat der Unternehmer zu beweisen, dass seine Leistung mangelfrei ist; danach liegt der Beweis eines Mangels beim Bauherrn.[^4] Behält sich der Bauherr bei der Abnahme einen Mangel vor, trägt nach der Rechtsprechung insoweit weiterhin der Unternehmer die Beweislast.[^5] Was das für Ihren Vertrag bedeutet, beurteilt ein Rechtsanwalt.
+Die Abnahme ist der wichtigste Termin des ganzen Bauvorhabens. Ab diesem Zeitpunkt läuft für Mängelansprüche die Verjährungsfrist, bei einem Bauwerk fünf Jahre.[^2] Zugleich wird die Vergütung fällig; beim Bauvertrag muss dafür außerdem eine prüffähige Schlussrechnung vorliegen.[^3] Auch die Beweislast kehrt sich um. Vor der Abnahme muss der Unternehmer die Mangelfreiheit seiner Leistung beweisen; danach liegt der Beweis eines Mangels beim Bauherrn.[^4] Behält sich der Bauherr bei der Abnahme einen Mangel vor, trägt nach der Rechtsprechung insoweit weiterhin der Unternehmer die Beweislast.[^5] Was das für Ihren Vertrag bedeutet, beurteilt ein Rechtsanwalt.
 
 Das ausgefüllte Abnahmeprotokoll ist deshalb ein Beweisstück. Es belegt, welche Feststellungen und Erklärungen bei der Abnahmebegehung getroffen wurden.[^6] Fotos mit Nummern, eine klare Ortsangabe je Mangel und die Unterschriften aller Beteiligten machen es belastbar.
 
@@ -87,7 +87,7 @@ Entscheidend ist, ob Sie den Mangel bei der Abnahme kannten. Nehmen Sie ein mang
 
 **Darf ich die Abnahme wegen Mängeln verweigern?**
 
-Wegen unwesentlicher Mängel kann die Abnahme nicht verweigert werden.[^8] Ob ein Mangel wesentlich ist, hängt von seiner Art, seinem Umfang und seinen Folgen ab. Verweigern Sie die Abnahme unter Angabe von Mängeln, müssen Sie auf Verlangen des Unternehmers an einer gemeinsamen Zustandsfeststellung mitwirken.[^9] Diese Entscheidung sollten Sie nicht spontan im Termin treffen.
+Wegen unwesentlicher Mängel kann die Abnahme nicht verweigert werden.[^8] Wie schwer ein Mangel wiegt, richtet sich nach Art, Ausmaß und Auswirkungen. Verweigern Sie die Abnahme unter Angabe von Mängeln, müssen Sie auf Verlangen des Unternehmers an einer gemeinsamen Zustandsfeststellung mitwirken.[^9] Diese Entscheidung sollten Sie nicht spontan im Termin treffen.
 
 **Ab wann läuft die Frist für Mängelansprüche?**
 

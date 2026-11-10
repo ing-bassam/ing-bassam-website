@@ -59,7 +59,7 @@ Manche Mengen ergeben sich aus Liefer- oder Wiegescheinen, etwa bei Schüttgüte
 
 ## Gemeinsames Aufmaß und verdeckte Leistungen
 
-Ein gemeinsames Aufmaß ist ein Aufmaß, das beide Vertragsparteien zusammen vornehmen und gegenzeichnen.[^9] Die VOB/B sieht vor, die für die Abrechnung nötigen Feststellungen mit dem Baufortschritt möglichst gemeinsam zu treffen.[^3] Eine Pflicht zum gemeinsamen Aufmaß folgt daraus nach der Fachliteratur nicht.[^10] Nach der Unterschrift erhält jede Seite eine Ausfertigung der Aufmaßunterlagen.[^4]
+Ein gemeinsames Aufmaß ist ein Aufmaß, das beide Vertragsparteien zusammen vornehmen und gegenzeichnen.[^9] Die VOB/B sieht vor, die für die Abrechnung nötigen Feststellungen mit dem Baufortschritt möglichst gemeinsam zu treffen.[^3] Eine Pflicht zum gemeinsamen Aufmaß folgt daraus nach der Fachliteratur nicht.[^10] Jede Partei bekommt nach dem Unterschreiben ein Exemplar der Aufmaßunterlagen.[^4]
 
 Das gemeinsame Aufmaß hat Gewicht. Haben beide Seiten es erstellt und unterzeichnet, sind sie nach der Fachliteratur daran gebunden.[^10][^11] Ohne gemeinsames Aufmaß muss in der Regel der Auftragnehmer die ausgeführten Mengen nachweisen.[^6][^11] Wie weit diese Bindung im konkreten Streit reicht und wann Einwände noch möglich sind, beurteilt ein Rechtsanwalt.
 

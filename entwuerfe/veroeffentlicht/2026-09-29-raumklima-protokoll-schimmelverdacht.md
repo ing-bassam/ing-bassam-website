@@ -65,7 +65,7 @@ Möbel verschärfen das Problem. Ein Schrank dicht an der Außenwand schirmt sie
 
 ## Was die Spalten zu Heizen und Lüften wirklich zeigen
 
-Heizen und Lüften gehören zusammen. Warme Luft kann mehr Wasserdampf aufnehmen als kalte. Ein Raum, der kaum beheizt wird, lässt sich deshalb auch durch Lüften schwer trocken halten. Die Vorlage fragt beides getrennt ab, damit Sie später erkennen, woran es lag.
+Heizen und Lüften gehören zusammen. Je wärmer die Luft ist, desto mehr Wasserdampf kann sie tragen. Ein Raum, der kaum beheizt wird, lässt sich deshalb auch durch Lüften schwer trocken halten. Die Vorlage fragt beides getrennt ab, damit Sie später erkennen, woran es lag.
 
 Für die Lüftungsdauer gibt es belegte Anhaltswerte. Das Umweltbundesamt empfiehlt in der kalten Jahreszeit zwei- bis dreimal täglich etwa fünf Minuten je Raum.[^8] Im Schlafzimmer sollen es fünf bis zehn Minuten sein, in der warmen Jahreszeit zehn bis zwanzig Minuten.[^8] In Küche und Bad rät es, während und unmittelbar nach dem Kochen oder Duschen fünf bis zehn Minuten weit zu öffnen.[^8]
 

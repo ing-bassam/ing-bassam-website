@@ -65,7 +65,7 @@ An diesen drei Punkten scheitern Ortstermine am häufigsten, und alle drei lasse
 
 Betroffene Nachbarwohnungen und Nachbargrundstücke brauchen mehr Vorlauf als der eigene Keller. Sprechen Sie Nachbarn, Mieter und Nutzer rechtzeitig und schriftlich an. Bei Wohnungseigentum stimmen Sie den Termin zusätzlich mit der Verwaltung ab. Ohne Zutritt bleibt die betreffende Frage offen, und es braucht einen zweiten Termin.
 
-Licht und Witterung sind kein Nebenaspekt: In einer Beweissicherung wird festgehalten, welche Witterungs- und Lichtverhältnisse am Tag der Dokumentation geherrscht haben.[^8] Ein dunkler Kellerraum ohne Strom lässt sich nicht beurteilen. Räumen Sie Schränke, Teppiche und Lagergut vor den betroffenen Flächen weg. Planen Sie eine Stunde mehr ein, als Sie für nötig halten. Und fragen Sie vorher nach, ob Geräte, Gerüste oder sonstige Einrichtungen gebraucht werden; Angaben dazu gehören je nach Auftrag in die Einladung zum Ortstermin.[^9]
+Licht und Witterung sind kein Nebenaspekt: Zur Beweissicherung gehört auch ein Vermerk über Wetter und Licht am Aufnahmetag.[^8] Ein dunkler Kellerraum ohne Strom lässt sich nicht beurteilen. Räumen Sie Schränke, Teppiche und Lagergut vor den betroffenen Flächen weg. Planen Sie eine Stunde mehr ein, als Sie für nötig halten. Und fragen Sie vorher nach, ob Geräte, Gerüste oder sonstige Einrichtungen gebraucht werden; Angaben dazu gehören je nach Auftrag in die Einladung zum Ortstermin.[^9]
 
 ## Was vor dem Termin unterbleiben muss
 

@@ -77,7 +77,7 @@ abschnitte:
         hinweis: "Woran erkennen: Tapete oder Putz vorsichtig an einer kleinen Stelle betrachten. Ein Riss, der sich im Mauerwerk fortsetzt, wiegt schwerer als ein reiner Oberflächenriss."
       - text: Versatz der Rissflanken (eine Seite steht vor oder ist abgesackt)
         auswahl: [kein Versatz, leichter Versatz, deutlicher Versatz, unbekannt]
-        hinweis: "Woran erkennen: Fingerkuppe quer über den Riss ziehen. Der Versatz wird zu selten gemessen, ist aber ein wichtiges Indiz für die Ursache."
+        hinweis: "Woran erkennen: Fingerkuppe quer über den Riss ziehen. Den Versatz der Rissufer misst man oft nicht mit, obwohl er viel über die Ursache verrät."
       - text: Riss ist bereits früher aufgetreten oder schon einmal verschlossen worden
         ja_nein: true
   - titel: Erste Messung und Fotos
@@ -117,7 +117,7 @@ abschnitte:
         hinweis: "Die Marke muss an beiden Rissflanken sicher haften, sonst schert sie unbemerkt ab und zeigt nichts mehr an."
       - text: Gipsmarke dünn und mit schmaler Stelle über dem Riss ausgeführt
         ja_nein: true
-        hinweis: "Übliche Größe etwa 1 cm dick, 4 bis 6 cm breit und höchstens 20 cm lang. Die schmale Stelle sorgt dafür, dass die Marke dort bricht statt abzuscheren."
+        hinweis: "Die Marke flach und handlich halten und in der Mitte über dem Riss etwas schmaler ausbilden. Die schmale Stelle sorgt dafür, dass die Marke dort bricht statt abzuscheren."
       - text: Marke im Außenbereich gegen Regen und Sonne geschützt
         ja_nein: true
         hinweis: "Gips ist witterungsempfindlich und kann sich bei starken Temperaturwechseln vom Putz lösen."

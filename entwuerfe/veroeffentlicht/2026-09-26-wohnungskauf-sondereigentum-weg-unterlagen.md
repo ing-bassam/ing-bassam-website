@@ -37,7 +37,7 @@ Die Wohnung ist hell, das Bad ist neu, der Preis wirkt fair. Zwei Jahre später 
 
 Die Checkliste richtet sich an private Käufer einer Eigentumswohnung, im Bestand wie im Neubau. Sie ersetzt keine Begutachtung. Sie sorgt dafür, dass Sie nichts Wichtiges vergessen, wenn Sie unter Zeitdruck und mit anderen Interessenten im Treppenhaus stehen.
 
-Wer eine Eigentumswohnung kauft, erwirbt zwei Dinge auf einmal. Die Wohnung selbst wird sein Sondereigentum. Dazu kommt ein Miteigentumsanteil am Gemeinschaftseigentum.[^1] Zum Gemeinschaftseigentum gehören zum Beispiel Dächer, Fassaden, Treppenhäuser, Keller und Außenanlagen.[^1] Diese Teile kosten Geld, auch wenn sie außerhalb der Wohnungstür liegen.
+Wer eine Eigentumswohnung kauft, erwirbt zwei Dinge auf einmal. Die Wohnung selbst wird sein Sondereigentum. Dazu kommt ein Miteigentumsanteil am Gemeinschaftseigentum.[^1] Typisches Gemeinschaftseigentum sind etwa das Dach, die Fassade, das Treppenhaus, der Keller oder die Außenanlagen.[^1] Diese Teile kosten Geld, auch wenn sie außerhalb der Wohnungstür liegen.
 
 Als Faustregel gilt: Was sich innerhalb der Wohnung befindet, zählt zum Sondereigentum. Ausgenommen sind Teile, auf die die anderen Wohnungen für ihren Bestand oder ihre Nutzung angewiesen sind.[^2] Alles andere ist Gemeinschaftseigentum.[^2] Die genaue Zuordnung steht in der Teilungserklärung, also der Urkunde, mit der das Gebäude in einzelne Wohnungen aufgeteilt wurde. Deshalb beginnt die Checkliste mit den Unterlagen und nicht mit dem Bad.
 
@@ -91,7 +91,7 @@ Die Checkliste nennt sie im ersten Abschnitt. Dazu gehören die Teilungserkläru
 
 **Gehören Fenster und Balkone zur Wohnung oder zur Gemeinschaft?**
 
-Das hängt von der Teilungserklärung ab und lässt sich nicht pauschal beantworten. Als Faustregel ist alles innerhalb der Wohnung Sondereigentum, solange es nicht zum Bestand oder zur Benutzbarkeit der übrigen Wohnungen benötigt wird.[^2] Die Gebäudeabdichtung gehört zwingend zum Gemeinschaftseigentum.[^3] Beim Balkon kann deshalb der Bodenbelag zum Sondereigentum und die Abdichtungsbahn auf der tragenden Decke darunter zum Gemeinschaftseigentum gehören.[^3]
+Das hängt von der Teilungserklärung ab und lässt sich nicht pauschal beantworten. Grob gilt: Was in der Wohnung liegt, ist Sondereigentum, es sei denn, das Gebäude oder die anderen Wohnungen sind darauf angewiesen.[^2] Die Gebäudeabdichtung gehört zwingend zum Gemeinschaftseigentum.[^3] Beim Balkon kann deshalb der Bodenbelag zum Sondereigentum und die Abdichtungsbahn auf der tragenden Decke darunter zum Gemeinschaftseigentum gehören.[^3]
 
 **Reicht die Checkliste ohne einen Sachverständigen aus?**
 

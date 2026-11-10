@@ -35,7 +35,7 @@ Der Riss über der Wohnzimmertür war im Frühjahr kaum zu sehen. Jetzt passt ei
 
 ## Warum eine einzelne Rissbreite fast nichts aussagt
 
-Die Breite eines Risses ist die naheliegendste Zahl, und sie wird am häufigsten falsch verstanden. Das Messen der Rissbreite stellt immer nur eine Momentaufnahme dar.[^1] Ein Riss, den Sie im August messen, kann im Januar breiter sein, ohne dass sich am Gebäude etwas verschlechtert hat. Bauteile dehnen sich bei Wärme aus und ziehen sich bei Kälte zusammen. Diese Bewegung läuft jedes Jahr aufs Neue ab.
+Die Breite eines Risses ist die naheliegendste Zahl, und sie wird am häufigsten falsch verstanden. Eine einzelne Messung der Rissbreite zeigt nur den Zustand in diesem Augenblick.[^1] Ein Riss, den Sie im August messen, kann im Januar breiter sein, ohne dass sich am Gebäude etwas verschlechtert hat. Bauteile dehnen sich bei Wärme aus und ziehen sich bei Kälte zusammen. Diese Bewegung läuft jedes Jahr aufs Neue ab.
 
 Deshalb hilft auch keine Faustregel, ab welcher Breite ein Riss harmlos ist. In der Fachliteratur wird ausdrücklich darauf hingewiesen, dass eine generelle Höchstrissbreite nicht angegeben werden kann, weil sie je nach Putz, Putzsystem und Untergrund im Einzelfall zu bewerten ist.[^2] Für Mauerwerk gibt es überhaupt keine allgemeine Grenze. Wer im Internet eine Millimeterzahl findet, sollte ihr misstrauen.
 

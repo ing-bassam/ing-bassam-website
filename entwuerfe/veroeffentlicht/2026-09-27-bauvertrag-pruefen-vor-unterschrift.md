@@ -49,7 +49,7 @@ Die Baubeschreibung ist das Herz des Bauvertrags. Beim Verbraucherbauvertrag mus
 
 Eine gute Baubeschreibung nennt Mengen, Qualitäten und Preisgrenzen. Sie sagt, wie viele Steckdosen ein Raum erhält und welches Fliesenformat im Bad vorgesehen ist. Begriffe wie „hochwertig“ oder „marktüblich“ sagen dagegen nichts. Markieren Sie in der Checkliste jede Stelle mit „oder gleichwertig“, „bauseits“ oder „nach Wahl des Unternehmers“. Jede dieser Formulierungen verschiebt eine Entscheidung auf später.
 
-Bleibt der Vertrag unklar, wird durch Auslegung ermittelt, was gilt. Dabei sind die Vertragsunterlagen als sinnvolles Ganzes zu lesen; im Zweifel ist gewollt, was detailliert beschrieben ist.[^4] Für unklare oder unvollständige Baubeschreibungen enthält das Bürgerliche Gesetzbuch (BGB) eigene Auslegungsregeln.[^3] Verlassen Sie sich darauf nicht: Eine Auslegung klärt sich am Ende oft erst im Streit, und der kostet Zeit und Nerven. Ob Ihnen im Einzelfall Ansprüche zustehen, beurteilt ein Rechtsanwalt.
+Bleibt der Vertrag unklar, wird durch Auslegung ermittelt, was gilt. Dabei sind die Vertragsunterlagen als sinnvolles Ganzes zu lesen; im Zweifel geht die genauere Beschreibung vor.[^4] Für unklare oder unvollständige Baubeschreibungen enthält das Bürgerliche Gesetzbuch (BGB) eigene Auslegungsregeln.[^3] Verlassen Sie sich darauf nicht: Eine Auslegung klärt sich am Ende oft erst im Streit, und der kostet Zeit und Nerven. Ob Ihnen im Einzelfall Ansprüche zustehen, beurteilt ein Rechtsanwalt.
 
 Prüfen Sie die Beschreibung mit den Plänen zusammen. Widersprüche zwischen Text und Zeichnung sind häufig, weil beide von verschiedenen Personen erstellt werden. Für einen Laien ist das schwer zu erkennen; eine [Prüfung der Vertragsunterlagen durch eine Bauherrenvertretung](https://ing-bassam.de/#kontakt) findet solche Lücken vor der Unterschrift.
 
@@ -65,7 +65,7 @@ Dasselbe gilt für den energetischen Standard. Welche Anforderungen neu errichte
 
 ## Termine, Zahlungsplan und Sicherheiten
 
-Beim Verbraucherbauvertrag muss der Vertrag verbindliche Angaben zum Zeitpunkt der Fertigstellung enthalten; steht der Baubeginn noch nicht fest, mindestens die Dauer der Bauausführung.[^9] Die Baubeschreibung hat ebenfalls verbindliche Angaben zur Bauzeit zu enthalten.[^3] Ein „voraussichtlich“ genügt nicht. Prüfen Sie außerdem, von welchen Bedingungen der Baubeginn abhängt.
+Beim Verbraucherbauvertrag muss der Vertrag verbindliche Angaben zum Zeitpunkt der Fertigstellung enthalten; steht der Baubeginn noch nicht fest, mindestens die Dauer der Bauausführung.[^9] Auch zur Bauzeit muss die Baubeschreibung verbindliche Angaben machen.[^3] Ein „voraussichtlich“ genügt nicht. Prüfen Sie außerdem, von welchen Bedingungen der Baubeginn abhängt.
 
 Eine Vertragsstrafe ist das einfachste Mittel gegen Verzug, weil Sie dann keinen Schaden nachweisen müssen. In vorformulierten Verträgen gilt sie aber nur unter Voraussetzungen: Sie muss vom Verschulden des Unternehmens abhängen, der Höhe nach angemessen sein und eine Obergrenze haben.[^10] Verschieben beide Seiten den Termin einvernehmlich, kann die Strafe entfallen, wenn der neue Termin nicht ausdrücklich strafbewehrt bleibt.[^10] Wie eine solche Klausel im Einzelfall zu bewerten ist, prüft ein Rechtsanwalt.
 
