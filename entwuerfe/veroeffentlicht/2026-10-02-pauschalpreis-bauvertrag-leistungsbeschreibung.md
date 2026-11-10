@@ -108,6 +108,6 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 ## Quellen und Fußnoten
 
-[^1]: Oberlandesgericht Stuttgart, 10. Zivilsenat: Urteil vom 09.02.2021 – 10 U 308/20, ECLI:DE:OLGSTUT:2021:0309.10U308.20.00. https://www.landesrecht-bw.de/perma?d=NJRE001501291 (abgerufen am 2026-10-02).
+[^1]: Oberlandesgericht Stuttgart, 10. Zivilsenat: Urteil vom 09.02.2021 – 10 U 308/20, ECLI:DE:OLGSTUT:2021:0309.10U308.20.00. https://www.landesrecht-bw.de/perma?d=NJRE001501291 (abgerufen am 2026-10-02). Die Nichtzulassungsbeschwerde zum Bundesgerichtshof (VII ZR 287/21) wurde zurückgenommen.
 [^2]: Berner, Fritz; Kochendörfer, Bernd; Schach, Rainer: Grundlagen der Baubetriebslehre 1. Baubetriebswirtschaft. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 332–333. ISBN 978-3-658-27856-4.
 [^3]: Linnemann, Matthias; Kaltenborn, Sonja; Bahner, Andreas: Kündigungsvergütung von Bauverträgen. Grundlagen und Empfehlungen zur korrekten Abrechnung. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 30. ISBN 978-3-658-42892-1.
