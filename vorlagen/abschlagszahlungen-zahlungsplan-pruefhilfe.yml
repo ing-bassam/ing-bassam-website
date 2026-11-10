@@ -1,0 +1,364 @@
+titel: Prüfhilfe Abschlagszahlungen und Zahlungsplan
+untertitel: Vor jeder Rate beim Hausbau prüfen – Zahlungsplan, Rechnung, Bautenstand, Mängel, Nachträge, Sicherheiten
+kurzform: abschlagszahlungen-zahlungsplan-pruefhilfe
+typ: Checkliste
+stand: 2026-11-10
+dateien: [pdf, pdf-ausfuellbar]
+einleitung: >-
+  Mit dieser Prüfhilfe entscheiden Sie vor jeder Rate, ob die Forderung der Baufirma zum
+  tatsächlichen Bautenstand passt. Abschnitt 1 und 2 füllen Sie einmal zu Beginn aus, die
+  Abschnitte 3 bis 9 bei jeder neuen Abschlagsrechnung. Tragen Sie je Punkt ein, ob alles
+  in Ordnung ist, ob Sie nachfragen müssen, ob Sie einen Betrag begründet zurückhalten oder
+  ob sich der Punkt ohne Fachwissen nicht prüfen lässt. Die Auswertung am Ende macht daraus
+  eine Entscheidung über die Zahlung.
+kopffelder:
+  - Bauvorhaben und Anschrift
+  - Baufirma
+  - Vertrag vom
+  - Vereinbarte Gesamtvergütung brutto
+  - Abschlagsrechnung Nr. und Datum
+  - Rechnung eingegangen am
+  - Geforderter Betrag brutto
+  - Prüfung am, durch
+bewertung:
+  stufen:
+    - {kurz: "i. O.", lang: "in Ordnung", beschreibung: "Leistung sichtbar fertig oder Angabe durch Vertrag und Unterlagen gedeckt"}
+    - {kurz: "klären", lang: "Rückfrage offen", beschreibung: "unklar, Unterlage fehlt oder Abschnitt nur zum Teil fertig – vor der Zahlung schriftlich nachfragen"}
+    - {kurz: "kürzen", lang: "Betrag zurückhalten", beschreibung: "nicht erbracht, nicht vertragsgemäß oder mangelhaft – Betrag und Grund notieren"}
+    - {kurz: "n. p.", lang: "nicht prüfbar", beschreibung: "verdeckt, nicht zugänglich oder ohne Fachwissen nicht zu beurteilen – Fachmann fragen"}
+abschnitte:
+  - titel: 1 Vertrag und Unterlagen (einmal zu Beginn)
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Vertragsart
+        auswahl: [Verbraucherbauvertrag, Bauträgervertrag, VOB/B-Vertrag, Vertrag über einzelne Gewerke, unbekannt]
+        hinweis: >-
+          Ein Verbraucherbauvertrag liegt vor, wenn ein Unternehmen für Sie als Privatperson ein
+          neues Gebäude errichtet oder ein bestehendes erheblich umbaut. Beim Bauträgervertrag
+          kaufen Sie Grundstück und Haus zusammen beim Notar. Ob die VOB/B gilt, steht
+          ausdrücklich im Vertrag. Die Art des Vertrags bestimmt, welche Grenzen und Fristen
+          gelten.
+      - text: Vergütungsart
+        auswahl: [Pauschalpreis, Einheitspreise nach Mengen, gemischt, unbekannt]
+        hinweis: >-
+          Beim Pauschalpreis zahlen Sie Raten nach dem Zahlungsplan. Bei Einheitspreisen rechnet
+          die Firma ausgeführte Mengen mal vereinbarten Preis ab; dann gehört ein Aufmaß zur
+          Rechnung.
+      - text: Aufbau des Zahlungsplans
+        auswahl: [nach fertigen Bauabschnitten, nach Terminen, Termin und Abschnitt, kein Zahlungsplan, unbekannt]
+        hinweis: >-
+          Ein Plan, der nur Termine und Beträge nennt, kann zu Zahlungen führen, obwohl der Bau
+          im Verzug ist. Ein Plan nach fertigen Bauabschnitten lässt Sie eine Rate zurückhalten,
+          solange der Abschnitt nicht vollständig erreicht ist.
+      - text: Finanzierung der Raten
+        auswahl: [Eigenkapital, Baudarlehen in Teilbeträgen, beides, unbekannt]
+        hinweis: >-
+          Baudarlehen für Neubauten werden meist in mehreren Teilbeträgen nach dem Baufortschritt
+          ausgezahlt. Für den noch nicht abgerufenen Teil kann ein Bereitstellungszins anfallen.
+          Klären Sie mit Ihrer Bank, welche Nachweise sie vor jeder Auszahlung verlangt.
+      - text: Bauvertrag mit Baubeschreibung und Plänen liegt vor
+        ja_nein: true
+      - text: Zahlungsplan mit Bauabschnitten und Beträgen liegt vor
+        ja_nein: true
+      - text: Fertigstellungstermin oder Bauzeit ist im Vertrag genannt
+        ja_nein: true
+      - text: Alle Nachtragsvereinbarungen und schriftlichen Anordnungen liegen vor
+        ja_nein: true
+      - text: Alle bisherigen Abschlagsrechnungen und Zahlungsbelege liegen geordnet vor
+        ja_nein: true
+  - titel: 2 Zahlungsplan prüfen (einmal, am besten vor der ersten Rate)
+    notizen: 2
+    punkte:
+      - text: Bindung jeder Rate an einen fertigen Bauabschnitt
+        hinweis: >-
+          Woran erkennen: Jede Rate nennt ein Ereignis wie „Bodenplatte fertig“, nicht nur ein
+          Datum. i. O.: Abschnitt eindeutig beschrieben. klären: Rate nur an Termin, Bauantrag
+          oder Planung geknüpft. Eine Zahlungsanforderung allein sagt nichts über den
+          Baufortschritt.
+      - text: Höhe der Raten im Verhältnis zum Wert der Bauabschnitte
+        hinweis: >-
+          Woran erkennen: Raten bis zum Rohbau zusammenzählen. i. O.: Summe entspricht etwa dem
+          Anteil des Rohbaus an der Gesamtleistung. kürzen oder klären: bis zum fertigen Rohbau
+          sind schon rund drei Viertel fällig, obwohl der Rohbau nach Verbraucherverbänden
+          höchstens etwa die Hälfte der Leistung ausmacht.
+      - text: Rate vor Baubeginn oder für Planung und Bauantrag
+        hinweis: >-
+          Woran erkennen: Zahlung bei Vertragsschluss, für Planung oder vor den Erdarbeiten.
+          i. O.: keine oder nur gegen Sicherheit, etwa eine Bankbürgschaft. klären: Vorauszahlung
+          ohne Sicherheit – ungesicherte Vorauszahlungen in vorformulierten Verträgen sehen
+          Fachliteratur und Verbraucherverbände kritisch.
+      - text: "Verbraucherbauvertrag: Summe aller Raten vor der Abnahme höchstens 90 Prozent"
+        hinweis: >-
+          Beim Verbraucherbauvertrag dürfen alle Abschläge zusammen 90 Prozent der vereinbarten
+          Gesamtvergütung einschließlich der Nachträge nicht übersteigen. Eine vorformulierte
+          Klausel mit wesentlich höheren Abschlägen ist unwirksam.
+      - text: Schlussrate ist erst nach der Abnahme fällig
+        hinweis: >-
+          Nach dem Gesetz ist die Vergütung bei der Abnahme zu entrichten. Prüfen Sie, dass der
+          Plan einen Restbetrag bis zur Abnahme offenhält und nicht schon bei Übergabe der
+          Schlüssel alles fällig stellt.
+      - text: Bauabschnitte und ihre Feststellung sind eindeutig beschrieben
+        hinweis: >-
+          Woran erkennen: Der Vertrag sagt, was zum Abschnitt gehört und wer ihn wie feststellt,
+          etwa bei einer gemeinsamen Begehung. klären: Begriffe wie „Rohbau“ ohne Inhalt –
+          maßgeblich sind dann Baubeschreibung und Vertrag.
+      - text: "Bauträger: Ratenplan entspricht der Makler- und Bauträgerverordnung"
+        hinweis: >-
+          Höchstens sieben Raten nach Bauablauf. Bei Übertragung des Grundstücks 30 % nach Beginn
+          der Erdarbeiten; vom Rest 40 % Rohbau mit Zimmererarbeiten, 8 % Dach und Dachrinnen, je
+          3 % Rohinstallation Heizung, Sanitär, Elektro, 10 % Fenster mit Verglasung, 6 %
+          Innenputz, 3 % Estrich, 4 % Fliesen im Bad, 12 % Bezugsfertigkeit, 3 % Fassade, 5 %
+          vollständige Fertigstellung.
+      - text: "Bauträger: Voraussetzungen vor der ersten Rate sind erfüllt"
+        hinweis: >-
+          Vor der ersten Zahlung bestätigt der Notar unter anderem, dass der Vertrag wirksam ist,
+          eine Vormerkung im Grundbuch eingetragen und die Freistellung von Grundpfandrechten
+          gesichert ist. Außerdem muss die Baugenehmigung vorliegen oder der Baubeginn nach den
+          Regeln der Verordnung zulässig sein.
+  - titel: 3 Die Abschlagsrechnung selbst
+    notizen: 2
+    punkte:
+      - text: Eingangsdatum der Rechnung ist notiert
+        hinweis: >-
+          Ab dem Zugang laufen Prüf- und Zahlungsfristen. Notieren Sie das Datum, bevor Sie mit
+          der Prüfung beginnen.
+      - text: Rechnung ist als Abschlagsrechnung bezeichnet und fortlaufend nummeriert
+      - text: Rechnung nennt die Rate oder den Bauabschnitt aus dem Zahlungsplan
+        hinweis: >-
+          Woran erkennen: Bezug auf die Zeile des Zahlungsplans. i. O.: Abschnitt und Betrag
+          stimmen mit dem Plan überein. klären: Rechnung ohne Bezug oder mit einem Abschnitt,
+          der im Plan nicht vorkommt.
+      - text: Aufstellung der Leistungen ist nachvollziehbar
+        hinweis: >-
+          Das Gesetz verlangt eine Aufstellung, mit der Sie die Leistung rasch und sicher
+          beurteilen können. klären: nur eine Summe ohne Angabe, wofür. Bei Pauschalpreis ohne
+          Zahlungsplan gehört eine Berechnung des Leistungsstands dazu.
+      - text: Bisherige Abschlagszahlungen sind aufgeführt und abgezogen
+        hinweis: >-
+          Woran erkennen: Die Rechnung zeigt den Gesamtstand und zieht alle früheren Zahlungen
+          ab. kürzen: eine geleistete Zahlung fehlt oder ist mit falschem Betrag abgezogen.
+      - text: Umsatzsteuer ist richtig ausgewiesen
+      - text: Nachträge sind getrennt vom Hauptauftrag ausgewiesen
+      - text: Einbehalt der Fertigstellungssicherheit ist berücksichtigt, falls vereinbart
+      - text: Hinweis auf Verzugsfolgen in der Rechnung
+        auswahl: [vorhanden, nicht vorhanden, unbekannt]
+        hinweis: >-
+          Gegenüber Verbrauchern beginnt der Verzug nach 30 Tagen ab Fälligkeit und Zugang der
+          Rechnung nur, wenn die Rechnung auf diese Folge besonders hinweist. Eine Mahnung kann
+          den Verzug früher auslösen.
+  - titel: 4 Bautenstand vor Ort – Gründung, Rohbau, Dach, Fenster
+    notizen: 2
+    punkte:
+      - text: Bauabschnitt, den die Rechnung abrechnet
+        auswahl: [Erdarbeiten und Rohbau, Dach und Fenster, Haustechnik und Innenausbau, Bezugsfertigkeit, Fertigstellung, unbekannt]
+        hinweis: >-
+          Gehen Sie nur die Punkte durch, die zu diesem und den früheren Abschnitten gehören.
+          Betreten Sie die Baustelle nur mit Zustimmung der Firma und nur auf sicheren Wegen,
+          nie Gerüst, Dach oder ungesicherte Deckenöffnungen.
+      - text: Erdarbeiten, Fundamente und Bodenplatte
+        hinweis: >-
+          Woran erkennen: Bodenplatte oder Kellersohle betoniert, Baugrube verfüllt, soweit
+          vereinbart. i. O.: so fertig, wie die Baubeschreibung es nennt. n. p.: Grundleitungen
+          und Dämmung unter der Platte sind schon verdeckt – nach Fotos oder Protokoll fragen.
+      - text: Außenwände, Innenwände und Decken aller Geschosse
+        hinweis: >-
+          Woran erkennen: alle Geschosse gemauert oder montiert, Decken eingebaut, Treppenöffnungen
+          vorhanden. klären: oberstes Geschoss oder Giebel fehlen noch. kürzen: ganze Geschosse
+          fehlen, die Rate gilt aber für den fertigen Rohbau.
+      - text: Dachstuhl und Zimmererarbeiten
+        hinweis: >-
+          Woran erkennen: Sparren und Pfetten stehen vollständig, vom Boden aus sichtbar. klären:
+          Dachstuhl steht, aber Rate verlangt schon das gedeckte Dach.
+      - text: Dachdeckung, Dachrinnen und Fallrohre
+        hinweis: >-
+          Woran erkennen: Dach geschlossen eingedeckt, Rinnen und Fallrohre montiert. i. O.:
+          Dach dicht, Wasser wird abgeleitet. klären: Rinnen oder Anschlüsse fehlen. n. p.:
+          Dachfläche nur vom Gerüst aus zu sehen – nicht selbst betreten.
+      - text: Fenster und Außentüren eingebaut und verglast
+        hinweis: >-
+          Woran erkennen: alle Fenster mit Glas eingebaut, nicht nur Rahmen oder Folie. klären:
+          einzelne Elemente fehlen oder sind provisorisch verschlossen. kürzen: Fenster liegen nur
+          verpackt auf der Baustelle.
+  - titel: 5 Bautenstand vor Ort – Haustechnik und Innenausbau
+    notizen: 2
+    punkte:
+      - text: Rohinstallation Heizung
+        hinweis: >-
+          Woran erkennen: Leitungen zu den Heizflächen oder Rohre der Fußbodenheizung verlegt,
+          Wärmeerzeuger gesetzt, soweit zum Abschnitt gehörig. n. p.: Leitungen schon unter
+          Estrich – nach Fotos und Protokoll der Druckprobe fragen.
+      - text: Rohinstallation Sanitär und Abwasser
+      - text: Rohinstallation Elektro
+        hinweis: >-
+          Woran erkennen: Leerrohre, Leitungen und Dosen in allen Räumen, Zählerplatz vorbereitet.
+          Rohinstallation heißt: noch ohne Schalter und Steckdosen. Keine Leitungen berühren.
+      - text: Innenputz oder Trockenbauflächen
+      - text: Estrich
+        hinweis: >-
+          Woran erkennen: Estrich in allen vereinbarten Räumen eingebracht. klären: einzelne
+          Räume fehlen. Frischen Estrich nicht betreten.
+      - text: Fliesenarbeiten in Bad und WC
+      - text: Fassade, Außenputz oder Verkleidung
+      - text: Bezugsfertigkeit
+        hinweis: >-
+          Woran erkennen: Das Haus ist sicher bewohnbar – Türen, Sanitär, Heizung, Elektro und
+          Zugang funktionieren. klären: Restarbeiten, die das Wohnen behindern. Bezugsfertig ist
+          nicht dasselbe wie vollständig fertiggestellt oder abgenommen.
+  - titel: 6 Qualität und Mängel am abgerechneten Stand
+    notizen: 2
+    punkte:
+      - text: Wer hat den Bautenstand festgestellt?
+        auswahl: [ich selbst, gemeinsam mit der Baufirma, Sachverständiger, Gutachter der Bank, unbekannt]
+      - text: Sichtbare Mängel an den abgerechneten Leistungen
+        hinweis: >-
+          Woran erkennen: Abweichungen von Baubeschreibung und Plänen, Risse, Feuchte, schiefe
+          oder beschädigte Bauteile. gering: einzelne Kleinigkeiten – notieren und melden.
+          kürzen: deutlicher Mangel – angemessener Teil, in der Regel das Doppelte der
+          Beseitigungskosten.
+      - text: Unfertige Leistung von Mangel getrennt
+        hinweis: >-
+          Unfertiges gehört gar nicht in die Rechnung: Sie zahlen nur den Wert des Erreichten.
+          Ein Mangel betrifft eine fertige, aber nicht vertragsgemäße Leistung: Dort halten Sie
+          einen angemessenen Teil zurück. Beides in der Übersicht getrennt notieren.
+      - text: Mängel sind mit Ort, Foto und Datum beschrieben und der Firma mitgeteilt
+      - text: Kosten der Mängelbeseitigung sind geschätzt
+        hinweis: >-
+          Für die Höhe des Einbehalts brauchen Sie die Kosten der Beseitigung. Die Schätzung ist
+          für Laien schwierig; eine fachliche Kostenschätzung macht den Einbehalt nachvollziehbar.
+      - text: Bauteile, die bald verdeckt werden, sind vorher dokumentiert
+        hinweis: >-
+          Abdichtungen, Leitungen und Dämmungen sind nach dem Schließen nicht mehr sichtbar.
+          Fotos mit Datum oder eine gemeinsame Feststellung vor dem Verdecken halten fest, was
+          ausgeführt wurde.
+      - text: Angelieferte, nicht eingebaute Baustoffe sind abgerechnet
+        hinweis: >-
+          Woran erkennen: Rechnung enthält Material, das nur auf der Baustelle lagert. i. O.: Sie
+          haben dafür Eigentum oder eine Sicherheit wie eine Bürgschaft erhalten. kürzen: weder
+          Eigentum noch Sicherheit – dann besteht dafür kein Anspruch auf einen Abschlag.
+      - text: Fortschritt seit der letzten Rate ist auf der Baustelle sichtbar
+        hinweis: >-
+          Woran erkennen: Vergleich mit Ihren Fotos der letzten Prüfung. klären: Baustelle ruht
+          über längere Zeit, obwohl weitere Raten gefordert werden.
+  - titel: 7 Nachträge und Änderungen
+    notizen: 2
+    punkte:
+      - text: Grundlage jedes abgerechneten Nachtrags
+        auswahl: [vereinbart mit Preis, angeordnet ohne Preiseinigung, nicht beauftragt, unbekannt]
+      - text: Nachtrag beruht auf Ihrer Vereinbarung oder Anordnung
+        hinweis: >-
+          Woran erkennen: schriftliche Vereinbarung oder Anordnung mit Datum. i. O.: liegt vor.
+          klären: Nachtrag erscheint erstmals in der Rechnung, ohne dass Sie ihn bestellt haben.
+      - text: Leistung war nicht schon im Vertrag enthalten
+        hinweis: >-
+          Woran erkennen: Baubeschreibung und Pläne durchsehen. kürzen: die Leistung steht dort
+          schon und ist mit dem vereinbarten Preis abgegolten.
+      - text: "Ohne Preiseinigung: angesetzter Abschlag auf den Nachtrag geprüft"
+        hinweis: >-
+          Haben Sie eine Änderung angeordnet und keinen Preis vereinbart, darf die Firma im
+          Abschlag 80 Prozent der im Nachtragsangebot genannten Mehrvergütung ansetzen. Zu viel
+          Gezahltes ist später verzinst zurückzuzahlen. Prüfen Sie, ob das Angebot vorliegt und
+          der Betrag stimmt.
+      - text: Bei Erhöhung der Vergütung um mehr als 10 Prozent ist eine weitere Sicherheit geleistet
+        hinweis: >-
+          Beim Verbraucherbauvertrag steht Ihnen dann bei der nächsten Abschlagszahlung eine
+          weitere Sicherheit von 5 Prozent des zusätzlichen Betrags zu.
+      - text: Gesamtvergütung für die 90-Prozent-Grenze ist um die Nachträge fortgeschrieben
+  - titel: 8 Sicherheiten und Summen
+    notizen: 2
+    punkte:
+      - text: Art der Fertigstellungssicherheit
+        auswahl: [Einbehalt von den Raten, Bankbürgschaft oder Garantie, keine, unbekannt]
+        hinweis: >-
+          Beim Verbraucherbauvertrag steht Ihnen bei der ersten Abschlagszahlung eine Sicherheit
+          von 5 Prozent der Gesamtvergütung für die rechtzeitige Fertigstellung ohne wesentliche
+          Mängel zu. Verlangt die Firma es, halten Sie den Betrag von den Raten zurück; sie kann
+          stattdessen eine Garantie einer Bank oder eines Kreditversicherers stellen.
+      - text: Sicherheit ist bei der ersten Abschlagszahlung geleistet
+        hinweis: >-
+          Woran erkennen: Bürgschaftsurkunde im Original oder Einbehalt in der Zahlungsübersicht.
+          kürzen: weder Urkunde noch Einbehalt – Betrag bei dieser Zahlung einbehalten. Eine
+          vorformulierte Klausel, die die Sicherheit ausschließt oder verringert, ist unwirksam.
+      - text: Bürgschaftsurkunde stammt von einer Bank oder einem Kreditversicherer und ist abgelegt
+      - text: Summe aller Abschläge einschließlich dieser Rate
+        hinweis: >-
+          Woran erkennen: alle Zahlungen addieren und durch die Gesamtvergütung mit Nachträgen
+          teilen. i. O.: beim Verbraucherbauvertrag höchstens 90 Prozent vor der Abnahme.
+          kürzen: die Grenze würde mit dieser Rate überschritten.
+      - text: Bezahlter Betrag liegt nicht über dem Wert des Bautenstands
+        hinweis: >-
+          Woran erkennen: Summe der Zahlungen mit dem erreichten Abschnitt vergleichen. klären:
+          Sie haben mehr bezahlt, als auf der Baustelle steht. Bei einer Insolvenz der Firma ist
+          zu viel gezahltes Geld in der Regel verloren.
+      - text: Sicherheit, die Sie selbst der Firma stellen, bleibt im gesetzlichen Rahmen
+        hinweis: >-
+          Verlangt die Firma Abschläge, darf eine Sicherheit des Verbrauchers für die Vergütung
+          die nächste Abschlagszahlung oder 20 Prozent der Vergütung nicht übersteigen.
+          Weitergehende Vereinbarungen sind unwirksam.
+      - text: Einbehalte für Mängel und für die Sicherheit sind getrennt ausgewiesen
+  - titel: 9 Fristen, Zahlung und Ablage
+    bewertung: false
+    notizen: 3
+    punkte:
+      - text: "VOB/B-Vertrag: Fälligkeit 21 Tage nach Zugang der Aufstellung ist notiert"
+        hinweis: >-
+          Ist die VOB/B vereinbart, wird ein Abschlag binnen 21 Tagen nach Zugang der prüfbaren
+          Aufstellung fällig. Eine Abschlagszahlung gilt dort nicht als Abnahme und ändert nichts
+          an der Haftung der Firma.
+      - text: Kürzungen sind in Textform mitgeteilt, je Position mit Betrag und Grund
+      - text: Unstreitiger Teil der Rate ist fristgerecht gezahlt
+        ja_nein: true
+      - text: Auszahlung des Baudarlehens ist mit der Bank abgestimmt
+        ja_nein: true
+      - text: Zahlung nennt Rechnungsnummer und Bauabschnitt im Verwendungszweck
+        ja_nein: true
+      - text: Zahlungsübersicht mit gefordert, gezahlt, einbehalten und Grund ist fortgeschrieben
+        ja_nein: true
+      - text: Fotos, Prüfhilfe und Schriftwechsel sind zur Rechnung abgelegt
+        ja_nein: true
+      - text: Schlussrate erst nach der Abnahme freigeben
+        ja_nein: true
+auswertung:
+  - >-
+    Ein Abschlag ist nur in Höhe des Werts der erbrachten, vertraglich geschuldeten Leistung
+    geschuldet. Steht in Abschnitt 4 oder 5 „kürzen“ oder „klären“, die Rate nicht ungeprüft
+    zahlen, sondern den Wert des Erreichten bestimmen und den Rest schriftlich begründet
+    zurückhalten.
+  - >-
+    Ein Mangel an einer fertigen Leistung berechtigt, einen angemessenen Teil zurückzuhalten,
+    in der Regel das Doppelte der Beseitigungskosten – nicht die ganze Rate.
+  - >-
+    Mehrere Punkte „n. p.“ an Rohbau, Dach oder Haustechnik oder Streit über den Wert eines
+    Abschnitts: den Bautenstand vor der Zahlung von einem Bauingenieur oder Sachverständigen
+    feststellen lassen.
+  - >-
+    Über 90 Prozent vor der Abnahme, fehlende Fertigstellungssicherheit oder ein Ratenplan, der
+    dem Bau vorausläuft: vor der Zahlung schriftlich klären und den Vertrag anwaltlich prüfen
+    lassen.
+  - >-
+    Bezahlter Betrag liegt über dem Bautenstand oder die Baustelle ruht: keine weiteren
+    Zahlungen ohne Prüfung leisten und rechtlichen Rat einholen.
+  - >-
+    Jede Kürzung in Textform mit Position, Betrag und Grund mitteilen und den unstreitigen Teil
+    fristgerecht zahlen; Einbehalte für Mängel und für Sicherheiten getrennt führen.
+hinweise:
+  - >-
+    Die 90-Prozent-Grenze und die Fertigstellungssicherheit gelten für den
+    Verbraucherbauvertrag. Für den Bauträgervertrag gilt die 90-Prozent-Grenze nicht; dort
+    richten sich die Raten nach der Makler- und Bauträgerverordnung.
+  - >-
+    Was zu einem Bauabschnitt gehört, ergibt sich aus Ihrem Vertrag und der Baubeschreibung.
+    Weicht Ihr Vertrag von den Beschreibungen in dieser Prüfhilfe ab, gilt der Vertrag.
+  - >-
+    Diese Prüfhilfe ist eine fachliche Arbeitshilfe und keine Rechtsberatung. Ob und in welcher
+    Höhe Sie Zahlungen zurückhalten dürfen, beurteilt im Zweifel ein Rechtsanwalt.
+quellen:
+  - "§ 632a, § 641 Abs. 1 und 3, § 286 Abs. 3, § 309 Nr. 15, § 650c Abs. 3, § 650m, § 650u Abs. 2 und § 650v BGB"
+  - "§ 3 Makler- und Bauträgerverordnung (MaBV)"
+  - "§ 16 Abs. 1 VOB/B, DIN 1961:2016-09"
+  - "Wirth/Pfisterer/Schellenberg: Privates Baurecht praxisnah, 3. Aufl. 2021, S. 107, 108 und 194"
+  - "Berner u. a.: Grundlagen der Baubetriebslehre 3, 3. Aufl. 2025, S. 184 und 259 f."
+  - "Saalbach/Viering/Zanner: Vergütung, Nachträge und Abrechnung nach Ansprüchen, 2023, S. 135 und 185"
+  - "Heiermann u. a.: VOB/B-Musterbriefe für Auftraggeber, 9. Aufl. 2021, S. 243; Rode/Weller: AVA-Handbuch, 11. Aufl. 2025, S. 16"
+  - "Bauherren-Schutzbund e. V.: Verbraucherfeindliche Klauseln – Zahlungspläne; Überzahlung beim Hausbau vermeiden"
+  - "BaFin: Immobilienkredit; Verbraucherzentrale: Immobilienfinanzierung – häufige Fragen"
