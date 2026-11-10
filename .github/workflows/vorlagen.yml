@@ -478,7 +478,7 @@ jobs:
             Auftragsdatei.
           claude_args: |
             --max-turns 200
-            --model claude-opus-5-5
+            --model claude-sonnet-5-5
             --add-dir ${{ steps.auftrag.outputs.auftrag_verzeichnis }}
             --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/vorlage_bauen.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*),Bash(python tools/wortgleich_pruefen.py:*),Bash(python tools/normstand_pruefen.py:*)"
 
