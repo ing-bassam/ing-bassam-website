@@ -1,0 +1,86 @@
+titel: Mängelanzeige am Gemeinschaftseigentum an den Bauträger
+untertitel: Musterschreiben für Hausverwaltungen und Wohnungseigentümer
+kurzform: maengelanzeige-gemeinschaftseigentum-bautraeger
+typ: Musterschreiben
+stand: 2026-11-10
+dateien: [docx, pdf]
+einleitung: "Mit diesem Musterschreiben zeigt die Gemeinschaft der Wohnungseigentümer, vertreten durch die Verwaltung, dem Bauträger Mängel am Gemeinschaftseigentum an und setzt eine Frist zur Beseitigung. Eine zweite Fassung im ersten Absatz ist für einzelne Erwerber gedacht. Ersetzen Sie die Platzhalter in eckigen Klammern, streichen Sie, was nicht zutrifft, und gehen Sie vor dem Absenden die Prüfliste durch."
+
+brief:
+  betreff: "Mängelanzeige mit Fristsetzung – Gemeinschaftseigentum der Wohnanlage [Anschrift] – Bauträgerverträge über die Wohnungen dieser Anlage"
+  anrede: Sehr geehrte Damen und Herren,
+  absaetze:
+    - "[Fassung für die Verwaltung: Als Verwalterin vertreten wir die Gemeinschaft der Wohnungseigentümer [Bezeichnung, z. B. Lindenweg 12, 10115 Berlin]. / Fassung für einzelne Erwerber: Ich habe die Wohnung Nr. [Nummer] in der Wohnanlage [Anschrift] mit Bauträgervertrag vom [Datum] von Ihnen erworben und schreibe wegen Mängeln am Gemeinschaftseigentum.] Sie haben die Wohnanlage als Bauträger errichtet und die Wohnungen veräußert."
+    - "[Nur wenn ein Beschluss vorliegt: In der Versammlung vom [Datum] haben die Wohnungseigentümer unter Tagesordnungspunkt [Nummer] beschlossen, dass die Gemeinschaft die Rechte der Erwerber auf Beseitigung der unten genannten Mängel am Gemeinschaftseigentum geltend macht. Eine Kopie des Beschlusses liegt bei.]"
+    - "[Zutreffendes wählen: Das Gemeinschaftseigentum ist bisher nicht abgenommen. / Das Gemeinschaftseigentum wurde am [Datum] abgenommen; die Mängel Nr. [Nummern] sind im Abnahmeprotokoll vorbehalten. / Der Stand der Abnahme ist je Erwerber verschieden; eine Aufstellung liegt bei.]"
+    - "Wir zeigen Ihnen die folgenden Mängel am Gemeinschaftseigentum an und fordern Sie zu ihrer Beseitigung auf."
+    - "Mangel 1: [Haus, Geschoss, Bauteil, z. B. Tiefgarage, Untergeschoss, Decke über den Stellplätzen 14 bis 18] – [Erscheinungsbild, z. B. an der Deckenunterseite sind auf etwa drei Metern Länge feuchte Stellen mit weißen Ausblühungen zu sehen; nach Regen tropft Wasser auf die Stellplätze] – festgestellt am [Datum]."
+    - "Mangel 2: [Haus, Geschoss, Bauteil, z. B. Treppenhaus Haus B, Wand zwischen 2. und 3. Obergeschoss] – [Erscheinungsbild, z. B. ein schräger Riss im Putz, etwa eineinhalb Meter lang, vom Fenster nach unten verlaufend] – festgestellt am [Datum]. [Bei mehr als drei Mängeln: Alle Mängel stehen nummeriert in der beigefügten Mängelliste.]"
+    - "Eine Ursache nennen wir nicht. Wir beschreiben, was zu sehen ist und wo es auftritt. Die Ursachen zu klären, ist Ihre Aufgabe."
+    - "Bitte beseitigen Sie die genannten Mängel vollständig bis zum [Kalenderdatum]. Bis zu diesem Tag sollen die Arbeiten abgeschlossen sein, nicht erst begonnen haben."
+    - "Auf welchem Weg Sie die Mängel beseitigen, bleibt Ihnen überlassen. Das Ergebnis muss dem vertraglich vereinbarten Zustand entsprechen."
+    - "Zu Dach, Technikräumen, Tiefgarage und Außenanlagen verschaffen wir Ihnen nach Absprache Zugang. Termine stimmen Sie bitte mit [Name, Telefon, E-Mail der Ansprechperson] ab. Müssen Sie dafür einzelne Wohnungen betreten, vermitteln wir die Termine mit den Bewohnern."
+    - "Bitte bestätigen Sie uns den Eingang dieses Schreibens. Teilen Sie uns außerdem bis zum [Datum, deutlich vor Fristende] mit, wann die Arbeiten stattfinden."
+    - "Alle weiteren Rechte der Gemeinschaft und der einzelnen Erwerber behalten wir uns vor. Nach Ablauf der Frist prüfen wir das weitere Vorgehen."
+    - "[Nur bei Gefahr für Personen oder drohendem Folgeschaden: Der beschriebene Zustand kann weitere Schäden verursachen. Wir haben [Sicherungsmaßnahme, z. B. die betroffenen Stellplätze gesperrt] veranlasst und bitten um Ihre Rückmeldung bis zum [Datum].]"
+  gruss: Mit freundlichen Grüßen
+  anlagen:
+    - Nummerierte Mängelliste mit Haus, Geschoss, Bauteil und Erscheinungsbild
+    - Lichtbilder mit Aufnahmedatum, Übersicht und Detail mit Maßstab
+    - Kopie des Beschlusses mit Datum und Tagesordnungspunkt, soweit vorhanden
+    - Nachweis der Bestellung der Verwaltung, etwa Auszug aus dem Versammlungsprotokoll
+    - Auszug aus dem Abnahmeprotokoll des Gemeinschaftseigentums, soweit vorhanden
+    - Gutachterliche Stellungnahme, soweit vorhanden
+
+tabelle:
+  titel: Vor dem Absenden prüfen
+  spalten: ["Nr.", Prüfpunkt, erledigt]
+  breiten: [1, 12, 2]
+  zeilen:
+    - ["1", "Anhand von Teilungserklärung und Aufteilungsplan ist geklärt, dass der Mangel am Gemeinschaftseigentum liegt und nicht nur an einer einzelnen Wohnung.", ""]
+    - ["2", "Mängel, die nur das Sondereigentum betreffen, meldet der jeweilige Erwerber selbst; sie stehen nicht in diesem Schreiben.", ""]
+    - ["3", "Empfänger ist der Bauträger als Vertragspartner der Erwerber, nicht ein Handwerksbetrieb oder Planer, den er beauftragt hat.", ""]
+    - ["4", "Geklärt ist, wer schreibt: die Gemeinschaft nach einem Beschluss, vertreten durch die Verwaltung, oder ein einzelner Erwerber.", ""]
+    - ["5", "Liegt ein Beschluss vor, sind Datum und Tagesordnungspunkt genannt und eine Kopie ist beigefügt.", ""]
+    - ["6", "Liegt noch kein Beschluss vor, sind die Eigentümer informiert und ein Beschluss ist für die nächste Versammlung vorbereitet.", ""]
+    - ["7", "Die Gemeinschaft ist mit der Anschrift der Wohnanlage eindeutig bezeichnet.", ""]
+    - ["8", "Der Stand der Abnahme des Gemeinschaftseigentums ist geklärt; Abnahmeprotokolle und Vorbehalte sind gesichtet.", ""]
+    - ["9", "Jeder Mangel steht einzeln da und trägt eine Nummer.", ""]
+    - ["10", "Zu jedem Mangel sind Haus, Geschoss und Bauteil genannt, bei Bedarf auch Achse, Stellplatz oder Himmelsrichtung.", ""]
+    - ["11", "Zu jedem Mangel ist beschrieben, was zu sehen ist; eine Ursache wird nicht behauptet.", ""]
+    - ["12", "Zu jedem Mangel ist das Datum der Feststellung eingetragen.", ""]
+    - ["13", "Die Lichtbilder zeigen Lage und Detail, tragen ein Datum und haben einen Maßstab im Bild.", ""]
+    - ["14", "Die Frist nennt ein Kalenderdatum und bezieht sich auf den Abschluss der Arbeiten.", ""]
+    - ["15", "Die Frist lässt genug Zeit für die Arbeiten; bei Dach, Fassade oder Außenanlagen ist die Witterung bedacht.", ""]
+    - ["16", "Der Zugang zu Dach, Technikräumen, Tiefgarage und betroffenen Wohnungen ist organisiert.", ""]
+    - ["17", "Der Vorbehalt weiterer Rechte steht im Schreiben.", ""]
+    - ["18", "Das Schreiben geht rechtzeitig vor Ablauf der Verjährung hinaus; bedacht ist, dass das Schreiben allein die Verjährung nicht anhält.", ""]
+    - ["19", "Der Zugang ist nachweisbar, etwa durch Einschreiben mit Rückschein oder Übergabe durch einen Boten gegen Quittung.", ""]
+    - ["20", "Eine Kopie liegt in der Objektakte, eine Wiedervorlage zum Fristende ist notiert, Eigentümer und Beirat sind informiert.", ""]
+  leerzeilen: 2
+
+hinweise:
+  - "Platzhalter in eckigen Klammern durch eigene Angaben ersetzen. Nicht zutreffende Absätze ersatzlos streichen. Als einzelner Erwerber schreiben Sie „ich“ statt „wir“."
+  - "Bauteile, die für Bestand oder Sicherheit des Gebäudes nötig sind, und Anlagen für den gemeinsamen Gebrauch sind nach § 5 Abs. 2 WEG kein Sondereigentum, auch wenn sie in einer Wohnung liegen. Typisch sind Dach, Fassade, Treppenhaus, Keller und Außenanlagen. Im Zweifel geben Teilungserklärung und Aufteilungsplan Auskunft."
+  - "Die Mängelrechte stammen aus den einzelnen Bauträgerverträgen. Nach BGH, Urteil vom 11.11.2022 – V ZR 213/21, kann die Gemeinschaft die Rechte der Erwerber auf Beseitigung von Mängeln am Gemeinschaftseigentum per Mehrheitsbeschluss übernehmen und dann allein durchsetzen. Ohne einen solchen Beschluss kann nach der Fachliteratur jeder Erwerber die Beseitigung selbst verlangen."
+  - "Über Minderung oder Schadensersatz wegen Mängeln am Gemeinschaftseigentum entscheidet nach der Fachliteratur die Gemeinschaft, nicht der einzelne Erwerber."
+  - "Nach § 9b Abs. 1 WEG vertritt die Verwaltung die Gemeinschaft nach außen. Nach der Fachliteratur muss sie Baumängel feststellen, die Eigentümer informieren und auf einen Beschluss hinwirken. Ob sie im Einzelfall auch ohne Beschluss schreiben darf, etwa nach § 27 Abs. 1 WEG zur Wahrung einer Frist, klärt ein Rechtsanwalt."
+  - "Für die Errichtung des Gebäudes gilt beim Bauträgervertrag nach § 650u Abs. 1 BGB das Werkvertragsrecht, für die Übertragung des Grundstücks das Kaufrecht."
+  - "Die Ursache müssen Sie nicht kennen. Es genügt, das Erscheinungsbild und seine Lage so genau zu beschreiben, dass der Bauträger ohne Suchen mit der Untersuchung beginnen kann."
+  - "Feste Zeiträume für die Frist gibt es nicht. Maßgebend ist die Zeit, die die Arbeiten objektiv brauchen. Eine zu kurze Frist ist nach der Fachliteratur nicht wirkungslos, sondern setzt eine angemessene Frist in Gang."
+  - "Ob der Bauträger nachbessert oder neu herstellt, entscheidet er nach § 635 Abs. 1 BGB selbst. Verlangen Sie deshalb das Ergebnis, nicht ein bestimmtes Verfahren."
+  - "Läuft eine angemessene Frist erfolglos ab, nennt § 637 BGB die Selbstvornahme mit Ersatz der Aufwendungen und einen Vorschuss. Ob diese Rechte bestehen und wer sie geltend macht, beurteilt ein Rechtsanwalt."
+  - "Mängelansprüche verjähren bei einem Bauwerk nach § 634a BGB in fünf Jahren ab der Abnahme. Weil jeder Erwerber das Gemeinschaftseigentum gesondert abnimmt, kann die Frist je Erwerber zu einem anderen Zeitpunkt beginnen."
+  - "Beim Vertrag nach dem Bürgerlichen Gesetzbuch hält die Mängelanzeige allein die Verjährung nach der Fachliteratur nicht an. Verhandlungen über den Mangel hemmen die Verjährung nach § 203 BGB. Steht das Ende der Frist bevor, sollte ein Rechtsanwalt die nächsten Schritte prüfen."
+  - "Entscheidend ist der Zugang beim Bauträger, nicht die Absendung. Ein Einschreiben mit Rückschein oder ein Bote mit Quittung sichert den Nachweis; eine einfache E-Mail ohne Antwort belegt ihn in der Regel nicht."
+  - "Dieses Muster ist keine Rechtsberatung. Bei Streit über die Mängel, bei hohen Kosten, bei nahender Verjährung und vor jedem gerichtlichen Schritt sollte ein Rechtsanwalt das Vorgehen prüfen."
+
+quellen:
+  - "§ 5 Abs. 2, § 9a Abs. 2, § 9b Abs. 1 und § 27 Abs. 1 WEG; § 203, § 634a, § 635, § 637 und § 650u BGB, Wortlaut abgerufen am 10.11.2026"
+  - "BGH, Urteil vom 11.11.2022 – V ZR 213/21, Pressemitteilung Nr. 162/2022"
+  - "Rode/Weller: AVA-Handbuch, 11. Aufl. 2025, S. 122, 133, 169"
+  - "Zanner/Glönkler: Baumangelhaftung nach Ansprüchen, 2. Aufl. 2024, S. 56 f., 63"
+  - "Wirth/Pfisterer/Schellenberg: Privates Baurecht praxisnah, 3. Aufl. 2021, S. 18, 98, 139"
+  - "Würfele/Bielefeld/Gralla: Bauobjektüberwachung, 3. Aufl. 2017, S. 16, 114"
+  - "Wellner/Scholz (Hrsg.): Architekturpraxis Bauökonomie, 3. Aufl. 2023, S. 366"
+  - "Mattern: Der Einzelne oder die Gemeinschaft?, VDIV aktuell 7/2021; Greiner: Der Kauf vom Bauträger, Haufe, Rz. 66"
