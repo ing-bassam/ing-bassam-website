@@ -45,6 +45,7 @@ Das Unternehmen verlangte von den Bauherren den restlichen Werklohn für das Ein
 Die Bauherren rechneten dagegen auf. Aufrechnen heißt, eine eigene Gegenforderung von dem geforderten Betrag abzuziehen. Als Gegenforderung machten sie Schadensersatz für Bauzeitverzögerungen geltend, nämlich Nutzungsausfall und Bereitstellungszinsen (Rn. 1, 3). Bereitstellungszinsen sind Zinsen, die eine Bank für ein Darlehen verlangt, das noch nicht ausgezahlt ist. Eine Nutzungsausfallentschädigung ist ein Geldbetrag als Ausgleich dafür, dass jemand eine Sache nicht nutzen kann. Hier ging es um das Wohnen im bestellten Haus (Rn. 108).
 
 Das Landgericht Karlsruhe hatte die Bauherren am 17. Mai 2024 zur Zahlung von 43.015,52 Euro verurteilt (Rn. 4). Es nahm 18,75 Monate Verzug an und setzte monatlich 2.210 Euro Nutzungsentschädigung an (Rn. 4). Die Wohnfläche kürzte es dafür von 368,46 auf 260 Quadratmeter (Rn. 4). Gegen das Urteil legte das Unternehmen Berufung ein (Rn. 5). Die Bauherren legten Anschlussberufung ein und wollten erreichen, dass die Klage ganz abgewiesen wird (Rn. 20, 32).
+
 Nach Darstellung des Unternehmens war nur ein Verzug von zwölf Monaten eingetreten (Rn. 11). Es erkannte deshalb 26.520 Euro Nutzungsausfall an (Rn. 48, 49). Die Bauherren gingen von 23 Monaten Verzug aus (Rn. 21). Sie verlangten 79.695,64 Euro Nutzungsausfall und 13.098,76 Euro Bereitstellungszinsen (Rn. 27, 28).
 
 ## Wann der Verzug begann und wann er endete
@@ -76,7 +77,9 @@ Vom Mietpreis zog der Senat 30 Prozent ab (Rn. 120). Monatlich ergaben sich 2.19
 ## Was das für Sie bedeutet
 
 Im Fall hing viel daran, welche Fristen der Bauvertrag nannte. Die Bauzeit von 9 Monaten ab Baubeginn ließ den Verzug ohne Mahnung eintreten (Rn. 56, 57). Für die Planungsphase gab es keine solche Frist, und dort sah der Senat keinen Verzug (Rn. 64). Wer als Bauherr einen Bauvertrag prüft, kann deshalb darauf achten, welche Fristen genannt sind und woran sie anknüpfen.
+
 Die Daten entschieden in diesem Fall über Monate und damit über Geld. Baubeginn, Freigaben, Zustimmungen und Termine rekonstruierte das Gericht aus Schreiben, E-Mails und Terminabsprachen (Rn. 59, 60, 92, 100). Ein Beispiel: Wer als Bauherr eine Zustimmung oder Freigabe schuldet, kann das Datum festhalten. Die Bauherren ließen sich nach den Feststellungen ungefähr einen Monat Zeit, bis sie die verlangte Zustimmung vorlegten (Rn. 92).
+
 Auch für den Zustand am Abnahmetermin kam es auf Belege an. Der Senat stützte sich auf ein Sachverständigengutachten, das die Beseitigungskosten der Heizungsmängel auf 500 Euro brutto schätzte (Rn. 102). Ein [Privatgutachten oder eine fachliche Begleitung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand eines Hauses zum Abnahmetermin fest. Wie sich dieser Zustand rechtlich auswirkt, beurteilt ein Rechtsanwalt.
 
 Ein weiteres Beispiel betrifft die Zahlung unter Vorbehalt. Die Bauherren zahlten am 6. Juni 2024 den vom Landgericht ausgeurteilten Betrag, um die Zwangsvollstreckung abzuwenden, und behielten sich ihre Rechte vor (Rn. 30, 151). Das war nach dem Urteil keine Erfüllung der Forderung (Rn. 151). Sie beendete aber den Verzug, und weil das Unternehmen die Zahlung annahm, entfiel für den gezahlten Betrag der Anspruch auf Verzugszinsen (Rn. 153–155). Welche Folgen eine solche Zahlung im eigenen Fall hat, klärt ein Rechtsanwalt.
@@ -100,6 +103,7 @@ Im Fall nicht: Wegen der vereinbarten Bauzeit von 9 Monaten ab Baubeginn trat de
 **Wie hoch war die Entschädigung je Monat?**
 
 Der Senat kam auf 2.193,23 Euro im Monat (Rn. 121). Er rechnete mit 8,50 Euro je Quadratmeter nach dem Mietenspiegel und zog 30 Prozent ab (Rn. 116, 120). Diese Zahlen gelten für dieses Haus und diese Schätzung. Das Urteil ist keine Tabelle für andere Häuser.
+
 ## Hinweis
 
 Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er ist keine Rechtsberatung und ersetzt keine Begutachtung des Einzelfalls. Ob und wie Ansprüche bestehen und durchgesetzt werden können, beurteilt ein Rechtsanwalt. Genannte Normen und Regelwerke sind in der jeweils gültigen Fassung zu prüfen.
