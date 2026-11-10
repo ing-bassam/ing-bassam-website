@@ -55,7 +55,7 @@ Halten Sie sich an die Grenze der Selbsthilfe. Sie sehen hin, Sie klopfen nicht 
 
 Der Keller ist der wichtigste Abschnitt. Fragen Sie, ob nachträglich abgedichtet wurde und mit welchem Verfahren. Ist keine Abdichtung ausgeführt worden, ist bei einem Altbau mit einem feuchten Keller zu rechnen.[^8] Das muss kein Mangel sein, solange Sie dort nur feuchteunempfindliche Dinge lagern. Es ist aber ein Mangel für Ihre Planung, wenn Sie unten ein Arbeitszimmer einrichten wollen. Muffiger Geruch, Putzabplatzungen und weiße Salzausblühungen sind die Anzeichen, auf die Sie sehen.
 
-Im Bad sehen Sie auf die Fugen an Wanne und Dusche. Eine elastische Fuge zwischen Wanne und Wand ist keine Abdichtung.[^10] Läuft Wasser dahinter, ist das von außen nicht zu erkennen.[^10] Deshalb steht in der Liste ein eigener Punkt für die Räume unter den Bädern. Ein Fleck an der Kellerdecke unter dem Bad sagt mehr als eine frisch nachgezogene Silikonfuge im Bad selbst.
+Im Bad sehen Sie auf die Fugen an Wanne und Dusche. Eine dauerelastische Fuge zwischen Wanne und Wand dichtet nicht ab.[^10] Läuft Wasser dahinter, ist das von außen nicht zu erkennen.[^10] Deshalb steht in der Liste ein eigener Punkt für die Räume unter den Bädern. Ein Fleck an der Kellerdecke unter dem Bad sagt mehr als eine frisch nachgezogene Silikonfuge im Bad selbst.
 
 Auf dem Dachboden sehen Sie das Tragwerk offen. Suchen Sie nach Wasserrändern, nach Ausfluglöchern, nach Bohrmehl und nach pilzartigen Geflechten. Von holzzerstörenden Pilzen befallene Holzbalkendecken sind häufig nicht mehr voll tragfähig, sodass unverzüglich Abstützungen nötig werden.[^9] Wenn Sie so etwas sehen, betreten Sie die Fläche nicht weiter. Der Befund gehört in fachliche Hände, nicht in eine Kostenschätzung auf dem Parkplatz.
 

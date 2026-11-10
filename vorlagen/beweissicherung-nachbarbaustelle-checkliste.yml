@@ -49,7 +49,7 @@ abschnitte:
         hinweis: "Beim Bauherrn oder der Bauleitung erfragen. Liegt die neue Fundamentsohle tiefer als Ihre, muss Ihr Fundament in der Regel vorher unterfangen werden."
       - text: Unterfangung oder Anker unter oder an Ihrem Gebäude angekündigt
         ja_nein: true
-        hinweis: "Unterfangungen eines bestehenden Gebäudes und das Einbringen von Verankerungen brauchen die Zustimmung des Eigentümers. Vor einer Zustimmung den Zustand fachlich aufnehmen lassen und rechtlich beraten lassen."
+        hinweis: "Wer das Nachbargebäude unterfangen oder Anker unter dem Nachbargrundstück setzen will, braucht dafür die Zustimmung des Eigentümers. Vor einer Zustimmung den Zustand fachlich aufnehmen lassen und rechtlich beraten lassen."
       - text: Geplantes Verfahren für Baugrubenwand oder Pfähle
         auswahl: [gerammt, gerüttelt, eingepresst oder gebohrt, kein Verbau, unbekannt]
         hinweis: "Rammen und Rütteln bringen Erschütterungen in den Boden; Einpressen gilt als erschütterungsfrei. Fragen Sie nach, welches Verfahren vorgesehen ist."

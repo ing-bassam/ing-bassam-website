@@ -41,7 +41,7 @@ Die VOB/B gilt nicht von allein. Sie wird nur dann Vertragsbestandteil, wenn die
 
 Unverzüglich heißt ohne schuldhaftes Zögern.[^3] Die Schriftform dient nach der Fachliteratur im Wesentlichen Beweiszwecken; eine mündliche Anzeige ist deshalb nicht von vornherein wirkungslos.[^4] Verlassen sollten Sie sich darauf nicht. Wirksam kann eine Anzeige auch im Bautagebuch stehen, wenn der Inhalt unmissverständlich ist und der Auftraggeber ihn unverzüglich erhält.[^5] Dasselbe gilt für ein Baubesprechungsprotokoll, das dem Auftraggeber mit ausdrücklichem Hinweis zugesandt wird.[^5]
 
-Richtiger Empfänger ist der Auftraggeber selbst oder die von ihm für Erklärungen bevollmächtigte Stelle. Eine Anzeige allein an den bauleitenden Architekten reicht nach der Fachliteratur in der Regel nicht aus.[^4] Eine Ausnahme beschreibt die Baubetriebslehre: Die Anzeige an den objektüberwachenden Planer kann genügen, wenn dieser die Behinderung selbst verursacht hat, etwa durch eine verspätete Planlieferung, und sie unverzüglich und vollständig beseitigt.[^5] Sicher ist der Weg über den Auftraggeber.
+Richtiger Empfänger ist der Auftraggeber selbst oder die von ihm für Erklärungen bevollmächtigte Stelle. Der Fachliteratur zufolge genügt es meist nicht, die Anzeige nur dem bauleitenden Architekten zu schicken.[^4] Eine Ausnahme beschreibt die Baubetriebslehre: Die Anzeige an den objektüberwachenden Planer kann genügen, wenn dieser die Behinderung selbst verursacht hat, etwa durch eine verspätete Planlieferung, und sie unverzüglich und vollständig beseitigt.[^5] Sicher ist der Weg über den Auftraggeber.
 
 ## Welche Angaben eine Behinderungsanzeige tragen müssen
 
@@ -67,7 +67,7 @@ Ein Sonderfall wird häufig übersehen. Auch eine beauftragte Nachtragsleistung 
 
 Die Verlängerung der Ausführungsfristen hängt an der Anzeige. Sie setzt voraus, dass die Behinderung dem Auftraggeber ordnungsgemäß gemeldet wurde.[^5] Wie viel Zeit hinzukommt, bemisst sich nach § 6 Abs. 4 VOB/B zunächst an der Dauer der Behinderung. Hinzu kommt ein Zuschlag für das Wiederanlaufen der Arbeiten und für den Fall, dass sie dadurch in eine ungünstigere Jahreszeit geraten.[^12] Dieser Zuschlag deckt die Zeit, die eine Baustelle braucht, um wieder in Gang zu kommen.[^14] Treffen mehrere Behinderungen zusammen, addieren sich die Zeiten nicht einfach; es kommt auf den kritischen Weg im Bauablauf an.[^5]
 
-Beim Geld gibt es zwei Wege. Hat eine Vertragspartei die hindernden Umstände zu vertreten, kann die andere nach § 6 Abs. 6 VOB/B Ersatz für den Schaden verlangen, den sie nachweisen kann; der entgangene Gewinn gehört nur bei Vorsatz oder grober Fahrlässigkeit dazu.[^12] Daneben kann der Auftragnehmer nach § 642 des Bürgerlichen Gesetzbuchs eine angemessene Entschädigung beanspruchen, vorausgesetzt, er hat die Behinderung angezeigt oder sie war offenkundig.[^15] Ein Verschulden ist für diese Entschädigung nicht erforderlich; sie knüpft daran an, dass der Auftraggeber in Annahmeverzug geraten ist.[^9] Welcher der beiden Wege in Ihrem Fall trägt, beurteilt ein Rechtsanwalt.
+Beim Geld gibt es zwei Wege. Hat eine Vertragspartei die hindernden Umstände zu vertreten, kann die andere nach § 6 Abs. 6 VOB/B Ersatz für den Schaden verlangen, den sie nachweisen kann; den entgangenen Gewinn umfasst er nur bei Vorsatz oder grober Fahrlässigkeit.[^12] Daneben kann der Auftragnehmer nach § 642 des Bürgerlichen Gesetzbuchs eine angemessene Entschädigung beanspruchen, vorausgesetzt, er hat die Behinderung angezeigt oder sie war offenkundig.[^15] Ein Verschulden ist für diese Entschädigung nicht erforderlich; sie knüpft daran an, dass der Auftraggeber in Annahmeverzug geraten ist.[^9] Welcher der beiden Wege in Ihrem Fall trägt, beurteilt ein Rechtsanwalt.
 
 Die Entschädigung bemisst sich nicht an den tatsächlichen Vorhaltekosten. Maßgeblich ist nach der Rechtsprechung die vereinbarte Vergütung.[^16] Darzulegen ist, welcher Teil der Vergütung auf die unproduktiv bereitgehaltenen Produktionsmittel entfällt, und wie lange sie unproduktiv vorgehalten wurden.[^16] Schon deshalb lohnt es, Arbeitskräfte und Geräte in der Anzeige und in der laufenden Dokumentation zu benennen.
 
@@ -77,7 +77,7 @@ Mit der Anzeige enden die eigenen Pflichten nicht. § 6 Abs. 3 VOB/B verlangt vo
 
 ## Dokumentation entscheidet später, nicht das Schreiben allein
 
-Die Anzeige öffnet die Tür, der Nachweis geht durch sie hindurch. Nötig ist nach der Rechtsprechung eine bauablaufbezogene Darstellung, also die Gegenüberstellung der geplanten und der tatsächlichen Abläufe für jede einzelne Behinderung.[^14] Eine allgemeine und abstrakt gehaltene Darstellung genügt dafür nicht.[^14] Auch eine schlichte Gegenüberstellung von geplanten und tatsächlichen Planlieferdaten reicht nach der Fachliteratur nicht aus.[^14]
+Die Anzeige öffnet die Tür, der Nachweis geht durch sie hindurch. Nötig ist nach der Rechtsprechung eine bauablaufbezogene Darstellung, also die Gegenüberstellung der geplanten und der tatsächlichen Abläufe für jede einzelne Behinderung.[^14] Eine pauschale Schilderung ohne Bezug zum Einzelfall reicht dafür nicht.[^14] Auch eine schlichte Gegenüberstellung von geplanten und tatsächlichen Planlieferdaten reicht nach der Fachliteratur nicht aus.[^14]
 
 Ein gestörter Bauablauf verlangt heute mehr als ein Schreiben. Nicht nur eine rechtzeitige und inhaltlich ausreichende Behinderungsanzeige muss bei Bauablaufstörungen angefertigt werden; die Dokumentation aller Vorgänge während und nach der Behinderung ist nach der Fachpresse der Bauwirtschaft von immenser Bedeutung.[^17] Von der Qualität der Baustellendokumentation hängt es ab, wer die Bauzeitverzögerung am Ende finanziell trägt.[^17]
 
@@ -105,11 +105,11 @@ Ja, und das ist der häufigste Irrtum. Die Anzeige hat nach der Fachliteratur ei
 
 **Muss ich die Mehrkosten in der Anzeige beziffern?**
 
-Nein. Die Angabe der Höhe eines etwaigen Ersatzanspruchs muss nicht Inhalt der Behinderungsanzeige sein.[^9] Nennen sollten Sie dagegen die voraussichtliche Dauer[^4] und die betroffenen Kapazitäten.[^10] Die Kosten rechnen Sie später ab, auf Grundlage Ihrer Dokumentation.[^10] Ein Vorbehalt im Schreiben hält diesen Weg offen.
+Nein. Einen Betrag müssen Sie in der Behinderungsanzeige nicht nennen.[^9] Sinnvoll sind dagegen Angaben zur voraussichtlichen Dauer[^4] und zu den betroffenen Kapazitäten, also Personal und Geräten.[^10] Die Kosten rechnen Sie später ab, auf Grundlage Ihrer Dokumentation.[^10] Ein Vorbehalt im Schreiben hält diesen Weg offen.
 
 **Was passiert, wenn ich die Anzeige vergessen habe?**
 
-Ohne Anzeige und ohne Offenkundigkeit entfällt der Anspruch auf Berücksichtigung der hindernden Umstände.[^12] Für den Vorwurf des Verzugs gilt das nicht automatisch: Die Fachliteratur geht davon aus, dass der Auftragnehmer sich auch dann auf fehlendes Verschulden berufen kann, dann aber die Darlegungs- und Beweislast trägt.[^3] Ob das in Ihrem Fall gelingt, beurteilt ein Rechtsanwalt.
+Haben Sie die Anzeige versäumt und war die Behinderung dem Auftraggeber auch nicht ohnehin bekannt, verlieren Sie den Anspruch darauf, dass die hindernden Umstände berücksichtigt werden.[^12] Ein Verzugsvorwurf, etwa mit Vertragsstrafe, folgt daraus aber nicht von selbst: Nach der Fachliteratur kann der Auftragnehmer weiterhin einwenden, die Verzögerung nicht verschuldet zu haben, muss das aber darlegen und beweisen.[^3] Ob das in Ihrem Fall gelingt, beurteilt ein Rechtsanwalt.
 
 ## Hinweis
 

@@ -75,7 +75,7 @@ Streit in einer Gemeinschaft kostet Zeit, Geld und Nerven. In der Beschluss-Samm
 
 Zwei weitere Fragen betreffen die Machtverhältnisse und Ihre eigene Wohnung. Fragen Sie, ob es einen Mehrheitseigentümer mit mehr als der Hälfte der Stimmen gibt. Ein eingeschränktes Entscheidungsrecht innerhalb der Gemeinschaft kann sich für den Erwerber nachteilig auswirken.[^10] Fragen Sie außerdem nach Umbauten. Maßnahmen, die über die ordnungsmäßige Erhaltung des gemeinschaftlichen Eigentums hinausgehen, können beschlossen oder einem Wohnungseigentümer durch Beschluss gestattet werden.[^18] Ist ein Umbau ausgeführt, der Beschluss aber nicht auffindbar, lassen Sie die Folgen anwaltlich klären.
 
-Bei einem Neubau kommt die Abnahme hinzu. Das Werkvertragsrecht unterscheidet zwischen der Abnahme des Sondereigentums und der des Gemeinschaftseigentums. Im Grundsatz erklärt jeder Eigentümer für sich allein, ob er das Gemeinschaftseigentum abnimmt.[^19] Fragen Sie deshalb nach dem Abnahmeprotokoll des Gemeinschaftseigentums und nach offenen Mängelansprüchen gegen den Bauträger. Welche Ansprüche noch bestehen und wie lange, beurteilt ein Rechtsanwalt.
+Bei einem Neubau kommt die Abnahme hinzu. Rechtlich werden Sondereigentum und Gemeinschaftseigentum getrennt abgenommen. Im Grundsatz erklärt jeder Eigentümer für sich allein, ob er das Gemeinschaftseigentum abnimmt.[^19] Fragen Sie deshalb nach dem Abnahmeprotokoll des Gemeinschaftseigentums und nach offenen Mängelansprüchen gegen den Bauträger. Welche Ansprüche noch bestehen und wie lange, beurteilt ein Rechtsanwalt.
 
 ## Wann ein Sachverständiger vor dem Kauf hilft
 

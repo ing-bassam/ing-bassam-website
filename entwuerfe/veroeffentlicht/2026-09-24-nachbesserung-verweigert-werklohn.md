@@ -62,7 +62,7 @@ Diesen Beweis hat der Betrieb nicht geführt. Der gerichtliche Sachverständige 
 
 ## Was Sie daraus für die eigene Baustelle mitnehmen
 
-Die Abnahme ist die Wasserscheide dieses Falls. Vor der Abnahme muss der Auftragnehmer beweisen, dass seine Leistung mangelfrei ist. Erst mit der Abnahme kehrt sich die Beweislast um, und der Auftraggeber muss den Mangel belegen.[^4] Wer als Bauherr Zweifel an einer Leistung hat, sollte sie vor der Abnahme festhalten. Eine vorbehaltlose Abnahme aus Bequemlichkeit verschiebt die schwierigere Rolle auf Sie.
+Die Abnahme ist die Wasserscheide dieses Falls. Bis zur Abnahme liegt die Beweislast für die Mangelfreiheit beim Auftragnehmer. Erst mit der Abnahme kehrt sich die Beweislast um, und der Auftraggeber muss den Mangel belegen.[^4] Wer als Bauherr Zweifel an einer Leistung hat, sollte sie vor der Abnahme festhalten. Eine vorbehaltlose Abnahme aus Bequemlichkeit verschiebt die schwierigere Rolle auf Sie.
 
 Ebenso lehrreich ist, womit die Auftraggeberin hier durchgedrungen ist. Sie hat den Mangel nicht nur behauptet, sondern einen Prüfbericht vorgelegt. Damit war der Mangel konkret genug beschrieben (Gründe II. 1. c cc). Nach ihrem Vortrag hat sie die beanstandeten Stellen außerdem auf dem Werkstück aufgezeichnet, und zwar in Anwesenheit des Betriebs (Gründe II. 1. c aa). Für Ihre eigene Mängelrüge heißt das: Beschreiben Sie, was Sie wo festgestellt haben, und legen Sie Ihre Unterlagen bei. Eine Frist gehört dazu, und sie muss zur Arbeit passen. Zwei Tage waren hier angemessen, weil die Schweißarbeiten keine mehreren Tage dauerten (Gründe II. 1. c aa). Bei einer aufwendigen Sanierung wäre dieselbe Frist etwas völlig anderes.
 
