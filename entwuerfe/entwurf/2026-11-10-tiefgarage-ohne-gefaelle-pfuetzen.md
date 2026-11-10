@@ -122,7 +122,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 ## Quellen und Fußnoten
 
-[^1]: OLG Stuttgart 12. Zivilsenat: Urteil vom 18.06.2024 – 12 U 212/22, ECLI:DE:OLGSTUT:2024:0618.12U212.22.00. Landesrechtsportal Baden-Württemberg. https://www.landesrecht-bw.de/perma?d=NJRE001645626 (abgerufen am 2026-11-10). Der Vermerk „Rechtskraft: ja“ steht im Dokumentkopf der amtlichen Quelle.
+[^1]: OLG Stuttgart 12. Zivilsenat: Urteil vom 18.06.2024 – 12 U 212/22, ECLI:DE:OLGSTUT:2024:0618.12U212.22.00. Landesrechtsportal Baden-Württemberg. https://www.landesrecht-bw.de/perma?d=NJRE001645626 (abgerufen am 2026-11-10). Der Vermerk „Rechtskraft: ja“ steht im Dokumentkopf der amtlichen Quelle. Die Nichtzulassungsbeschwerde hat der Bundesgerichtshof am 01.10.2025 zurückgewiesen (VII ZR 117/24).
 [^2]: Schulz, Joachim: Architektur der Bauschäden. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 331. ISBN 978-3-658-27654-6.
 [^3]: Schulz, Joachim: Architektur der Bauschäden. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 306. ISBN 978-3-658-27654-6.
 [^4]: Einführungsgesetz zum Bürgerlichen Gesetzbuche (EGBGB), Art. 229 § 39. Neugefasst durch Bekanntmachung vom 21.09.1994 (BGBl. I S. 2494), zuletzt geändert durch Artikel 2 des Gesetzes vom 16.07.2026 (BGBl. 2026 I Nr. 212). Amtlicher Text aus der Fachbibliothek des Büros, Datenstand 26.09.2026; die Primärquelle gesetze-im-internet.de war am Abrufdatum 2026-11-10 nicht erreichbar.
