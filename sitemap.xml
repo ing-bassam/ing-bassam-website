@@ -301,6 +301,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ing-bassam.de/fachwissen/betondeckung-nennmass-haftungsquote/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ing-bassam.de/fachwissen/beweissicherung-nachbarbaustelle-checkliste/</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>yearly</changefreq>
@@ -405,6 +411,12 @@
   <url>
     <loc>https://ing-bassam.de/fachwissen/honorar-objektueberwachung-lp8-hoai/</loc>
     <lastmod>2026-10-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/fachwissen/instandhaltungsstau-capex-prognose-due-diligence/</loc>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

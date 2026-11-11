@@ -7,7 +7,7 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Actions → „Entwürfe veröffentlichen“ → Run workflow (Auswahl: die Kurzform oder „alle“). Der Workflow prüft vorher auf wörtliche Übernahmen aus der Fachbibliothek, setzt den Status und verschiebt die Datei in den richtigen Ordner; die Adresse der Seite ändert sich dabei nicht. Wer `status: Veröffentlicht` von Hand setzt, löst dieselbe Prüfung im Seitenbau aus – mit Befund oder ohne mögliche Prüfung setzt der Seitenbau den Status auf „Entwurf“ zurück.
 
-## 🟡 Entwurf (19)
+## 🟡 Entwurf (17)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
@@ -28,10 +28,8 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 | 27.10.2026 | [Nachtragsangebot mit Kalkulationsaufbau: Vorlage für Excel](entwurf/2026-10-27-nachtragsangebot-mit-kalkulationsaufbau.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nachtragsangebot-mit-kalkulationsaufbau/) |
 | 27.10.2026 | [Abnahmeverlangen mit Fristsetzung: Musterschreiben](entwurf/2026-10-27-abnahmeverlangen-fristsetzung-musterschreiben.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/abnahmeverlangen-fristsetzung-musterschreiben/) |
 | 22.10.2026 | [Technische Due Diligence: Prüfumfang und Bericht](entwurf/2026-10-22-technische-due-diligence-immobilienkauf.md) | Grundlagen | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/technische-due-diligence-immobilienkauf/) |
-| 22.10.2026 | [Instandhaltungsstau und CapEx-Prognose in der Due Diligence](entwurf/2026-10-22-instandhaltungsstau-capex-prognose-due-diligence.md) | Fachbeitrag | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/instandhaltungsstau-capex-prognose-due-diligence/) |
-| 21.10.2026 | [Zu viel Betondeckung: Wer haftet für die Risse?](entwurf/2026-10-21-betondeckung-nennmass-haftungsquote.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/betondeckung-nennmass-haftungsquote/) |
 
-## 🟢 Veröffentlicht (78)
+## 🟢 Veröffentlicht (80)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
@@ -39,7 +37,9 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 | 28.10.2026 | [Vager Bedenkenhinweis: Nachunternehmer haftet voll](veroeffentlicht/2026-10-28-bedenkenhinweis-nachunternehmer-baubesprechung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/bedenkenhinweis-nachunternehmer-baubesprechung/) |
 | 27.10.2026 | [Fehlende Brandriegel: Wie haftet die Bauüberwachung?](veroeffentlicht/2026-10-27-brandriegel-bauueberwachung-haftung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/brandriegel-bauueberwachung-haftung/) |
 | 26.10.2026 | [Feuchter Keller im Altbau: die drei Ursachen unterscheiden](veroeffentlicht/2026-10-26-feuchter-keller-altbau-ursachen.md) | Grundlagen | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/feuchter-keller-altbau-ursachen/) |
+| 22.10.2026 | [Instandhaltungsstau und CapEx-Prognose in der Due Diligence](veroeffentlicht/2026-10-22-instandhaltungsstau-capex-prognose-due-diligence.md) | Fachbeitrag | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/instandhaltungsstau-capex-prognose-due-diligence/) |
 | 21.10.2026 | [Fernablesbare Heizkostenverteiler: Was bis Ende 2026 gilt](veroeffentlicht/2026-10-21-heizkostenverteiler-fernablesbar-frist-2026.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/heizkostenverteiler-fernablesbar-frist-2026/) |
+| 21.10.2026 | [Zu viel Betondeckung: Wer haftet für die Risse?](veroeffentlicht/2026-10-21-betondeckung-nennmass-haftungsquote.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/betondeckung-nennmass-haftungsquote/) |
 | 20.10.2026 | [Zu wenig Gefälle auf der Terrasse: Wer haftet wofür?](veroeffentlicht/2026-10-20-terrasse-gefaelle-hinweispflicht.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/terrasse-gefaelle-hinweispflicht/) |
 | 20.10.2026 | [Checkliste Beweissicherung vor Nachbarbaustellen](veroeffentlicht/2026-10-20-beweissicherung-nachbarbaustelle-checkliste.md) | Vorlage | Bauschäden | [ansehen](https://ing-bassam.de/fachwissen/beweissicherung-nachbarbaustelle-checkliste/) |
 | 20.10.2026 | [Checkliste Abnahme Gemeinschaftseigentum im Neubau](veroeffentlicht/2026-10-20-abnahme-gemeinschaftseigentum-checkliste.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/abnahme-gemeinschaftseigentum-checkliste/) |

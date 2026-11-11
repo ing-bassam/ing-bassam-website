@@ -13,7 +13,7 @@ qualifikation:
 kurzform: instandhaltungsstau-capex-prognose-due-diligence
 erstellt: 2026-10-22
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3eed96ad-00b4-8125-ad49-f1332ede275d
 notion_url: https://app.notion.com/p/Instandhaltungsstau-und-CapEx-Prognose-Was-die-Due-Diligence-ber-die-n-chsten-zehn-Jahre-sagt-3eed96ad00b48125ad49f1332ede275d
