@@ -205,6 +205,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ing-bassam.de/fachwissen/abnahmeverlangen-fristsetzung-musterschreiben/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ing-bassam.de/fachwissen/abschlagsrechnung-hausbau-pruefen/</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>yearly</changefreq>
@@ -591,6 +597,12 @@
   <url>
     <loc>https://ing-bassam.de/fachwissen/technische-beweissicherung-grundlagen/</loc>
     <lastmod>2026-09-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/fachwissen/technische-due-diligence-immobilienkauf/</loc>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

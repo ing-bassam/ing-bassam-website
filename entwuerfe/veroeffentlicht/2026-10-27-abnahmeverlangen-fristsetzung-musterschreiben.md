@@ -14,7 +14,7 @@ kurzform: abnahmeverlangen-fristsetzung-musterschreiben
 dateien: vorlagen/abnahmeverlangen-fristsetzung-musterschreiben/abnahmeverlangen-fristsetzung-musterschreiben.docx, vorlagen/abnahmeverlangen-fristsetzung-musterschreiben/abnahmeverlangen-fristsetzung-musterschreiben.pdf
 erstellt: 2026-10-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-815e-8bed-d0d19003ec0d
 notion_url: https://app.notion.com/p/Musterschreiben-Abnahmeverlangen-mit-Fristsetzung-fiktive-Abnahme-3e5d96ad00b4815e8bedd0d19003ec0d

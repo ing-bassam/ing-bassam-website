@@ -13,7 +13,7 @@ qualifikation:
 kurzform: technische-due-diligence-immobilienkauf
 erstellt: 2026-10-22
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3eed96ad-00b4-8173-ac39-e3aa4cbcb81b
 notion_url: https://app.notion.com/p/Technische-Due-Diligence-beim-Immobilienkauf-Ablauf-Umfang-Bericht-3eed96ad00b48173ac39e3aa4cbcb81b
