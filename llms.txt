@@ -53,6 +53,7 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Baubetrieb
 
+- [Nachtragsangebot mit Kalkulationsaufbau: Vorlage für Excel](https://ing-bassam.de/fachwissen/nachtragsangebot-mit-kalkulationsaufbau/): Kalkulationsblatt für das Nachtragsangebot nach § 2 Abs. 5 und 6 VOB/B als Excel und PDF – vom Anlass über die Urkalkulation bis zum Einheitspreis.
 - [Schlussrechnung prüfen: Prüfliste für Auftraggeber](https://ing-bassam.de/fachwissen/pruefliste-schlussrechnung/): Schlussrechnung prüfen: Prüfliste zu Prüffähigkeit, Mengen, Nachträgen, Abzügen und Sicherheiten. Kostenlos als PDF, auch zum Ausfüllen.
 - [Pauschalpreis im Bauvertrag: Was ist wirklich enthalten?](https://ing-bassam.de/fachwissen/pauschalpreis-bauvertrag-leistungsbeschreibung/): Pauschalpreis 350.000 Euro, am Ende über 100.000 Euro mehr für Betonstahl: Das OLG Stuttgart zeigt, warum die Leistungsbeschreibung entscheidet.
 - [Nachtrag prüfen: Anspruchsgrund und Höhe bewerten](https://ing-bassam.de/fachwissen/nachtrag-pruefen-grund-und-hoehe/): Nachtrag prüfen aus Auftraggebersicht: zuerst das Bausoll und den Anspruchsgrund, dann die Höhe nach VOB/B oder BGB. Mit Prüfreihenfolge und Beweislast.
@@ -104,6 +105,7 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Energie & Förderung
 
+- [EH-55-Förderung im Neubau: Was bis 31.12.2026 vorliegen muss](https://ing-bassam.de/fachwissen/neubau-effizienzhaus-55-foerderung-antrag/): KfW-Förderung für Effizienzhaus 55 im Neubau: Antrag bis 31.12.2026. Welche Unterlagen vorliegen müssen und welche Fehler die Förderung kosten.
 - [Heizungsförderung 2027: Was sinkt, was vor den Antrag gehört](https://ing-bassam.de/fachwissen/heizungsfoerderung-2027-waermepumpe-antrag/): Heizungsförderung für Wärmepumpen: Ab 1. Februar 2027 sinken Bonus und Höchstgrenze. Was vor dem Antrag bei der KfW geplant und geklärt sein muss.
 
 ### Gutachten & Recht

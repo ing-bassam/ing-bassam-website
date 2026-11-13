@@ -14,7 +14,7 @@ kurzform: nachtragsangebot-mit-kalkulationsaufbau
 dateien: vorlagen/nachtragsangebot-mit-kalkulationsaufbau/nachtragsangebot-mit-kalkulationsaufbau.xlsx, vorlagen/nachtragsangebot-mit-kalkulationsaufbau/nachtragsangebot-mit-kalkulationsaufbau.pdf
 erstellt: 2026-10-27
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-8163-b536-e3a3f96103d3
 notion_url: https://app.notion.com/p/Vorlage-Nachtragsangebot-mit-Kalkulationsaufbau-3e5d96ad00b48163b536e3a3f96103d3

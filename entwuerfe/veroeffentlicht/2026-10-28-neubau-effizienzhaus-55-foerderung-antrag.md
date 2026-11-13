@@ -13,7 +13,7 @@ qualifikation:
 kurzform: neubau-effizienzhaus-55-foerderung-antrag
 erstellt: 2026-10-28
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 407d96ad-00b4-818a-b837-f682e6543fa5
 notion_url: https://app.notion.com/p/Neubau-mit-EH-55-F-rderung-Was-bis-zum-Antrag-am-31-12-2026-stehen-muss-407d96ad00b4818ab837f682e6543fa5
