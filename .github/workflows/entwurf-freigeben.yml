@@ -47,7 +47,11 @@ on:
     inputs:
       pr:
         description: "Nummer des Pull Requests „Entwurf: …“"
-        required: true
+        required: false
+        type: string
+      entwurf:
+        description: "Statt eines Pull Requests: Entwürfe, die schon auf main liegen (Dateinamen ohne .md, durch Komma getrennt) – dieselben Tore, danach veröffentlichen"
+        required: false
         type: string
       probelauf:
         description: "Nur prüfen – nicht mergen, nicht veröffentlichen"
@@ -59,7 +63,7 @@ on:
     - cron: "23 6 * * 1-5"
       timezone: "Europe/Berlin"
 
-run-name: "Entwurf freigeben: ${{ inputs.pr && format('#{0}', inputs.pr) || 'Sammellauf' }}${{ inputs.probelauf && ' (Probelauf)' || '' }}"
+run-name: "Entwurf freigeben: ${{ inputs.pr && format('#{0}', inputs.pr) || inputs.entwurf && 'Entwürfe auf main' || 'Sammellauf' }}${{ inputs.probelauf && ' (Probelauf)' || '' }}"
 
 # Ein Lauf nach dem anderen: Merges und Veröffentlichungen kommen sich so nicht
 # in die Quere. Ein dabei verdrängter wartender Lauf holt der Sammellauf nach.
@@ -83,8 +87,18 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR: ${{ inputs.pr }}
+          ENTWURF: ${{ inputs.entwurf }}
         run: |
           set -euo pipefail
+          if [ -n "${ENTWURF:-}" ]; then
+            # Entwürfe auf main: je Eintrag „main:<Dateiname>“.
+            if ! LISTE="$(python -c 'import json,re,sys; n=[x.strip().removesuffix(".md") for x in sys.argv[1].split(",") if x.strip()]; assert n and all(re.fullmatch(r"[a-z0-9-]+", x) for x in n); print(json.dumps(["main:"+x for x in n]))' "$ENTWURF")"; then
+              echo "::error title=Freigabe::„$ENTWURF“ enthält ungültige Dateinamen."
+              exit 1
+            fi
+            echo "liste=$LISTE" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           if [ -n "${PR:-}" ]; then
             if ! [[ "$PR" =~ ^[0-9]{1,6}$ ]]; then
               echo "::error title=Freigabe::„$PR“ ist keine Pull-Request-Nummer."
@@ -162,6 +176,26 @@ jobs:
           mkdir -p "$ARBEIT"
           echo "arbeit=$ARBEIT" >> "$GITHUB_OUTPUT"
           : > "$ARBEIT/gruende.txt"
+          if [[ "$NR" == main:* ]]; then
+            # Entwurf, der schon auf main liegt: kein Pull Request, kein Merge.
+            echo "modus=main" >> "$GITHUB_OUTPUT"
+            DATEI="entwuerfe/entwurf/${NR#main:}.md"
+            if [ ! -f "$DATEI" ]; then
+              echo "$DATEI liegt nicht auf main" >> "$ARBEIT/gruende.txt"
+              echo "ok=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            KURZ="$(sed -n 's/^kurzform:[[:space:]]*//p' "$DATEI" | head -n 1 | tr -d '"'"'"' \r')"
+            {
+              echo "entwurf=$DATEI"
+              echo "kurzform=${KURZ:-${NR#main:}}"
+              echo "sha=$(git rev-parse HEAD)"
+              echo "titel=$(sed -n 's/^titel:[[:space:]]*//p' "$DATEI" | head -n 1 | tr -d '"\r')"
+              echo "ok=true"
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "modus=pr" >> "$GITHUB_OUTPUT"
           # GitHub berechnet „mergeable“ erst auf Nachfrage – bis zu fünf Versuche.
           for versuch in 1 2 3 4 5; do
             if ! gh pr view "$NR" --json number,title,state,isDraft,author,files,labels,comments,mergeable,headRefOid,headRefName \
@@ -197,6 +231,13 @@ jobs:
           ARBEIT: ${{ steps.vor.outputs.arbeit }}
         run: |
           set -euo pipefail
+          if [[ "$NR" == main:* ]]; then
+            git worktree add -q --detach "$ARBEIT/pr" "$SHA"
+            echo "pr=$ARBEIT/pr" >> "$GITHUB_OUTPUT"
+            echo "zusammen=$ARBEIT/pr" >> "$GITHUB_OUTPUT"
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           git fetch -q --no-tags origin "pull/$NR/head"
           if [ "$(git rev-parse FETCH_HEAD)" != "$SHA" ]; then
             echo "Der Zweig hat sich während der Prüfung geändert" >> "$ARBEIT/gruende.txt"
@@ -359,6 +400,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p "$ARBEIT/agent"
+          if [ ! -f "$ARBEIT/pr.json" ]; then echo '{"comments": []}' > "$ARBEIT/pr.json"; fi
           # Berichte der Fakten- und Schlussprüfung (öffentliche Kommentare) als Eingabe.
           python -c 'import json,sys; d=json.load(open(sys.argv[1])); print("\n\n---\n\n".join(c["body"] for c in d["comments"] if (c.get("author") or {}).get("login","") in ("github-actions","app/github-actions") and ("Faktenprüfung" in c["body"] or "Schlussprüfung" in c["body"])))' \
             "$ARBEIT/pr.json" > "$ARBEIT/agent/vorpruefungen.md"
@@ -432,8 +474,10 @@ jobs:
       # ---------------------------------------------------------------
       - name: Bericht in den Pull Request
         id: bericht
-        if: always() && steps.vor.outputs.offen == 'true'
+        if: always() && (steps.vor.outputs.offen == 'true' || steps.vor.outputs.modus == 'main')
         env:
+          MODUS: ${{ steps.vor.outputs.modus }}
+          DATEI: ${{ steps.vor.outputs.entwurf }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NR: ${{ matrix.pr }}
           ARBEIT: ${{ steps.vor.outputs.arbeit }}
@@ -475,6 +519,12 @@ jobs:
             echo "" >> "$TEXT"
             echo "Nach einer Korrektur: Label entfernen und unter Actions „Entwurf freigeben und veröffentlichen“ mit dieser Nummer starten – oder selbst lesen und mergen." >> "$TEXT"
           fi
+          if [ "$MODUS" = "main" ]; then
+            # Kein Pull Request: Ergebnis in die Zusammenfassung des Laufs.
+            { echo "### $DATEI"; echo; cat "$TEXT"; echo; } >> "$GITHUB_STEP_SUMMARY"
+            echo "ok=$ALLES_OK" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           gh pr comment "$NR" --body-file "$TEXT" || echo "::warning title=Freigabe::Kommentar in #$NR nicht möglich."
           if [ "$ALLES_OK" != "true" ]; then
             gh label create "Karim prüfen" --color D93F0B --description "Automatische Freigabe nicht bestanden – bitte selbst prüfen" > /dev/null 2>&1 || true
@@ -488,7 +538,7 @@ jobs:
       # ---------------------------------------------------------------
       - name: Zusammenführen
         id: merge
-        if: steps.bericht.outputs.ok == 'true' && inputs.probelauf != true
+        if: steps.bericht.outputs.ok == 'true' && inputs.probelauf != true && steps.vor.outputs.modus == 'pr'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NR: ${{ matrix.pr }}
@@ -510,7 +560,7 @@ jobs:
 
       - name: Veröffentlichen
         id: veroeffentlichen
-        if: steps.merge.outcome == 'success'
+        if: steps.merge.outcome == 'success' || (steps.vor.outputs.modus == 'main' && steps.bericht.outputs.ok == 'true' && inputs.probelauf != true)
         timeout-minutes: 40
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -568,7 +618,7 @@ jobs:
           echo "::warning title=Veröffentlicht::$URL ist nach 20 Minuten noch nicht ohne noindex erreichbar – „Website ausliefern“ prüfen."
 
       - name: Karim benachrichtigen
-        if: always() && steps.merge.outcome == 'success'
+        if: always() && (steps.merge.outcome == 'success' || steps.veroeffentlichen.outcome == 'success' || steps.veroeffentlichen.outcome == 'failure')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
@@ -591,13 +641,13 @@ jobs:
               echo "**$URL**"
               if [ "$ONLINE" != "true" ]; then echo; echo "⚠️ Die Seite war beim Abschluss des Laufs noch nicht ohne noindex erreichbar – bitte in einigen Minuten ansehen."; fi
               echo
-              echo "- Pull Request mit allen Prüfberichten: #$NR"
+              if [[ "$NR" != main:* ]]; then echo "- Pull Request mit allen Prüfberichten: #$NR"; fi
               echo "- Zurückziehen: [Actions → Beitrag zurückziehen](https://github.com/$REPO/actions/workflows/beitrag-zurueckziehen.yml) → „Run workflow“ → Kurzform \`$KURZ\`. Die Seite ist dann nach wenigen Minuten offline."
             } > "$TEXT"
           else
             UEBERSCHRIFT="Gemergt, aber nicht veröffentlicht: $NAME"
             {
-              echo "#$NR hat alle Tore bestanden und ist gemergt, „Entwürfe veröffentlichen“ hat den Beitrag aber zurückgehalten."
+              echo "Der Beitrag hat alle Tore bestanden, „Entwürfe veröffentlichen“ hat ihn aber zurückgehalten."
               if [ -n "${LAUF:-}" ]; then echo; echo "Grund: Zusammenfassung von https://github.com/$REPO/actions/runs/$LAUF"; fi
               echo
               echo "Er bleibt als Entwurf (noindex) liegen, bis der Grund behoben ist."
