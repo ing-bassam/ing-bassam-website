@@ -19,7 +19,7 @@ qualifikation:
 kurzform: rost-halle-nachbesserung-statt-minderung
 erstellt: 2026-11-03
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
