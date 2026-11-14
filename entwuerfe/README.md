@@ -25,10 +25,11 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 | 02.11.2026 | [Balkon und Tiefgarage: Gutachten als WEG-Beschlussgrundlage](entwurf/2026-11-02-weg-balkon-tiefgarage-sanierung-gutachten.md) | Fachbeitrag | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/weg-balkon-tiefgarage-sanierung-gutachten/) |
 | 02.11.2026 | [Gutachten vor dem Immobilienkauf: Lohnt sich die Prüfung?](entwurf/2026-11-02-gebrauchte-immobilie-gutachten-vor-kauf.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/gebrauchte-immobilie-gutachten-vor-kauf/) |
 
-## 🟢 Veröffentlicht (84)
+## 🟢 Veröffentlicht (85)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 10.11.2026 | [Bauverzug am Einfamilienhaus: Urteil des OLG Karlsruhe](veroeffentlicht/2026-11-10-nutzungsausfall-bauverzug-einfamilienhaus.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nutzungsausfall-bauverzug-einfamilienhaus/) |
 | 29.10.2026 | [Risse in Fassade und Mauerwerk: harmlos oder ernst?](veroeffentlicht/2026-10-29-risse-fassade-mauerwerk-bewerten.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/risse-fassade-mauerwerk-bewerten/) |
 | 28.10.2026 | [EH-55-Förderung im Neubau: Was bis 31.12.2026 vorliegen muss](veroeffentlicht/2026-10-28-neubau-effizienzhaus-55-foerderung-antrag.md) | Ratgeber | Energie & Förderung | [ansehen](https://ing-bassam.de/fachwissen/neubau-effizienzhaus-55-foerderung-antrag/) |
 | 28.10.2026 | [Vager Bedenkenhinweis: Nachunternehmer haftet voll](veroeffentlicht/2026-10-28-bedenkenhinweis-nachunternehmer-baubesprechung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/bedenkenhinweis-nachunternehmer-baubesprechung/) |
