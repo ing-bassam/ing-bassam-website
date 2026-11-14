@@ -20,9 +20,9 @@ notion_id: 3e2d96ad-00b4-81d3-8398-da230331b3aa
 notion_url: https://app.notion.com/p/Checkliste-Objektbegehung-f-r-Hausverwaltungen-3e2d96ad00b481d38398da230331b3aa
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1350
-lesezeit: 7 Minuten
-fussnoten: 8
+wortzahl: 1156
+lesezeit: 6 Minuten
+fussnoten: 1
 quellen_geprueft: 1
 zahlenwerte_norm: 0
 todos: 0
@@ -37,9 +37,9 @@ Der Hauswart meldet einen Riss an der Fassade. Im Treppenhaus stehen drei Fahrr�
 
 Eine Checkliste für die Objektbegehung ist eine geordnete Liste von Sichtprüfpunkten für ein Wohngebäude und seine Außenanlagen. Sie ist für Hausverwaltungen, Wohnungsbaugesellschaften und Eigentümer gemacht, die ein Objekt in gleichbleibender Qualität abgehen wollen. Der Nutzen liegt im Vergleich. Wer zweimal dieselben Punkte prüft, erkennt beim zweiten Mal, was sich verändert hat.
 
-Die Fachsprache nennt diese Sichtprüfung Inspektion. Eine Inspektion ist das Erfassen und Beurteilen des Ist-Zustandes. Die Wartung bewahrt den Soll-Zustand, die Instandsetzung stellt ihn wieder her.[^1] Die Grundbegriffe der Instandhaltung regelt DIN 31051, die Norm für die Grundlagen der Instandhaltung.[^2] Die Begehung ist also der erste Schritt. Sie liefert die Grundlage für die Entscheidung, ob gewartet, repariert oder genauer untersucht wird.
+Die Fachsprache nennt diese Sichtprüfung Inspektion. Die Grundbegriffe der Instandhaltung regelt DIN 31051, die Norm für die Grundlagen der Instandhaltung.[^1] Die Begehung ist also der erste Schritt. Sie liefert die Grundlage für die Entscheidung, ob gewartet, repariert oder genauer untersucht wird.
 
-Die Begehung hat auch einen Sicherheitsgrund. Wer auf einem Grundstück Verkehr eröffnet und die tatsächliche Herrschaft darüber hat, muss die zur Sicherung notwendigen Vorkehrungen treffen. Abgeleitet wird diese Verkehrssicherungspflicht aus § 823 BGB, der Vorschrift des Bürgerlichen Gesetzbuchs über unerlaubte Handlungen.[^3] Was das im einzelnen Objekt bedeutet, wer welche Pflicht trägt und wie weit die Übertragung auf einen Dienstleister wirkt, beurteilt ein Rechtsanwalt. Die Checkliste hilft nur bei der Frage, ob Sie hingesehen und das Ergebnis festgehalten haben.
+Die Begehung hat auch einen Sicherheitsgrund: die Verkehrssicherungspflicht. Was das im einzelnen Objekt bedeutet, wer welche Pflicht trägt und wie weit die Übertragung auf einen Dienstleister wirkt, beurteilt ein Rechtsanwalt. Die Checkliste hilft nur bei der Frage, ob Sie hingesehen und das Ergebnis festgehalten haben.
 
 ## So gehen Sie mit der Liste durch das Objekt
 
@@ -47,7 +47,7 @@ Vor dem Termin gehören drei Dinge auf den Tisch. Das Protokoll der letzten Bege
 
 Der Rundgang folgt dann der Reihenfolge der Liste. Sie beginnen außen bei Wegen, Treppen, Beleuchtung, Bäumen und Müllplatz. Danach sehen Sie Dach und Fassade vom Boden aus an, gehen durch Treppenhaus und Rettungswege, dann in Keller, Dachboden und Technikräume. Zum Schluss prüfen Sie, ob die Prüf- und Wartungsnachweise vorliegen. Fotografieren Sie jede Feststellung mit Datum und einem Zollstock als Maßstab. Das Foto ist später der belastbarste Teil der Aufnahme.
 
-Der frühe Blick zahlt sich aus. Ein früh erkannter Schaden begrenzt den späteren Reparaturaufwand.[^4] Genau deshalb steht in der Liste nicht nur der offensichtliche Schaden, sondern auch das leise Zeichen davor. Kalkspuren unter einer Rohrverbindung, Pflanzenbewuchs in der Dachrinne, ein muffiger Geruch im Keller.
+In der Liste steht nicht nur der offensichtliche Schaden, sondern auch das leise Zeichen davor. Kalkspuren unter einer Rohrverbindung, Pflanzenbewuchs in der Dachrinne, ein muffiger Geruch im Keller.
 
 Die Vorlage gibt es in drei Formen. Das PDF zum Ausdrucken nehmen Sie mit auf den Rundgang. Das ausfüllbare PDF lässt sich am Bildschirm ankreuzen und ausfüllen. Die Excel-Datei eignet sich für die Mängelliste, weil Sie dort nach Dringlichkeit und Frist sortieren und die Punkte zur Wiedervorlage stellen können.
 
@@ -55,19 +55,17 @@ Die Vorlage gibt es in drei Formen. Das PDF zum Ausdrucken nehmen Sie mit auf de
 
 Der erste Schwerpunkt ist die Verkehrssicherheit der Außenanlagen. Gehwege, Treppen, Handläufe und die Beleuchtung entscheiden darüber, ob Bewohner und Besucher sicher ins Haus kommen. Eine einzelne hochstehende Gehwegplatte genügt für einen Sturz. Bäume gehören ebenfalls dazu. Abgebrochene oder abgestorbene Äste über Wegen und Stellplätzen notieren Sie und lassen den Baum von einer fachkundigen Person kontrollieren.
 
-Der zweite Schwerpunkt sind die Rettungswege. Über Treppenräume und Flure verlassen die Bewohner das Haus, und auf demselben Weg kommt die Feuerwehr hinein. Diese Wege dürfen deshalb weder zugestellt werden noch zum Lagern brennbarer Stoffe dienen.[^5] Darum steht in der Liste nicht nur das Fahrrad im Flur. Sie prüfen auch, ob Türen mit Selbstschließer von allein ins Schloss fallen und ob niemand sie verkeilt hat.
+Der zweite Schwerpunkt sind die Rettungswege. In der Liste steht nicht nur das Fahrrad im Flur. Sie prüfen auch, ob Türen mit Selbstschließer von allein ins Schloss fallen und ob niemand sie verkeilt hat.
 
-Der dritte Schwerpunkt ist das Wasser, das vom Gebäude weg soll. Dachflächen, Anschlüsse und Entwässerungseinrichtungen brauchen eine regelmäßige Inspektion. Für Balkone, Dachterrassen und Laubengänge empfiehlt die Fachliteratur eine Inspektion mindestens einmal im Jahr durch ein Fachunternehmen und eine Wartung ebenfalls mindestens einmal im Jahr; die Ergebnisse der Inspektion sind schriftlich zu dokumentieren.[^6] Vom Boden aus sehen Sie von all dem nur einen Teil. Pflanzenbewuchs in der Rinne, ein feuchter Streifen an der Wand unter einem Fallrohr oder eine dauerhafte Pfütze am Sockel sind die Zeichen, die Sie festhalten.
+Der dritte Schwerpunkt ist das Wasser, das vom Gebäude weg soll. Dachflächen, Anschlüsse und Entwässerungseinrichtungen brauchen eine regelmäßige Inspektion. Vom Boden aus sehen Sie von all dem nur einen Teil. Pflanzenbewuchs in der Rinne, ein feuchter Streifen an der Wand unter einem Fallrohr oder eine dauerhafte Pfütze am Sockel sind die Zeichen, die Sie festhalten.
 
-Der vierte Schwerpunkt sind die Prüf- und Wartungsnachweise. Die Liste fragt bewusst nur, ob ein Nachweis vorliegt und wer die Anlage betreut. Welche Prüfung vorgeschrieben ist und in welchem Abstand, hängt von der Anlage, ihrer Nutzung und dem Landesrecht ab. Für das Trinkwasser gilt die Trinkwasserverordnung, eine gesetzliche Regelung zum Schutz der Gesundheit der Verbraucher.[^7] Die Anlagenliste Ihres Objekts ergänzen Sie deshalb selbst, Anlage für Anlage.
+Der vierte Schwerpunkt sind die Prüf- und Wartungsnachweise. Die Liste fragt bewusst nur, ob ein Nachweis vorliegt und wer die Anlage betreut. Welche Prüfung vorgeschrieben ist und in welchem Abstand, hängt von der Anlage, ihrer Nutzung und dem Landesrecht ab. Die Anlagenliste Ihres Objekts ergänzen Sie deshalb selbst, Anlage für Anlage.
 
 ## Typische Fehler bei der Begehung
 
 Der häufigste Fehler ist die Feststellung ohne Folge. Ein Mangel steht im Protokoll, aber niemand ist zuständig, und es gibt keine Frist. Beim nächsten Termin steht derselbe Satz wieder da. Deshalb hat jede Zeile der Mängelliste drei Pflichtfelder neben der Beschreibung, nämlich Dringlichkeit, Zuständigkeit und Frist. Die Dringlichkeit tragen Sie in drei Stufen ein, also sofort, kurzfristig oder einplanen.
 
-Der zweite Fehler ist das Verdecken statt des Klärens. Feuchte Kellerwände werden gern verkleidet, etwa mit Gipskartonplatten oder Fliesen. Wer so unbedacht saniert, macht die Lage im Keller meist schlimmer statt besser.[^8] Im Bestand ist die Ursache oft die fehlende oder beschädigte Abdichtung. Wer sie nicht kennt, saniert an der falschen Stelle.
-
-Der dritte Fehler liegt beim eigenen Sicherheitsverhalten. Die Begehung ist eine Sichtprüfung. Bauteile werden nicht geöffnet, Verkleidungen nicht abgenommen, Anlagen nicht zerlegt. Steigen Sie nicht selbst auf Dächer, Leitern oder Gerüste. Bei Anzeichen für eine Gefahr für die Standsicherheit, bei Gasgeruch, bei Strom in feuchten Bereichen, bei Absturzgefahr oder bei Verdacht auf Schadstoffe sichern oder räumen Sie den Bereich. Dann schalten Sie eine Fachfirma, den Netzbetreiber oder die Behörde ein.
+Der zweite Fehler liegt beim eigenen Sicherheitsverhalten. Die Begehung ist eine Sichtprüfung. Bauteile werden nicht geöffnet, Verkleidungen nicht abgenommen, Anlagen nicht zerlegt. Steigen Sie nicht selbst auf Dächer, Leitern oder Gerüste. Bei Anzeichen für eine Gefahr für die Standsicherheit, bei Gasgeruch, bei Strom in feuchten Bereichen, bei Absturzgefahr oder bei Verdacht auf Schadstoffe sichern oder räumen Sie den Bereich. Dann schalten Sie eine Fachfirma, den Netzbetreiber oder die Behörde ein.
 
 ## Wann ein Sachverständiger hilft
 
@@ -81,7 +79,7 @@ Für Sie als Verwaltung bringt das zwei Dinge. Sie wissen, ob eine Reparatur gen
 
 **Wie oft muss eine Hausverwaltung ein Wohngebäude begehen?**
 
-Ein allgemein gültiges Intervall gibt es nicht. Wie oft eine Begehung sinnvoll ist, hängt von Größe, Alter, Zustand und Nutzung des Objekts ab. Für Balkone, Dachterrassen und Laubengänge empfiehlt die Fachliteratur eine Inspektion mindestens einmal im Jahr durch ein Fachunternehmen und eine Wartung ebenfalls mindestens einmal im Jahr.[^6] Viele Verwaltungen legen die Objektbegehung deshalb in den Rhythmus dieser jährlichen Termine.
+Ein allgemein gültiges Intervall gibt es nicht. Wie oft eine Begehung sinnvoll ist, hängt von Größe, Alter, Zustand und Nutzung des Objekts ab.
 
 **Darf ich bei der Begehung eine Wohnung betreten?**
 
@@ -107,11 +105,4 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 ## Quellen und Fußnoten
 
-[^1]: Stahr, Michael (Hrsg.): Bausanierung. Erkennen und Beheben von Bauschäden. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 240. ISBN 978-3-658-28148-9.
-[^2]: DIN Media: DIN 31051:2019-06 „Grundlagen der Instandhaltung“, Status aktuell. https://www.dinmedia.de/en/standard/din-31051/303020440 (abgerufen am 2026-09-26). Inhaltlich bestätigt durch: Schulz, Joachim: Bauschäden in Bädern und Nassräumen. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 2. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 220. ISBN 978-3-658-49195-6.
-[^3]: Krause, Thomas; Ulke, Bernd (Hrsg.): Zahlentafeln für den Baubetrieb. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2016, S. 396. ISBN 978-3-658-02838-1.
-[^4]: Stahr, Michael (Hrsg.): Bausanierung. Erkennen und Beheben von Bauschäden. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 897. ISBN 978-3-658-28148-9.
-[^5]: Willems, Wolfgang M. (Hrsg.): Lehrbuch der Bauphysik. Wärme – Feuchte – Klima – Schall – Licht – Brand. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 990. ISBN 978-3-658-34093-3.
-[^6]: Weber, Jürgen; Hafkesbrink, Volker (Hrsg.): Bauwerksabdichtung in der Altbausanierung. Verfahren und juristische Betrachtungsweise. 7. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 454. ISBN 978-3-658-48094-3.
-[^7]: Vielhauer, Martin u. a.: Entwurfsplanung der Technischen Gebäudeausrüstung. Planungsinhalte, Beispiele und Leistungsdefinitionen. Wiesbaden: Springer Vieweg, 2025, S. 46. ISBN 978-3-658-45464-7.
-[^8]: Schulz, Joachim: Architektur der Bauschäden. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 278. ISBN 978-3-658-27654-6.
+[^1]: DIN Media: DIN 31051:2019-06 „Grundlagen der Instandhaltung“, Status aktuell. https://www.dinmedia.de/en/standard/din-31051/303020440 (abgerufen am 2026-09-26). Inhaltlich bestätigt durch: Schulz, Joachim: Bauschäden in Bädern und Nassräumen. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 2. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 220. ISBN 978-3-658-49195-6.
