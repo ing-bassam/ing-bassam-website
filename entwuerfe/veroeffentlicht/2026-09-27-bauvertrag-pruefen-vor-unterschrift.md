@@ -26,7 +26,7 @@ fussnoten: 19
 quellen_geprueft: 3
 zahlenwerte_norm: 7
 todos: 0
-regelwerke_bestaetigt: BGB Werkvertrags- und Verbraucherbauvertragsrecht, GEG, DIN 4109-1:2018-01 (frühere Ausgabe, inzwischen ersetzt durch DIN 4109-1:2026-09)
+regelwerke_bestaetigt: BGB Werkvertrags- und Verbraucherbauvertragsrecht, GEG, DIN 4109-1:2018-01
 ---
 
 # Bauvertrag prüfen vor der Unterschrift: die Checkliste
@@ -128,7 +128,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^3]: Weber, Jürgen; Hafkesbrink, Volker (Hrsg.): Bauwerksabdichtung in der Altbausanierung. Verfahren und juristische Betrachtungsweise. 7. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 657. ISBN 978-3-658-48094-3.
 [^4]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 33. ISBN 978-3-658-32822-1.
 [^5]: Bauherren-Schutzbund e. V.: Bau- und Leistungsbeschreibung – Checkliste für Ihren Vertrag. https://www.bsb-ev.de/neubau/bau-und-leistungsbeschreibung-die-checkliste (abgerufen am 2026-09-27).
-[^6]: DIN Media: DIN 4109-1:2018-01, Schallschutz im Hochbau – Teil 1: Mindestanforderungen, ersetzt DIN 4109-1:2016-07, frühere Ausgabe, inzwischen ersetzt durch DIN 4109-1:2026-09. https://www.dinmedia.de/en/standard/din-4109-1/280079001 (abgerufen am 2026-09-27). Inhaltlich bestätigt durch: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. Eine Einführung mit Berechnungsbeispielen. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 480. ISBN 978-3-658-42604-0.
+[^6]: DIN Media: DIN 4109-1:2018-01, Schallschutz im Hochbau – Teil 1: Mindestanforderungen, Status gültig, ersetzt DIN 4109-1:2016-07. https://www.dinmedia.de/en/standard/din-4109-1/280079001 (abgerufen am 2026-09-27). Inhaltlich bestätigt durch: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. Eine Einführung mit Berechnungsbeispielen. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 480. ISBN 978-3-658-42604-0.
 [^7]: Schmidt, Peter: Das novellierte Gebäudeenergiegesetz (GEG 2024). Grundlagen. Anwendung in der Praxis, Beispiele. Wiesbaden: Springer Vieweg, 2025, S. 103. ISBN 978-3-658-44921-6.
 [^8]: Rode, Bernd; Weller, Wolfgang: AVA-Handbuch. Ausschreibung - Vergabe - Abrechnung - Haftung. 11. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 24, 118. ISBN 978-3-658-48052-3.
 [^9]: Bauherren-Schutzbund e. V.: Bauvertrag prüfen – die zwölf wichtigsten Aspekte. https://www.bsb-ev.de/neubau/den-bauvertrag-pruefen-die-zwoelf-wichtigsten-aspekte (abgerufen am 2026-09-27).
