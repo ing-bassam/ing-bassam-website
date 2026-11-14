@@ -25,9 +25,9 @@ notion_id:
 notion_url:
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1840
+wortzahl: 1852
 lesezeit: 10 Minuten
-fussnoten: 3
+fussnoten: 1
 quellen_geprueft: 1
 zahlenwerte_norm: 0
 todos: 0
@@ -40,11 +40,11 @@ Ein Dachdeckerunternehmen führte die Dachdeckungs- und Abdichtungsarbeiten an e
 
 ## Worum die Bauträgerin und das Dachdeckerunternehmen gestritten haben
 
-Die Klägerin ist Bauträgerin, die Beklagte ein Dachdeckerunternehmen (Rn. 1). Eine Bauträgerin lässt Gebäude errichten und verkauft die Wohnungen an Erwerber. Sie beauftragte das Dachdeckerunternehmen im Oktober 2012 mit dem Dachgewerk am ersten Bauabschnitt, im Februar 2013 folgte der zweite (Rn. 3, Rn. 13). Vertragsgrundlage war unter anderem die Vergabe- und Vertragsordnung für Bauleistungen, Teil B, in der Ausgabe 2009 (Rn. 5). Der Vertrag setzte die Frist für Mängelansprüche auf fünf Jahre und sechs Monate (Rn. 5). In den mitgeltenden Vertragsbedingungen stand außerdem der Satz, der Auftraggeber verlange die förmliche Abnahme (Rn. 6, Rn. 7). Förmliche Abnahme heißt: ein gemeinsam durchgeführter, schriftlich protokollierter Termin.[^2]
+Die Klägerin ist Bauträgerin, die Beklagte ein Dachdeckerunternehmen (Rn. 1). Eine Bauträgerin lässt Gebäude errichten und verkauft die Wohnungen an Erwerber. Sie beauftragte das Dachdeckerunternehmen im Oktober 2012 mit dem Dachgewerk am ersten Bauabschnitt, im Februar 2013 folgte der zweite (Rn. 3, Rn. 13). Vertragsgrundlage war unter anderem die Vergabe- und Vertragsordnung für Bauleistungen, Teil B, in der Ausgabe 2009 (Rn. 5). Der Vertrag setzte die Frist für Mängelansprüche auf fünf Jahre und sechs Monate (Rn. 5). In den mitgeltenden Vertragsbedingungen stand außerdem der Satz, der Auftraggeber verlange die förmliche Abnahme (Rn. 6, Rn. 7).
 
 Zu diesem Termin kam es nie (Rn. 72). Die Erwerber und die Eigentümergemeinschaft nahmen die Wohnanlage im Juli 2013 von der Bauträgerin ab (Rn. 8). Die Bauträgerin forderte das Dachdeckerunternehmen im Juli und im August 2013 auf, Mängel zu beseitigen (Rn. 9, Rn. 10). Das Unternehmen zeigte die Fertigstellung im Dezember 2013 an (Rn. 11). Die Schlussrechnung für den ersten Bauabschnitt zahlte die Bauträgerin am 8. August 2014, die für den zweiten am 18. August 2014 (Rn. 12, Rn. 17).
 
-Im Jahr 2019 veranlassten die Erwerber eine Begehung, noch vor Ablauf ihrer Gewährleistungsfrist (Rn. 18). Danach nahmen sie die Bauträgerin in Anspruch: für den ersten Bauabschnitt mit einer Klage, für den zweiten mit einem selbstständigen Beweisverfahren (Rn. 18). In einem solchen Beweisverfahren sichert ein Gericht Beweise durch einen Sachverständigen, ohne über Geld zu entscheiden. Die Bauträgerin verkündete dem Dachdeckerunternehmen in beiden Verfahren den Streit, lud es also förmlich dazu (Rn. 20, Rn. 23). Anschließend verlangte sie von ihm 100.780 Euro Vorschuss auf die Kosten der Mängelbeseitigung und 35.348,20 Euro für ihre Rechtsverfolgung (Rn. 24, Rn. 26, Rn. 27). Das Unternehmen erhob die Einrede der Verjährung (Rn. 45). Es meinte, seine Leistung sei längst abgenommen, nämlich zugleich mit der Abnahme durch die Erwerber (Rn. 46). Das Landgericht Halle gab der Klage für beide Bauabschnitte in der beantragten Höhe statt (Rn. 50). Gegen dieses Urteil legte das Dachdeckerunternehmen Berufung ein, die teilweise Erfolg hatte (Rn. 51, Rn. 58). Den Streitwert des Berufungsverfahrens setzte der Senat im Beschluss hinter dem Urteilstenor auf die Gebührenstufe bis 140.000 Euro fest; die Rechtsgrundlagen dafür nennt er am Ende der Gründe (Rn. 137).
+Im Jahr 2019 veranlassten die Erwerber eine Begehung, noch vor Ablauf ihrer Gewährleistungsfrist (Rn. 18). Danach nahmen sie die Bauträgerin in Anspruch: für den ersten Bauabschnitt mit einer Klage, für den zweiten mit einem selbstständigen Beweisverfahren (Rn. 18). In einem solchen Beweisverfahren sichert ein Gericht Beweise durch einen Sachverständigen, ohne über Geld zu entscheiden. Die Bauträgerin verkündete dem Dachdeckerunternehmen in beiden Verfahren den Streit, lud es also förmlich dazu (Rn. 20, Rn. 23). Anschließend verlangte sie von ihm 100.780 Euro Vorschuss auf die Kosten der Mängelbeseitigung und 35.348,20 Euro für ihre Rechtsverfolgung (Rn. 24, Rn. 26, Rn. 27). Das Unternehmen erhob die Einrede der Verjährung (Rn. 45). Es meinte, seine Leistung sei längst abgenommen, nämlich zugleich mit der Abnahme durch die Erwerber (Rn. 46). Das Landgericht Halle gab der Klage für beide Bauabschnitte in der beantragten Höhe statt (Rn. 50). Gegen dieses Urteil legte das Dachdeckerunternehmen Berufung ein, die teilweise Erfolg hatte (Rn. 51, Rn. 58).
 
 ## Warum das Gericht die Zahlung als Abnahme gewertet hat
 
@@ -58,7 +58,7 @@ Die Einwände des Unternehmens gegen eine frühere Abnahme griffen dagegen nicht
 
 ## Warum ein Bauabschnitt verjährt war und der andere nicht
 
-Für den ersten Bauabschnitt begann die Frist am 8. August 2014, dem Tag der Zahlung (Rn. 68). Ohne Unterbrechung wäre sie am 8. November 2019 abgelaufen (Rn. 88). Die Streitverkündung im Verfahren der Erwerber wurde am 6. August 2019 zugestellt und hemmte die Verjährung (Rn. 89). Hemmung heißt: Die Frist steht still, solange der Grund dafür besteht. Diese Hemmung endete sechs Monate nach Rechtskraft jenes Urteils, also am 5. August 2024 (Rn. 90). Die Klage gegen das Dachdeckerunternehmen ging am 13. Juni 2024 ein und hemmte die Frist erneut (Rn. 91, Rn. 92). Der Anspruch war damit nicht verjährt (Rn. 67).
+Für den ersten Bauabschnitt begann die Frist am 8. August 2014, dem Tag der Zahlung (Rn. 68). Als Fristende ohne Unterbrechung nennt das Urteil den 8. November 2019 (Rn. 88); rechnerisch ergäbe sich aus den übrigen Daten Februar 2020, was für das Ergebnis ohne Bedeutung ist, weil die Streitverkündung im August 2019 die Frist in beiden Fällen hemmte. Die Streitverkündung im Verfahren der Erwerber wurde am 6. August 2019 zugestellt und hemmte die Verjährung (Rn. 89). Hemmung heißt: Die Frist steht still, solange der Grund dafür besteht. Diese Hemmung endete sechs Monate nach Rechtskraft jenes Urteils, also am 5. August 2024 (Rn. 90). Die Klage gegen das Dachdeckerunternehmen ging am 13. Juni 2024 ein und hemmte die Frist erneut (Rn. 91, Rn. 92). Der Anspruch war damit nicht verjährt (Rn. 67).
 
 Beim zweiten Bauabschnitt rechnete der Senat anders. Dort zahlte die Bauträgerin am 18. August 2014; ohne Hemmung wäre die Frist am 18. Februar 2020 abgelaufen (Rn. 110, Rn. 114). Die Streitverkündung im selbstständigen Beweisverfahren hemmte ab dem 28. Mai 2019 (Rn. 115). Zu diesem Zeitpunkt waren von der Frist nur noch acht Monate und zwanzig Tage übrig (Rn. 116). Das Beweisverfahren endete am 22. Juli 2022, die Hemmung sechs Monate später (Rn. 117). Damit lief die Frist am 12. Oktober 2023 aus (Rn. 118).
 
@@ -69,8 +69,6 @@ Für den ersten Bauabschnitt sprach der Senat deshalb 85.250 Euro Vorschuss zu (
 ## Was das für Ihre Abnahme und Ihre Schlusszahlung bedeutet
 
 Die Schlusszahlung ist mehr als ein Buchungsvorgang. Sie ist ein Verhalten, das die Gegenseite deuten darf. Im entschiedenen Fall genügte sie dem Senat als konkludente Abnahme, weil die gerügten Mängel zuvor beseitigt waren und sich die Parteien über die Nachträge offenbar geeinigt hatten (Rn. 78, Rn. 80). Ob eine Zahlung in Ihrem Vertrag dieselbe Wirkung hätte, ist eine Frage des Einzelfalls; schon die Prüffrist nennt der Senat ausdrücklich so (Rn. 79). Welche Folgen Ihre Zahlung hat, beurteilt ein Rechtsanwalt.
-
-Warum dieser Zeitpunkt zählt, zeigt die Wirkung der Abnahme. Mit ihr kehrt sich die Beweislast um: Vorher muss das Unternehmen die Mängelfreiheit beweisen, danach müssen Sie die Verantwortung des Unternehmens für einen Mangel belegen.[^2] Mit ihr beginnt außerdem die Frist für Mängelansprüche.[^2] Rechte, die Sie sich bei der Abnahme nicht vorbehalten, können zudem verloren gehen – und besondere Aufmerksamkeit ist geboten, wenn die Abnahme stillschweigend erfolgt.[^3]
 
 Daraus folgt eine einfache Reihenfolge. Verlangen Sie die vereinbarte förmliche Abnahme schriftlich, und lassen Sie sich einen Termin geben. Nehmen Sie bekannte Mängel in das Protokoll auf, mit Frist zur Beseitigung. Zahlen Sie die Schlussrechnung erst danach, oder mit einem ausdrücklichen schriftlichen Vorbehalt. Verlassen Sie sich nicht auf mündliche Zusagen der Bauleitung: Ein Bauleiter ist regelmäßig nicht befugt, eine Abnahme rechtsgeschäftlich zu erklären (Rn. 85).
 
@@ -113,5 +111,3 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: Oberlandesgericht des Landes Sachsen-Anhalt, 2. Zivilsenat: Urteil vom 15.07.2026 – 2 U 58/25, ECLI:DE:OLGNAUM:2026:0715.2U58.25.00. https://www.landesrecht.sachsen-anhalt.de/perma?d=NJRE001653647 (abgerufen am 2026-09-27).
-[^2]: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 338. ISBN 978-3-658-47553-6.
-[^3]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 90. ISBN 978-3-658-32822-1.

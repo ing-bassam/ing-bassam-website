@@ -25,9 +25,9 @@ notion_id:
 notion_url:
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1870
+wortzahl: 1961
 lesezeit: 10 Minuten
-fussnoten: 6
+fussnoten: 2
 quellen_geprueft: 2
 zahlenwerte_norm: 0
 todos: 0
@@ -70,13 +70,13 @@ Die Kosten der Lochbleche und des Gutachtens muss der Planer ersetzen (Rn. 108, 
 
 ## Was Bauherren und Eigentümer daraus mitnehmen
 
-Die wichtigste Lehre aus dem Fall betrifft die Baugenehmigung. Sie ist nicht nur eine behördliche Erlaubnis. In einem Musterbauvertrag der Fachliteratur wird sie als Vertragsbestandteil aufgeführt[^2]. Steht sie im Vertrag, beschreibt sie mit, was gebaut werden soll. Im entschiedenen Fall ging sie der Leistungsbeschreibung sogar im Rang vor (Rn. 128). Prüfen Sie deshalb, ob Ihre Baugenehmigung samt Auflagen zu den Vertragsunterlagen gehört.
+Die wichtigste Lehre aus dem Fall betrifft die Baugenehmigung. Sie ist nicht nur eine behördliche Erlaubnis. Steht sie im Vertrag, beschreibt sie mit, was gebaut werden soll. Im entschiedenen Fall ging sie der Leistungsbeschreibung sogar im Rang vor (Rn. 128). Prüfen Sie deshalb, ob Ihre Baugenehmigung samt Auflagen zu den Vertragsunterlagen gehört.
 
 Entscheidend war hier eine Anlage zu einer Nebenbestimmung der Genehmigung (Rn. 73). Nebenbestimmungen sind die Bedingungen, die die Behörde mit der Genehmigung verbindet. Sie stehen oft in Anlagen, die beim Lesen untergehen. Für Bauherren, Eigentümer und Hausverwaltungen heißt das: Die Auflagen zum Brandschutz gehören in die Hand der Planer, und ihre Umsetzung sollte dokumentiert werden.
 
 Der Fall zeigt außerdem, wie viel an einem einzigen Wort hängen kann. Die Genehmigung verlangte nicht brennbare Baustoffe; die eingebauten Rohre blieben schwer entflammbar (Rn. 86). Lassen Sie sich beim Einbau festhalten, welches Material tatsächlich verwendet wurde. Lieferscheine, Produktangaben und Fotos aus der Bauphase sind später oft der einzige Beweis. Eine fachliche Begleitung während der Bauzeit kann solche Abweichungen aufdecken, solange sie noch ohne Abbruch zu korrigieren sind; eine [Bauherrenvertretung](https://ing-bassam.de/#kontakt) prüft Pläne und Ausführung gegen die Vorgaben der Genehmigung.
 
-Zwei Punkte sollten Bauherren nicht überschätzen. Den Fehler des eigenen Fachplaners muss sich der Bauherr anrechnen lassen[^3]; dass die Baufirma keinen Bedenkenhinweis gegeben hat, nimmt ihm dieses Mitverschulden nur, wenn sie den Planungsfehler positiv erkannt hat oder dieser sich ihr förmlich aufdrängen musste (Rn. 158). Und eine funktionierende Zwischenlösung erledigt den Mangel nicht, solange die Ausführung von der Baugenehmigung abweicht (Rn. 86); durchsetzbar wird der Austausch aber erst mit einer vollziehbaren Anordnung der Behörde (Rn. 104). Immerhin hielt der Senat die Zwischenlösung aus der Sicht vor dem Einbau für vernünftig und vertretbar (Rn. 110). Welche Ansprüche in Ihrem Fall bestehen und wie sie durchzusetzen sind, beurteilt ein Rechtsanwalt.
+Zwei Punkte sollten Bauherren nicht überschätzen. Den Fehler des eigenen Fachplaners muss sich der Bauherr anrechnen lassen (Rn. 151); dass die Baufirma keinen Bedenkenhinweis gegeben hat, nimmt ihm dieses Mitverschulden nur, wenn sie den Planungsfehler positiv erkannt hat oder dieser sich ihr förmlich aufdrängen musste (Rn. 158). Und eine funktionierende Zwischenlösung erledigt den Mangel nicht, solange die Ausführung von der Baugenehmigung abweicht (Rn. 86); durchsetzbar wird der Austausch aber erst mit einer vollziehbaren Anordnung der Behörde (Rn. 104). Immerhin hielt der Senat die Zwischenlösung aus der Sicht vor dem Einbau für vernünftig und vertretbar (Rn. 110). Welche Ansprüche in Ihrem Fall bestehen und wie sie durchzusetzen sind, beurteilt ein Rechtsanwalt.
 
 ## Was das Urteil nicht sagt
 
@@ -84,13 +84,13 @@ Das Urteil betrifft eine Fassadenentwässerung an einem Büro- und Ladenkomplex 
 
 Offen bleibt nach dem Volltext mehreres. Was ein vollständiger Austausch der Rohre kosten würde, hat das Gericht nicht festgestellt. Ob die Behörde ihn tatsächlich anordnet, ist nicht entschieden (Rn. 104). Auch die Frage, ob der Planer zusätzlich seine Pflichten zur Objektüberwachung verletzt hat, musste der Senat nicht beantworten (Rn. 107). Die Revision hat das Gericht nicht zugelassen (Rn. 170).
 
-Ein Wort zum Stand heute: Das Urteil ist vom Dezember 2024. Der Senat wendet das Bürgerliche Gesetzbuch in der Fassung an, die für Verträge bis zum 31. Dezember 2017 gilt (Rn. 67, Rn. 123), dazu die VOB/B in der Ausgabe 2009 (Rn. 120). Die VOB/B ist die Vergabe- und Vertragsordnung für Bauleistungen, Teil B; sie erscheint als DIN 1961[^4]. Für Bauverträge ab dem 1. Januar 2018 gilt zusätzlich das Bauvertragsrecht der §§ 650a bis 650o BGB; die allgemeinen Regeln der §§ 631 bis 650 BGB gelten weiter, soweit die §§ 650a bis 650h BGB nichts Abweichendes bestimmen[^5].
+Ein Wort zum Stand heute: Das Urteil ist vom Dezember 2024. Der Senat wendet das Bürgerliche Gesetzbuch in der Fassung an, die für Verträge bis zum 31. Dezember 2017 gilt (Rn. 67, Rn. 123), dazu die VOB/B in der Ausgabe 2009 (Rn. 120). Die VOB/B ist die Vergabe- und Vertragsordnung für Bauleistungen, Teil B; sie erscheint als DIN 1961[^2]. Für Bauverträge ab dem 1. Januar 2018 gilt zusätzlich das Bauvertragsrecht der §§ 650a bis 650o BGB.
 
 ## Häufige Fragen
 
 **Gilt das auch für mein Einfamilienhaus?**
 
-Das Urteil betrifft einen Büro- und Ladenkomplex und eine Baugenehmigung mit besonderen Brandschutzauflagen (Rn. 1, Rn. 73). Übertragbar ist der Gedanke, dass eine Ausführungsplanung die dem Planer bekannte Baugenehmigung einhalten muss, wenn nichts anderes vereinbart ist (Rn. 71, Rn. 79). Ob Ihre Baugenehmigung Vertragsbestandteil ist, ergibt sich aus Ihrem Bauvertrag; in einem Musterbauvertrag der Fachliteratur wird sie als Bestandteil aufgeführt[^2]. Was daraus in Ihrem Fall folgt, beurteilt ein Rechtsanwalt.
+Das Urteil betrifft einen Büro- und Ladenkomplex und eine Baugenehmigung mit besonderen Brandschutzauflagen (Rn. 1, Rn. 73). Übertragbar ist der Gedanke, dass eine Ausführungsplanung die dem Planer bekannte Baugenehmigung einhalten muss, wenn nichts anderes vereinbart ist (Rn. 71, Rn. 79). Ob Ihre Baugenehmigung Vertragsbestandteil ist, ergibt sich aus Ihrem Bauvertrag. Was daraus in Ihrem Fall folgt, beurteilt ein Rechtsanwalt.
 
 **Mein Bau ist abgenommen und alles funktioniert. Ist die Sache damit erledigt?**
 
@@ -102,7 +102,7 @@ In diesem Fall ja, allerdings nur zur Hälfte (Rn. 120, Rn. 153). Die Baufirma h
 
 **Was ist ein Bedenkenhinweis, und was nützt er mir als Bauherr?**
 
-Ein Bedenkenhinweis ist die Warnung der Baufirma an den Auftraggeber, dass eine vorgesehene Ausführung Probleme bereitet. Die Fachliteratur empfiehlt, ihn schriftlich und möglichst vor Beginn der Arbeiten zu geben[^6]. Im entschiedenen Fall fehlte ein solcher Hinweis, was die Haftung der Baufirma mit begründete (Rn. 130). Als Bauherr sollten Sie eingehende Hinweise dokumentieren und fachlich prüfen lassen, bevor Sie darauf antworten.
+Ein Bedenkenhinweis ist die Warnung der Baufirma an den Auftraggeber, dass eine vorgesehene Ausführung Probleme bereitet. Im entschiedenen Fall fehlte ein solcher Hinweis, was die Haftung der Baufirma mit begründete (Rn. 130). Als Bauherr sollten Sie eingehende Hinweise dokumentieren und fachlich prüfen lassen, bevor Sie darauf antworten.
 
 ## Hinweis
 
@@ -117,8 +117,4 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: Oberlandesgericht Stuttgart, 10. Zivilsenat: Urteil vom 17.12.2024 – 10 U 23/24, ECLI:DE:OLGSTUT:2024:1217.10U23.24.00. Randnummern nach dem amtlichen Volltext. https://www.landesrecht-bw.de/perma?d=NJRE001602108 (abgerufen am 2026-10-02).
-[^2]: Heiermann, Wolfgang u. a.: VOB/B-Musterbriefe für Auftraggeber. Bauherren – Generalunternehmer – Architekten – Bauingenieure. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 21. ISBN 978-3-658-32253-3.
-[^3]: Zanner, Christian: VOB/B nach Ansprüchen. Entscheidungshilfen für Auftraggeber, Planer und Bauunternehmen. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 244. ISBN 978-3-658-34025-4.
-[^4]: DIN Media: DIN 1961:2016-09, VOB Teil B, Ausgabe September 2016; diese Ausgabe ersetzt DIN 1961:2012-09. https://www.dinmedia.de/en/standard/din-1961/256403134 (abgerufen am 2026-10-02).
-[^5]: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 74. ISBN 978-3-658-47553-6.
-[^6]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 127. ISBN 978-3-658-32822-1.
+[^2]: DIN Media: DIN 1961:2016-09, VOB Teil B, Ausgabe September 2016; diese Ausgabe ersetzt DIN 1961:2012-09. https://www.dinmedia.de/en/standard/din-1961/256403134 (abgerufen am 2026-10-02).
