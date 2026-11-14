@@ -119,7 +119,7 @@ Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er
 
 **Über den Autor**
 
-M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: <JJJJ-MM-TT>.
+M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de. Stand: <JJJJ-MM-TT>.
 ```
 
 **Titelschutz.** Keine Titel, Bestellungen, Zertifikate oder Mitgliedschaften erfinden. Ohne ausdrückliche Grundlage im Auftrag schreibst du weder hier noch im Artikel: „öffentlich bestellt und vereidigt“, „zertifiziert“, „staatlich anerkannt“, „Beratender Ingenieur“, „Prüfingenieur“, „Prüfsachverständiger“, „gerichtlich zugelassen“, „gerichtlich anerkannt“, „nach DIN EN ISO/IEC 17024 zertifiziert“, „Energieeffizienz-Experte“ und werbende Selbstzuschreibungen wie „unabhängig“ oder „neutral“. Der Autorenkasten nennt ausschließlich den akademischen Grad; alles Weitere wäre eine nicht geführte Bestellung.
