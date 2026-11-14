@@ -25,7 +25,7 @@ fussnoten: 15
 quellen_geprueft: 8
 zahlenwerte_norm: 2
 todos: 0
-regelwerke_bestaetigt: DIN 18202 (2019-07), BGH VII ZR 171/15, § 640 BGB, § 634a BGB, § 650u BGB, § 650v BGB mit MaBV, §§ 485 ff. ZPO, §§ 317 und 319 BGB
+regelwerke_bestaetigt: DIN 18202 (2019-07, frühere Ausgabe, inzwischen ersetzt durch Ausgabe 2026-08), BGH VII ZR 171/15, § 640 BGB, § 634a BGB, § 650u BGB, § 650v BGB mit MaBV, §§ 485 ff. ZPO, §§ 317 und 319 BGB
 ---
 
 # Abnahme vom Bauträger: Sonder- und Gemeinschaftseigentum
@@ -190,7 +190,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^8]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 103. ISBN 978-3-658-32822-1.
 [^9]: Keldungs, Karl-Heinz; Ganschow, Joachim; Arbeiter, Norbert: Leitfaden für Bausachverständige. Rechtsgrundlagen – Gutachten – Haftung. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2018, S. 106. ISBN 978-3-658-20269-9.
 [^10]: Rode, Bernd; Weller, Wolfgang: AVA-Handbuch. Ausschreibung - Vergabe - Abrechnung - Haftung. 11. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 131. ISBN 978-3-658-48052-3.
-[^11]: DIN Media: DIN 18202:2019-07 „Toleranzen im Hochbau – Bauwerke“, Status aktuell. https://www.dinmedia.de/en/standard/din-18202/307314612 (abgerufen am 2026-09-27). Inhaltlich bestätigt durch: Schulz, Joachim: Sichtbeton. Von der Planung bis zur Mängelvermeidung. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2023, S. 27. ISBN 978-3-8348-2250-5.
+[^11]: DIN Media: DIN 18202:2019-07 „Toleranzen im Hochbau – Bauwerke“, frühere Ausgabe, inzwischen ersetzt durch DIN 18202:2026-08. https://www.dinmedia.de/en/standard/din-18202/307314612 (abgerufen am 2026-09-27). Inhaltlich bestätigt durch: Schulz, Joachim: Sichtbeton. Von der Planung bis zur Mängelvermeidung. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2023, S. 27. ISBN 978-3-8348-2250-5.
 [^12]: Würfele, Falk; Bielefeld, Bert; Gralla, Mike: Bauobjektüberwachung. Kosten - Qualitäten - Termine - Organisation - Leistungsinhalt - Rechtsgrundlagen - Haftung - Vergütung. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2017, S. 102. ISBN 978-3-658-10039-1.
 [^13]: Bundesgerichtshof: Urteil vom 12.05.2016 – VII ZR 171/15, BGHZ 210, 206. https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=12.05.2016&Aktenzeichen=VII+ZR+171/15 (abgerufen am 2026-09-27).
 [^14]: Zanner, Christian: VOB/B nach Ansprüchen. Entscheidungshilfen für Auftraggeber, Planer und Bauunternehmen. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 252. ISBN 978-3-658-34025-4.
