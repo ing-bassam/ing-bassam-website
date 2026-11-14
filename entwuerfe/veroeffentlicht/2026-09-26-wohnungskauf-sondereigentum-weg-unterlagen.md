@@ -20,9 +20,9 @@ notion_id: 3e2d96ad-00b4-8100-9c2c-d869d2578308
 notion_url: https://app.notion.com/p/Checkliste-Wohnungskauf-Sondereigentum-Gemeinschaftseigentum-und-WEG-Unterlagen-3e2d96ad00b481009c2cd869d2578308
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1250
-lesezeit: 7 Minuten
-fussnoten: 8
+wortzahl: 996
+lesezeit: 5 Minuten
+fussnoten: 3
 quellen_geprueft: 0
 zahlenwerte_norm: 0
 todos: 0
@@ -37,45 +37,37 @@ Die Wohnung ist hell, das Bad ist neu, der Preis wirkt fair. Zwei Jahre später 
 
 Die Checkliste richtet sich an private Käufer einer Eigentumswohnung, im Bestand wie im Neubau. Sie ersetzt keine Begutachtung. Sie sorgt dafür, dass Sie nichts Wichtiges vergessen, wenn Sie unter Zeitdruck und mit anderen Interessenten im Treppenhaus stehen.
 
-Wer eine Eigentumswohnung kauft, erwirbt zwei Dinge auf einmal. Die Wohnung selbst wird sein Sondereigentum. Dazu kommt ein Miteigentumsanteil am Gemeinschaftseigentum.[^1] Typisches Gemeinschaftseigentum sind etwa das Dach, die Fassade, das Treppenhaus, der Keller oder die Außenanlagen.[^1] Diese Teile kosten Geld, auch wenn sie außerhalb der Wohnungstür liegen.
-
-Als Faustregel gilt: Was sich innerhalb der Wohnung befindet, zählt zum Sondereigentum. Ausgenommen sind Teile, auf die die anderen Wohnungen für ihren Bestand oder ihre Nutzung angewiesen sind.[^2] Alles andere ist Gemeinschaftseigentum.[^2] Die genaue Zuordnung steht in der Teilungserklärung, also der Urkunde, mit der das Gebäude in einzelne Wohnungen aufgeteilt wurde. Deshalb beginnt die Checkliste mit den Unterlagen und nicht mit dem Bad.
+Die Zuordnung zwischen Sonder- und Gemeinschaftseigentum richtet sich nach dem Gesetz;[^1] die Teilungserklärung, also die Urkunde, mit der das Gebäude in einzelne Wohnungen aufgeteilt wurde, legt sie im Einzelnen fest und verteilt Pflichten und Kosten. Deshalb beginnt die Checkliste mit den Unterlagen und nicht mit dem Bad.
 
 Die Vorlage gliedert sich in sieben Abschnitte. Sie führen von den Unterlagen über die Zahlen der Gemeinschaft, das Gebäude von außen und die gemeinschaftliche Technik bis zur Wohnung, zum Abgleich mit den Plänen und zur Zusammenfassung der offenen Fragen.
 
 ## Wie Sie die Checkliste Schritt für Schritt benutzen
 
-Fordern Sie die Unterlagen an, bevor Sie zum zweiten Termin fahren. Verkäufer und Verwaltung brauchen dafür Zeit. Der erste Abschnitt der Checkliste ist Ihre Anforderungsliste: Teilungserklärung, Aufteilungsplan, Versammlungsprotokolle, Beschluss-Sammlung, Wirtschaftsplan, Jahresabrechnung, Stand der Erhaltungsrücklage, Energieausweis und Grundbuchauszug.
+Fordern Sie die Unterlagen an, bevor Sie zum zweiten Termin fahren. Verkäufer und Verwaltung brauchen dafür Zeit. Der erste Abschnitt der Checkliste ist Ihre Anforderungsliste: Teilungserklärung, Aufteilungsplan, Versammlungsprotokolle, Beschluss-Sammlung, Wirtschaftsplan, Jahresabrechnung, Stand der Erhaltungsrücklage, Energieausweis und Grundbuchauszug. Die Beschluss-Sammlung führt der Verwalter,[^2] und die Ansammlung einer angemessenen Erhaltungsrücklage gehört zur ordnungsmäßigen Verwaltung.[^3]
 
 Füllen Sie oben die Kopffelder aus, solange Sie die Daten vor sich haben. Objekt, Wohnungsnummer laut Aufteilungsplan, Baujahr, Datum und Anwesende gehören dazu. Ohne diese Angaben ist ein ausgefülltes Blatt später kaum noch zuzuordnen.
 
 Gehen Sie beim Termin von außen nach innen. Erst Dach, Fassade, Balkone und Keller, dann Treppenhaus und Technik, dann die Wohnung. Fotografieren Sie jeden Befund mit Datum, und schreiben Sie dazu, wo das Bild entstanden ist. Prüfen Sie nur, was ohne Eingriff und ohne Gefahr möglich ist. Bauteile öffnen, Dächer betreten oder an Installationen arbeiten ist Sache von Fachleuten.
 
-Nach dem Termin kommt der wichtigste Abschnitt. Ordnen Sie Ihre Befunde nach dringend, mittelfristig und kosmetisch. Rechnen Sie Ihren Miteigentumsanteil auf die absehbaren Arbeiten am Gebäude um. Stellen Sie offene Fragen schriftlich an Verkäufer und Verwaltung. Die ausfüllbare Fassung der Vorlage lässt sich am Bildschirm bearbeiten und als Anlage versenden.
+Nach dem Termin folgt die Auswertung. Ordnen Sie Ihre Befunde nach dringend, mittelfristig und kosmetisch. Rechnen Sie Ihren Miteigentumsanteil auf die absehbaren Arbeiten am Gebäude um. Stellen Sie offene Fragen schriftlich an Verkäufer und Verwaltung. Die ausfüllbare Fassung der Vorlage lässt sich am Bildschirm bearbeiten und als Anlage versenden.
 
 ## Worauf es beim Ausfüllen besonders ankommt
 
-Die Zuordnung von Fenstern und Balkonen entscheidet über viel Geld. Sie steht in der Teilungserklärung, nicht im Kaufvertrag. Lesen Sie die Urkunde vor dem Notartermin, und notieren Sie, wer Fenster, Balkonbeläge und Geländer bezahlt.
+Wer Fenster, Balkonbeläge und Geländer bezahlen muss, entscheidet über viel Geld. Die Kostenverteilung steht in der Teilungserklärung und der Gemeinschaftsordnung, nicht im Kaufvertrag. Lesen Sie die Urkunde vor dem Notartermin, und notieren Sie, wer die Kosten trägt.
 
-Balkone und Dachterrassen verdienen einen genauen Blick von unten. Die Gebäudeabdichtung gehört zwingend zum Gemeinschaftseigentum.[^3] Ist sie undicht, gelangt Wasser in die Geschossdecke darunter.[^3] Typische Merkmale sind Wasserflecken mit dunklen Rändern, abblätternde Deckenfarbe und muffiger Geruch in den dahinterliegenden Räumen.[^3] Solche Spuren an der Decke des Nachbarn sagen mehr als ein frisch gestrichener Balkon.
-
-Der Energieausweis gehört in Ihre Unterlagen. Beim Verkauf legt der Verkäufer oder der Makler ihn dem Kaufinteressenten spätestens bei der Besichtigung vor.[^4] Er bezieht sich auf das gesamte Gebäude, auch beim Verkauf einer einzelnen Wohnung.[^4] Ein Verbrauchsausweis zeigt gemessene Werte, und der Verbrauch hängt stark vom Verhalten der bisherigen Nutzer ab.[^4] Rechnen Sie ihn deshalb nicht in Ihre eigene Heizkostenprognose um.
-
-Im Keller lohnt der Blick hinter die Verkleidung. Feuchte, muffige Kellerräume sind ein bekanntes Bild im Bestand.[^5] Werden feuchte Wände einfach mit Gipskarton oder Fliesen verkleidet, führt das zu einer Verschlimmbesserung.[^5] Eine trocken aussehende Vorsatzschale ist deshalb kein Beweis für eine trockene Wand.
+Balkone und Dachterrassen verdienen einen genauen Blick von unten. Spuren an der Decke des Nachbarn sagen mehr als ein frisch gestrichener Balkon.
 
 ## Typische Fehler beim Kauf einer Eigentumswohnung
 
 Der häufigste Fehler ist der zu kurze Blick. Wer nur die Wohnung prüft, übersieht den Teil des Gebäudes, der die großen Rechnungen verursacht. Dach, Fassade, Leitungen und Aufzug stehen in keinem Exposé, aber in den Protokollen der Eigentümerversammlungen.
 
-Risse werden oft falsch eingeordnet. Meist zeigt ein Riss nur an der Oberfläche, dass im Bauteil ein vielschichtiger Schadensvorgang abläuft.[^6] Ein Riss kann technisch gesehen kein Mangel sein und rechtlich dennoch einer.[^6] Der Begriff Mangel ist ein Rechtsbegriff.[^6] Notieren Sie Lage, Länge und Verlauf, und verzichten Sie auf eine eigene Bewertung.
+Risse werden oft falsch eingeordnet. Notieren Sie Lage, Länge und Verlauf, und verzichten Sie auf eine eigene Bewertung.
 
-Beim Neubau vom Bauträger lohnt ein zweiter Blick auf die Abnahme. Wird Wohnungseigentum abgenommen, sind Sondereigentum und Gemeinschaftseigentum strikt getrennt zu betrachten.[^7] Die Abnahme der eigenen Wohnung bedeutet nicht zwangsläufig, dass der Käufer auch das Gemeinschaftseigentum billigt und es in den wesentlichen Punkten als vertragsgerecht hinnimmt.[^7] Welche Wirkung eine Abnahmeklausel im Erwerbsvertrag hat, beurteilt ein Rechtsanwalt; die Checkliste hält nur den technischen Zustand fest.
+Beim Neubau vom Bauträger lohnt ein zweiter Blick auf die Abnahme. Welche Wirkung eine Abnahmeklausel im Erwerbsvertrag hat, beurteilt ein Rechtsanwalt; die Checkliste hält nur den technischen Zustand fest.
 
-Ein ausgefülltes Blatt ist eine Momentaufnahme. Eine Analyse des Gebäudezustands ist nur befristet gültig, und der Verschleiß der einzelnen Bauteile verläuft unterschiedlich.[^8] Ein Protokoll aus dem Vorjahr ersetzt Ihren eigenen Rundgang daher nicht.
+Ein ausgefülltes Blatt ist eine Momentaufnahme. Ein Protokoll aus dem Vorjahr ersetzt Ihren eigenen Rundgang nicht.
 
 ## Wann ein Sachverständiger vor dem Notartermin hilft
-
-Für Sanierungen wird empfohlen, dass der Bauherr das Gebäude zunächst selbst in Augenschein nimmt und erst danach ein fachkundiger Planer eine Begutachtung vornimmt.[^8] Für den Wohnungskauf ist diese Checkliste genau diese Vorarbeit. Sie hält den Zustand so weit fest, dass ein Termin mit einem Sachverständigen kurz und günstig bleibt.
 
 Ein Sachverständiger liest die Unterlagen der Gemeinschaft, ordnet die Befunde ein und schätzt den Instandhaltungsstau am Gemeinschaftseigentum ein. Er sagt Ihnen, welche Arbeiten am Gebäude anstehen und welcher Aufwand dahintersteckt. Was er nicht tut: Er entscheidet keine Rechtsfragen und gibt keine Garantie für verdeckte Schäden.
 
@@ -91,7 +83,7 @@ Die Checkliste nennt sie im ersten Abschnitt. Dazu gehören die Teilungserkläru
 
 **Gehören Fenster und Balkone zur Wohnung oder zur Gemeinschaft?**
 
-Das hängt von der Teilungserklärung ab und lässt sich nicht pauschal beantworten. Grob gilt: Was in der Wohnung liegt, ist Sondereigentum, es sei denn, das Gebäude oder die anderen Wohnungen sind darauf angewiesen.[^2] Die Gebäudeabdichtung gehört zwingend zum Gemeinschaftseigentum.[^3] Beim Balkon kann deshalb der Bodenbelag zum Sondereigentum und die Abdichtungsbahn auf der tragenden Decke darunter zum Gemeinschaftseigentum gehören.[^3]
+Teile des Gebäudes, die für dessen Bestand oder Sicherheit erforderlich sind, gehören nach § 5 Absatz 2 WEG zwingend zum Gemeinschaftseigentum; Bestandteile, deren Veränderung die äußere Gestaltung des Gebäudes berührt, können nach § 5 Absatz 1 WEG nicht Sondereigentum sein.[^1] Das betrifft in der Regel Außenfenster, Balkonplatte, Brüstung und Abdichtung. Die Teilungserklärung kann Instandhaltungs- und Kostenpflichten abweichend verteilen, an dieser Zuordnung ändert sie nichts. Wer im Einzelfall was bezahlen muss, beurteilt ein Rechtsanwalt anhand der Urkunde.
 
 **Reicht die Checkliste ohne einen Sachverständigen aus?**
 
@@ -113,14 +105,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 ## Quellen und Fußnoten
 
-In diesem Lauf konnte keine Vorschrift an einer Primärquelle im Web abgesichert werden, weil gesetze-im-internet.de durchgehend nicht erreichbar war. Die Vorlage und dieser Text nennen deshalb keine Paragrafen; alle belegten Aussagen stützen sich auf die Fachliteratur.
-
-[^1]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 98. ISBN 978-3-658-32822-1.
-[^2]: Rode, Bernd; Weller, Wolfgang: AVA-Handbuch. Ausschreibung - Vergabe - Abrechnung - Haftung. 11. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 169. ISBN 978-3-658-48052-3.
-[^3]: Schulz, Joachim: Architektur der Bauschäden. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 72. ISBN 978-3-658-27654-6.
-[^4]: Willems, Wolfgang M. (Hrsg.): Lehrbuch der Bauphysik. Wärme – Feuchte – Klima – Schall – Licht – Brand. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 187. ISBN 978-3-658-34093-3.
-[^5]: Schulz, Joachim: Architektur der Bauschäden. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 278. ISBN 978-3-658-27654-6.
-[^6]: Frössel, Frank: Risse in Gebäuden. Damit aus einer Fassade kein Ris(s)iko wird. 2. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 142. ISBN 978-3-658-47096-8.
-[^7]: Würfele, Falk; Bielefeld, Bert; Gralla, Mike: Bauobjektüberwachung. Kosten - Qualitäten - Termine - Organisation - Leistungsinhalt - Rechtsgrundlagen - Haftung - Vergütung. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2017, S. 113. ISBN 978-3-658-10039-1.
-[^8]: Stahr, Michael (Hrsg.): Bausanierung. Erkennen und Beheben von Bauschäden. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 31. ISBN 978-3-658-28148-9.
+[^1]: Bundesministerium der Justiz: Wohnungseigentumsgesetz (WEG), § 5 Gegenstand und Inhalt des Sondereigentums. https://www.gesetze-im-internet.de/woeigg/__5.html (abgerufen am 14.11.2026). Amtlicher Gesetzestext.
+[^2]: Bundesministerium der Justiz: Wohnungseigentumsgesetz (WEG), § 24 Absatz 7 und 8 Beschluss-Sammlung. https://www.gesetze-im-internet.de/woeigg/__24.html (abgerufen am 14.11.2026). Amtlicher Gesetzestext.
+[^3]: Bundesministerium der Justiz: Wohnungseigentumsgesetz (WEG), § 19 Absatz 2 Nummer 4 Ordnungsmäßige Verwaltung, Erhaltungsrücklage. https://www.gesetze-im-internet.de/woeigg/__19.html (abgerufen am 14.11.2026). Amtlicher Gesetzestext.
 

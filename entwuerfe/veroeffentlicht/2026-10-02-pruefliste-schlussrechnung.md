@@ -20,9 +20,9 @@ notion_id: 3e5d96ad-00b4-8101-adb4-c7baa6422a26
 notion_url: https://app.notion.com/p/Pr-fliste-Schlussrechnung-3e5d96ad00b48101adb4c7baa6422a26
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1779
-lesezeit: 9 Minuten
-fussnoten: 16
+wortzahl: 1030
+lesezeit: 6 Minuten
+fussnoten: 2
 quellen_geprueft: 5
 zahlenwerte_norm: 13
 todos: 0
@@ -31,11 +31,11 @@ regelwerke_bestaetigt: VOB/B, VOB/C, § 650g BGB, § 641 BGB, § 48 EStG
 
 # Schlussrechnung prüfen: Prüfliste für Auftraggeber
 
-Die Schlussrechnung liegt auf dem Tisch, dazu ein Ordner voller Aufmaßblätter, und die Frist läuft seit dem Eingang. Wer jetzt nur die Endsumme mit dem Auftrag vergleicht, zahlt oft zu viel. Eine Prüfliste für die Schlussrechnung ist eine Arbeitshilfe, mit der Auftraggeber eine Bauabrechnung auf Prüffähigkeit, Mengen, Nachträge und Abzüge prüfen. Die Prüfliste auf dieser Seite führt mit 77 Punkten in zehn Abschnitten durch die Rechnung. Sie beginnt beim Vertrag und endet beim Prüfvermerk, mit dem Sie Ihre Kürzungen begründen.
+Die Schlussrechnung liegt auf dem Tisch, dazu ein Ordner voller Aufmaßblätter, und die Prüffrist läuft seit dem Eingang. Wer jetzt nur die Endsumme mit dem Auftrag vergleicht, zahlt oft zu viel. Eine Prüfliste für die Schlussrechnung ist eine Arbeitshilfe, mit der Auftraggeber eine Bauabrechnung auf Prüffähigkeit, Mengen, Nachträge und Abzüge prüfen. Die Prüfliste zum Download führt durch die Rechnung, vom Vertrag bis zum Prüfvermerk, mit dem Sie Ihre Kürzungen begründen. Dieser Beitrag erklärt, wie Sie dabei vorgehen.
 
 ## So arbeiten Sie mit der Prüfliste
 
-Die Prüfliste folgt dem Weg der Rechnung, nicht der Reihenfolge Ihrer Fragen. Zuerst klären Sie die Grundlagen: Vertragsart, Vergütungsart und die vereinbarte Sicherheit. Diese drei Angaben bestimmen jeden weiteren Schritt. Ein Einheitspreisvertrag wird nach vereinbarten Preisen und tatsächlich ausgeführten Mengen abgerechnet, das Aufmaß ist dafür notwendig. Bei einem Pauschalpreisvertrag bleibt die Summe grundsätzlich unverändert, eine Mengenprüfung entfällt dort.
+Die Prüfliste folgt dem Weg der Rechnung, nicht der Reihenfolge Ihrer Fragen. Zuerst klären Sie die Grundlagen: Vertragsart, Vergütungsart und die vereinbarte Sicherheit. Diese drei Angaben bestimmen jeden weiteren Schritt. Ein Einheitspreisvertrag wird nach vereinbarten Preisen und tatsächlich ausgeführten Mengen abgerechnet, das Aufmaß ist dafür notwendig. Bei einem Pauschalpreisvertrag bleibt die Summe grundsätzlich unverändert, die Mengenprüfung steht dort deshalb weniger im Vordergrund. Prüfen Sie aber, ob die abgerechnete Leistung dem Vertragsumfang entspricht und ob Änderungen vereinbart wurden.
 
 Jeder Prüfpunkt bekommt eine von vier Stufen. „In Ordnung“ heißt: geprüft und durch Vertrag, Aufmaß oder Nachweis gedeckt. „Rückfrage offen“ heißt: die Angabe ist unklar oder eine Unterlage fehlt, Sie fordern sie schriftlich nach. „Abzug begründet“ heißt: die Position ist ganz oder teilweise nicht geschuldet, Sie notieren die Kürzung mit Grund. „Nicht prüfbar“ heißt: die Leistung ist verdeckt oder der Nachweis fehlt endgültig.
 
@@ -43,45 +43,41 @@ Die Unterscheidung zwischen „Rückfrage offen“ und „nicht prüfbar“ ist 
 
 ## Prüffähig oder nicht: woran Sie das erkennen
 
-Prüffähigkeit ist kein Geschmacksurteil, sondern eine Eigenschaft der Rechnung. Die VOB/B, also die allgemeinen Vertragsbedingungen für Bauleistungen, schreibt eine prüfbare Abrechnung vor.[^1] Der Auftragnehmer hat seine Rechnung übersichtlich zu gliedern, dabei die Postenfolge des Vertrags einzuhalten und dessen Bezeichnungen zu übernehmen. Als Anlagen gehören Mengenberechnungen, Zeichnungen und sonstige Nachweise dazu. Was vom ursprünglichen Vertrag abweicht oder ihn ergänzt, muss eigens hervorgehoben sein.
+Prüffähigkeit ist kein Geschmacksurteil, sondern eine Eigenschaft der Rechnung. Die VOB/B, also die allgemeinen Vertragsbedingungen für Bauleistungen, schreibt eine prüfbare Abrechnung vor.[^1]
 
-In der Praxis entscheiden die Anlagen. Zur Prüfbarkeit gehören Abrechnungszeichnungen, Aufmaße, sonstige Mengenermittlungen, Nachunternehmerrechnungen, Wiegekarten und Stundenlohnzettel.[^2] Abrechnungszeichnungen stellen den Bezug zwischen den abgerechneten Werten und den Plänen her. Fehlen die Rechenwege und stehen nur Endmengen in der Rechnung, ist sie insoweit nicht prüffähig. Verlangen Sie dann die Berechnungen, statt die Mengen selbst zu schätzen.
+In der Praxis entscheiden die Anlagen. Fehlen die Rechenwege und stehen nur Endmengen in der Rechnung, ist sie insoweit nicht prüffähig. Verlangen Sie dann die Berechnungen, statt die Mengen selbst zu schätzen.
 
-Für Bauverträge nach dem Bürgerlichen Gesetzbuch gilt ein eigener Maßstab. Eine Schlussrechnung ist dort prüffähig, wenn sie eine übersichtliche Aufstellung der erbrachten Leistungen enthält und für den Besteller nachvollziehbar ist.[^3] Sie gilt außerdem als prüffähig, wenn der Besteller nicht innerhalb von 30 Tagen nach Zugang begründete Einwendungen erhebt. Die Erteilung einer prüffähigen Schlussrechnung ist Voraussetzung für die Fälligkeit des Werklohns. Ob eine Rüge im Einzelfall rechtzeitig und ausreichend begründet war, beurteilt ein Rechtsanwalt.
-
-Bei einem Vertrag mit VOB/B läuft die Frist parallel. Spätestens 30 Tage, nachdem die Schlussrechnung eingegangen ist, wird die Schlusszahlung fällig.[^4] Auf höchstens 60 Tage verlängert sich die Frist nur, wenn das sachlich gerechtfertigt und ausdrücklich vereinbart ist. Werden Einwendungen gegen die Prüfbarkeit nicht bis zum Fristablauf unter Angabe der Gründe erhoben, kann sich der Auftraggeber später nicht mehr darauf berufen. Zieht sich die Prüfung hin, muss das unstreitige Guthaben sofort als Abschlag gezahlt werden.
+Für Bauverträge nach dem Bürgerlichen Gesetzbuch gilt ein eigener Maßstab. Eine Schlussrechnung ist dort prüffähig, wenn sie eine übersichtliche Aufstellung der erbrachten Leistungen enthält und für den Besteller nachvollziehbar ist.[^2] Sie gilt als prüffähig, wenn der Besteller nicht innerhalb von 30 Tagen nach Zugang begründete Einwendungen gegen die Prüffähigkeit erhebt (§ 650g Abs. 4 BGB).[^3] Ob eine Rüge im Einzelfall rechtzeitig und ausreichend begründet war, beurteilt ein Rechtsanwalt.
 
 ## Mengen und Aufmaß: wo die großen Beträge liegen
 
-Beim Einheitspreisvertrag liegt das Geld in den Mengen. Mengen und andere Abrechnungsgrundlagen sind von beiden Seiten möglichst gemeinsam festzuhalten, und zwar laufend mit dem Fortschritt der Arbeiten.[^1] Wird eine Leistung durch die weiteren Arbeiten später kaum noch zugänglich, muss der Auftragnehmer die gemeinsame Feststellung frühzeitig verlangen. Ein Aufmaß mit Datum und zwei Unterschriften ist deshalb mehr wert als jede spätere Diskussion. Fehlt es, bleiben verdeckte Bauteile dauerhaft nicht prüfbar.
+Beim Einheitspreisvertrag liegt das Geld in den Mengen. Ein Aufmaß mit Datum und zwei Unterschriften ist deshalb mehr wert als jede spätere Diskussion. Fehlt es, bleiben verdeckte Bauteile dauerhaft nicht prüfbar.
 
-Die Mengen folgen festen Regeln, nicht der Geometrie. Die Allgemeinen Technischen Vertragsbedingungen der VOB/C enthalten je Gewerk eigene Abrechnungsregeln, ergänzend gilt die ATV DIN 18299 für alle Gewerke.[^5] Dazu gehören Übermessungsregeln. Sie bestimmen, welche Raum-, Flächen- und Längenmaße beim Ermitteln der Mengen unberücksichtigt bleiben, also nicht abgezogen werden.[^6] Diese Regeln sollen den Abrechnungsaufwand verringern, sie sind kein Zugeständnis an eine Seite. Prüfen Sie deshalb gewerkeweise, ob Abzüge unterblieben sind, die die Regel vorsieht.
+Die Mengen folgen den Abrechnungsregeln der VOB/C, also den Allgemeinen Technischen Vertragsbedingungen des jeweiligen Gewerks, und nicht allein der Geometrie. Prüfen Sie deshalb gewerkeweise, ob Abzüge unterblieben sind, die diese Regeln vorsehen.
 
-Eine Mengenabweichung kann den Preis ändern. Weicht die ausgeführte Menge einer Position um nicht mehr als 10 v. H. vom Vertrag ab, gilt der vertragliche Einheitspreis.[^7] Erst darüber hinaus ist auf Verlangen ein neuer Preis zu vereinbaren, bei Überschreitung wie bei Unterschreitung des Mengenansatzes. Diese Regel wirkt in beide Richtungen und wird von Auftraggebern oft übersehen. Rechnen Sie mindestens die größten Positionen und zwei zufällig gewählte nach, bevor Sie die Summen freigeben.
+Rechnen Sie mindestens die größten Positionen und zwei zufällig gewählte nach, bevor Sie die Summen freigeben.
 
 ## Nachträge und Stundenlohn richtig zuordnen
 
-Bei Nachträgen entscheidet die Anspruchsgrundlage über den Preis. Wird durch eine Anordnung des Auftraggebers die Grundlage des Preises geändert, ist ein neuer Preis zu vereinbaren.[^8] Verlangt der Auftraggeber eine Leistung, die der Vertrag nicht enthält, steht dem Auftragnehmer dafür eine zusätzliche Vergütung zu. Diesen Anspruch muss er allerdings ankündigen, bevor er mit der Ausführung beginnt. Für Leistungen ohne Auftrag oder eigenmächtige Abweichungen gibt es grundsätzlich keine Vergütung. Ordnen Sie deshalb jeden Nachtrag zuerst zu, bevor Sie die Höhe prüfen.
+Bei Nachträgen entscheidet die Anspruchsgrundlage über den Preis. Ordnen Sie jeden Nachtrag zuerst einer Anspruchsgrundlage zu, bevor Sie die Höhe prüfen.
 
-Die Höhe folgt der Urkalkulation, nicht dem Markt. Den Maßstab bilden die Kalkulationsansätze der vertraglichen Leistung sowie die Kosten, die gerade durch die verlangte Leistung zusätzlich entstehen.[^8] Prüfen Sie außerdem, ob die Leistung nicht schon im vertraglichen Bausoll steckt. Erscheint ein Nachtrag erstmals in der Schlussrechnung, verlangen Sie Anordnung, Kalkulation und Nachweis. Ob ein Anspruch dem Grunde nach besteht, ist eine Rechtsfrage für einen Rechtsanwalt.
+Prüfen Sie außerdem, ob die Leistung nicht schon im vertraglichen Bausoll steckt. Erscheint ein Nachtrag erstmals in der Schlussrechnung, verlangen Sie Anordnung, Kalkulation und Nachweis. Ob ein Anspruch dem Grunde nach besteht, ist eine Rechtsfrage für einen Rechtsanwalt.
 
-Stundenlohn ist der zweite Streitpunkt. Stundenlohnarbeiten werden nur vergütet, wenn sie vor ihrem Beginn ausdrücklich als solche vereinbart wurden.[^9] Der Auftraggeber hat bescheinigte Stundenlohnzettel spätestens innerhalb von 6 Werktagen nach Zugang zurückzugeben; nicht fristgemäß zurückgegebene Zettel gelten als anerkannt. Diese Frist läuft während der Bauzeit, nicht erst bei der Schlussrechnung. Prüfen Sie Stunden, Qualifikation, Tätigkeit und Ort auf jedem Zettel.
+Stundenlohn ist der zweite Streitpunkt. Prüfen Sie Stunden, Qualifikation, Tätigkeit und Ort auf jedem Zettel.
 
 ## Abzüge, Einbehalte und Sicherheiten
 
-Der häufigste und teuerste Fehler steckt in den Zahlungen. Legen Sie Ihre Zahlungsübersicht neben die Rechnung und prüfen Sie jede Abschlagszahlung mit Datum und Betrag. Ein Skonto braucht eine Vereinbarung mit berechenbarer Frist und Höhe; nicht vereinbarte Skontoabzüge sind nach der VOB/B unzulässig.[^10] Umlagen für Baustrom, Bauwasser oder Gerüst setzen Sie nur ab, wenn sie vereinbart sind. Gegenforderungen können einbehalten werden, andere Einbehalte nur in vertraglich oder gesetzlich vorgesehenen Fällen.
+Ein häufiger Fehler steckt in den Zahlungen. Legen Sie Ihre Zahlungsübersicht neben die Rechnung und prüfen Sie jede Abschlagszahlung mit Datum und Betrag. Skonto und Umlagen für Baustrom, Bauwasser oder Gerüst setzen Sie nur ab, wenn sie vereinbart sind.
 
-Mängel und Mengen gehören getrennt. Kann der Auftraggeber die Beseitigung eines Mangels verlangen, darf er nach der Abnahme einen angemessenen Teil der Vergütung zurückbehalten.[^11] Angemessen ist in der Regel das Doppelte der für die Beseitigung erforderlichen Kosten. Wie viel die Beseitigung voraussichtlich kostet, muss der Auftragnehmer vortragen und beweisen. Vom Auftraggeber wird zunächst nur eine grobe Schätzung verlangt.[^11] Lassen Sie die Kosten deshalb schätzen und begründen Sie den Einbehalt schriftlich, am besten nach anwaltlicher Prüfung der Mängelrüge.
+Prüfen Sie außerdem, ob der Vertrag einen Sicherheitseinbehalt oder eine Bürgschaft vorsieht, in welcher Höhe und für welchen Zeitraum, und ob die Schlussrechnung den Einbehalt ausweist. Wann und in welchem Umfang eine Sicherheit zurückzugeben ist, richtet sich nach dem Vertrag; die Klärung gehört zu einem Rechtsanwalt.
 
-Zwei Posten werden regelmäßig vergessen. Empfängt ein Unternehmer eine Bauleistung, sind 15 Prozent der Gegenleistung einzubehalten und an das Finanzamt abzuführen.[^12] Der Abzug entfällt bei einer gültigen Freistellungsbescheinigung oder unterhalb der Bagatellgrenzen. Beim Sicherheitseinbehalt darf die Zahlung um höchstens 10 v. H. gekürzt werden, bis die vereinbarte Summe erreicht ist.[^13] Den Einbehalt muss der Auftraggeber dem Auftragnehmer mitteilen. Innerhalb von 18 Werktagen hat er den Betrag auf ein Sperrkonto einzuzahlen, auf das die Vertragsparteien nur gemeinsam zugreifen können.
+Behandeln Sie Mängel getrennt von den Mengen. Lassen Sie die Kosten der Mängelbeseitigung schätzen und begründen Sie einen Einbehalt schriftlich, am besten nach anwaltlicher Prüfung der Mängelrüge.
 
 ## Vom Prüfergebnis zur Zahlung
 
-Am Ende der Prüfliste steht keine Summe, sondern eine Entscheidung. Fehlen Mengenberechnungen, Zeichnungen oder Belege, rügen Sie die Prüffähigkeit schriftlich und innerhalb der Frist. Stehen in den Abschnitten zu Mengen oder Nachträgen mehrere Punkte auf „nicht prüfbar“, fordern Sie nach, statt zu kürzen. Jede Kürzung braucht eine Begründung aus Vertrag, Aufmaß oder Nachweis. Eine Kürzung ohne Begründung verlagert den Streit nur auf die Frage der Fälligkeit.
+Am Ende der Prüfliste steht keine Summe, sondern eine Entscheidung. Fehlen Mengenberechnungen, Zeichnungen oder Belege, rügen Sie die Prüffähigkeit schriftlich und innerhalb der Frist, die Ihr Vertrag vorsieht; im Bauvertrag nach dem Bürgerlichen Gesetzbuch sind das 30 Tage nach Zugang der Schlussrechnung. Stehen in den Abschnitten zu Mengen oder Nachträgen mehrere Punkte auf „nicht prüfbar“, fordern Sie nach, statt zu kürzen. Jede Kürzung braucht eine Begründung aus Vertrag, Aufmaß oder Nachweis. Eine Kürzung ohne Begründung verlagert den Streit nur auf die Frage der Fälligkeit.
 
-Die Schlusszahlung hat bei VOB/B-Verträgen eine Ausschlusswirkung. Nimmt der Auftragnehmer die Schlusszahlung ohne Vorbehalt an, kann er danach nichts mehr nachfordern. Das setzt voraus, dass der Auftraggeber ihn schriftlich darüber informiert und auf genau diese Folge aufmerksam gemacht hat.[^14] Seinen Vorbehalt muss er innerhalb von 28 Tagen ab Eingang dieser Mitteilung erklären. Legt er in den darauffolgenden 28 Tagen weder eine prüfbare Rechnung noch eine Begründung vor, verfällt der Vorbehalt. Welche Mitteilung diese Wirkung auslöst, prüft im Streitfall ein Rechtsanwalt.
-
-Ein Rest bleibt immer korrigierbar. Wer Fehler im Aufmaß, beim Rechnen oder beim Übertragen von Zahlen berichtigen lassen will, ist an diese Ausschlussfristen nicht gebunden.[^15] Ein Rechenfehler in Ihrem Prüfvermerk lässt sich also noch beheben. Halten Sie trotzdem Ergebnis, Kürzungssumme und Zahlungsempfehlung schriftlich fest. Legen Sie die ausgefüllte Prüfliste mit den Aufmaßen zur Rechnung, damit die Begründung auch Monate später noch nachvollziehbar ist.
+Halten Sie Ergebnis, Kürzungssumme und Zahlungsempfehlung schriftlich fest. Legen Sie die ausgefüllte Prüfliste mit den Aufmaßen zur Rechnung, damit die Begründung auch Monate später noch nachvollziehbar ist.
 
 ## Wann ein Sachverständiger die Prüfung übernimmt
 
@@ -93,21 +89,9 @@ Im laufenden Projekt gehört die Rechnungsprüfung zur [Objektüberwachung in de
 
 ## Häufige Fragen
 
-**Wie lange habe ich Zeit, eine Schlussrechnung zu prüfen?**
-
-Bei einem Vertrag mit VOB/B wird der Anspruch auf Schlusszahlung spätestens 30 Tage nach Zugang der Schlussrechnung fällig.[^4] Eine Verlängerung auf höchstens 60 Tage muss sachlich gerechtfertigt und ausdrücklich vereinbart sein. Im Bauvertrag nach dem Bürgerlichen Gesetzbuch gilt die Schlussrechnung als prüffähig, wenn Sie nicht innerhalb von 30 Tagen begründete Einwendungen erheben.[^3] Notieren Sie das Eingangsdatum deshalb sofort.
-
 **Was mache ich, wenn das Aufmaß fehlt?**
 
 Fordern Sie die Mengenberechnungen und Abrechnungszeichnungen schriftlich nach und rügen Sie die fehlende Prüffähigkeit. Schätzen Sie keine Mengen, denn damit übernehmen Sie die Verantwortung für Zahlen, die Sie nicht belegen können. Bei verdeckten Bauteilen helfen Pläne, Bautagebuch, Fotos und Lieferscheine weiter. Reicht das nicht, ist der Punkt nicht prüfbar und muss verhandelt werden.
-
-**Darf ich die Zahlung wegen Mängeln ganz verweigern?**
-
-Nach der Abnahme können Sie einen angemessenen Teil der Vergütung zurückbehalten, in der Regel das Doppelte der Mangelbeseitigungskosten.[^11] Das ist ein Einbehalt und keine Kürzung: Der Betrag entfällt nicht, er wird nur zurückgehalten. Die Höhe müssen Sie zunächst nur grob schätzen, deshalb gehört eine Kostenschätzung dazu. Ob und in welchem Umfang das Recht im Einzelfall besteht, beurteilt ein Rechtsanwalt.
-
-**Muss der Auftragnehmer die Schlussrechnung in einer bestimmten Zeit stellen?**
-
-Ist nichts anderes vereinbart, bleiben dem Auftragnehmer nach der VOB/B bei einer vertraglichen Ausführungsfrist bis zu 3 Monaten höchstens 12 Werktage ab Fertigstellung, um seine Schlussrechnung vorzulegen. Jeder weitere Zeitraum von 3 Monaten Ausführungsfrist bringt ihm 6 zusätzliche Werktage. Reicht der Auftragnehmer trotz angemessener Fristsetzung keine prüfbare Rechnung ein, kann der Auftraggeber sie auf dessen Kosten selbst aufstellen.[^16]
 
 ## Hinweis
 
@@ -122,18 +106,5 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 154. ISBN 978-3-410-61299-5. Zur Ausgabe inhaltlich bestätigt durch: DIN Media: VOB 2019 – All changes at a glance. https://www.dinmedia.de/en/topics/vob-2019 (abgerufen am 2026-10-02).
-[^2]: Würfele, Falk; Bielefeld, Bert; Gralla, Mike: Bauobjektüberwachung. Kosten - Qualitäten - Termine - Organisation - Leistungsinhalt - Rechtsgrundlagen - Haftung - Vergütung. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2017, S. 149. ISBN 978-3-658-10039-1.
-[^3]: Saalbach, Birthe; Viering, Markus G.; Zanner, Christian: Vergütung, Nachträge und Abrechnung nach Ansprüchen. Entscheidungshilfen für Auftraggeber, Planer und Bauunternehmer. Wiesbaden: Springer Fachmedien Wiesbaden, 2023, S. 139. ISBN 978-3-658-21667-2.
-[^4]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 156. ISBN 978-3-410-61299-5.
-[^5]: Wellner, Kristin; Scholz, Stefan (Hrsg.): Architekturpraxis Bauökonomie. Grundlagenwissen für die Planungs-, Bau- und Nutzungsphase sowie Wirtschaftlichkeit im Planungsbüro. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2023, S. 155. ISBN 978-3-658-41249-4.
-[^6]: Bielefeld, Bert; Becker, Pecco (Hrsg.): Kommentar zur VOB/C. mit Bildbeispielen für Ausschreibung und Abrechnung. 20. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 742. ISBN 978-3-658-47881-0.
-[^7]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 140. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Jürgens, Frederic: Bildung des Einheitspreises bei Mengenminderung. BauPortal 1/2022, Berufsgenossenschaft der Bauwirtschaft. https://bauportal.bgbau.de/bauportal-12022/service/recht/bildung-des-einheitspreises-bei-mengenminderung (abgerufen am 2026-10-02).
-[^8]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 140 f. ISBN 978-3-410-61299-5.
-[^9]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 141 und S. 155. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Saalbach, Birthe; Viering, Markus G.; Zanner, Christian: Vergütung, Nachträge und Abrechnung nach Ansprüchen. Wiesbaden: Springer Fachmedien Wiesbaden, 2023, S. 137. ISBN 978-3-658-21667-2.
-[^10]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 156 f. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Rode, Bernd; Weller, Wolfgang: AVA-Handbuch. Ausschreibung - Vergabe - Abrechnung - Haftung. 11. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 99. ISBN 978-3-658-48052-3.
-[^11]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 149. ISBN 978-3-658-32822-1. Inhaltlich bestätigt durch: Bauherren-Schutzbund: Bei Baumängeln dürfen Bauherren Zahlungen verweigern. https://www.bsb-ev.de/politik-presse/presseservice/expertentipps/bei-baumaengeln-duerfen-bauherren-zahlungen-verweigern (abgerufen am 2026-10-02).
-[^12]: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 152. ISBN 978-3-658-47553-6. Inhaltlich bestätigt durch: IHK Region Stuttgart: Bauabzugsbesteuerung – Hinweise zur Funktionsweise. https://www.ihk.de/stuttgart/fuer-unternehmen/recht-und-steuern/steuerrecht/einkommen-und-koerperschaftssteuer/bauabzugsbesteuerung-676426 (abgerufen am 2026-10-02).
-[^13]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 158. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Zanner, Christian: VOB/B nach Ansprüchen. Entscheidungshilfen für Auftraggeber, Planer und Bauunternehmen. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 272. ISBN 978-3-658-34025-4.
-[^14]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 156. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 115. ISBN 978-3-658-32822-1.
-[^15]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 157. ISBN 978-3-410-61299-5.
-[^16]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 154. ISBN 978-3-410-61299-5. Inhaltlich bestätigt durch: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 346. ISBN 978-3-658-47553-6.
+[^2]: Saalbach, Birthe; Viering, Markus G.; Zanner, Christian: Vergütung, Nachträge und Abrechnung nach Ansprüchen. Entscheidungshilfen für Auftraggeber, Planer und Bauunternehmer. Wiesbaden: Springer Fachmedien Wiesbaden, 2023, S. 139. ISBN 978-3-658-21667-2.
+[^3]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 650g Zustandsfeststellung bei Verweigerung der Abnahme; Schlussrechnung. https://www.gesetze-im-internet.de/bgb/__650g.html (abgerufen am 2026-11-14).
