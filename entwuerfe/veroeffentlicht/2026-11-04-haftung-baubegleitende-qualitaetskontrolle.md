@@ -18,7 +18,7 @@ qualifikation:
 kurzform: haftung-baubegleitende-qualitaetskontrolle
 erstellt: 2026-11-04
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
