@@ -17,16 +17,16 @@ autor: M. Sc. Karim Abu Elkheir
 qualifikation: B.Eng. Bauingenieurwesen, M.Sc. Wirtschaftsingenieurwesen (Schwerpunkt Bautechnik und Management)
 kurzform: schallschutz-kostenerstattung-verzoegerung
 erstellt: 2026-09-21
-aktualisiert:
+aktualisiert: 2026-11-14
 status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1234
-lesezeit: 7 Minuten
-fussnoten: 9
+wortzahl: 1150
+lesezeit: 6 Minuten
+fussnoten: 8
 quellen_geprueft: 8
 zahlenwerte_norm: 3
 todos: 0
@@ -65,13 +65,13 @@ Die übersandten Leistungsverzeichnisse haben nach dem Senat jedenfalls auch die
 
 Die marktübliche Vergütung nach § 632 Abs. 2 BGB[^3] hielt er für unerheblich. Streitig sei die Risikoverteilung, und die richte sich nach dem Planfeststellungsbeschluss, nicht nach dem BGB (Rn. 55).
 
-Wie groß der Unterschied sein kann, zeigen die Zahlen. 2022 stiegen die Preise für neue Wohnbauten um 16,3 Prozent. Das war der höchste Anstieg seit 1970, wesentlich getrieben durch Baumaterialmangel.[^4] Instandhaltungsarbeiten an Wohngebäuden verteuerten sich von November 2021 bis November 2022 um 16,8 Prozent.[^5]
+Wie groß der Unterschied sein kann, zeigt die Statistik: Instandhaltungsarbeiten an Wohngebäuden verteuerten sich von November 2021 bis November 2022 um 16,8 Prozent.[^4]
 
 ## Abgrenzung: Was das Urteil nicht sagt
 
-Das Urteil beruht auf dem Planfeststellungsbeschluss, nicht auf § 9 des Fluglärmschutzgesetzes (Rn. 43).[^6] Ein allgemeiner Satz über Preisrisiken in Bauverträgen ist damit nicht gesprochen (Rn. 55).
+Das Urteil beruht auf dem Planfeststellungsbeschluss, nicht auf § 9 des Fluglärmschutzgesetzes (Rn. 43).[^5] Ein allgemeiner Satz über Preisrisiken in Bauverträgen ist damit nicht gesprochen (Rn. 55).
 
-Auch die technischen Anforderungen unterscheiden sich. Die Flugplatz-Schallschutzmaßnahmenverordnung fordert in § 3 ein resultierendes bewertetes Bauschalldämm-Maß R'w,res nach DIN 4109, Ausgabe November 1989. Belüftungseinrichtungen dürfen es nicht mindern.[^7] Für den Hochbau gilt dagegen DIN 4109-1:2018-01.[^8] Eingeführt wird sie über die Verwaltungsvorschriften Technische Baubestimmungen der Länder.[^9]
+Auch die technischen Anforderungen unterscheiden sich. Die Flugplatz-Schallschutzmaßnahmenverordnung fordert in § 3 ein resultierendes bewertetes Bauschalldämm-Maß R'w,res nach DIN 4109, Ausgabe November 1989. Belüftungseinrichtungen dürfen es nicht mindern.[^6] Für den Hochbau gilt dagegen DIN 4109-1:2018-01.[^7] Eingeführt wird sie über die Verwaltungsvorschriften Technische Baubestimmungen der Länder.[^8]
 
 Offen bleiben mehrere Fragen: ob die Gemeinschaft prozessführungsbefugt war (Rn. 41) und wie eine länger blockierte Beschlussfassung zu bewerten wäre (Rn. 67). Gegen die Nichtzulassung der Revision ist grundsätzlich eine Beschwerde statthaft, über die das Bundesverwaltungsgericht entscheidet. Ob sie eingelegt wurde und ob das Urteil rechtskräftig ist, ergibt sich aus dem Volltext nicht. Welches Regime einen konkreten Fall erfasst und welche Ansprüche bestehen, beurteilt ein Rechtsanwalt.
 
@@ -120,9 +120,8 @@ Karim Abu Elkheir, B.Eng. Bauingenieurwesen, M.Sc. Wirtschaftsingenieurwesen (Sc
 [^1]: Oberverwaltungsgericht Berlin-Brandenburg, 6. Senat: Urteil vom 09.07.2026 – OVG 6 A 1/25, ECLI:DE:OVGBEBB:2026:0709.OVG6A1.25.00. Amtlicher Volltext, Randnummern 1 bis 87; die im Text genannten Randnummern bezeichnen die jeweilige Fundstelle. https://gesetze.berlin.de/perma?d=NJRE001651242 (abgerufen am 2026-09-21).
 [^2]: Bundesministerium der Justiz: Gesetz über das Wohnungseigentum und das Dauerwohnrecht, § 23 Abs. 3. https://www.gesetze-im-internet.de/woeigg/__23.html (abgerufen am 2026-09-21). Fassungsvergleich (Fassung ab 01.12.2020 „in Textform“, Fassung ab 01.07.2007 „schriftlich“): https://lexetius.com/WEG/23,3 (abgerufen am 2026-09-21).
 [^3]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 632 Abs. 2. https://www.gesetze-im-internet.de/bgb/__632.html (abgerufen am 2026-09-21).
-[^4]: Bundesinstitut für Bau-, Stadt- und Raumforschung: Dynamik der Baupreise lässt ab 2027 nach. Fachbeitrag vom 31.01.2026, Stand September 2026 (Text), Juli 2026 (Prognose); die Angaben zu 2022 beruhen dort auf Destatis 2023. https://www.bbsr.bund.de/BBSR/DE/forschung/fachbeitraege/bauen/bauwirtschaft/baupreisprognose/baupreisprognose.html (abgerufen am 2026-09-21).
-[^5]: Statistisches Bundesamt: Baupreise für Wohngebäude im November 2022: +16,9 % gegenüber November 2021. Pressemitteilung Nr. 011 vom 10.01.2023. https://www.destatis.de/DE/Presse/Pressemitteilungen/2023/01/PD23_011_61261.html (abgerufen am 2026-09-21).
-[^6]: Bundesministerium der Justiz: Gesetz zum Schutz gegen Fluglärm, § 9. https://www.gesetze-im-internet.de/flul_rmg/__9.html (abgerufen am 2026-09-21).
-[^7]: Bundesministerium der Justiz: Flugplatz-Schallschutzmaßnahmenverordnung vom 8. September 2009, § 3 Abs. 1, 2 und 6. https://www.gesetze-im-internet.de/fluglsv_2/__3.html (abgerufen am 2026-09-21).
-[^8]: DIN Media: DIN 4109-1:2018-01 „Schallschutz im Hochbau – Teil 1: Mindestanforderungen“, Status aktuell, ersetzt DIN 4109-1:2016-07. https://www.dinmedia.de/en/standard/din-4109-1/280079001 (abgerufen am 2026-09-21).
-[^9]: Deutsches Institut für Bautechnik: Luftschalldämmung, Hinweis auf die Muster-Verwaltungsvorschrift Technische Baubestimmungen, Abschnitt A 5 Schallschutz, und die Landesverwaltungsvorschriften. https://www.dibt.de/de/bauprodukte/informationsportal-bauprodukte-und-bauarten/produktgruppen/bauprodukte-detail/bauprodukt/luftschalldaemmung/ (abgerufen am 2026-09-21).
+[^4]: Statistisches Bundesamt: Baupreise für Wohngebäude im November 2022: +16,9 % gegenüber November 2021. Pressemitteilung Nr. 011 vom 10.01.2023. https://www.destatis.de/DE/Presse/Pressemitteilungen/2023/01/PD23_011_61261.html (abgerufen am 2026-09-21).
+[^5]: Bundesministerium der Justiz: Gesetz zum Schutz gegen Fluglärm, § 9. https://www.gesetze-im-internet.de/flul_rmg/__9.html (abgerufen am 2026-09-21).
+[^6]: Bundesministerium der Justiz: Flugplatz-Schallschutzmaßnahmenverordnung vom 8. September 2009, § 3 Abs. 1, 2 und 6. https://www.gesetze-im-internet.de/fluglsv_2/__3.html (abgerufen am 2026-09-21).
+[^7]: DIN Media: DIN 4109-1:2018-01 „Schallschutz im Hochbau – Teil 1: Mindestanforderungen“, Status aktuell, ersetzt DIN 4109-1:2016-07. https://www.dinmedia.de/en/standard/din-4109-1/280079001 (abgerufen am 2026-09-21).
+[^8]: Deutsches Institut für Bautechnik: Luftschalldämmung, Hinweis auf die Muster-Verwaltungsvorschrift Technische Baubestimmungen, Abschnitt A 5 Schallschutz, und die Landesverwaltungsvorschriften. https://www.dibt.de/de/bauprodukte/informationsportal-bauprodukte-und-bauarten/produktgruppen/bauprodukte-detail/bauprodukt/luftschalldaemmung/ (abgerufen am 2026-09-21).
