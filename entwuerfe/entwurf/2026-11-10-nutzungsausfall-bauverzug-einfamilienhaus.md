@@ -1,0 +1,122 @@
+---
+titel: "Bauverzug am Einfamilienhaus: Urteil des OLG Karlsruhe"
+kategorie: Baubetrieb
+format: Rechtsprechung
+fassung: verständlich
+zielgruppe: Privat, Gewerblich
+leistung: Bauherrenvertretung, Gutachten
+kernfrage: Welche Entschädigung können Bauherren verlangen, wenn ihr Einfamilienhaus zu spät fertig wird?
+gericht: OLG Karlsruhe 19. Zivilsenat
+aktenzeichen: 19 U 144/24
+ecli: ECLI:DE:OLGKARL:2025:0603.19U144.24.00
+entscheidungsdatum: 2025-06-03
+fundstelle: https://www.landesrecht-bw.de/perma?d=NJRE001613261
+meta_beschreibung: "OLG Karlsruhe zum Bauverzug am Einfamilienhaus: Verzug ab Ablauf der Bauzeit, Nutzungsausfall nach Mietenspiegel mit 30 Prozent Abzug."
+schlagwoerter: Bauzeitverzögerung, Nutzungsausfall, Einfamilienhaus, Verzug, Bauzeit, Aufrechnen, Mietenspiegel, Werklohn
+definition: Eine Nutzungsausfallentschädigung ist ein Geldbetrag als Ausgleich dafür, dass jemand eine Sache nicht nutzen kann.
+autor: M. Sc. Karim Abu Elkheir
+qualifikation:
+kurzform: nutzungsausfall-bauverzug-einfamilienhaus
+erstellt: 2026-11-10
+aktualisiert:
+status: Entwurf
+quelle: rechtsprechung
+notion_id:
+notion_url:
+fachlich_geprueft_von:
+fachlich_geprueft_am:
+wortzahl: 1880
+lesezeit: 10 Minuten
+fussnoten: 4
+quellen_geprueft: 3
+zahlenwerte_norm: 0
+todos: 0
+regelwerke_bestaetigt: "OLG Karlsruhe 19 U 144/24, § 280 BGB, § 286 BGB, § 640 BGB, § 287 ZPO"
+---
+
+# Bauverzug am Einfamilienhaus: Urteil des OLG Karlsruhe
+
+Eine Familie lässt auf ihrem Grundstück ein Einfamilienhaus errichten und vereinbart dafür eine Bauzeit von 9 Monaten (Rn. 2, 57). Das Haus wird später fertig als vereinbart (Rn. 63, 106). Die Bauherren wollen dafür Geld und ziehen es vom offenen Werklohn ab, also von der Vergütung des Unternehmens (Rn. 1, 2). Das Oberlandesgericht Karlsruhe hat am 3. Juni 2025 (Aktenzeichen 19 U 144/24) entschieden: Das Unternehmen war 12,8 Monate in Verzug, und die Entschädigung für das entgangene Wohnen beträgt 28.073,34 Euro (Rn. 106, 122).[^1]
+
+## Worum gestritten wurde: Restwerklohn gegen entgangenes Wohnen
+
+Das Unternehmen verlangte von den Bauherren den restlichen Werklohn für das Einfamilienhaus (Rn. 1, 2). Unstreitig standen ihm 107.749,90 Euro zu (Rn. 2). In einem Teilvergleich wegen Mängeln und Minderleistungen hatten die Parteien vereinbart, dass 15.500 Euro anzurechnen sind (Rn. 2). Übrig blieben 92.249,90 Euro (Rn. 2).
+
+Die Bauherren rechneten dagegen auf. Aufrechnen heißt, eine eigene Gegenforderung von dem geforderten Betrag abzuziehen. Als Gegenforderung machten sie Schadensersatz für Bauzeitverzögerungen geltend, nämlich Nutzungsausfall und Bereitstellungszinsen (Rn. 1, 3). Bereitstellungszinsen sind Zinsen, die eine Bank für ein Darlehen verlangt, das noch nicht ausgezahlt ist. Eine Nutzungsausfallentschädigung ist ein Geldbetrag als Ausgleich dafür, dass jemand eine Sache nicht nutzen kann. Hier ging es um das Wohnen im bestellten Haus (Rn. 108).
+
+Das Landgericht Karlsruhe hatte die Bauherren am 17. Mai 2024 zur Zahlung von 43.015,52 Euro verurteilt (Rn. 4). Es nahm 18,75 Monate Verzug an und setzte monatlich 2.210 Euro Nutzungsentschädigung an (Rn. 4). Die Wohnfläche kürzte es dafür von 368,46 auf 260 Quadratmeter (Rn. 4). Gegen das Urteil legte das Unternehmen Berufung ein (Rn. 5). Die Bauherren legten Anschlussberufung ein und wollten erreichen, dass die Klage ganz abgewiesen wird (Rn. 20, 32).
+
+Nach Darstellung des Unternehmens war nur ein Verzug von zwölf Monaten eingetreten (Rn. 11). Es erkannte deshalb 26.520 Euro Nutzungsausfall an (Rn. 48, 49). Die Bauherren gingen von 23 Monaten Verzug aus (Rn. 21). Sie verlangten 79.695,64 Euro Nutzungsausfall und 13.098,76 Euro Bereitstellungszinsen (Rn. 27, 28).
+
+## Wann der Verzug begann und wann er endete
+
+Das Gericht beginnt mit einer Grundregel. Schadensersatz wegen verspäteter Leistung gibt es nach § 280 Absatz 2 des Bürgerlichen Gesetzbuchs (BGB) nur unter einer zusätzlichen Voraussetzung: Der Schuldner muss nach § 286 BGB in Verzug sein (Rn. 53).[^2] Verzug heißt, dass ein Schuldner eine fällige Leistung nicht rechtzeitig erbringt und die weiteren Voraussetzungen des Gesetzes erfüllt sind. Das Gesetz verlangt dafür grundsätzlich eine Mahnung, also eine Aufforderung, die Leistung zu erbringen (§ 286 Absatz 1 BGB). Der Senat prüfte deshalb, ob eine Mahnung vorlag oder ob sie entbehrlich war (Rn. 56, 74, 84, 89).
+
+Eine Mahnung war nach § 286 Absatz 2 Nummer 2 BGB nicht nötig, weil die Parteien eine Bauzeit von 9 Monaten ab Baubeginn vereinbart hatten (Rn. 56, 57). Die Bauzeit begann nach dem Vertrag nicht, bevor die Baugenehmigung erteilt war und die Bauherren die genehmigte Planung freigegeben hatten (Rn. 57). Der Baubeginn lag Ende Januar 2015 (Rn. 60, 63). Damit lief die Bauzeit Ende Oktober 2015 ab, und das Haus war nicht fertig (Rn. 63). Der Verzug begann am 1. November 2015 (Rn. 55, 63).
+
+Für die Zeit davor sah das Gericht keinen Verzug. Für die Planungsphase fehlte eine Frist, die sich nach dem Kalender bestimmen ließ (Rn. 64). Eine E-Mail des Unternehmens, der Bauantrag werde innerhalb von 10 Werktagen erstellt, legte der Senat als allgemeine Auskunft zu üblichen Bearbeitungszeiten aus (Rn. 67, 69). Eine verbindliche Frist sah er darin nicht (Rn. 69). Zwischen dem Zugang der Baugenehmigung beim Unternehmen am 30. Oktober 2014 und der Freigabe am 22. Dezember 2014 lag nach seiner Ansicht ebenfalls kein Verzug (Rn. 88). Für diesen Zeitraum war weder eine Mahnung vorgetragen, noch war sie entbehrlich (Rn. 89). Im Übrigen hielt der Senat einen Verzug dort für fernliegend, weil die Bauherren die verlangte Zustimmung erst am 11. Dezember 2014 vorgelegt hatten (Rn. 59, 92).
+
+Auch eine endgültige Leistungsverweigerung, bei der keine Mahnung nötig wäre, nahm der Senat nicht an (Rn. 74, 83). Nach dem abgelehnten ersten Bauantrag stritten die Parteien darüber, was die Umplanung kosten darf (Rn. 76, 77). Das Unternehmen verlangte eine kostenneutrale Umplanung und machte die weitere Bearbeitung davon abhängig (Rn. 77, 83). Die Bauherren hatten nach Ansicht des Senats nicht ausreichend dargelegt, dass diese Forderung unberechtigt war (Rn. 79, 80). Die Voraussetzungen des Verzugs muss nach dem Urteil der Gläubiger darlegen und beweisen, hier also die Bauherren (Rn. 90).
+
+Der Verzug endete am 24. November 2016 (Rn. 98). Das Unternehmen hatte die Bauherren am 7. November 2016 zur Abnahme aufgefordert und Übergabetermine zwischen dem 22. und 25. November angeboten (Rn. 100). Die Bauherren schlugen den 24. November vor, damit war dieser Termin vereinbart (Rn. 100). Abnahme heißt, dass der Bauherr das Werk als im Wesentlichen vertragsgemäß annimmt. Sie erfolgte tatsächlich erst am 20. Februar 2017 (Rn. 101). Nach Ansicht des Senats war das Haus aber am 24. November 2016 abnahmereif, also zur Abnahme geeignet (Rn. 105).
+
+Die Mängel, die die Bauherren anführten, standen dem nicht entgegen. Bei der Heizung schätzte der Sachverständige die Kosten der Beseitigung auf 500 Euro brutto, und der Senat sah darin einen unwesentlichen Mangel (Rn. 102). Die Mängel an der Elektrik nannte er klein (Rn. 103). Die Treppengeländer sollten nach der Absprache der Parteien erst nach dem Umzug angebracht werden (Rn. 104). Aus Beginn und Ende ergibt sich ein Verzugszeitraum von 12,8 Monaten (Rn. 106).
+
+## Wie das Gericht die Entschädigung berechnet hat
+
+Ein Verzug allein genügt für Schadensersatz nicht, es muss auch ein Schaden entstanden sein. Das Gericht sah einen Vermögensschaden darin, dass die Bauherren das Haus, das sie selbst nutzen wollten, nicht beziehen konnten (Rn. 108). Dafür legt es nach der Rechtsprechung des Bundesgerichtshofs, die es anführt, einen strengen Maßstab an (Rn. 108). Entscheidend ist, ob sich die Vorenthaltung deutlich auf die eigene Lebenshaltung auswirkt (Rn. 108).
+
+Die Bauherren hatten zwar Wohnraum zur Verfügung, aber keinen gleichwertigen. Er lag nicht am Ort der beruflichen Tätigkeit des Bauherrn und war mit 260 Quadratmetern kleiner als das geplante Haus mit 368,62 Quadratmetern (Rn. 109). Maßgeblich ist nach dem Urteil nicht, ob angemessener Wohnraum zur Verfügung stand, sondern ob er dem vorenthaltenen etwa gleichwertig ist (Rn. 108).
+
+Die Höhe schätzte der Senat nach § 287 der Zivilprozessordnung (Rn. 107, 119). Diese Vorschrift erlaubt es dem Gericht, die Höhe eines Schadens unter Würdigung aller Umstände nach freier Überzeugung festzulegen.[^3] Ausgangspunkt war eine fiktive Miete, also die Miete, die für ein vergleichbares Haus üblich wäre. Der Senat ermittelte sie mit dem Mietenspiegel der Stadt (Rn. 111, 116). Einen solchen Mietpreis hält das Urteil für die Schadensbemessung grundsätzlich für ungeeignet (Rn. 110). Er lasse sich aber verwenden, wenn man ihn um alle Faktoren bereinigt, die auf Gewinn oder geschäftliche Nutzung zielen (Rn. 110).
+
+Beim Mietpreis setzte der Senat die tatsächliche Wohnfläche von 368,62 Quadratmetern an (Rn. 112, 113). Die Kürzung des Landgerichts auf 260 Quadratmeter lehnte er ab (Rn. 113). Schon dass eine siebenköpfige Familie einziehen wollte, sprach gegen die Kürzung (Rn. 114). Vor allem aber hatten die Parteien vertraglich ein Einfamilienhaus mit dieser großzügigen Wohnfläche zur Eigennutzung vereinbart, und die Vergütung bezog sich darauf (Rn. 114). Beim Preis je Quadratmeter blieb er bei 8,50 Euro (Rn. 116). Der Mietenspiegel unterscheidet bei Einfamilienhäusern nur zwischen Flächen bis 120 und ab 120,01 Quadratmetern, das Haus lag rund beim Dreifachen dieses Werts (Rn. 117). Deshalb wählte der Senat einen Wert im unteren Bereich der Spanne, denn der Quadratmeterpreis sinkt mit wachsender Fläche (Rn. 117, 118).
+
+Vom Mietpreis zog der Senat 30 Prozent ab (Rn. 120). Monatlich ergaben sich 2.193,23 Euro (Rn. 121). Mal 12,8 Monate sind das 28.073,34 Euro (Rn. 122). Bereitstellungszinsen sprach das Gericht nicht zu: Sie müssen im Verzugszeitraum angefallen sein (Rn. 124). Die Bauherren hatten nicht dargelegt, dass sie nach dem 1. November 2015 noch Bereitstellungszinsen gezahlt hatten (Rn. 125). Darüber hinaus zeigten die Kontoauszüge der vier Darlehen für November und Dezember 2015 keine Bereitstellungszinsen mehr, weil die Darlehen vorher ausgezahlt waren (Rn. 126). Vom Werklohn blieben so 64.176,56 Euro (Rn. 131).
+
+## Was das für Sie bedeutet
+
+Im Fall hing viel daran, welche Fristen der Bauvertrag nannte. Die Bauzeit von 9 Monaten ab Baubeginn ließ den Verzug ohne Mahnung eintreten (Rn. 56, 57). Für die Planungsphase gab es keine solche Frist, und dort sah der Senat keinen Verzug (Rn. 64). Wer als Bauherr einen Bauvertrag prüft, kann deshalb darauf achten, welche Fristen genannt sind und woran sie anknüpfen.
+
+Die Daten entschieden in diesem Fall über Monate und damit über Geld. Baubeginn, Freigaben, Zustimmungen und Termine rekonstruierte das Gericht aus Schreiben, E-Mails und Terminabsprachen (Rn. 59, 60, 92, 100). Ein Beispiel: Wer als Bauherr eine Zustimmung oder Freigabe schuldet, kann das Datum festhalten. Die Bauherren ließen sich nach den Feststellungen ungefähr einen Monat Zeit, bis sie die verlangte Zustimmung vorlegten (Rn. 92).
+
+Auch für den Zustand am Abnahmetermin kam es auf Belege an. Der Senat stützte sich auf ein Sachverständigengutachten, das die Beseitigungskosten der Heizungsmängel auf 500 Euro brutto schätzte (Rn. 102). Ein [Privatgutachten oder eine fachliche Begleitung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand eines Hauses zum Abnahmetermin fest. Wie sich dieser Zustand rechtlich auswirkt, beurteilt ein Rechtsanwalt.
+
+Ein weiteres Beispiel betrifft die Zahlung unter Vorbehalt. Die Bauherren zahlten am 6. Juni 2024 den vom Landgericht ausgeurteilten Betrag, um die Zwangsvollstreckung abzuwenden, und behielten sich ihre Rechte vor (Rn. 30, 151). Das war nach dem Urteil keine Erfüllung der Forderung (Rn. 151). Sie beendete aber den Verzug, und weil das Unternehmen die Zahlung annahm, entfiel für den gezahlten Betrag der Anspruch auf Verzugszinsen (Rn. 153–155). Welche Folgen eine solche Zahlung im eigenen Fall hat, klärt ein Rechtsanwalt.
+
+## Was das Urteil nicht sagt
+
+Das Urteil betrifft einen Bauvertrag vom 27. Dezember 2012 mit einer Bauzeitvereinbarung (Rn. 57). Es sagt nicht, wie ein Gericht bei anderen Fristen, anderen Häusern oder anderen Vertragsklauseln entscheiden würde. Der Preis von 8,50 Euro je Quadratmeter und der Abzug von 30 Prozent beruhen auf dem Mietenspiegel der Stadt und der Schätzung des Senats in diesem Fall (Rn. 111, 116, 120). Es ist ein Berufungsurteil, und die Revision hat der Senat nicht zugelassen (Tenor Nr. 5, Rn. 175). Im Kopf der Entscheidung auf dem Landesrechtsportal steht der Vermerk „Rechtskraft: ja“.
+
+Zum Stand heute: Das Urteil stammt vom 3. Juni 2025. Für die Abnahme wendet der Senat § 640 BGB in der bis zum 31. Dezember 2018 geltenden Fassung an (Rn. 102). Heute steht in § 640 Absatz 1 Satz 2 BGB, dass unwesentliche Mängel kein Grund sind, die Abnahme zu verweigern.[^4] Die Verzugsregeln der §§ 280 und 286 BGB, die der Senat anwendet (Rn. 53, 56), stehen heute mit der Mahnung in § 286 Absatz 1 und der Ausnahme für ereignisabhängige Fristen in Absatz 2 Nummer 2 im Gesetz.[^2]
+
+## Häufige Fragen
+
+**Bekomme ich Geld, wenn mein Haus später fertig wird als vereinbart?**
+
+Das Urteil beantwortet das nur für diesen Vertrag. Schadensersatz für eine Verzögerung setzt Verzug voraus (Rn. 53). Dort lag ein Verzug von 12,8 Monaten vor, und das Gericht sprach 28.073,34 Euro Nutzungsausfall zu (Rn. 106, 122). Ob ein Anspruch besteht, hängt vom Vertrag und den Umständen ab. Das beurteilt ein Rechtsanwalt.
+
+**Braucht es immer eine Mahnung, damit Verzug eintritt?**
+
+Im Fall nicht: Wegen der vereinbarten Bauzeit von 9 Monaten ab Baubeginn trat der Verzug ohne Mahnung ein (Rn. 56). Für die Planungsphase fehlte eine feste Frist, und der Senat sah dort weder eine verzugsbegründende Mahnung noch einen Grund, sie zu erübrigen (Rn. 64, 74, 84, 163). Es kam also auf die Vereinbarungen im Vertrag an.
+
+**Wie hoch war die Entschädigung je Monat?**
+
+Der Senat kam auf 2.193,23 Euro im Monat (Rn. 121). Er rechnete mit 8,50 Euro je Quadratmeter nach dem Mietenspiegel und zog 30 Prozent ab (Rn. 116, 120). Diese Zahlen gelten für dieses Haus und diese Schätzung. Das Urteil ist keine Tabelle für andere Häuser.
+
+## Hinweis
+
+Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er ist keine Rechtsberatung und ersetzt keine Begutachtung des Einzelfalls. Ob und wie Ansprüche bestehen und durchgesetzt werden können, beurteilt ein Rechtsanwalt. Genannte Normen und Regelwerke sind in der jeweils gültigen Fassung zu prüfen.
+
+---
+
+**Über den Autor**
+
+M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de. Stand: 2026-11-10.
+
+## Quellen und Fußnoten
+
+[^1]: OLG Karlsruhe 19. Zivilsenat: Urteil vom 03.06.2025 – 19 U 144/24, ECLI:DE:OLGKARL:2025:0603.19U144.24.00. https://www.landesrecht-bw.de/perma?d=NJRE001613261 (abgerufen am 2026-11-10).
+[^2]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch (BGB), § 280 Abs. 2 und § 286, heutiger Wortlaut, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/ (abgerufen am 2026-11-10, Wortlaut geprüft am amtlichen Text der Fachbibliothek, Datenstand 2026-09-26).
+[^3]: Bundesministerium der Justiz: Zivilprozessordnung (ZPO), § 287 Abs. 1, zuletzt geändert durch Art. 2 G v. 22.12.2025 I Nr. 349. https://www.gesetze-im-internet.de/zpo/ (abgerufen am 2026-11-10, Wortlaut geprüft am amtlichen Text der Fachbibliothek, Datenstand 2026-09-30).
+[^4]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch (BGB), § 640 Abs. 1, heutiger Wortlaut, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/ (abgerufen am 2026-11-10, Wortlaut geprüft am amtlichen Text der Fachbibliothek, Datenstand 2026-09-26).
