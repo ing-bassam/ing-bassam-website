@@ -80,8 +80,8 @@ abschnitte:
         hinweis: >-
           Woran erkennen: Raten bis zum Rohbau zusammenzählen. i. O.: Summe entspricht etwa dem
           Anteil des Rohbaus an der Gesamtleistung. kürzen oder klären: bis zum fertigen Rohbau
-          sind schon rund drei Viertel fällig, obwohl der Rohbau nach Verbraucherverbänden
-          höchstens etwa die Hälfte der Leistung ausmacht.
+          sind schon rund drei Viertel fällig, obwohl der Rohbau nur einen Teil der Gesamtleistung
+          ausmacht. Zum Vergleich: Der Ratenplan der MaBV kommt bis zum fertigen Rohbau auf 58 Prozent.
       - text: Rate vor Baubeginn oder für Planung und Bauantrag
         hinweis: >-
           Woran erkennen: Zahlung bei Vertragsschluss, für Planung oder vor den Erdarbeiten.
@@ -302,8 +302,8 @@ abschnitte:
     punkte:
       - text: "VOB/B-Vertrag: Fälligkeit 21 Tage nach Zugang der Aufstellung ist notiert"
         hinweis: >-
-          Ist die VOB/B vereinbart, wird ein Abschlag binnen 21 Tagen nach Zugang der prüfbaren
-          Aufstellung fällig. Eine Abschlagszahlung gilt dort nicht als Abnahme und ändert nichts
+          Ist die VOB/B vereinbart, gilt für den Abschlag eine Zahlungsfrist von 21 Tagen, gerechnet
+          vom Eingang der prüfbaren Aufstellung. Die Zahlung ersetzt keine Abnahme und ändert nichts
           an der Haftung der Firma.
       - text: Kürzungen sind in Textform mitgeteilt, je Position mit Betrag und Grund
       - text: Unstreitiger Teil der Rate ist fristgerecht gezahlt

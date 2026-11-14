@@ -26,7 +26,7 @@ fussnoten: 16
 quellen_geprueft: 3
 zahlenwerte_norm: 4
 todos: 0
-regelwerke_bestaetigt: BGB § 634a Abs. 1 Nr. 2, VOB/B § 13 Abs. 4 und Abs. 5 (Ausgabe 2019), DIN 18202:2019-07
+regelwerke_bestaetigt: BGB § 634a Abs. 1 Nr. 2, VOB/B § 13 Abs. 4 und Abs. 5 (Ausgabe 2019), DIN 18202:2019-07 (frühere Ausgabe, inzwischen ersetzt durch DIN 18202:2026-08)
 ---
 
 # Checkliste vor Ablauf der Gewährleistung
@@ -125,7 +125,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^8]: Weber, Jürgen; Hafkesbrink, Volker (Hrsg.): Bauwerksabdichtung in der Altbausanierung. Verfahren und juristische Betrachtungsweise. 7. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 470. ISBN 978-3-658-48094-3.
 [^9]: Schulz, Joachim: Bauschäden in Bädern und Nassräumen. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 2. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 270. ISBN 978-3-658-49195-6.
 [^10]: IVD Industrieverband Dichtstoffe e. V.: Fugen im Nassbereich – verantwortliche Gewährleistung oder Pfusch mit Wartungsfugen? Experten im Gespräch (IVD 745). https://www.ivd-ev.de/presse/verband2/fugen-im-nassbereich-verantwortliche-gewaehrleistung-oder-pfusch-mit-wartungsfugen-experten-im-gespraech-ivd-745.html (abgerufen am 2026-09-28).
-[^11]: DIN Media: DIN 18202:2019-07, Toleranzen im Hochbau – Bauwerke. Ausgabe Juli 2019, ersetzt DIN 18202:2013-04. https://www.dinmedia.de/en/standard/din-18202/307314612 (abgerufen am 2026-09-28). Inhaltlich bestätigt durch: Schulz, Joachim: Bauschäden in Bädern und Nassräumen. 2. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 93. ISBN 978-3-658-49195-6.
+[^11]: DIN Media, frühere Ausgabe: DIN 18202:2019-07, Toleranzen im Hochbau – Bauwerke. Ausgabe Juli 2019, ersetzt DIN 18202:2013-04, frühere Ausgabe, inzwischen ersetzt durch DIN 18202:2026-08. https://www.dinmedia.de/en/standard/din-18202/307314612 (abgerufen am 2026-09-28). Inhaltlich bestätigt durch: Schulz, Joachim: Bauschäden in Bädern und Nassräumen. 2. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 93. ISBN 978-3-658-49195-6.
 [^12]: Willems, Wolfgang M. (Hrsg.): Lehrbuch der Bauphysik. Wärme – Feuchte – Klima – Schall – Licht – Brand. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 372. ISBN 978-3-658-34093-3.
 [^13]: Umweltbundesamt: Häufige Fragen bei Schimmelbefall. https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/schimmel/haeufige-fragen-bei-schimmelbefall (abgerufen am 2026-09-28).
 [^14]: Rode, Bernd; Weller, Wolfgang: AVA-Handbuch. Ausschreibung - Vergabe - Abrechnung - Haftung. 11. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 122. ISBN 978-3-658-48052-3.
