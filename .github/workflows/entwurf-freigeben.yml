@@ -1,0 +1,610 @@
+name: Entwurf freigeben und veröffentlichen
+
+# -----------------------------------------------------------------------------
+# Letztes Tor eines Fachartikel-Entwurfs („Entwurf: …“ von den Schreib-Agenten):
+# Besteht er alle Prüfungen, wird er ohne weiteren Klick zusammengeführt und
+# sofort veröffentlicht. Besteht er eine nicht – oder ist eine Prüfung
+# unsicher –, bleibt der Pull Request offen und bekommt das Label
+# „Karim prüfen“ mit kurzem Grund. Fail-closed: Was nicht geprüft werden kann,
+# gilt als nicht bestanden.
+#
+# Auslöser:
+#   - die Schreib-Workflows (Fachartikel, Urteilsbesprechung, Urteil
+#     verständlich, Trendscout), sobald ihr Pull Request „bereit zur Freigabe“
+#     ist (workflow_dispatch mit der Nummer – das darf der GITHUB_TOKEN),
+#   - Sammellauf Mo–Fr 06:23 Uhr für alles, was liegen geblieben ist,
+#   - von Hand: Actions → Entwurf freigeben und veröffentlichen → Nummer.
+#
+# Tore, in dieser Reihenfolge (jedes muss bestehen):
+#   1. Vorprüfung ohne KI (tools/freigabe.py vorpruefen): offen, kein Draft,
+#      Titel „Entwurf:“, von einem Schreib-Agenten, ändert nur die eine
+#      Beitragsdatei und ihre Vorschauseite, Fakten-/Schlussprüfung sind
+#      vollständig gelaufen („bereit zur Freigabe“, keine Warnung), konfliktfrei.
+#   2. Beitragsdatei: keine offenen Prüfpunkte, nicht zurückgehalten.
+#   3. Alle Tests (Python und Node) auf dem Stand „main + Entwurf“, und der
+#      Seitenbau meldet für den Beitrag keinen Fehler.
+#   4. Wörtliche Übernahmen und Normstand ohne KI (tools/wortgleich_pruefen.py,
+#      tools/normstand_pruefen.py) gegen Fachbibliothek und alle Quelltexte der
+#      Fußnoten – Werkzeuge immer vom Hauptzweig. Ohne Fachbibliothek: kein Merge.
+#   5. Freigabeprüfung (Skill /freigabepruefung, Opus): Urheberrecht einschließlich
+#      enger Umformulierung, Gliederung, Tabellen, Wertereihen, Checklisten und
+#      Rechenbeispielen; Fachliches (Normstand, Zahlen, offene Stellen der
+#      Schlussprüfung); Recht als zweiter, unabhängiger Durchgang; Ton nach der
+#      Berufsordnung. Der Agent ändert nichts; geprüft wird danach, dass weder
+#      Entwurf noch Repository verändert sind.
+#
+# Danach: Squash-Merge (nur auf genau dem geprüften Stand, --match-head-commit),
+# Zweig löschen, „Entwürfe veröffentlichen“ für genau diesen Beitrag anstoßen,
+# warten, bis die Seite ohne noindex online ist, und Karim per Issue
+# „Veröffentlicht: …“ mit Link benachrichtigen. Zurückziehen: Workflow
+# „Beitrag zurückziehen“.
+#
+# Kosten: ein Opus-Agent je Entwurf (bis 90 Züge).
+# -----------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "Nummer des Pull Requests „Entwurf: …“"
+        required: true
+        type: string
+      probelauf:
+        description: "Nur prüfen – nicht mergen, nicht veröffentlichen"
+        required: false
+        default: false
+        type: boolean
+  schedule:
+    # Sammellauf Montag bis Freitag vor „Entwürfe veröffentlichen“ (07:43 Uhr).
+    - cron: "23 6 * * 1-5"
+      timezone: "Europe/Berlin"
+
+run-name: "Entwurf freigeben: ${{ inputs.pr && format('#{0}', inputs.pr) || 'Sammellauf' }}${{ inputs.probelauf && ' (Probelauf)' || '' }}"
+
+# Ein Lauf nach dem anderen: Merges und Veröffentlichungen kommen sich so nicht
+# in die Quere. Ein dabei verdrängter wartender Lauf holt der Sammellauf nach.
+concurrency:
+  group: entwurf-freigeben
+  cancel-in-progress: false
+
+jobs:
+  auswahl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      liste: ${{ steps.liste.outputs.liste }}
+    steps:
+      - name: Pull Requests bestimmen
+        id: liste
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR: ${{ inputs.pr }}
+        run: |
+          set -euo pipefail
+          if [ -n "${PR:-}" ]; then
+            if ! [[ "$PR" =~ ^[0-9]{1,6}$ ]]; then
+              echo "::error title=Freigabe::„$PR“ ist keine Pull-Request-Nummer."
+              exit 1
+            fi
+            echo "liste=[$PR]" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Sammellauf: offene, fertig geprüfte Entwürfe ohne Label „Karim prüfen“.
+          LISTE="$(gh pr list -R "$REPO" --state open --limit 50 --json number,title,isDraft,labels \
+            --jq '[.[] | select((.title | startswith("Entwurf:")) and (.isDraft | not)
+                   and ([.labels[].name | ascii_downcase] | index("karim prüfen") | not)) | .number] | sort')"
+          echo "Zu prüfen: $LISTE"
+          echo "liste=$LISTE" >> "$GITHUB_OUTPUT"
+
+  freigeben:
+    needs: auswahl
+    if: needs.auswahl.outputs.liste != '' && needs.auswahl.outputs.liste != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        pr: ${{ fromJSON(needs.auswahl.outputs.liste) }}
+    permissions:
+      contents: write        # Squash-Merge und Zweig löschen
+      pull-requests: write   # Kommentar, Label, Merge
+      issues: write          # Label anlegen, Meldung „Veröffentlicht: …“, Kontingent-Pause
+      actions: write         # „Entwürfe veröffentlichen“ anstoßen
+      id-token: write        # von der Claude-Action benötigt
+
+    steps:
+      - name: Repository auschecken (Hauptzweig – Werkzeuge und Tests)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Git-Identität setzen
+        run: |
+          set -euo pipefail
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global core.hooksPath /dev/null
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: Node bereitstellen
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+
+      - name: Abhängigkeiten installieren
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip --quiet
+          python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2' 'pypdf==6.19.0'
+
+      # ---------------------------------------------------------------
+      # Tor 1: Vorprüfung ohne KI
+      # ---------------------------------------------------------------
+      - name: Vorprüfung
+        id: vor
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ matrix.pr }}
+        run: |
+          set -uo pipefail
+          ARBEIT="$RUNNER_TEMP/freigabe"
+          mkdir -p "$ARBEIT"
+          echo "arbeit=$ARBEIT" >> "$GITHUB_OUTPUT"
+          : > "$ARBEIT/gruende.txt"
+          # GitHub berechnet „mergeable“ erst auf Nachfrage – bis zu fünf Versuche.
+          for versuch in 1 2 3 4 5; do
+            if ! gh pr view "$NR" --json number,title,state,isDraft,author,files,labels,comments,mergeable,headRefOid,headRefName \
+                 > "$ARBEIT/pr.json"; then
+              echo "Angaben zu #$NR nicht abrufbar" > "$ARBEIT/gruende.txt"
+              echo "ok=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            if [ "$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["mergeable"])' "$ARBEIT/pr.json")" != "UNKNOWN" ]; then break; fi
+            sleep 15
+          done
+          python -c 'import json,sys; d=json.load(open(sys.argv[1])); print("titel=" + d["title"].replace("\n"," ")); print("zweig=" + d["headRefName"]); print("offen=" + str(d["state"]=="OPEN" and d["title"].startswith("Entwurf:")).lower())' \
+            "$ARBEIT/pr.json" >> "$GITHUB_OUTPUT"
+          set +e
+          python tools/freigabe.py vorpruefen "$ARBEIT/pr.json" > "$ARBEIT/vor.txt"
+          RUECKGABE=$?
+          set -e
+          cat "$ARBEIT/vor.txt"
+          grep '^GRUND: ' "$ARBEIT/vor.txt" | sed 's/^GRUND: //' >> "$ARBEIT/gruende.txt" || true
+          if [ "$RUECKGABE" -ne 0 ]; then
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          grep -E '^(entwurf|kurzform|sha)=' "$ARBEIT/vor.txt" >> "$GITHUB_OUTPUT"
+          echo "ok=true" >> "$GITHUB_OUTPUT"
+
+      - name: Stand des Pull Requests holen
+        id: stand
+        if: steps.vor.outputs.ok == 'true'
+        env:
+          NR: ${{ matrix.pr }}
+          SHA: ${{ steps.vor.outputs.sha }}
+          ARBEIT: ${{ steps.vor.outputs.arbeit }}
+        run: |
+          set -euo pipefail
+          git fetch -q --no-tags origin "pull/$NR/head"
+          if [ "$(git rev-parse FETCH_HEAD)" != "$SHA" ]; then
+            echo "Der Zweig hat sich während der Prüfung geändert" >> "$ARBEIT/gruende.txt"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          # Entwurf zum Lesen (nur dieser Stand wird gemergt) …
+          git worktree add -q --detach "$ARBEIT/pr" "$SHA"
+          # … und „main + Entwurf“ für Tests und Seitenbau.
+          git worktree add -q --detach "$ARBEIT/zusammen" origin/main
+          if ! git -C "$ARBEIT/zusammen" merge -q --no-ff --no-edit "$SHA" > /dev/null; then
+            echo "Entwurf lässt sich nicht konfliktfrei mit main zusammenführen" >> "$ARBEIT/gruende.txt"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "pr=$ARBEIT/pr" >> "$GITHUB_OUTPUT"
+          echo "zusammen=$ARBEIT/zusammen" >> "$GITHUB_OUTPUT"
+          echo "ok=true" >> "$GITHUB_OUTPUT"
+
+      # ---------------------------------------------------------------
+      # Tore 2 und 3: Beitragsdatei, Tests, Seitenbau
+      # ---------------------------------------------------------------
+      - name: Beitragsdatei, Tests und Seitenbau
+        id: tests
+        if: steps.stand.outputs.ok == 'true'
+        env:
+          ENTWURF: ${{ steps.vor.outputs.entwurf }}
+          KURZ: ${{ steps.vor.outputs.kurzform }}
+          PRSTAND: ${{ steps.stand.outputs.pr }}
+          ZUSAMMEN: ${{ steps.stand.outputs.zusammen }}
+          ARBEIT: ${{ steps.vor.outputs.arbeit }}
+        run: |
+          set -uo pipefail
+          set +e
+          OK=true
+          python tools/freigabe.py entwurf "$PRSTAND/$ENTWURF" > "$ARBEIT/entwurf.txt"
+          if [ $? -ne 0 ]; then OK=false; sed -n 's/^GRUND: //p' "$ARBEIT/entwurf.txt" >> "$ARBEIT/gruende.txt"; fi
+          cd "$ZUSAMMEN"
+          python -m unittest discover -s tests > "$ARBEIT/tests.txt" 2>&1
+          if [ $? -ne 0 ]; then
+            OK=false
+            echo "Python-Tests auf „main + Entwurf“ nicht grün: $(grep -E '^(FAIL|ERROR):' "$ARBEIT/tests.txt" | head -n 3 | tr '\n' ' ')" >> "$ARBEIT/gruende.txt"
+          fi
+          tail -n 3 "$ARBEIT/tests.txt"
+          node --test "tests/**/*.test.mjs" > "$ARBEIT/node.txt" 2>&1
+          if [ $? -ne 0 ]; then OK=false; echo "Node-Tests auf „main + Entwurf“ nicht grün" >> "$ARBEIT/gruende.txt"; fi
+          tail -n 8 "$ARBEIT/node.txt"
+          python tools/artikel_generator.py > "$ARBEIT/seitenbau.txt" 2>&1
+          RUECKGABE=$?
+          if [ "$RUECKGABE" -ne 0 ] && [ "$RUECKGABE" -ne 2 ]; then
+            OK=false; echo "Seitenbau abgebrochen (Rückgabewert $RUECKGABE)" >> "$ARBEIT/gruende.txt"
+          fi
+          if grep -E "^FEHLER:.*${KURZ}" "$ARBEIT/seitenbau.txt"; then
+            OK=false; echo "Seitenbau meldet Fehler im Beitrag" >> "$ARBEIT/gruende.txt"
+          fi
+          echo "ok=$OK" >> "$GITHUB_OUTPUT"
+
+      # ---------------------------------------------------------------
+      # Tor 4: Fachbibliothek, Quellen, wörtliche Übernahmen, Normstand
+      # ---------------------------------------------------------------
+      - name: Fachbibliothek prüfen
+        id: bib
+        if: steps.stand.outputs.ok == 'true'
+        env:
+          # Nur Ja/Nein, nie der Wert selbst.
+          TOKEN_DA: ${{ secrets.BIBLIOTHEK_TOKEN != '' }}
+        run: echo "vorhanden=$TOKEN_DA" >> "$GITHUB_OUTPUT"
+
+      - name: Fachbibliothek laden
+        id: bibladen
+        if: steps.bib.outputs.vorhanden == 'true'
+        continue-on-error: true
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: bib-ingenieurbuero/FachwissenAgent
+          token: ${{ secrets.BIBLIOTHEK_TOKEN }}
+          path: .bibliothek
+          persist-credentials: false
+
+      - name: Suchindex der Fachbibliothek bauen
+        id: bibindex
+        if: steps.bibladen.outcome == 'success'
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          python tools/bibliothek_suchen.py .bibliothek --index
+          echo "ordner=.bibliothek" >> "$GITHUB_OUTPUT"
+
+      - name: Quellen laden
+        id: quellen
+        if: steps.stand.outputs.ok == 'true'
+        env:
+          ENTWURF: ${{ steps.vor.outputs.entwurf }}
+          PRSTAND: ${{ steps.stand.outputs.pr }}
+          ARBEIT: ${{ steps.vor.outputs.arbeit }}
+        run: |
+          set -uo pipefail
+          DATEI="$PRSTAND/$ENTWURF"
+          VT=()
+          if grep -q '^aktenzeichen:[[:space:]]*[^[:space:]]' "$DATEI" && grep -q '^fundstelle:[[:space:]]*[^[:space:]]' "$DATEI"; then
+            if AUSGABE="$(python tools/volltext_laden.py "$DATEI" "$ARBEIT/volltexte")"; then
+              VT=(--volltext "$(printf '%s\n' "$AUSGABE" | tail -n 1)")
+            fi
+          fi
+          if [ -f .bibliothek/katalog.yml ]; then VT+=(--bibliothek .bibliothek); fi
+          if AUSGABE="$(python tools/quellen_laden.py "$DATEI" "$ARBEIT/quellenpruefung" "${VT[@]}")"; then
+            echo "pruefliste=$(printf '%s\n' "$AUSGABE" | tail -n 1)" >> "$GITHUB_OUTPUT"
+          else
+            echo "pruefliste=nicht verfügbar" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Wörtliche Übernahmen und Normstand (ohne KI)
+        id: wortlaut
+        if: steps.stand.outputs.ok == 'true'
+        env:
+          ENTWURF: ${{ steps.vor.outputs.entwurf }}
+          PRSTAND: ${{ steps.stand.outputs.pr }}
+          ARBEIT: ${{ steps.vor.outputs.arbeit }}
+        run: |
+          set -uo pipefail
+          set +e
+          OK=true
+          if [ ! -f .bibliothek/katalog.yml ] || [ ! -f .bibliothek/normen/ausgaben.yml ]; then
+            echo "Fachbibliothek nicht geladen – wörtliche Übernahmen und Normstand nicht prüfbar" >> "$ARBEIT/gruende.txt"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          ZUSATZ=()
+          while IFS= read -r ordner; do ZUSATZ+=(--zusatz "$ordner"); done \
+            < <(find "$RUNNER_TEMP" -mindepth 1 -maxdepth 4 -type d -name quellen 2> /dev/null)
+          # Fehlerausgabe nur ins Runner-Temp: Sie könnte Text aus der Bibliothek enthalten.
+          python tools/wortgleich_pruefen.py "$PRSTAND/$ENTWURF" --bibliothek .bibliothek "${ZUSATZ[@]}" \
+            --bericht "$ARBEIT/wortgleich.md" > "$ARBEIT/wortgleich.txt" 2> "$ARBEIT/wortgleich.err"
+          WORT=$?
+          python tools/normstand_pruefen.py "$PRSTAND/$ENTWURF" --ausgaben .bibliothek/normen/ausgaben.yml \
+            --bericht "$ARBEIT/normstand.md" > "$ARBEIT/normstand.txt" 2> "$ARBEIT/normstand.err"
+          NORM=$?
+          echo "Wörtliche Übernahmen: $(tail -n 1 "$ARBEIT/wortgleich.txt" 2> /dev/null) (Rückgabewert $WORT)"
+          echo "Normstand: $(tail -n 1 "$ARBEIT/normstand.txt" 2> /dev/null) (Rückgabewert $NORM)"
+          case "$WORT" in
+            0) ;;
+            1) OK=false; echo "wörtliche Übereinstimmung mit der Fachbibliothek oder einer Quelle" >> "$ARBEIT/gruende.txt" ;;
+            *) OK=false; echo "Prüfung auf wörtliche Übernahmen nicht möglich" >> "$ARBEIT/gruende.txt" ;;
+          esac
+          case "$NORM" in
+            0) ;;
+            1) OK=false; echo "Normausgabe passt nicht zum Normenindex" >> "$ARBEIT/gruende.txt" ;;
+            *) OK=false; echo "Normstand-Prüfung nicht möglich" >> "$ARBEIT/gruende.txt" ;;
+          esac
+          echo "ok=$OK" >> "$GITHUB_OUTPUT"
+
+      # ---------------------------------------------------------------
+      # Tor 5: Freigabeprüfung (KI). Läuft nur, wenn alles davor bestanden ist.
+      # ---------------------------------------------------------------
+      - name: Vorprüfungen für den Agenten
+        id: agentvor
+        if: steps.tests.outputs.ok == 'true' && steps.wortlaut.outputs.ok == 'true'
+        env:
+          ARBEIT: ${{ steps.vor.outputs.arbeit }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$ARBEIT/agent"
+          # Berichte der Fakten- und Schlussprüfung (öffentliche Kommentare) als Eingabe.
+          python -c 'import json,sys; d=json.load(open(sys.argv[1])); print("\n\n---\n\n".join(c["body"] for c in d["comments"] if (c.get("author") or {}).get("login","") in ("github-actions","app/github-actions") and ("Faktenprüfung" in c["body"] or "Schlussprüfung" in c["body"])))' \
+            "$ARBEIT/pr.json" > "$ARBEIT/agent/vorpruefungen.md"
+          git -C "$ARBEIT/pr" status --porcelain > "$ARBEIT/pr-status-vorher.txt"
+          git status --porcelain --untracked-files=no -- . ':!.bibliothek' > "$ARBEIT/repo-status-vorher.txt"
+
+      - name: Freigabeprüfung
+        id: claude
+        if: steps.agentvor.outcome == 'success'
+        continue-on-error: true
+        timeout-minutes: 45
+        uses: anthropics/claude-code-action@61a9c274fa7110a66dfafc1bbbced03833eb25fe # v1.0.269
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            /freigabepruefung
+            Entwurf: ${{ steps.stand.outputs.pr }}/${{ steps.vor.outputs.entwurf }}
+            Prüfliste: ${{ steps.quellen.outputs.pruefliste }}
+            Bibliothek: ${{ steps.bibindex.outputs.ordner || 'nicht verfügbar' }}
+            Vorprüfungen: ${{ steps.vor.outputs.arbeit }}/agent/vorpruefungen.md
+            Ausgabe: ${{ steps.vor.outputs.arbeit }}/agent
+          claude_args: |
+            --max-turns 90
+            --model claude-opus-5-5
+            --add-dir ${{ steps.vor.outputs.arbeit }}
+            --allowedTools "Read,Grep,Glob,Write,TodoWrite,Skill,WebFetch,WebSearch,Bash(python tools/bibliothek_suchen.py:*),Bash(python tools/wortgleich_pruefen.py:*),Bash(python tools/normstand_pruefen.py:*),Bash(wc:*)"
+
+      - name: Kontingent prüfen
+        if: steps.claude.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERLAUF: ${{ steps.claude.outputs.execution_file }}
+        run: python3 tools/kontingent.py erkennen "${VERLAUF:-$RUNNER_TEMP/claude-execution-output.json}"
+
+      - name: Urteil der Freigabeprüfung auswerten
+        id: urteil
+        if: steps.agentvor.outcome == 'success'
+        env:
+          ARBEIT: ${{ steps.vor.outputs.arbeit }}
+          SHA: ${{ steps.vor.outputs.sha }}
+          AGENT: ${{ steps.claude.outcome }}
+        run: |
+          set -uo pipefail
+          set +e
+          OK=true
+          if [ "$AGENT" != "success" ]; then
+            OK=false; echo "Freigabeprüfung nicht vollständig gelaufen ($AGENT)" >> "$ARBEIT/gruende.txt"
+          fi
+          # Der Agent darf nichts ändern – weder den Entwurf noch das Repository.
+          git -C "$ARBEIT/pr" status --porcelain > "$ARBEIT/pr-status-nachher.txt"
+          git status --porcelain --untracked-files=no -- . ':!.bibliothek' > "$ARBEIT/repo-status-nachher.txt"
+          if [ "$(git -C "$ARBEIT/pr" rev-parse HEAD)" != "$SHA" ] \
+             || ! cmp -s "$ARBEIT/pr-status-vorher.txt" "$ARBEIT/pr-status-nachher.txt" \
+             || ! cmp -s "$ARBEIT/repo-status-vorher.txt" "$ARBEIT/repo-status-nachher.txt"; then
+            OK=false; echo "Freigabeprüfung hat Dateien verändert – Ergebnis verworfen" >> "$ARBEIT/gruende.txt"
+          fi
+          if [ -d .bibliothek/.git ] && ! git -C .bibliothek diff --quiet HEAD --; then
+            OK=false; echo "Fachbibliothek während der Prüfung verändert – Ergebnis verworfen" >> "$ARBEIT/gruende.txt"
+          fi
+          python tools/freigabe.py urteil "$ARBEIT/agent/urteil.json" > "$ARBEIT/urteil.txt"
+          if [ $? -ne 0 ]; then
+            OK=false; sed -n 's/^GRUND: /Freigabeprüfung – /p' "$ARBEIT/urteil.txt" >> "$ARBEIT/gruende.txt"
+          fi
+          cat "$ARBEIT/urteil.txt"
+          echo "ok=$OK" >> "$GITHUB_OUTPUT"
+
+      # ---------------------------------------------------------------
+      # Bericht in den Pull Request – nur, was nichts wörtlich aus der
+      # Fachbibliothek oder den Quellen enthält.
+      # ---------------------------------------------------------------
+      - name: Bericht in den Pull Request
+        id: bericht
+        if: always() && steps.vor.outputs.offen == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ matrix.pr }}
+          ARBEIT: ${{ steps.vor.outputs.arbeit }}
+          ALLES_OK: ${{ steps.vor.outputs.ok == 'true' && steps.stand.outputs.ok == 'true' && steps.tests.outputs.ok == 'true' && steps.wortlaut.outputs.ok == 'true' && steps.urteil.outputs.ok == 'true' }}
+          PROBELAUF: ${{ inputs.probelauf }}
+        run: |
+          set -uo pipefail
+          TEXT="$ARBEIT/kommentar.md"
+          wortgleich_frei() {
+            local zusatz=() ordner
+            if [ ! -f .bibliothek/katalog.yml ]; then return 2; fi
+            while IFS= read -r ordner; do zusatz+=(--zusatz "$ordner"); done \
+              < <(find "$RUNNER_TEMP" -mindepth 1 -maxdepth 4 -type d -name quellen 2> /dev/null)
+            python tools/wortgleich_pruefen.py "$@" --bibliothek .bibliothek "${zusatz[@]}" > /dev/null 2>&1
+          }
+          if [ -s "$ARBEIT/agent/bericht.md" ] && wortgleich_frei "$ARBEIT/agent/bericht.md"; then
+            cat "$ARBEIT/agent/bericht.md" > "$TEXT"
+          elif [ -s "$ARBEIT/agent/bericht.md" ]; then
+            echo "## Freigabeprüfung" > "$TEXT"
+            echo "" >> "$TEXT"
+            echo "Der Bericht des Prüf-Agenten erscheint hier nicht: Er stimmt stellenweise wörtlich mit der Fachbibliothek oder einer Quelle überein, oder diese Prüfung war nicht möglich." >> "$TEXT"
+          else
+            echo "## Freigabeprüfung" > "$TEXT"
+          fi
+          echo "" >> "$TEXT"
+          if [ "$ALLES_OK" = "true" ]; then
+            if [ "$PROBELAUF" = "true" ]; then
+              echo "✅ Alle Tore bestanden (Probelauf – es wird nicht gemergt)." >> "$TEXT"
+            else
+              echo "✅ Alle Tore bestanden: Tests, wörtliche Übernahmen, Normstand, Urheberrecht, Fachliches, Recht, Ton. Der Entwurf wird jetzt gemergt und veröffentlicht." >> "$TEXT"
+            fi
+          else
+            echo "⛔ **Nicht automatisch veröffentlicht** – Label „Karim prüfen“. Gründe:" >> "$TEXT"
+            if [ -s "$ARBEIT/gruende.txt" ]; then
+              sort -u "$ARBEIT/gruende.txt" | sed 's/^/- /' >> "$TEXT"
+            else
+              echo "- Prüfung nicht vollständig gelaufen" >> "$TEXT"
+            fi
+            echo "" >> "$TEXT"
+            echo "Nach einer Korrektur: Label entfernen und unter Actions „Entwurf freigeben und veröffentlichen“ mit dieser Nummer starten – oder selbst lesen und mergen." >> "$TEXT"
+          fi
+          gh pr comment "$NR" --body-file "$TEXT" || echo "::warning title=Freigabe::Kommentar in #$NR nicht möglich."
+          if [ "$ALLES_OK" != "true" ]; then
+            gh label create "Karim prüfen" --color D93F0B --description "Automatische Freigabe nicht bestanden – bitte selbst prüfen" > /dev/null 2>&1 || true
+            gh pr edit "$NR" --add-label "Karim prüfen" > /dev/null || echo "::warning title=Freigabe::Label in #$NR nicht gesetzt."
+            sort -u "$ARBEIT/gruende.txt" | while IFS= read -r grund; do echo "::warning title=Freigabe #$NR::$grund"; done
+          fi
+          echo "ok=$ALLES_OK" >> "$GITHUB_OUTPUT"
+
+      # ---------------------------------------------------------------
+      # Merge und Veröffentlichung
+      # ---------------------------------------------------------------
+      - name: Zusammenführen
+        id: merge
+        if: steps.bericht.outputs.ok == 'true' && inputs.probelauf != true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ matrix.pr }}
+          SHA: ${{ steps.vor.outputs.sha }}
+        run: |
+          set -euo pipefail
+          # Nur genau der geprüfte Stand – kam inzwischen ein Commit dazu, schlägt der Merge fehl.
+          gh pr merge "$NR" --squash --delete-branch --match-head-commit "$SHA"
+          echo "zeit=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+          echo "::notice title=Freigabe::#$NR zusammengeführt."
+
+      - name: Merge fehlgeschlagen
+        if: failure() && steps.merge.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ matrix.pr }}
+        run: |
+          gh pr comment "$NR" --body "⚠️ Alle Tore bestanden, der Merge ist aber fehlgeschlagen (meist kam inzwischen ein Commit dazu). Der nächste Sammellauf prüft den neuen Stand." || true
+
+      - name: Veröffentlichen
+        id: veroeffentlichen
+        if: steps.merge.outcome == 'success'
+        timeout-minutes: 40
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENTWURF: ${{ steps.vor.outputs.entwurf }}
+          KURZ: ${{ steps.vor.outputs.kurzform }}
+        run: |
+          set -uo pipefail
+          STAMM="$(basename "$ENTWURF" .md)"
+          BEGINN="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          gh workflow run veroeffentlichen.yml --ref main -f auswahl="$STAMM"
+          LAUF=""
+          for versuch in $(seq 1 30); do
+            sleep 10
+            LAUF="$(gh run list --workflow veroeffentlichen.yml --event workflow_dispatch --limit 10 \
+                     --json databaseId,createdAt --jq "[.[] | select(.createdAt >= \"$BEGINN\")] | last | .databaseId // empty")"
+            if [ -n "$LAUF" ]; then break; fi
+          done
+          if [ -z "$LAUF" ]; then
+            echo "::error title=Veröffentlichen::Lauf „Entwürfe veröffentlichen“ nicht gefunden."
+            echo "lauf=" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+          echo "lauf=$LAUF" >> "$GITHUB_OUTPUT"
+          gh run watch "$LAUF" --interval 30 > /dev/null || true
+          git fetch -q origin main
+          if git show "origin/main:entwuerfe/veroeffentlicht/$STAMM.md" 2> /dev/null | grep -qi '^status:[[:space:]]*"\{0,1\}veröffentlicht'; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::error title=Veröffentlichen::#$KURZ ist gemergt, aber nicht veröffentlicht – Grund in der Zusammenfassung des Laufs „Entwürfe veröffentlichen“."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+
+      - name: Live-Seite abwarten
+        id: live
+        if: steps.veroeffentlichen.outputs.ok == 'true'
+        timeout-minutes: 25
+        env:
+          ENTWURF: ${{ steps.stand.outputs.pr }}/${{ steps.vor.outputs.entwurf }}
+        run: |
+          set -uo pipefail
+          KURZ="$(sed -n 's/^kurzform:[[:space:]]*//p' "$ENTWURF" | head -n 1 | tr -d '"'"'"' \r')"
+          if [ -z "$KURZ" ]; then KURZ="$(basename "$ENTWURF" .md | sed 's/^[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}-//')"; fi
+          URL="https://ing-bassam.de/fachwissen/$KURZ/"
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          for versuch in $(seq 1 40); do
+            if SEITE="$(curl -fsSL --max-time 20 "$URL?v=$versuch" 2> /dev/null)" && ! printf '%s' "$SEITE" | grep -qi 'name="robots" content="noindex'; then
+              echo "online=true" >> "$GITHUB_OUTPUT"
+              echo "::notice title=Veröffentlicht::$URL"
+              exit 0
+            fi
+            sleep 30
+          done
+          echo "online=false" >> "$GITHUB_OUTPUT"
+          echo "::warning title=Veröffentlicht::$URL ist nach 20 Minuten noch nicht ohne noindex erreichbar – „Website ausliefern“ prüfen."
+
+      - name: Karim benachrichtigen
+        if: always() && steps.merge.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          NR: ${{ matrix.pr }}
+          TITEL: ${{ steps.vor.outputs.titel }}
+          URL: ${{ steps.live.outputs.url }}
+          ONLINE: ${{ steps.live.outputs.online }}
+          VEROEFFENTLICHT: ${{ steps.veroeffentlichen.outputs.ok }}
+          LAUF: ${{ steps.veroeffentlichen.outputs.lauf }}
+          KURZ: ${{ steps.vor.outputs.kurzform }}
+        run: |
+          set -euo pipefail
+          NAME="${TITEL#Entwurf: }"
+          TEXT="$RUNNER_TEMP/meldung.md"
+          if [ "$VEROEFFENTLICHT" = "true" ]; then
+            UEBERSCHRIFT="Veröffentlicht: $NAME"
+            {
+              echo "Der Beitrag ist nach bestandener automatischer Freigabe online:"
+              echo
+              echo "**$URL**"
+              if [ "$ONLINE" != "true" ]; then echo; echo "⚠️ Die Seite war beim Abschluss des Laufs noch nicht ohne noindex erreichbar – bitte in einigen Minuten ansehen."; fi
+              echo
+              echo "- Pull Request mit allen Prüfberichten: #$NR"
+              echo "- Zurückziehen: [Actions → Beitrag zurückziehen](https://github.com/$REPO/actions/workflows/beitrag-zurueckziehen.yml) → „Run workflow“ → Kurzform \`$KURZ\`. Die Seite ist dann nach wenigen Minuten offline."
+            } > "$TEXT"
+          else
+            UEBERSCHRIFT="Gemergt, aber nicht veröffentlicht: $NAME"
+            {
+              echo "#$NR hat alle Tore bestanden und ist gemergt, „Entwürfe veröffentlichen“ hat den Beitrag aber zurückgehalten."
+              if [ -n "${LAUF:-}" ]; then echo; echo "Grund: Zusammenfassung von https://github.com/$REPO/actions/runs/$LAUF"; fi
+              echo
+              echo "Er bleibt als Entwurf (noindex) liegen, bis der Grund behoben ist."
+            } > "$TEXT"
+          fi
+          gh label create "veröffentlicht" --color 0E8A16 --description "Automatisch veröffentlichter Beitrag" > /dev/null 2>&1 || true
+          ISSUE="$(gh issue create --title "$UEBERSCHRIFT" --body-file "$TEXT" --label "veröffentlicht")"
+          echo "Meldung: $ISSUE"
+          # Die Meldung geht beim Anlegen hinaus; geschlossen bleibt die Issue-Liste übersichtlich.
+          gh issue close "$ISSUE" > /dev/null || true

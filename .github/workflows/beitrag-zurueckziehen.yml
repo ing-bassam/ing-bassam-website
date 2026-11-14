@@ -1,0 +1,85 @@
+name: Beitrag zurückziehen
+
+# -----------------------------------------------------------------------------
+# Nimmt einen Beitrag von ing-bassam.de herunter – ein Klick:
+# Actions → Beitrag zurückziehen → Run workflow → Kurzform eingeben
+# (steht in der Adresse: ing-bassam.de/fachwissen/<kurzform>/ und in der
+# Meldung „Veröffentlicht: …“).
+#
+# Was passiert: Die Beitragsdatei wird aus entwuerfe/ gelöscht, der Seitenbau
+# entfernt die Seite und erneuert Übersicht, Sitemap und llms.txt, alles in
+# einem Commit „Beitrag zurückgezogen“ auf main. Danach liefert „Website
+# ausliefern“ den Stand ohne die Seite aus (wenige Minuten).
+#
+# Rückgängig: Den Commit „Beitrag zurückgezogen“ auf GitHub zurücknehmen
+# (git revert) – die Datei steht vollständig in der Versionsgeschichte.
+# -----------------------------------------------------------------------------
+
+on:
+  workflow_dispatch:
+    inputs:
+      kurzform:
+        description: "Kurzform des Beitrags, z. B. flachdach-undicht-ursachen-leckortung"
+        required: true
+        type: string
+
+run-name: "Beitrag zurückziehen: ${{ inputs.kurzform }}"
+
+concurrency:
+  group: beitrag-zurueckziehen
+  cancel-in-progress: false
+
+jobs:
+  zurueckziehen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: true
+
+      - name: Python bereitstellen
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+
+      - name: Abhängigkeiten installieren
+        run: python -m pip install --quiet 'markdown==3.7' 'PyYAML==6.0.2'
+
+      - name: Beitrag entfernen und Seiten neu bauen
+        env:
+          KURZ: ${{ inputs.kurzform }}
+          ZWEIG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          KURZ="$(printf '%s' "$KURZ" | tr -d '[:space:]' | sed 's#^.*/fachwissen/##; s#/$##')"
+          if ! [[ "$KURZ" =~ ^[a-z0-9-]+$ ]]; then
+            echo "::error title=Zurückziehen::„$KURZ“ ist keine Kurzform (nur Kleinbuchstaben, Ziffern, Bindestrich)."
+            exit 1
+          fi
+          mapfile -t TREFFER < <(grep -l -E "^kurzform:[[:space:]]*\"?${KURZ}\"?[[:space:]]*$" entwuerfe/entwurf/*.md entwuerfe/veroeffentlicht/*.md 2> /dev/null || true)
+          if [ "${#TREFFER[@]}" -ne 1 ]; then
+            echo "::error title=Zurückziehen::Zur Kurzform „$KURZ“ gibt es ${#TREFFER[@]} Beitragsdateien statt genau einer – nichts geändert."
+            exit 1
+          fi
+          git rm -q "${TREFFER[0]}"
+          python tools/artikel_generator.py > /dev/null || true
+          if [ -d "fachwissen/$KURZ" ]; then
+            echo "::error title=Zurückziehen::Der Seitenbau hat fachwissen/$KURZ/ nicht entfernt – nichts geändert."
+            exit 1
+          fi
+          if grep -rlq -- "$KURZ" entwuerfe-en 2> /dev/null; then
+            echo "::warning title=Zurückziehen::Eine englische Fassung verweist auf „$KURZ“ – bitte in entwuerfe-en/ prüfen."
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A entwuerfe fachwissen en/guides sitemap.xml llms.txt
+          # Die erste Zeile ist fest: tools/hauptzweig_pruefen.py erkennt daran einen erlaubten Bot-Commit.
+          git commit -q -m "Beitrag zurückgezogen" -m "fachwissen/$KURZ/ über den Workflow „Beitrag zurückziehen“ entfernt."
+          git pull -q --rebase --autostash origin "$ZWEIG"
+          git push -q origin "HEAD:$ZWEIG"
+          echo "::notice title=Zurückziehen::fachwissen/$KURZ/ entfernt. „Website ausliefern“ nimmt die Seite in wenigen Minuten vom Netz."
+          echo "Zurückgezogen: https://ing-bassam.de/fachwissen/$KURZ/ – rückgängig durch Zurücknehmen des Commits „Beitrag zurückgezogen“." >> "$GITHUB_STEP_SUMMARY"

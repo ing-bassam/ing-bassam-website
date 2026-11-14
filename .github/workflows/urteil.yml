@@ -200,6 +200,7 @@ jobs:
       pull-requests: write   # Pull Request öffnen, als Entwurf markieren und freigeben
       issues: write          # Kontingent-Pause als Issue (tools/kontingent.py)
       id-token: write        # von der Claude-Action benötigt
+      actions: write         # „Entwurf freigeben und veröffentlichen“ anstoßen
 
     steps:
       - name: Repository auschecken
@@ -976,6 +977,17 @@ jobs:
             gh pr comment "$NR" --body "Die Prüfungen sind fertig. Bitte oben auf „Ready for review“ klicken, dann lesen und zusammenführen." || true
             echo "::warning title=Urteilsbesprechung::Pull Request #$NR ließ sich nicht automatisch freigeben – Hinweis im Pull Request."
           fi
+
+      # Automatische Freigabe: Besteht der Entwurf alle Tore (Tests, wörtliche Übernahmen,
+      # Normstand, Urheberrecht, Fachliches, Recht, Ton), wird er gemergt und sofort
+      # veröffentlicht; sonst bleibt er mit Label „Karim prüfen“ offen.
+      - name: Automatische Freigabe anstoßen
+        if: ${{ !cancelled() && steps.ziel.outputs.freigeben != '' && steps.wortlaut.outputs.freigabe == 'true' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ steps.ziel.outputs.freigeben }}
+        run: gh workflow run entwurf-freigeben.yml --ref main -f pr="$NR"
 
       - name: Ergebnis melden
         if: always()
