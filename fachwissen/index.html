@@ -54,14 +54,14 @@
     </nav>
     <header class="uebersicht-kopf">
       <h1>Fachwissen</h1>
-      <p>88 Beiträge zu Bauschäden, Bauphysik, Baubetrieb und baurechtlichen Fragen – zum Eingrenzen ein Thema oder Format antippen.</p>
+      <p>89 Beiträge zu Bauschäden, Bauphysik, Baubetrieb und baurechtlichen Fragen – zum Eingrenzen ein Thema oder Format antippen.</p>
     </header>
           <form class="filter" aria-label="Beiträge eingrenzen">
         <p class="filter-titel">Thema</p>
         <div class="chips">
-          <input type="radio" name="filter" id="filter-alle" checked><label for="filter-alle">Alle <span>88</span></label>
+          <input type="radio" name="filter" id="filter-alle" checked><label for="filter-alle">Alle <span>89</span></label>
           <input type="radio" name="filter" id="filter-k-baubetrieb"><label for="filter-k-baubetrieb">Baubetrieb <span>16</span></label>
-          <input type="radio" name="filter" id="filter-k-bauherrenwissen"><label for="filter-k-bauherrenwissen">Bauherrenwissen <span>19</span></label>
+          <input type="radio" name="filter" id="filter-k-bauherrenwissen"><label for="filter-k-bauherrenwissen">Bauherrenwissen <span>20</span></label>
           <input type="radio" name="filter" id="filter-k-bauphysik"><label for="filter-k-bauphysik">Bauphysik <span>2</span></label>
           <input type="radio" name="filter" id="filter-k-bauschaeden"><label for="filter-k-bauschaeden">Bauschäden <span>4</span></label>
           <input type="radio" name="filter" id="filter-k-energie-foerderung"><label for="filter-k-energie-foerderung">Energie &amp; Förderung <span>2</span></label>
@@ -75,11 +75,17 @@
           <input type="radio" name="filter" id="filter-f-grundlagen"><label for="filter-f-grundlagen">Grundlagen <span>7</span></label>
           <input type="radio" name="filter" id="filter-f-ratgeber"><label for="filter-f-ratgeber">Ratgeber <span>20</span></label>
           <input type="radio" name="filter" id="filter-f-rechtsprechung"><label for="filter-f-rechtsprechung">Rechtsprechung <span>29</span></label>
-          <input type="radio" name="filter" id="filter-f-vorlage"><label for="filter-f-vorlage">Vorlage <span>25</span></label>
+          <input type="radio" name="filter" id="filter-f-vorlage"><label for="filter-f-vorlage">Vorlage <span>26</span></label>
         </div>
       </form>
       <style>main:has(#filter-k-baubetrieb:checked) .karte:not([data-kategorie="baubetrieb"]){display:none}#filter-k-baubetrieb:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-bauherrenwissen:checked) .karte:not([data-kategorie="bauherrenwissen"]){display:none}#filter-k-bauherrenwissen:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-bauphysik:checked) .karte:not([data-kategorie="bauphysik"]){display:none}#filter-k-bauphysik:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-bauschaeden:checked) .karte:not([data-kategorie="bauschaeden"]){display:none}#filter-k-bauschaeden:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-energie-foerderung:checked) .karte:not([data-kategorie="energie-foerderung"]){display:none}#filter-k-energie-foerderung:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-gutachten-recht:checked) .karte:not([data-kategorie="gutachten-recht"]){display:none}#filter-k-gutachten-recht:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-k-hausverwaltung-bestand:checked) .karte:not([data-kategorie="hausverwaltung-bestand"]){display:none}#filter-k-hausverwaltung-bestand:checked+label{--chip:var(--kat,var(--accent))}main:has(#filter-f-checkliste:checked) .karte:not([data-format="checkliste"]){display:none}main:has(#filter-f-fachbeitrag:checked) .karte:not([data-format="fachbeitrag"]){display:none}main:has(#filter-f-grundlagen:checked) .karte:not([data-format="grundlagen"]){display:none}main:has(#filter-f-ratgeber:checked) .karte:not([data-format="ratgeber"]){display:none}main:has(#filter-f-rechtsprechung:checked) .karte:not([data-format="rechtsprechung"]){display:none}main:has(#filter-f-vorlage:checked) .karte:not([data-format="vorlage"]){display:none}label[for="filter-k-baubetrieb"]{--kat:var(--kat-baubetrieb)}label[for="filter-k-bauherrenwissen"]{--kat:var(--kat-bauherrenwissen)}label[for="filter-k-bauphysik"]{--kat:var(--kat-bauphysik)}label[for="filter-k-bauschaeden"]{--kat:var(--kat-bauschaeden)}label[for="filter-k-energie-foerderung"]{--kat:var(--kat-energie-foerderung)}label[for="filter-k-gutachten-recht"]{--kat:var(--kat-gutachten-recht)}label[for="filter-k-hausverwaltung-bestand"]{--kat:var(--kat-hausverwaltung-bestand)}</style>
       <ul class="karten">
+        <li class="karte" data-kategorie="bauherrenwissen" data-format="vorlage">
+          <div class="marken"><span class="marke marke--kategorie" data-kategorie="bauherrenwissen">Bauherrenwissen</span> <span class="marke">Vorlage</span></div>
+          <h2><a href="abschlagszahlungen-zahlungsplan-pruefhilfe/">Prüfhilfe Abschlagszahlungen und Zahlungsplan</a></h2>
+          <p>Prüfhilfe für Abschlagszahlungen beim Hausbau: Zahlungsplan, Rechnung, Bautenstand, Mängel und Sicherheiten vor jeder Rate prüfen. Kostenlos als PDF.</p>
+          <p class="karte-meta"><time datetime="2026-11-10">10.11.2026</time> · etwa 10 Minuten</p>
+        </li>
         <li class="karte" data-kategorie="gutachten-recht" data-format="rechtsprechung">
           <div class="marken"><span class="marke marke--kategorie" data-kategorie="gutachten-recht">Gutachten &amp; Recht</span> <span class="marke">Rechtsprechung</span></div>
           <h2><a href="tiefgarage-ohne-gefaelle-pfuetzen/">Pfützen in der Tiefgarage: Was das OLG Stuttgart entschied</a></h2>
