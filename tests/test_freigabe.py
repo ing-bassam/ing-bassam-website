@@ -119,6 +119,8 @@ class Workflow(unittest.TestCase):
         self.assertIn("steps.bericht.outputs.ok == 'true'", merge["if"])
         self.assertIn("--match-head-commit", merge["run"])
         self.assertIn("--squash", merge["run"])
+        # Nach dem Veröffentlichen muss die Auslieferung ausdrücklich angestoßen werden.
+        self.assertIn("gh workflow run website-ausliefern.yml", schritte["Veröffentlichen"]["run"])
         self.assertNotIn("--admin", (WURZEL / ".github/workflows/entwurf-freigeben.yml").read_text(encoding="utf-8"))
         # Der Agent darf weder git noch gh noch Edit benutzen.
         werkzeuge = schritte["Freigabeprüfung"]["with"]["claude_args"]

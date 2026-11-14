@@ -588,6 +588,9 @@ jobs:
           git fetch -q origin main
           if git show "origin/main:entwuerfe/veroeffentlicht/$STAMM.md" 2> /dev/null | grep -qi '^status:[[:space:]]*"\{0,1\}veröffentlicht'; then
             echo "ok=true" >> "$GITHUB_OUTPUT"
+            # Ein mit dem GITHUB_TOKEN gestarteter Lauf löst kein workflow_run aus –
+            # „Website ausliefern“ deshalb ausdrücklich anstoßen.
+            gh workflow run website-ausliefern.yml --ref main               || echo "::warning title=Veröffentlichen::„Website ausliefern“ ließ sich nicht anstoßen."
           else
             echo "::error title=Veröffentlichen::#$KURZ ist gemergt, aber nicht veröffentlicht – Grund in der Zusammenfassung des Laufs „Entwürfe veröffentlichen“."
             echo "ok=false" >> "$GITHUB_OUTPUT"
