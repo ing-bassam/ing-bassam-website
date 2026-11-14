@@ -18,15 +18,15 @@ autor: M. Sc. Karim Abu Elkheir
 qualifikation:
 kurzform: aufmass-messverfahren-nachweis-bausoll
 erstellt: 2026-09-20
-aktualisiert: 2026-09-21
+aktualisiert: 2026-11-14
 status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
 fachlich_geprueft_von: 
 fachlich_geprueft_am: 
-wortzahl: 6621
-lesezeit: 34 Minuten
+wortzahl: 6583
+lesezeit: 33 Minuten
 fussnoten: 13
 quellen_geprueft: 9
 zahlenwerte_norm: 0
@@ -82,13 +82,13 @@ Für den Auftragnehmer folgt daraus eine Lage, die im Bauablauf oft unterschätz
 
 ## Warum das vereinbarte Messverfahren über den Nachweis entscheidet
 
-Der für die Baupraxis wichtigste Teil der Entscheidung betrifft nicht die Frage, wer messen muss, sondern wie zu messen ist. Das Kammergericht hat den Nachweis des Bausolls in zwei Schritten geprüft: Es hat gefragt, ob die vorgelegten Messergebnisse das geschuldete Ergebnis belegen, und es hat gefragt, ob das eingesetzte Messverfahren den vertraglichen Vorgaben entsprach.[^1] Beide Fragen hat der Senat verneint. Bereits die eigenen Handlotungen der Nachunternehmerin vom Februar und März 2016 wiesen an 16,26 Prozent der Messpunkte Überschreitungen der geschuldeten Aushubtiefe aus.
+Der für die Baupraxis wichtigste Teil der Entscheidung betrifft nicht die Frage, wer messen muss, sondern wie zu messen ist. Das Kammergericht hat den Nachweis des Bausolls in zwei Schritten geprüft: Es hat gefragt, ob die vorgelegten Messergebnisse das geschuldete Ergebnis belegen, und es hat gefragt, ob das eingesetzte Messverfahren den vertraglichen Vorgaben entsprach.[^1] Beide Fragen hat der Senat verneint. Bereits die eigenen Handlotungen der Nachunternehmerin vom Februar und März 2016 zeigten an 16,26 Prozent der Messpunkte, dass die geschuldete Aushubtiefe nicht erreicht war.
 
 Der zweite Schritt greift unabhängig vom Messergebnis. Der Vertrag sah eine konventionelle geodätische Lotung vor, die eine Laserebene als Bezugsbasis verwendet und eine Messtoleranz von plus/minus zwei Zentimetern gewährleistet.[^1] Die Nachunternehmerin führte zwar eine geodätische Lotung durch, verzichtete aber unstreitig auf die Laserebene und bestimmte die Höhe stattdessen über ein satellitengestütztes Positionierungssystem im Echtzeitverfahren. Dieses Verfahren erreicht nach den Ausführungen des Sachverständigen nur eine Genauigkeit von plus/minus drei Zentimetern. Damit war die vertragliche Vorgabe für das Messverfahren in zwei Punkten nicht eingehalten: bei der Bezugsbasis und bei der Messgenauigkeit.
 
 Der gerichtliche Sachverständige hat die vertragliche Vorgabe zugleich fachlich begründet, und der Senat hat sich dem angeschlossen.[^1] Bei einem Verfahren mit Laserbezugsebene wird von einem Festpunkt an Land mit bekannter Höhe ein horizontaler Laser ausgesandt, der die Messstange an der Wasseroberfläche trifft. Bei satellitengestützter Höhenbestimmung wird ein Empfänger an der Austrittsstelle der Messstange angebracht, eine Basisstation an Land einbezogen und die Höhe über Positionssignale ermittelt. Nach den Ausführungen des Sachverständigen erreicht nur ein satellitengestütztes Verfahren mit nachträglicher Auswertung eine Genauigkeit von plus/minus zwei Zentimetern. Auch dann hielt er zumindest eine stichprobenhafte Kontrolle über eine Laserebene für erforderlich, weil die Laserebene eine höhere Messgenauigkeit und Messsicherheit sicherstellt.
 
-Auch die Ausführung der Lotung selbst hat der Senat in den Blick genommen. Nach den Feststellungen des Sachverständigen waren die Messmarkierungen auf dem Stahlseil, an dem das Lot herabgelassen wurde, zu grob, um die geforderte Messtoleranz von plus/minus zwei Zentimetern überhaupt zu erreichen.[^1] Im Vergleich mit den Kontrollmessungen der Auftraggeberin hat der Sachverständige außerdem erläutert, dass ein Seil im Gegensatz zu einer Messstange durchhängen kann und dass ein schwereres Lot zuverlässiger bis auf die Aushubsohle einsinkt. Die klassische Handlotung am Stahlseil hat er gleichwohl als vertragskonformes Verfahren eingestuft. Der Senat hat die Messung also nicht verworfen, weil sie einfach war. Ausschlaggebend waren die eigenen Überschreitungen, die fehlende Laserebene, die zu geringe Genauigkeit des Höhensystems und die zu groben Seilmarkierungen.
+Auch die Ausführung der Lotung selbst hat der Senat in den Blick genommen. Nach den Feststellungen des Sachverständigen waren die Messmarkierungen auf dem Stahlseil, an dem das Lot herabgelassen wurde, zu grob, um die geforderte Messtoleranz von plus/minus zwei Zentimetern überhaupt zu erreichen.[^1] Im Vergleich mit den Kontrollmessungen der Auftraggeberin hat der Sachverständige außerdem erläutert, dass ein Seil im Gegensatz zu einer Messstange durchhängen kann und dass ein schwereres Lot zuverlässiger bis auf die Aushubsohle einsinkt. Die klassische Handlotung am Stahlseil hat er gleichwohl als vertragskonformes Verfahren eingestuft. Der Senat hat die Messung also nicht verworfen, weil sie einfach war. Ausschlaggebend waren die eigenen Messwerte mit nicht erreichter Tiefe, die fehlende Laserebene, die zu geringe Genauigkeit des Höhensystems und die zu groben Seilmarkierungen.
 
 Hinzu kamen Kontrollmessungen, die die Auftraggeberin durch ein weiteres Unternehmen hatte vornehmen lassen. Danach lag das Planum an 78,78 Prozent der Messpunkte oberhalb des Toleranzrahmens.[^1] Der Senat sah keinen Anhaltspunkt dafür, dass diese Messungen schwächer oder unzuverlässiger wären als die der Nachunternehmerin, und hat ihnen deshalb erhebliches Gewicht beigemessen: Sie reduzierten die Überzeugungskraft der Eigenmessungen deutlich. Dass die Ergebnisse auf fünf Zentimeter gerundet dargestellt waren, sagt nach den Ausführungen des Sachverständigen nichts über die Messgenauigkeit aus, sondern betrifft nur die Darstellung. Im Ergebnis stellte der Senat ein non liquet fest, also die Unaufklärbarkeit der Beweisfrage, die zu Lasten der beweisbelasteten Nachunternehmerin ging.
 
@@ -170,7 +170,7 @@ Die Entscheidung trifft auch keine allgemeine Aussage über Toleranzen am Bau. D
 
 Ebenso wenig entscheidet das Urteil, dass Eigenkontrolldaten oder satellitengestützte Messungen generell untauglich wären. Der Senat hat diese Verfahren nicht als solche verworfen, sondern gemessen an dem, was der Vertrag vorschrieb.[^1] Der Sachverständige hat ausdrücklich festgehalten, dass eine Höhenbestimmung auch über Satellitensignale erfolgen kann und dass ein satellitengestütztes Verfahren mit nachträglicher Auswertung die geforderte Genauigkeit von plus/minus zwei Zentimetern erreicht. Auch dann hielt er allerdings zumindest eine stichprobenhafte Kontrolle über eine Laserebene für erforderlich. Wo ein Vertrag keine Vorgaben zum Messverfahren enthält, stellt sich die Frage der Tauglichkeit völlig anders. Moderne Verfahren der Bauwerksaufnahme und zerstörungsfreie Prüfverfahren sind Gegenstand laufender Forschung und gewinnen an Bedeutung.[^6][^7]
 
-Die Entscheidung sagt außerdem nichts darüber, wie ein vergleichbarer Fall ausgehen würde, in dem der Auftragnehmer die vertraglich vorgeschriebene Messung ordnungsgemäß durchgeführt und dokumentiert hat und deren Werte das Bausoll belegen. Der Senat hat ein non liquet festgestellt, also die Unaufklärbarkeit der Beweisfrage.[^1] Diese Unaufklärbarkeit ging zu Lasten der Nachunternehmerin, weil sie die Beweislast trug. Im Streitfall kam hinzu, dass schon ihre eigenen Messwerte Überschreitungen zeigten. Ein Ergebnis für andere Fallgestaltungen lässt sich daraus nicht vorhersagen.
+Die Entscheidung sagt außerdem nichts darüber, wie ein vergleichbarer Fall ausgehen würde, in dem der Auftragnehmer die vertraglich vorgeschriebene Messung ordnungsgemäß durchgeführt und dokumentiert hat und deren Werte das Bausoll belegen. Der Senat hat ein non liquet festgestellt, also die Unaufklärbarkeit der Beweisfrage.[^1] Diese Unaufklärbarkeit ging zu Lasten der Nachunternehmerin, weil sie die Beweislast trug. Im Streitfall kam hinzu, dass schon ihre eigenen Messwerte die geschuldete Tiefe nicht durchgehend belegten. Ein Ergebnis für andere Fallgestaltungen lässt sich daraus nicht vorhersagen.
 
 Offen bleibt schließlich die Frage, ob die verzugsbedingte Kündigungsregelung auch bei Zwischenfristen greift, die nicht als selbständiger Teilerfolg vereinbart sind. Das Kammergericht hat den Meinungsstreit ausführlich dargestellt, eine Tendenz erkennen lassen und die Entscheidung dann ausdrücklich offengelassen.[^1] Im Streitfall kam es darauf nicht an, weil die Parteien das Gewerk als rechtlich selbständigen Teilerfolg mit eigener Teilabnahme vereinbart hatten. Ebenso offengelassen hat der Senat, ob eine Pflicht zur Teilkündigung bestand. Wie diese Fragen in einer anderen Vertragskonstellation zu beurteilen sind, beurteilt ein Rechtsanwalt.
 
@@ -200,7 +200,7 @@ Ein Privatgutachten wird von einer Partei beauftragt und gilt im Prozess als qua
 
 **Ist die Entscheidung des Kammergerichts rechtskräftig?**
 
-Das Kammergericht hat die Revision nicht zugelassen, weil es der Rechtssache keine grundsätzliche Bedeutung beigemessen hat. Es handelt sich um ein Teilurteil und ein Grundurteil; ein Grundurteil ist nach § 304 Absatz 2 der Zivilprozessordnung hinsichtlich der Rechtsmittel wie ein Endurteil zu behandeln. Über die Höhe des Anspruchs ist noch nicht entschieden; das Betragsverfahren bleibt vorbehalten. Ob gegen die Entscheidung ein Rechtsmittel eingelegt wurde, ist aus dem veröffentlichten Volltext nicht ersichtlich. Der aktuelle Verfahrensstand ist vor einer Verwendung der Entscheidung zu prüfen.
+Das Kammergericht hat die Revision nicht zugelassen, weil es der Rechtssache keine grundsätzliche Bedeutung beigemessen hat. Es handelt sich um ein Teilurteil und ein Grundurteil; ein Grundurteil ist nach § 304 Absatz 2 der Zivilprozessordnung hinsichtlich der Rechtsmittel wie ein Endurteil zu behandeln. Über die Höhe des Anspruchs ist noch nicht entschieden; das Betragsverfahren bleibt vorbehalten. Nach dem Eintrag im Berliner Landesrechtsportal (Stand November 2026) ist die Entscheidung hinsichtlich des Teil- und des Grundurteils rechtskräftig; das Betragsverfahren ist offen. Der Verfahrensstand kann sich weiter ändern und ist vor einer Verwendung der Entscheidung zu prüfen.
 
 ## Hinweis
 
