@@ -40,7 +40,7 @@ Verwechslungen sind häufig. Ein Fleck unter dem Flachdach kann auch von Kondens
 
 Wer die Zeichen beobachtet, sollte auf den zeitlichen Verlauf achten. Tritt der Fleck nur nach Regen auf, spricht das eher für einen Wassereintritt von außen. Wächst er auch bei trockenem Wetter oder im Winter, kommen Kondensat oder eine bereits durchfeuchtete Dämmung in Betracht. Ein Flachdach mit durchnässter Dämmung gibt Wasser verzögert ab, sodass der Zusammenhang mit einem Regentag verschwimmt.
 
-Besonders tückisch ist, dass ein Flachdach nicht immer innen sichtbar leckt. Ist unter der Dämmung eine dichte Dampfsperre, etwa mit Metalleinlage, eingebaut, kann Wasser den Raum darunter zunächst nicht erreichen, während der Dachaufbau bereits durchnässt ist.[^2] Von einem trockenen Innenraum auf ein dichtes Dach zu schließen, greift deshalb zu kurz. Ein trockener Innenraum schließt eine feuchte Dachkonstruktion nicht aus.
+Tückisch ist auch, dass ein Flachdach nicht immer innen sichtbar leckt. Eine dichte Dampfsperre unter der Dämmung, etwa mit Metalleinlage, kann das Wasser vom Raum fernhalten, obwohl der Aufbau darüber längst durchnässt ist.[^2] Ein trockener Raum sagt deshalb wenig darüber, ob die Dachkonstruktion trocken ist; auf ein dichtes Dach darf man daraus nicht schließen.
 
 Der Aufbau des Flachdaches bestimmt, wie sich Wasser verhält. Beim Warmdach liegt die Dämmung unter der Abdichtung, beim Umkehrdach darüber, und beim Kaltdach ist die Konstruktion belüftet. Ein Warmdach mit nasser Dämmung verteilt Wasser flächig, während es bei einem belüfteten Aufbau eher in den Hohlraum gelangt. Wer das Flachdach undicht nennt, sollte deshalb wissen, welche Bauart vorliegt, weil sie Verlauf und Untersuchungsweg des Wassers prägt.
 
@@ -56,15 +56,15 @@ Ist das Gebäude versichert, informieren Sie den Versicherer unverzüglich und h
 
 ## Warum wird ein Flachdach undicht? Die Ursachen im Überblick
 
-Ein Flachdach wird nicht aus einem einzigen Grund undicht. Die Fachliteratur unterscheidet Planungsfehler, Materialfehler und Ausführungsfehler und hält fest, dass in der Regel mehrere Ursachen gleichzeitig für einen Schaden verantwortlich sind.[^1] Hinzu kommen die natürliche Alterung der Abdichtung und mangelnde Wartung, die diese Alterung beschleunigen kann. Wer die Ursache sucht, sucht deshalb selten nur ein einzelnes Loch.
+Selten steckt hinter einem undichten Flachdach nur ein einzelner Grund. Fehler können in der Planung, im Material oder in der Ausführung liegen, und oft kommen mehrere zusammen.[^1] Dazu treten die Alterung der Abdichtung und fehlende Pflege, die den Verschleiß beschleunigen. Wer die Ursache sucht, sucht deshalb selten nur ein einzelnes Loch.
 
-Die Funktionsweise eines Flachdaches erklärt, warum Details so heikel sind. Die Dachabdichtung bildet eine Art wasserdichte Wanne. Sie wird am Dachrand, an aufgehenden Wänden und an Durchdringungen wie Rohren, Lichtkuppeln oder Kaminen hochgeführt und dort hinterlaufsicher angeschlossen.[^3] Diese Anschlüsse sind die komplizierteste Stelle des Aufbaus. Eine zu niedrige Anschlusshöhe, ein ungenügend befestigter Anschluss oder ein Anschluss mit Schadstellen lässt Wasser hinter die Abdichtung laufen.
+Warum Details so heikel sind, zeigt der Aufbau: Die Abdichtung soll das Gebäude nach oben wie eine dichte Schale abschließen. An Rändern, an aufgehenden Wänden und rund um Rohre, Lichtkuppeln oder Kamine muss sie nach oben geführt und so befestigt werden, dass kein Wasser dahinter gelangt.[^3] Gerade diese Übergänge sind aufwendig herzustellen. Ist ein Anschluss zu niedrig, nicht ausreichend gesichert oder beschädigt, läuft Wasser hinter die Abdichtung.
 
 Die Abdichtung von Dächern regelt in Deutschland die Normenreihe DIN 18531, die Norm für die Abdichtung von Dächern sowie von Balkonen, Loggien und Laubengängen.[^4] Ihr erster Teil legt Anforderungen sowie Planungs- und Ausführungsgrundsätze für Dächer fest. Ob ein Anschluss oder eine Entwässerung den Regeln der Technik entspricht, beurteilt ein Sachverständiger am Einzelfall. Die einzelnen Werte einer Norm hängen von der Ausgabe und der Bauart ab; der Beitrag nennt sie deshalb nicht.
 
-Die Abdichtung wird zudem beansprucht. Neben Niederschlag und Feuchte wirken mechanische und thermische Einwirkungen sowie UV-Strahlung; bei begrünten Dächern kommt Wurzelwachstum hinzu.[^3] Mechanische Schäden entstehen oft nicht durch das Wetter, sondern durch Menschen: durch Handwerker, die das Dach betreten, durch Geräte, die auf dem Dach aufgestellt werden, oder durch herabfallende Teile. Ein einmaliger Kratzer kann Jahre später zum Wassereintritt führen.
+Hinzu kommen die Beanspruchungen im Betrieb: Wasser und Feuchte, Bewegungen und Temperaturwechsel, Sonnenstrahlung und bei Gründächern durchwachsende Wurzeln.[^3] Mechanische Schäden entstehen oft nicht durch das Wetter, sondern durch Menschen: durch Handwerker, die das Dach betreten, durch Geräte, die auf dem Dach aufgestellt werden, oder durch herabfallende Teile. Ein einmaliger Kratzer kann Jahre später zum Wassereintritt führen.
 
-Auch die Entwässerung spielt eine Rolle. Abläufe gehören an die tiefsten Punkte der Dachfläche. Selbst bei vorhandenem Gefälle kann es durch Ebenheitsabweichungen, Durchbiegungen und Bahnüberlappungen zu zeitweiliger Pfützenbildung auf dem Flachdach kommen.[^5] Verstopfte Abläufe, Laub oder Pflanzenbewuchs verstärken den Wasserstand. Steht Wasser länger auf der Abdichtung, steigt die Belastung der Nähte, und ein Wassereintritt wird wahrscheinlicher.
+Auch die Entwässerung ist wichtig. Das Wasser soll zu Abläufen an den tiefsten Stellen fließen. Dass sich trotz Gefälle zeitweise Pfützen bilden, kommt vor, etwa weil die Fläche nicht ganz eben ist, sich Bauteile durchbiegen oder Bahnen überlappen.[^5] Verstopfte Abläufe, Laub oder Pflanzenbewuchs verstärken den Wasserstand. Steht Wasser länger auf der Abdichtung, steigt die Belastung der Nähte, und ein Wassereintritt wird wahrscheinlicher.
 
 Schließlich gilt die Wartung als eigener Ursachenblock. Nach Auffassung der Fachliteratur beruht das Vorurteil, Flachdächer seien auch bei einwandfreier Ausführung besonders schadensanfällig, fast immer auf jahrelanger Vernachlässigung.[^6] Schäden zeigen sich bei oft nicht einsehbaren Flächen erst spät und fallen dann folgenschwer aus. Eine regelmäßige Inspektion mit schriftlichem Protokoll senkt dieses Risiko, auch wenn sie keinen Schaden ausschließt.
 
@@ -88,11 +88,11 @@ Beobachten Sie auch den Ablauf des Wassers, soweit Sie ihn ohne Risiko sehen kö
 
 ## Welche Fehler bei einem undichten Flachdach typisch sind
 
-Ein typischer Fehler beim undichten Flachdach ist die Reparatur an der falschen Stelle. Weil der Fleck im Raum selten unter der Leckstelle liegt, bringt eine Abdichtung dort, wo es innen tropft, in der Regel keine Abhilfe. Auch eine Wasserprobe hilft nicht weiter: Nach der Fachliteratur lässt sich damit keine Leckortung durchführen, und sie ist bei der Abnahme eine Verschwendung von Wasser.[^2] Ein Dach, das dabei trocken bleibt, ist nicht automatisch dicht.
+Ein typischer Fehler beim undichten Flachdach ist die Reparatur an der falschen Stelle. Weil der Fleck im Raum selten unter der Leckstelle liegt, bringt eine Abdichtung dort, wo es innen tropft, in der Regel keine Abhilfe. Auch das Fluten oder Abspritzen der Fläche führt meist nicht weiter: Eine Leckstelle lässt sich so kaum zuverlässig finden, und ein Dach, das dabei trocken bleibt, ist nicht automatisch dicht.[^2]
 
 Ebenso riskant ist die schnelle Überarbeitung der Oberfläche. Wird die schadhafte Stelle überklebt, ohne die Ursache zu klären, bleibt Wasser womöglich im Dachaufbau eingeschlossen. Eine durchfeuchtete Dämmung muss nach der Fachliteratur nicht zwingend erneuert werden, solange die Funktion des Daches nicht gefährdet ist; ob das im Einzelfall zutrifft, klärt aber eine Untersuchung, nicht die Vermutung.[^7] Wer ohne Befund saniert, riskiert einen unnötigen Abriss oder eine nur scheinbare Reparatur.
 
-Ein dritter Fehler betrifft die Wartung. Viele Schäden an einem Flachdach entstehen nach der Fachliteratur aus jahrelanger Vernachlässigung.[^6] Verstopfte Abläufe, Laub, Pflanzenbewuchs und lose Kiesschüttungen bleiben unbemerkt, bis Wasser eintritt. Die Fachliteratur empfiehlt, die Dachfläche samt Anschlüssen, Durchdringungen und Übergängen mindestens einmal im Jahr zu überprüfen und das Ergebnis schriftlich festzuhalten.[^6] Ohne dieses Protokoll fehlt später der Nachweis, in welchem Zustand das Dach war.
+Ein dritter Fehler betrifft die Wartung. Viele Schäden an einem Flachdach entstehen nach der Fachliteratur aus jahrelanger Vernachlässigung.[^6] Verstopfte Abläufe, Laub, Pflanzenbewuchs und lose Kiesschüttungen bleiben unbemerkt, bis Wasser eintritt. Die Fachliteratur empfiehlt, Dachfläche, Anschlüsse, Durchdringungen und Übergänge regelmäßig zu überprüfen, die Entwässerung öfter als die Fläche, und das Ergebnis schriftlich festzuhalten; die genauen Abstände ergeben sich aus der maßgebenden Norm und dem Wartungsvertrag.[^6] Ohne dieses Protokoll fehlt später der Nachweis, in welchem Zustand das Dach war.
 
 Viertens verhindert der Wunsch nach Eile eine saubere Beweislage. Wer das Dach ohne Dokumentation aufreißen lässt, vernichtet Spuren. Sind mehrere Beteiligte im Spiel, etwa der Planer, die Dachdeckerfirma, der Verwalter und der Versicherer, kann der Zustand vor dem Eingriff für spätere Fragen wichtig sein. Ob und wem gegenüber Ansprüche bestehen, ist eine Rechtsfrage; sie beurteilt ein Rechtsanwalt anhand des Vertrags und der Umstände.
 
@@ -102,9 +102,9 @@ Nach einer Reparatur gehört eine Kontrolle zum sauberen Vorgehen. Wird eine Lec
 
 Eine Leckortung ist die Suche nach der genauen Stelle, an der Wasser durch die Dachabdichtung eindringt. Am Anfang steht keine Messung, sondern die Auswertung: Unterlagen, Aufbau des Daches, Ort und Verlauf der Feuchte innen, Wetter und Geschichte der Fläche. Aus diesen Angaben entsteht eine Hypothese, wo das Wasser eintreten kann. Dann folgt die Sichtprüfung der Abdichtung, der Anschlüsse, der Durchdringungen und der Abläufe, soweit sie gefahrlos erreichbar sind.
 
-Danach wählt der Sachverständige ein Messverfahren. Die Fachliteratur nennt eine ganze Reihe: Prüfung der Nähte, Elektroimpuls- und Potentialverfahren, Tracergas, Rauchgas, Färbemittel, Radiometrie und Thermografie.[^2] Welches Verfahren sich eignet, hängt von Aufbau, Auflast und Aufgabe ab. Eine allgemeingültige Zuordnung gibt es nach dieser Quelle nicht; oft führt erst eine Kombination mehrerer Verfahren zum Ergebnis. Je nach Fragestellung werden Fachfirmen oder Messdienstleister hinzugezogen.
+Danach wählt der Sachverständige ein Messverfahren. Zur Auswahl stehen mehrere Verfahren, von der Prüfung der Nähte über elektrische Messungen und Gasverfahren bis zu Färbemitteln, Radiometrie und Thermografie.[^2] Ein Verfahren, das für jedes Dach passt, gibt es nicht. Maßgebend sind Aufbau, Auflast und Fragestellung, und häufig bringt erst die Kombination mehrerer Methoden das Ergebnis. Je nach Fall werden Fachfirmen oder Messdienstleister hinzugezogen.
 
-Zwei Verfahren zeigen das Prinzip. Beim Tracergasverfahren wird ein Prüfgas, etwa Helium oder ein Wasserstoff-Stickstoff-Gemisch, unter die Abdichtung eingebracht. Es tritt an Fehlstellen aus und wird von einem abgestimmten Gerät erfasst.[^8] Elektrische Verfahren arbeiten dagegen mit elektrischen Messgrößen auf der Dachfläche, um Fehlstellen in der Abdichtung aufzuspüren. Nach der älteren Fachliteratur eignet sich das Elektroimpulsverfahren für ein klassisches Warmdach mit Kies und bituminöser Abdichtung, das Tracergasverfahren eher für große Foliendächer.[^2]
+Zwei Verfahren zeigen das Prinzip. Beim Tracergasverfahren leitet man ein Prüfgas unter die Abdichtung, zum Beispiel Helium oder ein Wasserstoff-Stickstoff-Gemisch; wo es durch eine Fehlstelle nach oben dringt, spricht ein darauf abgestimmtes Messgerät an.[^8] Elektrische Verfahren nutzen dagegen Messgrößen auf der Dachfläche, um Fehlstellen in der Abdichtung zu finden. Ältere Fachliteratur ordnet das Elektroimpulsverfahren eher klassischen Kiesdächern mit bituminöser Abdichtung zu und das Tracergasverfahren eher großen Foliendächern.[^2]
 
 Neben der Leckstelle interessiert den Sachverständigen, wie weit das Wasser sich im Aufbau verteilt hat. Dafür kommen Radiometrie mit Neutronensonde und Thermografie zum Einsatz, die die Feuchteverteilung sichtbar machen, ohne das Dach zu öffnen.[^9] Die Messung zeigt, ob eine punktuelle Reparatur genügt oder ob größere Flächen betroffen sind. Wo ein Dach dauerhaft überwacht werden soll, kommen Sensoren unter der Abdichtung in Betracht, die Feuchte melden.[^10]
 
@@ -138,7 +138,7 @@ Wer selbst Partei in einem Streit ist, etwa als Eigentümer, Verwalter oder Betr
 
 Vor der Sanierung sollte die Untersuchung stehen. Wird das Dach ohne Befund geöffnet, gehen Informationen verloren, die später für die Ursachenklärung fehlen. Bis der Sachverständige da ist, gelten die Grundregeln: Schadenbegrenzung zuerst, Fotos mit Datum, kein Betreten des Daches, kein Öffnen von Bauteilen. Ein ruhiges, geordnetes Vorgehen spart Zeit, weil die Leckortung dann gezielter erfolgt.
 
-Für Hausverwaltungen und Betreiber größerer Gebäude lohnt eine feste Routine. Eine jährliche Dachinspektion mit Protokoll, die Kontrolle der Abläufe und eine Liste aller Durchdringungen und Aufbauten machen späteren Schäden gegenüber handlungsfähig. Wer weiß, wann und von wem das Flachdach zuletzt kontrolliert wurde, kann bei einem Wassereintritt schneller entscheiden, ob eine Untersuchung nötig ist und welche Unterlagen der Sachverständige erhält.
+Für Hausverwaltungen und Betreiber größerer Gebäude lohnt eine feste Routine. Eine regelmäßige Inspektion der Dachfläche mit Protokoll, eine häufigere Kontrolle der Abläufe und eine Liste aller Durchdringungen und Aufbauten machen späteren Schäden gegenüber handlungsfähig. Wer weiß, wann und von wem das Flachdach zuletzt kontrolliert wurde, kann bei einem Wassereintritt schneller entscheiden, ob eine Untersuchung nötig ist und welche Unterlagen der Sachverständige erhält.
 
 ## Häufige Fragen
 
@@ -148,11 +148,11 @@ Wasser, das durch die Abdichtung dringt, bleibt oft im Dachaufbau, etwa in der D
 
 **Kann ich mein Flachdach mit Wasser selbst testen?**
 
-Davon ist abzuraten. Nach der Fachliteratur lässt sich mit einer Wasserprobe keine Leckortung durchführen, und ein trockenes Ergebnis beweist nicht, dass das Dach dicht ist. Hinzu kommt, dass der Test eine Dachbegehung und das Hantieren mit Wasser auf dem Flachdach verlangt, was Absturz- und Schadenrisiken birgt. Eine Untersuchung durch Fachleute ist die sicherere Lösung.
+Davon ist abzuraten. Eine Wasserprobe eignet sich nach der Fachliteratur nicht, um eine Leckstelle zu finden, und ein trockenes Ergebnis beweist nicht, dass das Dach dicht ist. Hinzu kommt, dass der Test eine Dachbegehung und das Hantieren mit Wasser auf dem Flachdach verlangt, was Absturz- und Schadenrisiken birgt. Eine Untersuchung durch Fachleute ist die sicherere Lösung.
 
 **Welche Verfahren gibt es zur Leckortung am Flachdach?**
 
-Die Fachliteratur nennt unter anderem die Prüfung der Nähte, elektrische Verfahren, das Tracergasverfahren, Rauchgas, Färbemittel, Radiometrie und Thermografie. Welches Verfahren geeignet ist, hängt vom Aufbau des Flachdaches, von der Auflast und von der Aufgabe ab. Oft führt eine Kombination zum Ergebnis. Der Sachverständige wählt die Verfahren im Einzelfall aus, teils mit Messdienstleistern.
+Infrage kommen unter anderem die Nahtprüfung, elektrische Messungen, Gasverfahren, Färbemittel, Radiometrie und Thermografie. Welches Verfahren geeignet ist, hängt vom Aufbau des Flachdaches, von der Auflast und von der Aufgabe ab. Oft führt eine Kombination zum Ergebnis. Der Sachverständige wählt die Verfahren im Einzelfall aus, teils mit Messdienstleistern.
 
 **Wer ist zuständig, wenn mein Flachdach undicht ist?**
 
@@ -174,7 +174,7 @@ Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er
 
 **Über den Autor**
 
-M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de, +49 176 23581339. Stand: 2026-11-12.
+M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de. Stand: 2026-11-12.
 
 ## Quellen und Fußnoten
 
@@ -182,7 +182,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^2]: Stahr, Michael; Hinz, Dietrich: Sanierung und Ausbau von Dächern. Grundlagen – Werkstoffe – Ausführung. Wiesbaden: Vieweg+Teubner, 2011, S. 530 f. ISBN 978-3-8348-8137-3.
 [^3]: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 391. ISBN 978-3-658-42604-0.
 [^4]: DIN Media: DIN 18531-1:2025-08, Teil 1 der Reihe zur Abdichtung von Dächern sowie von Balkonen, Loggien und Laubengängen (nicht genutzte und genutzte Dächer), Status aktuell, ersetzt DIN 18531-1:2017-07. https://www.dinmedia.de/en/standard/din-18531-1/391197155 (abgerufen am 2026-11-12).
-[^5]: Stahr, Michael; Hinz, Dietrich: Sanierung und Ausbau von Dächern. Grundlagen – Werkstoffe – Ausführung. Wiesbaden: Vieweg+Teubner, 2011, S. 529. ISBN 978-3-8348-8137-3. Ergänzend: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 392. ISBN 978-3-658-42604-0.
+[^5]: Stahr, Michael; Hinz, Dietrich: Sanierung und Ausbau von Dächern. Grundlagen – Werkstoffe – Ausführung. Wiesbaden: Vieweg+Teubner, 2011, S. 529. ISBN 978-3-8348-8137-3. Zur Pfützenbildung trotz Gefälle zusätzlich: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 392. ISBN 978-3-658-42604-0.
 [^6]: Hestermann, Ulf; Rongen, Ludwig: Frick/Knöll Baukonstruktionslehre 2. Wiesbaden: Springer Fachmedien Wiesbaden, 2018, S. 336. ISBN 978-3-658-21913-0.
 [^7]: Stahr, Michael; Hinz, Dietrich: Sanierung und Ausbau von Dächern. Grundlagen – Werkstoffe – Ausführung. Wiesbaden: Vieweg+Teubner, 2011, S. 528. ISBN 978-3-8348-8137-3.
 [^8]: Stahr, Michael; Hinz, Dietrich: Sanierung und Ausbau von Dächern. Grundlagen – Werkstoffe – Ausführung. Wiesbaden: Vieweg+Teubner, 2011, S. 531 f. ISBN 978-3-8348-8137-3.
