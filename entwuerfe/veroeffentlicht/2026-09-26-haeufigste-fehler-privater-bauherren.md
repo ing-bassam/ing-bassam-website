@@ -25,7 +25,7 @@ fussnoten: 10
 quellen_geprueft: 2
 zahlenwerte_norm: 6
 todos: 0
-regelwerke_bestaetigt: "DIN 18202:2019-07 (frühere Ausgabe, inzwischen ersetzt durch DIN 18202:2026-08)"
+regelwerke_bestaetigt: "DIN 18202:2019-07"
 ---
 
 # Die häufigsten Fehler privater Bauherren und ihre Vermeidung
@@ -174,5 +174,5 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^6]: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. Entscheidungshilfen für Auftraggeber und Auftragnehmer. 2. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 43–44. ISBN 978-3-658-44068-8.
 [^7]: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 339. ISBN 978-3-658-47553-6.
 [^8]: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 363. ISBN 978-3-658-47553-6.
-[^9]: DIN Media: DIN 18202:2019-07 „Toleranzen im Hochbau – Bauwerke“, ersetzt DIN 18202:2013-04, frühere Ausgabe, inzwischen ersetzt durch DIN 18202:2026-08. https://www.dinmedia.de/en/standard/din-18202/307314612 (abgerufen am 2026-09-26). Inhaltlich bestätigt durch: Frössel, Frank: Risse in Gebäuden. Damit aus einer Fassade kein Ris(s)iko wird. 2. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 442. ISBN 978-3-658-47096-8.
+[^9]: DIN Media: DIN 18202:2019-07 „Toleranzen im Hochbau – Bauwerke“, Status aktuell, ersetzt DIN 18202:2013-04. https://www.dinmedia.de/en/standard/din-18202/307314612 (abgerufen am 2026-09-26). Inhaltlich bestätigt durch: Frössel, Frank: Risse in Gebäuden. Damit aus einer Fassade kein Ris(s)iko wird. 2. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 442. ISBN 978-3-658-47096-8.
 [^10]: Keldungs, Karl-Heinz; Ganschow, Joachim; Arbeiter, Norbert: Leitfaden für Bausachverständige. Rechtsgrundlagen – Gutachten – Haftung. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2018, S. 16–17 und 97. ISBN 978-3-658-20269-9.

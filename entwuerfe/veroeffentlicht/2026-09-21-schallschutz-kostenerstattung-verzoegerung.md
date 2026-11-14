@@ -30,7 +30,7 @@ fussnoten: 9
 quellen_geprueft: 8
 zahlenwerte_norm: 3
 todos: 0
-regelwerke_bestaetigt: OVG 6 A 1/25, WEG § 23, BGB § 632, FluLärmG § 9, 2. FlugLSV § 3, DIN 4109-1:2018-01 (frühere Ausgabe, inzwischen ersetzt durch DIN 4109-1:2026-09)
+regelwerke_bestaetigt: OVG 6 A 1/25, WEG § 23, BGB § 632, FluLärmG § 9, 2. FlugLSV § 3, DIN 4109-1:2018-01
 ---
 
 # Schallschutz wird teurer: Wer zahlt die Mehrkosten?
@@ -71,7 +71,7 @@ Wie groß der Unterschied sein kann, zeigen die Zahlen. 2022 stiegen die Preise 
 
 Das Urteil beruht auf dem Planfeststellungsbeschluss, nicht auf § 9 des Fluglärmschutzgesetzes (Rn. 43).[^6] Ein allgemeiner Satz über Preisrisiken in Bauverträgen ist damit nicht gesprochen (Rn. 55).
 
-Auch die technischen Anforderungen unterscheiden sich. Die Flugplatz-Schallschutzmaßnahmenverordnung fordert in § 3 ein resultierendes bewertetes Bauschalldämm-Maß R'w,res nach DIN 4109, Ausgabe November 1989. Belüftungseinrichtungen dürfen es nicht mindern.[^7] Für den Hochbau gilt dagegen DIN 4109-1, zum Zeitpunkt des Beitrags in der Ausgabe 2018-01; inzwischen ist die Ausgabe 2026-09 erschienen.[^8] Eingeführt wird sie über die Verwaltungsvorschriften Technische Baubestimmungen der Länder.[^9]
+Auch die technischen Anforderungen unterscheiden sich. Die Flugplatz-Schallschutzmaßnahmenverordnung fordert in § 3 ein resultierendes bewertetes Bauschalldämm-Maß R'w,res nach DIN 4109, Ausgabe November 1989. Belüftungseinrichtungen dürfen es nicht mindern.[^7] Für den Hochbau gilt dagegen DIN 4109-1:2018-01.[^8] Eingeführt wird sie über die Verwaltungsvorschriften Technische Baubestimmungen der Länder.[^9]
 
 Offen bleiben mehrere Fragen: ob die Gemeinschaft prozessführungsbefugt war (Rn. 41) und wie eine länger blockierte Beschlussfassung zu bewerten wäre (Rn. 67). Gegen die Nichtzulassung der Revision ist grundsätzlich eine Beschwerde statthaft, über die das Bundesverwaltungsgericht entscheidet. Ob sie eingelegt wurde und ob das Urteil rechtskräftig ist, ergibt sich aus dem Volltext nicht. Welches Regime einen konkreten Fall erfasst und welche Ansprüche bestehen, beurteilt ein Rechtsanwalt.
 
@@ -124,5 +124,5 @@ Karim Abu Elkheir, B.Eng. Bauingenieurwesen, M.Sc. Wirtschaftsingenieurwesen (Sc
 [^5]: Statistisches Bundesamt: Baupreise für Wohngebäude im November 2022: +16,9 % gegenüber November 2021. Pressemitteilung Nr. 011 vom 10.01.2023. https://www.destatis.de/DE/Presse/Pressemitteilungen/2023/01/PD23_011_61261.html (abgerufen am 2026-09-21).
 [^6]: Bundesministerium der Justiz: Gesetz zum Schutz gegen Fluglärm, § 9. https://www.gesetze-im-internet.de/flul_rmg/__9.html (abgerufen am 2026-09-21).
 [^7]: Bundesministerium der Justiz: Flugplatz-Schallschutzmaßnahmenverordnung vom 8. September 2009, § 3 Abs. 1, 2 und 6. https://www.gesetze-im-internet.de/fluglsv_2/__3.html (abgerufen am 2026-09-21).
-[^8]: DIN Media: DIN 4109-1:2018-01 „Schallschutz im Hochbau – Teil 1: Mindestanforderungen“, ersetzt DIN 4109-1:2016-07, frühere Ausgabe, inzwischen ersetzt durch DIN 4109-1:2026-09. https://www.dinmedia.de/en/standard/din-4109-1/280079001 (abgerufen am 2026-09-21).
+[^8]: DIN Media: DIN 4109-1:2018-01 „Schallschutz im Hochbau – Teil 1: Mindestanforderungen“, Status aktuell, ersetzt DIN 4109-1:2016-07. https://www.dinmedia.de/en/standard/din-4109-1/280079001 (abgerufen am 2026-09-21).
 [^9]: Deutsches Institut für Bautechnik: Luftschalldämmung, Hinweis auf die Muster-Verwaltungsvorschrift Technische Baubestimmungen, Abschnitt A 5 Schallschutz, und die Landesverwaltungsvorschriften. https://www.dibt.de/de/bauprodukte/informationsportal-bauprodukte-und-bauarten/produktgruppen/bauprodukte-detail/bauprodukt/luftschalldaemmung/ (abgerufen am 2026-09-21).
