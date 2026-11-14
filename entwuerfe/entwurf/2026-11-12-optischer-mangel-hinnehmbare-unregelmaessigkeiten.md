@@ -25,7 +25,7 @@ fussnoten: 12
 quellen_geprueft: 3
 zahlenwerte_norm: 0
 todos: 0
-regelwerke_bestaetigt: BGB, ZPO, DIN 18202 (Ausgabe 2026-08)
+regelwerke_bestaetigt: BGB, ZPO, DIN 18202
 ---
 
 # Optische Unregelmäßigkeit: Wann ist sie ein Mangel?
@@ -176,7 +176,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^4]: Frössel, Frank: Risse in Gebäuden. Damit aus einer Fassade kein Ris(s)iko wird. 2. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 153–154. ISBN 978-3-658-47096-8.
 [^5]: Schulz, Joachim: Sichtbeton. Von der Planung bis zur Mängelvermeidung. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2023, S. 249. ISBN 978-3-8348-2250-5.
 [^6]: Keldungs, Karl-Heinz; Ganschow, Joachim; Arbeiter, Norbert: Leitfaden für Bausachverständige. Rechtsgrundlagen – Gutachten – Haftung. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2018, S. 146–147. ISBN 978-3-658-20269-9.
-[^7]: DIN Media: DIN 18202, Toleranzen im Hochbau – Bauwerke. https://www.dinmedia.de/en/standard/din-18202/307314612 (abgerufen am 2026-11-12). Neueste Ausgabe laut Normenübersicht der Fachbibliothek: 2026-08; Status bei DIN Media bestätigen.
+[^7]: DIN Media: DIN 18202, Toleranzen im Hochbau – Bauwerke. https://www.dinmedia.de/en/standard/din-18202/307314612 (abgerufen am 2026-11-12).
 [^8]: Frössel, Frank: Risse in Gebäuden. Damit aus einer Fassade kein Ris(s)iko wird. 2. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 154. ISBN 978-3-658-47096-8.
 [^9]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 640 Abs. 1 und 3 (Abnahme). https://www.gesetze-im-internet.de/bgb/__640.html (abgerufen am 2026-11-14).
 [^10]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 634 (Rechte bei Mängeln), https://www.gesetze-im-internet.de/bgb/__634.html; § 634a Abs. 1 Nr. 2 und Abs. 2 (Verjährung), https://www.gesetze-im-internet.de/bgb/__634a.html; § 635 Abs. 3 (Nacherfüllung), https://www.gesetze-im-internet.de/bgb/__635.html; § 638 Abs. 3 (Minderung), https://www.gesetze-im-internet.de/bgb/__638.html (abgerufen am 2026-11-14).
