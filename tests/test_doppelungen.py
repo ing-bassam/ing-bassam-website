@@ -165,7 +165,11 @@ class EchterBestand(unittest.TestCase):
             self.assertEqual(ergebnis["doppelungen"][0][0]["kurzform"], erwartet)
 
     def test_neues_thema_bleibt_neu(self):
-        self.assertEqual(self.pruefen(thema("Radon im Keller messen", "Wie messe ich Radon im Haus?"))["urteil"],
+        # Das Thema muss außerhalb des Fachgebiets liegen: Der Test läuft gegen den echten Bestand,
+        # und ein Bauthema wird früher oder später geschrieben. „Radon im Keller“ galt bis November
+        # 2026 als neu und ist seit den Beiträgen zu feuchtem Keller und kalter Wohnung zu Recht
+        # „verwandt“ (gemeinsame Wörter Keller, Haus).
+        self.assertEqual(self.pruefen(thema("Segelboot überwintern", "Wie lagere ich ein Segelboot im Winter?"))["urteil"],
                          "neu")
 
     def test_vorlage_zum_thema_eines_fachbeitrags_ist_keine_doppelung(self):
