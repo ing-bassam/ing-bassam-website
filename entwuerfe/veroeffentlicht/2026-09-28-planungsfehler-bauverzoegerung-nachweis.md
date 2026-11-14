@@ -25,9 +25,9 @@ notion_id:
 notion_url:
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1620
+wortzahl: 1637
 lesezeit: 9 Minuten
-fussnoten: 3
+fussnoten: 1
 quellen_geprueft: 1
 zahlenwerte_norm: 0
 todos: 0
@@ -52,13 +52,13 @@ Das Landgericht Stuttgart wies die Klage im März 2025 vollständig ab (Rn. 11).
 
 Der Vertrag über die Tragwerksplanung ist ein Werkvertrag nach den §§ 631 ff. BGB, also ein Vertrag, bei dem ein Erfolg geschuldet wird (Rn. 44). Das Büro schuldete brauchbare Pläne, nicht nur Bemühen (Rn. 44). Einen verbindlichen Termin für die Fertigstellung des Gebäudes hatte es dagegen nicht zugesagt (Rn. 38). Die Angabe „Baufertigstellung: Mitte 2020“ war dem Senat kein exakt bestimmbarer Termin, und der weitere Vertragstext relativierte dessen Verbindlichkeit zusätzlich (Rn. 38). Ein Planer verspricht nach der Rechtsprechung ohnehin nicht, dass das Bauwerk bis zu einem bestimmten Termin fertig wird (Rn. 40).
 
-Damit blieb als Grundlage nur § 280 Absatz 1 BGB, die allgemeine Regel zum Schadensersatz bei Pflichtverletzung (Rn. 36, 43). Das Gericht stellte klar: Verzögerungsschäden, die auf einem Mangel beruhen, sind Mangelfolgeschäden und deshalb auch vor der Abnahme nach dieser Vorschrift zu ersetzen (Rn. 43). Mit der Abnahme erklärt der Auftraggeber, dass er die Leistung annimmt und sie in allen wesentlichen Punkten als vertragsgemäß billigt. Auf einen Verzug kommt es dafür nicht an (Rn. 43).
+Damit blieb als Grundlage nur § 280 Absatz 1 BGB, die allgemeine Regel zum Schadensersatz bei Pflichtverletzung (Rn. 36, 43). Das Gericht stellte klar: Verzögerungsschäden, die auf einem Mangel beruhen, sind Mangelfolgeschäden und deshalb auch vor der Abnahme nach dieser Vorschrift zu ersetzen (Rn. 43). Auf einen Verzug kommt es dafür nicht an (Rn. 43).
 
-Bei der Beweislast half das dem Bauherrn zunächst. Vor der Abnahme muss nämlich der Planer beweisen, dass sein Werk mangelfrei war (Rn. 45, 46). Diese Erleichterung greift aber nur, wenn der Auftraggeber die Mängel vorher konkret benennt (Rn. 46). Der Planer muss nicht pauschal die Fehlerfreiheit seiner gesamten Leistung beweisen (Rn. 46). Genau daran scheiterte die Bauherrin: Sie legte nur einzelne Pläne mit den grünen Anmerkungen des Prüfingenieurs vor (Rn. 49). Die ursprünglichen, beanstandeten Planfassungen besaß sie gar nicht mehr (Rn. 49). Was sich aus den Plänen konkret ergeben sollte, trug sie nicht vor (Rn. 49).
+Bei der Beweislast half das der Bauherrin zunächst. Vor der Abnahme muss nämlich der Planer beweisen, dass sein Werk mangelfrei war (Rn. 45, 46). Diese Erleichterung greift aber nur, wenn der Auftraggeber die Mängel vorher konkret benennt (Rn. 46). Der Planer muss nicht pauschal die Fehlerfreiheit seiner gesamten Leistung beweisen (Rn. 46). Genau daran scheiterte die Bauherrin: Sie legte nur einzelne Pläne mit den grünen Anmerkungen des Prüfingenieurs vor (Rn. 49). Die ursprünglichen, beanstandeten Planfassungen besaß sie gar nicht mehr (Rn. 49). Was sich aus den Plänen konkret ergeben sollte, trug sie nicht vor (Rn. 49).
 
 Der Senat hielt ihr entgegen, dass sie an diese Unterlagen hätte kommen können (Rn. 53). Gegenüber dem Prüfingenieur stand ihr entweder ein Auskunftsanspruch oder ein Recht auf Akteneinsicht zu (Rn. 53, 56). Dass sie das überhaupt versucht hätte, trug sie nicht vor (Rn. 53). Nach ihrem eigenen Vortrag hatte sich schon zu Beginn der Zusammenarbeit gezeigt, dass die Pläne mangelhaft waren und nicht freigegeben wurden; deshalb war sie nach Ansicht des Gerichts gehalten, schon frühzeitig die Beweise zu sichern (Rn. 57). Hinzu kam ein inhaltlicher Punkt: Aus grünen Anmerkungen des Prüfingenieurs folgt für sich genommen noch kein Mangel (Rn. 58). Ob eine Beanstandung berechtigt war, muss im Prozess gesondert geprüft werden (Rn. 58).
 
-Der Senat stützte die Abweisung zusätzlich auf einen zweiten, eigenständigen Grund (Rn. 60). Selbst wenn Mängel festgestanden hätten, fehlte der Nachweis, dass gerade sie den Bau verzögert haben (Rn. 60, 62). Dafür verlangt das Gericht in der Regel eine bauablaufbezogene Darstellung (Rn. 47). Eine bauablaufbezogene Darstellung ist ein Nachweis, der jede Störung einem einzelnen Vorgang im Bauablauf und der daraus folgenden Verzögerung zuordnet. Wer nur die Pflichtverletzung schildert und daneben die Behinderung stellt, hat den Zusammenhang fachlich noch nicht dargelegt.[^2] Die Bauherrin hätte also darlegen müssen, wann welcher Plan eingereicht wurde, welcher Mangel ihn betraf, welcher Bauabschnitt deshalb nicht ausgeführt werden konnte, wie lange die Nachbesserung dauerte und wie sich dieser Verzug bis zur Fertigstellung des Bauvorhabens durchzog (Rn. 61).
+Der Senat stützte die Abweisung zusätzlich auf einen zweiten, eigenständigen Grund (Rn. 60). Selbst wenn Mängel festgestanden hätten, fehlte der Nachweis, dass gerade sie den Bau verzögert haben (Rn. 60, 62). Dafür verlangt das Gericht in der Regel eine bauablaufbezogene Darstellung (Rn. 47). Die Bauherrin hätte also darlegen müssen, wann welcher Plan eingereicht wurde, welcher Mangel ihn betraf, welcher Bauabschnitt deshalb nicht ausgeführt werden konnte, wie lange die Nachbesserung dauerte und wie sich dieser Verzug bis zur Fertigstellung des Bauvorhabens durchzog (Rn. 61).
 
 Eine Tabelle mit Soll- und Ist-Terminen genügte dem Senat dafür nicht (Rn. 63, 64). Aus ihr ging nicht hervor, welche Abweichung auf die Pläne zurückging (Rn. 64). Auch die Prüfzeiten des Prüfingenieurs hatte die Bauherrin dem Büro zugerechnet, ohne das zu begründen (Rn. 63). Erleichterungen wegen der Größe des Vorhabens lehnte das Gericht ab (Rn. 61). Fehlt eine ausreichende Dokumentation der Mängel und der dadurch bedingten Verzögerung, geht das zu Lasten desjenigen, der Geld verlangt (Rn. 61).
 
@@ -66,7 +66,7 @@ Eine Tabelle mit Soll- und Ist-Terminen genügte dem Senat dafür nicht (Rn. 63,
 
 Wer wegen eines Bauverzugs Mehrkosten von einem Planer ersetzt haben will, braucht Unterlagen, die er später nicht mehr bekommt. Im entschiedenen Fall lagen der Bauherrin die ursprünglichen, beanstandeten Planfassungen gar nicht mehr vor; sie verfügte nur über die vom Prüfingenieur freigegebenen Pläne (Rn. 49). Wer als Bauherr merkt, dass Pläne zurückgewiesen werden, sollte sich jede beanstandete Fassung sofort geben lassen. Das Gericht sah die Bauherrin ausdrücklich in der Pflicht, früh Beweise zu sichern (Rn. 57). Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand von Planung und Bauwerk fest, solange er noch nachvollziehbar ist.
 
-Ebenso wichtig ist die laufende Zuordnung. Halten Sie je Plan fest, wann er eingereicht wurde, was beanstandet wurde und wann die Nachbesserung kam (Rn. 61). Notieren Sie dazu, welcher Bauabschnitt in dieser Zeit nicht weitergebaut werden konnte (Rn. 61). In der Baupraxis wird dafür der geplante Ablauf dem tatsächlichen gegenübergestellt und jede Abweichung einer Ursache zugeordnet.[^2] Ein solcher Nachweis setzt fachlich eine umfassende Dokumentation der Bauausführung voraus.[^3] Wer das erst nach Abschluss der Arbeiten versucht, rekonstruiert aus Erinnerung, was das Gericht als Nachweis verlangt.
+Ebenso wichtig ist die laufende Zuordnung. Halten Sie je Plan fest, wann er eingereicht wurde, was beanstandet wurde und wann die Nachbesserung kam (Rn. 61). Notieren Sie dazu, welcher Bauabschnitt in dieser Zeit nicht weitergebaut werden konnte (Rn. 61).
 
 Rechnen Sie damit, dass Sie andere Ursachen ausschließen müssen. Der Senat verlangte eine Abgrenzung zu Verzögerungen anderer Planer, des Prüfingenieurs und des Bauunternehmens (Rn. 62). Auch eigene Änderungswünsche und Nachträge, also nachträglich bestellte Leistungen, muss der Bauherr herausrechnen (Rn. 62). Zahlungen an eine andere Firma helfen dabei nicht automatisch weiter: Die zwei Millionen Euro an die Generalunternehmerin bekam die Bauherrin nicht ersetzt, weil sich nicht feststellen ließ, dass dieser Firma der geltend gemachte Anspruch überhaupt zustand (Rn. 70, 73). Ob und wie Sie in Ihrem eigenen Fall Ansprüche durchsetzen können, beurteilt ein Rechtsanwalt.
 
@@ -107,5 +107,3 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: OLG Stuttgart 10. Zivilsenat: Urteil vom 24.03.2026 – 10 U 72/25, ECLI:DE:OLGSTUT:2026:0324.10U72.25.00, Tenor Ziffer 1 und Rn. 31. https://www.landesrecht-bw.de/perma?d=NJRE001642955 (abgerufen am 2026-09-28).
-[^2]: Malkwitz, Alexander u. a.: Kostenermittlung und -kalkulation im Bauprojekt. Grundlagen und Anwendung. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 194. ISBN 978-3-658-38927-7.
-[^3]: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 300. ISBN 978-3-658-47553-6.
