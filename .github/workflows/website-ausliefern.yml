@@ -38,7 +38,7 @@ on:
       - 'fachliteratur/**'
       - 'daten/**'
   workflow_run:
-    workflows: ["Fachwissen-Seiten bauen", "Entwürfe veröffentlichen", "Marktdaten bauen"]
+    workflows: ["Fachwissen-Seiten bauen", "Entwürfe veröffentlichen", "Marktdaten bauen", "Beitrag zurückziehen"]
     types: [completed]
     branches: [main]
   workflow_dispatch:
