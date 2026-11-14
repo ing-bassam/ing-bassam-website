@@ -141,5 +141,18 @@ class Workflow(unittest.TestCase):
         self.assertIn('"Beitrag zurückziehen"', (WURZEL / ".github/workflows/website-ausliefern.yml").read_text(encoding="utf-8"))
 
 
+class Schreibregeln(unittest.TestCase):
+    def test_enge_umformulierung_in_den_skills(self):
+        """Die Schreib-Agenten kennen die Regeln, an denen die Freigabeprüfung meist scheitert."""
+        skills = WURZEL / ".claude/skills"
+        fachartikel = (skills / "fachartikel/SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("### Eigene Fassung statt Umformulierung", fachartikel)
+        self.assertIn("--grenze 5 --intern", fachartikel)
+        self.assertIn("Enge Umformulierung", (skills / "schlusspruefung/SKILL.md").read_text(encoding="utf-8"))
+        for name in ("urteilsbesprechung", "vorlage"):
+            with self.subTest(name):
+                self.assertIn("Eigene Fassung statt Umformulierung", (skills / name / "SKILL.md").read_text(encoding="utf-8"))
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -234,6 +234,27 @@ Dazu kommt, was frühere Läufe gelernt haben – die Suche umfasst alles:
 
 **Urheberrecht.** Es gilt Regel 13: Buchinhalte gibst du nur in eigenen Worten wieder, mit Kennung und Seite in der Fußnote – kein Satz und kein Satzteil wörtlich, auch nicht in Anführungszeichen. Tabellen, Abbildungen und Rechenbeispiele übernimmst du nicht, sondern beschreibst in eigenen Worten, was sie zeigen, und verweist auf die Seite. Eigene Formulierung heißt mehr als Wörter tauschen: Lies die Stelle, schließe sie, und schreibe die Aussage so, wie du sie dem Leser erklären würdest.
 
+### Eigene Fassung statt Umformulierung
+
+Die Freigabeprüfung hält Entwürfe zurück, die einer Buch- oder Normstelle zu eng folgen, auch ohne einen einzigen wortgleichen Satz. Im November 2026 scheiterten daran zehn von zwölf Entwürfen. Das Werkzeug findet nur gleiche Wortfolgen; enge Umformulierung musst du selbst vermeiden. Als eng gilt:
+
+- **Gleiche Gedankenfolge.** Ein Absatz geht dieselben Schritte in derselben Reihenfolge wie die Quelle (Begriff – Ausnahme – Folge), nur mit anderen Wörtern. Auch zwei Sätze hintereinander, die je einen Satz der Quelle nachbilden, sind schon eng.
+- **Übernommene Reihen.** Aufzählungen von Beispielen, Kriterien, Prüfpunkten, Rollen, Untersuchungsmethoden, Unterlagen, Schadensindizien oder Fehlern in Auswahl und Reihenfolge eines Buchs, einer Tabelle oder Checkliste – auch als Fließtext.
+- **Übernommene Begriffsbestimmungen.** Die Definition eines Buchs mit getauschten Wörtern.
+- **Gliederung.** Zwischenüberschriften oder Abschnittsfolge nach dem Inhaltsverzeichnis eines Buchkapitels.
+- **Regelwerke Satz für Satz.** VOB/B, VOB/C, DIN-Normen, Richtlinien und Merkblätter sind keine amtlichen Werke. Eine Regel der VOB/B gibst du nicht Satz für Satz wieder, sondern sagst in einem eigenen Satz, was sie für den Leser bedeutet, mit Paragraf in der Fußnote.
+
+So schreibst du stattdessen:
+
+1. **Aus der Ergebnisliste schreiben, nicht aus der Seite.** Nach dem Lesen einer Buchseite notierst du in `pr-body.md` nur die Tatsache in einem eigenen Halbsatz (Regel 13). Den Abschnitt schreibst du später aus diesen Notizen und aus der Frage des Lesers, nie mit der Buchseite als Vorlage im selben Turn.
+2. **Eigene Ordnung.** Die Reihenfolge eines Abschnitts folgt der Frage des Lesers und dem Fall des Beitrags, nicht der Quelle. Ein Absatz stützt sich auf mindestens zwei Quellen oder auf eine Quelle und eigene Erklärung; eine Buchstelle trägt höchstens eine Aussage je Absatz.
+3. **Keine fremden Reihen.** Brauchst du Beispiele oder Kriterien, nennst du höchstens zwei, aus dem Fall des Beitrags gewählt, in eigener Reihenfolge. Eine vollständige Liste aus einer Quelle ersetzt du durch einen Satz, was sie gemeinsam haben, und verweist mit Fundstelle auf die Seite.
+4. **Gesetzeswortlaut nur amtlich.** Wortlaut oder wortnahe Wiedergabe eines Gesetzes nur mit Fußnote auf eine amtliche Seite (gesetze-im-internet.de, Gesetzblatt, amtliches Landesportal). Sonst sagst du in eigenen Worten, was die Vorschrift regelt.
+5. **Urteile nur aus der Entscheidung.** Rechtsprechung, die du nur aus einem Fachbuch kennst, nennst du nur mit Gericht, Datum und Aktenzeichen aus der Entscheidung selbst (Volltext oder amtliche Leitsatzseite). Fehlt das, lässt du sie weg.
+6. **Ältere Ausgaben kennzeichnen.** Beschreibt eine Quelle oder ein Urteil eine frühere Norm- oder VOB-Fassung (etwa DIN 18195, § 13 Nr. 7 VOB/B), steht im selben Satz „die damals geltende Ausgabe“ oder die heutige Zählung.
+
+**Abgleich vor dem Commit.** Zusätzlich zur Prüfung in „Stand der Technik“ rufst du einmal `python tools/wortgleich_pruefen.py <Entwurf> --bibliothek .bibliothek --grenze 5 --intern` auf. Jede gemeldete Stelle und jeden Absatz mit Buch- oder Normfußnote liest du gegen die Fundstelle (`bibliothek_suchen.py --werk <Kennung> --seite <Seite>`) und fragst: Folgt mein Absatz der Seite in Gedankenfolge, Reihe oder Definition? Wenn ja, schreibst du ihn nach den Punkten 1 bis 3 neu oder streichst ihn samt Fußnote. Werk, Seite und Wortlaut aus diesem Abgleich stehen nur in `belege.md`, nie im Entwurf, in `pr-body.md` oder in Kommentaren.
+
 ## Normen, Regelwerke, Gesetze, Urteile: Dreifach-Absicherung
 
 Jede Norm (DIN, DIN EN, DIN EN ISO, DIN V, DIN SPEC, DIN-Fachbericht), jede Richtlinie (VDI, DWA, DAfStb, WTA-Merkblatt, ZVDH-Fachregel, Flachdachrichtlinie, DVGW-Arbeitsblatt, VdS-Richtlinie, DIBt-Zulassung), jedes Gesetz mit Paragraf, VOB/B und VOB/C, jedes Urteil und jeder Zahlenwert durchläuft drei Stufen, bevor er im Text erscheint. **Ausnahme: Gesetze sind zweistufig, wenn die Aussage direkt aus dem Wortlaut folgt** (Stufe 1 und Stufe 2). Genannt wird nur bei vollständiger Sicherheit.
@@ -418,7 +439,7 @@ Dann gehst du diese Liste durch und behebst jede Abweichung mit Edit:
 10. Keine Namen, Adressen, Aktenzeichen oder Firmen realer Aufträge; Fallgeschichte korrekt gekennzeichnet (typisierter Beispielfall beziehungsweise verallgemeinert und anonymisiert).
 11. `## Hinweis` und Autorenkasten wörtlich wie vorgegeben, Leerzeilen um `---`, Datum eingesetzt; Anführungszeichen „so“.
 12. Frontmatter vollständig, `titel` höchstens 60 Zeichen, `meta_beschreibung` höchstens 155 Zeichen (per Grep geprüft, nicht geschätzt), `quelle` gesetzt; `notion_id` und `notion_url` gesetzt, wenn `quelle: notion`; `fachlich_geprueft_von` und `fachlich_geprueft_am` vorhanden und leer.
-13. Keine wörtliche Übernahme aus Büchern, Normen, Fachaufsätzen oder Leistungsverzeichnissen (Regel 13), jede genannte Normausgabe auf dem Stand des Normenindex und von Stufe 2: Beide Werkzeuge aus „Stand der Technik“ melden 0 – geprüft nach der letzten inhaltlichen Änderung, also unmittelbar vor dem Commit.
+13. Keine wörtliche Übernahme aus Büchern, Normen, Fachaufsätzen oder Leistungsverzeichnissen (Regel 13) und keine enge Umformulierung: der Abgleich aus „Eigene Fassung statt Umformulierung“ ist gemacht, kein Absatz folgt einer Fundstelle in Gedankenfolge, Reihe oder Definition, jede genannte Normausgabe auf dem Stand des Normenindex und von Stufe 2: Beide Werkzeuge aus „Stand der Technik“ melden 0 – geprüft nach der letzten inhaltlichen Änderung, also unmittelbar vor dem Commit.
 
 Zum Schluss trägst du mit einem einzigen Edit `wortzahl`, `lesezeit`, `fussnoten`, `quellen_geprueft`, `zahlenwerte_norm`, `todos` und `regelwerke_bestaetigt` ein (`old_string` ist der Block der sieben Zeilen mit den Nullwerten).
 
