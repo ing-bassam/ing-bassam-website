@@ -363,7 +363,7 @@ jobs:
           python -c 'import json,sys; d=json.load(open(sys.argv[1])); print("\n\n---\n\n".join(c["body"] for c in d["comments"] if (c.get("author") or {}).get("login","") in ("github-actions","app/github-actions") and ("Faktenprüfung" in c["body"] or "Schlussprüfung" in c["body"])))' \
             "$ARBEIT/pr.json" > "$ARBEIT/agent/vorpruefungen.md"
           git -C "$ARBEIT/pr" status --porcelain > "$ARBEIT/pr-status-vorher.txt"
-          git status --porcelain --ignored=no -- . ':!.bibliothek' > "$ARBEIT/repo-status-vorher.txt"
+          git status --porcelain --untracked-files=no -- . ':!.bibliothek' > "$ARBEIT/repo-status-vorher.txt"
 
       - name: Freigabeprüfung
         id: claude
@@ -410,7 +410,7 @@ jobs:
           fi
           # Der Agent darf nichts ändern – weder den Entwurf noch das Repository.
           git -C "$ARBEIT/pr" status --porcelain > "$ARBEIT/pr-status-nachher.txt"
-          git status --porcelain --ignored=no -- . ':!.bibliothek' > "$ARBEIT/repo-status-nachher.txt"
+          git status --porcelain --untracked-files=no -- . ':!.bibliothek' > "$ARBEIT/repo-status-nachher.txt"
           if [ "$(git -C "$ARBEIT/pr" rev-parse HEAD)" != "$SHA" ] \
              || ! cmp -s "$ARBEIT/pr-status-vorher.txt" "$ARBEIT/pr-status-nachher.txt" \
              || ! cmp -s "$ARBEIT/repo-status-vorher.txt" "$ARBEIT/repo-status-nachher.txt"; then
