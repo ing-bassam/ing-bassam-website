@@ -13,7 +13,7 @@ qualifikation:
 kurzform: gebrauchte-immobilie-gutachten-vor-kauf
 erstellt: 2026-11-02
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-8167-865d-e4ddd6f88823
 notion_url: https://app.notion.com/p/Gebrauchte-Immobilie-vor-dem-Kauf-pr-fen-lassen-3dfd96ad00b48167865de4ddd6f88823

@@ -73,6 +73,7 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 ### Bauherrenwissen
 
 - [Prüfhilfe Abschlagszahlungen und Zahlungsplan](https://ing-bassam.de/fachwissen/abschlagszahlungen-zahlungsplan-pruefhilfe/): Prüfhilfe für Abschlagszahlungen beim Hausbau: Zahlungsplan, Rechnung, Bautenstand, Mängel und Sicherheiten vor jeder Rate prüfen. Kostenlos als PDF.
+- [Gutachten vor dem Immobilienkauf: Lohnt sich die Prüfung?](https://ing-bassam.de/fachwissen/gebrauchte-immobilie-gutachten-vor-kauf/): Gebrauchte Immobilie kaufen: wann sich ein Gutachten vor dem Notartermin lohnt, was der Sachverständige prüft und wo seine Grenzen liegen.
 - [Checkliste Abnahme Gemeinschaftseigentum im Neubau](https://ing-bassam.de/fachwissen/abnahme-gemeinschaftseigentum-checkliste/): Kostenlose Checkliste für die Abnahme des Gemeinschaftseigentums einer neuen Wohnanlage vom Bauträger, mit Bewertungsstufen und Anleitung.
 - [Objektüberwachung: Was kostet Leistungsphase 8 nach HOAI?](https://ing-bassam.de/fachwissen/honorar-objektueberwachung-lp8-hoai/): Was kostet die Objektüberwachung nach HOAI? Leistungsphase 8, Honorartafel, Honorarzone und Umbauzuschlag mit Rechenbeispielen erklärt.
 - [Abschlagsrechnung prüfen: was vor der Zahlung zu klären ist](https://ing-bassam.de/fachwissen/abschlagsrechnung-hausbau-pruefen/): Abschlagsrechnung der Baufirma prüfen: Bautenstand, Aufstellung, frühere Zahlungen und welcher Betrag bei Mängeln zurückbehalten werden darf.
@@ -147,6 +148,7 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Hausverwaltung & Bestand
 
+- [Balkon und Tiefgarage: Gutachten als WEG-Beschlussgrundlage](https://ing-bassam.de/fachwissen/weg-balkon-tiefgarage-sanierung-gutachten/): Wie ein Gutachten der WEG die Beschlussfassung zur Balkon- und Tiefgaragensanierung stützt: Zustand, Ursachen, Varianten, Rechtsprechung 2026.
 - [Risse in Fassade und Mauerwerk: harmlos oder ernst?](https://ing-bassam.de/fachwissen/risse-fassade-mauerwerk-bewerten/): Risse in Fassade und Mauerwerk einschätzen: was Eigentümer beobachten und dokumentieren können, welche Warnzeichen zählen und wann ein Gutachten sinnvoll ist.
 - [Feuchter Keller im Altbau: die drei Ursachen unterscheiden](https://ing-bassam.de/fachwissen/feuchter-keller-altbau-ursachen/): Erdreich, Tauwasser oder Leckage – woran sich die Ursache der Feuchte in einem Altbaukeller unterscheiden lässt und was daraus für die Sanierung folgt.
 - [Instandhaltungsstau und CapEx-Prognose in der Due Diligence](https://ing-bassam.de/fachwissen/instandhaltungsstau-capex-prognose-due-diligence/): Wie der Instandhaltungsrückstau eines Gebäudes bauteilweise ermittelt und als CapEx-Prognose über zehn Jahre dargestellt wird.
