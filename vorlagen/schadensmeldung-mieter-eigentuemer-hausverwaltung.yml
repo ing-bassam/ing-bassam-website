@@ -1,0 +1,207 @@
+titel: Schadensmeldung an die Hausverwaltung
+untertitel: Formular für Mieter und Eigentümer – Ort, Zeitpunkt, Beschreibung und Fotos
+kurzform: schadensmeldung-mieter-eigentuemer-hausverwaltung
+typ: Protokoll
+stand: 2026-11-17
+dateien: [pdf, pdf-ausfuellbar]
+einleitung: >-
+  Mit diesem Formular melden Sie einen Schaden in Ihrer Wohnung so, dass die Hausverwaltung
+  ihn ohne Rückfragen einordnen kann: wo er sitzt, seit wann es ihn gibt, wie er aussieht,
+  wie groß er ist und welche Fotos es dazu gibt. Tragen Sie oben Ihre Angaben ein und
+  kreuzen Sie unten an, was zutrifft. Bei Gefahr gilt zuerst der Abschnitt „Gefahr und
+  Sofortmaßnahmen“, erst danach füllen Sie den Rest aus. Schicken Sie das Formular samt
+  Fotos so ab, dass Sie den Zugang später belegen können.
+kopffelder:
+  - Name der meldenden Person
+  - Anschrift, Geschoss und Lage der Wohnung
+  - Telefon und E-Mail für Rückfragen
+  - Hausverwaltung und Ansprechperson
+  - Schaden entdeckt am, Uhrzeit
+  - Schaden gemeldet am, Uhrzeit
+  - Ausgefüllt von, Datum
+bewertung:
+  stufen:
+    - {kurz: "nicht betr.", lang: "nicht betroffen", beschreibung: "hier ist nichts zu erkennen"}
+    - {kurz: "gering", lang: "geringer Schaden", beschreibung: "kleine Stelle, oberflächlich, nicht größer geworden – melden und beobachten"}
+    - {kurz: "deutlich", lang: "deutlicher Schaden", beschreibung: "größere Fläche, tiefgehend oder wachsend – zeitnah fachlich prüfen lassen"}
+    - {kurz: "akut", lang: "akute Gefahr", beschreibung: "Gefahr für Personen oder rasch wachsender Schaden – Bereich sichern, sofort melden"}
+abschnitte:
+  - titel: Wer meldet und wie
+    bewertung: false
+    notizen: 1
+    punkte:
+      - text: Die meldende Person ist
+        auswahl: [Mieter, Eigentümer (selbst), Eigentümer (vermietet), Sonstige]
+        hinweis: "Mieter melden an Vermieter oder die von ihm beauftragte Hausverwaltung. Eigentümer in einer Eigentümergemeinschaft melden an den Verwalter der Gemeinschaft."
+      - text: Meldeweg
+        auswahl: [Portal, E-Mail, Brief mit Zugangsnachweis, persönlich mit Bestätigung]
+        hinweis: "Wer später belegen muss, dass die Meldung angekommen ist, fährt mit einem Brief mit Zugangsnachweis oder einer Empfangsbestätigung besser als mit einer einfachen E-Mail. Notieren Sie Tag, Uhrzeit und Weg."
+      - text: Meldung unverzüglich nach Entdecken abgeschickt
+        ja_nein: true
+        hinweis: "Wer einen Mangel an der Mietwohnung bemerkt, soll ihn dem Vermieter ohne schuldhaftes Zögern mitteilen. Wartet er, können Folgeschäden entstehen, für die er einstehen muss."
+      - text: Rückfragen sind telefonisch oder per E-Mail erwünscht
+        auswahl: [Telefon, E-Mail, beides, nur schriftlich]
+  - titel: Ort des Schadens
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Geschoss oder Bereich
+        auswahl: [Keller, Erdgeschoss, Obergeschoss, Dachgeschoss, Treppenhaus oder Gemeinschaft, außerhalb]
+      - text: Raum
+        auswahl: [Küche, Bad oder WC, Wohn- oder Schlafraum, Flur, Balkon oder Loggia, Abstellraum]
+        hinweis: "Mehrere Räume: je Raum ein eigenes Formular oder die Räume unten in den Notizen aufführen."
+      - text: Betroffenes Bauteil
+        auswahl: [Wand, Decke, Fußboden, Fenster oder Tür, Leitung oder Heizkörper, Elektro]
+      - text: Genaue Lage im Raum beschrieben
+        ja_nein: true
+        hinweis: "Nennen Sie Wand und Himmelsrichtung, Abstand zu Fenster oder Ecke und Höhe über dem Boden. Eine Handskizze mit Maßen hilft mehr als ein langer Text."
+      - text: Zuständigkeit nach Ihrer Einschätzung
+        auswahl: [Innerhalb der Wohnung, Gemeinschaftseigentum, Mietsache, unklar]
+        hinweis: "Bei Wohnungseigentum zählen Gebäudeteile, die für Bestand oder Sicherheit erforderlich sind, nicht zum Sondereigentum. Wenn Sie unsicher sind, kreuzen Sie unklar an. Die Verwaltung ordnet das ein, die Meldung bleibt in jedem Fall richtig."
+      - text: Schaden ist auch in Nachbarwohnung oder im Treppenhaus sichtbar
+        ja_nein: true
+  - titel: Zeitpunkt und Verlauf
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Wie der Schaden aufgetreten ist
+        auswahl: [plötzlich, schleichend, wiederkehrend, unbekannt]
+        hinweis: "Plötzlich heißt: Es war an einem bestimmten Tag da. Schleichend heißt: Es wurde allmählich sichtbar. Wiederkehrend heißt: Es verschwand und kam wieder."
+      - text: Anlass vor dem Schaden
+        auswahl: [Starkregen oder Sturm, Frost, Arbeiten im Haus, Nutzung der Wohnung, kein Anlass erkennbar]
+      - text: Seit dem Entdecken hat sich der Schaden
+        auswahl: [nicht verändert, vergrößert, verkleinert, wechselhaft]
+        hinweis: "Prüfen Sie nach einigen Tagen noch einmal von derselben Stelle und notieren Sie Datum und Befund."
+      - text: Erste Anzeichen schon früher bemerkt
+        ja_nein: true
+        hinweis: "Wenn ja, schreiben Sie in die Notizen, was und ungefähr wann."
+  - titel: Art des Schadens
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Schadenart
+        auswahl: [Feuchte oder Wasser, Schimmel, Heizung ausgefallen, Elektro, Risse, sonstiges]
+      - text: Herkunft des Wassers, wenn Wasser im Spiel ist
+        auswahl: [Leitung oder Armatur, Heizung, Abwasser oder Rückstau, von außen, unbekannt]
+        hinweis: "Wasser von außen oder aus einer Leitung hinterlässt meist wolkenartig begrenzte Flecken und lösende Anstriche oder Putz. Schimmel aus dem Raumklima zeigt sich eher fleckig bis pelzig oder als diffuser Schatten. Ordnen Sie nur zu, was Sie sehen; die Ursache klärt die Verwaltung."
+      - text: Geruch
+        auswahl: [keiner, muffig, Abwasser, Gas oder Brand]
+        hinweis: "Bei Gas- oder Brandgeruch Wohnung verlassen, nichts einschalten, Notruf oder Netzbetreiber verständigen und erst dann melden."
+      - text: Funktion ausgefallen
+        auswahl: [Heizung, Warmwasser, Strom, Fenster schließt nicht, nichts ausgefallen]
+        hinweis: "Bei einem Heizungsausfall notieren Sie Datum, Uhrzeit und gemessene Raumtemperatur, bevor Sie melden."
+  - titel: Ausmaß der betroffenen Bauteile
+    notizen: 2
+    punkte:
+      - text: Flecken und Verfärbungen an Wand oder Decke
+        hinweis: "Woran erkennen: Flecken ansehen, vorsichtig mit der Handfläche prüfen. Gering: kleiner, trockener, scharf begrenzter Fleck. Deutlich: feuchte oder wachsende Flecken, Putz löst sich, Tapete wirft Blasen."
+      - text: Sichtbarer Schimmel
+        hinweis: "Woran erkennen: dunkle oder pelzige Flecken, oft hinter Möbeln und in Ecken. Gering: kleine oberflächliche Stelle unter etwa einem halben Quadratmeter. Deutlich: größere, wiederkehrende oder muffig riechende Flächen. Entfernen Sie nichts, bevor Sie fotografiert und gemeldet haben."
+      - text: Risse in Wand, Decke oder Putz
+        hinweis: "Woran erkennen: Risslänge und Verlauf mit Zollstock messen, Datum danebenschreiben. Gering: feine Risse, die sich nicht verändern. Deutlich: durchgehende Risse mit Versatz der Kanten oder Risse, die zwischen zwei Kontrollen wachsen. Die Breite ist eine Momentaufnahme, entscheidend ist die Veränderung."
+      - text: Fenster, Türen und Rahmen
+        hinweis: "Woran erkennen: öffnen und schließen, Dichtungen und Rahmen ansehen. Gering: Zugluft oder leichtes Klemmen. Deutlich: Rahmen verzogen, Wasser dringt ein, Fenster lässt sich nicht sicher schließen."
+      - text: Fußboden und Bodenbelag
+        hinweis: "Woran erkennen: gehen, klopfen, auf Wölbungen achten. Gering: einzelne feuchte oder beschädigte Stelle. Deutlich: aufgewölbter Belag, hohl klingende Flächen, Wasser an den Randfugen."
+      - text: Leitungen, Armaturen und Heizkörper
+        hinweis: "Woran erkennen: auf Tropfen, Nässespuren und Salzränder achten. Gering: gelegentliches Tropfen an einer Stelle. Deutlich: dauerndes Tropfen oder laufender Zähler bei geschlossenen Hähnen. Akut: Wasser tritt in Mengen aus."
+      - text: Steckdosen, Schalter, Leuchten und Verteiler
+        hinweis: "Woran erkennen: ansehen, nicht öffnen. Gering: Schalter locker oder Leuchte defekt ohne Auffälligkeit. Deutlich: verfärbte oder warme Steckdose, Sicherung fällt wiederholt. Akut: Brandgeruch, Funken oder Wasser an Elektroteilen. Arbeiten daran gehören einer Elektrofachkraft."
+      - text: Decke ist durchfeuchtet, tropft oder hängt durch
+        hinweis: "Woran erkennen: Decke von unten ansehen, auf Tropfen und Wölbungen achten. Gering: kleiner trockener Rand. Deutlich: nasse Flecken, Tropfwasser. Akut: Platten hängen durch oder Putz fällt ab – Raum nicht betreten."
+  - titel: Gefahr und Sofortmaßnahmen
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Gefahr für Personen
+        auswahl: [keine, Strom, Gas, herabfallende Bauteile, Rutsch- oder Absturzgefahr, unklar]
+        hinweis: "Bei Strom- oder Gasgefahr und bei herabfallenden Bauteilen den Bereich nicht betreten, andere Bewohner warnen und Notruf, Feuerwehr oder Netzbetreiber verständigen. Eigene Arbeiten an Elektro-, Gas- oder Wasserinstallation sind keine Selbsthilfe."
+      - text: Wasserzufuhr abgesperrt
+        auswahl: [nicht nötig, Eckventil, Haupthahn, nicht möglich]
+        hinweis: "Lässt sich ein Ventil nicht gefahrlos bewegen, nicht mit Gewalt nachhelfen, sondern Installateur oder Verwaltung rufen."
+      - text: Betroffener Stromkreis abgeschaltet
+        ja_nein: true
+        hinweis: "Nur schalten, wenn das gefahrlos möglich ist. In nassen Räumen ohne abgeschalteten Stromkreis nichts berühren."
+      - text: Weiteren Schaden begrenzt
+        ja_nein: true
+        hinweis: "Vor weiteren Schäden zu schützen geht dem Fotografieren vor: Wasser aufnehmen, Möbel wegrücken, Nässe nicht weiterlaufen lassen. Fotografieren Sie, soweit ohne Zeitverlust möglich, vorher und danach."
+      - text: Notdienst oder Fachfirma gerufen
+        auswahl: [nicht erforderlich, Notdienst der Verwaltung, Installateur oder Elektriker, Feuerwehr]
+        hinweis: "Notieren Sie, wen Sie wann erreicht haben und was vereinbart wurde."
+  - titel: Fotos und Belege
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Übersichtsfoto jedes betroffenen Raumes
+        ja_nein: true
+        hinweis: "Machen Sie die Fotos, bevor Sie aufräumen oder reparieren. Der Zustand lässt sich später nicht wiederherstellen."
+      - text: Detailfotos mit Maßstab im Bild
+        ja_nein: true
+        hinweis: "Legen Sie einen Zollstock oder ein Lineal neben die Stelle und fotografieren Sie von vorn, damit Größe und Lage erkennbar sind."
+      - text: Datum und Uhrzeit der Fotos stimmen
+        ja_nein: true
+        hinweis: "Prüfen Sie die Einstellung Ihres Telefons. Behalten Sie die Originaldateien und nummerieren Sie die Fotos in der Meldung."
+      - text: Verlaufsfotos vom gleichen Standpunkt
+        ja_nein: true
+        hinweis: "Wiederholen Sie Aufnahmen nach einigen Tagen von derselben Stelle. So sieht man, ob der Schaden wächst."
+      - text: Messwerte notiert
+        ja_nein: true
+        hinweis: "Raumtemperatur, Luftfeuchte oder Zählerstand mit Datum und Uhrzeit festhalten, wenn sie zum Schaden gehören."
+      - text: Zeuge hat den Schaden gesehen
+        ja_nein: true
+        hinweis: "Eine Person, die den Schaden gesehen hat, kann später den Zustand bestätigen. Nennen Sie sie nur mit ihrem Einverständnis."
+  - titel: Betroffene Sachen, Versicherung und Vorgeschichte
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Eigene Gegenstände sind beschädigt
+        ja_nein: true
+        hinweis: "Werfen Sie nichts weg, bevor Sie es fotografiert haben. Erstellen Sie eine Liste mit Bezeichnung, ungefährem Alter und Neupreis; Kaufbelege legen Sie bei, wenn vorhanden."
+      - text: Versicherung, die voraussichtlich betroffen ist
+        auswahl: [Hausrat, Wohngebäude, Haftpflicht, keine, unbekannt]
+        hinweis: "Bewegliche Sachen gehören meist zur Hausratversicherung, das Gebäude zur Wohngebäudeversicherung. Was Ihr Vertrag deckt, steht im Versicherungsschein. Fragen Sie die Verwaltung nach dem Gebäudeversicherer."
+      - text: Eigener Versicherer informiert
+        ja_nein: true
+      - text: Frühere Meldung zum gleichen Schaden
+        ja_nein: true
+        hinweis: "Wenn ja, tragen Sie Datum, Weg der Meldung und Ansprechperson in die Notizen ein."
+      - text: Vermutete Ursache
+        auswahl: [keine Vermutung, Nachbarwohnung, Gemeinschaftsanlage, Arbeiten im Haus, Witterung, eigene Nutzung]
+        hinweis: "Eine Vermutung ist kein Befund. Schreiben Sie, was Sie gesehen haben; die Ursache klärt die Verwaltung oder eine Fachfirma."
+  - titel: Zutritt, Termin und Rückmeldung
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Wohnung ist zugänglich
+        auswahl: [jederzeit nach Ankündigung, nur nach Terminabsprache, nur mit mir vor Ort, Schlüssel bei Nachbarn]
+        hinweis: "Nennen Sie mehrere Terminvorschläge, damit Besichtigung oder Reparatur schnell möglich sind."
+      - text: Rückmeldung der Verwaltung erbeten bis
+        ja_nein: true
+        hinweis: "Ein konkretes Datum ist klarer als ‚umgehend‘. Ob daraus Rechte entstehen, hängt vom Einzelfall ab und ist Sache eines Rechtsanwalts oder Mietervereins."
+      - text: Eingangsbestätigung der Verwaltung erhalten
+        ja_nein: true
+        hinweis: "Bewahren Sie die Bestätigung bei Ihren Unterlagen auf."
+      - text: Gesamteindruck der meldenden Person
+        auswahl: [Schaden klein und stabil, Schaden wächst, Schaden mit Gefahr, unklar]
+auswertung:
+  - "Ein akuter Befund oder eine Gefahr für Personen: zuerst Bereich sichern und Notdienst, Feuerwehr oder Netzbetreiber verständigen, erst danach das Formular ausfüllen und melden."
+  - "Ein deutlicher Befund an Wand, Decke, Boden oder Fenster oder ein Schaden, der sich zwischen zwei Kontrollen vergrößert hat: der Hausverwaltung eine zeitnahe Besichtigung vorschlagen und Fachfirma oder Sachverständigen einbeziehen lassen."
+  - "Mehrere geringe Befunde oder ein Schaden, der wiederkehrt: melden, jede Woche vom selben Standpunkt fotografieren und die Verlaufsfotos nachreichen."
+  - "Ungeklärte Zuständigkeit zwischen Wohnung und Gemeinschaftseigentum: trotzdem melden und unklar ankreuzen, die Verwaltung ordnet ein."
+  - "Streit über Ursache, Umfang oder Kosten: die rechtliche Seite beurteilt ein Rechtsanwalt oder Mieterverein, die technische Feststellung eine fachliche Begleitung."
+unterschriften: [Meldende Person, Eingang bestätigt für die Hausverwaltung]
+hinweise:
+  - "Dieses Formular ersetzt kein Gutachten und keine Rechtsberatung. Es hilft, einen Schaden vollständig und nachvollziehbar zu melden."
+  - "Die Stufen beschreiben, was Sie sehen. Ob und in welcher Höhe daraus Ansprüche folgen, beurteilen im Streitfall ein Rechtsanwalt oder ein Mieterverein."
+  - "Betreten Sie gefährdete Bereiche nicht. Öffnen Sie keine Bauteile und arbeiten Sie nicht an Strom-, Gas- oder Wasserinstallationen; das gehört Fachkräften."
+  - "Fotografieren Sie jeden Befund mit Datum und einem Maßstab im Bild, etwa einem Zollstock."
+  - "Namen und Daten Dritter, etwa von Zeugen, geben Sie nur mit deren Einverständnis an."
+quellen:
+  - "Mängelanzeige durch den Mieter, unverzügliche Anzeige, Folgen der Unterlassung (BGB § 536c, amtlicher Text aus der Fachbibliothek, Stand der Textsammlung)"
+  - "Gemeinschaftseigentum und Sondereigentum (WEG § 5 Abs. 2, amtlicher Text aus der Fachbibliothek)"
+  - "Berliner Mieterverein: Mängel schriftlich und unverzüglich anzeigen (abgerufen am 17.11.2026); Mängel anzeigen mit Erfolg: Beschreibung, Frist, Zugangsnachweis (abgerufen am 17.11.2026)"
+  - "Stiftung Warentest: Fotos und Zeugen zur Dokumentation (abgerufen am 17.11.2026)"
+  - "Verbraucherzentrale NRW: Schaden fotografieren, Schadensliste, Belege (abgerufen am 17.11.2026)"
+  - "Umweltbundesamt: kleiner oberflächlicher Schimmelbefall, Ursache der Feuchte beseitigen (abgerufen am 17.11.2026)"
+  - "Berliner Mieterverein: Temperatur und Ausfallzeiten bei Heizungsausfall festhalten (abgerufen am 17.11.2026)"
+  - "Vogdt: Bauphysik, 2022, S. 114 (Schadensbilder Feuchte und Schimmel); Frössel: Risse in Gebäuden, 2. Aufl. 2025, S. 117 (Rissbreite als Momentaufnahme)"
