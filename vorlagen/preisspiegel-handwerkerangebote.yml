@@ -67,7 +67,7 @@ tabelle:
     - ["S8", "Bedarfspositionen: Summe getrennt ausweisen", "", "", "", "", "", "", "", "", "", "Ob und in welchem Umfang sie nötig werden, steht beim Angebot noch nicht fest. Nicht in die Angebotssumme mischen"]
     - ["S9", "Alternativpositionen: Mehr- oder Minderpreis getrennt ausweisen", "", "", "", "", "", "", "", "", "", "Sie sind Varianten zu einer Grundposition. Beauftragt wird nur eine der beiden"]
     - ["B1", "Abrechnungsart: Pauschalpreis, Einheitspreise nach Aufmaß oder Stundenlohn", "", "", "", "", "", "", "", "", "", "Bei Aufmaß ändert sich die Endsumme mit den Mengen. Bei Pauschalpreis den Leistungsumfang genau festhalten"]
-    - ["B2", "Festpreis oder Preisgleitung", "", "", "", "", "", "", "", "", "", "Ohne andere Vereinbarung gelten Angebotspreise als Festpreise. Eine Preisgleitklausel muss im Angebot ausdrücklich stehen"]
+    - ["B2", "Festpreis oder Preisgleitung", "", "", "", "", "", "", "", "", "", "Ohne andere Vereinbarung gelten Angebotspreise als Festpreise. Eine Preisgleitklausel muss vereinbart und sorgfältig formuliert sein"]
     - ["B3", "Gerüst, Absperrung und Schutz des Umfelds enthalten (ja, nein, nach Aufwand)", "", "", "", "", "", "", "", "", "", "Auch Vor-, Nach- und Nebenarbeiten gehören in den Vergleich, etwa das Gerüst beim Fenstertausch"]
     - ["B4", "Baustelleneinrichtung, Strom und Wasser, An- und Abfahrt", "", "", "", "", "", "", "", "", "", "Wer stellt Strom und Wasser, wer zahlt die Anfahrt?"]
     - ["B5", "Vorarbeiten enthalten, zum Beispiel Abdecken, Demontage, Untergrund vorbereiten", "", "", "", "", "", "", "", "", "", ""]
@@ -100,7 +100,7 @@ hinweise:
   - "Diese Tabelle ersetzt keine Beratung im Einzelfall, keine Prüfung der Preise durch einen Sachverständigen und keine Rechtsberatung. Fragen zu Vertrag, Fristen oder Beschluss beurteilt ein Rechtsanwalt."
 quellen:
   - "Vergleich der Preise je Position in einem Preisspiegel, Auffälligkeiten und Preisabstände (Belke, Vergabepraxis für Auftraggeber, 3. Aufl. 2017, S. 162; Vogt, Kalkulation von Baupreisen, 2025, S. 126 f.)"
-  - "Preisspiegel als Teil der Angebotsprüfung bei der Mitwirkung an der Vergabe (Siemon/Averhaus: HOAI 2021, 7. Aufl. 2024, S. 369)"
+  - "Preisspiegel als Teil der Angebotsprüfung bei der Mitwirkung an der Vergabe (Siemon/Averhaus: HOAI 2021, 7. Aufl. 2024, S. 93)"
   - "Grundposition, Alternativposition und Bedarfsposition (Berner/Kochendörfer/Schach: Grundlagen der Baubetriebslehre 1, 3. Aufl. 2020, S. 117 f.)"
   - "Preisnachlass und Skonto bei der Wertung (Belke 2017, S. 174); Voraussetzungen einer Skontovereinbarung und Festpreis (Rode/Weller: AVA-Handbuch, 11. Aufl. 2025, S. 99)"
   - "Kostenanschlag, § 632 Abs. 3 und § 649 BGB (amtlicher Text, gesetze-im-internet.de)"

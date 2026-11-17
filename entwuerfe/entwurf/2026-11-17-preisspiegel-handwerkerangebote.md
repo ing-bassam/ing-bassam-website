@@ -61,13 +61,13 @@ Alternativpositionen sind Varianten zu einer Grundposition, etwa eine andere Obe
 
 Bei Preisnachlässen ist die Bedingung entscheidend. Ein Fachbuch zur Vergabepraxis unterscheidet für öffentliche Auftraggeber zwischen einem Nachlass ohne Bedingung und einem Skonto. Der bedingungslose Nachlass wird in die Wertung einbezogen, ein Skonto nicht.[^6] Die Vorlage übernimmt diese Trennung. Zeile S2 nimmt nur den Nachlass ohne Bedingung auf, Zeile S7 den Skonto mit Prozentsatz und Frist.
 
-Ein Skonto setzt eine klare Vereinbarung voraus. Dazu gehören eine eindeutig berechenbare Zahlungsfrist und die Höhe des Abzugs.[^7] Auch zur Preisbindung enthalten die Angebote Angaben, die Sie vergleichen sollten. Nach einem Handbuch für Ausschreibung und Vergabe gelten Angebotspreise, sofern nichts anderes vereinbart ist, als Festpreise; Preisgleitklauseln müssen gesondert formuliert werden.[^7] Ob im Einzelfall eine Preisanpassung verlangt werden kann, beurteilt ein Rechtsanwalt.
+Ein Skonto setzt eine klare Vereinbarung voraus. Dazu gehören eine eindeutig berechenbare Zahlungsfrist und die Höhe des Abzugs.[^7] Auch zur Preisbindung enthalten die Angebote Angaben, die Sie vergleichen sollten. Nach einem Handbuch für Ausschreibung und Vergabe sind Angebotspreise ohne abweichende Vereinbarung Festpreise; eine Preisgleitklausel muss mit Sorgfalt formuliert werden.[^7] Ob im Einzelfall eine Preisanpassung verlangt werden kann, beurteilt ein Rechtsanwalt.
 
 ## Auffällig niedrige Preise und Kostenanschläge richtig lesen
 
 Ein Angebot, das deutlich unter den anderen liegt, ist ein Grund zur Rückfrage. Das Fachbuch zur Angebotsprüfung nennt als Erklärung, dass der Bieter die Leistung möglicherweise nicht richtig verstanden hat.[^1] Das gilt auch für eine Summe, die weit über den anderen liegt. Zeile S6 zeigt für jedes Angebot den prozentualen Abstand zur niedrigsten Summe. Eine feste Grenze, ab der ein Preis „zu niedrig“ ist, nennt die Vorlage nicht. Das hängt vom Gewerk und von der Maßnahme ab.
 
-Fragen Sie in diesem Fall nach, was im Preis steckt. Ein Fachbuch beschreibt dafür für öffentliche Vergaben ein Aufklärungsgespräch, in dem der Bieter seine Kalkulation erläutert.[^8] Als privater Auftraggeber können Sie dasselbe Gespräch führen, ohne an diese Förmlichkeiten gebunden zu sein.
+Fragen Sie in diesem Fall nach, was im Preis steckt. Ein Fachbuch beschreibt dafür für öffentliche Vergaben ein Aufklärungsgespräch mit dem Bieter, bei dem der Auftraggeber auch dessen Kalkulation einsehen darf.[^8] Als privater Auftraggeber können Sie dasselbe Gespräch führen, ohne an diese Förmlichkeiten gebunden zu sein.
 
 Prüfen Sie außerdem, ob ein Angebot als Angebot oder als Kostenanschlag bezeichnet ist. Zeile A9 hält das fest. Das Gesetz regelt den Kostenanschlag im Werkvertragsrecht des Bürgerlichen Gesetzbuchs (BGB). Hat der Betrieb nicht die Gewähr für die Richtigkeit übernommen und zeichnet sich eine wesentliche Überschreitung ab, muss er das dem Besteller unverzüglich anzeigen.[^9] Ein Kostenanschlag ist außerdem im Zweifel nicht zu vergüten.[^9] Wie sich das in Ihrem Fall auswirkt, beurteilt ein Rechtsanwalt.
 
@@ -83,7 +83,7 @@ Legen Sie die Tabelle der Beschlussvorlage bei. Ob die Angebote selbst vorab an 
 
 Ein Sachverständiger hilft, wenn Sie die Leistungen nicht selbst beurteilen können. Das ist der Fall bei Sanierungen am Dach, an der Fassade oder an tragenden Bauteilen, bei denen Angebote unterschiedliche Verfahren vorschlagen. Eine fachkundige Person prüft dann, ob die Positionen vollständig sind und ob die vorgeschlagenen Verfahren zum Schaden passen.
 
-Im Leistungsbild der Objektplanung nach der Honorarordnung für Architekten und Ingenieure (HOAI) gehört der Preisspiegel zur Mitwirkung bei der Vergabe. Bei privaten Projekten wird das Einholen der Angebote im Einzelfall vereinbart.[^11] Eine [Kalkulation und Angebotsprüfung](https://ing-bassam.de/#kontakt) durch ein Ingenieurbüro kann daher vor der Beschlussfassung eine Hilfe sein.
+Im Leistungsbild der Objektplanung nach der Honorarordnung für Architekten und Ingenieure (HOAI) gehört der Preisspiegel zur Mitwirkung bei der Vergabe.[^11] Eine [Kalkulation und Angebotsprüfung](https://ing-bassam.de/#kontakt) durch ein Ingenieurbüro kann daher vor der Beschlussfassung eine Hilfe sein.
 
 Der Preisspiegel ersetzt keine fachliche Prüfung einzelner Positionen. Er zeigt, wo die Angebote auseinanderliegen. Warum sie auseinanderliegen, klären die Rückfragen an die Firmen oder die Prüfung durch Fachleute. Beides sollten Sie in der Tabelle in Zeile B18 festhalten.
 
@@ -95,7 +95,7 @@ Die Verbraucherzentrale empfiehlt zwei bis drei Angebote verschiedener Firmen.[^
 
 **Darf ich ein Skonto in die Angebotssumme einrechnen?**
 
-Die Vorlage rechnet es nicht ein. Ein Skonto gilt nur, wenn die Zahlung in der genannten Frist erfolgt, und setzt eine klare Frist und Höhe voraus.[^7] Tragen Sie deshalb Prozentsatz und Frist in Zeile S7 ein und beurteilen Sie ihn getrennt vom Preis.
+Die Vorlage rechnet es nicht ein. Ein Skonto setzt eine klare Frist und Höhe voraus.[^7] Tragen Sie deshalb Prozentsatz und Frist in Zeile S7 ein und beurteilen Sie es getrennt vom Preis.
 
 **Was mache ich, wenn eine Firma eine Position nicht anbietet?**
 
@@ -127,4 +127,4 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^8]: Belke, Andreas: Vergabepraxis für Auftraggeber. Rechtliche Grundlagen - Vorbereitung - Abwicklung. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2017, S. 171. ISBN 978-3-658-18449-0.
 [^9]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 632 Absatz 3 und § 649, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/ (amtlicher Text laut Fachbibliothek des Büros, Datenstand 2026-09-26, abgerufen am 2026-10-23; ein erneuter Abruf am 2026-11-17 war nicht möglich).
 [^10]: LG München I: Endurteil vom 03.07.2025 – 36 S 1486/24 WEG, Rn. 42 und 44. https://www.gesetze-bayern.de/Content/Document/Y-300-Z-BECKRS-B-2025-N-38597?hl=true (abgerufen am 2026-11-17).
-[^11]: Siemon, Klaus D.; Averhaus, Ralf: HOAI 2021-Textausgabe. Honorarordnung für Architekten und Ingenieure in der Fassung von 2021. 7. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 369. ISBN 978-3-658-44116-6.
+[^11]: Siemon, Klaus D.; Averhaus, Ralf: HOAI 2021-Textausgabe. Honorarordnung für Architekten und Ingenieure in der Fassung von 2021. 7. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 93. ISBN 978-3-658-44116-6.
