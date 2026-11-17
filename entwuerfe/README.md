@@ -7,7 +7,7 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Actions → „Entwürfe veröffentlichen“ → Run workflow (Auswahl: die Kurzform oder „alle“). Der Workflow prüft vorher auf wörtliche Übernahmen aus der Fachbibliothek, setzt den Status und verschiebt die Datei in den richtigen Ordner; die Adresse der Seite ändert sich dabei nicht. Wer `status: Veröffentlicht` von Hand setzt, löst dieselbe Prüfung im Seitenbau aus – mit Befund oder ohne mögliche Prüfung setzt der Seitenbau den Status auf „Entwurf“ zurück.
 
-## 🟡 Entwurf (7)
+## 🟡 Entwurf (5)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
@@ -16,10 +16,8 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 | 05.11.2026 | [Was macht ein Bauherrenvertreter, und wer braucht ihn?](entwurf/2026-11-05-bauherrenvertreter-aufgaben-nutzen.md) | Grundlagen | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauherrenvertreter-aufgaben-nutzen/) |
 | 05.11.2026 | [Bau- und Leistungsbeschreibung: was darin stehen muss](entwurf/2026-11-05-bau-leistungsbeschreibung-pruefen.md) | Grundlagen | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bau-leistungsbeschreibung-pruefen/) |
 | 04.11.2026 | [Wohnung wird nicht warm: Ursache messen statt streiten](entwurf/2026-11-04-wohnung-nicht-warm-heizung-ursache-nachweis.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/wohnung-nicht-warm-heizung-ursache-nachweis/) |
-| 03.11.2026 | [Checkliste Baustellenkontrolle nach Bauphasen](entwurf/2026-11-03-baustellenkontrolle-bauphasen-checkliste.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/baustellenkontrolle-bauphasen-checkliste/) |
-| 03.11.2026 | [Aufmaßblatt für Abschlags- und Schlussrechnungen](entwurf/2026-11-03-aufmassblatt-mengenermittlung-abrechnung.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/aufmassblatt-mengenermittlung-abrechnung/) |
 
-## 🟢 Veröffentlicht (91)
+## 🟢 Veröffentlicht (93)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
@@ -28,6 +26,8 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 | 10.11.2026 | [Prüfhilfe Abschlagszahlungen und Zahlungsplan](veroeffentlicht/2026-11-10-abschlagszahlungen-zahlungsplan-pruefhilfe.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/abschlagszahlungen-zahlungsplan-pruefhilfe/) |
 | 04.11.2026 | [Baubegleitende Qualitätskontrolle: Wann der Prüfer haftet](veroeffentlicht/2026-11-04-haftung-baubegleitende-qualitaetskontrolle.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/haftung-baubegleitende-qualitaetskontrolle/) |
 | 03.11.2026 | [Rostflecken an der Halle: Reparatur statt Preisnachlass?](veroeffentlicht/2026-11-03-rost-halle-nachbesserung-statt-minderung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/rost-halle-nachbesserung-statt-minderung/) |
+| 03.11.2026 | [Checkliste Baustellenkontrolle nach Bauphasen](veroeffentlicht/2026-11-03-baustellenkontrolle-bauphasen-checkliste.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/baustellenkontrolle-bauphasen-checkliste/) |
+| 03.11.2026 | [Aufmaßblatt für Abschlags- und Schlussrechnungen](veroeffentlicht/2026-11-03-aufmassblatt-mengenermittlung-abrechnung.md) | Vorlage | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/aufmassblatt-mengenermittlung-abrechnung/) |
 | 02.11.2026 | [Balkon und Tiefgarage: Gutachten als WEG-Beschlussgrundlage](veroeffentlicht/2026-11-02-weg-balkon-tiefgarage-sanierung-gutachten.md) | Fachbeitrag | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/weg-balkon-tiefgarage-sanierung-gutachten/) |
 | 02.11.2026 | [Gutachten vor dem Immobilienkauf: Lohnt sich die Prüfung?](veroeffentlicht/2026-11-02-gebrauchte-immobilie-gutachten-vor-kauf.md) | Ratgeber | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/gebrauchte-immobilie-gutachten-vor-kauf/) |
 | 29.10.2026 | [Risse in Fassade und Mauerwerk: harmlos oder ernst?](veroeffentlicht/2026-10-29-risse-fassade-mauerwerk-bewerten.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/risse-fassade-mauerwerk-bewerten/) |

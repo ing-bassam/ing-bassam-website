@@ -14,7 +14,7 @@ kurzform: baustellenkontrolle-bauphasen-checkliste
 dateien: vorlagen/baustellenkontrolle-bauphasen-checkliste/baustellenkontrolle-bauphasen-checkliste.pdf, vorlagen/baustellenkontrolle-bauphasen-checkliste/baustellenkontrolle-bauphasen-checkliste-ausfuellbar.pdf
 erstellt: 2026-11-03
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-8185-835b-f39d00623872
 notion_url: https://app.notion.com/p/Checkliste-Baustellenkontrolle-nach-Bauphasen-3e5d96ad00b48185835bf39d00623872

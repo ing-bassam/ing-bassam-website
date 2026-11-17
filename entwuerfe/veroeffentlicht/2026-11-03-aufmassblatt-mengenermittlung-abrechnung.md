@@ -14,7 +14,7 @@ kurzform: aufmassblatt-mengenermittlung-abrechnung
 dateien: vorlagen/aufmassblatt-mengenermittlung-abrechnung/aufmassblatt-mengenermittlung-abrechnung.xlsx, vorlagen/aufmassblatt-mengenermittlung-abrechnung/aufmassblatt-mengenermittlung-abrechnung.pdf
 erstellt: 2026-11-03
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-816c-941e-d4d471b74941
 notion_url: https://app.notion.com/p/Aufma-blatt-Vorlage-3e5d96ad00b4816c941ed4d471b74941
