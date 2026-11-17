@@ -78,7 +78,7 @@ Wer Terminpläne und Vertragsentwürfe vor der Unterschrift baufachlich durchseh
 
 Das Urteil entscheidet über eine einzige Klausel: eine Obergrenze von 5 Prozent, die für einen Zwischentermin an die gesamte Auftragssumme anknüpft (Rn. 19, 20). Es lässt offen, unter welchen Voraussetzungen Zwischentermine in vorformulierten Bedingungen überhaupt mit einer Vertragsstrafe belegt werden dürfen (Rn. 16). Ebenso bleibt offen, ob die Klausel aus anderen Gründen unwirksam gewesen wäre (Rn. 20).
 
-Beteiligt waren ein Deichverband, ein Generalunternehmen und ein Nachunternehmen (Rn. 1, 2). Zu Verträgen mit privaten Bauherren äußert sich das Urteil nicht. Der Bundesgerichtshof hat über eine zugelassene Revision entschieden und sie zurückgewiesen (Rn. 7, 8). Ob danach noch etwas offen ist, lässt sich dem Urteil nicht entnehmen; die Rechtskraft wurde nicht geprüft.
+Beteiligt waren ein Deichverband, ein Generalunternehmen und ein Nachunternehmen (Rn. 1, 2). Zu Verträgen mit privaten Bauherren äußert sich das Urteil nicht. Der Bundesgerichtshof hat über eine zugelassene Revision entschieden und sie zurückgewiesen (Rn. 7, 8).
 
 Das Urteil stammt vom 6. Dezember 2012 und ist damit älter als ein Jahr. Der Senat wandte § 307 Abs. 1 BGB an (Rn. 13). Diese Vorschrift gibt es auch heute in § 307 Abs. 1 BGB.[^2] Ob spätere Entscheidungen die Frage anders beurteilen, behandelt dieser Beitrag nicht.
 
