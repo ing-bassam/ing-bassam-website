@@ -73,21 +73,18 @@ VORSCHAUBILD = BASIS_URL + "/vorschau.png"      # erzeugt von tools/vorschaubild
 LLMS = WURZEL / "llms.txt"
 
 # Seiten, die nicht aus entwuerfe/ entstehen, aber in Sitemap und llms.txt
-# gehören: (Adresse, changefreq, priority). Der Wertrechner liegt unter
-# wertrechner/ (Deutsch) und en/property-valuation/ (Englisch); alle englischen
-# Seiten stehen in tools/leistungen.py (ENGLISCH).
+# gehören: (Adresse, changefreq, priority). Alle englischen Seiten stehen in
+# tools/leistungen.py (ENGLISCH). Die im November 2026 entfernten Rechner
+# (Wertrechner, Gewährleistungsfrist, Taupunkt) und die Übersicht „Werkzeuge“
+# gehören nicht mehr hierher; ihre alten Adressen leitet tools/website_bauen.py weiter.
 WEITERE_SEITEN = [
-    ("https://ing-bassam.de/wertrechner/", "monthly", "0.8"),
-    ("https://ing-bassam.de/werkzeuge/", "monthly", "0.8"),
-    ("https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/", "monthly", "0.8"),
-    ("https://ing-bassam.de/werkzeuge/taupunkt/", "monthly", "0.8"),
     ("https://ing-bassam.de/werkzeuge/maengelanzeige/", "monthly", "0.8"),
     ("https://ing-bassam.de/fachwissen/vorlagen/", "weekly", "0.8"),
 ] + [
     # Die Leistungsseiten unter /leistungen/ (Übersicht und je Leistung eine Seite).
     (f"{BASIS_URL}/{seite.pfad}", "monthly", "0.8") for seite in leistungen.alle()
 ] + [
-    # Die englischen Seiten unter /en/ (Einstieg, Leistungen, Wertrechner).
+    # Die englischen Seiten unter /en/ (Einstieg und Leistungen).
     (f"{BASIS_URL}/{seite.pfad}", "monthly", "0.8") for seite in leistungen.ENGLISCH
 ]
 FIRMA = "Bassam Ingenieurbüro für Bauwesen GmbH"
@@ -769,7 +766,6 @@ KOPF_VORLAGE = """<!DOCTYPE html>
     <nav aria-label="Bereiche">
       <a href="{start}leistungen/">Leistungen</a>
       <a href="{fachwissen}">Fachwissen</a>
-      <a href="{start}werkzeuge/">Werkzeuge</a>
       <a href="{start}#kontakt">Kontakt</a>
 {sprachwechsel}    </nav>
   </div>
@@ -781,7 +777,7 @@ FUSS_VORLAGE = """
   <div class="wrap">
     <p><strong>{firma}</strong><br>Straße am Flugplatz 6a, 12487 Berlin</p>
     <p><a href="mailto:{email}">{email}</a> · Antwort in der Regel innerhalb eines Werktags</p>
-    <p class="rechtliches"><a href="{start}#impressum">Impressum</a> · <a href="{start}#datenschutz">Datenschutz</a> · <a href="{fachwissen}">Alle Fachbeiträge</a> · <a href="{fachwissen}vorlagen/">Vorlagen</a> · <a href="{start}wertrechner/">Wertrechner</a> · <a href="{start}leistungen/technische-due-diligence/">Due Diligence</a></p>
+    <p class="rechtliches"><a href="{start}#impressum">Impressum</a> · <a href="{start}#datenschutz">Datenschutz</a> · <a href="{fachwissen}">Alle Fachbeiträge</a> · <a href="{fachwissen}vorlagen/">Vorlagen</a> · <a href="{start}leistungen/technische-due-diligence/">Due Diligence</a></p>
     <p class="rechtliches">Für Geschäftskunden: <a href="{start}leistungen/hausverwaltungen/">Hausverwaltungen</a> · <a href="{start}leistungen/rechtsanwaelte/">Rechtsanwälte</a> · <a href="{start}leistungen/versicherer/">Versicherer</a></p>
     <p class="klein">© {jahr} {firma} · Keine Cookies. Kein Tracking.</p>
   </div>
@@ -1181,23 +1177,13 @@ def llms_bauen(oeffentlich: list["Artikel"], leitfaeden: list = ()) -> str:
         for seite in leistungen.ENGLISCH
     ] + beitraege_en.llms_zeilen(list(leitfaeden)) + [
         "",
-        f"## Werkzeuge ({BASIS_URL}/werkzeuge/)",
+        f"## Vorlagen ({BASIS_URL}/fachwissen/vorlagen/)",
         "",
-        f"- [Wertrechner Berlin]({BASIS_URL}/wertrechner/): Kostenlose, unverbindliche Wertindikation für "
-        "Ein-, Zweifamilien- und Mietshäuser in Berlin nach der ImmoWertV 2021 mit den Sachwertfaktoren und "
-        "Liegenschaftszinssätzen des Gutachterausschusses; Bodenrichtwert automatisch aus der Adresse, "
-        "Berechnung vollständig im Browser.",
-        f"- [Gewährleistungsfrist berechnen]({BASIS_URL}/werkzeuge/gewaehrleistungsfrist/): Ende der Verjährung "
-        "von Mängelansprüchen nach BGB (5 Jahre) oder VOB/B (4 Jahre) ab Abnahme, mit Hemmung, Mängelrüge, "
-        "Anerkenntnis und Werktagsregel; Rechenweg mit Paragrafen, Berechnung im Browser.",
-        f"- [Taupunkt und Schimmelrisiko]({BASIS_URL}/werkzeuge/taupunkt/): Taupunkt, Oberflächenfeuchte und "
-        "Schimmelrisiko nach dem 80-%-Kriterium der DIN 4108-2 aus Raumklima und Oberflächentemperatur oder "
-        "Temperaturfaktor; Magnus-Formel, Rechenweg mit Formeln, Berechnung im Browser.",
+        f"- [Checklisten und Vorlagen]({BASIS_URL}/fachwissen/vorlagen/): alle Checklisten, Protokolle und "
+        "Musterschreiben als PDF und Word zum Herunterladen, jeweils mit erläuterndem Fachbeitrag.",
         f"- [Mängelanzeige erstellen]({BASIS_URL}/werkzeuge/maengelanzeige/): Generator für eine Mängelanzeige mit "
         "Fristsetzung nach dem Musterschreiben des Büros – Ort und Erscheinungsbild je Mangel, Fristdatum, Anlagen, "
         "Prüfliste; BGB und VOB/B; ohne Speicherung, zum Drucken oder Kopieren.",
-        f"- [Checklisten und Vorlagen]({BASIS_URL}/fachwissen/vorlagen/): alle Checklisten, Protokolle und "
-        "Musterschreiben als PDF und Word zum Herunterladen, jeweils mit erläuterndem Fachbeitrag.",
         "",
         f"## Fachwissen ({BASIS_URL}/fachwissen/)",
     ]
@@ -1359,8 +1345,8 @@ def vorlagenseite(artikel: list[Artikel]) -> str:
 
     Zeigt jeden veröffentlichten Beitrag, der Dateien zum Herunterladen mitbringt
     (Checklisten, Protokolle, Musterschreiben), mit direkten Download-Links und
-    dem Verweis auf den erläuternden Beitrag. Verlinkt von /werkzeuge/, der
-    Startseite und der Fußzeile der Beiträge.
+    dem Verweis auf den erläuternden Beitrag. Verlinkt von der Startseite und
+    der Fußzeile der Beiträge.
     """
     vorlagen = sorted((a for a in artikel if a.dateien), key=lambda a: a.titel.lower())
     anzahl = len(vorlagen)
@@ -1433,7 +1419,7 @@ def vorlagenseite(artikel: list[Artikel]) -> str:
       <p>{html.escape(beschreibung)} Jede Vorlage gehört zu einem Fachbeitrag, der erklärt, wie sie auszufüllen ist und woran Protokolle und Anzeigen in der Praxis scheitern.</p>
     </header>
     <aside class="werkzeug-hinweis">
-      <p><strong>Rechner und Generatoren:</strong> <a href="../../wertrechner/">Wertrechner Berlin</a> · <a href="../../werkzeuge/gewaehrleistungsfrist/">Gewährleistungsfrist berechnen</a> · <a href="../../werkzeuge/taupunkt/">Taupunkt und Schimmelrisiko</a> · <a href="../../werkzeuge/maengelanzeige/">Mängelanzeige erstellen</a> · <a href="../../werkzeuge/">alle Werkzeuge</a></p>
+      <p><strong>Direkt ausfüllen:</strong> <a href="../../werkzeuge/maengelanzeige/">Mängelanzeige mit Fristsetzung erstellen</a> – im Browser, ohne Speicherung.</p>
     </aside>
     <ul class="karten">
 {chr(10).join(karten)}
@@ -1528,7 +1514,7 @@ def sitemap_bauen(artikel: list[Artikel], heute: str,
         (start_url, stand(start_url), "monthly", "1.0"),
         (uebersicht_url, stand(uebersicht_url), "weekly", "0.8"),
     ]
-    # Eigenständige Seiten außerhalb des Fachwissens (z. B. der Wertrechner).
+    # Eigenständige Seiten außerhalb des Fachwissens (z. B. die Leistungsseiten).
     # Ihr lastmod bleibt erhalten, solange sich nichts ändert; beim ersten Lauf
     # gilt das Datum des Laufs.
     for url, takt, gewicht in WEITERE_SEITEN:

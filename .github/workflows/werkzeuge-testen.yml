@@ -5,7 +5,7 @@ name: Werkzeuge testen
 # Werkzeugen, Tests, Workflows oder Skills etwas ändert: Doppelungsprüfung,
 # Kontingent-Bremse, Veröffentlichung, Zeitpläne. Ohne KI, ohne Kontingent,
 # ohne Secrets. Bei den Entwürfen der Agenten läuft er nicht.
-# Dazu die von Hand gepflegten Seiten (Startseite, Leistungsseiten, Wertrechner):
+# Dazu die von Hand gepflegten Seiten (Startseite, Leistungsseiten, englische Seiten):
 # Länge der Meta-Beschreibung und Strukturdaten (tests/test_seiten.py), dazu die
 # englischen Leitfäden aus entwuerfe-en/ (tests/test_leitfaeden_en.py).
 # Kosten: keine (GitHub Actions ist für öffentliche Repositorys frei).
@@ -16,7 +16,6 @@ on:
     paths:
       - "tools/**"
       - "tests/**"
-      - "wertrechner/**"
       - "werkzeuge/**"
       - ".github/workflows/**"
       - ".claude/skills/**"
@@ -25,13 +24,11 @@ on:
       - "entwuerfe-en/**"
       - "marketing/linkedin/**"
       - "leistungen/**"
-      - "wertrechner/**"
   push:
     branches: [main]
     paths:
       - "tools/**"
       - "tests/**"
-      - "wertrechner/**"
       - "werkzeuge/**"
       - ".github/workflows/**"
       - ".claude/skills/**"
@@ -40,7 +37,6 @@ on:
       - "entwuerfe-en/**"
       - "marketing/linkedin/**"
       - "leistungen/**"
-      - "wertrechner/**"
   workflow_dispatch:
 
 permissions:
@@ -72,8 +68,8 @@ jobs:
       - name: Tests
         run: python -m unittest discover -s tests -v
 
-  # Die Rechenkerne der Browser-Werkzeuge (Wertrechner, Gewährleistungsfrist, …)
-  # sind reine ES-Module ohne Abhängigkeiten; Node testet sie ohne Browser.
+  # Die Skripte der Seiten (Mängelanzeige, private Angebotsseite) sind reine
+  # ES-Module ohne Abhängigkeiten; Node testet sie ohne Browser.
   browser-werkzeuge:
     runs-on: ubuntu-latest
     timeout-minutes: 10

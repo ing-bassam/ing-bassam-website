@@ -1,14 +1,13 @@
 # CLAUDE.md – ing-bassam.de
 
-Website des Bassam Ingenieurbüros für Bauwesen in Berlin: statische Seiten auf GitHub Pages (ing-bassam.de) mit Leistungsseiten, Fachbeiträgen, Rechnern und englischen Leitfäden. Claude-Agenten schreiben über GitHub Actions Entwürfe als Pull Requests, der Inhaber gibt sie frei. Das Repository ist öffentlich.
+Website des Bassam Ingenieurbüros für Bauwesen in Berlin: statische Seiten auf GitHub Pages (ing-bassam.de) mit Leistungsseiten, Fachbeiträgen, Vorlagen und englischen Leitfäden. Claude-Agenten schreiben über GitHub Actions Entwürfe als Pull Requests, der Inhaber gibt sie frei. Das Repository ist öffentlich.
 
 ## Aufbau
-- `index.html`, `leistungen/`, `en/` (ohne `en/guides/`), `werkzeuge/`, `wertrechner/`, `fachwissen/artikel.css` – von Hand gepflegt
+- `index.html`, `leistungen/` (mit dem gemeinsamen Stylesheet `leistungen/seiten.css`), `en/` (ohne `en/guides/`), `werkzeuge/maengelanzeige/`, `fachwissen/artikel.css` – von Hand gepflegt
 - `angebot/` – private Angebotsseiten, nur per persönlichem Link nutzbar: Inhalte verschlüsselt in `paket.js` (`tools/angebot_verschluesseln.mjs`), Schlüssel und Klartext nie im Repo; nie verlinken, nicht in Sitemap oder llms.txt
 - `entwuerfe/`, `entwuerfe-en/` – Markdown-Quellen der Beiträge; `status:` im Dateikopf steuert die Veröffentlichung
 - `fachwissen/`, `en/guides/`, `sitemap.xml`, `llms.txt`, `entwuerfe/README.md` – vom Seitenbau erzeugt, nie von Hand ändern
 - `vorlagen/<kurzform>.yml` – Quelle der Downloads; PDF, Word und Excel daneben erzeugt `tools/vorlage_bauen.py`
-- `daten/marktdaten.xlsx` – Quelle für `wertrechner/data/`, umgewandelt vom Workflow „Marktdaten bauen“
 - `tools/` Python-Werkzeuge der Workflows · `tests/` Python- und Node-Tests · `.claude/skills/` Anweisungen der Agenten
 
 ## Befehle (CI: Python 3.12, Node 22)
@@ -31,6 +30,7 @@ Website des Bassam Ingenieurbüros für Bauwesen in Berlin: statische Seiten auf
 
 ## Stolperfallen
 - Neue Dateien oder Ordner im Hauptordner gehen erst online, wenn sie in der Positivliste in `tools/website_bauen.py` stehen
+- Entfernte Seiten: alte Adresse mit Ziel in `WEITERLEITUNGEN` in `tools/website_bauen.py` eintragen; die Weiterleitungsseite entsteht erst beim Bauen. Wertrechner, Gewährleistungsfrist- und Taupunkt-Rechner sind seit November 2026 entfernt (Git-Historie) – nicht mehr verlinken
 - Beitragstext muss im ausgelieferten HTML stehen – KI-Crawler führen kein JavaScript aus
 - `tools/indexnow.py` meldet echte Adressen an Bing: nur im Workflow ausführen
 - Commits mit dem GITHUB_TOKEN starten keine weiteren Workflows; Ketten laufen über `workflow_run`
@@ -38,5 +38,5 @@ Website des Bassam Ingenieurbüros für Bauwesen in Berlin: statische Seiten auf
 - Zeilenenden LF: unter Windows Dateien mit `newline="\n"` schreiben, Python schreibt sonst CRLF
 
 ## Mehr
-- Beiträge und Veröffentlichen: `entwuerfe/README.md` · Wertrechner: `daten/ANLEITUNG.md`, `fachliteratur/README.md` · Reichweite: `marketing/REICHWEITE-PLAN.md`
+- Beiträge und Veröffentlichen: `entwuerfe/README.md` · Reichweite: `marketing/REICHWEITE-PLAN.md`
 - Abläufe der Agenten: `.claude/skills/` und die Kopfkommentare der Workflows

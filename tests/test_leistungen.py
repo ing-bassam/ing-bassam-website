@@ -210,7 +210,7 @@ class KeineEigenenPreise(unittest.TestCase):
                 for obj in objekte(json.loads(block)):
                     for feld in PREISFELDER & set(obj):
                         if feld == "price" and str(obj[feld]) in ("0", "0.00"):
-                            continue          # kostenloses Werkzeug, z. B. Wertrechner
+                            continue          # kostenloses Werkzeug, z. B. Mängelanzeige
                         funde.append(f"{ort}: {feld} = {obj[feld]}")
         self.assertEqual(funde, [])
 

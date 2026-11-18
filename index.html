@@ -66,7 +66,7 @@
     "availableLanguage": ["German", "English"],
     "areaServed": "DE"
   },
-  "knowsAbout": ["Versicherungsgutachten", "Gerichtsgutachten", "Technische Beweissicherung", "Kaufbegutachtung", "Vergabe und Objektüberwachung (HOAI Leistungsphasen 6 bis 8)", "Technische Due Diligence", "Bauschäden", "Bauphysik", "Immobilienbewertung"],
+  "knowsAbout": ["Versicherungsgutachten", "Gerichtsgutachten", "Technische Beweissicherung", "Kaufbegutachtung", "Vergabe und Objektüberwachung (HOAI Leistungsphasen 6 bis 8)", "Technische Due Diligence", "Bauschäden", "Bauphysik"],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Leistungen",
@@ -82,8 +82,7 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Privatgutachten für Bauprozesse", "url": "https://ing-bassam.de/leistungen/privatgutachten-bauprozess/" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technische Due Diligence und Kaufberatung", "url": "https://ing-bassam.de/leistungen/technische-due-diligence/" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gutachten und Beweissicherung für Hausverwaltungen", "url": "https://ing-bassam.de/leistungen/hausverwaltungen/" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technische Stellungnahmen für Rechtsanwälte", "url": "https://ing-bassam.de/leistungen/rechtsanwaelte/" } },
-      { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "itemOffered": { "@type": "Service", "name": "Wertrechner Berlin (kostenlose Wertindikation)", "url": "https://ing-bassam.de/wertrechner/" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Technische Stellungnahmen für Rechtsanwälte", "url": "https://ing-bassam.de/leistungen/rechtsanwaelte/" } }
     ]
   }
 }
@@ -467,11 +466,10 @@
   html.js .masskette:not(.is-visible) .mk-ende{opacity:0;}
 
   /* =====================================================================
-     FACHWISSEN UND WERKZEUGE
+     FACHWISSEN
      ===================================================================== */
   .werkzeuge{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:0 clamp(32px, 5vw, 72px); border-bottom:1px solid var(--line-strong);}
   .werkzeuge li{border-top:1px solid var(--line-strong);}
-  .werkzeuge li.wz-fuss{display:flex; align-items:center; padding:18px 0;}
   .werkzeuge a{
     display:grid; grid-template-columns:minmax(0,1fr) auto; gap:2px 20px; align-items:center;
     padding:18px 0;
@@ -725,9 +723,6 @@
       <ul class="nav-links">
         <li><a href="#leistungen">Leistungen</a></li>
         <li><a href="#fachwissen">Fachwissen</a></li>
-        <li><a href="/wertrechner/">Wertrechner</a></li>
-        <li><a href="/werkzeuge/">Werkzeuge</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
         <li><a href="/en/" lang="en" hreflang="en">English</a></li>
       </ul>
       <a href="#kontakt" class="btn btn-primary header-cta">Kontakt</a>
@@ -951,7 +946,7 @@
     <div class="wrap">
       <div class="section-kopf">
         <h2 id="arbeitsweiseTitle">So entsteht ein Gutachten</h2>
-        <p class="section-intro">Vier Schritte vom Ortstermin zum Bericht. Was nicht zugänglich oder nicht messbar war, steht im Bericht.</p>
+        <p class="section-intro">Was nicht zugänglich oder nicht messbar war, steht im Bericht.</p>
       </div>
       <ol class="masskette reveal" role="list">
         <li style="--i:0">
@@ -968,29 +963,25 @@
         </li>
         <li style="--i:3">
           <span class="mk-linie" aria-hidden="true"><span class="mk-ende"></span></span>
-          <span class="mk-text"><strong>Schriftlicher Bericht</strong>Mit Fotos, Messwerten und den Grenzen der Untersuchung.</span>
+          <span class="mk-text"><strong>Schriftlicher Bericht</strong>Mit Fotos und Messwerten.</span>
         </li>
       </ol>
     </div>
   </section>
 
-  <!-- ================= FACHWISSEN UND WERKZEUGE ================= -->
+  <!-- ================= FACHWISSEN ================= -->
   <section id="fachwissen" class="section" aria-labelledby="fachwissenTitle">
     <div class="wrap">
       <!-- Die Beiträge liegen als eigene, statische Seiten unter /fachwissen/.
            Bewusst echte Links statt JavaScript: KI-Crawler führen kein JavaScript
            aus und sehen sonst weder Titel noch Text. -->
       <div class="section-kopf">
-        <h2 id="fachwissenTitle">Fachwissen und Werkzeuge</h2>
-        <p class="section-intro">Fachbeiträge zu Bauphysik, Bauschäden und Baurecht mit Quellenangaben, dazu Rechner und Vorlagen ohne Anmeldung.</p>
+        <h2 id="fachwissenTitle">Fachwissen</h2>
+        <p class="section-intro">Mit Quellenangaben und ohne Anmeldung.</p>
       </div>
       <ul class="werkzeuge" role="list">
-        <li><a href="/wertrechner/"><span class="wz-titel">Wertrechner Berlin</span><span class="wz-text">Wertindikation für Häuser in Berlin</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
-        <li><a href="/werkzeuge/taupunkt/"><span class="wz-titel">Taupunkt und Schimmelrisiko</span><span class="wz-text">Rechner nach DIN 4108-2</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
-        <li><a href="/werkzeuge/gewaehrleistungsfrist/"><span class="wz-titel">Gewährleistungsfrist</span><span class="wz-text">Fristende nach BGB und VOB/B berechnen</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
-        <li><a href="/werkzeuge/maengelanzeige/"><span class="wz-titel">Mängelanzeige</span><span class="wz-text">Schreiben mit Fristsetzung erstellen</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="/fachwissen/"><span class="wz-titel">Fachbeiträge</span><span class="wz-text">Bauphysik, Bauschäden und Baurecht</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
         <li><a href="/fachwissen/vorlagen/"><span class="wz-titel">Checklisten und Vorlagen</span><span class="wz-text">Zum Herunterladen als PDF, Word oder Excel</span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
-        <li class="wz-fuss"><a class="text-link" href="/fachwissen/">Zu den Fachbeiträgen <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
       </ul>
     </div>
   </section>
@@ -1061,7 +1052,7 @@
 
             <div class="form-foot">
               <button class="btn btn-primary" type="submit">Nachricht senden <svg class="icon icon-arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-              <p class="form-note">Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer vorbereiteten Nachricht. Ihre Eingaben werden nicht auf dieser Website gespeichert. Weitere Informationen finden Sie in der <a href="#datenschutz">Datenschutzerklärung</a>.</p>
+              <p class="form-note">Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer vorbereiteten Nachricht. Ihre Eingaben werden nicht auf dieser Website gespeichert. Mehr in der <a href="#datenschutz">Datenschutzerklärung</a>.</p>
             </div>
           </div>
 
@@ -1105,8 +1096,6 @@
     <div class="footer-col">
       <h4>Wissen und Kontakt</h4>
       <a href="#fachwissen">Fachwissen</a>
-      <a href="/wertrechner/">Wertrechner</a>
-      <a href="/werkzeuge/">Werkzeuge</a>
       <a href="/fachwissen/vorlagen/">Vorlagen</a>
       <a href="mailto:info@ing-bassam.de">info@ing-bassam.de</a>
     </div>
