@@ -185,18 +185,16 @@ class Auslieferung(unittest.TestCase):
                 fehlend.append(f"{pfad} → {ziel}")
         self.assertEqual(sorted(set(fehlend)), [])
 
-    def test_veroeffentlichte_seiten_nennen_keine_alten_adressen(self):
-        # Streng für alles, was auf main gepflegt oder veröffentlicht ist: Startseite,
-        # Leistungsseiten, en/, 404, die Übersichten und jede Seite aus der Sitemap.
-        # Ausgenommen sind nur Beitragsseiten, die noch nicht in der Sitemap stehen
-        # (Vorschau eines Entwurfs mit altem Kopf, siehe oben).
+    def test_gepflegte_seiten_nennen_keine_alten_adressen(self):
+        # Streng für alles, was von Hand gepflegt wird, und für die Übersichten:
+        # Startseite, Leistungsseiten, en/, 404, Fachwissen, Vorlagen, Guides.
+        # Beitragsseiten sind ausgenommen (Vorschau eines Entwurfs mit altem Kopf,
+        # siehe oben); ihren Inhalt prüft der nächste Test an der Quelle.
         weitergeleitet = {f"{alt}index.html" for alt in w.WEITERLEITUNGEN}
-        sitemap = {aufloesen("sitemap.xml", url.strip())
-                   for url in re.findall(r"<loc>(.*?)</loc>", (WURZEL / "sitemap.xml").read_text(encoding="utf-8"))}
-        beitrag = re.compile(r"(fachwissen|en/guides)/[^/]+/index\.html")
+        beitrag = re.compile(r"(fachwissen|en/guides)/(?!vorlagen/)[^/]+/index\.html")
         alte, geprueft = [], 0
         for pfad in sorted(self.website):
-            if not pfad.endswith(".html") or (beitrag.fullmatch(pfad) and pfad not in sitemap):
+            if not pfad.endswith(".html") or beitrag.fullmatch(pfad):
                 continue
             geprueft += 1
             leser = Verweise()
@@ -208,7 +206,44 @@ class Auslieferung(unittest.TestCase):
                 if aufgeloest in weitergeleitet or f"{aufgeloest}/index.html" in weitergeleitet:
                     alte.append(f"{pfad} → {ziel}")
         self.assertEqual(sorted(set(alte)), [])
-        self.assertGreater(geprueft, 100)      # Schutz vor einer leeren Prüfung
+        self.assertGreater(geprueft, 25)       # Schutz vor einer leeren Prüfung
+
+    def test_quellen_nennen_keine_alten_adressen(self):
+        # Entwürfe, englische Leitfäden, Vorlagen und die Bausteine des Seitenbaus
+        # dürfen nicht auf entfernte Seiten verweisen. Geprüft wird die Quelle, damit
+        # ein solcher Verweis bei der Freigabe des einen Entwurfs auffällt – und nicht
+        # erst nach der Veröffentlichung auf main, wo er jede weitere Freigabe aufhielte.
+        # Kein Treffer: /werkzeuge/maengelanzeige/ (gibt es weiterhin) und Adressen
+        # anderer Websites wie https://www.beispiel.de/werkzeuge/.
+        muster = re.compile("|".join(rf"/{re.escape(alt.rstrip('/'))}/?(?![\w/-])"
+                                     for alt in sorted(w.WEITERLEITUNGEN, key=len, reverse=True)))
+        fremd = re.compile(rf"(?:^|//)(?!(?:www\.)?{re.escape(HOST)})[\w-]+(?:\.[\w-]+)+(?:[/:?#].*)?$")
+
+        def alte_adresse(zeile):
+            for fund in muster.finditer(zeile):
+                # Was unmittelbar vor dem Fund steht, zeigt, zu welcher Website die Adresse gehört.
+                anfang = max(zeile.rfind(zeichen, 0, fund.start()) for zeichen in " \t\"'`()<>[]|") + 1
+                if not fremd.search(zeile[anfang:fund.start()]):
+                    return True
+            return False
+
+        for zeile in ("[Rechner](/werkzeuge/)", "https://ing-bassam.de/wertrechner", "../../werkzeuge/taupunkt/#frist",
+                      "siehe www.ing-bassam.de/en/property-valuation/"):
+            self.assertTrue(alte_adresse(zeile), zeile)
+        for zeile in ("[Mängelanzeige](/werkzeuge/maengelanzeige/)", "Werkzeuge und Vorlagen",
+                      "[Rechner](https://www.beispiel.de/service/werkzeuge/)", "www.beispiel.de/wertrechner"):
+            self.assertFalse(alte_adresse(zeile), zeile)
+
+        quellen = [*WURZEL.glob("entwuerfe/**/*.md"), *WURZEL.glob("entwuerfe-en/**/*.md"),
+                   *WURZEL.glob("vorlagen/**/*.yml"),
+                   *(WURZEL / "tools" / name for name in ("artikel_generator.py", "beitraege_en.py", "leistungen.py"))]
+        self.assertGreater(len(quellen), 50)
+        treffer = [f"{datei.relative_to(WURZEL).as_posix()}:{nr}: {zeile.strip()[:100]}"
+                   for datei in quellen
+                   for nr, zeile in enumerate(datei.read_text(encoding="utf-8").splitlines(), 1)
+                   if alte_adresse(zeile)]
+        self.assertEqual(treffer, [], "Verweis auf eine entfernte Seite – bitte streichen oder auf die neue Seite zeigen "
+                                      "(Tabelle WEITERLEITUNGEN in tools/website_bauen.py)")
 
     def test_sitemap_nur_ausgelieferte_seiten(self):
         text = (WURZEL / "sitemap.xml").read_text(encoding="utf-8")
