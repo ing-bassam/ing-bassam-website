@@ -211,6 +211,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ing-bassam.de/fachwissen/bau-leistungsbeschreibung-pruefen/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ing-bassam.de/fachwissen/baubegleitende-qualitaetskontrolle-kosten/</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>yearly</changefreq>
@@ -693,6 +699,12 @@
   <url>
     <loc>https://ing-bassam.de/fachwissen/widerruf-hausbesuch-werklohn/</loc>
     <lastmod>2026-09-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/fachwissen/wohnung-nicht-warm-heizung-ursache-nachweis/</loc>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -13,7 +13,7 @@ qualifikation:
 kurzform: bau-leistungsbeschreibung-pruefen
 erstellt: 2026-11-05
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-8175-8882-f0fca14cd9b8
 notion_url: https://app.notion.com/p/Bau-und-Leistungsbeschreibung-was-darin-stehen-muss-3dfd96ad00b481758882f0fca14cd9b8

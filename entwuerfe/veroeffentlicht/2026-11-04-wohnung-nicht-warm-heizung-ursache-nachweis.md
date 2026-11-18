@@ -13,7 +13,7 @@ qualifikation:
 kurzform: wohnung-nicht-warm-heizung-ursache-nachweis
 erstellt: 2026-11-04
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 40ed96ad-00b4-810d-9439-e188e027f5d5
 notion_url: https://app.notion.com/p/Wohnung-wird-nicht-warm-Ursache-messen-bevor-gestritten-wird-40ed96ad00b4810d9439e188e027f5d5

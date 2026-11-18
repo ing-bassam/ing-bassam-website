@@ -7,23 +7,23 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Actions → „Entwürfe veröffentlichen“ → Run workflow (Auswahl: die Kurzform oder „alle“). Der Workflow prüft vorher auf wörtliche Übernahmen aus der Fachbibliothek, setzt den Status und verschiebt die Datei in den richtigen Ordner; die Adresse der Seite ändert sich dabei nicht. Wer `status: Veröffentlicht` von Hand setzt, löst dieselbe Prüfung im Seitenbau aus – mit Befund oder ohne mögliche Prüfung setzt der Seitenbau den Status auf „Entwurf“ zurück.
 
-## 🟡 Entwurf (5)
+## 🟡 Entwurf (3)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
 | 10.11.2026 | [Mängelanzeige am Gemeinschaftseigentum an den Bauträger](entwurf/2026-11-10-maengelanzeige-gemeinschaftseigentum-bautraeger.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/maengelanzeige-gemeinschaftseigentum-bautraeger/) |
 | 09.11.2026 | [Bauabnahme: Ablauf, Protokoll und Folgen der Unterschrift](entwurf/2026-11-09-bauabnahme-ablauf-protokoll-rechtsfolgen.md) | Grundlagen | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauabnahme-ablauf-protokoll-rechtsfolgen/) |
 | 05.11.2026 | [Was macht ein Bauherrenvertreter, und wer braucht ihn?](entwurf/2026-11-05-bauherrenvertreter-aufgaben-nutzen.md) | Grundlagen | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauherrenvertreter-aufgaben-nutzen/) |
-| 05.11.2026 | [Bau- und Leistungsbeschreibung: was darin stehen muss](entwurf/2026-11-05-bau-leistungsbeschreibung-pruefen.md) | Grundlagen | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bau-leistungsbeschreibung-pruefen/) |
-| 04.11.2026 | [Wohnung wird nicht warm: Ursache messen statt streiten](entwurf/2026-11-04-wohnung-nicht-warm-heizung-ursache-nachweis.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/wohnung-nicht-warm-heizung-ursache-nachweis/) |
 
-## 🟢 Veröffentlicht (93)
+## 🟢 Veröffentlicht (95)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
 | 10.11.2026 | [Pfützen in der Tiefgarage: Was das OLG Stuttgart entschied](veroeffentlicht/2026-11-10-tiefgarage-ohne-gefaelle-pfuetzen.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/tiefgarage-ohne-gefaelle-pfuetzen/) |
 | 10.11.2026 | [Bauverzug am Einfamilienhaus: Urteil des OLG Karlsruhe](veroeffentlicht/2026-11-10-nutzungsausfall-bauverzug-einfamilienhaus.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nutzungsausfall-bauverzug-einfamilienhaus/) |
 | 10.11.2026 | [Prüfhilfe Abschlagszahlungen und Zahlungsplan](veroeffentlicht/2026-11-10-abschlagszahlungen-zahlungsplan-pruefhilfe.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/abschlagszahlungen-zahlungsplan-pruefhilfe/) |
+| 05.11.2026 | [Bau- und Leistungsbeschreibung: was darin stehen muss](veroeffentlicht/2026-11-05-bau-leistungsbeschreibung-pruefen.md) | Grundlagen | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bau-leistungsbeschreibung-pruefen/) |
+| 04.11.2026 | [Wohnung wird nicht warm: Ursache messen statt streiten](veroeffentlicht/2026-11-04-wohnung-nicht-warm-heizung-ursache-nachweis.md) | Ratgeber | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/wohnung-nicht-warm-heizung-ursache-nachweis/) |
 | 04.11.2026 | [Baubegleitende Qualitätskontrolle: Wann der Prüfer haftet](veroeffentlicht/2026-11-04-haftung-baubegleitende-qualitaetskontrolle.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/haftung-baubegleitende-qualitaetskontrolle/) |
 | 03.11.2026 | [Rostflecken an der Halle: Reparatur statt Preisnachlass?](veroeffentlicht/2026-11-03-rost-halle-nachbesserung-statt-minderung.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/rost-halle-nachbesserung-statt-minderung/) |
 | 03.11.2026 | [Checkliste Baustellenkontrolle nach Bauphasen](veroeffentlicht/2026-11-03-baustellenkontrolle-bauphasen-checkliste.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/baustellenkontrolle-bauphasen-checkliste/) |
