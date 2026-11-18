@@ -4,7 +4,7 @@ bemängelt hat (Oktober 2026):
 - Meta-Beschreibung länger als 160 Zeichen („Meta description too long“). Die
   Fachbeiträge begrenzt schon der Seitenbau auf 155 Zeichen; hier geht es vor
   allem um die von Hand gepflegten Seiten: Startseite, Leistungsseiten,
-  Wertrechner.
+  englische Seiten.
 - Strukturdaten mit einer Eigenschaft an einem Typ, der sie laut schema.org
   nicht kennt („Structured data has schema.org validation error“).
 """

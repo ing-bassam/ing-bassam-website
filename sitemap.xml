@@ -13,30 +13,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ing-bassam.de/wertrechner/</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ing-bassam.de/werkzeuge/</loc>
-    <lastmod>2026-10-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/</loc>
-    <lastmod>2026-10-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ing-bassam.de/werkzeuge/taupunkt/</loc>
-    <lastmod>2026-10-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ing-bassam.de/werkzeuge/maengelanzeige/</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -171,12 +147,6 @@
   <url>
     <loc>https://ing-bassam.de/en/construction-dispute-expert-berlin/</loc>
     <lastmod>2026-10-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ing-bassam.de/en/property-valuation/</loc>
-    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

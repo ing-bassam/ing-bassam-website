@@ -31,7 +31,6 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 - [New-build inspection and snagging](https://ing-bassam.de/en/new-build-inspection-berlin/): Stage inspections while building parts are still open and a snagging list for acceptance (Abnahme) – for buyers from developers and self-builders.
 - [Condition survey (Beweissicherung)](https://ing-bassam.de/en/condition-survey-berlin/): Pre-construction and dilapidation surveys: cracks, deformation and damp recorded before works next door, before repairs or before parts are covered up.
 - [Expert reports for construction disputes](https://ing-bassam.de/en/construction-dispute-expert-berlin/): Party expert reports on defects, damage, variations and delay, statements on existing expert reports, support in independent evidence proceedings – in English and German.
-- [Property value calculator Berlin](https://ing-bassam.de/en/property-valuation/): Indicative value range for houses and apartment buildings in Berlin based on the market data of the Berlin valuation board; calculated in the browser, no sign-up.
 
 ## Guides in English (https://ing-bassam.de/en/guides/)
 
@@ -41,13 +40,10 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 - [Buying a flat in Germany: owners' association documents](https://ing-bassam.de/en/guides/buying-a-flat-in-germany-weg-documents/): Buying a flat in Germany: which owners' association documents to request and how to check the common property and the flat – with a checklist for the viewing.
 - [What does a building surveyor cost in Germany?](https://ing-bassam.de/en/guides/building-surveyor-fees-germany/): What a building surveyor costs in Germany, what the fee depends on, what is included and when a report pays off – fee types, court rates, who pays.
 
-## Werkzeuge (https://ing-bassam.de/werkzeuge/)
+## Vorlagen (https://ing-bassam.de/fachwissen/vorlagen/)
 
-- [Wertrechner Berlin](https://ing-bassam.de/wertrechner/): Kostenlose, unverbindliche Wertindikation für Ein-, Zweifamilien- und Mietshäuser in Berlin nach der ImmoWertV 2021 mit den Sachwertfaktoren und Liegenschaftszinssätzen des Gutachterausschusses; Bodenrichtwert automatisch aus der Adresse, Berechnung vollständig im Browser.
-- [Gewährleistungsfrist berechnen](https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/): Ende der Verjährung von Mängelansprüchen nach BGB (5 Jahre) oder VOB/B (4 Jahre) ab Abnahme, mit Hemmung, Mängelrüge, Anerkenntnis und Werktagsregel; Rechenweg mit Paragrafen, Berechnung im Browser.
-- [Taupunkt und Schimmelrisiko](https://ing-bassam.de/werkzeuge/taupunkt/): Taupunkt, Oberflächenfeuchte und Schimmelrisiko nach dem 80-%-Kriterium der DIN 4108-2 aus Raumklima und Oberflächentemperatur oder Temperaturfaktor; Magnus-Formel, Rechenweg mit Formeln, Berechnung im Browser.
-- [Mängelanzeige erstellen](https://ing-bassam.de/werkzeuge/maengelanzeige/): Generator für eine Mängelanzeige mit Fristsetzung nach dem Musterschreiben des Büros – Ort und Erscheinungsbild je Mangel, Fristdatum, Anlagen, Prüfliste; BGB und VOB/B; ohne Speicherung, zum Drucken oder Kopieren.
 - [Checklisten und Vorlagen](https://ing-bassam.de/fachwissen/vorlagen/): alle Checklisten, Protokolle und Musterschreiben als PDF und Word zum Herunterladen, jeweils mit erläuterndem Fachbeitrag.
+- [Mängelanzeige erstellen](https://ing-bassam.de/werkzeuge/maengelanzeige/): Generator für eine Mängelanzeige mit Fristsetzung nach dem Musterschreiben des Büros – Ort und Erscheinungsbild je Mangel, Fristdatum, Anlagen, Prüfliste; BGB und VOB/B; ohne Speicherung, zum Drucken oder Kopieren.
 
 ## Fachwissen (https://ing-bassam.de/fachwissen/)
 
