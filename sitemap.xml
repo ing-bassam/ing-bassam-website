@@ -217,6 +217,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://ing-bassam.de/fachwissen/bauabnahme-ablauf-protokoll-rechtsfolgen/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ing-bassam.de/fachwissen/baubegleitende-qualitaetskontrolle-kosten/</loc>
     <lastmod>2026-09-25</lastmod>
     <changefreq>yearly</changefreq>
@@ -225,6 +231,12 @@
   <url>
     <loc>https://ing-bassam.de/fachwissen/baugenehmigung-verzoegerung-architektenvertrag/</loc>
     <lastmod>2026-09-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/fachwissen/bauherrenvertreter-aufgaben-nutzen/</loc>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

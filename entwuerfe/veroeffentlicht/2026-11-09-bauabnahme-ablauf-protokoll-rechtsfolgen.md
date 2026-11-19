@@ -13,7 +13,7 @@ qualifikation:
 kurzform: bauabnahme-ablauf-protokoll-rechtsfolgen
 erstellt: 2026-11-09
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-81a4-8135-d4dd0f19ce9d
 notion_url: https://app.notion.com/p/Bauabnahme-Ablauf-Protokoll-Rechtsfolgen-3dfd96ad00b481a48135d4dd0f19ce9d
