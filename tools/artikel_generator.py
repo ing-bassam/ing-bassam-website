@@ -1294,9 +1294,10 @@ def uebersichtsseite(artikel: list[Artikel]) -> str:
         og=og_block("Fachwissen", beschreibung, url, "website"),
     )
 
+    eintraege = []
     if artikel:
         karten = []
-        for a in sorted(artikel, key=lambda x: (x.veroeffentlicht, x.titel), reverse=True):
+        for nr, a in enumerate(sorted(artikel, key=lambda x: (x.veroeffentlicht, x.titel), reverse=True), 1):
             marken_teile = []
             if a.kategorie:
                 marken_teile.append(
@@ -1312,6 +1313,7 @@ def uebersichtsseite(artikel: list[Artikel]) -> str:
           <p>{html.escape(a.meta_beschreibung)}</p>
           <p class="karte-meta"><time datetime="{a.veroeffentlicht}">{datum_deutsch(a.veroeffentlicht)}</time> · etwa {a.lesezeit} Minuten</p>
         </li>""")
+            eintraege.append({"@type": "ListItem", "position": nr, "name": a.titel, "url": a.url})
         liste = filter_html(artikel) + '<ul class="karten">\n' + "\n".join(karten) + "\n      </ul>"
         einleitung = (
             f"{len(artikel)} Beitrag" if len(artikel) == 1 else f"{len(artikel)} Beiträge"
@@ -1320,6 +1322,28 @@ def uebersichtsseite(artikel: list[Artikel]) -> str:
         liste = ('<p class="leer">Die ersten Fachbeiträge sind in Vorbereitung und '
                  "erscheinen hier nach fachlicher Prüfung.</p>")
         einleitung = "Fachbeiträge aus der Gutachten- und Baupraxis."
+
+    # Strukturdaten: Jeder Beitrag nennt diese Seite als übergeordnete Sammlung
+    # (isPartOf mit derselben @id). Hier steht, was die Sammlung ist, wer sie
+    # herausgibt und welche Beiträge dazugehören – in der Reihenfolge der Karten.
+    # Der Firmenknoten ist derselbe wie auf den Beitragsseiten, damit der Verweis
+    # im publisher auch ohne die Startseite auflösbar ist.
+    firma_id = BASIS_URL + "/#organization"
+    daten = json_wert({
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "CollectionPage", "@id": url, "name": "Fachwissen", "url": url,
+             "description": beschreibung, "inLanguage": "de-DE",
+             "publisher": {"@id": firma_id},
+             "mainEntity": {"@type": "ItemList", "itemListElement": eintraege} if eintraege else None},
+            {"@type": "Organization", "@id": firma_id, "name": FIRMA,
+             "url": BASIS_URL + "/", "logo": VORSCHAUBILD},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Start", "item": BASIS_URL + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Fachwissen", "item": url},
+            ]},
+        ],
+    })
 
     return (
         kopf
@@ -1337,6 +1361,8 @@ def uebersichtsseite(artikel: list[Artikel]) -> str:
     {liste}
   </div>
 </main>
+
+<script type="application/ld+json">{daten}</script>
 """
         + fuss_bauen(start="../", fachwissen="./")
     )
