@@ -257,6 +257,24 @@ class Urheberrecht(unittest.TestCase):
         self.assertIn("python tools/wortgleich_pruefen.py \"$datei\" --bibliothek .bibliothek", inhalt)
         self.assertIn("status: Entwurf", inhalt)
 
+    def test_seitenbau_startet_bei_von_hand_gepflegten_seiten(self):
+        """Nur der Seitenbau setzt das Änderungsdatum der von Hand gepflegten Seiten in der Sitemap
+        (tools/sitemap_stand.py). Er muss deshalb starten, wenn sich eine solche Seite ändert –
+        aber nie durch das, was er selbst schreibt."""
+        try:
+            import yaml
+        except ImportError:
+            self.skipTest("PyYAML fehlt")
+        daten = yaml.safe_load(text("seiten-bauen.yml"))
+        # PyYAML liest den Schlüssel „on“ als Wahrheitswert.
+        pfade = (daten.get("on") or daten[True])["push"]["paths"]
+        for pfad in ("index.html", "leistungen/**", "werkzeuge/**", "en/**", "tools/sitemap_stand.py"):
+            self.assertIn(pfad, pfade)
+        self.assertLess(pfade.index("en/**"), pfade.index("!en/guides/**"),
+                        "Die Ausnahme für die erzeugten Leitfäden wirkt nur, wenn sie nach en/** steht")
+        for erzeugt in ("fachwissen/**", "en/guides/**", "sitemap.xml", "llms.txt", "**"):
+            self.assertNotIn(erzeugt, pfade, "Der Seitenbau darf sich nicht selbst auslösen")
+
     def test_wochenpruefung_ohne_oeffentliches_bestandsissue(self):
         """Ein öffentliches Issue mit den wörtlichen Übereinstimmungen veröffentlichter Beiträge wäre
         selbst ein Risiko: Den Bestand prüft nur der Inhaber lokal (tools/bestandspruefung.py)."""
