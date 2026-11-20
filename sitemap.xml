@@ -22,10 +22,10 @@
   </url>
   <url>
     <loc>https://ing-bassam.de/fachwissen/vorlagen/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <!-- inhalt:1:4beef4202dba -->
+    <!-- inhalt:1:c8a77b7bbaff -->
   </url>
   <url>
     <loc>https://ing-bassam.de/leistungen/</loc>
@@ -477,6 +477,12 @@
   <url>
     <loc>https://ing-bassam.de/fachwissen/kulanzreparatur-haftung-verjaehrung/</loc>
     <lastmod>2026-09-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/fachwissen/maengelanzeige-gemeinschaftseigentum-bautraeger/</loc>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

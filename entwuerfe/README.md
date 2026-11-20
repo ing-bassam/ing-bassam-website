@@ -7,18 +7,17 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Actions → „Entwürfe veröffentlichen“ → Run workflow (Auswahl: die Kurzform oder „alle“). Der Workflow prüft vorher auf wörtliche Übernahmen aus der Fachbibliothek, setzt den Status und verschiebt die Datei in den richtigen Ordner; die Adresse der Seite ändert sich dabei nicht. Wer `status: Veröffentlicht` von Hand setzt, löst dieselbe Prüfung im Seitenbau aus – mit Befund oder ohne mögliche Prüfung setzt der Seitenbau den Status auf „Entwurf“ zurück.
 
-## 🟡 Entwurf (1)
+## 🟡 Entwurf (0)
 
-| Datum | Titel | Format | Kategorie | Seite |
-|---|---|---|---|---|
-| 10.11.2026 | [Mängelanzeige am Gemeinschaftseigentum an den Bauträger](entwurf/2026-11-10-maengelanzeige-gemeinschaftseigentum-bautraeger.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/maengelanzeige-gemeinschaftseigentum-bautraeger/) |
+Zurzeit keine.
 
-## 🟢 Veröffentlicht (97)
+## 🟢 Veröffentlicht (98)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
 | 10.11.2026 | [Pfützen in der Tiefgarage: Was das OLG Stuttgart entschied](veroeffentlicht/2026-11-10-tiefgarage-ohne-gefaelle-pfuetzen.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/tiefgarage-ohne-gefaelle-pfuetzen/) |
 | 10.11.2026 | [Bauverzug am Einfamilienhaus: Urteil des OLG Karlsruhe](veroeffentlicht/2026-11-10-nutzungsausfall-bauverzug-einfamilienhaus.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nutzungsausfall-bauverzug-einfamilienhaus/) |
+| 10.11.2026 | [Mängelanzeige am Gemeinschaftseigentum an den Bauträger](veroeffentlicht/2026-11-10-maengelanzeige-gemeinschaftseigentum-bautraeger.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/maengelanzeige-gemeinschaftseigentum-bautraeger/) |
 | 10.11.2026 | [Prüfhilfe Abschlagszahlungen und Zahlungsplan](veroeffentlicht/2026-11-10-abschlagszahlungen-zahlungsplan-pruefhilfe.md) | Vorlage | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/abschlagszahlungen-zahlungsplan-pruefhilfe/) |
 | 09.11.2026 | [Bauabnahme: Ablauf, Protokoll und Folgen der Unterschrift](veroeffentlicht/2026-11-09-bauabnahme-ablauf-protokoll-rechtsfolgen.md) | Grundlagen | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauabnahme-ablauf-protokoll-rechtsfolgen/) |
 | 05.11.2026 | [Was macht ein Bauherrenvertreter, und wer braucht ihn?](veroeffentlicht/2026-11-05-bauherrenvertreter-aufgaben-nutzen.md) | Grundlagen | Bauherrenwissen | [ansehen](https://ing-bassam.de/fachwissen/bauherrenvertreter-aufgaben-nutzen/) |
