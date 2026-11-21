@@ -11,10 +11,11 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 Zurzeit keine.
 
-## 🟢 Veröffentlicht (103)
+## 🟢 Veröffentlicht (104)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 19.11.2026 | [Mängel am Gemeinschaftseigentum: Wer klagt, bis wann?](veroeffentlicht/2026-11-19-maengel-gemeinschaftseigentum-zustaendigkeit-verjaehrung.md) | Fachbeitrag | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/maengel-gemeinschaftseigentum-zustaendigkeit-verjaehrung/) |
 | 17.11.2026 | [Vertragsstrafe für Zwischentermine: was der BGH entschied](veroeffentlicht/2026-11-17-vertragsstrafe-zwischentermin-agb.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/vertragsstrafe-zwischentermin-agb/) |
 | 17.11.2026 | [Schadensmeldung an die Hausverwaltung – Formular](veroeffentlicht/2026-11-17-schadensmeldung-mieter-eigentuemer-hausverwaltung.md) | Vorlage | Hausverwaltung & Bestand | [ansehen](https://ing-bassam.de/fachwissen/schadensmeldung-mieter-eigentuemer-hausverwaltung/) |
 | 16.11.2026 | [Versicherungsgutachten bei Leitungswasser und Sturm: Ablauf](veroeffentlicht/2026-11-16-versicherungsgutachten-leitungswasser-sturm.md) | Ratgeber | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/versicherungsgutachten-leitungswasser-sturm/) |

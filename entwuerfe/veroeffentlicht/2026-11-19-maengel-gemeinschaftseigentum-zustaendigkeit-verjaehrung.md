@@ -13,7 +13,7 @@ qualifikation:
 kurzform: maengel-gemeinschaftseigentum-zustaendigkeit-verjaehrung
 erstellt: 2026-11-19
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e0d96ad-00b4-810a-b6d2-e2b35c532c91
 notion_url: https://app.notion.com/p/Baum-ngel-am-Gemeinschaftseigentum-Zust-ndigkeit-Verj-hrung-und-Vorgehen-der-WEG-3e0d96ad00b4810ab6d2e2b35c532c91
