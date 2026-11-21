@@ -15,8 +15,10 @@ der Entwurf keine Urteilsbesprechung ist oder die Quelle nicht lesbar ist.
 """
 from __future__ import annotations
 
+import io
 import sys
 import urllib.parse
+import zipfile
 from datetime import date
 from pathlib import Path
 
@@ -61,6 +63,7 @@ def main() -> int:
         return 2
 
     portal = juris_portal(fundstelle)
+    zusatz: list[str] = []
     try:
         if portal:
             doc_id = urllib.parse.parse_qs(urllib.parse.urlparse(fundstelle).query).get("d", [""])[0]
@@ -71,9 +74,15 @@ def main() -> int:
             herausgeber = next(land for b, p, land, _g in uf.JURIS_PORTALE if p == portal[1])
         else:
             if fundstelle.endswith(".zip"):
-                print("FEHLER: Bundes-Fundstellen als ZIP werden hier nicht unterstützt.")
-                return 2
-            text = uf.nur_text(uf.abrufen(fundstelle))
+                # Bund: ZIP mit einer XML-Datei, wie im Suchskript.
+                with zipfile.ZipFile(io.BytesIO(uf.rohabruf(fundstelle))) as archiv:
+                    namen = [n for n in archiv.namelist() if n.lower().endswith(".xml")]
+                    if not namen:
+                        raise RuntimeError("ZIP enthält keine XML-Datei")
+                    xml = archiv.read(namen[0]).decode("utf-8", errors="replace")
+                text, zusatz = uf.bund_lesen(xml)
+            else:
+                text = uf.nur_text(uf.abrufen(fundstelle))
             herausgeber = urllib.parse.urlparse(fundstelle).netloc
     except Exception as ausnahme:  # Netzfehler sollen sichtbar enden, nicht still
         print(f"FEHLER: Volltext nicht abrufbar ({ausnahme})")
@@ -84,7 +93,8 @@ def main() -> int:
     ziel = ordner / f"{uf.dateiname(aktenzeichen)}.txt"
     kopf = uf.volltext_kopf(werte.get("gericht", ""), werte.get("entscheidungsdatum", ""),
                             aktenzeichen, ecli, fundstelle, herausgeber, bool(portal),
-                            date.today().isoformat())
+                            date.today().isoformat(), zusatz,
+                            randnummern="Randnummer " in text)
     ziel.write_text(kopf + uf.umbrechen(text), encoding="utf-8", newline="\n")
     print(f"Volltext: {aktenzeichen} – {len(text.split())} Wörter")
     print(ziel)

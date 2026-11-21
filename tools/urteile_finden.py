@@ -214,6 +214,17 @@ def gewichten(fund: "Fund") -> None:
     elif fund.treffer <= 2:
         punkte -= 3
         gruende.append("kaum Bezug zum Themenfeld")
+    # Was den Streit nicht abschließt, soll nicht oben stehen (siehe verfahrensstand()).
+    ist_bgh = bool(re.search(r"\b(BGH|Bundesgerichtshof)\b", fund.gericht))
+    for hinweis in fund.stand:
+        if hinweis.startswith("Revision nach") or "§ 522" in hinweis:
+            continue
+        if hinweis.startswith("Aufhebung") and ist_bgh and fund.leitsatz:
+            continue    # Rechtsfrage beantwortet, Sache zurückverwiesen: bleibt besprechbar
+        if hinweis.startswith("Revision zugelassen") and ist_bgh:
+            continue
+        punkte -= 2
+        gruende.append("Abzug: " + hinweis.split(" – ")[0])
     fund.gewicht, fund.gewicht_gruende = punkte, gruende
 
 
@@ -292,8 +303,14 @@ def umbrechen(text: str, grenze: int = 1500) -> str:
 
 def volltext_kopf(gericht: str, datum: str, aktenzeichen: str, ecli: str,
                   fundstelle: str, herausgeber: str, ist_juris: bool,
-                  abgerufen: str) -> str:
-    """Kopf jeder Volltextdatei. Suchskript und Nachlade-Skript nutzen ihn gemeinsam."""
+                  abgerufen: str, zusatz: list[str] | None = None,
+                  randnummern: bool = True) -> str:
+    """Kopf jeder Volltextdatei. Suchskript und Nachlade-Skript nutzen ihn gemeinsam.
+
+    `zusatz` sind weitere Kopfzeilen (Entscheidungsart, Vorinstanzen, mechanische
+    Hinweise zum Verfahrensstand). `randnummern` sagt, ob der Text die Marke
+    „Randnummer <n>“ trägt – nicht jedes Portal liefert sie.
+    """
     zeilen = [
         "Volltext einer Gerichtsentscheidung, unverändert aus der amtlichen Quelle.",
         f"Gericht: {gericht}",
@@ -310,7 +327,14 @@ def volltext_kopf(gericht: str, datum: str, aktenzeichen: str, ecli: str,
         # Orientierungssätze nicht vom Gericht stammen.
         zeilen.append("Dokumentationsquelle: juris. Die Leitsätze stammen vom Gericht, "
                       "die Orientierungssätze von der juris-Dokumentationsstelle.")
-    zeilen.append("Zitierweise: Jede Randnummer beginnt mit „Randnummer <n>“; im Artikel als „(Rn. <n>)“.")
+    zeilen += zusatz or []
+    if randnummern:
+        zeilen.append("Zitierweise: Jede Randnummer beginnt mit „Randnummer <n>“; im Artikel als „(Rn. <n>)“.")
+    else:
+        zeilen.append("Zitierweise: Dieser Text trägt die Marke „Randnummer <n>“ nicht. Randnummern "
+                      "stehen als bloße Zahl vor dem Absatz oder fehlen; suche die Stelle über ein "
+                      "kennzeichnendes Wort. Im Artikel als „(Rn. <n>)“; fehlen Randnummern, mit dem "
+                      "Abschnitt der Gründe („unter II. 2.“).")
     return "\n".join(zeilen) + "\n" + "-" * 72 + "\n\n"
 
 
@@ -321,6 +345,104 @@ def dateiname(wert: str) -> str:
     wert = unicodedata.normalize("NFKD", wert)
     wert = "".join(z for z in wert if not unicodedata.combining(z))
     return re.sub(r"[^a-z0-9]+", "-", wert).strip("-")[:60]
+
+
+def _xml_feld(xml: str, name: str) -> str:
+    treffer = re.search(rf"<{name}>(.*?)</{name}>", xml, re.S)
+    if not treffer:
+        return ""
+    roh = re.sub(r"<br\s*/?>", "; ", treffer.group(1))
+    return re.sub(r"\s+", " ", nur_text(roh)).strip(" ;")
+
+
+# Abschnitte der XML-Datei des Bundes in der Reihenfolge der Quelle.
+BUND_ABSCHNITTE = (
+    ("titelzeile", "Titelzeile der Dokumentationsstelle (nicht vom Gericht)"),
+    ("leitsatz", "Leitsatz"),
+    ("sonstosatz", "Orientierungssatz (nicht vom Gericht)"),
+    ("tenor", "Tenor"),
+    ("tatbestand", "Tatbestand"),
+    ("entscheidungsgruende", "Entscheidungsgründe"),
+    ("gruende", "Gründe"),
+    ("abwmeinung", "Abweichende Meinung"),
+    ("sonstlt", "Sonstiger Langtext"),
+)
+
+
+def bund_lesen(xml: str) -> tuple[str, list[str]]:
+    """Macht aus der XML-Datei des Bundes einen lesbaren Text.
+
+    Rückgabe: (Text, Kopfzeilen). Die Randnummern stehen in der Quelle als
+    `<a name="rd_12">12</a>`; ohne Umsetzung bliebe davon eine bloße Zahl
+    zwischen den Absätzen, und die Prüfagenten fänden „Randnummer 12“ nicht.
+    Die Abschnitte bekommen ihre Überschrift, damit Leitsatz, Tenor und Gründe
+    auseinanderzuhalten sind. Normenkette und Vorinstanzen sind in der Quelle
+    eigene Felder und wandern in den Kopf der Volltextdatei.
+    """
+    xml = re.sub(r'<a name="rd_(\d+)"\s*>\s*\d+\s*</a>', r"Randnummer \1 ", xml)
+    kopf = []
+    for name, titel in (("doktyp", "Entscheidungsart"), ("spruchkoerper", "Spruchkörper"),
+                        ("norm", "Normenkette laut Dokumentationsstelle"),
+                        ("vorinstanz", "Verfahrensgang laut Quelle")):
+        wert = _xml_feld(xml, name)
+        if wert:
+            kopf.append(f"{titel}: {wert}")
+    teile = []
+    for name, titel in BUND_ABSCHNITTE:
+        treffer = re.search(rf"<{name}>(.*?)</{name}>", xml, re.S)
+        if not treffer:
+            continue
+        inhalt = nur_text(treffer.group(1))
+        inhalt = re.sub(r"[ \t]*\n[ \t]*", "\n", inhalt)
+        # Die Marke steht in der Quelle in einer eigenen Zelle vor ihrem Absatz.
+        inhalt = re.sub(r"(Randnummer \d+)\s+", r"\1 ", inhalt)
+        inhalt = re.sub(r"\n{2,}", "\n\n", inhalt).strip()
+        if inhalt:
+            teile.append(f"{titel.upper()}\n\n{inhalt}")
+    return "\n\n".join(teile), kopf
+
+
+ZURUECK = re.compile(r"zurückverwiesen|Zurückverweisung|zurückzuverweisen", re.I)
+REVISION_NEIN = re.compile(
+    r"Revision\s+(?:wird|ist|war)\s+nicht\s+(?:\w+\s+){0,4}?zu(?:ge|zu)lassen"
+    r"|Gründe\s+für\s+die\s+Zulassung\s+der\s+Revision\s+(?:[\w(),§.]+\s+){0,12}?"
+    r"(?:nicht|weder)\b"
+    r"|kein(?:e|en)?\s+(?:Veranlassung|Anlass|Grund),?\s+die\s+Revision\s+zuzulassen", re.I)
+REVISION_JA = re.compile(
+    r"Revision\s+(?:wird|ist|war)\s+(?!nicht)(?:\w+\s+){0,8}?zu(?:ge|zu)lassen"
+    r"|lässt\s+die\s+Revision\s+(?!nicht)(?:\w+\s+){0,6}?zu\b"
+    r"|Zulassung\s+der\s+Revision\s+(?:beruht|erfolgt)", re.I)
+UNVOLLSTAENDIG = re.compile(
+    r"\b(Teilurteil|Teilendurteil|Grundurteil|Zwischenurteil|Vorbehaltsurteil|"
+    r"Versäumnisurteil|Hinweisbeschluss|Anerkenntnisurteil)\b", re.I)
+
+
+def verfahrensstand(text: str, art: str = "") -> list[str]:
+    """Mechanische Hinweise darauf, ob die Entscheidung den Streit abschließt.
+
+    Das Skript entscheidet nichts: Es sucht Schlüsselwörter im Anfang (Tenor)
+    und im Ende (Nebenentscheidungen) des Volltexts, damit der Agent genau dort
+    nachliest. Kein Hinweis heißt nicht, dass nichts offen ist.
+    """
+    hinweise: list[str] = []
+    anfang, ende = text[:6000], text[-5000:]
+    form = UNVOLLSTAENDIG.search(art) or UNVOLLSTAENDIG.search(text[:1500])
+    if form:
+        hinweise.append(f"{form.group(1)} – schließt den Streit nicht oder nicht vollständig ab")
+    if ZURUECK.search(anfang):
+        hinweise.append("Aufhebung und Zurückverweisung im Tenor – wer am Ende gewinnt, "
+                        "ist mit dieser Entscheidung nicht entschieden")
+    if re.search(r"Nichtzulassung", anfang, re.I):
+        hinweise.append("Entscheidung über eine Nichtzulassungsbeschwerde – meist auf den "
+                        "Einzelfall bezogen, selten eine Grundsatzaussage")
+    if re.search(r"§\s*522\s+Abs\.?\s*2", text, re.I):
+        hinweise.append("§ 522 Abs. 2 ZPO genannt – Zurückweisung der Berufung durch Beschluss "
+                        "oder Hinweis darauf; das Gericht verneint dabei grundsätzliche Bedeutung")
+    if REVISION_NEIN.search(ende):
+        hinweise.append("Revision nach dem Schluss der Gründe nicht zugelassen")
+    elif REVISION_JA.search(ende):
+        hinweise.append("Revision zugelassen – der Streit kann beim Bundesgerichtshof weitergehen")
+    return hinweise
 
 
 def volltext_holen(fund: "Fund") -> tuple[str, str]:
@@ -354,7 +476,8 @@ def volltext_holen(fund: "Fund") -> tuple[str, str]:
         art = re.search(r"<doktyp>(.*?)</doktyp>", xml, re.S)
         if art and not fund.art:
             fund.art = nur_text(art.group(1))
-        return nur_text(xml), ecli
+        text, fund.kopfzeilen = bund_lesen(xml)
+        return text, ecli
 
     seite = abrufen(fund.link)
     text = nur_text(seite)
@@ -493,6 +616,8 @@ class Fund:
         self.gewicht = 0         # siehe gewichten()
         self.gewicht_gruende: list[str] = []
         self.schon_besprochen = False   # gleiche ECLI wie ein vorhandener Beitrag
+        self.kopfzeilen: list[str] = []  # weitere Zeilen für den Kopf der Volltextdatei
+        self.stand: list[str] = []       # siehe verfahrensstand()
 
     @property
     def schluessel(self) -> str:
@@ -943,10 +1068,16 @@ def volltexte_ablegen(auswahl: list["Fund"], ordner: Path, pause: float) -> None
         fund.treffer, begriffe = themenbezug(text)
         fund.begriffe = begriffe
         fund.streitwert = streitwert_lesen(text)
+        fund.stand = verfahrensstand(text, fund.art)
         gewichten(fund)
+        zusatz = list(fund.kopfzeilen)
+        if fund.art and not any(z.startswith("Entscheidungsart:") for z in zusatz):
+            zusatz.insert(0, f"Entscheidungsart: {fund.art}")
+        zusatz += [f"Hinweis des Suchskripts (mechanisch, am Text prüfen): {h}" for h in fund.stand]
         kopf = volltext_kopf(fund.gericht, fund.datum, fund.aktenzeichen, ecli,
                              fund.link, fund.quelle, bool(fund.juris),
-                             date.today().isoformat())
+                             date.today().isoformat(), zusatz,
+                             randnummern="Randnummer " in text)
         ziel.write_text(kopf + umbrechen(text), encoding="utf-8", newline="\n")
         fund.volltext = ziel
         print(f"  Volltext: {fund.aktenzeichen} ({fund.datum[:4]}) – {fund.woerter} Wörter, "
@@ -1137,6 +1268,8 @@ def bericht(gruppen: dict[str, list[Fund]], zeitraum: Zeitraum, streitwert_ab: i
                 zeilen.append(f"- Leitsatz des Gerichts: {'ja' if f.leitsatz else 'nein'}")
                 zeilen.append(f"- Gewicht: {f.gewicht}"
                               + (f" ({', '.join(f.gewicht_gruende)})" if f.gewicht_gruende else ""))
+            for hinweis in f.stand:
+                zeilen.append(f"- Verfahrensstand (mechanischer Hinweis, am Volltext prüfen): {hinweis}")
             if f.ecli:
                 zeilen.append(f"- ECLI: {f.ecli}")
             zeilen.append(f"- Amtliche Fundstelle: {f.link}")
