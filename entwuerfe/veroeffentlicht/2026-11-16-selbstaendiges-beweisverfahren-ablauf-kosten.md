@@ -13,7 +13,7 @@ qualifikation:
 kurzform: selbstaendiges-beweisverfahren-ablauf-kosten
 erstellt: 2026-11-16
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-81bd-967f-d094f2979df9
 notion_url: https://app.notion.com/p/Selbst-ndiges-Beweisverfahren-Ablauf-Dauer-Kosten-3dfd96ad00b481bd967fd094f2979df9
