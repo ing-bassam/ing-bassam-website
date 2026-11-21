@@ -19,7 +19,7 @@ notion_id: 3e0d96ad-00b4-810a-b6d2-e2b35c532c91
 notion_url: https://app.notion.com/p/Baum-ngel-am-Gemeinschaftseigentum-Zust-ndigkeit-Verj-hrung-und-Vorgehen-der-WEG-3e0d96ad00b4810ab6d2e2b35c532c91
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 3153
+wortzahl: 3075
 lesezeit: 16 Minuten
 fussnoten: 17
 quellen_geprueft: 7
@@ -34,7 +34,7 @@ Mängel am Gemeinschaftseigentum können gegenüber dem Bauträger zunächst die
 
 ## Wo Mängel am Gemeinschaftseigentum beginnen und was dieser Beitrag klärt
 
-Die Frage, wer Mängel am Gemeinschaftseigentum gegenüber dem Bauträger geltend macht, stellt sich in jeder neu errichteten oder neu geteilten Wohnanlage. Zum Gemeinschaftseigentum zählen regelmäßig Bauteile wie Dach und Fassade, die allen Eigentümern dienen. Ein Mangel dort trifft die ganze Anlage, die Rechte daraus stehen aber vielen Erwerbern aus ihren jeweiligen Verträgen zu.[^2] An dieser Nahtstelle zwischen Werkvertragsrecht und Wohnungseigentumsrecht entstehen die Fragen zu Abnahme und Fristen.
+Die Frage, wer Mängel am Gemeinschaftseigentum gegenüber dem Bauträger geltend macht, stellt sich in vielen Wohnanlagen. Ein solcher Mangel trifft die ganze Anlage, die Rechte daraus stehen aber vielen Erwerbern aus ihren jeweiligen Verträgen zu.[^2]
 
 Ein Bauträgervertrag hat die Errichtung oder den Umbau eines Hauses oder vergleichbaren Bauwerks zum Gegenstand und verpflichtet den Unternehmer zugleich, das Eigentum am Grundstück zu übertragen. Für Errichtung und Umbau gilt Werkvertragsrecht, für die Übertragung des Grundstücks Kaufrecht.[^5] Mängelhaftung und Verjährung richten sich deshalb nach dem Werkvertragsrecht. Der Beitrag betrifft Verträge mit gewerblichen Bauträgern über neu errichtete oder umgebaute Gebäude, die ab dem 1. Januar 2018 geschlossen wurden; für ältere Verträge gilt das Recht in der bis dahin geltenden Fassung.[^6] Wohnungen, die ohne Bauleistung weiterverkauft werden, folgen anderen Regeln und sind nicht Gegenstand.
 
@@ -48,7 +48,7 @@ Die Mängelrechte am Gemeinschaftseigentum entstammen den einzelnen Erwerbsvertr
 
 Die Entscheidung von 2022 betraf den Kauf von Wohnungseigentum. Der Senat hat aber festgehalten, dass es für die Befugnisse der Gemeinschaft jedenfalls dann keine Rolle spielt, ob die Ansprüche aus Kaufrecht oder aus Werkvertragsrecht stammen, wenn mehrere Erwerber gleichgerichtete Ansprüche gegen denselben Veräußerer haben.[^1] Für Bauträgerverträge hat der Bundesgerichtshof den Ansatz im Urteil vom 23. Februar 2024 bestätigt. Anders liegt es nach diesem Urteil bei Minderung und kleinem Schadensersatz: Dafür ist von vornherein allein die Gemeinschaft zuständig.[^2]
 
-Privatpersonen können Mängel am Gemeinschaftseigentum deshalb zunächst im Grundsatz aus ihrem eigenen Vertrag verfolgen; die Zuständigkeit der Gemeinschaft schließt das nicht von vornherein aus.[^1] Zugleich haben alle Erwerber ein Interesse an einer einheitlichen Sanierung, denn ein Mangel an Dach oder Fassade lässt sich nicht für eine einzelne Wohnung beseitigen. Dieses Spannungsverhältnis löst erst ein Beschluss der Gemeinschaft auf.
+Privatpersonen können Mängel am Gemeinschaftseigentum deshalb zunächst im Grundsatz aus ihrem eigenen Vertrag verfolgen; die Zuständigkeit der Gemeinschaft schließt das nicht von vornherein aus.[^1]
 
 Für die Hausverwaltung heißt das: Die Gemeinschaft wird nach § 9b Abs. 1 WEG vom Verwalter gerichtlich und außergerichtlich vertreten.[^8] Die Vertretungsmacht schafft aber keine Rechte, die der Gemeinschaft nicht zustehen. Solange die Eigentümer die Mängelrechte nicht durch Beschluss an die Gemeinschaft gezogen haben, kann die Verwaltung sie nicht aus eigener Befugnis ausüben. Was die Verwaltung zu tun hat, hängt deshalb davon ab, ob ein solcher Beschluss vorliegt.
 
@@ -66,7 +66,7 @@ Wer Mängelrechte gemeinsam verfolgt, braucht eine belastbare Beschreibung der M
 
 Mängelansprüche an einem Bauwerk verjähren nach § 634a Abs. 1 Nr. 2 BGB in fünf Jahren. Die Frist beginnt nach § 634a Abs. 2 BGB mit der Abnahme.[^3] Das Gesetz stellt also weder auf die Fertigstellung noch auf den Bezug ab. Die Frist gilt für die Ansprüche auf Nacherfüllung, auf Selbstvornahme mit Aufwendungsersatz und auf Schadensersatz. Für Rücktritt und Minderung gilt keine eigene Verjährungsfrist: Beide sind nach § 218 BGB unwirksam, wenn der Nacherfüllungsanspruch verjährt ist und sich der Bauträger darauf beruft.[^3][^11] Ob vertragliche Abweichungen wirksam sind, prüft ein Rechtsanwalt.
 
-Nach § 640 Abs. 1 BGB ist der Besteller verpflichtet, ein vertragsgemäß hergestelltes Werk abzunehmen; wegen unwesentlicher Mängel darf er das nicht verweigern.[^12] Die Abnahme kann ausdrücklich erklärt werden. Daneben gilt ein Werk nach § 640 Abs. 2 BGB als abgenommen, wenn der Unternehmer nach Fertigstellung eine angemessene Frist gesetzt hat und der Besteller innerhalb dieser Frist die Abnahme nicht unter Nennung mindestens eines Mangels verweigert. Ist der Besteller Verbraucher, tritt diese Folge nur ein, wenn der Unternehmer ihn zusammen mit der Aufforderung in Textform auf die Folgen hingewiesen hat.[^12] Ob auch das Verhalten der Erwerber, etwa eine längere Nutzung, als stillschweigende Abnahme zu werten ist, hängt von den Umständen des Einzelfalls ab und ist rechtlich zu klären.[^4]
+Nach § 640 Abs. 1 BGB ist der Besteller verpflichtet, ein vertragsgemäß hergestelltes Werk abzunehmen; wegen unwesentlicher Mängel darf er das nicht verweigern.[^12] Die Abnahme kann ausdrücklich erklärt werden. Daneben gilt ein Werk nach § 640 Abs. 2 BGB als abgenommen, wenn der Unternehmer nach Fertigstellung eine angemessene Frist gesetzt hat und der Besteller innerhalb dieser Frist die Abnahme nicht unter Angabe mindestens eines Mangels verweigert. Ist der Besteller Verbraucher, tritt diese Folge nur ein, wenn der Unternehmer ihn zusammen mit der Aufforderung in Textform auf die Folgen hingewiesen hat.[^12] Ob auch das Verhalten der Erwerber, etwa eine längere Nutzung, als stillschweigende Abnahme zu werten ist, hängt von den Umständen des Einzelfalls ab und ist rechtlich zu klären.[^4]
 
 Die Abnahme des Gemeinschaftseigentums erklärt nicht die Gemeinschaft, sondern der einzelne Erwerber für sich. Der Bundesgerichtshof sieht es als gesetzliches Recht des einzelnen Erwerbers an, das Werk auf seine Abnahmefähigkeit zu prüfen und die Abnahme selbst zu erklären.[^4] Daraus folgt, dass der Fristbeginn von Erwerber zu Erwerber verschieden sein kann. Eine Hausverwaltung darf deshalb nicht von einem einheitlichen Stichtag ausgehen und muss die Abnahmedaten aller Erwerber kennen, bevor sie ein Fristende nennt. Dafür sind die Abnahmeprotokolle der einzelnen Erwerber nötig.
 
@@ -86,7 +86,7 @@ Wessen Verhandlungen oder welches Verfahren die Verjährung für welchen Erwerbe
 
 ## Wo die Rechtslage Grenzen hat und was offen bleibt
 
-Die Fünfjahresfrist ist nicht in jedem Fall der letzte Maßstab, denn sie beginnt erst mit einer wirksamen Abnahme. Fehlt diese, kann ein Erwerber noch lange nach fünf Jahren Mängelansprüche haben.
+Die Fünfjahresfrist ist nicht in jedem Fall der letzte Maßstab, denn sie beginnt erst mit einer wirksamen Abnahme.
 
 Der Bundesgerichtshof hat am 26. März 2026 über eine Wohnanlage entschieden, deren Wohnungen und Teileigentumseinheiten in den Jahren 1999 bis 2001 verkauft wurden; für diese Verträge galt noch das frühere Recht.[^4] Einen erst 2002 geschlossenen Vertrag über einen Keller behandelt der Senat gesondert; er bleibt hier außer Betracht.[^4] Die zuerst geschlossenen Verträge sahen vor, dass drei aus der Mitte der Erwerber gewählte Vertreter das Gemeinschaftseigentum abnehmen. Dem einzelnen Erwerber blieb nicht das Recht, selbst zu prüfen und abzunehmen. Der Senat hielt diese Klausel für unwirksam, ebenso die Klausel der Nachzüglerverträge, die Abnahme sei schon erfolgt.[^4] Mangels wirksamer Abnahme hatte die Verjährung nicht begonnen. Der Bauträger durfte sich als Verwender der Klauseln auch nicht darauf berufen, mangels wirksamer Abnahme sei der Herstellungsanspruch der Erwerber bereits verjährt.[^4]
 
