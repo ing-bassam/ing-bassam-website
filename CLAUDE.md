@@ -36,6 +36,7 @@ Website des Bassam Ingenieurbüros für Bauwesen in Berlin: statische Seiten auf
 - Commits mit dem GITHUB_TOKEN starten keine weiteren Workflows; Ketten laufen über `workflow_run`
 - Zeitpläne: `cron` immer mit `timezone: "Europe/Berlin"` und krummer Minute (`tests/test_workflows.py`)
 - Zeilenenden LF: unter Windows Dateien mit `newline="\n"` schreiben, Python schreibt sonst CRLF
+- Änderungsdatum (`lastmod`) der von Hand gepflegten Seiten setzt der Seitenbau: Er vergleicht den Inhalt mit der Kennung `<!-- inhalt:… -->` in `sitemap.xml` (`tools/sitemap_stand.py`) und läuft auf main von selbst, sobald sich eine dieser Seiten ändert
 
 ## Mehr
 - Beiträge und Veröffentlichen: `entwuerfe/README.md` · Reichweite: `marketing/REICHWEITE-PLAN.md`

@@ -50,6 +50,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import leistungen  # noqa: E402
 # Englische Fassungen ausgewählter Beiträge (entwuerfe-en/ -> en/guides/).
 import beitraege_en  # noqa: E402
+# Änderungsdatum der von Hand gepflegten Seiten in der Sitemap.
+import sitemap_stand  # noqa: E402
 
 WURZEL = Path(__file__).resolve().parent.parent
 ENTWUERFE = WURZEL / "entwuerfe"
@@ -1292,9 +1294,10 @@ def uebersichtsseite(artikel: list[Artikel]) -> str:
         og=og_block("Fachwissen", beschreibung, url, "website"),
     )
 
+    eintraege = []
     if artikel:
         karten = []
-        for a in sorted(artikel, key=lambda x: (x.veroeffentlicht, x.titel), reverse=True):
+        for nr, a in enumerate(sorted(artikel, key=lambda x: (x.veroeffentlicht, x.titel), reverse=True), 1):
             marken_teile = []
             if a.kategorie:
                 marken_teile.append(
@@ -1310,6 +1313,7 @@ def uebersichtsseite(artikel: list[Artikel]) -> str:
           <p>{html.escape(a.meta_beschreibung)}</p>
           <p class="karte-meta"><time datetime="{a.veroeffentlicht}">{datum_deutsch(a.veroeffentlicht)}</time> · etwa {a.lesezeit} Minuten</p>
         </li>""")
+            eintraege.append({"@type": "ListItem", "position": nr, "name": a.titel, "url": a.url})
         liste = filter_html(artikel) + '<ul class="karten">\n' + "\n".join(karten) + "\n      </ul>"
         einleitung = (
             f"{len(artikel)} Beitrag" if len(artikel) == 1 else f"{len(artikel)} Beiträge"
@@ -1318,6 +1322,28 @@ def uebersichtsseite(artikel: list[Artikel]) -> str:
         liste = ('<p class="leer">Die ersten Fachbeiträge sind in Vorbereitung und '
                  "erscheinen hier nach fachlicher Prüfung.</p>")
         einleitung = "Fachbeiträge aus der Gutachten- und Baupraxis."
+
+    # Strukturdaten: Jeder Beitrag nennt diese Seite als übergeordnete Sammlung
+    # (isPartOf mit derselben @id). Hier steht, was die Sammlung ist, wer sie
+    # herausgibt und welche Beiträge dazugehören – in der Reihenfolge der Karten.
+    # Der Firmenknoten ist derselbe wie auf den Beitragsseiten, damit der Verweis
+    # im publisher auch ohne die Startseite auflösbar ist.
+    firma_id = BASIS_URL + "/#organization"
+    daten = json_wert({
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "CollectionPage", "@id": url, "name": "Fachwissen", "url": url,
+             "description": beschreibung, "inLanguage": "de-DE",
+             "publisher": {"@id": firma_id},
+             "mainEntity": {"@type": "ItemList", "itemListElement": eintraege} if eintraege else None},
+            {"@type": "Organization", "@id": firma_id, "name": FIRMA,
+             "url": BASIS_URL + "/", "logo": VORSCHAUBILD},
+            {"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Start", "item": BASIS_URL + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Fachwissen", "item": url},
+            ]},
+        ],
+    })
 
     return (
         kopf
@@ -1335,6 +1361,8 @@ def uebersichtsseite(artikel: list[Artikel]) -> str:
     {liste}
   </div>
 </main>
+
+<script type="application/ld+json">{daten}</script>
 """
         + fuss_bauen(start="../", fachwissen="./")
     )
@@ -1495,10 +1523,21 @@ def bisherige_stande() -> dict[str, str]:
     return {ort.strip(): stand.strip() for ort, stand in paare}
 
 
+def datei_zur_adresse(url: str) -> Path:
+    """https://ing-bassam.de/a/b/ -> <Hauptordner>/a/b/index.html; die Startseite -> index.html."""
+    pfad = url[len(BASIS_URL):].lstrip("/")
+    if pfad == "" or pfad.endswith("/"):
+        pfad += "index.html"
+    return WURZEL / pfad
+
+
 def sitemap_bauen(artikel: list[Artikel], heute: str,
-                  zusatz: list[tuple[str, str, str, str]] = ()) -> str:
+                  zusatz: list[tuple[str, str, str, str]] = (),
+                  inhalte: dict[str, str] | None = None) -> str:
     """zusatz: fertige Einträge (Adresse, lastmod, changefreq, priority), etwa die
-    englischen Leitfäden aus tools/beitraege_en.py – sie stehen am Ende."""
+    englischen Leitfäden aus tools/beitraege_en.py – sie stehen am Ende.
+    inhalte: HTML von Seiten, die derselbe Lauf gerade erzeugt hat (Adresse ->
+    Text); die übrigen von Hand gepflegten Seiten werden aus dem Hauptordner gelesen."""
     # lastmod muss den letzten inhaltlichen Stand angeben. Würde hier immer das
     # heutige Datum stehen, änderte sich die Datei bei jedem Lauf – das erzeugt
     # unnötige Commits, und Suchmaschinen verlieren das Vertrauen in die Angabe.
@@ -1507,33 +1546,50 @@ def sitemap_bauen(artikel: list[Artikel], heute: str,
     uebersicht_url = f"{BASIS_URL}/fachwissen/"
     neuester = max((a.geaendert for a in artikel), default="")
 
-    def stand(url: str) -> str:
-        return neuester or alt.get(url) or heute
+    def seite_lesen(url: str) -> str | None:
+        if inhalte and url in inhalte:
+            return inhalte[url]
+        datei = datei_zur_adresse(url)
+        return datei.read_text(encoding="utf-8") if datei.is_file() else None
+
+    # Seiten ohne Datum im Frontmatter (Startseite, Leistungsseiten, englische
+    # Seiten, Mängelanzeige, Vorlagen-Übersicht): Ihr Datum folgt dem eigenen
+    # Inhalt. Es bleibt stehen, solange sich die Seite nicht ändert, und wird
+    # zum Datum des Laufs, sobald sie sich ändert (tools/sitemap_stand.py).
+    von_hand = sitemap_stand.staende(
+        [start_url] + [url for url, _takt, _gewicht in WEITERE_SEITEN],
+        SITEMAP.read_text(encoding="utf-8") if SITEMAP.exists() else "", seite_lesen, heute)
 
     eintraege = [
-        (start_url, stand(start_url), "monthly", "1.0"),
-        (uebersicht_url, stand(uebersicht_url), "weekly", "0.8"),
+        # Die Startseite schreibt kein Werkzeug; ihr Datum hängt deshalb an ihrem
+        # eigenen Inhalt und nicht am neuesten Beitrag.
+        (start_url, von_hand[start_url][0], "monthly", "1.0"),
+        # Die Übersicht ändert sich mit jedem Beitrag: Datum des neuesten Beitrags.
+        (uebersicht_url, neuester or alt.get(uebersicht_url) or heute, "weekly", "0.8"),
     ]
     # Eigenständige Seiten außerhalb des Fachwissens (z. B. die Leistungsseiten).
-    # Ihr lastmod bleibt erhalten, solange sich nichts ändert; beim ersten Lauf
-    # gilt das Datum des Laufs.
     for url, takt, gewicht in WEITERE_SEITEN:
-        eintraege.append((url, alt.get(url) or heute, takt, gewicht))
+        eintraege.append((url, von_hand[url][0], takt, gewicht))
     for a in sorted(artikel, key=lambda x: x.kurzform):
         eintraege.append((a.url, a.geaendert, "yearly", "0.7"))
     eintraege.extend(zusatz)
 
     zeilen = ['<?xml version="1.0" encoding="UTF-8"?>',
               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for ort, stand, takt, gewicht in eintraege:
+    for ort, datum, takt, gewicht in eintraege:
         zeilen += [
             "  <url>",
             f"    <loc>{html.escape(ort)}</loc>",
-            f"    <lastmod>{stand}</lastmod>",
+            f"    <lastmod>{datum}</lastmod>",
             f"    <changefreq>{takt}</changefreq>",
             f"    <priority>{gewicht}</priority>",
-            "  </url>",
         ]
+        # Inhaltskennung der von Hand gepflegten Seiten, als Kommentar hinter den
+        # Angaben: Der nächste Lauf erkennt daran, ob sich die Seite geändert hat.
+        kennung = von_hand.get(ort, ("", None))[1]
+        if kennung:
+            zeilen.append(sitemap_stand.kennzeile(kennung))
+        zeilen.append("  </url>")
     zeilen.append("</urlset>")
     return "\n".join(zeilen) + "\n"
 
@@ -1629,14 +1685,18 @@ def main() -> int:
     for a in artikel:
         schreiben(ZIEL / a.kurzform / "index.html", artikelseite(a), geaendert, argumente.pruefen)
     schreiben(ZIEL / "index.html", uebersichtsseite(oeffentlich), geaendert, argumente.pruefen)
-    schreiben(ZIEL / "vorlagen" / "index.html", vorlagenseite(oeffentlich), geaendert, argumente.pruefen)
+    vorlagen_html = vorlagenseite(oeffentlich)
+    schreiben(ZIEL / "vorlagen" / "index.html", vorlagen_html, geaendert, argumente.pruefen)
     for l in leitfaeden:
         schreiben(beitraege_en.ZIEL / l.kurzform / "index.html",
                   beitraege_en.seite(l, leitfaeden_oeffentlich), geaendert, argumente.pruefen)
     if leitfaeden_oeffentlich:
         schreiben(beitraege_en.ZIEL / "index.html", beitraege_en.uebersicht(leitfaeden_oeffentlich),
                   geaendert, argumente.pruefen)
-    schreiben(SITEMAP, sitemap_bauen(oeffentlich, heute, beitraege_en.sitemap_eintraege(leitfaeden_oeffentlich)),
+    # Die Vorlagen-Übersicht hat dieser Lauf gerade erzeugt: Ihr Inhalt geht direkt
+    # in die Sitemap ein, damit --pruefen dasselbe Ergebnis sieht wie ein echter Lauf.
+    schreiben(SITEMAP, sitemap_bauen(oeffentlich, heute, beitraege_en.sitemap_eintraege(leitfaeden_oeffentlich),
+                                     {f"{BASIS_URL}/fachwissen/vorlagen/": vorlagen_html}),
               geaendert, argumente.pruefen)
     schreiben(LLMS, llms_bauen(oeffentlich, leitfaeden_oeffentlich), geaendert, argumente.pruefen)
 

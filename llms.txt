@@ -49,6 +49,7 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Baubetrieb
 
+- [Vertragsstrafe für Zwischentermine: was der BGH entschied](https://ing-bassam.de/fachwissen/vertragsstrafe-zwischentermin-agb/): Der BGH hielt 2012 eine Vertragsstrafe für einen Zwischentermin in den Bedingungen eines Auftraggebers für unwirksam. Was das heißt und was offen bleibt.
 - [Bauverzug am Einfamilienhaus: Urteil des OLG Karlsruhe](https://ing-bassam.de/fachwissen/nutzungsausfall-bauverzug-einfamilienhaus/): OLG Karlsruhe zum Bauverzug am Einfamilienhaus: Verzug ab Ablauf der Bauzeit, Nutzungsausfall nach Mietenspiegel mit 30 Prozent Abzug.
 - [Aufmaßblatt für Abschlags- und Schlussrechnungen](https://ing-bassam.de/fachwissen/aufmassblatt-mengenermittlung-abrechnung/): Aufmaßblatt als Excel und PDF: Mengen je LV-Position mit Ort, Maßen und Beleg prüfbar festhalten, für Abschlags- und Schlussrechnung.
 - [Nachtragsangebot mit Kalkulationsaufbau: Vorlage für Excel](https://ing-bassam.de/fachwissen/nachtragsangebot-mit-kalkulationsaufbau/): Kalkulationsblatt für das Nachtragsangebot nach § 2 Abs. 5 und 6 VOB/B als Excel und PDF – vom Anlass über die Urkalkulation bis zum Einheitspreis.
@@ -70,6 +71,8 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 ### Bauherrenwissen
 
 - [Prüfhilfe Abschlagszahlungen und Zahlungsplan](https://ing-bassam.de/fachwissen/abschlagszahlungen-zahlungsplan-pruefhilfe/): Prüfhilfe für Abschlagszahlungen beim Hausbau: Zahlungsplan, Rechnung, Bautenstand, Mängel und Sicherheiten vor jeder Rate prüfen. Kostenlos als PDF.
+- [Bauabnahme: Ablauf, Protokoll und Folgen der Unterschrift](https://ing-bassam.de/fachwissen/bauabnahme-ablauf-protokoll-rechtsfolgen/): Bauabnahme nach BGB und VOB/B: wie Termin und Protokoll ablaufen, welche Abnahmeformen es gibt und was die Unterschrift rechtlich auslöst.
+- [Was macht ein Bauherrenvertreter, und wer braucht ihn?](https://ing-bassam.de/fachwissen/bauherrenvertreter-aufgaben-nutzen/): Was ein Bauherrenvertreter für private Bauherren übernimmt, was beim Bauherrn bleibt, wo die Grenzen liegen und wann sich die Vertretung lohnt.
 - [Bau- und Leistungsbeschreibung: was darin stehen muss](https://ing-bassam.de/fachwissen/bau-leistungsbeschreibung-pruefen/): Bau- und Leistungsbeschreibung vor der Unterschrift prüfen: Pflichtangaben nach Art. 249 EGBGB, Auslegung, Leerformeln, Schallschutz, Baugrund, Pläne.
 - [Checkliste Baustellenkontrolle nach Bauphasen](https://ing-bassam.de/fachwissen/baustellenkontrolle-bauphasen-checkliste/): Checkliste zur Baustellenkontrolle nach Bauphasen: Rohbau, Abdichtung, Fenster, Dach und Estrich prüfen, bevor alles verdeckt ist.
 - [Gutachten vor dem Immobilienkauf: Lohnt sich die Prüfung?](https://ing-bassam.de/fachwissen/gebrauchte-immobilie-gutachten-vor-kauf/): Gebrauchte Immobilie kaufen: wann sich ein Gutachten vor dem Notartermin lohnt, was der Sachverständige prüft und wo seine Grenzen liegen.
@@ -112,7 +115,9 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Gutachten & Recht
 
+- [Architektenvertrag: Kündigung aus wichtigem Grund](https://ing-bassam.de/fachwissen/architektenvertrag-kuendigung-wichtiger-grund/): OLG Stuttgart, 18.10.2022 (10 U 99/22): Kündigung eines Architektenvertrags aus wichtigem Grund und Honorar nur für erbrachte Leistungen.
 - [Pfützen in der Tiefgarage: Was das OLG Stuttgart entschied](https://ing-bassam.de/fachwissen/tiefgarage-ohne-gefaelle-pfuetzen/): OLG Stuttgart zur Tiefgarage ohne Gefälle: ohne Absprache über Pfützenfreiheit kein Planungsmangel, aber Haftung für funktionslose Entwässerungsmulden.
+- [Mängelanzeige am Gemeinschaftseigentum an den Bauträger](https://ing-bassam.de/fachwissen/maengelanzeige-gemeinschaftseigentum-bautraeger/): Musterschreiben Mängelanzeige am Gemeinschaftseigentum an den Bauträger, mit Prüfliste für Verwaltung und Eigentümer. Kostenlos als Word und PDF.
 - [Baubegleitende Qualitätskontrolle: Wann der Prüfer haftet](https://ing-bassam.de/fachwissen/haftung-baubegleitende-qualitaetskontrolle/): OLG Brandenburg 4 U 6/12 zur Haftung bei baubegleitender Qualitätskontrolle – Werkvertrag, Mängelsymptome, Gesamtschuld und was Prüfer dokumentieren.
 - [Rostflecken an der Halle: Reparatur statt Preisnachlass?](https://ing-bassam.de/fachwissen/rost-halle-nachbesserung-statt-minderung/): LG Karlsruhe: Ein Bauherr durfte nach der Abnahme auf der Reparatur von Rostschäden bestehen und das Doppelte der Kosten zurückhalten.
 - [Vager Bedenkenhinweis: Nachunternehmer haftet voll](https://ing-bassam.de/fachwissen/bedenkenhinweis-nachunternehmer-baubesprechung/): OLG Brandenburg 11 U 74/18: Ein pauschaler Bedenkenhinweis in der Baubesprechung genügte nicht. Der Sanitär-Nachunternehmer haftet ohne Kürzung.

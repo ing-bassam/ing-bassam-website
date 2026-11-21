@@ -14,7 +14,7 @@ kurzform: maengelanzeige-gemeinschaftseigentum-bautraeger
 dateien: vorlagen/maengelanzeige-gemeinschaftseigentum-bautraeger/maengelanzeige-gemeinschaftseigentum-bautraeger.docx, vorlagen/maengelanzeige-gemeinschaftseigentum-bautraeger/maengelanzeige-gemeinschaftseigentum-bautraeger.pdf
 erstellt: 2026-11-10
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-8197-9174-f46f3ffaa187
 notion_url: https://app.notion.com/p/Musterschreiben-M-ngelanzeige-am-Gemeinschaftseigentum-an-den-Bautr-ger-3e5d96ad00b481979174f46f3ffaa187
