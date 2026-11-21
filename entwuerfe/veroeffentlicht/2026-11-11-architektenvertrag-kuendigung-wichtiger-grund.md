@@ -18,7 +18,7 @@ qualifikation:
 kurzform: architektenvertrag-kuendigung-wichtiger-grund
 erstellt: 2026-11-11
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
