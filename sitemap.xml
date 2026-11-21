@@ -22,10 +22,10 @@
   </url>
   <url>
     <loc>https://ing-bassam.de/fachwissen/vorlagen/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <!-- inhalt:1:c8a77b7bbaff -->
+    <!-- inhalt:1:f0170711a2c2 -->
   </url>
   <url>
     <loc>https://ing-bassam.de/leistungen/</loc>
@@ -621,6 +621,12 @@
   <url>
     <loc>https://ing-bassam.de/fachwissen/sanierungskosten-altbau-schaetzen/</loc>
     <lastmod>2026-10-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/fachwissen/schadensmeldung-mieter-eigentuemer-hausverwaltung/</loc>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

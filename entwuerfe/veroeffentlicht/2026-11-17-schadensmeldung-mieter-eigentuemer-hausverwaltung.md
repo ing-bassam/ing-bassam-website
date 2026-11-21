@@ -14,7 +14,7 @@ kurzform: schadensmeldung-mieter-eigentuemer-hausverwaltung
 dateien: vorlagen/schadensmeldung-mieter-eigentuemer-hausverwaltung/schadensmeldung-mieter-eigentuemer-hausverwaltung.pdf, vorlagen/schadensmeldung-mieter-eigentuemer-hausverwaltung/schadensmeldung-mieter-eigentuemer-hausverwaltung-ausfuellbar.pdf
 erstellt: 2026-11-17
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3e5d96ad-00b4-81ab-943c-cb0a0c2643a0
 notion_url: https://app.notion.com/p/Formular-Schadensmeldung-durch-Mieter-und-Eigent-mer-3e5d96ad00b481ab943ccb0a0c2643a0
