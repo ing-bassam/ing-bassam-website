@@ -1,5 +1,7 @@
 # Reichweite und Aufträge über die Website – Phasenplan
 
+> Nachtrag 18.11.2026: Wertrechner (deutsch und englisch), Gewährleistungsfrist- und Taupunkt-Rechner sowie die Übersicht `/werkzeuge/` wurden entfernt, damit die Website nicht überladen wirkt. Die alten Adressen leiten weiter (`WEITERLEITUNGEN` in `tools/website_bauen.py`). Geblieben ist der Mängelanzeige-Generator, erreichbar über „Checklisten und Vorlagen“. Die Angaben dazu weiter unten beschreiben den früheren Stand.
+
 Stand: 2026-10-03. Ziel: mehr Anfragen über ing-bassam.de. Die Phasen bauen aufeinander auf;
 jede endet mit einem Pull Request und einer kurzen Abnahme. Was BIB selbst tun muss, steht
 unter „Dein Part“. Bewusst ausgeklammert, bis Referenzen vorliegen: Fallbeispiele,
