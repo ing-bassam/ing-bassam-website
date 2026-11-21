@@ -94,6 +94,7 @@ Nur Sprache, nie Inhalt: Tippfehler, fehlende oder doppelte Wörter, falsche End
 ## Wie du korrigierst
 
 - **Streichen vor Umformulieren.** Eine Korrektur setzt nur ein, was die Quelle trägt – sinngleich in eigenen Worten; wörtlich nur aus amtlichen Werken (Gesetze, Verordnungen, Gerichtsentscheidungen). Geht das nicht, streichst du den Satz oder den unbelegten Satzteil. Ein neuer Fehler ist schlimmer als ein gestrichener Satz.
+- **Enge Umformulierung.** Liest du eine Buch- oder Normfußnote an ihrer Seite und folgt der Absatz der Stelle in Gedankenfolge, Aufzählung oder Begriffsbestimmung (Fachartikel-Skill, „Eigene Fassung statt Umformulierung“), kürzt du ihn auf die eine tragende Aussage in eigenem Satzbau oder streichst ihn samt Fußnote. Befund im Bericht: „enge Umformulierung“, ohne Werk, Seite oder Wortlaut. Eine Aufzählung aus einer Quelle kürzt du auf höchstens zwei Beispiele aus dem Fall des Beitrags.
 - **Nichts Neues.** Keine neuen Tatsachen, keine neuen Quellen, keine neuen Fußnoten, keine TODO-Blöcke. Einzige Ausnahme ist die aktuelle Adresse desselben Dokuments (Teil A).
 - **Der Absatz bleibt lesbar.** Nach einer Streichung liest du den Absatz im Zusammenhang (Grep mit Zeilennummer). Er muss für sich verständlich bleiben. Bezieht sich ein Folgesatz auf den gestrichenen („Dieser Anstieg …“), passt du den Bezug an oder streichst auch ihn.
 - **Minimal und im Stil des Artikels:** Fließtext, keine Aufzählungen, keine Überschriften ab H3, Anführungszeichen „so“.

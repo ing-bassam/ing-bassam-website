@@ -190,7 +190,7 @@ jobs:
         id: claude
         continue-on-error: true
         timeout-minutes: 40
-        uses: anthropics/claude-code-action@6d5ae526d25ce88daa2200be073e1a373167f064 # v1.0.265
+        uses: anthropics/claude-code-action@4d75e5f390ee76b2e09c1980ecc99ff3a2e088c8 # v1.0.275
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
@@ -314,6 +314,7 @@ jobs:
       pull-requests: write   # Pull Request öffnen, als Entwurf markieren und freigeben
       issues: write          # Kontingent-Pause als Issue (tools/kontingent.py)
       id-token: write        # von der Claude-Action benötigt
+      actions: write         # „Entwurf freigeben und veröffentlichen“ anstoßen
 
     defaults:
       run:
@@ -996,7 +997,7 @@ jobs:
         # Ein Fehlschlag wird unten ausgewertet (Fehlalarm → zweiter Versuch).
         continue-on-error: true
         timeout-minutes: 60   # lässt Notion und Schlussprüfung Zeit innerhalb der 175 Job-Minuten
-        uses: anthropics/claude-code-action@6d5ae526d25ce88daa2200be073e1a373167f064 # v1.0.265
+        uses: anthropics/claude-code-action@4d75e5f390ee76b2e09c1980ecc99ff3a2e088c8 # v1.0.275
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -1062,7 +1063,7 @@ jobs:
         continue-on-error: true
         if: steps.fehlalarm.outputs.zweiter_versuch == 'true'
         timeout-minutes: 60   # lässt Notion und Schlussprüfung Zeit innerhalb der 175 Job-Minuten
-        uses: anthropics/claude-code-action@6d5ae526d25ce88daa2200be073e1a373167f064 # v1.0.265
+        uses: anthropics/claude-code-action@4d75e5f390ee76b2e09c1980ecc99ff3a2e088c8 # v1.0.275
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -1513,7 +1514,7 @@ jobs:
         # vermerkt das im Pull Request.
         continue-on-error: true
         timeout-minutes: 35
-        uses: anthropics/claude-code-action@6d5ae526d25ce88daa2200be073e1a373167f064 # v1.0.265
+        uses: anthropics/claude-code-action@4d75e5f390ee76b2e09c1980ecc99ff3a2e088c8 # v1.0.275
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |
@@ -1740,6 +1741,17 @@ jobs:
             echo "::warning title=Trend-Agent::Pull Request #$NR ließ sich nicht automatisch freigeben – Hinweis im Pull Request."
           fi
 
+      # Automatische Freigabe: Besteht der Entwurf alle Tore (Tests, wörtliche Übernahmen,
+      # Normstand, Urheberrecht, Fachliches, Recht, Ton), wird er gemergt und sofort
+      # veröffentlicht; sonst bleibt er mit Label „Karim prüfen“ offen.
+      - name: Automatische Freigabe anstoßen
+        if: ${{ !cancelled() && steps.ziel.outputs.nummer != '' && steps.wortlaut.outputs.freigabe == 'true' }}
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NR: ${{ steps.ziel.outputs.nummer }}
+        run: gh workflow run entwurf-freigeben.yml --ref main -f pr="$NR"
+
       # -----------------------------------------------------------------
       # 6. Shorts-Paket: aus dem GEPRÜFTEN Entwurf (nach der Schlussprüfung).
       #    Der Agent liest nur Entwurf und Auftragsdatei – kein Web, keine
@@ -1752,7 +1764,7 @@ jobs:
         if: ${{ !cancelled() && steps.ziel.outputs.bereit == 'true' }}
         continue-on-error: true
         timeout-minutes: 20
-        uses: anthropics/claude-code-action@6d5ae526d25ce88daa2200be073e1a373167f064 # v1.0.265
+        uses: anthropics/claude-code-action@4d75e5f390ee76b2e09c1980ecc99ff3a2e088c8 # v1.0.275
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           prompt: |

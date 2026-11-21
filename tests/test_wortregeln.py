@@ -1,7 +1,7 @@
 """Wortregeln des Inhabers auf den von Hand gepflegten Seiten und in den LinkedIn-Entwürfen.
 
 Die Fachbeiträge prüfen die Skills der Agenten; diese Prüfung deckt den Rest ab:
-Startseite, Leistungs- und Zielgruppenseiten, Wertrechner, englische Seiten und
+Startseite, Leistungs- und Zielgruppenseiten, Mängelanzeige, englische Seiten und
 die LinkedIn-Entwürfe in marketing/linkedin/. Verboten sind Selbstzuschreibungen
 („unabhängig“, „neutral“, Titel), Erfahrungsaussagen ohne Beleg („gehören zu
 unserem Alltag“ – es gibt noch keine Referenzen) und Ergebnisversprechen („hält
@@ -49,7 +49,7 @@ def sichtbarer_text(roh: str) -> str:
 
 
 def seiten() -> list[Path]:
-    liste = [WURZEL / "index.html", WURZEL / "wertrechner" / "index.html", WURZEL / "en" / "index.html"]
+    liste = [WURZEL / "index.html", WURZEL / "en" / "index.html"]
     liste += sorted((WURZEL / "leistungen").rglob("index.html"))
     liste += sorted(p for p in (WURZEL / "en").glob("*/index.html") if p.parent.name != "guides")
     liste += sorted((WURZEL / "werkzeuge").rglob("index.html"))

@@ -25,9 +25,9 @@ notion_id:
 notion_url:
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1790
+wortzahl: 1791
 lesezeit: 9 Minuten
-fussnoten: 4
+fussnoten: 2
 quellen_geprueft: 1
 zahlenwerte_norm: 2
 todos: 0
@@ -76,11 +76,9 @@ Die wichtigste Erkenntnis für die Praxis ist unbequem. Eine kostenlose Nacharbe
 
 Der Fall zeigt außerdem, wie viel ein Blatt Papier wert ist. Dass der Mitarbeiter der Herstellerin auf einer Verschriftlichung des Auftrags bestand, ergab für den Senat auf deren Seite bereits die rechtliche Bindung (Rn. 39). Wer also mit einer Firma eine Nachbesserung ohne Bezahlung vereinbart, sollte den Umfang der Arbeiten, den Zeitraum und die Beteiligten schriftlich festhalten. Eine E-Mail mit Datum genügt dafür. Wer die Arbeit zurücknimmt, sollte auch diesen Tag notieren, denn er kann der Beginn der Frist sein (Rn. 45).
 
-Für Arbeiten am Haus gilt eine andere Variante derselben Vorschrift. Nach § 634a Absatz 1 Nummer 2 BGB verjähren Mängelansprüche bei einem Bauwerk in fünf Jahren ab der Abnahme, während für Arbeiten an einer Sache zwei Jahre gelten.[^2] Bei Arbeiten an einem Bauwerk ist vorrangig immer diese Bauwerksvariante zu prüfen.[^3] Der besprochene Fall betraf einen Wohnwagen und damit die kurze Frist (Rn. 40). Übertragen Sie die zwei Jahre also nicht ungeprüft auf Ihr Dach oder Ihren Keller.
-
 Für die Beweislage zählt, was früh festgehalten wird. Fotografieren Sie den Zustand nach einer Nachbesserung mit Datum und einem Maßstab im Bild. Halten Sie fest, wer wann was gearbeitet hat, und heben Sie den Schriftwechsel auf. Wenn sich ein Schadensbild verändert, helfen Verlaufsaufnahmen über mehrere Wochen. Bleibt streitig, ob eine Nacharbeit fachgerecht war, kann eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) den Zustand und den Aufbau der Konstruktion dokumentieren, bevor weiter saniert wird.
 
-Hausverwaltungen trifft das Thema doppelt. Am Gemeinschaftseigentum werden Nacharbeiten oft formlos zugesagt, etwa nach einer Dachsanierung oder einer Abdichtung. Der Beginn der Verjährung hängt dann davon ab, wann die Leistung abgenommen wurde.[^4] Ein kurzer Vermerk über Datum, Umfang und Ergebnis der Nachbesserung kostet wenig Zeit und macht später den Unterschied. Welche Frist für eine bestimmte Nacharbeit gilt, ist eine Rechtsfrage und gehört in die Hand eines Rechtsanwalts.
+Hausverwaltungen trifft das Thema doppelt. Am Gemeinschaftseigentum werden Nacharbeiten oft formlos zugesagt, etwa nach einer Dachsanierung oder einer Abdichtung. Der Beginn der Verjährung hängt dann davon ab, wann die Leistung abgenommen wurde.[^2] Ein kurzer Vermerk über Datum, Umfang und Ergebnis der Nachbesserung kostet wenig Zeit und macht später den Unterschied. Welche Frist für eine bestimmte Nacharbeit gilt, ist eine Rechtsfrage und gehört in die Hand eines Rechtsanwalts.
 
 ## Was das Urteil nicht sagt
 
@@ -92,11 +90,11 @@ Das Urteil stellt auch keine allgemeine Regel auf, nach der jede Kulanzzusage bi
 
 **Gilt das Urteil auch, wenn mein Dachdecker kostenlos nacharbeitet?**
 
-Der entschiedene Fall betraf einen Wohnwagen, nicht ein Haus (Rn. 1). Der Gedanke des Senats ist aber nicht auf Fahrzeuge beschränkt: Eine Kulanzzusage ist in der Regel rechtlich bindend, und die Unentgeltlichkeit allein macht sie nicht zur bloßen Gefälligkeit (Rn. 38). Für Arbeiten an einem Bauwerk gilt allerdings die längere Verjährungsfrist von fünf Jahren ab Abnahme.[^2] Ob Ihr Fall darunter fällt, beurteilt ein Rechtsanwalt.
+Der entschiedene Fall betraf einen Wohnwagen, nicht ein Haus (Rn. 1). Der Senat hat entschieden, dass eine Kulanzzusage in der Regel rechtlich bindend ist und die Unentgeltlichkeit allein sie nicht zur bloßen Gefälligkeit macht (Rn. 38); ob sich das auf Arbeiten am Haus übertragen lässt, ist eine Folgerung, die im Einzelfall zu prüfen ist. Welche Frist für Ihren Fall gilt, beurteilt ein Rechtsanwalt.
 
 **Ab wann läuft die Frist für Ansprüche aus einer Nachbesserung?**
 
-Nach der Vorschrift, die der Senat anwendet, beginnt die Frist mit der Abnahme (Rn. 41). Im entschiedenen Fall stellte der Senat auf die Ablieferung des reparierten Wohnwagens im Juni 2022 ab und kam so auf ein Fristende im Juni 2024 (Rn. 45). Auch beim Bauwerk beginnt die Verjährung von Mängelansprüchen mit der Abnahme.[^4] Der Tag der Übergabe ist deshalb ein Datum, das Sie notieren sollten.
+Nach der Vorschrift, die der Senat anwendet, beginnt die Frist mit der Abnahme (Rn. 41). Im entschiedenen Fall stellte der Senat auf die Ablieferung des reparierten Wohnwagens im Juni 2022 ab und kam so auf ein Fristende im Juni 2024 (Rn. 45). Der Tag der Übergabe ist deshalb ein Datum, das Sie notieren sollten.
 
 **Warum half der Eigentümerin die Garantie der Herstellerin nicht?**
 
@@ -119,6 +117,4 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: Schleswig-Holsteinisches Oberlandesgericht, 9. Zivilsenat: Urteil vom 02.09.2026 – 9 U 45/25, ECLI:DE:OLGSH:2026:0902.9U45.25.00. https://www.gesetze-rechtsprechung.sh.juris.de/perma?d=NJRE001652763 (abgerufen am 2026-09-25).
-[^2]: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. Entscheidungshilfen für Auftraggeber und Auftragnehmer. 2. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 101. ISBN 978-3-658-44068-8.
-[^3]: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. Entscheidungshilfen für Auftraggeber und Auftragnehmer. 2. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 103. ISBN 978-3-658-44068-8.
-[^4]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 7. ISBN 978-3-658-32822-1.
+[^2]: § 634a BGB „Verjährung der Mängelansprüche“, Absatz 1 Nr. 1 und 2 sowie Absatz 2. https://www.gesetze-im-internet.de/bgb/__634a.html (abgerufen am 2026-11-14).

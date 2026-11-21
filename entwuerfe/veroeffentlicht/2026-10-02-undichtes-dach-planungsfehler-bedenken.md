@@ -13,7 +13,7 @@ entscheidungsdatum: 2014-04-15
 fundstelle: "https://www.landesrecht-bw.de/perma?d=NJRE001186664"
 meta_beschreibung: "OLG Stuttgart 10 U 127/13: Der Anspruch der Bauherrin blieb ungekürzt, weil die Baufirma den Planungsfehler kannte und ihre Warnung nicht bewies."
 schlagwoerter: Planungsfehler, Bedenkenanmeldung, Luftdichtheit, Dach, Mangelbeseitigung, Kostenvorschuss, Mitverschulden
-definition: Eine Bedenkenanmeldung ist die Mitteilung des Bauunternehmens an den Auftraggeber, dass es Bedenken gegen die vorgesehene Art der Ausführung hat.
+definition: Eine Bedenkenanmeldung ist die Warnung des Bauunternehmens an den Auftraggeber vor einer Planung oder Ausführung, die es für problematisch hält.
 autor: M. Sc. Karim Abu Elkheir
 qualifikation:
 kurzform: undichtes-dach-planungsfehler-bedenken
@@ -25,9 +25,9 @@ notion_id:
 notion_url:
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1920
-lesezeit: 10 Minuten
-fussnoten: 8
+wortzahl: 1686
+lesezeit: 9 Minuten
+fussnoten: 2
 quellen_geprueft: 2
 zahlenwerte_norm: 0
 todos: 0
@@ -40,13 +40,13 @@ Das Dach war errichtet (Rn. 26) und ließ trotzdem Luft durch. Der Sachverständ
 
 ## Ein Dach, das Luft durchließ, und eine Rechnung, die keiner tragen wollte
 
-Die Bauherrin hatte Zimmer- und Dachdeckerarbeiten in Auftrag gegeben. Mit ihrer Klage verlangte sie von der Baufirma die Kosten für die Beseitigung der Mängel (Rn. 1). Die Abnahme der Arbeiten, also die Übernahme der fertigen Leistung durch die Auftraggeberin, war am 2. Dezember 2010 erfolgt (Rn. 24).
+Die Bauherrin hatte Zimmer- und Dachdeckerarbeiten in Auftrag gegeben. Mit ihrer Klage verlangte sie von der Baufirma die Kosten für die Beseitigung der Mängel (Rn. 1).
 
 Das Landgericht Stuttgart stellte mehrere Mängel fest (Rn. 3). Im Bereich der Doppelsparren im Wohnzimmer war die erforderliche Luftdichtheit nicht hergestellt (Rn. 3). Luftdichtheit meint die durchgehend geschlossene Schicht, die warme Raumluft nicht durch die Dachkonstruktion entweichen lässt. Auch der Übergang zwischen Sparren und Holzschalung im Bereich des Quergiebels war mangelhaft (Rn. 3). Sparren sind die tragenden Balken, die von der Traufe zum First laufen. Für die Doppelsparren im Kinderzimmer galt dasselbe (Rn. 3). Dazu kam die Farbbeschichtung der Dachschalung, die auf der Unterseite dunkle Verfärbungen zeigte (Rn. 3).
 
 Der Sachverständige führte die fehlende Luftdichtheit der Gebäudehülle auf Ausführungs- und Planungsfehler zurück (Rn. 29). Nach dem Vortrag der Baufirma war der Planer mit Planung, Bauleitung und Bauüberwachung beauftragt (Rn. 18).
 
-Das Landgericht bezifferte die Mangelbeseitigungskosten mit 45.810 Euro brutto (Rn. 5). Davon zog es Sowiesokosten von 5 Prozent aus 68.600 Euro ab (Rn. 5). Als Sowiesokosten gelten Kosten, die auch bei fehlerfreier Ausführung angefallen wären. Übrig blieb ein Kostenvorschuss, von dem die Bauherrin die Hälfte verlangen konnte, nämlich 21.190 Euro (Rn. 5). Der Kostenvorschuss ist eine vorläufige Zahlung auf die zu erwartenden Mängelbeseitigungskosten[^2]. Die Kürzung begründete das Landgericht mit einem Mitverschulden der Bauherrin (Rn. 5). Mitverschulden meint den eigenen Beitrag des Geschädigten zum Schaden, hier den Planungsfehler ihres Planers (Rn. 5).
+Das Landgericht bezifferte die Mangelbeseitigungskosten mit 45.810 Euro brutto (Rn. 5). Davon zog es Sowiesokosten von 5 Prozent aus 68.600 Euro ab (Rn. 5). Als Sowiesokosten gelten Kosten, die auch bei fehlerfreier Ausführung angefallen wären. Übrig blieb ein Kostenvorschuss, von dem die Bauherrin die Hälfte verlangen konnte, nämlich 21.190 Euro (Rn. 5). Die Kürzung begründete das Landgericht mit einem Mitverschulden der Bauherrin (Rn. 5). Mitverschulden meint den eigenen Beitrag des Geschädigten zum Schaden, hier den Planungsfehler ihres Planers (Rn. 5).
 
 Berufung legte nicht die Bauherrin ein, sondern der Planer, der dem Rechtsstreit auf ihrer Seite beigetreten war (Rn. 7). Er trug vor, den festgestellten Mängeln lägen allesamt Ausführungsfehler zugrunde (Rn. 8). Nach seiner Darstellung hafte die Baufirma allein, weil sie erkannte Mängel nicht gemeldet habe (Rn. 9). Die Bauherrin schloss sich diesen Ausführungen an (Rn. 13). Die Baufirma hielt die Quote von 50 Prozent für richtig (Rn. 18). Nach ihrer Darstellung hatte der Planer mit seiner fehlerhaften Abdichtungsplanung das Grundübel gesetzt (Rn. 18).
 
@@ -62,35 +62,35 @@ Als Nächstes ging es um die Planung. Ein Leistungsverzeichnis beschreibt, welch
 
 Entschieden hat den Fall dann ein anderer Punkt. Trotz des Planungsfehlers kürzte der Senat den Anspruch der Bauherrin nicht (Rn. 40). Der Senat verlangt dafür zwei Dinge zusammen (Rn. 41). Der Unternehmer muss genau erkennen, dass der Planungsfehler mit Sicherheit zu einem Mangel führen muss. Und er muss den Bauherrn selbst vorher darauf nicht hingewiesen haben. Liegt beides vor, kann er sich auf ein Mitverschulden des Architekten in der Regel nicht berufen (Rn. 41). Der Senat begründet das mit Treu und Glauben, also mit dem Gebot redlichen Verhaltens im Vertrag (Rn. 41). Für diesen Satz stützt sich der Senat auf eine Entscheidung des Bundesgerichtshofs (Rn. 41). Er stellt also keine neue Regel auf, sondern wendet eine bekannte an.
 
-Entscheidend war dann die Beweislage. Die Baufirma trug vor, sie habe das Problem der Luftdichtigkeit erkannt und deshalb mündlich Bedenken angemeldet (Rn. 42). Eine Bedenkenanmeldung ist die Mitteilung des Bauunternehmens an den Auftraggeber, dass es Bedenken gegen die vorgesehene Art der Ausführung hat.[^3] Ihr Vorarbeiter gab als Zeuge an, ihm sei ein Luftraum zwischen Schalung und Mauerwerk aufgefallen (Rn. 42). Er habe dies der Baufirma mitgeteilt (Rn. 42). Der Senat sah damit als erwiesen an, dass die Baufirma das konstruktive Problem kannte (Rn. 42). Das Landgericht hatte zugleich bindend festgestellt, dass der Bedenkenhinweis selbst nicht nachgewiesen ist (Rn. 43). Die Folge: Die Baufirma muss den Kostenvorschuss in ungeschmälerter Höhe erbringen (Rn. 44). Ob sie vom Planer einen Ausgleich erhält, hat der Senat offengelassen (Rn. 44).
+Entscheidend war dann die Beweislage. Die Baufirma trug vor, sie habe das Problem der Luftdichtigkeit erkannt und deshalb mündlich Bedenken angemeldet (Rn. 42). Ihr Vorarbeiter gab als Zeuge an, ihm sei ein Luftraum zwischen Schalung und Mauerwerk aufgefallen (Rn. 42). Er habe dies der Baufirma mitgeteilt (Rn. 42). Der Senat sah damit als erwiesen an, dass die Baufirma das konstruktive Problem kannte (Rn. 42). Das Landgericht hatte zugleich bindend festgestellt, dass der Bedenkenhinweis selbst nicht nachgewiesen ist (Rn. 43). Die Folge: Die Baufirma muss den Kostenvorschuss in ungeschmälerter Höhe erbringen (Rn. 44). Ob sie vom Planer einen Ausgleich erhält, hat der Senat offengelassen (Rn. 44).
 
 ## Was Bauherren, Eigentümer und Verwaltungen daraus mitnehmen können
 
 Das Urteil zeigt, worauf es bei einem Streit über Dachmängel praktisch ankommt. Es geht um die Frage, wer wann gewarnt hat und wer das beweisen kann. Der Senat hat die Zurechnung von Planungsfehlern ausdrücklich bestätigt (Rn. 22, Rn. 25). Wer als Bauherr einen Planer einschaltet, muss deshalb damit rechnen, dass ein Planungsfehler den eigenen Anspruch mindern kann. In diesem Verfahren blieb die Kürzung nur aus, weil die Baufirma den Fehler erkannt hatte und ihre Warnung nicht belegen konnte (Rn. 41, Rn. 44). Ob und in welcher Höhe in Ihrem Fall Ansprüche bestehen, beurteilt ein Rechtsanwalt.
 
-Für Bauunternehmen folgt aus dem Fall eine klare Konsequenz für die eigene Akte. Ein Fachbuch zum privaten Baurecht empfiehlt, den Bedenkenhinweis aus Beweisgründen schriftlich zu verfassen[^3]. Nach derselben Darstellung muss sich der Hinweis an den Auftraggeber selbst richten[^3]. Im besprochenen Verfahren blieb die mündliche Anmeldung ohne Wirkung, weil sie sich nicht nachweisen ließ (Rn. 43).
+Für Bauunternehmen zeigt der Fall, was die eigene Akte leisten muss. Im besprochenen Verfahren blieb die mündliche Anmeldung ohne Wirkung, weil sie sich nicht nachweisen ließ (Rn. 43). Bedenken gehören deshalb schriftlich angezeigt, mit Datum und Empfänger.
 
 Wer als Bauherr oder als Hausverwaltung eine Baustellenbesprechung führt, hat die Dokumentation selbst in der Hand. Äußert ein Handwerker Zweifel an einem Detail, gehört das Ergebnis mit Datum und Namen ins Protokoll. Ein solches Protokoll hilft beiden Seiten, denn es zeigt, wer wann informiert war. Im entschiedenen Fall stand genau diese Frage im Mittelpunkt (Rn. 42, Rn. 43).
 
 Für die Ausschreibung enthält die Entscheidung einen zweiten praktischen Punkt. Im Leistungsverzeichnis des Falls stand im Titel Wärmedämmarbeiten ein Verweis auf Werkvorschrift und Richtlinien (Rn. 30). Der Senat hat diesen Verweis nicht als Detailplanung anerkannt (Rn. 33). Wer als Bauherr Planungsunterlagen durchsieht, kann deshalb konkret fragen, welche Anschlüsse gezeichnet sind. Gerade bei einer Sonderlösung reicht ein Musterdetail nicht, wenn die Konstruktion davon abweicht (Rn. 33). Die Norm DIN 4108-7 kommt in diesem Urteil nicht vor; sie gehört zum technischen Hintergrund.
 
-Technisch liegt das Problem bei der Luftdichtheit an den Übergängen. Übergänge und Durchdringungen von Bauteilen gelten als typische Schwachstellen der luftdichten Schicht[^4]. Für die Luftdichtheit von Gebäuden gibt es eine eigene Norm, DIN 4108-7, die Anforderungen festlegt und Planungs- und Ausführungsempfehlungen gibt[^5]. Wer die Luftdichtheit plant, braucht deshalb für jeden Anschluss eine Festlegung und nicht nur einen Verweis.
+Technisch liegt das Problem bei der Luftdichtheit an den Übergängen. Für die Luftdichtheit von Gebäuden gibt es eine eigene Norm, DIN 4108-7, die Anforderungen festlegt und Planungs- und Ausführungsempfehlungen gibt[^2]. Wer die Luftdichtheit plant, braucht für jeden Anschluss eine Festlegung und nicht nur einen Verweis.
 
-Wenn ein Dach Luft oder Wasser durchlässt, entscheidet oft die Dokumentation über den Ausgang eines Streits. Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand fest, bevor saniert wird. Zum Kostenvorschuss gilt dabei eine Einschränkung, die leicht übersehen wird. Nach der Fachliteratur setzt der Vorschuss voraus, dass der Auftraggeber die Mängelbeseitigung wirklich vornehmen will[^2]. Ohne diesen Willen steht ihm nach dieser Darstellung kein Vorschuss zu[^2].
+Wenn ein Dach Luft oder Wasser durchlässt, entscheidet oft die Dokumentation über den Ausgang eines Streits. Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand fest, bevor saniert wird.
 
 ## Was das Urteil nicht sagt
 
-Das Urteil betrifft einen Vertrag über Zimmer- und Dachdeckerarbeiten (Rn. 1). Das Landgericht hat die Mängel nach § 13 VOB/B beurteilt (Rn. 3, Rn. 4). Die VOB/B enthält die allgemeinen Vertragsbedingungen, die bei der Ausführung von Bauleistungen gelten; sie bildet den zweiten Teil der Vergabe- und Vertragsordnung für Bauleistungen[^6]. Welche Ausgabe hier galt, nennt das Urteil nicht.
+Das Urteil betrifft einen Vertrag über Zimmer- und Dachdeckerarbeiten (Rn. 1). Das Landgericht hat die Mängel nach § 13 VOB/B beurteilt (Rn. 3, Rn. 4). Die VOB/B enthält die allgemeinen Vertragsbedingungen, die bei der Ausführung von Bauleistungen gelten. Welche Ausgabe hier galt, nennt das Urteil nicht.
 
 Eine Frage hat der Senat ausdrücklich offengelassen (Rn. 38). Unentschieden blieb, ob ein Unternehmer auch dann voll haftet, wenn sein Ausführungsfehler den ganzen Schaden selbständig verursacht hätte (Rn. 38). Im Fall lag das anders, weil Planungs- und Ausführungsfehler denselben Mangel betrafen (Rn. 39). Ebenfalls nicht entschieden ist, was die Baufirma im Innenverhältnis vom Planer zurückfordern kann (Rn. 44). Der Senat hat die Revision nicht zugelassen (Rn. 46).
 
-Das Urteil ist von 2014, und seither hat sich das Gesetz verändert. Der Senat wendet zwei Vorschriften des Bürgerlichen Gesetzbuchs an, § 254 und § 278 BGB (Rn. 40). Die erste betrifft das Mitverschulden, die zweite die Zurechnung fremden Verschuldens. Als Erfüllungsgehilfe gilt, wer für eine Vertragspartei deren Pflichten erfüllt; dazu zählt der Senat den Planer (Rn. 41). Den Ausgleich zwischen Baufirma und Planer verortet er in § 426 BGB (Rn. 44). Zum 1. Januar 2018 wurde das Bauvertragsrecht im Bürgerlichen Gesetzbuch reformiert[^7]. Die Regeln der §§ 631 bis 650 BGB gelten weiterhin auch für Bauverträge, soweit die §§ 650a bis 650h BGB nichts Abweichendes bestimmen[^7]. Nach der Fachliteratur kann die Verletzung der Prüf- und Hinweispflicht bei einem offenkundigen Planungsfehler das Mitverschulden des Auftraggebers völlig überlagern[^8].
+Das Urteil ist von 2014, und seither hat sich das Gesetz verändert. Der Senat wendet zwei Vorschriften des Bürgerlichen Gesetzbuchs an, § 254 und § 278 BGB (Rn. 40). Die erste betrifft das Mitverschulden, die zweite die Zurechnung fremden Verschuldens. Als Erfüllungsgehilfe gilt, wer für eine Vertragspartei deren Pflichten erfüllt; dazu zählt der Senat den Planer (Rn. 41). Den Ausgleich zwischen Baufirma und Planer verortet er in § 426 BGB (Rn. 44). Für Verträge ab dem 1. Januar 2018 gilt zusätzlich das reformierte Bauvertragsrecht der §§ 650a ff. BGB.[^3] Die Regeln zu Mitverschulden und zur Zurechnung fremden Verschuldens bleiben im Kern bestehen. Ob das Ergebnis des Falls auf einen neueren Vertrag übertragbar ist, beurteilt ein Rechtsanwalt.
 
 ## Häufige Fragen
 
 **Gilt das auch für meinen Vertrag mit einem Handwerker?**
 
-Das Urteil betrifft einen Vertrag über Zimmer- und Dachdeckerarbeiten, bei dem die Mängel nach § 13 VOB/B beurteilt wurden (Rn. 1, Rn. 3). Ob die Erwägungen auf einen anderen Vertrag passen, hängt von dessen Inhalt und von den Umständen ab. Ein Fachbuch weist darauf hin, dass die Grundsätze zum Bedenkenhinweis im Werkvertrag nach dem Bürgerlichen Gesetzbuch in gleicher Weise gelten[^3]. Für die Bewertung Ihres eigenen Vertrags ist anwaltliche Beratung der richtige Weg.
+Das Urteil betrifft einen Vertrag über Zimmer- und Dachdeckerarbeiten, bei dem die Mängel nach § 13 VOB/B beurteilt wurden (Rn. 1, Rn. 3). Ob die Erwägungen auf einen anderen Vertrag passen, hängt von dessen Inhalt und von den Umständen ab. Für die Bewertung Ihres eigenen Vertrags ist anwaltliche Beratung der richtige Weg.
 
 **Muss ich als Bauherr den Planungsfehler meines Architekten immer mittragen?**
 
@@ -98,11 +98,7 @@ Der Senat hat die Zurechnung bejaht. Ein Planungsfehler, den sich der Auftraggeb
 
 **Reicht ein mündlicher Hinweis auf der Baustelle?**
 
-In diesem Verfahren trug die Baufirma vor, sie habe mündlich Bedenken angemeldet (Rn. 42). Das Landgericht hat bindend festgestellt, dass dieser Bedenkenhinweis nicht nachgewiesen ist (Rn. 43). Der Senat hat sich dieser Feststellung angeschlossen (Rn. 43). Ein Fachbuch empfiehlt aus Beweisgründen die schriftliche Form und den Hinweis an den Auftraggeber selbst[^3].
-
-**Was ist ein Kostenvorschuss, und wie kam der Betrag zustande?**
-
-Der Kostenvorschuss ist eine vorläufige Zahlung auf die zu erwartenden Mängelbeseitigungskosten[^2]. Das Landgericht hatte die Mangelbeseitigung mit 45.810 Euro brutto bewertet und Sowiesokosten abgezogen (Rn. 5). Von dem verbleibenden Betrag sprach es der Bauherrin die Hälfte zu, also 21.190 Euro (Rn. 5). Der Senat hat die Kürzung aufgehoben und 42.380,00 Euro zugesprochen (Tenor Nr. 1).
+In diesem Verfahren trug die Baufirma vor, sie habe mündlich Bedenken angemeldet (Rn. 42). Das Landgericht hat bindend festgestellt, dass dieser Bedenkenhinweis nicht nachgewiesen ist (Rn. 43). Der Senat hat sich dieser Feststellung angeschlossen (Rn. 43).
 
 ## Hinweis
 
@@ -117,10 +113,5 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: OLG Stuttgart 10. Zivilsenat: Urteil vom 15.04.2014 – 10 U 127/13, ECLI:DE:OLGSTUT:2014:0415.10U127.13.0A. https://www.landesrecht-bw.de/perma?d=NJRE001186664 (abgerufen am 2026-10-02).
-[^2]: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. Entscheidungshilfen für Auftraggeber und Auftragnehmer. 2. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 65. ISBN 978-3-658-44068-8.
-[^3]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 127. ISBN 978-3-658-32822-1.
-[^4]: Willems, Wolfgang M. (Hrsg.): Lehrbuch der Bauphysik. Wärme – Feuchte – Klima – Schall – Licht – Brand. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 68. ISBN 978-3-658-34093-3.
-[^5]: DIN Media: DIN 4108-7:2026-04, Wärmeschutz und Energie-Einsparung in Gebäuden – Teil 7: Luftdichtheit von Gebäuden – Anforderungen, Planungs- und Ausführungsempfehlungen sowie -beispiele. Ausgabe 2026-04, Status aktuell, ersetzt DIN 4108-7:2011-01. https://www.dinmedia.de/de/norm/din-4108-7/398456216 (abgerufen am 2026-10-02).
-[^6]: Malkwitz, Alexander u. a.: Kostenermittlung und -kalkulation im Bauprojekt. Grundlagen und Anwendung. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 209. ISBN 978-3-658-38927-7.
-[^7]: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 74. ISBN 978-3-658-47553-6.
-[^8]: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. Entscheidungshilfen für Auftraggeber und Auftragnehmer. 2. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 188. ISBN 978-3-658-44068-8.
+[^2]: DIN Media: DIN 4108-7:2026-04, Wärmeschutz und Energie-Einsparung in Gebäuden – Teil 7: Luftdichtheit von Gebäuden – Anforderungen, Planungs- und Ausführungsempfehlungen sowie -beispiele. Ausgabe 2026-04, Status aktuell, ersetzt DIN 4108-7:2011-01. https://www.dinmedia.de/de/norm/din-4108-7/398456216 (abgerufen am 2026-10-02).
+[^3]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, Untertitel 2 Bauvertrag, ab § 650a. https://www.gesetze-im-internet.de/bgb/__650a.html (abgerufen am 2026-11-14).

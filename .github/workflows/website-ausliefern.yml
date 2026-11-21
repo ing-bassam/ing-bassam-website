@@ -3,9 +3,9 @@ name: Website ausliefern
 # -----------------------------------------------------------------------------
 # Veröffentlicht die Website über GitHub Pages – und zwar NUR die Dateien, die
 # zur Website gehören (Positivliste in tools/website_bauen.py). Agenten
-# (.claude/), Workflows, Werkzeuge, Tests, Entwürfe, Marketing-Unterlagen,
-# Fachliteratur und Rohdaten werden nicht ausgeliefert. Bis Oktober 2026
-# lieferte Pages das ganze Repository aus.
+# (.claude/), Workflows, Werkzeuge, Tests, Entwürfe und Marketing-Unterlagen
+# werden nicht ausgeliefert. Bis Oktober 2026 lieferte Pages das ganze
+# Repository aus.
 #
 # Voraussetzung (einmalig): Settings → Pages → Build and deployment →
 # Source: „GitHub Actions“.
@@ -35,10 +35,8 @@ on:
       - 'marketing/**'
       - 'tests/**'
       - '.claude/**'
-      - 'fachliteratur/**'
-      - 'daten/**'
   workflow_run:
-    workflows: ["Fachwissen-Seiten bauen", "Entwürfe veröffentlichen", "Marktdaten bauen"]
+    workflows: ["Fachwissen-Seiten bauen", "Entwürfe veröffentlichen", "Beitrag zurückziehen"]
     types: [completed]
     branches: [main]
   workflow_dispatch:

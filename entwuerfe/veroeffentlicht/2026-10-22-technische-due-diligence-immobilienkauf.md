@@ -1,0 +1,145 @@
+---
+titel: "Technische Due Diligence: Prüfumfang und Bericht"
+kategorie: Gutachten & Recht
+format: Grundlagen
+zielgruppe: Gewerblich, Wohnungsbaugesellschaft, Hausverwaltung
+leistung: Gutachten, Bauherrenvertretung
+kernfrage: Was prüft eine technische Due Diligence vor dem Kauf einer Immobilie, und was steht am Ende im Bericht?
+meta_beschreibung: "Was eine technische Due Diligence vor dem Immobilienkauf prüft, wie sie abläuft und was der Bericht enthält: Datenraum, Begehung, Kostenprognose."
+schlagwoerter: Technische Due Diligence, Immobilienkauf, Ankaufsprüfung, Instandhaltungsrückstau, Bestandsaufnahme, DIN 276, Gebäudeschadstoffe
+definition: Technische Due Diligence ist die systematische Untersuchung von Bauzustand, Gebäudetechnik und Unterlagen einer Immobilie vor einer Transaktion.
+autor: M. Sc. Karim Abu Elkheir
+qualifikation:
+kurzform: technische-due-diligence-immobilienkauf
+erstellt: 2026-10-22
+aktualisiert:
+status: Veröffentlicht
+quelle: notion
+notion_id: 3eed96ad-00b4-8173-ac39-e3aa4cbcb81b
+notion_url: https://app.notion.com/p/Technische-Due-Diligence-beim-Immobilienkauf-Ablauf-Umfang-Bericht-3eed96ad00b48173ac39e3aa4cbcb81b
+fachlich_geprueft_von:
+fachlich_geprueft_am:
+wortzahl: 2849
+lesezeit: 15 Minuten
+fussnoten: 5
+quellen_geprueft: 5
+zahlenwerte_norm: 1
+todos: 0
+regelwerke_bestaetigt: "DIN 276:2018-12, VDI/GVSS 6202 Blatt 1:2013-10, § 442 BGB, § 444 BGB, § 80 Gebäudemodernisierungsgesetz"
+---
+
+# Technische Due Diligence: Prüfumfang und Bericht
+
+Eine technische Due Diligence prüft vor dem Kauf einer Immobilie den baulichen und technischen Zustand des Objekts, die Vollständigkeit und Belastbarkeit der Unterlagen sowie die absehbaren Kosten für Instandsetzung und Modernisierung. Sie verbindet die Auswertung des Datenraums mit einer Begehung vom Dach bis zum Keller, einschließlich der Gebäudetechnik und stichprobenartig ausgewählter Nutzungseinheiten. Am Ende steht ein Bericht, der den Zustand je Bauteil beschreibt, den Instandhaltungsrückstau nach Dringlichkeit staffelt und die Kosten nach einer nachvollziehbaren Gliederung schätzt. Hinzu kommen Sonderthemen wie Schadstoffverdacht, Brandschutz, Genehmigungslage und Energie. Umfang und Tiefe der technischen Due Diligence werden im Auftrag festgelegt. Der Beitrag beschreibt Abgrenzung, Begriffe, Ablauf, Berichtsinhalt und die Grenzen der Aussage aus Sicht gewerblicher Käufer, Wohnungsbaugesellschaften und Verwaltungen.
+
+## Technische Due Diligence im Unterschied zur rechtlichen, steuerlichen und kaufmännischen Prüfung
+
+Die technische Due Diligence ist einer von mehreren Prüfsträngen, die vor dem Erwerb einer Immobilie parallel laufen. Die rechtliche Prüfung befasst sich mit Grundbuch, Baulasten, Miet- und Dienstleistungsverträgen. Die steuerliche Prüfung bewertet die Struktur der Transaktion. Die kaufmännische Prüfung untersucht Mieterträge, Leerstand, Bewirtschaftungskosten und Finanzierung. Der technische Strang liefert diesen Prüfungen Eingangsgrößen, die nur am Gebäude selbst gewonnen werden können: den tatsächlichen Zustand, die Restnutzungsdauer wesentlicher Bauteile und den absehbaren Investitionsbedarf. Ohne diese Größen bleibt jede Renditerechnung eine Annahme über ein Gebäude, das niemand fachkundig angesehen hat.
+
+Der Zeitpunkt der technischen Due Diligence vor der Unterzeichnung des Kaufvertrags hat einen rechtlichen Hintergrund. Nach § 442 Abs. 1 des Bürgerlichen Gesetzbuchs (BGB) sind die Rechte des Käufers wegen eines Mangels ausgeschlossen, wenn er den Mangel bei Vertragsschluss kennt.[^1] Bei Bestandsimmobilien kann zudem vertraglich ein Ausschluss der Sachmängelhaftung vereinbart werden, im Sprachgebrauch „gekauft wie besichtigt“. Auf einen solchen vertraglichen Haftungsausschluss kann sich der Verkäufer nach § 444 BGB nicht berufen, soweit er einen Mangel arglistig verschwiegen hat.[^2] Wie diese Vorschriften im konkreten Kaufvertrag zusammenwirken und welche Garantien oder Preisanpassungen sich aus einem technischen Befund ableiten lassen, beurteilt ein Rechtsanwalt; die technische Due Diligence liefert dafür die Tatsachengrundlage, nicht die rechtliche Bewertung.
+
+Aus der Rechtslage nach §§ 442 und 444 BGB ergibt sich für die technische Due Diligence eine doppelte Funktion. Einerseits macht sie Mängel vor dem Kauf bekannt, sodass sie in Kaufpreis, Garantiekatalog oder Rückstellungen einfließen können, solange noch verhandelt wird. Andererseits dokumentiert sie den Kenntnisstand zum Zeitpunkt der Prüfung, was später für die Frage bedeutsam sein kann, welche Mängel bekannt waren und welche nicht. Die Folgen dieser Dokumentation für spätere Ansprüche sind eine Rechtsfrage, die nicht der Sachverständige, sondern die rechtliche Beratung des Käufers beantwortet. Aus technischer Sicht ist entscheidend, dass der Bericht klar trennt zwischen dem, was festgestellt, dem, was vermutet, und dem, was nicht untersucht wurde.
+
+Die Zielgruppen einer technischen Due Diligence unterscheiden sich vor allem in ihrer Fragestellung. Ein gewerblicher Investor fragt nach dem Investitionsbedarf über die geplante Haltedauer und nach Risiken für die Vermietbarkeit. Eine Wohnungsbaugesellschaft, die einen Bestand übernimmt, fragt zusätzlich nach der Einbindung in die eigene Instandhaltungsplanung und nach Pflichten gegenüber Mietern. Eine Hausverwaltung, die ein Objekt nach dem Eigentümerwechsel übernimmt, benötigt aus der technischen Due Diligence vor allem eine belastbare Ausgangsdokumentation über Zustand, Wartungslage und offene Prüfpflichten der Anlagen.
+
+## Begriff und Bezugsrahmen: Kostengruppen nach DIN 276
+
+Technische Due Diligence ist die systematische Untersuchung von Bauzustand, Gebäudetechnik und Unterlagen einer Immobilie vor einer Transaktion. Der Begriff stammt aus der Transaktionspraxis.
+
+Die Kostengliederung bildet den Bezugsrahmen der technischen Due Diligence. DIN 276:2018-12 „Kosten im Bauwesen“ ist die aktuelle Fassung der Norm, die die Kosten im Bauwesen in Kostengruppen gliedert.[^3] Eine Kostenschätzung in der technischen Due Diligence, die sich an dieser Gliederung orientiert, lässt sich später in die Kostenplanung einer Sanierung übernehmen. Die Norm selbst regelt allerdings nicht, wie Instandhaltungsbedarf zu bewerten ist.
+
+## Ablauf, erster Teil: Auftrag, Fragenkatalog und Datenraum
+
+Am Anfang der technischen Due Diligence steht der Auftrag mit einem Fragenkatalog des Käufers. Er legt fest, welche Objekte untersucht werden, welche Bauteile und Anlagen im Mittelpunkt stehen, welcher Betrachtungszeitraum für die Kostenprognose gilt und in welcher Form berichtet wird. Ein Investor mit kurzer Haltedauer fragt anders als eine Wohnungsbaugesellschaft, die einen Bestand auf Jahrzehnte übernimmt. Wird ein Umbau oder eine Nutzungsänderung erwogen, gehört die Frage nach deren technischer Machbarkeit ausdrücklich in den Auftrag. Bleibt der Fragenkatalog unklar, kann ein Bericht zwar viele Befunde enthalten, die entscheidende Frage des Käufers aber offenlässt.
+
+Ein Pflichtdokument, das in der technischen Due Diligence regelmäßig vorliegen sollte, ist der Energieausweis. Nach § 80 Abs. 3 und 4 des Gesetzes zur Einsparung von Energie und zur Modernisierung der Wärmeversorgung in Gebäuden ist beim Verkauf eines bebauten Grundstücks ein Energieausweis auszustellen, wenn nicht bereits ein gültiger vorliegt, und dem möglichen Käufer spätestens bei der Besichtigung vorzulegen.[^4] Für die technische Due Diligence ist der Energieausweis eine Eingangsgröße, aber kein Ersatz für die eigene Bewertung von Gebäudehülle und Anlagentechnik, weil er weder Bauschäden noch den Wartungszustand der Anlagen beschreibt.
+
+Die Auswertung des Datenraums ist in der technischen Due Diligence mehr als eine Vorbereitung der Begehung. Sie ergibt ein eigenes Ergebnis, nämlich die Bewertung der Unterlagen selbst. Fehlen Baugenehmigungen für erkennbar veränderte Gebäudeteile, fehlen Prüfbescheinigungen für prüfpflichtige Anlagen oder widersprechen sich Pläne und Flächenangaben, ist das ein Befund mit eigener Bedeutung für Risiko und Kaufpreis. Lückenhafte Unterlagen erhöhen zudem den Aufwand der Begehung, weil mehr Sachverhalte am Bauwerk selbst geklärt werden müssen. Der Bericht sollte deshalb ausweisen, welche Unterlagen vorlagen, welche angefordert und nicht geliefert wurden und welche Aussagen ausschließlich auf Unterlagen beruhen.
+
+Gespräche mit der Verwaltung, dem Hausmeister oder dem technischen Objektbetreuer ergänzen die technische Due Diligence um Wissen, das in keinem Dokument steht. Dazu gehören wiederkehrende Störungen an Heizung oder Aufzug, frühere Wasserschäden, Beschwerden von Mietern, Provisorien und Reparaturen ohne Dokumentation. Für eine Hausverwaltung, die das Objekt nach dem Kauf übernehmen soll, sind diese Gespräche zugleich der Beginn der eigenen Objektkenntnis. Angaben aus Gesprächen werden im Bericht als solche gekennzeichnet, weil sie nicht überprüft sind. Widersprechen sie dem Datenraum oder dem Befund vor Ort, ist gerade dieser Widerspruch für die technische Due Diligence ein Hinweis, dem nachzugehen ist.
+
+## Ablauf, zweiter Teil: Begehung vom Dach bis zum Keller, Gebäudetechnik und Stichproben
+
+Die Technische Gebäudeausrüstung, also Heizung, Trinkwasser- und Abwasseranlagen, Elektroinstallation, Lüftung, Aufzüge und brandschutztechnische Anlagen, bildet einen eigenen Schwerpunkt der technischen Due Diligence. Die Anlagen der Gebäudetechnik haben in der Regel kürzere Nutzungsdauern als der Rohbau und lösen deshalb innerhalb einer Haltedauer eher Erneuerungsbedarf aus. Bewertet werden Alter, Zustand, Wartungslage und die Frage, ob vorgeschriebene Prüfungen nachweisbar durchgeführt wurden. Je nach Umfang der Anlagen werden Fachingenieure für einzelne Gewerke hinzugezogen. Eine Funktionsprüfung im engeren Sinne, etwa eine Lastprobe oder eine Prüfung durch eine zugelassene Stelle, ist nicht Teil einer gewöhnlichen technischen Due Diligence, sondern wird bei Bedarf gesondert beauftragt.
+
+Wohnungen und vermietete Gewerbeeinheiten werden in der technischen Due Diligence in der Regel nur stichprobenartig begangen, weil der Zutritt von den Mietern abhängt und der Zeitrahmen vor dem Kauf begrenzt ist. Die Auswahl der Stichprobe sollte begründet sein. Aussagekräftig sind Einheiten unter dem Dach und im Erdgeschoss, Einheiten mit gemeldeten Schäden, leerstehende Einheiten und je ein Beispiel jedes Grundrisstyps. Der Bericht nennt, welche und wie viele Einheiten begangen wurden. Eine Hochrechnung von der Stichprobe auf das ganze Objekt ist nur mit ausdrücklichem Vorbehalt zulässig, weil der Zustand einzelner Einheiten stark von Nutzung und Mieterwechseln abhängen kann.
+
+Die Begehung im Rahmen der technischen Due Diligence ist grundsätzlich zerstörungsfrei. Öffnungen von Bauteilen, Materialproben oder Kamerabefahrungen von Grundleitungen setzen die Zustimmung des Verkäufers voraus und sind im engen Zeitplan einer Transaktion nicht immer möglich. Je nach Fragestellung kommen ergänzende Verfahren in Betracht, etwa Feuchtemessungen, Thermografie oder Laboranalysen von Materialproben, teils unter Hinzuziehung von Fachlaboren oder Messdienstleistern. Für ein Portfolio aus vielen Objekten stellt sich die Stichprobenfrage zusätzlich auf Objektebene: Nicht jedes Gebäude wird mit gleicher Tiefe untersucht, sondern eine begründete Auswahl, deren Ergebnisse auf vergleichbare Objekte übertragen werden. Diese Übertragung ist im Bericht offenzulegen.
+
+## Der Bericht: Zustand je Bauteil und Instandhaltungsrückstau nach Dringlichkeit
+
+Den Hauptteil des Berichts der technischen Due Diligence bildet die Beschreibung des Zustands je Bauteil und Anlage. Für jedes Bauteil werden Bauart, Alter, Befund, Zustandsklasse, erforderliche Maßnahme, Zeitpunkt und geschätzte Kosten angegeben. Die Gliederung folgt sinnvollerweise der Begehung und der Kostengliederung, sodass Dach, Fassade, Fenster, Tragwerk, Ausbau und die einzelnen Anlagen der Gebäudetechnik nacheinander behandelt werden. Fotos mit Lageangabe gehören in den Anhang. Ein guter Bericht erlaubt es, jeden Kostenansatz auf einen konkreten Befund zurückzuführen, und macht damit sichtbar, wo Schätzungen auf Annahmen beruhen.
+
+Der Instandhaltungsrückstau wird im Bericht der technischen Due Diligence nach Dringlichkeit gestaffelt. Eine mögliche Staffelung unterscheidet Maßnahmen, die sofort erforderlich sind, etwa wegen Verkehrssicherheit oder drohender Folgeschäden, von Maßnahmen in einem kurzen Zeitraum von beispielsweise ein bis drei Jahren und von Maßnahmen in einem mittleren Zeitraum von beispielsweise vier bis zehn Jahren. Die Zeiträume sind keine Normwerte, sondern werden im Auftrag passend zur Haltedauer festgelegt. Wichtig ist die Trennung zwischen nachgeholter Instandhaltung, die den vertragsgemäßen Zustand wiederherstellt, und Modernisierung oder Umbau, die den Standard anheben. Beide werden unterschiedlich finanziert und bewertet.
+
+Am Ende des Berichts stehen Annahmen, Einschränkungen und die Bewertung der Unterlagen. Die technische Due Diligence nennt dort, welche Bereiche nicht begangen werden konnten, welche Anlagen nicht in Betrieb waren, welche Unterlagen fehlten und welche Aussagen allein auf Angaben Dritter beruhen. Ebenso aufgeführt werden Empfehlungen für vertiefende Untersuchungen, etwa zu Schadstoffen, zum Tragwerk oder zu einzelnen Anlagen. Für den Käufer ist dieser Teil des Berichts kein Kleingedrucktes, sondern die Beschreibung der verbleibenden Unsicherheit. Eine Wohnungsbaugesellschaft oder Hausverwaltung kann aus ihm unmittelbar ableiten, welche Prüfungen nach der Übernahme zuerst nachzuholen sind.
+
+## Gebäudeschadstoffe, Brandschutz, Genehmigungslage und Energie als Sonderthemen der Ankaufsprüfung
+
+Für den methodischen Rahmen der Schadstofferkundung kann sich die technische Due Diligence an der VDI/GVSS 6202 Blatt 1:2013-10 „Schadstoffbelastete bauliche und technische Anlagen – Abbruch-, Sanierungs- und Instandhaltungsarbeiten“ orientieren.[^5] Eine Beprobung folgt nur bei konkretem Verdacht und mit Zustimmung des Verkäufers, durch fachkundige Stellen.
+
+In der technischen Due Diligence betrachtet der Sachverständige beim Brandschutz vor allem Rettungswege, die Ausbildung von Brandabschnitten, Abschottungen von Leitungsdurchführungen sowie den Zustand und die Prüfnachweise der brandschutztechnischen Anlagen. Abweichungen werden als technischer Befund festgehalten. Ob eine Abweichung zum Handeln zwingt, hängt von Genehmigung, Nutzung und dem Bauordnungsrecht des jeweiligen Landes ab und wird bei Bedarf durch Fachplaner für Brandschutz und die zuständige Behörde geklärt.
+
+Die Genehmigungslage ist eng mit der Frage verbunden, ob ein Gebäude in seinem heutigen Zustand Bestandsschutz genießt. Für die technische Due Diligence folgt daraus vor allem eine Dokumentationsaufgabe: Sie gleicht ab, ob genutzte Flächen, Geschosse und Nutzungsarten mit den Genehmigungsunterlagen übereinstimmen, und benennt Abweichungen. Ob für einen nicht genehmigten Gebäudeteil eine Nachgenehmigung möglich ist oder welche Folgen eine Abweichung im Kaufvertrag hat, ist eine Frage des öffentlichen Baurechts und des Vertragsrechts, die die Bauaufsicht und ein Rechtsanwalt im Einzelfall beantworten.
+
+Das Thema Energie verbindet in der technischen Due Diligence den Energieausweis mit dem Zustand von Gebäudehülle und Anlagentechnik. Der nach § 80 vorzulegende Energieausweis gibt eine erste Einordnung.[^4] Die eigentliche Bewertung betrifft jedoch Alter und Effizienz der Wärmeerzeugung, den Dämmstandard von Dach, Fassade und Kellerdecke, die Qualität der Fenster und die Frage, welche Maßnahmen bei einem späteren Austausch von Bauteilen ohnehin anstehen. Pflichten zur Nachrüstung oder zum Austausch von Anlagen ergeben sich aus dem Energierecht in der jeweils geltenden Fassung und sind im Einzelfall zu prüfen. Für einen Investor mit langer Haltedauer kann dieser Teil des Berichts die Grundlage einer eigenen Modernisierungsstrategie sein.
+
+## Grenzen der Aussage: Stichprobe, verdeckte Mängel und zeitliche Gültigkeit
+
+Die Interessen der Beteiligten an einer technischen Due Diligence sind nicht deckungsgleich, und der Bericht muss das aushalten. Der Verkäufer ist an einem zügigen Abschluss interessiert, der Käufer an vollständiger Information, finanzierende Banken an einer belastbaren Grundlage für die Bewertung ihrer Sicherheit. Gibt der Verkäufer selbst eine technische Due Diligence in Auftrag, um sie Kaufinteressenten im Datenraum zur Verfügung zu stellen, ist für die Leser entscheidend, welcher Auftrag und welcher Fragenkatalog zugrunde lagen. Ob und in welchem Umfang sich ein Käufer auf einen solchen Bericht stützen kann, ist eine Frage der vertraglichen Gestaltung, die ein Rechtsanwalt beurteilt.
+
+Aus technischer Sicht offen bleibt bei jeder technischen Due Diligence die Bewertung von Bauteilen, deren Restnutzungsdauer sich aus dem Befund nicht sicher ableiten lässt. Ein Flachdach ohne sichtbare Schäden kann noch lange dicht bleiben oder in kurzer Zeit versagen, wenn die Abdichtung das Ende ihrer Lebensdauer erreicht hat. Der Bericht sollte in solchen Fällen die Unsicherheit offen benennen, statt einen scheinbar genauen Zeitpunkt anzugeben. Eine Kostenprognose, die solche Bauteile mit einer Bandbreite oder einem Risikozuschlag versieht, ist ehrlicher als eine Punktschätzung. Für die Kaufpreisverhandlung ist gerade diese Offenheit wertvoll, weil sie zeigt, wo das Restrisiko liegt.
+
+## Folgerungen für Käufer, Wohnungsbaugesellschaften und Verwaltungen
+
+Für Käufer folgt aus dem Ablauf der technischen Due Diligence vor allem eine Frage der Planung. Der Fragenkatalog sollte vor dem Auftrag feststehen, der Datenraum vor der Begehung ausgewertet sein, und der Zutritt zu Technikräumen, Dachflächen und einer begründeten Stichprobe von Einheiten muss mit dem Verkäufer abgestimmt werden. Zwischen Begehung und Unterzeichnung braucht es Zeit, um Befunde in Kaufpreis, Garantien oder Rückstellungen zu übersetzen. Wird die technische Due Diligence erst kurz vor dem Notartermin beauftragt, kann von ihrem Nutzen nur die Dokumentation bleiben, nicht die Verhandlungsgrundlage.
+
+Wohnungsbaugesellschaften nutzen den Bericht der technischen Due Diligence über den Kauf hinaus als Ausgangspunkt der eigenen Instandhaltungsplanung. Wenn Zustandsklassen, Maßnahmen und Kosten je Bauteil einheitlich erfasst sind, lassen sie sich in bestehende Bestandsdatenbanken übernehmen und mit dem übrigen Portfolio vergleichen. Die Kostengliederung nach DIN 276 erleichtert dabei den Übergang in die Kostenplanung konkreter Sanierungsvorhaben.[^3] Sinnvoll ist es, schon im Auftrag festzulegen, in welcher Struktur die Daten geliefert werden sollen, damit der Bericht nicht nachträglich umgearbeitet werden muss.
+
+Für Hausverwaltungen, die ein Objekt nach dem Eigentümerwechsel übernehmen, ist die technische Due Diligence eine Übergabedokumentation. Sie zeigt, welche Anlagen prüfpflichtig sind, welche Nachweise fehlen, welche Mängel als dringend eingestuft wurden und welche Unterlagen vom Voreigentümer nicht übergeben wurden. Aus dieser Liste ergibt sich die Reihenfolge der ersten Maßnahmen nach der Übernahme. Für die Verwaltung ist zugleich wichtig, dass sie den Bericht nicht als vollständige Bestandsdokumentation missversteht: Was in der technischen Due Diligence nicht begangen oder nicht geprüft wurde, muss im Rahmen der eigenen Objektbetreuung nachgeholt werden.
+
+Ein Sachverständiger leistet in der technischen Due Diligence die fachliche Feststellung und Bewertung des Zustands, die Einordnung der Befunde nach Dringlichkeit und eine nachvollziehbare Kostenschätzung. Er leistet keine Rechtsberatung, keine Wertermittlung im Sinne eines Verkehrswertgutachtens und keine Garantie für Bauteile, die er nicht einsehen konnte. Ein [technisches Gutachten vor dem Ankauf](https://ing-bassam.de/#kontakt) beantwortet die Fragen des Käufers zu Zustand, Risiken und Investitionsbedarf eines Objekts. Für die Umsetzung der Maßnahmen nach dem Kauf kommt eine Bauherrenvertretung in Betracht, die die Interessen des neuen Eigentümers gegenüber Planern und ausführenden Firmen wahrnimmt.
+
+## Häufige Fragen
+
+**Wie lange dauert eine technische Due Diligence?**
+
+Die Dauer einer technischen Due Diligence hängt von Größe und Komplexität des Objekts, vom Zustand des Datenraums und von der Verfügbarkeit von Zutrittsterminen ab. Ein Einzelobjekt mit vollständigen Unterlagen lässt sich schneller untersuchen als ein Portfolio mit gemischter Nutzung. Ein Engpass kann weniger die Begehung selbst sein als die Beschaffung fehlender Unterlagen und die Abstimmung von Terminen mit Mietern. Der Zeitplan sollte deshalb vor Beginn mit dem Verkäufer abgestimmt werden.
+
+**Wer beauftragt die technische Due Diligence, Käufer oder Verkäufer?**
+
+In der Regel beauftragt der Kaufinteressent die technische Due Diligence, weil er die Informationen für seine Entscheidung benötigt. Auch ein Verkäufer kann einen Bericht in Auftrag geben und ihn im Datenraum bereitstellen, um den Verkaufsprozess zu beschleunigen. Für den Leser eines solchen Berichts ist entscheidend, welcher Auftrag und welcher Fragenkatalog zugrunde lagen. Inwieweit sich ein Käufer auf einen vom Verkäufer beauftragten Bericht stützen kann, ist eine Vertragsfrage für die rechtliche Beratung.
+
+**Was kostet eine technische Due Diligence?**
+
+Die Kosten einer technischen Due Diligence richten sich nach dem vereinbarten Leistungsumfang. Bestimmend sind Größe und Alter des Objekts, Nutzungsmix, Umfang der Gebäudetechnik, Qualität des Datenraums, Zahl der zu begehenden Einheiten und die Frage, ob Fachingenieure oder Labore hinzugezogen werden. Ein Portfolio mit Stichproben auf Objektebene wird anders kalkuliert als ein Einzelobjekt. Vergleichbar sind Angebote nur bei gleichem Fragenkatalog und gleicher Untersuchungstiefe.
+
+**Ersetzt die technische Due Diligence ein Verkehrswertgutachten?**
+
+Die technische Due Diligence ersetzt keine Wertermittlung. Sie beschreibt Zustand, Risiken und Investitionsbedarf eines Gebäudes, ermittelt aber keinen Verkehrswert. Ihre Ergebnisse können jedoch in eine Wertermittlung oder in die Kaufpreiskalkulation des Käufers einfließen, etwa als Abzug für nachzuholende Instandhaltung. Beide Leistungen ergänzen sich und können von unterschiedlichen Fachleuten erbracht werden.
+
+**Lohnt sich eine technische Due Diligence auch beim Kauf einzelner Wohnungen?**
+
+Beim Kauf einzelner Eigentumswohnungen ist eine technische Due Diligence im vollen Umfang, wie sie für ganze Gebäude beschrieben ist, nicht immer verhältnismäßig. Ihre Grundgedanken bleiben trotzdem anwendbar: Unterlagen sichten, Gemeinschaftseigentum und Gebäudetechnik ansehen, Instandhaltungsrückstau einschätzen. Gerade bei Wohnungen hängt das Risiko stark vom Zustand des gemeinschaftlichen Gebäudes ab, nicht nur von der einzelnen Einheit. Eine Begehung durch einen Sachverständigen kann deshalb auch hier sinnvoll sein.
+
+**Wie lange ist ein Bericht der technischen Due Diligence aussagekräftig?**
+
+Ein Bericht der technischen Due Diligence beschreibt den Zustand am Tag der Begehung. Weil sich der Zustand von Bauteilen mit der Zeit verändert, insbesondere bei bereits vorhandenen Schäden, verliert die Aussage mit zunehmendem Abstand an Verlässlichkeit. Verzögert sich die Transaktion, sollte der Bericht vor der Unterzeichnung auf Aktualität geprüft werden. Eine Nachbegehung der kritischen Bauteile ist in solchen Fällen ein angemessener Mittelweg zwischen altem Bericht und vollständiger Neuprüfung.
+
+## Hinweis
+
+Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er ist keine Rechtsberatung und ersetzt keine Begutachtung des Einzelfalls. Ob und wie Ansprüche bestehen und durchgesetzt werden können, beurteilt ein Rechtsanwalt. Genannte Normen und Regelwerke sind in der jeweils gültigen Fassung zu prüfen.
+
+---
+
+**Über den Autor**
+
+M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de. Stand: 2026-10-22.
+
+## Quellen und Fußnoten
+
+[^1]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 442 Abs. 1. https://www.gesetze-im-internet.de/bgb/__442.html (abgerufen am 2026-10-22).
+[^2]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 444. https://www.gesetze-im-internet.de/bgb/__444.html (abgerufen am 2026-10-22).
+[^3]: DIN Deutsches Institut für Normung: DIN 276:2018-12 „Kosten im Bauwesen“, Status aktuell, ersetzt DIN 276-1:2008-12 und DIN 276-4:2009-08. https://www.dinmedia.de/en/standard/din-276/293154016 (abgerufen am 2026-10-22).
+[^4]: Bundesministerium der Justiz: Gesetz zur Einsparung von Energie und zur Modernisierung der Wärmeversorgung in Gebäuden (Gebäudemodernisierungsgesetz), § 80 Abs. 3 und 4. https://www.gesetze-im-internet.de/geg/__80.html (abgerufen am 2026-10-22).
+[^5]: VDI Verein Deutscher Ingenieure / GVSS: VDI/GVSS 6202 Blatt 1:2013-10 „Schadstoffbelastete bauliche und technische Anlagen – Abbruch-, Sanierungs- und Instandhaltungsarbeiten“, Status aktuell. https://www.dinmedia.de/en/technical-rule/vdi-gvss-6202-blatt-1/190214822 (abgerufen am 2026-10-22).

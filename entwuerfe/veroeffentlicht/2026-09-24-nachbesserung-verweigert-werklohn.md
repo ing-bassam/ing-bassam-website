@@ -18,16 +18,16 @@ autor: M. Sc. Karim Abu Elkheir
 qualifikation:
 kurzform: nachbesserung-verweigert-werklohn
 erstellt: 2026-09-24
-aktualisiert:
+aktualisiert: 2026-11-14
 status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1570
-lesezeit: 8 Minuten
-fussnoten: 5
+wortzahl: 1618
+lesezeit: 9 Minuten
+fussnoten: 3
 quellen_geprueft: 4
 zahlenwerte_norm: 0
 todos: 0
@@ -62,11 +62,11 @@ Diesen Beweis hat der Betrieb nicht geführt. Der gerichtliche Sachverständige 
 
 ## Was Sie daraus für die eigene Baustelle mitnehmen
 
-Die Abnahme ist die Wasserscheide dieses Falls. Bis zur Abnahme liegt die Beweislast für die Mangelfreiheit beim Auftragnehmer. Erst mit der Abnahme kehrt sich die Beweislast um, und der Auftraggeber muss den Mangel belegen.[^4] Wer als Bauherr Zweifel an einer Leistung hat, sollte sie vor der Abnahme festhalten. Eine vorbehaltlose Abnahme aus Bequemlichkeit verschiebt die schwierigere Rolle auf Sie.
+Die Abnahme ist die Wasserscheide dieses Falls. Wer als Bauherr Zweifel an einer Leistung hat, sollte sie vor der Abnahme festhalten. Eine vorbehaltlose Abnahme aus Bequemlichkeit verschlechtert Ihre Lage.
 
 Ebenso lehrreich ist, womit die Auftraggeberin hier durchgedrungen ist. Sie hat den Mangel nicht nur behauptet, sondern einen Prüfbericht vorgelegt. Damit war der Mangel konkret genug beschrieben (Gründe II. 1. c cc). Nach ihrem Vortrag hat sie die beanstandeten Stellen außerdem auf dem Werkstück aufgezeichnet, und zwar in Anwesenheit des Betriebs (Gründe II. 1. c aa). Für Ihre eigene Mängelrüge heißt das: Beschreiben Sie, was Sie wo festgestellt haben, und legen Sie Ihre Unterlagen bei. Eine Frist gehört dazu, und sie muss zur Arbeit passen. Zwei Tage waren hier angemessen, weil die Schweißarbeiten keine mehreren Tage dauerten (Gründe II. 1. c aa). Bei einer aufwendigen Sanierung wäre dieselbe Frist etwas völlig anderes.
 
-Der zweite Punkt betrifft das Prüfverfahren. Im entschiedenen Fall zeigte die Röntgenprüfung Fehler, die der Ultraschall nicht erfassen konnte (Gründe II. 1. c cc). Für die Praxis heißt das: Ein Prüfbericht ist nur so aussagekräftig wie das gewählte Verfahren. Wer ein Verfahren wählt, das die fragliche Fehlerart nicht sicher findet, hält am Ende kein Entlastungsdokument in der Hand. Hinzu kommt eine verbreitete Fehlvorstellung. Private Bauherren nehmen oft an, der Vertragspartner sei an ein Privatgutachten gebunden. Im Bauwesen ist das nicht so; landet der Fall vor Gericht, beauftragt das Gericht einen eigenen Sachverständigen.[^5]
+Der zweite Punkt betrifft das Prüfverfahren. Im entschiedenen Fall zeigte die Röntgenprüfung Fehler, die der Ultraschall nicht erfassen konnte (Gründe II. 1. c cc). Für die Praxis heißt das: Ein Prüfbericht ist nur so aussagekräftig wie das gewählte Verfahren. Wer ein Verfahren wählt, das die fragliche Fehlerart nicht sicher findet, hält am Ende kein Entlastungsdokument in der Hand.
 
 Der dritte Punkt gilt für ausführende Betriebe. Wer eine Nachbesserung, also die Beseitigung des gerügten Mangels, endgültig ablehnt, muss vor der Abnahme gleichwohl beweisen, dass seine Leistung mangelfrei ist (Gründe II. 1. c bb). In diesem Fall war die Naht bereits einbetoniert. Jede spätere Klärung hätte das Freilegen des Krans verlangt, und dafür standen über 8.000 Euro im Raum (Gründe II. 1. c dd). Ob eine Weigerung im Einzelfall berechtigt ist, sollten Sie vorher mit einem Rechtsanwalt klären.
 
@@ -111,5 +111,3 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^1]: OLG Brandenburg 10. Zivilsenat: Urteil vom 04.06.2026 – 10 U 14/24, ECLI:DE:OLGBB:2026:0604.10U14.24.00. https://gerichtsentscheidungen.brandenburg.de/gerichtsentscheidung/29012 (abgerufen am 2026-09-24). Der amtliche Volltext ist nicht mit Randnummern versehen; die Belegstellen im Text folgen deshalb der Gliederung der Entscheidungsgründe.
 [^2]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 641 Fälligkeit der Vergütung. https://www.gesetze-im-internet.de/bgb/__641.html (abgerufen am 2026-09-24).
 [^3]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 634 Rechte des Bestellers bei Mängeln. https://www.gesetze-im-internet.de/bgb/__634.html (abgerufen am 2026-09-24); § 638 Minderung. https://www.gesetze-im-internet.de/bgb/__638.html (abgerufen am 2026-09-24).
-[^4]: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 338. ISBN 978-3-658-47553-6.
-[^5]: Timm, Harry; Allmendinger, Thomas; Strehle, Norbert: Estriche, Parkett und Bodenbeläge. Arbeitshilfen für die Planung, Ausführung und Beurteilung. 6. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2019, S. 249. ISBN 978-3-658-25847-4.

@@ -32,8 +32,8 @@ import os
 import subprocess
 import sys
 
-# Seitenbau und der Workflow „Entwürfe veröffentlichen“
-ERLAUBTE_BOT_COMMITS = {"Fachwissen-Seiten neu gebaut", "Entwürfe veröffentlicht"}
+# Seitenbau und die Workflows „Entwürfe veröffentlichen“ und „Beitrag zurückziehen“
+ERLAUBTE_BOT_COMMITS = {"Fachwissen-Seiten neu gebaut", "Entwürfe veröffentlicht", "Beitrag zurückgezogen"}
 HOECHSTENS = 60
 
 
@@ -67,7 +67,12 @@ def main() -> int:
             wer = f"{autor} {committer}".lower()
             eintrag = f"{sha[:7]} {autor}/{committer}: {nachricht[:70]}"
             geprueft.append(eintrag)
-            if "claude" in wer or ("[bot]" in wer and nachricht not in ERLAUBTE_BOT_COMMITS):
+            # Squash-Merge eines Agenten-Pull-Requests (von Hand oder durch „Entwurf freigeben und
+            # veröffentlichen“): Autor claude[bot], Committer „GitHub“ – ein Merge über GitHub, kein
+            # direkter Push. Nur GitHub selbst committet unter diesem Namen.
+            if committer == "GitHub":
+                pass
+            elif "claude" in wer or ("[bot]" in wer and nachricht not in ERLAUBTE_BOT_COMMITS):
                 verdacht.append(eintrag)
             eltern = c.get("parents") or []
             sha = eltern[0]["sha"] if eltern else ""

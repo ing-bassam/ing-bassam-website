@@ -1,12 +1,16 @@
-"""Prüft alle Seiten der Website auf zwei Punkte, die Ahrefs im Site Audit
-bemängelt hat (Oktober 2026):
+"""Prüft alle Seiten der Website auf drei Punkte, die Ahrefs im Site Audit
+bemängelt hat (Oktober und November 2026):
 
 - Meta-Beschreibung länger als 160 Zeichen („Meta description too long“). Die
   Fachbeiträge begrenzt schon der Seitenbau auf 155 Zeichen; hier geht es vor
   allem um die von Hand gepflegten Seiten: Startseite, Leistungsseiten,
-  Wertrechner.
+  englische Seiten.
 - Strukturdaten mit einer Eigenschaft an einem Typ, der sie laut schema.org
   nicht kennt („Structured data has schema.org validation error“).
+- Seitentitel länger als 60 Zeichen („Title too long“, November 2026 bei acht
+  Leistungsseiten). Suchmaschinen schneiden längere Titel in der Trefferliste
+  ab. Geprüft werden die von Hand gepflegten Seiten; die Titel der
+  Fachbeiträge begrenzt der Seitenbau selbst (titel_tag).
 """
 from __future__ import annotations
 
@@ -18,6 +22,7 @@ from pathlib import Path
 
 WURZEL = Path(__file__).resolve().parent.parent
 HOECHSTENS = 160
+TITEL_HOECHSTENS = 60
 
 # Eigenschaften, die schema.org nur bestimmten Typen erlaubt, samt den
 # Unterklassen, die auf der Website vorkommen (Stand schema.org, Oktober 2026).
@@ -33,6 +38,13 @@ NUR_BEI = {
 
 def seiten() -> list[Path]:
     return sorted(p for p in WURZEL.rglob("index.html") if ".git" not in p.parts)
+
+
+def von_hand(seite: Path) -> bool:
+    """Seiten, die nicht der Seitenbau erzeugt (tools/artikel_generator.py baut
+    fachwissen/, tools/beitraege_en.py baut en/guides/)."""
+    teile = seite.relative_to(WURZEL).parts
+    return teile[0] != "fachwissen" and teile[:2] != ("en", "guides")
 
 
 def objekte(knoten):
@@ -52,6 +64,14 @@ class SeitenTest(unittest.TestCase):
             treffer = re.search(r'<meta\s+name="description"\s+content="([^"]*)"', seite.read_text(encoding="utf-8"))
             if treffer and len(unescape(treffer.group(1))) > HOECHSTENS:
                 zu_lang.append(f"{seite.parent.relative_to(WURZEL)}: {len(unescape(treffer.group(1)))} Zeichen")
+        self.assertEqual(zu_lang, [])
+
+    def test_titel_hoechstens_60_zeichen(self):
+        zu_lang = []
+        for seite in filter(von_hand, seiten()):
+            treffer = re.search(r"<title>(.*?)</title>", seite.read_text(encoding="utf-8"), re.S)
+            if treffer and len(unescape(treffer.group(1).strip())) > TITEL_HOECHSTENS:
+                zu_lang.append(f"{seite.parent.relative_to(WURZEL)}: {len(unescape(treffer.group(1).strip()))} Zeichen")
         self.assertEqual(zu_lang, [])
 
     def test_strukturdaten_eigenschaften_am_richtigen_typ(self):
