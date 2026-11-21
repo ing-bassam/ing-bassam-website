@@ -56,8 +56,8 @@ abschnitte:
         ja_nein: true
         hinweis: "Nennen Sie Wand und Himmelsrichtung, Abstand zu Fenster oder Ecke und Höhe über dem Boden. Eine Handskizze mit Maßen hilft mehr als ein langer Text."
       - text: Zuständigkeit nach Ihrer Einschätzung
-        auswahl: [Innerhalb der Wohnung, Gemeinschaftseigentum, Mietsache, unklar]
-        hinweis: "Bei Wohnungseigentum zählen Gebäudeteile, die für Bestand oder Sicherheit erforderlich sind, nicht zum Sondereigentum. Wenn Sie unsicher sind, kreuzen Sie unklar an. Die Verwaltung ordnet das ein, die Meldung bleibt in jedem Fall richtig."
+        auswahl: [Innerhalb der Wohnung, Gemeinschaftseigentum, unklar]
+        hinweis: "Bei Wohnungseigentum zählen Gebäudeteile, die für Bestand oder Sicherheit erforderlich sind, sowie Anlagen und Einrichtungen für den gemeinschaftlichen Gebrauch, etwa gemeinsam genutzte Leitungen, nicht zum Sondereigentum. Wenn Sie unsicher sind, kreuzen Sie unklar an. Die Verwaltung ordnet das ein, die Meldung bleibt in jedem Fall richtig."
       - text: Schaden ist auch in Nachbarwohnung oder im Treppenhaus sichtbar
         ja_nein: true
   - titel: Zeitpunkt und Verlauf
@@ -83,7 +83,7 @@ abschnitte:
         auswahl: [Feuchte oder Wasser, Schimmel, Heizung ausgefallen, Elektro, Risse, sonstiges]
       - text: Herkunft des Wassers, wenn Wasser im Spiel ist
         auswahl: [Leitung oder Armatur, Heizung, Abwasser oder Rückstau, von außen, unbekannt]
-        hinweis: "Wasser von außen oder aus einer Leitung hinterlässt meist wolkenartig begrenzte Flecken und lösende Anstriche oder Putz. Schimmel aus dem Raumklima zeigt sich eher fleckig bis pelzig oder als diffuser Schatten. Ordnen Sie nur zu, was Sie sehen; die Ursache klärt die Verwaltung."
+        hinweis: "Ordnen Sie nur zu, was Sie sehen; die Ursache klärt die Verwaltung."
       - text: Geruch
         auswahl: [keiner, muffig, Abwasser, Gas oder Brand]
         hinweis: "Bei Gas- oder Brandgeruch Wohnung verlassen, nichts einschalten, Notruf oder Netzbetreiber verständigen und erst dann melden."
@@ -96,9 +96,9 @@ abschnitte:
       - text: Flecken und Verfärbungen an Wand oder Decke
         hinweis: "Woran erkennen: Flecken ansehen, vorsichtig mit der Handfläche prüfen. Gering: kleiner, trockener, scharf begrenzter Fleck. Deutlich: feuchte oder wachsende Flecken, Putz löst sich, Tapete wirft Blasen."
       - text: Sichtbarer Schimmel
-        hinweis: "Woran erkennen: dunkle oder pelzige Flecken, oft hinter Möbeln und in Ecken. Gering: kleine oberflächliche Stelle unter etwa einem halben Quadratmeter. Deutlich: größere, wiederkehrende oder muffig riechende Flächen. Entfernen Sie nichts, bevor Sie fotografiert und gemeldet haben."
+        hinweis: "Woran erkennen: dunkle oder pelzige Flecken, oft hinter Möbeln und in Ecken. Gering: kleine oberflächliche Stelle unter etwa einem halben Quadratmeter; bei Allergikern oder gesundheitlich geschwächten Personen nicht selbst entfernen. Deutlich: größere, wiederkehrende oder muffig riechende Flächen. Entfernen Sie nichts, bevor Sie fotografiert und gemeldet haben."
       - text: Risse in Wand, Decke oder Putz
-        hinweis: "Woran erkennen: Risslänge und Verlauf mit Zollstock messen, Datum danebenschreiben. Gering: feine Risse, die sich nicht verändern. Deutlich: durchgehende Risse mit Versatz der Kanten oder Risse, die zwischen zwei Kontrollen wachsen. Die Breite ist eine Momentaufnahme, entscheidend ist die Veränderung."
+        hinweis: "Woran erkennen: Risslänge und Verlauf mit Zollstock messen, Datum danebenschreiben. Gering: feine Risse, die sich nicht verändern. Deutlich: durchgehende Risse mit Versatz der Kanten oder Risse, die zwischen zwei Kontrollen wachsen. Entscheidend ist die Veränderung."
       - text: Fenster, Türen und Rahmen
         hinweis: "Woran erkennen: öffnen und schließen, Dichtungen und Rahmen ansehen. Gering: Zugluft oder leichtes Klemmen. Deutlich: Rahmen verzogen, Wasser dringt ein, Fenster lässt sich nicht sicher schließen."
       - text: Fußboden und Bodenbelag
@@ -134,7 +134,7 @@ abschnitte:
     punkte:
       - text: Übersichtsfoto jedes betroffenen Raumes
         ja_nein: true
-        hinweis: "Machen Sie die Fotos, bevor Sie aufräumen oder reparieren. Der Zustand lässt sich später nicht wiederherstellen."
+        hinweis: "Machen Sie die Fotos, bevor Sie aufräumen oder reparieren, soweit keine Gefahr besteht und der Schaden nicht weiter wächst. Der Zustand lässt sich später nicht wiederherstellen."
       - text: Detailfotos mit Maßstab im Bild
         ja_nein: true
         hinweis: "Legen Sie einen Zollstock oder ein Lineal neben die Stelle und fotografieren Sie von vorn, damit Größe und Lage erkennbar sind."
@@ -162,6 +162,7 @@ abschnitte:
         hinweis: "Bewegliche Sachen gehören meist zur Hausratversicherung, das Gebäude zur Wohngebäudeversicherung. Was Ihr Vertrag deckt, steht im Versicherungsschein. Fragen Sie die Verwaltung nach dem Gebäudeversicherer."
       - text: Eigener Versicherer informiert
         ja_nein: true
+        hinweis: "Auch Ihrer eigenen Versicherung müssen Sie den Schaden unverzüglich anzeigen; die Bedingungen Ihres Vertrags nennen Form und Einzelheiten."
       - text: Frühere Meldung zum gleichen Schaden
         ja_nein: true
         hinweis: "Wenn ja, tragen Sie Datum, Weg der Meldung und Ansprechperson in die Notizen ein."
@@ -175,9 +176,8 @@ abschnitte:
       - text: Wohnung ist zugänglich
         auswahl: [jederzeit nach Ankündigung, nur nach Terminabsprache, nur mit mir vor Ort, Schlüssel bei Nachbarn]
         hinweis: "Nennen Sie mehrere Terminvorschläge, damit Besichtigung oder Reparatur schnell möglich sind."
-      - text: Rückmeldung der Verwaltung erbeten bis
-        ja_nein: true
-        hinweis: "Ein konkretes Datum ist klarer als ‚umgehend‘. Ob daraus Rechte entstehen, hängt vom Einzelfall ab und ist Sache eines Rechtsanwalts oder Mietervereins."
+      - text: Rückmeldung der Verwaltung erbeten bis (Datum eintragen)
+        hinweis: "Die Anzeige selbst muss nur unverzüglich erfolgen. Wer eine Beseitigung verlangt, nennt dafür ein konkretes Datum statt ‚umgehend‘. Ob daraus Rechte entstehen, hängt vom Einzelfall ab und ist Sache eines Rechtsanwalts oder Mietervereins."
       - text: Eingangsbestätigung der Verwaltung erhalten
         ja_nein: true
         hinweis: "Bewahren Sie die Bestätigung bei Ihren Unterlagen auf."
@@ -197,11 +197,11 @@ hinweise:
   - "Fotografieren Sie jeden Befund mit Datum und einem Maßstab im Bild, etwa einem Zollstock."
   - "Namen und Daten Dritter, etwa von Zeugen, geben Sie nur mit deren Einverständnis an."
 quellen:
-  - "Mängelanzeige durch den Mieter, unverzügliche Anzeige, Folgen der Unterlassung (BGB § 536c, amtlicher Text aus der Fachbibliothek, Stand der Textsammlung)"
-  - "Gemeinschaftseigentum und Sondereigentum (WEG § 5 Abs. 2, amtlicher Text aus der Fachbibliothek)"
-  - "Berliner Mieterverein: Mängel schriftlich und unverzüglich anzeigen (abgerufen am 17.11.2026); Mängel anzeigen mit Erfolg: Beschreibung, Frist, Zugangsnachweis (abgerufen am 17.11.2026)"
+  - "Mängelanzeige durch den Mieter, unverzügliche Anzeige, Folgen der Unterlassung (BGB § 536c, gesetze-im-internet.de, abgerufen am 21.11.2026)"
+  - "Gemeinschaftseigentum und Sondereigentum (WEG § 5 Abs. 2, gesetze-im-internet.de, abgerufen am 21.11.2026)"
+  - "Anzeige des Versicherungsfalls beim eigenen Versicherer (VVG § 30 Abs. 1, gesetze-im-internet.de, abgerufen am 21.11.2026)"
+  - "Berliner Mieterverein: Mängel schriftlich und unverzüglich anzeigen (Stand 28.12.2012, abgerufen am 17.11.2026)"
   - "Stiftung Warentest: Fotos und Zeugen zur Dokumentation (abgerufen am 17.11.2026)"
   - "Verbraucherzentrale NRW: Schaden fotografieren, Schadensliste, Belege (abgerufen am 17.11.2026)"
   - "Umweltbundesamt: kleiner oberflächlicher Schimmelbefall, Ursache der Feuchte beseitigen (abgerufen am 17.11.2026)"
   - "Berliner Mieterverein: Temperatur und Ausfallzeiten bei Heizungsausfall festhalten (abgerufen am 17.11.2026)"
-  - "Vogdt: Bauphysik, 2022, S. 114 (Schadensbilder Feuchte und Schimmel); Frössel: Risse in Gebäuden, 2. Aufl. 2025, S. 117 (Rissbreite als Momentaufnahme)"

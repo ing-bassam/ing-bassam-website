@@ -20,13 +20,13 @@ notion_id: 3e5d96ad-00b4-81ab-943c-cb0a0c2643a0
 notion_url: https://app.notion.com/p/Formular-Schadensmeldung-durch-Mieter-und-Eigent-mer-3e5d96ad00b481ab943ccb0a0c2643a0
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 1450
+wortzahl: 1462
 lesezeit: 8 Minuten
-fussnoten: 10
-quellen_geprueft: 2
+fussnoten: 8
+quellen_geprueft: 3
 zahlenwerte_norm: 0
 todos: 0
-regelwerke_bestaetigt: "§ 536c BGB, § 5 Abs. 2 WEG"
+regelwerke_bestaetigt: "§ 536c BGB, § 5 Abs. 2 WEG, § 30 VVG"
 ---
 
 # Schadensmeldung an die Hausverwaltung – Formular
@@ -49,29 +49,29 @@ Eine Schadensmeldung braucht eine genaue Ortsangabe. Gemeint sind Geschoss, Raum
 
 Mieter melden einen Schaden an den Vermieter oder an die Hausverwaltung, die er beauftragt hat. Zeigt ein Mieter einen Mangel nicht an, muss er dem Vermieter den daraus entstehenden Schaden ersetzen.[^1] Außerdem kann er bestimmte Rechte wegen des Mangels nicht geltend machen, soweit der Vermieter wegen der fehlenden Anzeige nicht helfen konnte.[^1] Was das im Einzelfall bedeutet, beurteilt ein Rechtsanwalt oder ein Mieterverein.
 
-Bei Wohnungseigentum kommt es darauf an, ob der Schaden die Wohnung selbst oder das Gemeinschaftseigentum betrifft. Gebäudeteile, die für Bestand oder Sicherheit des Gebäudes erforderlich sind, gehören nach dem Wohnungseigentumsgesetz nicht zum Sondereigentum, selbst wenn sie in der Wohnung liegen.[^2] Deshalb bietet das Formular bei der Zuständigkeit die Antwort „unklar“ an. Melden Sie den Schaden trotzdem, die Verwaltung ordnet ihn ein.
+Bei Wohnungseigentum kommt es darauf an, ob der Schaden die Wohnung selbst oder das Gemeinschaftseigentum betrifft. Eigentümer melden einen Schaden in der Regel der Verwaltung der Gemeinschaft, Mieter einer Eigentumswohnung ihrem Vermieter. Gebäudeteile, die für Bestand oder Sicherheit des Gebäudes erforderlich sind, sowie Anlagen und Einrichtungen für den gemeinschaftlichen Gebrauch, etwa gemeinsam genutzte Leitungen, gehören nach dem Wohnungseigentumsgesetz nicht zum Sondereigentum, selbst wenn sie in der Wohnung liegen.[^2] Deshalb bietet das Formular bei der Zuständigkeit die Antwort „unklar“ an. Melden Sie den Schaden trotzdem, die Verwaltung ordnet ihn ein.
 
-Wählen Sie für die Schadensmeldung einen Weg, den Sie belegen können. Der Berliner Mieterverein rät, Mängel schriftlich anzuzeigen, damit sich die Anzeige später beweisen lässt.[^3] Er nennt als Wege das Einschreiben mit Rückschein, den Einwurf durch einen Boten und die persönliche Abgabe mit Empfangsbestätigung; Fax und E-Mail gelten danach nicht als gerichtsfester Beweis.[^4] Das Formular fragt zudem nach einem Rückmeldedatum, denn nach Auffassung des Mietervereins reicht „umgehend“ als Frist nicht aus.[^4] Ob eine Frist Rechte auslöst, klärt im Zweifel ein Rechtsanwalt.
+Wählen Sie für die Schadensmeldung einen Weg, den Sie belegen können. Der Berliner Mieterverein rät in einem Beitrag von 2012, Mängel schriftlich anzuzeigen, damit sich die Anzeige später beweisen lässt.[^3] Wer den Zugang später beweisen muss, ist mit dem Einwurf durch einen Boten, einem Einschreiben oder einer Empfangsbestätigung besser bedient. Das Formular fragt zudem nach einem Rückmeldedatum. Das gehört nicht zur Anzeige selbst, die nach dem Gesetz nur unverzüglich erfolgen muss;[^1] wer vom Vermieter eine Beseitigung verlangt, nennt dafür ein konkretes Datum statt „umgehend“. Ob eine Frist Rechte auslöst, klärt im Zweifel ein Rechtsanwalt.
 
 ## Feuchte, Schimmel und Risse: gering oder deutlich?
 
-Feuchteflecken und Schimmel werden bei der Schadensmeldung oft verwechselt. Wasser, das von außen oder aus einer Leitung eindringt, zeigt sich in der Regel als wolkenartig begrenzter Fleck, und Anstrich oder Putz lösen sich.[^5] Schimmel durch das Raumklima zeigt sich dagegen meist als fleckiger bis pelziger Belag oder als diffuser Schatten.[^5] Beschreiben Sie nur, was Sie sehen. Die Ursache klärt die Verwaltung mit einer Fachfirma.
+Feuchteflecken und Schimmel werden bei der Schadensmeldung oft verwechselt. Beschreiben Sie deshalb nur, was Sie sehen, etwa Farbe, Größe und ob die Stelle feucht ist. Die Ursache klärt die Verwaltung mit einer Fachfirma.
 
-Ein kleiner, oberflächlicher Schimmelbefall unter etwa 0,5 m² lässt sich nach Angabe des Umweltbundesamts selbst beseitigen, wenn niemand im Haushalt allergisch oder gesundheitlich geschwächt ist.[^6] Die Ursache der Feuchte muss dabei erkannt und beseitigt werden, sonst kehrt der Schimmel zurück.[^6] Fotografieren Sie den Befall vor dem Entfernen und melden Sie ihn, damit die Verwaltung die Feuchtequelle klärt.
+Ein kleiner, oberflächlicher Schimmelbefall unter etwa 0,5 m² lässt sich nach Angabe des Umweltbundesamts selbst beseitigen, wenn niemand im Haushalt allergisch oder gesundheitlich geschwächt ist.[^4] Die Ursache der Feuchte muss dabei erkannt und beseitigt werden, sonst kehrt der Schimmel zurück.[^4] Fotografieren Sie den Befall vor dem Entfernen und melden Sie ihn, damit die Verwaltung die Feuchtequelle klärt.
 
-Bei Rissen in Wand oder Decke zählt die Entwicklung mehr als der einzelne Messwert. Die Rissbreite lässt sich einfach messen, kann aber meist nicht mit einem Sollwert verglichen werden und ist immer nur eine Momentaufnahme.[^7] Notieren Sie deshalb Datum und Länge, fotografieren Sie den Riss mit Zollstock und wiederholen Sie die Aufnahme später vom gleichen Standpunkt. Ein Riss, der zwischen zwei Kontrollen wächst oder an dem sich die Kanten versetzen, ist in der Regel ernster als ein gleichbleibender feiner Riss.
+Bei Rissen in Wand oder Decke zählt die Entwicklung mehr als der einzelne Messwert. Notieren Sie deshalb Datum und Länge, fotografieren Sie den Riss mit Zollstock und wiederholen Sie die Aufnahme später vom gleichen Standpunkt. Ein Riss, der zwischen zwei Kontrollen wächst oder an dem sich die Kanten versetzen, ist nach eigener Einschätzung in der Regel ernster als ein gleichbleibender feiner Riss.
 
 Auch Fenster, Türen und Fußböden gehören in die Schadensmeldung. Bei einem Fenster prüfen Sie, ob es sich noch sicher schließen lässt. Ein leichtes Klemmen oder Zugluft ist ein geringer Befund. Ein verzogener Rahmen oder eindringendes Wasser ist ein deutlicher. Am Fußboden achten Sie auf Wölbungen und hohl klingende Flächen, denn sie deuten darauf hin, dass Feuchte unter den Belag gelangt ist.
 
-Bei Heizung und Elektrik gelten engere Grenzen. Fällt die Heizung aus, notieren Sie Datum, Uhrzeit und gemessene Raumtemperatur, und melden Sie den Mangel schriftlich.[^8] Wasser an Steckdosen, Brandgeruch oder warme, verfärbte Steckdosen sind akute Befunde. Berühren Sie solche Stellen nicht. Arbeiten an Strom, Gas und Wasserinstallation gehören einer Fachkraft.
+Bei Heizung und Elektrik gelten engere Grenzen. Fällt die Heizung aus, notieren Sie Datum, Uhrzeit und gemessene Raumtemperatur, und melden Sie den Mangel schriftlich.[^5] Wasser an Steckdosen, Brandgeruch oder warme, verfärbte Steckdosen sind akute Befunde. Berühren Sie solche Stellen nicht. Arbeiten an Strom, Gas und Wasserinstallation gehören einer Fachkraft.
 
 ## Fotos und Belege: So wird die Schadensmeldung nachvollziehbar
 
-Fotos machen die Schadensmeldung überprüfbar. Die Stiftung Warentest rät Mietern, Mängel mit Fotos und Zeugen zu dokumentieren.[^9] Machen Sie je Raum ein Übersichtsfoto und von jeder Schadensstelle ein Detailfoto mit Zollstock oder Lineal im Bild. Prüfen Sie am Telefon Datum und Uhrzeit, bevor Sie fotografieren, und behalten Sie die Originaldateien.
+Fotos machen die Schadensmeldung überprüfbar. Die Stiftung Warentest rät Mietern, Mängel mit Fotos und Zeugen zu dokumentieren.[^6] Machen Sie je Raum ein Übersichtsfoto und von jeder Schadensstelle ein Detailfoto mit Zollstock oder Lineal im Bild. Prüfen Sie am Telefon Datum und Uhrzeit, bevor Sie fotografieren, und behalten Sie die Originaldateien.
 
-Zuerst begrenzen Sie den Schaden, dann dokumentieren Sie ihn. Die Verbraucherzentrale NRW rät bei Versicherungsschäden, vor dem Aufräumen alles zu fotografieren und sich vor weiteren Schäden zu schützen.[^10] Bei Wasser heißt das, dass Sie den Haupthahn schließen, wenn es gefahrlos geht. Wo es ohne Zeitverlust möglich ist, fotografieren Sie während der Maßnahmen und unmittelbar danach.
+Zuerst begrenzen Sie den Schaden, dann dokumentieren Sie ihn. Die Verbraucherzentrale NRW rät bei Versicherungsschäden, vor dem Aufräumen alles zu fotografieren und sich vor weiteren Schäden zu schützen.[^7] Bei Wasser heißt das, dass Sie den Haupthahn schließen, wenn es gefahrlos geht. Wo es ohne Zeitverlust möglich ist, fotografieren Sie während der Maßnahmen und unmittelbar danach.
 
-Sind eigene Gegenstände beschädigt, werfen Sie nichts weg, bevor es fotografiert ist. Die Verbraucherzentrale NRW empfiehlt eine Schadensliste und, wenn vorhanden, Einkaufsbelege.[^10] Fehlen Belege, notieren Sie ungefähren Anschaffungszeitpunkt und Neupreis aus der Erinnerung.[^10] Welche Versicherung zahlt, hängt vom Vertrag ab. Bewegliche Sachen gehören meist zur Hausratversicherung, das Gebäude zur Wohngebäudeversicherung.
+Sind eigene Gegenstände beschädigt, werfen Sie nichts weg, bevor es fotografiert ist. Die Verbraucherzentrale NRW empfiehlt eine Schadensliste und, wenn vorhanden, Einkaufsbelege.[^7] Fehlen Belege, notieren Sie ungefähren Anschaffungszeitpunkt und Neupreis aus der Erinnerung.[^7] Welche Versicherung zahlt, hängt vom Vertrag ab. Bewegliche Sachen gehören meist zur Hausratversicherung, das Gebäude zur Wohngebäudeversicherung. Ihrer eigenen Versicherung müssen Sie einen Versicherungsfall unverzüglich anzeigen, sobald Sie davon wissen;[^8] Einzelheiten stehen in den Bedingungen Ihres Vertrags.
 
 Zur Schadensmeldung gehört auch die Frage, wann die Verwaltung die Wohnung besichtigen kann. Nennen Sie mehrere Terminvorschläge und sagen Sie, ob Sie selbst anwesend sein müssen oder ein Schlüssel hinterlegt ist. So verliert die Verwaltung keine Zeit mit Rückfragen, und die Reparatur beginnt früher.
 
@@ -93,7 +93,7 @@ Das Gesetz verlangt, dass Mieter einen Mangel unverzüglich anzeigen.[^1] Unverz
 
 **Reicht eine E-Mail als Schadensmeldung an die Hausverwaltung?**
 
-Der Gesetzestext nennt für die Anzeige keine bestimmte Form.[^1] Der Berliner Mieterverein empfiehlt dennoch die Schriftform, um die Anzeige später beweisen zu können.[^3] Fax und E-Mail gelten laut Mieterverein nicht als gerichtsfester Beweis.[^4] Ein Brief mit Zugangsnachweis ist deshalb sicherer als eine einfache E-Mail.
+Der Gesetzestext nennt für die Anzeige keine bestimmte Form.[^1] Der Berliner Mieterverein empfiehlt dennoch die Schriftform, um die Anzeige später beweisen zu können.[^3] Ein Brief mit Zugangsnachweis lässt sich später leichter belegen als eine einfache E-Mail.
 
 **Was gehört in eine vollständige Schadensmeldung?**
 
@@ -101,7 +101,7 @@ Die Schadensmeldung nennt Ort, Zeitpunkt und Verlauf, eine Beschreibung mit Grö
 
 **Darf ich Schimmel vor der Meldung selbst entfernen?**
 
-Fotografieren Sie den Befall zuerst und melden Sie ihn. Das Umweltbundesamt hält die Beseitigung kleiner, oberflächlicher Stellen unter etwa 0,5 m² durch gesunde Bewohner für möglich, verlangt aber, die Ursache der Feuchte zu beseitigen.[^6] Größere Flächen gehören zu einer fachkundigen Firma.
+Fotografieren Sie den Befall zuerst und melden Sie ihn. Das Umweltbundesamt hält die Beseitigung kleiner, oberflächlicher Stellen unter etwa 0,5 m² durch gesunde Bewohner für möglich, verlangt aber, die Ursache der Feuchte zu beseitigen.[^4] Größere Flächen gehören zu einer fachkundigen Firma.
 
 ## Hinweis
 
@@ -115,15 +115,13 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 ## Quellen und Fußnoten
 
-Dieser Beitrag nennt keine technischen Normen. Die Gesetzesaussagen stützen sich auf den amtlichen Wortlaut; die übrigen Aussagen auf Veröffentlichungen von Behörden, Verbraucherschützern und Mietervereinen sowie auf Fachliteratur.
+Dieser Beitrag nennt keine technischen Normen. Die Gesetzesaussagen stützen sich auf den amtlichen Wortlaut; die übrigen Aussagen auf Veröffentlichungen von Behörden, Verbraucherschützern und Mietervereinen.
 
-[^1]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 536c Während der Mietzeit auftretende Mängel; Mängelanzeige durch den Mieter. https://www.gesetze-im-internet.de/bgb/__536c.html (abgerufen am 2026-11-17; die Seite war am Abruftag nicht erreichbar, der Wortlaut wurde am amtlichen Gesetzestext der Fachbibliothek geprüft).
-[^2]: Bundesministerium der Justiz: Wohnungseigentumsgesetz, § 5 Abs. 2 Gegenstand und Inhalt des Sondereigentums. https://www.gesetze-im-internet.de/woeigg/__5.html (abgerufen am 2026-11-17; die Seite war am Abruftag nicht erreichbar, der Wortlaut wurde am amtlichen Gesetzestext der Fachbibliothek geprüft).
-[^3]: Berliner Mieterverein: Hinweise zur Mängelanzeige durch den Mieter. https://www.berliner-mieterverein.de/?p=10939 (abgerufen am 2026-11-17).
-[^4]: Berliner Mieterverein: Mängel anzeigen mit Erfolg. https://www.berliner-mieterverein.de/magazin/online/mm0307/maengel-anzeigen-mit-erfolg-030714.htm (abgerufen am 2026-11-17).
-[^5]: Vogdt, Frank U. (Hrsg.): Bauphysik. Grundwissen für Architekten. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 114. ISBN 978-3-8348-2189-8.
-[^6]: Umweltbundesamt: Häufige Fragen bei Schimmelbefall. https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/schimmel/haeufige-fragen-bei-schimmelbefall (abgerufen am 2026-11-17).
-[^7]: Frössel, Frank: Risse in Gebäuden. Damit aus einer Fassade kein Ris(s)iko wird. 2. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 117. ISBN 978-3-658-47096-8.
-[^8]: Berliner Mieterverein: Heizperiode gestartet: Was Mieter:innen wissen sollten. Pressemitteilung 50/26 vom 02.10.2026. https://www.berliner-mieterverein.de/presse/pressearchiv/heizperiode-gestartet.htm (abgerufen am 2026-11-17).
-[^9]: Stiftung Warentest: Die Miete mindern (Anleitung, veröffentlicht am 20.01.2009). https://www.test.de/Gewusst-wie-Die-Miete-mindern-1749145-0/ (abgerufen am 2026-11-17).
-[^10]: Verbraucherzentrale NRW: Hausrat: Versicherungsschaden ohne Unterlagen melden. https://www.verbraucherzentrale.nrw/wissen/geld-versicherungen/weitere-versicherungen/hausrat-versicherungsschaden-ohne-unterlagen-melden-70702 (abgerufen am 2026-11-17).
+[^1]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch (BGB), § 536c „Während der Mietzeit auftretende Mängel; Mängelanzeige durch den Mieter“, zuletzt geändert durch Artikel 6 des Gesetzes vom 23. Juli 2026 (BGBl. 2026 I Nr. 226). https://www.gesetze-im-internet.de/bgb/__536c.html (abgerufen am 2026-11-21).
+[^2]: Bundesministerium der Justiz: Wohnungseigentumsgesetz (WEG), § 5 „Gegenstand und Inhalt des Sondereigentums“, zuletzt geändert durch Artikel 1 des Gesetzes vom 10. Oktober 2024 (BGBl. 2024 I Nr. 306). https://www.gesetze-im-internet.de/woeigg/__5.html (abgerufen am 2026-11-21).
+[^3]: Berliner Mieterverein: Hinweise zur Mängelanzeige durch den Mieter (Stand 28.12.2012). https://www.berliner-mieterverein.de/?p=10939 (abgerufen am 2026-11-17).
+[^4]: Umweltbundesamt: Häufige Fragen bei Schimmelbefall. https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/schimmel/haeufige-fragen-bei-schimmelbefall (abgerufen am 2026-11-17).
+[^5]: Berliner Mieterverein: Heizperiode gestartet: Was Mieter:innen wissen sollten. Pressemitteilung 50/26 vom 02.10.2026. https://www.berliner-mieterverein.de/presse/pressearchiv/heizperiode-gestartet.htm (abgerufen am 2026-11-17).
+[^6]: Stiftung Warentest: Die Miete mindern (Anleitung, veröffentlicht am 20.01.2009). https://www.test.de/Gewusst-wie-Die-Miete-mindern-1749145-0/ (abgerufen am 2026-11-17).
+[^7]: Verbraucherzentrale NRW: Hausrat: Versicherungsschaden ohne Unterlagen melden. https://www.verbraucherzentrale.nrw/wissen/geld-versicherungen/weitere-versicherungen/hausrat-versicherungsschaden-ohne-unterlagen-melden-70702 (abgerufen am 2026-11-17).
+[^8]: Bundesministerium der Justiz: Versicherungsvertragsgesetz (VVG), § 30 „Anzeige des Versicherungsfalles“, zuletzt geändert durch Artikel 12 des Gesetzes vom 26. Mai 2026 (BGBl. 2026 I Nr. 156). https://www.gesetze-im-internet.de/vvg_2008/__30.html (abgerufen am 2026-11-21).
