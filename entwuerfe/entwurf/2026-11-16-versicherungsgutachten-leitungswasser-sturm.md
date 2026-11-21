@@ -19,7 +19,7 @@ notion_id: 3dfd96ad-00b4-8153-97d8-d5501e20de9b
 notion_url: https://app.notion.com/p/Versicherungsgutachten-bei-Leitungswasser-Sturm-und-Elementarsch-den-3dfd96ad00b4815397d8d5501e20de9b
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 3714
+wortzahl: 3718
 lesezeit: 19 Minuten
 fussnoten: 16
 quellen_geprueft: 2
@@ -36,7 +36,7 @@ Der Fleck an der Decke war am Montag handtellergroß, und nach dem Sturm liegen 
 
 Ein Versicherungsgutachten ist die schriftliche Feststellung eines Sachverständigen zu Ursache, Umfang und Kosten eines Versicherungsschadens. Es entsteht meist dann, wenn der Versicherer aus der Schadenmeldung allein nicht beurteilen kann, was den Schaden ausgelöst hat oder was die Wiederherstellung kostet. Die Fachliteratur führt für Bauschäden mehrere Versicherungssparten auf, in denen solche Gutachten vorkommen.[^1] Dieser Beitrag behandelt die Gebäudeversicherung gegen Leitungswasser, Sturm und Elementargefahren.
 
-Leitungswasser ist in Versicherungsbedingungen ein eng gefasster Begriff. Ein Fachbuch von 2016 gibt dazu Wohngebäude-Bedingungen aus dem Jahr 2000 in Stichworten wieder. Gemeint ist danach Wasser, das an einer Stelle austritt, an der es nicht austreten soll, und zwar aus den Leitungen des Hauses oder aus daran angeschlossenen Anlagen wie der Heizung.[^2] Wasser, das von außen kommt, zählt dort nicht dazu: Regen, Hochwasser, ansteigendes Grundwasser und ein Rückstau, den sie auslösen. Heutige Bedingungen können davon abweichen. Was in Ihrem Vertrag gilt, zeigen die Versicherungsbedingungen und der Versicherungsschein, nicht dieser Beitrag.
+Leitungswasser ist in Versicherungsbedingungen ein eng gefasster Begriff. Ein Fachbuch von 2016 gibt dazu Wohngebäude-Bedingungen aus dem Jahr 2000 in Stichworten wieder. Gemeint ist danach Wasser, das an einer Stelle austritt, an der es nicht austreten soll, und zwar aus den Leitungen des Hauses oder aus daran angeschlossenen Anlagen wie der Heizung.[^2] Für Schäden durch Wasser von außen sehen diese Bedingungen keinen Versicherungsschutz vor: Das betrifft Niederschläge, Hochwasser, Grundwasser und einen Rückstau, den sie auslösen.[^2] Heutige Bedingungen können davon abweichen. Was in Ihrem Vertrag gilt, zeigen die Versicherungsbedingungen und der Versicherungsschein, nicht dieser Beitrag.
 
 Auch für den Sturm setzen diese Bedingungen eine Schwelle: Der Wind muss mindestens Windstärke 8 erreichen. Gedeckt ist dann, was der Wind unmittelbar am Gebäude beschädigt, und was Gegenstände anrichten, die er gegen das Gebäude wirft, etwa Äste oder Dachteile.[^2] Der Gutachter hat deshalb eine klare Aufgabe: Er klärt, ob ein Dachschaden tatsächlich vom Wind stammt oder ob Alterung, Verschleiß oder ein Ausführungsfehler die eigentliche Ursache sind.
 
