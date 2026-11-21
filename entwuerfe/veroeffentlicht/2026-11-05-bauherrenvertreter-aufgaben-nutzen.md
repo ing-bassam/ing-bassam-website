@@ -13,7 +13,7 @@ qualifikation:
 kurzform: bauherrenvertreter-aufgaben-nutzen
 erstellt: 2026-11-05
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-8170-8f7c-cdf0eaa30c65
 notion_url: https://app.notion.com/p/Was-macht-ein-Bauherrenvertreter-und-f-r-wen-lohnt-er-sich-3dfd96ad00b481708f7ccdf0eaa30c65

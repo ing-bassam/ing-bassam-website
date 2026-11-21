@@ -146,6 +146,36 @@ class Auslieferung(unittest.TestCase):
             self.assertIn(f'<link rel="canonical" href="https://ing-bassam.de{ziel}">', html)
             self.assertNotIn("<script", html)
 
+    def test_feste_weiterleitungsseiten_sind_stimmig(self):
+        """Frühere Adressen im Hauptordner (leistungen.html, kontakt.html …) sind
+        von Hand gepflegte Weiterleitungsseiten. Ihr Ziel muss eine ausgelieferte
+        Seite sein, und die maßgebliche Adresse (canonical) muss dazu passen.
+
+        GitHub Pages liefert „name.html“ auch unter „/name“ aus, ohne Schrägstrich
+        am Ende. Gibt es daneben den Ordner „name/“, muss die Weiterleitung
+        deshalb dorthin führen. Sonst landet woanders, wer „/name“ aufruft –
+        bis November 2026 führte /leistungen auf die Startseite statt auf die
+        Übersicht der Leistungen."""
+        geprueft = []
+        for name in sorted(self.website):
+            if "/" in name or not name.endswith(".html"):
+                continue
+            text = (WURZEL / name).read_text(encoding="utf-8")
+            treffer = re.search(r'<meta http-equiv="refresh" content="0; url=([^"]+)">', text)
+            if not treffer:
+                continue
+            geprueft.append(name)
+            ziel = treffer.group(1)
+            self.assertTrue(ziel.startswith("/"), f"{name}: {ziel}")
+            pfad = urlsplit(ziel).path
+            self.assertIn(aufloesen(name, pfad), self.website, f"{name}: Ziel {ziel} wird nicht ausgeliefert")
+            self.assertIn(f'<link rel="canonical" href="https://{HOST}{pfad}">', text, name)
+            self.assertNotIn("<script", text, name)
+            ordner = name[:-len(".html")]
+            if f"{ordner}/index.html" in self.website:
+                self.assertEqual(ziel, f"/{ordner}/", f"{name}: /{ordner} muss auf den Ordner /{ordner}/ führen")
+        self.assertIn("leistungen.html", geprueft)
+
     def test_alte_adressen_stehen_nicht_in_sitemap_und_llms(self):
         alte = {f"https://ing-bassam.de/{alt}" for alt in w.WEITERLEITUNGEN}
         for name in ("sitemap.xml", "llms.txt"):
