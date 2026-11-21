@@ -19,7 +19,7 @@ notion_id: 3e0d96ad-00b4-810a-b6d2-e2b35c532c91
 notion_url: https://app.notion.com/p/Baum-ngel-am-Gemeinschaftseigentum-Zust-ndigkeit-Verj-hrung-und-Vorgehen-der-WEG-3e0d96ad00b4810ab6d2e2b35c532c91
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 3151
+wortzahl: 3153
 lesezeit: 16 Minuten
 fussnoten: 17
 quellen_geprueft: 7
@@ -30,7 +30,7 @@ regelwerke_bestaetigt: WEG, BGB, ZPO, EGBGB, BGH V ZR 213/21, BGH V ZR 132/23, B
 
 # Mängel am Gemeinschaftseigentum: Wer klagt, bis wann?
 
-Mängel am Gemeinschaftseigentum können gegenüber dem Bauträger zunächst die einzelnen Erwerber aus ihren Verträgen geltend machen. Die Gemeinschaft der Wohnungseigentümer kann die auf Mängelbeseitigung gerichteten Rechte aber durch Mehrheitsbeschluss an sich ziehen und dann allein durchsetzen.[^1][^2] Gemeinschaftseigentum ist der Teil einer Wohnanlage, der nicht im Sondereigentum steht. Mängelansprüche an einem Bauwerk verjähren nach dem Bürgerlichen Gesetzbuch in fünf Jahren, gerechnet ab der Abnahme.[^3] Weil jeder Erwerber über die Abnahme des Gemeinschaftseigentums selbst entscheidet, können die Fristen der Erwerber zu unterschiedlichen Zeiten beginnen und enden.[^4] Der Beitrag beschreibt für Deutschland, wer zuständig ist, wann die Verjährung beginnt, endet und gehemmt wird und wofür ein Gutachten dient. Stand ist das Erstellungsdatum.
+Mängel am Gemeinschaftseigentum können gegenüber dem Bauträger zunächst die einzelnen Erwerber aus ihren Verträgen geltend machen. Die Gemeinschaft der Wohnungseigentümer kann die auf Mängelbeseitigung gerichteten Rechte aber durch Mehrheitsbeschluss an sich ziehen und dann allein durchsetzen.[^1][^2] Gemeinschaftseigentum ist der Teil einer Wohnanlage, der nicht im Sondereigentum steht. Mängelansprüche an einem Bauwerk verjähren nach dem Bürgerlichen Gesetzbuch in fünf Jahren. Die Frist beginnt mit der Abnahme.[^3] Weil jeder Erwerber über die Abnahme des Gemeinschaftseigentums selbst entscheidet, können die Fristen der Erwerber zu unterschiedlichen Zeiten beginnen und enden.[^4] Der Beitrag beschreibt für Deutschland, wer zuständig ist, wann die Verjährung beginnt, endet und gehemmt wird und wofür ein Gutachten dient. Stand ist das Erstellungsdatum.
 
 ## Wo Mängel am Gemeinschaftseigentum beginnen und was dieser Beitrag klärt
 
