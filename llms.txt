@@ -31,7 +31,6 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 - [New-build inspection and snagging](https://ing-bassam.de/en/new-build-inspection-berlin/): Stage inspections while building parts are still open and a snagging list for acceptance (Abnahme) – for buyers from developers and self-builders.
 - [Condition survey (Beweissicherung)](https://ing-bassam.de/en/condition-survey-berlin/): Pre-construction and dilapidation surveys: cracks, deformation and damp recorded before works next door, before repairs or before parts are covered up.
 - [Expert reports for construction disputes](https://ing-bassam.de/en/construction-dispute-expert-berlin/): Party expert reports on defects, damage, variations and delay, statements on existing expert reports, support in independent evidence proceedings – in English and German.
-- [Property value calculator Berlin](https://ing-bassam.de/en/property-valuation/): Indicative value range for houses and apartment buildings in Berlin based on the market data of the Berlin valuation board; calculated in the browser, no sign-up.
 
 ## Guides in English (https://ing-bassam.de/en/guides/)
 
@@ -41,19 +40,17 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 - [Buying a flat in Germany: owners' association documents](https://ing-bassam.de/en/guides/buying-a-flat-in-germany-weg-documents/): Buying a flat in Germany: which owners' association documents to request and how to check the common property and the flat – with a checklist for the viewing.
 - [What does a building surveyor cost in Germany?](https://ing-bassam.de/en/guides/building-surveyor-fees-germany/): What a building surveyor costs in Germany, what the fee depends on, what is included and when a report pays off – fee types, court rates, who pays.
 
-## Werkzeuge (https://ing-bassam.de/werkzeuge/)
+## Vorlagen (https://ing-bassam.de/fachwissen/vorlagen/)
 
-- [Wertrechner Berlin](https://ing-bassam.de/wertrechner/): Kostenlose, unverbindliche Wertindikation für Ein-, Zweifamilien- und Mietshäuser in Berlin nach der ImmoWertV 2021 mit den Sachwertfaktoren und Liegenschaftszinssätzen des Gutachterausschusses; Bodenrichtwert automatisch aus der Adresse, Berechnung vollständig im Browser.
-- [Gewährleistungsfrist berechnen](https://ing-bassam.de/werkzeuge/gewaehrleistungsfrist/): Ende der Verjährung von Mängelansprüchen nach BGB (5 Jahre) oder VOB/B (4 Jahre) ab Abnahme, mit Hemmung, Mängelrüge, Anerkenntnis und Werktagsregel; Rechenweg mit Paragrafen, Berechnung im Browser.
-- [Taupunkt und Schimmelrisiko](https://ing-bassam.de/werkzeuge/taupunkt/): Taupunkt, Oberflächenfeuchte und Schimmelrisiko nach dem 80-%-Kriterium der DIN 4108-2 aus Raumklima und Oberflächentemperatur oder Temperaturfaktor; Magnus-Formel, Rechenweg mit Formeln, Berechnung im Browser.
-- [Mängelanzeige erstellen](https://ing-bassam.de/werkzeuge/maengelanzeige/): Generator für eine Mängelanzeige mit Fristsetzung nach dem Musterschreiben des Büros – Ort und Erscheinungsbild je Mangel, Fristdatum, Anlagen, Prüfliste; BGB und VOB/B; ohne Speicherung, zum Drucken oder Kopieren.
 - [Checklisten und Vorlagen](https://ing-bassam.de/fachwissen/vorlagen/): alle Checklisten, Protokolle und Musterschreiben als PDF und Word zum Herunterladen, jeweils mit erläuterndem Fachbeitrag.
+- [Mängelanzeige erstellen](https://ing-bassam.de/werkzeuge/maengelanzeige/): Generator für eine Mängelanzeige mit Fristsetzung nach dem Musterschreiben des Büros – Ort und Erscheinungsbild je Mangel, Fristdatum, Anlagen, Prüfliste; BGB und VOB/B; ohne Speicherung, zum Drucken oder Kopieren.
 
 ## Fachwissen (https://ing-bassam.de/fachwissen/)
 
 ### Baubetrieb
 
 - [Bauverzug am Einfamilienhaus: Urteil des OLG Karlsruhe](https://ing-bassam.de/fachwissen/nutzungsausfall-bauverzug-einfamilienhaus/): OLG Karlsruhe zum Bauverzug am Einfamilienhaus: Verzug ab Ablauf der Bauzeit, Nutzungsausfall nach Mietenspiegel mit 30 Prozent Abzug.
+- [Aufmaßblatt für Abschlags- und Schlussrechnungen](https://ing-bassam.de/fachwissen/aufmassblatt-mengenermittlung-abrechnung/): Aufmaßblatt als Excel und PDF: Mengen je LV-Position mit Ort, Maßen und Beleg prüfbar festhalten, für Abschlags- und Schlussrechnung.
 - [Nachtragsangebot mit Kalkulationsaufbau: Vorlage für Excel](https://ing-bassam.de/fachwissen/nachtragsangebot-mit-kalkulationsaufbau/): Kalkulationsblatt für das Nachtragsangebot nach § 2 Abs. 5 und 6 VOB/B als Excel und PDF – vom Anlass über die Urkalkulation bis zum Einheitspreis.
 - [Schlussrechnung prüfen: Prüfliste für Auftraggeber](https://ing-bassam.de/fachwissen/pruefliste-schlussrechnung/): Schlussrechnung prüfen: Prüfliste zu Prüffähigkeit, Mengen, Nachträgen, Abzügen und Sicherheiten. Kostenlos als PDF, auch zum Ausfüllen.
 - [Pauschalpreis im Bauvertrag: Was ist wirklich enthalten?](https://ing-bassam.de/fachwissen/pauschalpreis-bauvertrag-leistungsbeschreibung/): Pauschalpreis 350.000 Euro, am Ende über 100.000 Euro mehr für Betonstahl: Das OLG Stuttgart zeigt, warum die Leistungsbeschreibung entscheidet.
@@ -73,6 +70,11 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 ### Bauherrenwissen
 
 - [Prüfhilfe Abschlagszahlungen und Zahlungsplan](https://ing-bassam.de/fachwissen/abschlagszahlungen-zahlungsplan-pruefhilfe/): Prüfhilfe für Abschlagszahlungen beim Hausbau: Zahlungsplan, Rechnung, Bautenstand, Mängel und Sicherheiten vor jeder Rate prüfen. Kostenlos als PDF.
+- [Bauabnahme: Ablauf, Protokoll und Folgen der Unterschrift](https://ing-bassam.de/fachwissen/bauabnahme-ablauf-protokoll-rechtsfolgen/): Bauabnahme nach BGB und VOB/B: wie Termin und Protokoll ablaufen, welche Abnahmeformen es gibt und was die Unterschrift rechtlich auslöst.
+- [Was macht ein Bauherrenvertreter, und wer braucht ihn?](https://ing-bassam.de/fachwissen/bauherrenvertreter-aufgaben-nutzen/): Was ein Bauherrenvertreter für private Bauherren übernimmt, was beim Bauherrn bleibt, wo die Grenzen liegen und wann sich die Vertretung lohnt.
+- [Bau- und Leistungsbeschreibung: was darin stehen muss](https://ing-bassam.de/fachwissen/bau-leistungsbeschreibung-pruefen/): Bau- und Leistungsbeschreibung vor der Unterschrift prüfen: Pflichtangaben nach Art. 249 EGBGB, Auslegung, Leerformeln, Schallschutz, Baugrund, Pläne.
+- [Checkliste Baustellenkontrolle nach Bauphasen](https://ing-bassam.de/fachwissen/baustellenkontrolle-bauphasen-checkliste/): Checkliste zur Baustellenkontrolle nach Bauphasen: Rohbau, Abdichtung, Fenster, Dach und Estrich prüfen, bevor alles verdeckt ist.
+- [Gutachten vor dem Immobilienkauf: Lohnt sich die Prüfung?](https://ing-bassam.de/fachwissen/gebrauchte-immobilie-gutachten-vor-kauf/): Gebrauchte Immobilie kaufen: wann sich ein Gutachten vor dem Notartermin lohnt, was der Sachverständige prüft und wo seine Grenzen liegen.
 - [Checkliste Abnahme Gemeinschaftseigentum im Neubau](https://ing-bassam.de/fachwissen/abnahme-gemeinschaftseigentum-checkliste/): Kostenlose Checkliste für die Abnahme des Gemeinschaftseigentums einer neuen Wohnanlage vom Bauträger, mit Bewertungsstufen und Anleitung.
 - [Objektüberwachung: Was kostet Leistungsphase 8 nach HOAI?](https://ing-bassam.de/fachwissen/honorar-objektueberwachung-lp8-hoai/): Was kostet die Objektüberwachung nach HOAI? Leistungsphase 8, Honorartafel, Honorarzone und Umbauzuschlag mit Rechenbeispielen erklärt.
 - [Abschlagsrechnung prüfen: was vor der Zahlung zu klären ist](https://ing-bassam.de/fachwissen/abschlagsrechnung-hausbau-pruefen/): Abschlagsrechnung der Baufirma prüfen: Bautenstand, Aufstellung, frühere Zahlungen und welcher Betrag bei Mängeln zurückbehalten werden darf.
@@ -113,6 +115,7 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 ### Gutachten & Recht
 
 - [Pfützen in der Tiefgarage: Was das OLG Stuttgart entschied](https://ing-bassam.de/fachwissen/tiefgarage-ohne-gefaelle-pfuetzen/): OLG Stuttgart zur Tiefgarage ohne Gefälle: ohne Absprache über Pfützenfreiheit kein Planungsmangel, aber Haftung für funktionslose Entwässerungsmulden.
+- [Mängelanzeige am Gemeinschaftseigentum an den Bauträger](https://ing-bassam.de/fachwissen/maengelanzeige-gemeinschaftseigentum-bautraeger/): Musterschreiben Mängelanzeige am Gemeinschaftseigentum an den Bauträger, mit Prüfliste für Verwaltung und Eigentümer. Kostenlos als Word und PDF.
 - [Baubegleitende Qualitätskontrolle: Wann der Prüfer haftet](https://ing-bassam.de/fachwissen/haftung-baubegleitende-qualitaetskontrolle/): OLG Brandenburg 4 U 6/12 zur Haftung bei baubegleitender Qualitätskontrolle – Werkvertrag, Mängelsymptome, Gesamtschuld und was Prüfer dokumentieren.
 - [Rostflecken an der Halle: Reparatur statt Preisnachlass?](https://ing-bassam.de/fachwissen/rost-halle-nachbesserung-statt-minderung/): LG Karlsruhe: Ein Bauherr durfte nach der Abnahme auf der Reparatur von Rostschäden bestehen und das Doppelte der Kosten zurückhalten.
 - [Vager Bedenkenhinweis: Nachunternehmer haftet voll](https://ing-bassam.de/fachwissen/bedenkenhinweis-nachunternehmer-baubesprechung/): OLG Brandenburg 11 U 74/18: Ein pauschaler Bedenkenhinweis in der Baubesprechung genügte nicht. Der Sanitär-Nachunternehmer haftet ohne Kürzung.
@@ -147,6 +150,8 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Hausverwaltung & Bestand
 
+- [Wohnung wird nicht warm: Ursache messen statt streiten](https://ing-bassam.de/fachwissen/wohnung-nicht-warm-heizung-ursache-nachweis/): Wohnung wird trotz Heizung nicht warm? Ursachen in Anlage, Heizkörper und Gebäudehülle, richtig messen und dokumentieren, Mängelanzeige und Gutachten.
+- [Balkon und Tiefgarage: Gutachten als WEG-Beschlussgrundlage](https://ing-bassam.de/fachwissen/weg-balkon-tiefgarage-sanierung-gutachten/): Wie ein Gutachten der WEG die Beschlussfassung zur Balkon- und Tiefgaragensanierung stützt: Zustand, Ursachen, Varianten, Rechtsprechung 2026.
 - [Risse in Fassade und Mauerwerk: harmlos oder ernst?](https://ing-bassam.de/fachwissen/risse-fassade-mauerwerk-bewerten/): Risse in Fassade und Mauerwerk einschätzen: was Eigentümer beobachten und dokumentieren können, welche Warnzeichen zählen und wann ein Gutachten sinnvoll ist.
 - [Feuchter Keller im Altbau: die drei Ursachen unterscheiden](https://ing-bassam.de/fachwissen/feuchter-keller-altbau-ursachen/): Erdreich, Tauwasser oder Leckage – woran sich die Ursache der Feuchte in einem Altbaukeller unterscheiden lässt und was daraus für die Sanierung folgt.
 - [Instandhaltungsstau und CapEx-Prognose in der Due Diligence](https://ing-bassam.de/fachwissen/instandhaltungsstau-capex-prognose-due-diligence/): Wie der Instandhaltungsrückstau eines Gebäudes bauteilweise ermittelt und als CapEx-Prognose über zehn Jahre dargestellt wird.

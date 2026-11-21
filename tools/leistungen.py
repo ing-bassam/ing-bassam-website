@@ -221,10 +221,6 @@ ENGLISCH: list[EnglischeSeite] = [
                    "Party expert reports on defects, damage, variations and delay, statements on existing expert "
                    "reports, support in independent evidence proceedings – in English and German.",
                    "leistungen/privatgutachten-bauprozess/"),
-    EnglischeSeite("en/property-valuation/", "Property value calculator Berlin",
-                   "Indicative value range for houses and apartment buildings in Berlin based on the market "
-                   "data of the Berlin valuation board; calculated in the browser, no sign-up.",
-                   "wertrechner/"),
 ]
 
 
