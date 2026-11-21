@@ -49,6 +49,7 @@ Kontakt und Impressum: https://ing-bassam.de/#kontakt · https://ing-bassam.de/#
 
 ### Baubetrieb
 
+- [Vertragsstrafe für Zwischentermine: was der BGH entschied](https://ing-bassam.de/fachwissen/vertragsstrafe-zwischentermin-agb/): Der BGH hielt 2012 eine Vertragsstrafe für einen Zwischentermin in den Bedingungen eines Auftraggebers für unwirksam. Was das heißt und was offen bleibt.
 - [Bauverzug am Einfamilienhaus: Urteil des OLG Karlsruhe](https://ing-bassam.de/fachwissen/nutzungsausfall-bauverzug-einfamilienhaus/): OLG Karlsruhe zum Bauverzug am Einfamilienhaus: Verzug ab Ablauf der Bauzeit, Nutzungsausfall nach Mietenspiegel mit 30 Prozent Abzug.
 - [Aufmaßblatt für Abschlags- und Schlussrechnungen](https://ing-bassam.de/fachwissen/aufmassblatt-mengenermittlung-abrechnung/): Aufmaßblatt als Excel und PDF: Mengen je LV-Position mit Ort, Maßen und Beleg prüfbar festhalten, für Abschlags- und Schlussrechnung.
 - [Nachtragsangebot mit Kalkulationsaufbau: Vorlage für Excel](https://ing-bassam.de/fachwissen/nachtragsangebot-mit-kalkulationsaufbau/): Kalkulationsblatt für das Nachtragsangebot nach § 2 Abs. 5 und 6 VOB/B als Excel und PDF – vom Anlass über die Urkalkulation bis zum Einheitspreis.

@@ -19,7 +19,7 @@ qualifikation:
 kurzform: vertragsstrafe-zwischentermin-agb
 erstellt: 2026-11-17
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: rechtsprechung
 notion_id:
 notion_url:

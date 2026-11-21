@@ -9,7 +9,7 @@
   </url>
   <url>
     <loc>https://ing-bassam.de/fachwissen/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -693,6 +693,12 @@
   <url>
     <loc>https://ing-bassam.de/fachwissen/undichtes-dach-planungsfehler-bedenken/</loc>
     <lastmod>2026-10-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ing-bassam.de/fachwissen/vertragsstrafe-zwischentermin-agb/</loc>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

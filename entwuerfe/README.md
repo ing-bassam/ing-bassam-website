@@ -13,10 +13,11 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 |---|---|---|---|---|
 | 17.11.2026 | [Vertragsstrafe für Zwischentermine: was der BGH entschied](entwurf/2026-11-17-vertragsstrafe-zwischentermin-agb.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/vertragsstrafe-zwischentermin-agb/) |
 
-## 🟢 Veröffentlicht (98)
+## 🟢 Veröffentlicht (99)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
+| 17.11.2026 | [Vertragsstrafe für Zwischentermine: was der BGH entschied](veroeffentlicht/2026-11-17-vertragsstrafe-zwischentermin-agb.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/vertragsstrafe-zwischentermin-agb/) |
 | 10.11.2026 | [Pfützen in der Tiefgarage: Was das OLG Stuttgart entschied](veroeffentlicht/2026-11-10-tiefgarage-ohne-gefaelle-pfuetzen.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/tiefgarage-ohne-gefaelle-pfuetzen/) |
 | 10.11.2026 | [Bauverzug am Einfamilienhaus: Urteil des OLG Karlsruhe](veroeffentlicht/2026-11-10-nutzungsausfall-bauverzug-einfamilienhaus.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nutzungsausfall-bauverzug-einfamilienhaus/) |
 | 10.11.2026 | [Mängelanzeige am Gemeinschaftseigentum an den Bauträger](veroeffentlicht/2026-11-10-maengelanzeige-gemeinschaftseigentum-bautraeger.md) | Vorlage | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/maengelanzeige-gemeinschaftseigentum-bautraeger/) |
