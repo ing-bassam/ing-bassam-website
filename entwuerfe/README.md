@@ -7,9 +7,11 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Actions → „Entwürfe veröffentlichen“ → Run workflow (Auswahl: die Kurzform oder „alle“). Der Workflow prüft vorher auf wörtliche Übernahmen aus der Fachbibliothek, setzt den Status und verschiebt die Datei in den richtigen Ordner; die Adresse der Seite ändert sich dabei nicht. Wer `status: Veröffentlicht` von Hand setzt, löst dieselbe Prüfung im Seitenbau aus – mit Befund oder ohne mögliche Prüfung setzt der Seitenbau den Status auf „Entwurf“ zurück.
 
-## 🟡 Entwurf (0)
+## 🟡 Entwurf (1)
 
-Zurzeit keine.
+| Datum | Titel | Format | Kategorie | Seite |
+|---|---|---|---|---|
+| 17.11.2026 | [Vertragsstrafe für Zwischentermine: was der BGH entschied](entwurf/2026-11-17-vertragsstrafe-zwischentermin-agb.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/vertragsstrafe-zwischentermin-agb/) |
 
 ## 🟢 Veröffentlicht (98)
 
