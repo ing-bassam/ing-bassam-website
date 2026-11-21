@@ -13,7 +13,7 @@ qualifikation:
 kurzform: versicherungsgutachten-leitungswasser-sturm
 erstellt: 2026-11-16
 aktualisiert:
-status: Entwurf
+status: Veröffentlicht
 quelle: notion
 notion_id: 3dfd96ad-00b4-8153-97d8-d5501e20de9b
 notion_url: https://app.notion.com/p/Versicherungsgutachten-bei-Leitungswasser-Sturm-und-Elementarsch-den-3dfd96ad00b4815397d8d5501e20de9b

@@ -7,17 +7,16 @@ Diese Übersicht entsteht automatisch beim Seitenbau – bitte nicht von Hand be
 
 **Veröffentlichen:** Actions → „Entwürfe veröffentlichen“ → Run workflow (Auswahl: die Kurzform oder „alle“). Der Workflow prüft vorher auf wörtliche Übernahmen aus der Fachbibliothek, setzt den Status und verschiebt die Datei in den richtigen Ordner; die Adresse der Seite ändert sich dabei nicht. Wer `status: Veröffentlicht` von Hand setzt, löst dieselbe Prüfung im Seitenbau aus – mit Befund oder ohne mögliche Prüfung setzt der Seitenbau den Status auf „Entwurf“ zurück.
 
-## 🟡 Entwurf (1)
+## 🟡 Entwurf (0)
 
-| Datum | Titel | Format | Kategorie | Seite |
-|---|---|---|---|---|
-| 16.11.2026 | [Versicherungsgutachten bei Leitungswasser und Sturm: Ablauf](entwurf/2026-11-16-versicherungsgutachten-leitungswasser-sturm.md) | Ratgeber | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/versicherungsgutachten-leitungswasser-sturm/) |
+Zurzeit keine.
 
-## 🟢 Veröffentlicht (100)
+## 🟢 Veröffentlicht (101)
 
 | Datum | Titel | Format | Kategorie | Seite |
 |---|---|---|---|---|
 | 17.11.2026 | [Vertragsstrafe für Zwischentermine: was der BGH entschied](veroeffentlicht/2026-11-17-vertragsstrafe-zwischentermin-agb.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/vertragsstrafe-zwischentermin-agb/) |
+| 16.11.2026 | [Versicherungsgutachten bei Leitungswasser und Sturm: Ablauf](veroeffentlicht/2026-11-16-versicherungsgutachten-leitungswasser-sturm.md) | Ratgeber | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/versicherungsgutachten-leitungswasser-sturm/) |
 | 11.11.2026 | [Architektenvertrag: Kündigung aus wichtigem Grund](veroeffentlicht/2026-11-11-architektenvertrag-kuendigung-wichtiger-grund.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/architektenvertrag-kuendigung-wichtiger-grund/) |
 | 10.11.2026 | [Pfützen in der Tiefgarage: Was das OLG Stuttgart entschied](veroeffentlicht/2026-11-10-tiefgarage-ohne-gefaelle-pfuetzen.md) | Rechtsprechung | Gutachten & Recht | [ansehen](https://ing-bassam.de/fachwissen/tiefgarage-ohne-gefaelle-pfuetzen/) |
 | 10.11.2026 | [Bauverzug am Einfamilienhaus: Urteil des OLG Karlsruhe](veroeffentlicht/2026-11-10-nutzungsausfall-bauverzug-einfamilienhaus.md) | Rechtsprechung | Baubetrieb | [ansehen](https://ing-bassam.de/fachwissen/nutzungsausfall-bauverzug-einfamilienhaus/) |
