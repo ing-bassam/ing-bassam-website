@@ -537,7 +537,7 @@ test("Versionskennungen: jeder Skript- und Style-Verweis der Seite ist versionie
   const app = readFileSync(join(ordner, "app.js"), "utf8");
   const verweise = [...html.matchAll(/\b(?:href|src)="([^"]+\.(?:js|css)[^"]*)"/g)].map((t) => t[1]);
   assert.ok(verweise.length >= 5, verweise.join(", "));
-  for (const v of verweise) assert.match(v, /^\/(?:angebot|wertrechner)\/[\w./-]+\.(?:js|css)\?v=[0-9a-f]{10}$/, v);
+  for (const v of verweise) assert.match(v, /^\/(?:angebot|leistungen)\/[\w./-]+\.(?:js|css)\?v=[0-9a-f]{10}$/, v);
   const importe = [...app.matchAll(/\bfrom\s*"([^"]+)"/g)].map((t) => t[1]);
   assert.equal(importe.length, 3);
   for (const v of importe) assert.match(v, /^\.\/[\w-]+\.js\?v=[0-9a-f]{10}$/, v);
@@ -555,14 +555,14 @@ test("Versionskennungen: neue paket.js ändert die Adressen von paket.js und app
   try {
     const seite = join(wurzel, "angebot", "kaufbegutachtung");
     mkdirSync(seite, { recursive: true });
-    mkdirSync(join(wurzel, "wertrechner"));
-    writeFileSync(join(wurzel, "wertrechner", "wertrechner.css"), "body{}\n");
+    mkdirSync(join(wurzel, "leistungen"));
+    writeFileSync(join(wurzel, "leistungen", "seiten.css"), "body{}\n");
     writeFileSync(join(seite, "angebot.css"), ".a{}\n");
     writeFileSync(join(seite, "angebot.js"), "export const A = 1;\n");
     writeFileSync(join(seite, "paket.js"), "export const PAKET = { v: 1 };\n");
     writeFileSync(join(seite, "app.js"), 'import { PAKET } from "./paket.js";\nimport { A } from "./angebot.js";\n'
       + "const neu = () => import(`./paket.js?frisch=${Date.now()}`);\n");
-    writeFileSync(join(seite, "index.html"), '<link rel="stylesheet" href="/wertrechner/wertrechner.css">\n'
+    writeFileSync(join(seite, "index.html"), '<link rel="stylesheet" href="/leistungen/seiten.css">\n'
       + '<link rel="stylesheet" href="/angebot/kaufbegutachtung/angebot.css">\n'
       + '<link rel="modulepreload" href="/angebot/kaufbegutachtung/paket.js">\n'
       + '<script type="module" src="/angebot/kaufbegutachtung/app.js"></script>\n'
@@ -576,7 +576,7 @@ test("Versionskennungen: neue paket.js ändert die Adressen von paket.js und app
     const html1 = lesen("index.html");
     assert.ok(app1.includes(`"./paket.js?v=${kennung("export const PAKET = { v: 1 };\n")}"`));
     assert.ok(html1.includes(`/app.js?v=${kennung(app1)}"`));
-    assert.ok(html1.includes(`/wertrechner.css?v=${kennung("body{}\n")}"`));
+    assert.ok(html1.includes(`/seiten.css?v=${kennung("body{}\n")}"`));
     assert.ok(html1.includes('href="/favicon.svg"'), "andere Verweise bleiben unverändert");
     assert.ok(app1.includes("import(`./paket.js?frisch=${Date.now()}`)"));
 

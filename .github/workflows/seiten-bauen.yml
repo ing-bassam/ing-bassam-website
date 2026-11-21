@@ -16,10 +16,14 @@ name: Fachwissen-Seiten bauen
 #   - wenn der Entwurf nach dem Mergen auf main liegt,
 #   - wenn im Entwurf „status: Veröffentlicht" gesetzt wird (von Hand gesetzt:
 #     erst nach der Prüfung auf wörtliche Übernahmen, sonst zurück auf „Entwurf“),
+#   - wenn sich eine von Hand gepflegte Seite ändert (Startseite, Leistungsseiten,
+#     englische Seiten, Mängelanzeige): Der Lauf trägt dann ihr Änderungsdatum
+#     in die sitemap.xml ein (tools/sitemap_stand.py),
 #   - von Hand über Actions -> Fachwissen-Seiten bauen -> Run workflow.
 #
 # Kein Kreislauf: Der Lauf schreibt ausschließlich nach fachwissen/, en/guides/,
-# sitemap.xml und llms.txt. Nichts davon steht in der paths-Liste unten, der eigene Commit
+# sitemap.xml und llms.txt. Nichts davon steht in der paths-Liste unten (en/guides/
+# ist dort ausdrücklich ausgenommen), der eigene Commit
 # löst also keinen neuen Lauf aus. Zusätzlich lösen Commits mit dem
 # GITHUB_TOKEN grundsätzlich keine weiteren Workflows aus.
 # -----------------------------------------------------------------------------
@@ -40,6 +44,15 @@ on:
       - 'tools/beitraege_en.py'
       - 'tools/leistungen.py'
       - 'fachwissen/artikel.css'
+      # Von Hand gepflegte Seiten: Ändert sich ihr Inhalt, bekommen sie in der
+      # Sitemap das Datum dieses Laufs (tools/sitemap_stand.py). Die Reihenfolge
+      # zählt: erst en/**, dann die Ausnahme für die erzeugten Leitfäden.
+      - 'tools/sitemap_stand.py'
+      - 'index.html'
+      - 'leistungen/**'
+      - 'werkzeuge/**'
+      - 'en/**'
+      - '!en/guides/**'
       - '.github/workflows/seiten-bauen.yml'
   workflow_dispatch:
 

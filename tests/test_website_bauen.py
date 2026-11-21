@@ -121,10 +121,76 @@ class Auslieferung(unittest.TestCase):
     def test_kernseiten_werden_ausgeliefert(self):
         for pfad in ("index.html", "404.html", "robots.txt", "sitemap.xml", "llms.txt", "CNAME",
                      "fachwissen/index.html", "fachwissen/artikel.css", "leistungen/index.html",
-                     "en/index.html", "en/guides/index.html", "werkzeuge/index.html", "wertrechner/index.html"):
+                     "en/index.html", "en/guides/index.html", "leistungen/seiten.css"):
             self.assertIn(pfad, self.website, pfad)
 
+    def test_entfernte_rechner_werden_nicht_ausgeliefert(self):
+        # November 2026: Wertrechner, Gewährleistungsfrist- und Taupunkt-Rechner
+        # und die Übersicht „Werkzeuge“ wurden entfernt. Unter den alten Adressen
+        # liegen nur noch Weiterleitungen, die erst beim Bauen entstehen.
+        reste = sorted(p for p in self.website
+                       if p.startswith(("wertrechner/", "en/property-valuation/", "werkzeuge/taupunkt/",
+                                        "werkzeuge/gewaehrleistungsfrist/")) or p == "werkzeuge/index.html")
+        self.assertEqual(reste, [])
+
+    def test_weiterleitungen_sind_stimmig(self):
+        self.assertEqual(w.weiterleitungen_pruefen(sorted(self.website)), [])
+        for alt, (ziel, titel, sprache) in w.WEITERLEITUNGEN.items():
+            self.assertTrue(alt.endswith("/") and not alt.startswith("/"), alt)
+            self.assertTrue(ziel.startswith("/") and ziel.endswith("/"), ziel)
+            self.assertIn(sprache, ("de", "en"))
+            # Keine Kette: Das Ziel ist selbst keine weitergeleitete Adresse.
+            self.assertNotIn(ziel.strip("/") + "/", w.WEITERLEITUNGEN, ziel)
+            html = w.weiterleitung_html(ziel, titel, sprache)
+            self.assertIn(f'<meta http-equiv="refresh" content="0; url={ziel}">', html)
+            self.assertIn(f'<link rel="canonical" href="https://ing-bassam.de{ziel}">', html)
+            self.assertNotIn("<script", html)
+
+    def test_feste_weiterleitungsseiten_sind_stimmig(self):
+        """Frühere Adressen im Hauptordner (leistungen.html, kontakt.html …) sind
+        von Hand gepflegte Weiterleitungsseiten. Ihr Ziel muss eine ausgelieferte
+        Seite sein, und die maßgebliche Adresse (canonical) muss dazu passen.
+
+        GitHub Pages liefert „name.html“ auch unter „/name“ aus, ohne Schrägstrich
+        am Ende. Gibt es daneben den Ordner „name/“, muss die Weiterleitung
+        deshalb dorthin führen. Sonst landet woanders, wer „/name“ aufruft –
+        bis November 2026 führte /leistungen auf die Startseite statt auf die
+        Übersicht der Leistungen."""
+        geprueft = []
+        for name in sorted(self.website):
+            if "/" in name or not name.endswith(".html"):
+                continue
+            text = (WURZEL / name).read_text(encoding="utf-8")
+            treffer = re.search(r'<meta http-equiv="refresh" content="0; url=([^"]+)">', text)
+            if not treffer:
+                continue
+            geprueft.append(name)
+            ziel = treffer.group(1)
+            self.assertTrue(ziel.startswith("/"), f"{name}: {ziel}")
+            pfad = urlsplit(ziel).path
+            self.assertIn(aufloesen(name, pfad), self.website, f"{name}: Ziel {ziel} wird nicht ausgeliefert")
+            self.assertIn(f'<link rel="canonical" href="https://{HOST}{pfad}">', text, name)
+            self.assertNotIn("<script", text, name)
+            ordner = name[:-len(".html")]
+            if f"{ordner}/index.html" in self.website:
+                self.assertEqual(ziel, f"/{ordner}/", f"{name}: /{ordner} muss auf den Ordner /{ordner}/ führen")
+        self.assertIn("leistungen.html", geprueft)
+
+    def test_alte_adressen_stehen_nicht_in_sitemap_und_llms(self):
+        alte = {f"https://ing-bassam.de/{alt}" for alt in w.WEITERLEITUNGEN}
+        for name in ("sitemap.xml", "llms.txt"):
+            text = (WURZEL / name).read_text(encoding="utf-8")
+            # Ganze Adressen vergleichen: /werkzeuge/maengelanzeige/ gibt es weiterhin.
+            adressen = set(re.findall(r"https://ing-bassam\.de/[^\s<>()\"']*", text))
+            self.assertEqual(sorted(alte & adressen), [], name)
+
     def test_verweise_zeigen_auf_ausgelieferte_dateien(self):
+        # Unter den Adressen aus WEITERLEITUNGEN legt der Bau eine Weiterleitung ab,
+        # ein Verweis dorthin ist also nicht tot. Das betrifft Vorschauseiten von
+        # Entwürfen, die vor dem Entfernen der Rechner entstanden sind: Sie tragen den
+        # alten Kopf, bis der Seitenbau auf main sie neu erzeugt. Ohne diese Ausnahme
+        # fiele die Freigabeprüfung („main + Entwurf“) für jeden offenen Entwurf durch.
+        weitergeleitet = {f"{alt}index.html" for alt in w.WEITERLEITUNGEN}
         fehlend = []
         for pfad in sorted(self.website):
             datei = WURZEL / pfad
@@ -141,13 +207,73 @@ class Auslieferung(unittest.TestCase):
                 continue
             for ziel in ziele:
                 aufgeloest = aufloesen(pfad, ziel)
-                if aufgeloest is None or aufgeloest in self.website:
+                if aufgeloest is None or aufgeloest in self.website or aufgeloest in weitergeleitet:
                     continue
                 # /ordner ohne Schrägstrich: GitHub Pages leitet auf /ordner/ weiter.
-                if f"{aufgeloest}/index.html" in self.website:
+                if f"{aufgeloest}/index.html" in self.website or f"{aufgeloest}/index.html" in weitergeleitet:
                     continue
                 fehlend.append(f"{pfad} → {ziel}")
         self.assertEqual(sorted(set(fehlend)), [])
+
+    def test_gepflegte_seiten_nennen_keine_alten_adressen(self):
+        # Streng für alles, was von Hand gepflegt wird, und für die Übersichten:
+        # Startseite, Leistungsseiten, en/, 404, Fachwissen, Vorlagen, Guides.
+        # Beitragsseiten sind ausgenommen (Vorschau eines Entwurfs mit altem Kopf,
+        # siehe oben); ihren Inhalt prüft der nächste Test an der Quelle.
+        weitergeleitet = {f"{alt}index.html" for alt in w.WEITERLEITUNGEN}
+        beitrag = re.compile(r"(fachwissen|en/guides)/(?!vorlagen/)[^/]+/index\.html")
+        alte, geprueft = [], 0
+        for pfad in sorted(self.website):
+            if not pfad.endswith(".html") or beitrag.fullmatch(pfad):
+                continue
+            geprueft += 1
+            leser = Verweise()
+            leser.feed((WURZEL / pfad).read_text(encoding="utf-8"))
+            for ziel in leser.ziele:
+                aufgeloest = aufloesen(pfad, ziel)
+                if aufgeloest is None:
+                    continue
+                if aufgeloest in weitergeleitet or f"{aufgeloest}/index.html" in weitergeleitet:
+                    alte.append(f"{pfad} → {ziel}")
+        self.assertEqual(sorted(set(alte)), [])
+        self.assertGreater(geprueft, 25)       # Schutz vor einer leeren Prüfung
+
+    def test_quellen_nennen_keine_alten_adressen(self):
+        # Entwürfe, englische Leitfäden, Vorlagen und die Bausteine des Seitenbaus
+        # dürfen nicht auf entfernte Seiten verweisen. Geprüft wird die Quelle, damit
+        # ein solcher Verweis bei der Freigabe des einen Entwurfs auffällt – und nicht
+        # erst nach der Veröffentlichung auf main, wo er jede weitere Freigabe aufhielte.
+        # Kein Treffer: /werkzeuge/maengelanzeige/ (gibt es weiterhin) und Adressen
+        # anderer Websites wie https://www.beispiel.de/werkzeuge/.
+        muster = re.compile("|".join(rf"/{re.escape(alt.rstrip('/'))}/?(?![\w/-])"
+                                     for alt in sorted(w.WEITERLEITUNGEN, key=len, reverse=True)))
+        fremd = re.compile(rf"(?:^|//)(?!(?:www\.)?{re.escape(HOST)})[\w-]+(?:\.[\w-]+)+(?:[/:?#].*)?$")
+
+        def alte_adresse(zeile):
+            for fund in muster.finditer(zeile):
+                # Was unmittelbar vor dem Fund steht, zeigt, zu welcher Website die Adresse gehört.
+                anfang = max(zeile.rfind(zeichen, 0, fund.start()) for zeichen in " \t\"'`()<>[]|") + 1
+                if not fremd.search(zeile[anfang:fund.start()]):
+                    return True
+            return False
+
+        for zeile in ("[Rechner](/werkzeuge/)", "https://ing-bassam.de/wertrechner", "../../werkzeuge/taupunkt/#frist",
+                      "siehe www.ing-bassam.de/en/property-valuation/"):
+            self.assertTrue(alte_adresse(zeile), zeile)
+        for zeile in ("[Mängelanzeige](/werkzeuge/maengelanzeige/)", "Werkzeuge und Vorlagen",
+                      "[Rechner](https://www.beispiel.de/service/werkzeuge/)", "www.beispiel.de/wertrechner"):
+            self.assertFalse(alte_adresse(zeile), zeile)
+
+        quellen = [*WURZEL.glob("entwuerfe/**/*.md"), *WURZEL.glob("entwuerfe-en/**/*.md"),
+                   *WURZEL.glob("vorlagen/**/*.yml"),
+                   *(WURZEL / "tools" / name for name in ("artikel_generator.py", "beitraege_en.py", "leistungen.py"))]
+        self.assertGreater(len(quellen), 50)
+        treffer = [f"{datei.relative_to(WURZEL).as_posix()}:{nr}: {zeile.strip()[:100]}"
+                   for datei in quellen
+                   for nr, zeile in enumerate(datei.read_text(encoding="utf-8").splitlines(), 1)
+                   if alte_adresse(zeile)]
+        self.assertEqual(treffer, [], "Verweis auf eine entfernte Seite – bitte streichen oder auf die neue Seite zeigen "
+                                      "(Tabelle WEITERLEITUNGEN in tools/website_bauen.py)")
 
     def test_sitemap_nur_ausgelieferte_seiten(self):
         text = (WURZEL / "sitemap.xml").read_text(encoding="utf-8")
@@ -159,8 +285,13 @@ class Auslieferung(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             ziel = Path(tmp) / "_site"
             dateien = w.bauen(ziel)
-            self.assertEqual(len(dateien), len(self.website))
+            self.assertEqual(len(dateien), len(self.website) + len(w.WEITERLEITUNGEN))
             self.assertTrue((ziel / "index.html").is_file())
+            for alt, (adresse, _, _) in w.WEITERLEITUNGEN.items():
+                seite = ziel / alt / "index.html"
+                self.assertTrue(seite.is_file(), alt)
+                self.assertIn(f"url={adresse}", seite.read_text(encoding="utf-8"))
+                self.assertTrue((ziel / adresse.strip("/") / "index.html").is_file(), adresse)
             self.assertFalse((ziel / "tools").exists())
             self.assertFalse((ziel / ".claude").exists())
             self.assertFalse((ziel / "entwuerfe").exists())
@@ -179,7 +310,7 @@ class Aufloesen(unittest.TestCase):
         self.assertEqual(aufloesen("en/index.html", "https://ing-bassam.de/vorschau.png"), "vorschau.png")
         self.assertIsNone(aufloesen("index.html", "https://www.baukammerberlin.de/"))
         self.assertIsNone(aufloesen("index.html", "mailto:info@ing-bassam.de?subject=x"))
-        self.assertEqual(aufloesen("werkzeuge/taupunkt/app.js", "./taupunkt.js"), "werkzeuge/taupunkt/taupunkt.js")
+        self.assertEqual(aufloesen("werkzeuge/maengelanzeige/app.js", "./brief.js"), "werkzeuge/maengelanzeige/brief.js")
 
 
 if __name__ == "__main__":

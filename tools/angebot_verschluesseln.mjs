@@ -29,7 +29,7 @@
  *   index.html und app.js neu, damit Browser die neue Fassung laden (siehe unten).
  *
  *   Nur die Versionskennungen neu setzen (nach Änderungen an app.js, angebot.js,
- *   oberflaeche.js, angebot.css oder wertrechner.css; braucht keinen Schlüssel):
+ *   oberflaeche.js, angebot.css oder leistungen/seiten.css; braucht keinen Schlüssel):
  *     node tools/angebot_verschluesseln.mjs --versionen
  *
  * Neu verschlüsseln mit demselben Schlüssel: Die Links bleiben gültig.
@@ -202,8 +202,9 @@ export function paketDatei(paket) {
 /** Seite, deren Verweise versioniert werden (Pfad relativ zum Hauptordner). */
 export const SEITE = "angebot/kaufbegutachtung/index.html";
 const KENNUNG = "[0-9a-f]{10}";
-// index.html: href/src auf eigene .js/.css-Dateien unter /angebot/ und /wertrechner/.
-const HTML_VERWEIS = new RegExp(`(\\b(?:href|src)=")(/(?:angebot|wertrechner)/[\\w./-]+\\.(?:js|css))(?:\\?v=${KENNUNG})?(")`, "g");
+// index.html: href/src auf eigene .js/.css-Dateien unter /angebot/ und /leistungen/
+// (leistungen/seiten.css ist das gemeinsame Stylesheet der Leistungsseiten).
+const HTML_VERWEIS = new RegExp(`(\\b(?:href|src)=")(/(?:angebot|leistungen)/[\\w./-]+\\.(?:js|css))(?:\\?v=${KENNUNG})?(")`, "g");
 // Module: statische Importe „from "./name.js"“ (der Notfall-Import „./paket.js?frisch=…“ bleibt unberührt).
 const JS_VERWEIS = new RegExp(`(\\bfrom\\s*")(\\.{1,2}/[\\w./-]+\\.js)(?:\\?v=${KENNUNG})?(")`, "g");
 

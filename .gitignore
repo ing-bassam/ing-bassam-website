@@ -7,13 +7,11 @@ __pycache__/
 # geladen und darf nie in dieses öffentliche Repository gelangen.
 .bibliothek/
 
-# Wertrechner: Rohdaten des Landes Berlin (ca. 300 MB), die
-# tools/adressdaten_bauen.py herunterlädt. Ins Repository kommen nur die
-# daraus erzeugten kleinen JSON-Dateien unter wertrechner/data/.
+# Früherer Wertrechner (im November 2026 entfernt): In älteren Klonen können
+# noch die Rohdaten des Landes Berlin (ca. 300 MB) und Fachliteratur liegen.
+# Fachbücher, Kommentare und Unterlagen kommerzieller Software sind
+# urheberrechtlich geschützt. Beides darf nie ins Repository gelangen.
 .wertrechner-cache/
-
-# Wertrechner: Fachbücher, Kommentare und Unterlagen kommerzieller Software
-# sind urheberrechtlich geschützt und bleiben lokal.
 fachliteratur-privat/
 
 # Lokale Vorschau-Konfiguration der Claude-App (rechnerabhängige Pfade)
