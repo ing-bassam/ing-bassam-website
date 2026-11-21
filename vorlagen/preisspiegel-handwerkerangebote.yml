@@ -1,0 +1,108 @@
+titel: Preisspiegel für Handwerkerangebote
+untertitel: Angebote von bis zu drei Firmen Position für Position vergleichen – mit Rechenformeln, Bedingungen und Rückfragen
+kurzform: preisspiegel-handwerkerangebote
+typ: Tabelle
+stand: 2026-11-17
+dateien: [xlsx]
+einleitung: >-
+  Tragen Sie bis zu drei Angebote Position für Position nebeneinander ein. Die Tabelle rechnet
+  Gesamtpreise, Summen und den Abstand zwischen den Angeboten selbst aus. Im unteren Teil halten
+  Sie fest, was ein Angebot außer dem Preis unterscheidet, etwa Nebenleistungen, Fristen, Zahlungsplan
+  und Gewährleistung. So können Sie Ihre Wahl gegenüber Miteigentümern, Beirat oder Geschäftsführung
+  nachvollziehbar begründen. Tippen Sie nur in die Spalten Position, Menge, Einheit und Einzelpreis
+  sowie in die Textzellen; die Spalten Gesamtpreis und Spanne füllen sich von selbst.
+kopffelder:
+  - Objekt und Anschrift
+  - Gewerk und Maßnahme
+  - Verglichen am und von
+tabelle:
+  spalten:
+    - Nr.
+    - Position oder Angabe
+    - Menge
+    - Einheit
+    - Firma A, Einzelpreis netto
+    - Firma A, Gesamtpreis netto
+    - Firma B, Einzelpreis netto
+    - Firma B, Gesamtpreis netto
+    - Firma C, Einzelpreis netto
+    - Firma C, Gesamtpreis netto
+    - Spanne zwischen höchstem und niedrigstem Einzelpreis
+    - Prüffrage und Bemerkung
+  breiten: [1, 6, 1.4, 1.4, 4, 3, 4, 3, 4, 3, 2.6, 5]
+  zeilen:
+    - ["A1", "Objekt und Anschrift", "", "", "", "", "", "", "", "", "", "Nur in die erste Textzelle der Zeile eintragen"]
+    - ["A2", "Gewerk und Maßnahme", "", "", "", "", "", "", "", "", "", "Gleiche Bezeichnung für alle Angebote verwenden"]
+    - ["A3", "Leistungsbeschreibung vom (Datum) und Zahl der Angebote", "", "", "", "", "", "", "", "", "", "Haben alle Firmen dieselbe Beschreibung, dieselben Pläne und denselben Ortstermin erhalten?"]
+    - ["A4", "Verglichen am und von", "", "", "", "", "", "", "", "", "", ""]
+    - ["A5", "Firma (Name)", "", "", "", "", "", "", "", "", "", "In die Spalten Einzelpreis der Firmen A, B und C eintragen; so auch in den folgenden Angabezeilen"]
+    - ["A6", "Angebot vom (Datum)", "", "", "", "", "", "", "", "", "", "Liegen die Angebote zeitlich nah beieinander? Preise ändern sich"]
+    - ["A7", "Angebotsnummer oder Aktenzeichen", "", "", "", "", "", "", "", "", "", ""]
+    - ["A8", "Angebot bindend bis (Datum)", "", "", "", "", "", "", "", "", "", "Bis wann hält die Firma ihren Preis? Fehlt die Angabe, nachfragen"]
+    - ["A9", "Angebot oder Kostenanschlag", "", "", "", "", "", "", "", "", "", "Hat die Firma für einen Kostenanschlag die Gewähr der Richtigkeit übernommen? Das regelt § 649 BGB"]
+    - ["A10", "Ansprechperson und Erreichbarkeit", "", "", "", "", "", "", "", "", "", ""]
+    - ["1", "", "", "", "", '=IF(OR($C18="",E18=""),"",$C18*E18)', "", '=IF(OR($C18="",G18=""),"",$C18*G18)', "", '=IF(OR($C18="",I18=""),"",$C18*I18)', '=IFERROR(IF(COUNT(E18,G18,I18)<2,"",ROUND((MAX(E18,G18,I18)/MIN(E18,G18,I18)-1)*100,0)&" %"),"")', "Ist die Leistung im Text jeder Firma wirklich dieselbe?"]
+    - ["2", "", "", "", "", '=IF(OR($C19="",E19=""),"",$C19*E19)', "", '=IF(OR($C19="",G19=""),"",$C19*G19)', "", '=IF(OR($C19="",I19=""),"",$C19*I19)', '=IFERROR(IF(COUNT(E19,G19,I19)<2,"",ROUND((MAX(E19,G19,I19)/MIN(E19,G19,I19)-1)*100,0)&" %"),"")', "Fehlt die Position bei einer Firma? Dann nachfragen, nicht mit null rechnen"]
+    - ["3", "", "", "", "", '=IF(OR($C20="",E20=""),"",$C20*E20)', "", '=IF(OR($C20="",G20=""),"",$C20*G20)', "", '=IF(OR($C20="",I20=""),"",$C20*I20)', '=IFERROR(IF(COUNT(E20,G20,I20)<2,"",ROUND((MAX(E20,G20,I20)/MIN(E20,G20,I20)-1)*100,0)&" %"),"")', ""]
+    - ["4", "", "", "", "", '=IF(OR($C21="",E21=""),"",$C21*E21)', "", '=IF(OR($C21="",G21=""),"",$C21*G21)', "", '=IF(OR($C21="",I21=""),"",$C21*I21)', '=IFERROR(IF(COUNT(E21,G21,I21)<2,"",ROUND((MAX(E21,G21,I21)/MIN(E21,G21,I21)-1)*100,0)&" %"),"")', ""]
+    - ["5", "", "", "", "", '=IF(OR($C22="",E22=""),"",$C22*E22)', "", '=IF(OR($C22="",G22=""),"",$C22*G22)', "", '=IF(OR($C22="",I22=""),"",$C22*I22)', '=IFERROR(IF(COUNT(E22,G22,I22)<2,"",ROUND((MAX(E22,G22,I22)/MIN(E22,G22,I22)-1)*100,0)&" %"),"")', ""]
+    - ["6", "", "", "", "", '=IF(OR($C23="",E23=""),"",$C23*E23)', "", '=IF(OR($C23="",G23=""),"",$C23*G23)', "", '=IF(OR($C23="",I23=""),"",$C23*I23)', '=IFERROR(IF(COUNT(E23,G23,I23)<2,"",ROUND((MAX(E23,G23,I23)/MIN(E23,G23,I23)-1)*100,0)&" %"),"")', ""]
+    - ["7", "", "", "", "", '=IF(OR($C24="",E24=""),"",$C24*E24)', "", '=IF(OR($C24="",G24=""),"",$C24*G24)', "", '=IF(OR($C24="",I24=""),"",$C24*I24)', '=IFERROR(IF(COUNT(E24,G24,I24)<2,"",ROUND((MAX(E24,G24,I24)/MIN(E24,G24,I24)-1)*100,0)&" %"),"")', ""]
+    - ["8", "", "", "", "", '=IF(OR($C25="",E25=""),"",$C25*E25)', "", '=IF(OR($C25="",G25=""),"",$C25*G25)', "", '=IF(OR($C25="",I25=""),"",$C25*I25)', '=IFERROR(IF(COUNT(E25,G25,I25)<2,"",ROUND((MAX(E25,G25,I25)/MIN(E25,G25,I25)-1)*100,0)&" %"),"")', ""]
+    - ["9", "", "", "", "", '=IF(OR($C26="",E26=""),"",$C26*E26)', "", '=IF(OR($C26="",G26=""),"",$C26*G26)', "", '=IF(OR($C26="",I26=""),"",$C26*I26)', '=IFERROR(IF(COUNT(E26,G26,I26)<2,"",ROUND((MAX(E26,G26,I26)/MIN(E26,G26,I26)-1)*100,0)&" %"),"")', ""]
+    - ["10", "", "", "", "", '=IF(OR($C27="",E27=""),"",$C27*E27)', "", '=IF(OR($C27="",G27=""),"",$C27*G27)', "", '=IF(OR($C27="",I27=""),"",$C27*I27)', '=IFERROR(IF(COUNT(E27,G27,I27)<2,"",ROUND((MAX(E27,G27,I27)/MIN(E27,G27,I27)-1)*100,0)&" %"),"")', ""]
+    - ["11", "", "", "", "", '=IF(OR($C28="",E28=""),"",$C28*E28)', "", '=IF(OR($C28="",G28=""),"",$C28*G28)', "", '=IF(OR($C28="",I28=""),"",$C28*I28)', '=IFERROR(IF(COUNT(E28,G28,I28)<2,"",ROUND((MAX(E28,G28,I28)/MIN(E28,G28,I28)-1)*100,0)&" %"),"")', ""]
+    - ["12", "", "", "", "", '=IF(OR($C29="",E29=""),"",$C29*E29)', "", '=IF(OR($C29="",G29=""),"",$C29*G29)', "", '=IF(OR($C29="",I29=""),"",$C29*I29)', '=IFERROR(IF(COUNT(E29,G29,I29)<2,"",ROUND((MAX(E29,G29,I29)/MIN(E29,G29,I29)-1)*100,0)&" %"),"")', ""]
+    - ["13", "", "", "", "", '=IF(OR($C30="",E30=""),"",$C30*E30)', "", '=IF(OR($C30="",G30=""),"",$C30*G30)', "", '=IF(OR($C30="",I30=""),"",$C30*I30)', '=IFERROR(IF(COUNT(E30,G30,I30)<2,"",ROUND((MAX(E30,G30,I30)/MIN(E30,G30,I30)-1)*100,0)&" %"),"")', ""]
+    - ["14", "", "", "", "", '=IF(OR($C31="",E31=""),"",$C31*E31)', "", '=IF(OR($C31="",G31=""),"",$C31*G31)', "", '=IF(OR($C31="",I31=""),"",$C31*I31)', '=IFERROR(IF(COUNT(E31,G31,I31)<2,"",ROUND((MAX(E31,G31,I31)/MIN(E31,G31,I31)-1)*100,0)&" %"),"")', ""]
+    - ["15", "", "", "", "", '=IF(OR($C32="",E32=""),"",$C32*E32)', "", '=IF(OR($C32="",G32=""),"",$C32*G32)', "", '=IF(OR($C32="",I32=""),"",$C32*I32)', '=IFERROR(IF(COUNT(E32,G32,I32)<2,"",ROUND((MAX(E32,G32,I32)/MIN(E32,G32,I32)-1)*100,0)&" %"),"")', ""]
+    - ["16", "", "", "", "", '=IF(OR($C33="",E33=""),"",$C33*E33)', "", '=IF(OR($C33="",G33=""),"",$C33*G33)', "", '=IF(OR($C33="",I33=""),"",$C33*I33)', '=IFERROR(IF(COUNT(E33,G33,I33)<2,"",ROUND((MAX(E33,G33,I33)/MIN(E33,G33,I33)-1)*100,0)&" %"),"")', ""]
+    - ["S1", "Zwischensumme netto", "", "", "", "=SUM(F18:F33)", "", "=SUM(H18:H33)", "", "=SUM(J18:J33)", "", "Fehlt bei einer Firma eine Position, ist der Vergleich der Summen nicht aussagekräftig"]
+    - ["S2", "Preisnachlass ohne Bedingung (Betrag in Euro)", "", "", "", "", "", "", "", "", "", "Nur Nachlässe eintragen, die an keine Bedingung geknüpft sind"]
+    - ["S3", "Summe netto nach Nachlass", "", "", "", "=F34-F35", "", "=H34-H35", "", "=J34-J35", "", ""]
+    - ["S4", "Umsatzsteuer (Betrag laut Angebot)", "", "", "", "", "", "", "", "", "", "Steht der Preis im Angebot netto oder brutto? Alle Angebote auf dieselbe Basis bringen"]
+    - ["S5", "Angebotssumme brutto", "", "", "", "=F36+F37", "", "=H36+H37", "", "=J36+J37", "", ""]
+    - ["S6", "Abstand zur niedrigsten Angebotssumme", "", "", "", '=IF(F38<=0,"",ROUND((F38/MIN(IF(F38>0,F38,9E+99),IF(H38>0,H38,9E+99),IF(J38>0,J38,9E+99))-1)*100,0)&" %")', "", '=IF(H38<=0,"",ROUND((H38/MIN(IF(F38>0,F38,9E+99),IF(H38>0,H38,9E+99),IF(J38>0,J38,9E+99))-1)*100,0)&" %")', "", '=IF(J38<=0,"",ROUND((J38/MIN(IF(F38>0,F38,9E+99),IF(H38>0,H38,9E+99),IF(J38>0,J38,9E+99))-1)*100,0)&" %")', "", "Liegt ein Angebot deutlich unter den anderen, Rückfrage stellen, ob die Leistung richtig verstanden wurde"]
+    - ["S7", "Skonto: Prozentsatz, Zahlungsfrist und betroffene Zahlungen", "", "", "", "", "", "", "", "", "", "Nicht in die Summe einrechnen. Ein Skonto braucht eine klar berechenbare Frist und eine feste Höhe"]
+    - ["S8", "Bedarfspositionen: Summe getrennt ausweisen", "", "", "", "", "", "", "", "", "", "Ob und in welchem Umfang sie nötig werden, steht beim Angebot noch nicht fest. Nicht in die Angebotssumme mischen"]
+    - ["S9", "Alternativpositionen: Mehr- oder Minderpreis getrennt ausweisen", "", "", "", "", "", "", "", "", "", "Sie sind Varianten zu einer Grundposition. Beauftragt wird nur eine der beiden"]
+    - ["B1", "Abrechnungsart: Pauschalpreis, Einheitspreise nach Aufmaß oder Stundenlohn", "", "", "", "", "", "", "", "", "", "Bei Aufmaß ändert sich die Endsumme mit den Mengen. Bei Pauschalpreis den Leistungsumfang genau festhalten"]
+    - ["B2", "Festpreis oder Preisgleitung", "", "", "", "", "", "", "", "", "", "Ohne andere Vereinbarung gelten Angebotspreise als Festpreise. Eine Preisgleitklausel muss vereinbart und sorgfältig formuliert sein"]
+    - ["B3", "Gerüst, Absperrung und Schutz des Umfelds enthalten (ja, nein, nach Aufwand)", "", "", "", "", "", "", "", "", "", "Auch Vor-, Nach- und Nebenarbeiten gehören in den Vergleich, etwa das Gerüst beim Fenstertausch"]
+    - ["B4", "Baustelleneinrichtung, Strom und Wasser, An- und Abfahrt", "", "", "", "", "", "", "", "", "", "Wer stellt Strom und Wasser, wer zahlt die Anfahrt?"]
+    - ["B5", "Vorarbeiten enthalten, zum Beispiel Abdecken, Demontage, Untergrund vorbereiten", "", "", "", "", "", "", "", "", "", ""]
+    - ["B6", "Nacharbeiten enthalten, zum Beispiel Verputzen, Anstrich, Wiederherstellen von Belägen", "", "", "", "", "", "", "", "", "", "Oft bleibt das Gewerk nach dem Umbau unvollständig, wenn niemand die Nacharbeit angeboten hat"]
+    - ["B7", "Entsorgung von Bauschutt und Verpackung enthalten", "", "", "", "", "", "", "", "", "", ""]
+    - ["B8", "Material: Hersteller, Fabrikat oder Qualität genannt", "", "", "", "", "", "", "", "", "", "Sind die Stoffe gleichwertig? Preisunterschiede kommen oft aus anderem Material"]
+    - ["B9", "Abweichungen vom Leistungsverzeichnis, Vorbehalte und Einschränkungen", "", "", "", "", "", "", "", "", "", "Jede Abweichung einzeln festhalten und bei der Firma erfragen"]
+    - ["B10", "Ausführungsbeginn und Ausführungsdauer", "", "", "", "", "", "", "", "", "", "Passen die Termine zu Mietern, Eigentümern und anderen Gewerken?"]
+    - ["B11", "Zahlungsplan: Abschläge, Fälligkeiten, Schlusszahlung", "", "", "", "", "", "", "", "", "", "Entspricht jede Abschlagszahlung dem tatsächlichen Baufortschritt?"]
+    - ["B12", "Sicherheiten: Bürgschaft, Einbehalt oder Vorauszahlung", "", "", "", "", "", "", "", "", "", "Wird eine Vorauszahlung verlangt? Dann Sicherheit besprechen"]
+    - ["B13", "Vertragsgrundlage: BGB oder VOB/B", "", "", "", "", "", "", "", "", "", "Die Grundlage bestimmt Fristen und Rechte. Bei Unklarheit vor Beauftragung klären"]
+    - ["B14", "Gewährleistung: Dauer und Beginn laut Angebot", "", "", "", "", "", "", "", "", "", "Beginnt die Frist mit der Abnahme? Weicht das Angebot von den Vertragsbedingungen ab?"]
+    - ["B15", "Ansprechperson auf der Baustelle und Bauleitung", "", "", "", "", "", "", "", "", "", ""]
+    - ["B16", "Nachweis der Betriebshaftpflichtversicherung", "", "", "", "", "", "", "", "", "", "Nachweis anfordern und ablegen"]
+    - ["B17", "Referenzen oder Nachweise der Fachkunde", "", "", "", "", "", "", "", "", "", "Vergleichbare Arbeiten an ähnlichen Gebäuden erfragen"]
+    - ["B18", "Offene Rückfragen an die Firma mit Datum und Antwort", "", "", "", "", "", "", "", "", "", "Antworten schriftlich festhalten und zum Angebot legen"]
+    - ["B19", "Rangfolge nach Preis und nach Leistung", "", "", "", "", "", "", "", "", "", "Der niedrigste Preis ist nicht automatisch das beste Preis-Leistungs-Verhältnis"]
+    - ["B20", "Empfehlung und Begründung für Beschluss oder Entscheidung", "", "", "", "", "", "", "", "", "", "Kurz begründen, warum diese Firma gewählt wird, und die Tabelle der Entscheidung beilegen"]
+  leerzeilen: 6
+hinweise:
+  - "Schicken Sie allen Firmen dieselbe Leistungsbeschreibung. Nur dann stehen die Preise für dieselbe Leistung nebeneinander."
+  - "Prüfen Sie zuerst, ob jedes Angebot vollständig ist, und erst danach den Preis. Ein niedriger Preis kann bedeuten, dass Nebenarbeiten wie das Gerüst fehlen."
+  - "Tragen Sie je Position die Menge einmal ein. Alle Firmen rechnen dann mit derselben Menge, und Mengenunterschiede verfälschen den Vergleich nicht."
+  - "Fehlt eine Position in einem Angebot, lassen Sie die Zelle leer und fragen Sie nach. Eine fehlende Position ist keine Leistung für null Euro."
+  - "Rechnen Sie Bedarfs- und Alternativpositionen getrennt von der Angebotssumme. Sie sind keine feste Leistung, sondern eine mögliche Ergänzung oder eine Variante."
+  - "Rechnen Sie ein Skonto nicht in die Summe ein. Es gilt nur, wenn die Zahlung in der genannten Frist erfolgt."
+  - "Die Spalte Spanne zeigt, wie weit die Einzelpreise einer Position auseinanderliegen. Sie ist ein Anlass zur Rückfrage und keine Bewertung."
+  - "Ein deutlich niedrigeres Angebot ist ein Grund, die Firma zu fragen, was in ihrem Preis steckt. Es ist nicht von vornherein falsch."
+  - "Das Landgericht München I hielt für größere Sanierungsmaßnahmen einer Eigentümergemeinschaft regelmäßig mindestens drei Vergleichsangebote für nötig. Die Angebote müssen dabei nicht in jeder Hinsicht über ein genaues Leistungsverzeichnis vergleichbar sein."
+  - "Diese Tabelle ersetzt keine Beratung im Einzelfall, keine Prüfung der Preise durch einen Sachverständigen und keine Rechtsberatung. Fragen zu Vertrag, Fristen oder Beschluss beurteilt ein Rechtsanwalt."
+quellen:
+  - "Vergleich der Preise je Position in einem Preisspiegel, Auffälligkeiten und Preisabstände (Belke, Vergabepraxis für Auftraggeber, 3. Aufl. 2017, S. 162; Vogt, Kalkulation von Baupreisen, 2025, S. 126 f.)"
+  - "Preisspiegel als Teil der Angebotsprüfung bei der Mitwirkung an der Vergabe (Siemon/Averhaus: HOAI 2021, 7. Aufl. 2024, S. 93)"
+  - "Grundposition, Alternativposition und Bedarfsposition (Berner/Kochendörfer/Schach: Grundlagen der Baubetriebslehre 1, 3. Aufl. 2020, S. 117 f.)"
+  - "Preisnachlass und Skonto bei der Wertung (Belke 2017, S. 174); Voraussetzungen einer Skontovereinbarung und Festpreis (Rode/Weller: AVA-Handbuch, 11. Aufl. 2025, S. 99)"
+  - "Kostenanschlag, § 632 Abs. 3 und § 649 BGB (amtlicher Text, gesetze-im-internet.de)"
+  - "Vollständigkeit vor Preisvergleich, zwei bis drei Angebote (Verbraucherzentrale: Handwerker finden, So vermeiden Sie böse Überraschungen)"
+  - "Vergleichsangebote bei größeren Maßnahmen von Wohnungseigentümergemeinschaften (LG München I, Endurteil vom 03.07.2025 – 36 S 1486/24 WEG, Rn. 42 bis 44)"
