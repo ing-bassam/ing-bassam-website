@@ -28,7 +28,7 @@ BLOCK = {"p", "li", "ul", "ol", "div", "br", "h3", "h4", "table", "tr", "td", "t
 
 
 def seiten() -> list[Path]:
-    liste = [WURZEL / "index.html", WURZEL / "wertrechner" / "index.html", WURZEL / "en" / "index.html"]
+    liste = [WURZEL / "index.html", WURZEL / "en" / "index.html"]
     liste += sorted((WURZEL / "leistungen").rglob("index.html"))
     liste += sorted(p for p in (WURZEL / "en").glob("*/index.html") if p.parent.name != "guides")
     liste += sorted((WURZEL / "werkzeuge").rglob("index.html"))

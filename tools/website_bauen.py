@@ -13,6 +13,9 @@ sie hier eingetragen ist. tests/test_website_bauen.py verlangt, dass jeder
 Eintrag der obersten Ebene einer der beiden Listen zugeordnet ist, und prüft,
 dass jede ausgelieferte Seite nur auf ausgelieferte Dateien verweist.
 
+Dazu kommen Weiterleitungen früherer Adressen (WEITERLEITUNGEN): kleine Seiten,
+die erst beim Bauen entstehen.
+
 Aufruf:
     python tools/website_bauen.py --ziel _site    Verzeichnis bauen (darf nicht existieren oder muss leer sein)
     python tools/website_bauen.py --liste         ausgelieferte Dateien auflisten
@@ -53,10 +56,11 @@ MUSTER = (
 # Ordner der Website und die Dateiarten, die daraus ausgeliefert werden.
 ORDNER = {
     "fachwissen": {".html", ".css"},
-    "leistungen": {".html"},
+    # seiten.css: gemeinsames Stylesheet der Leistungsseiten, der englischen
+    # Seiten, des Mängelanzeige-Generators und der Angebotsseite.
+    "leistungen": {".html", ".css"},
     "en": {".html"},
     "werkzeuge": {".html", ".js"},
-    "wertrechner": {".html", ".css", ".js", ".json"},
     # Private Angebotsseiten: nur über einen persönlichen Link nutzbar, Inhalte
     # verschlüsselt in paket.js (tools/angebot_verschluesseln.mjs). Nicht verlinkt,
     # nicht in Sitemap oder llms.txt (tests/test_angebot.py).
@@ -72,8 +76,65 @@ INTERN = {
     "CLAUDE.md",                             # Hinweise für Claude-Sitzungen und -Agenten
     "tools", "tests",                        # Werkzeuge und Tests
     "entwuerfe", "entwuerfe-en",             # Quelltexte der Beiträge (gebaut nach fachwissen/ und en/guides/)
-    "marketing", "fachliteratur", "daten",   # Unterlagen, Literatur, Rohdaten
+    "marketing",                             # Unterlagen
 }
+
+# Frühere Adressen, die es nicht mehr gibt: alter Ordner → (neue Adresse, Titel
+# der Zielseite, Sprache). GitHub Pages kann keine serverseitigen
+# Weiterleitungen. Der Seitenbau legt deshalb je Adresse eine kleine Seite mit
+# sofortiger meta-refresh-Weiterleitung ab – wie kontakt.html im Hauptordner;
+# Suchmaschinen behandeln das wie eine dauerhafte Weiterleitung. Im Repository
+# selbst liegen dafür keine Dateien. Seit November 2026: Wertrechner,
+# Gewährleistungsfrist- und Taupunkt-Rechner sowie die Übersicht „Werkzeuge“
+# wurden entfernt; der Code steht weiter in der Git-Historie.
+WEITERLEITUNGEN = {
+    "wertrechner/": ("/leistungen/kaufbegutachtung/", "Kaufbegutachtung", "de"),
+    "en/property-valuation/": ("/en/pre-purchase-inspection-berlin/", "Pre-purchase building survey", "en"),
+    "werkzeuge/": ("/fachwissen/vorlagen/", "Checklisten und Vorlagen", "de"),
+    "werkzeuge/gewaehrleistungsfrist/": ("/fachwissen/gewaehrleistung-bau-fristen-bgb-vob/",
+                                         "Gewährleistungsfristen am Bau", "de"),
+    "werkzeuge/taupunkt/": ("/fachwissen/taupunkt-oberflaechentemperatur-schimmelkriterium/",
+                            "Taupunkt und Schimmelkriterium", "de"),
+}
+
+BASIS_URL = "https://ing-bassam.de"
+
+_WEITERLEITUNG_VORLAGE = """<!DOCTYPE html>
+<html lang="{sprache}">
+<head>
+<meta charset="UTF-8">
+<!-- Weiterleitung einer früheren Adresse, erzeugt von tools/website_bauen.py (WEITERLEITUNGEN). Ohne Skript, ohne Cookies. -->
+<meta http-equiv="refresh" content="0; url={ziel}">
+<link rel="canonical" href="{basis}{ziel}">
+<meta name="robots" content="noindex, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>{titel} – BIB Ingenieurbüro für Bauwesen</title>
+<style>body{{margin:0;min-height:100vh;display:grid;place-items:center;background:#f4f3ef;color:#0f1a28;font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif}}a{{color:#2b5a86}}</style>
+</head>
+<body>
+<p>{hinweis} <a href="{ziel}">{titel}</a></p>
+</body>
+</html>
+"""
+
+
+def weiterleitung_html(ziel: str, titel: str, sprache: str) -> str:
+    hinweis = "This page has moved:" if sprache == "en" else "Diese Seite ist umgezogen:"
+    return _WEITERLEITUNG_VORLAGE.format(ziel=ziel, titel=titel, sprache=sprache, hinweis=hinweis, basis=BASIS_URL)
+
+
+def weiterleitungen_pruefen(dateien: list[str]) -> list[str]:
+    """Fehler der Tabelle: Die alte Adresse darf keine echte Seite verdecken,
+    das Ziel muss ausgeliefert werden."""
+    vorhanden = set(dateien)
+    fehler = []
+    for alt, (ziel, _, _) in WEITERLEITUNGEN.items():
+        if alt + "index.html" in vorhanden:
+            fehler.append(f"{alt}: Unter dieser Adresse liegt noch eine Seite im Repository.")
+        if ziel.strip("/") + "/index.html" not in vorhanden:
+            fehler.append(f"{alt}: Das Ziel {ziel} wird nicht ausgeliefert.")
+    return fehler
 
 
 def _git() -> str | None:
@@ -151,6 +212,14 @@ def bauen(ziel: Path) -> list[str]:
         ausgabe = ziel / pfad
         ausgabe.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(quelle, ausgabe)
+    fehler = weiterleitungen_pruefen(dateien)
+    if fehler:
+        raise SystemExit("FEHLER in WEITERLEITUNGEN:\n  " + "\n  ".join(fehler))
+    for alt, (adresse, titel, sprache) in WEITERLEITUNGEN.items():
+        ausgabe = ziel / alt / "index.html"
+        ausgabe.parent.mkdir(parents=True, exist_ok=True)
+        ausgabe.write_text(weiterleitung_html(adresse, titel, sprache), encoding="utf-8", newline="\n")
+        dateien.append(alt + "index.html")
     return dateien
 
 

@@ -1,5 +1,7 @@
 # Gestaltung der Website – Konzept für die Überarbeitung 2026-11
 
+> Nachtrag 18.11.2026: Wertrechner (deutsch und englisch), Gewährleistungsfrist- und Taupunkt-Rechner sowie die Übersicht `/werkzeuge/` wurden entfernt, damit die Website nicht überladen wirkt. Die alten Adressen leiten weiter (`WEITERLEITUNGEN` in `tools/website_bauen.py`). Geblieben ist der Mängelanzeige-Generator, erreichbar über „Checklisten und Vorlagen“. Die Angaben dazu weiter unten beschreiben den früheren Stand.
+
 Stand 09.11.2026. Gilt für alle von Hand gepflegten Seiten (Startseite, Leistungsseiten, Werkzeuge, Wertrechner, englische Seiten) und für die Vorlagen der erzeugten Seiten (Fachbeiträge, englische Leitfäden). Die Texte der Fachbeiträge selbst bleiben unverändert.
 
 ## 1. Ausgangslage
