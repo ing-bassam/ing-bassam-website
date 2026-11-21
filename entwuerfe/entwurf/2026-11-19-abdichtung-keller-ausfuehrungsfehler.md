@@ -19,11 +19,11 @@ notion_id: 3dfd96ad-00b4-81ef-ab1e-c05f814cf554
 notion_url: https://app.notion.com/p/Abdichtung-erdber-hrter-Bauteile-h-ufige-Ausf-hrungsfehler-3dfd96ad00b481efab1ec05f814cf554
 fachlich_geprueft_von:
 fachlich_geprueft_am:
-wortzahl: 3131
-lesezeit: 16 Minuten
-fussnoten: 15
+wortzahl: 2786
+lesezeit: 14 Minuten
+fussnoten: 14
 quellen_geprueft: 2
-zahlenwerte_norm: 3
+zahlenwerte_norm: 5
 todos: 0
 regelwerke_bestaetigt: DIN 18533-1:2026-06, DIN 18533-3:2026-06
 ---
@@ -58,37 +58,29 @@ Auch die geplante Nutzung des Kellers gehört zur Planung der Abdichtung. Nach d
 
 ## Warum Untergrund und Verarbeitung die Abdichtung der Kellerwand entscheiden
 
-Eine Bitumendickbeschichtung ist ein flüssig aufgetragener Abdichtungsstoff auf Bitumenbasis. Für sie zählt nach DIN 18533-3:2026-06, Abschnitt 4.1.2, die Dicke der getrockneten Schicht, und zwar an der dünnsten Stelle: Der Mindestwert muss überall erreicht sein, nicht nur im Mittel[^6]. Die Außenfläche einer gemauerten Wand ist selten ganz eben, und ein Auftrag, der Vertiefungen füllt, wird auf Erhebungen dünn. Wo die Schicht dünn ist, liegt die Schwachstelle. Wo sie sehr dick ausfällt, braucht sie entsprechend lange zum Austrocknen. Ein Gutachter schildert einen Fall, in dem über der Hohlkehle nur ein Bruchteil der geforderten Dicke gemessen wurde und sich die Beschichtung auf dem Fundamentvorsprung leicht vom Untergrund lösen ließ[^7].
+Die Arbeit an der Kellerwand beginnt mit dem Untergrund. Nach DIN 18533-3:2026-06, Abschnitt 4.2, muss er ausreichend fest sein und vor dem Auftrag vorbereitet werden; Unebenheiten und Fehlstellen sind vorher zu beseitigen. Ziel ist nach derselben Stelle, dass die Abdichtung auf der ganzen Fläche am Untergrund haftet[^6]. Ohne diese Vorbereitung ist das Ziel nicht sicher zu erreichen.
 
-Weil sich die fertige Schicht nach dem Überdecken nicht mehr einsehen lässt, kommt es auf Kontrollen während der Arbeit an. Die Norm rechnet deshalb von vornherein mit mehr Material, als die reine Schichtdicke ergibt, weil von Hand nie völlig gleichmäßig aufgetragen wird und raue Flächen Stoff aufnehmen[^6]. Die Schutzschicht darf erst aufgebracht werden, wenn die Beschichtung vollständig durchgetrocknet ist (DIN 18533-3:2026-06, 9.2.4; DIN 18533-1:2026-06, 13.2.1)[^8]. Wird unter Zeitdruck sofort gedämmt und verfüllt, trocknet die Schicht unter der geschlossenen Konstruktion nur verzögert. Das ist kein bloßes Praxisproblem, sondern ein Verstoß gegen die Norm. Dicke Stellen bleiben dann lange weich und sind entsprechend verletzlich.
+Danach folgt die Hohlkehle, der gerundete Übergang zwischen Wand und Fundamentvorsprung oder Bodenplatte. Nach DIN 18533-3:2026-06, Abschnitt 9.2.3 b), ist der Normalfall eine Kehle aus Mörtel, der zum Abdichtungssystem und zum Untergrund passt. Aus der Dickbeschichtung selbst darf sie nur geformt werden, wenn das Produkt zweikomponentig ist und der Hersteller es in seinem Merkblatt erlaubt, und dann nur mit kleinerem Radius[^7]. Die Hohlkehle liegt am Fuß der Wand. Ein Fehler an dieser Stelle zeigt sich deshalb später als Feuchte am Wandfuß im Keller.
 
-Besonders anfällig ist die Hohlkehle, der gerundete Übergang zwischen Wand und Fundamentvorsprung oder Bodenplatte. Nach DIN 18533-3:2026-06, Abschnitt 9.2.3 b), ist der Normalfall eine Kehle aus Mörtel, der zum Abdichtungssystem und zum Untergrund passt. Aus der Dickbeschichtung selbst darf sie nur geformt werden, wenn der Hersteller das in seinem Merkblatt erlaubt, und dann nur mit kleinem Radius[^9]. Wer die Kehle dennoch dick aus Beschichtung formt, weicht von der Regel der Norm ab und riskiert eine Schicht, die lange nicht durchtrocknet. Solche Stellen liegen dort, wo Sickerwasser sich staut und von außen gegen die Wand drückt. Ein Fehler an der Hohlkehle zeigt sich deshalb später als Feuchte am Wandfuß im Keller.
+Erst dann wird die Fläche beschichtet. Eine Bitumendickbeschichtung ist ein flüssig aufgetragener Abdichtungsstoff auf Bitumenbasis. Für sie zählt nach DIN 18533-3:2026-06, Abschnitt 4.1.2, die Dicke der getrockneten Schicht, und zwar an der dünnsten Stelle: Der Mindestwert muss überall erreicht sein, nicht nur im Mittel[^8]. Die Norm rechnet deshalb von vornherein mit mehr Material, als die reine Schichtdicke ergibt, weil von Hand nie völlig gleichmäßig aufgetragen wird und raue Flächen Stoff aufnehmen[^8]. Weil sich die fertige Schicht nach dem Überdecken nicht mehr einsehen lässt, verlangt die Norm außerdem, Materialverbrauch und Dicke der frischen Schicht schon während der Verarbeitung laufend zu kontrollieren[^8].
 
-Neben der Verarbeitung entscheidet der Untergrund über die Dauerhaftigkeit der Abdichtung. Nach DIN 18533-3:2026-06, Abschnitt 4.2, muss der Untergrund fest genug sein und vor dem Auftrag vorbereitet werden: Er wird gereinigt, und Löcher, vorstehende Kanten oder offene Fugen werden geschlossen oder ausgeglichen[^10]. Unterbleibt das, haftet die Beschichtung nur stellenweise und kann sich an den übrigen Stellen ablösen.
-
-Im Bestand kommt hinzu, dass freigelegte Kellerwände oft ältere Abdichtungen tragen, deren Stoff niemand kennt. Dann sind Unverträglichkeiten mit einer neuen Beschichtung nicht auszuschließen, und ob die alte Abdichtung als Träger bleiben kann, klärt eine Bauzustandsanalyse[^11].
+Zuletzt muss die Beschichtung trocknen. Die Schutzschicht darf erst aufgebracht werden, wenn die Beschichtung vollständig durchgetrocknet ist (DIN 18533-3:2026-06, 9.2.4; DIN 18533-1:2026-06, 13.2.1)[^9]. Wer vorher überdeckt, verstößt gegen die Norm.
 
 ## Wo Sockel, Durchdringungen und Anschlüsse Wasser in die Kellerwand lassen
 
-Der Sockel ist der Bereich, in dem die erdberührte Abdichtung der Kellerwand in die Fassade übergeht. Dort wirkt Spritzwasser, das bei Niederschlag vom Boden abprallt und die Wand nahe dem Gelände beansprucht. Ein Gutachter beschreibt einen Fall, in dem ein Gehweg ohne Gefälle bis an das Gebäude reichte und der Sockel neben Feuchteflecken auch verschmutzt war[^3]. Der Sockel ist damit eine Stelle, an der Abdichtungsfehler und bloße Spritzwasserwirkung zusammentreffen und kaum zu unterscheiden sind.
+Der Sockel ist der Bereich, in dem die erdberührte Abdichtung der Kellerwand in die Fassade übergeht. Dort treffen die Arbeiten am Gebäude und an den Außenanlagen aufeinander, oft mit zeitlichem Abstand und von verschiedenen Firmen ausgeführt. Ein mögliches Beispiel ist eine Geländeoberfläche, die höher angelegt wird als geplant. Das obere Ende der Abdichtung liegt dann unter statt über der Oberfläche. Ist der Sockel nicht bekleidet, verlangt DIN 18533-1:2026-06 in Abschnitt 8.8.2.4, dass die Abdichtung auch im fertigen Zustand noch mindestens 15 cm über das Gelände reicht[^10]. Spritzwasser trifft sonst ungeschützten Putz oder Mauerwerk.
 
-Am Sockel treffen die Arbeiten am Gebäude und an den Außenanlagen aufeinander, oft mit zeitlichem Abstand und von verschiedenen Firmen ausgeführt. Ein mögliches Beispiel ist eine Geländeoberfläche, die höher angelegt wird als geplant. Das obere Ende der Abdichtung liegt dann unter statt über der Oberfläche. Ist der Sockel nicht bekleidet, verlangt DIN 18533-1:2026-06 in Abschnitt 8.8.2.4, dass die Abdichtung auch im fertigen Zustand noch mindestens 15 cm über das Gelände reicht[^12]. Spritzwasser trifft sonst ungeschützten Putz oder Mauerwerk.
-
-Durchdringungen wie Entwässerungsrohre, Leitungen und Hauseinführungen sind kleine Flächen mit großem Schadenspotenzial. Wie eine Leitung an die Abdichtung angeschlossen wird, richtet sich danach, mit welchem Wasser an genau dieser Stelle zu rechnen ist. Die Norm gibt außerdem Mindestabstände der Anschlussteile zu Kanten, Kehlen und Fugen vor. Lassen sie sich nicht einhalten, muss eine Sonderkonstruktion geplant werden (DIN 18533-1:2026-06, Abschnitte 10.1 und 10.2)[^13].
-
-Der Fundamentvorsprung an der Kellerwand ist ein weiterer Fehlerort, weil die Abdichtung dort in eine waagerechte Lage übergeht, auf der sich Erde ablagert und Sickerwasser sammelt. Haftet die Beschichtung dort auf verschmutztem Untergrund oder fällt sie zu dünn aus, kann sie sich ablösen, und das Wasser tritt am Wandfuß ein. Innen zeigt sich das als anhaltende Feuchte, die nach dem Einzug nicht abklingt. Für die Sanierung in dem erwähnten Fall wurde empfohlen, die Abdichtung ohne Unterbrechung über Wand, Hohlkehle und Vorsprung zu führen[^7].
+Durchdringungen wie Entwässerungsrohre, Leitungen und Hauseinführungen sind kleine Flächen mit großem Schadenspotenzial. Wie eine Leitung an die Abdichtung angeschlossen wird, richtet sich danach, mit welchem Wasser an genau dieser Stelle zu rechnen ist. Die Norm gibt außerdem Mindestabstände der Anschlussteile zu Kanten, Kehlen und Fugen vor. Lassen sie sich nicht einhalten, muss eine Sonderkonstruktion geplant werden (DIN 18533-1:2026-06, Abschnitte 10.1 und 10.2)[^11].
 
 ## Wie die fertige Abdichtung beim Schutz und beim Verfüllen beschädigt wird
 
-Die Norm unterscheidet die Schutzschicht, die die Abdichtung dauerhaft schützt, von der Schutzmaßnahme, die nur während der Bauzeit wirkt[^8]. Der Unterschied ist für die Ursachenklärung bedeutsam, denn ein Schaden kann in der Bauphase durch fehlende Schutzmaßnahmen entstehen und trotzdem erst Jahre später als Feuchte an der Kellerwand auftreten.
+Die Norm unterscheidet die Schutzschicht, die die Abdichtung dauerhaft schützt, von der Schutzmaßnahme, die nur während der Bauzeit wirkt (DIN 18533-1:2026-06, Abschnitte 4.5.1 und 13.4)[^12]. Zur Schutzmaßnahme gehört etwa, die noch ungeschützte Abdichtung von Lasten und von schädigenden Stoffen freizuhalten[^12]. Der Unterschied ist für die Ursachenklärung bedeutsam, denn ein Schaden kann in der Bauphase durch fehlende Schutzmaßnahmen entstehen und trotzdem erst Jahre später als Feuchte an der Kellerwand auftreten.
 
-Wann die Schutzschicht eingebaut wird, hängt von der Abdichtungsart ab. Bahnen werden zügig überdeckt, sobald sie fertig verlegt sind. Flüssig aufgetragene Stoffe müssen vorher ganz durchgetrocknet oder ausgehärtet sein (DIN 18533-1:2026-06, 13.2.1)[^8]. Zu frühes Überdecken führt zu der oben beschriebenen weichen Schicht. Bleibt die Abdichtung dagegen lange ungeschützt, ist sie in der Bauphase mechanischen und thermischen Einwirkungen ausgesetzt. Vor dem Einbau der Schutzschicht muss die Fläche sauber sein, denn schon kleine Fremdkörper können die Abdichtung unter dem Druck des Erdreiches verletzen[^8].
+Bevor die Schutzschicht eingebaut wird, muss die Fläche sauber sein, denn schon kleine Fremdkörper können die Abdichtung unter dem Druck des Erdreiches verletzen[^9]. Der Zeitpunkt des Einbaus hängt von der Abdichtungsart ab: Bahnen werden zügig überdeckt, sobald sie fertig verlegt sind, flüssig aufgetragene Stoffe erst, wenn sie ganz durchgetrocknet oder ausgehärtet sind (DIN 18533-1:2026-06, 13.2.1)[^9]. Bleibt die Abdichtung lange ungeschützt, ist sie in der Bauphase mechanischen und thermischen Einwirkungen ausgesetzt.
 
-Manche Schutzschichten leiten zugleich Wasser ab, etwa Dränplatten. Für sie gelten nach der Norm zusätzlich die Regeln für Dränungen[^8]. Eine solche Dränplatte wirkt nur, wenn sie tatsächlich an eine Ableitung angeschlossen ist. Andernfalls schützt sie die Abdichtung mechanisch, ohne den Wasserdruck zu mindern.
+Manche Schutzschichten leiten zugleich Wasser ab, etwa Dränplatten. Für sie gelten nach der Norm zusätzlich die Regeln für Dränungen[^9]. Eine solche Dränplatte wirkt nur, wenn sie tatsächlich an eine Ableitung angeschlossen ist. Andernfalls schützt sie die Abdichtung mechanisch, ohne den Wasserdruck zu mindern.
 
-Das Verfüllen der Baugrube ist der letzte kritische Arbeitsschritt. Bauschutt und anderes grobes Material haben an der abgedichteten Wand nichts zu suchen. Der Boden wird in dünnen Lagen eingebaut und verdichtet, und zwar so, dass Abdichtung und Schutzschicht dabei keinen zusätzlichen Druck abbekommen (DIN 18533-1:2026-06, Abschnitt 14)[^14]. Gefährlich werden deshalb schwere Fahrzeuge und Verdichtungsgeräte dicht an der Kellerwand. Ein Schaden aus dem Verfüllen oder Verdichten bleibt zunächst unsichtbar und kann sich erst später zeigen, wenn Sickerwasser die verletzte Stelle erreicht.
-
-Auch während der Bauarbeiten selbst braucht die Abdichtung Schutz: Auf ihr wird nichts gelagert, Öle und Kraftstoffe bleiben fern, und senkrechte Flächen werden vor starker Sonne geschützt, damit die Abdichtung nicht abrutscht (DIN 18533-1:2026-06, 13.4)[^15].
+Das Verfüllen der Baugrube ist der letzte kritische Arbeitsschritt. Bauschutt und anderes grobes Material haben an der abgedichteten Wand nichts zu suchen. Der Boden wird in dünnen Lagen eingebaut und verdichtet, und zwar so, dass Abdichtung und Schutzschicht dabei keinen zusätzlichen Druck abbekommen (DIN 18533-1:2026-06, Abschnitt 14)[^13]. Gefährlich werden deshalb schwere Fahrzeuge und Verdichtungsgeräte dicht an der Kellerwand. Ein Schaden aus dem Verfüllen oder Verdichten bleibt zunächst unsichtbar und kann sich erst später zeigen, wenn Sickerwasser die verletzte Stelle erreicht.
 
 ## Wie sich die Ursache einer undichten Kellerwand eingrenzen lässt
 
@@ -98,15 +90,15 @@ Eigentümer und Verwalter können zur Klärung beitragen, ohne die Konstruktion 
 
 Bei einer feuchten Kellerwand gelten Sicherheitsgrenzen. Steht Wasser im Keller oder sind Steckdosen, Verteiler und Leitungen betroffen, ist der Bereich zu sichern und eine Elektrofachkraft einzuschalten, bevor jemand den Raum betritt. Verdacht auf großflächigen Schimmel gehört in die Hände von Fachleuten. Auch das Öffnen der Außenseite, das Aufgraben vor der Kellerwand und das Anbohren der Abdichtung sind keine Selbsthilfemaßnahmen, weil dabei die Abdichtung beschädigt und die Standsicherheit des Erdreiches neben dem Gebäude beeinträchtigt werden kann.
 
-Fachleute untersuchen die Abdichtung von erdberührten Bauteilen schrittweise. Zuerst werden Unterlagen gesichtet und der Schadenverlauf aufgenommen, dann folgen je nach Fragestellung Feuchtemessungen und das Öffnen der Konstruktion an wenigen, sorgfältig gewählten Stellen. In dem oben beschriebenen Schadensfall brachte erst ein Kontrollschacht vor der Kellerwand die zu geringe Schichtdicke über der Hohlkehle zutage[^7]. Je nach Fragestellung kommen weitere Verfahren in Betracht, teils unter Hinzuziehung von Fachlaboren oder Messdienstleistern.
+Fachleute untersuchen die Abdichtung von erdberührten Bauteilen schrittweise. Zuerst werden Unterlagen gesichtet und der Schadenverlauf aufgenommen, dann folgen je nach Fragestellung Feuchtemessungen und das Öffnen der Konstruktion an wenigen, sorgfältig gewählten Stellen. Darüber hinaus kommen weitere Verfahren in Betracht, teils unter Hinzuziehung von Fachlaboren oder Messdienstleistern.
 
-Gibt es keine Aufzeichnungen über die Ausführung oder ernsthafte Zweifel an der Schichtdicke, kennt DIN 18533-3:2026-06 in Abschnitt 4.1.3.2 eine Nachprüfung am fertigen Bauteil, die Bestätigungsprüfung. Gemessen wird die Dicke der trockenen Schicht, je 100 m² abgedichteter Fläche an mindestens zehn Punkten. An Details wie Durchdringungen und Anschlüssen lohnt es sich, dichter zu messen[^6]. Für die Untersuchung einer undichten Kellerwand ist diese Messung ein Weg, um eine vermutete zu dünne Stelle nachzuweisen oder auszuschließen.
+Für begründete Zweifelsfälle kennt DIN 18533-3:2026-06 in Abschnitt 4.1.3.2 eine Nachprüfung am fertigen Bauteil, die Bestätigungsprüfung: Die Dicke der trockenen Schicht wird je 100 m² abgedichteter Fläche an mindestens zehn Punkten gemessen[^8]. Für die Untersuchung einer undichten Kellerwand ist diese Messung ein Weg, um eine vermutete zu dünne Stelle nachzuweisen oder auszuschließen.
 
-Neubau und Bestand erfordern unterschiedliche Fragen. Bei einem Neubau lässt sich häufig noch klären, wie die Abdichtung vor dem Verfüllen aussah, weil Fotos, Bautagebuch und Abnahmeunterlagen vorliegen können. Im Bestand fehlen diese Unterlagen oft, und die Fachliteratur empfiehlt eine Bauzustandsanalyse, bevor über die Weiterverwendung einer vorhandenen Abdichtung entschieden wird[^11]. Bei gewerblich genutzten Kellern, etwa als Archiv oder Lager, kommt die Frage hinzu, welche Feuchtigkeit die gelagerten Güter vertragen, denn die Nutzung bestimmt, wie dicht die Kellerwand sein muss.
+Neubau und Bestand erfordern unterschiedliche Fragen. Bei einem Neubau lässt sich häufig noch klären, wie die Abdichtung vor dem Verfüllen aussah, weil Fotos, Bautagebuch und Abnahmeunterlagen vorliegen können. Im Bestand fehlen diese Unterlagen oft, und die Fachliteratur empfiehlt eine Bauzustandsanalyse, bevor über die Weiterverwendung einer vorhandenen Abdichtung entschieden wird[^14]. Bei gewerblich genutzten Kellern, etwa als Archiv oder Lager, kommt die Frage hinzu, welche Feuchtigkeit die gelagerten Güter vertragen, denn die Nutzung bestimmt, wie dicht die Kellerwand sein muss.
 
 ## Was aus den Fehlerbildern folgt und wann ein Gutachten zur Kellerabdichtung sinnvoll ist
 
-Die beschriebenen Fehler haben eine gemeinsame Eigenschaft: Sie entstehen an Stellen, die nach wenigen Wochen verdeckt sind. Für die Praxis folgt daraus, dass die Abdichtung erdberührter Bauteile vor dem Überdecken geprüft und fotografisch festgehalten werden sollte, und zwar an Untergrund, Hohlkehle, Fundamentvorsprung, Durchdringungen, Anschlüssen und Schutzschicht. Auftraggeber, Planer und Ausführende haben jeweils eigene Interessen an dieser Dokumentation. Sie ist für die spätere Ursachenklärung wertvoll, auch wenn niemand zum Zeitpunkt der Herstellung einen Schaden erwartet.
+Die beschriebenen Fehler haben eine gemeinsame Eigenschaft: Sie entstehen an Stellen, die nach wenigen Wochen verdeckt sind. Für die Praxis folgt daraus, dass die Abdichtung erdberührter Bauteile vor dem Überdecken geprüft und fotografisch festgehalten werden sollte, und zwar an Untergrund, Hohlkehle, Durchdringungen, Anschlüssen und Schutzschicht. Auftraggeber, Planer und Ausführende haben jeweils eigene Interessen an dieser Dokumentation. Sie ist für die spätere Ursachenklärung wertvoll, auch wenn niemand zum Zeitpunkt der Herstellung einen Schaden erwartet.
 
 Ein Gutachten zu einer undichten Kellerwand ist sinnvoll, wenn die Ursache unklar ist, wenn eine Sanierung geplant wird oder wenn mehrere Beteiligte unterschiedliche Erklärungen vertreten. Ein Sachverständiger klärt, ob ein Ausführungsfehler der Abdichtung vorliegt, an welcher Stelle er liegt und welche Teile der Kellerwand betroffen sind. Er ersetzt dabei weder die Planung der Sanierung noch die Entscheidung des Auftraggebers über Umfang und Reihenfolge der Arbeiten. Seine Aussage bleibt auf den untersuchten Zustand und die zugänglichen Stellen bezogen.
 
@@ -132,15 +124,15 @@ Nein. Eine Dränanlage ersetzt keine Abdichtung[^4]. Sie kann den Wasserdruck au
 
 **Wie lässt sich bei einem Neubau verhindern, dass die Abdichtung beim Verfüllen beschädigt wird?**
 
-Nach der Norm wird der Boden in dünnen Lagen eingebaut und verdichtet, ohne die Abdichtung zusätzlich zu belasten, und Bauschutt gehört nicht an die Wand[^14]. Hilfreich ist außerdem eine Prüfung und Fotodokumentation der Abdichtung, bevor sie überdeckt wird, damit spätere Schäden besser zugeordnet werden können.
+Nach der Norm wird der Boden in dünnen Lagen eingebaut und verdichtet, ohne die Abdichtung zusätzlich zu belasten, und Bauschutt gehört nicht an die Wand[^13]. Hilfreich ist außerdem eine Prüfung und Fotodokumentation der Abdichtung, bevor sie überdeckt wird, damit spätere Schäden besser zugeordnet werden können.
 
 **Muss die Kellerwand geöffnet werden, um die Ursache zu finden?**
 
 Nicht immer, aber häufig an einzelnen Stellen. Fachleute beginnen mit Unterlagen, Beobachtungen und Messungen und öffnen die Konstruktion erst, wenn diese Schritte nicht ausreichen. Ob und wo geöffnet wird, hängt vom Befund und von der Zugänglichkeit ab. Eigenes Aufgraben oder Anbohren ist nicht ratsam, weil es die Abdichtung beschädigen kann.
 
-**Was gilt bei einem älteren Gebäude mit unbekannter Abdichtung?**
+**Lässt sich die Dicke einer Dickbeschichtung nachträglich prüfen?**
 
-Bei alten Kellern weiß häufig niemand mehr, womit einst abgedichtet wurde. Die Fachliteratur empfiehlt, vor einer Entscheidung über Erhalt oder Entfernung der alten Abdichtung eine Bauzustandsanalyse durch einen Sachverständigen durchführen zu lassen[^11].
+Ja. Für begründete Zweifelsfälle sieht DIN 18533-3:2026-06 eine Bestätigungsprüfung vor, bei der die Dicke der trockenen Schicht am fertigen Bauteil gemessen wird[^8]. Dafür muss die Abdichtung an den Messstellen zugänglich sein. Ist die Baugrube verfüllt, wird die Wand dort freigelegt.
 
 ## Hinweis
 
@@ -160,13 +152,12 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 [^3]: Schulz, Joachim: Architektur der Bauschäden. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 368. ISBN 978-3-658-27654-6.
 [^4]: Weber, Jürgen; Hafkesbrink, Volker (Hrsg.): Bauwerksabdichtung in der Altbausanierung. Verfahren und juristische Betrachtungsweise. 7. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 467. ISBN 978-3-658-48094-3.
 [^5]: Deutsches Institut für Normung: DIN 18533-1:2026-06, Abschnitt 5.6.1, S. 26. Berlin: DIN Media.
-[^6]: Deutsches Institut für Normung: DIN 18533-3:2026-06, Abschnitte 4.1.2, 4.1.3.1 und 4.1.3.2, S. 9–10. Berlin: DIN Media.
-[^7]: Schulz, Joachim: Architektur der Bauschäden. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 235–236. ISBN 978-3-658-27654-6.
-[^8]: Deutsches Institut für Normung: DIN 18533-1:2026-06, Abschnitte 13.1 und 13.2.1, S. 56; DIN 18533-3:2026-06, Abschnitt 9.2.4, S. 16. Berlin: DIN Media.
-[^9]: Deutsches Institut für Normung: DIN 18533-3:2026-06, Abschnitt 9.2.3 b), S. 16. Berlin: DIN Media.
-[^10]: Deutsches Institut für Normung: DIN 18533-3:2026-06, Abschnitt 4.2, S. 10–11. Berlin: DIN Media.
-[^11]: Weber, Jürgen; Hafkesbrink, Volker (Hrsg.): Bauwerksabdichtung in der Altbausanierung. Verfahren und juristische Betrachtungsweise. 7. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 310–311. ISBN 978-3-658-48094-3.
-[^12]: Deutsches Institut für Normung: DIN 18533-1:2026-06, Abschnitt 8.8.2.4, S. 41. Berlin: DIN Media.
-[^13]: Deutsches Institut für Normung: DIN 18533-1:2026-06, Abschnitte 10.1 und 10.2, S. 50–51. Berlin: DIN Media.
-[^14]: Deutsches Institut für Normung: DIN 18533-1:2026-06, Abschnitt 14, S. 59. Berlin: DIN Media.
-[^15]: Deutsches Institut für Normung: DIN 18533-1:2026-06, Abschnitt 13.4, S. 58. Berlin: DIN Media.
+[^6]: Deutsches Institut für Normung: DIN 18533-3:2026-06, Abschnitt 4.2, S. 10–11. Berlin: DIN Media.
+[^7]: Deutsches Institut für Normung: DIN 18533-3:2026-06, Abschnitt 9.2.3 b), S. 16. Berlin: DIN Media.
+[^8]: Deutsches Institut für Normung: DIN 18533-3:2026-06, Abschnitte 4.1.2, 4.1.3.1 und 4.1.3.2, S. 9–10. Berlin: DIN Media.
+[^9]: Deutsches Institut für Normung: DIN 18533-1:2026-06, Abschnitte 13.1 und 13.2.1, S. 56; DIN 18533-3:2026-06, Abschnitt 9.2.4, S. 16. Berlin: DIN Media.
+[^10]: Deutsches Institut für Normung: DIN 18533-1:2026-06, Abschnitt 8.8.2.4, S. 41. Berlin: DIN Media.
+[^11]: Deutsches Institut für Normung: DIN 18533-1:2026-06, Abschnitte 10.1 und 10.2, S. 50–51. Berlin: DIN Media.
+[^12]: Deutsches Institut für Normung: DIN 18533-1:2026-06, Abschnitte 4.5.1 und 13.4, S. 15 und 58. Berlin: DIN Media.
+[^13]: Deutsches Institut für Normung: DIN 18533-1:2026-06, Abschnitt 14, S. 59. Berlin: DIN Media.
+[^14]: Weber, Jürgen; Hafkesbrink, Volker (Hrsg.): Bauwerksabdichtung in der Altbausanierung. Verfahren und juristische Betrachtungsweise. 7. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 310–311. ISBN 978-3-658-48094-3.
