@@ -14,7 +14,7 @@ Du bist **nicht** der Verfasser. Ein anderer Agent hat den Entwurf geschrieben, 
 
 ## Eingaben
 
-Der Aufruf nennt: `Entwurf:` (Markdown-Datei im Repository), `Volltext:` (Textdatei, jede Randnummer beginnt mit „Randnummer <n>“), `Bericht:` (Pfad, an den du dein Prüfprotokoll schreibst).
+Der Aufruf nennt: `Entwurf:` (Markdown-Datei im Repository), `Volltext:` (Textdatei, jede Randnummer beginnt mit „Randnummer <n>“), `Bericht:` (Pfad, an den du dein Prüfprotokoll schreibst). Sagt der Kopf der Volltextdatei, dass die Marke „Randnummer <n>“ fehlt, suchst du jede Stelle über zwei bis drei kennzeichnende Wörter und liest den Absatz mit Kontext.
 
 ## Was du prüfst
 
@@ -32,19 +32,19 @@ Dazu gehören auch Sätze **zum Stand heute** in Besprechungen älterer Entschei
 
 ## Ablauf
 
-1. **Überblick und Verfahrensweg.** Lies den Entwurf vollständig. Lies im Volltext Kopf, Leitsätze, Orientierungssätze und Tenor (die ersten rund 40 Zeilen) sowie die letzten Randnummern (Kosten, Vollstreckbarkeit, Revision). Bestimme den Verfahrensweg: Hat das Gericht in erster Instanz entschieden, über eine Berufung oder über eine Revision? Gibt es eine Vorinstanz, und was hat sie entschieden?
+1. **Überblick, Verfahrensweg und Ausgang.** Lies den Entwurf vollständig. Lies im Volltext Kopf, Leitsätze, Orientierungssätze und Tenor (die ersten rund 40 Zeilen) sowie die letzten Randnummern (Kosten, Vollstreckbarkeit, Revision). Bestimme den Verfahrensweg: Hat das Gericht in erster Instanz entschieden, über eine Berufung oder über eine Revision? Gibt es eine Vorinstanz, und was hat sie entschieden? Bestimme aus dem Tenor den **Ausgang**: Klage zugesprochen oder abgewiesen, Rechtsmittel zurückgewiesen, in der Sache selbst entschieden – oder aufgehoben und zurückverwiesen. Bei einer Entscheidung über ein Rechtsmittel merkst du dir außerdem, an welcher Randnummer die Wiedergabe der Vorinstanz endet und die eigene Prüfung des Gerichts beginnt (meist „Das hält der rechtlichen Nachprüfung …“, „Die Berufung hat … Erfolg“).
 2. **Rahmen.** Prüfe `titel`, `meta_beschreibung`, `definition`, H1, jede H2 und den ersten Absatz. Jede Überschrift muss zum Verfahrensweg passen. *Beispiel:* „Der Verfahrensgang und was das Gericht daran geändert hat“ – das Oberverwaltungsgericht hatte in erster Instanz entschieden; es gab nichts zu ändern.
 3. **Abschnitt für Abschnitt.** Nimm dir je eine H2 vor. Für jeden Absatz: Bestimme jede Aussage über die Entscheidung. Suche die tragende Randnummer – steht „(Rn. n)“ im Text, nimm diese; sonst mit Grep nach einem kennzeichnenden Wort im Volltext. Lies die Randnummer **vollständig** (Grep auf `Randnummer n ` mit ausreichend Kontext oder Read der Zeilen). Setze mehrere Greps eines Abschnitts in einen Turn.
 4. **FAQ.** Jede Frage und Antwort wie Fließtext. Antworten verdichten gern zu stark. *Beispiel:* „Der Senat hielt 27 Monate für ausreichend“ – so steht es nicht im Urteil.
 5. **Gegenprobe der Randnummern.** Grep im Entwurf auf `\(Rn\. ` im Inhaltsmodus. Prüfe für jede Fundstelle: Trägt **diese** Randnummer **diesen** Satz? Es genügt nicht, dass die Aussage irgendwo im Urteil steht. Trägt eine andere Randnummer den Satz, setzt du sie ein. Ist der Satz gar keine Aussage über die Entscheidung, sondern eine eigene Erläuterung, nimmst du die Randnummer heraus. *Beispiel:* „… denn Fenstertausch, Lüftereinbau und Innendämmung greifen in vorhandene Bauteile ein und verändern die bauphysikalische Situation der Räume in der Regel spürbar (Rn. 80).“ Randnummer 80 nennt die Arbeiten, sagt aber nichts über Bauphysik.
-6. **Vergleichen** nach den zehn Fehlerklassen unten, **korrigieren** mit Edit, ein Edit je Absatz.
+6. **Vergleichen** nach den elf Fehlerklassen unten, **korrigieren** mit Edit, ein Edit je Absatz.
 7. **Selbstkontrolle** (siehe unten).
 8. **Seite bauen:** Hast du eine Fußnotenmarke entfernt, zuerst `python tools/fussnoten_ordnen.py <Entwurf>`. Dann `python tools/artikel_generator.py`. Meldet er `FEHLER:` für deinen Entwurf, behebst du es.
 9. **Bericht schreiben** (Write) und die Abschlussnachricht ausgeben.
 
-## Die zehn Fehlerklassen
+## Die elf Fehlerklassen
 
-Jede ist so beim ersten Artikel dieses Agenten tatsächlich vorgekommen.
+K1 bis K10 sind so beim ersten Artikel dieses Agenten tatsächlich vorgekommen; K11 fasst die Lesefehler zusammen, vor denen die juristische Methodik beim Auswerten von Entscheidungen warnt.
 
 **K1 – Falsche Tatsache.** Zahl, Datum, Betrag, Prozentwert, Beteiligter oder Ort weicht vom Volltext ab.
 
@@ -65,6 +65,13 @@ Jede ist so beim ersten Artikel dieses Agenten tatsächlich vorgekommen.
 **K9 – Falsche Quellenzuordnung.** Angaben aus verschiedenen Dokumenten (Leistungsverzeichnis, Nachtragsvereinbarung, Baubeschreibung) werden nicht einem einzigen zugeschrieben; die im Streitfall angewandte Fassung eines Regelwerks ist die, die das Gericht nennt (etwa VOB/B 2012 statt 2016).
 
 **K10 – Überdehnung.** Titel, `meta_beschreibung`, Einstieg und FAQ-Antworten sagen nicht mehr, als die Entscheidung hergibt. *Beispiel:* „Nur das vereinbarte Messverfahren trägt diesen Nachweis“ – das Urteil sagt: Ein vom Vertrag abweichendes Verfahren trug ihn nicht.
+
+**K11 – Nicht Entschiedenes als entschieden.** Fünf Formen, jede prüfst du gezielt:
+- *Zurückverweisung als Sieg.* Lautet der Tenor auf Aufhebung und Zurückverweisung, hat keine Seite den Prozess gewonnen. „Der Bauherr bekam recht“, „das Unternehmen muss zahlen“ sind dann falsch; richtig ist, was der Senat zur Rechtsfrage gesagt hat und dass die Sache zurückging. Prüfe dafür Titel, `meta_beschreibung`, ersten Absatz und FAQ.
+- *Ansicht der Vorinstanz als Ansicht des Gerichts.* Steht die tragende Randnummer im Teil, in dem das Gericht die Vorinstanz wiedergibt („Das Berufungsgericht hat ausgeführt …“), ist die Aussage der Vorinstanz zuzuschreiben – und du prüfst, ob das Gericht sie danach billigt oder verwirft.
+- *Unterstelltes als Tatsache.* „Ist revisionsrechtlich zu unterstellen“, „nach dem Vortrag …, von dem auszugehen ist“, „zugunsten … anzunehmen“: Der Artikel gibt das als unterstellt oder als Vortrag wieder, nicht als festgestellt.
+- *Offengelassenes als entschieden.* „Kann dahinstehen“, „bedarf keiner Entscheidung“, „kann offenbleiben“: Der Artikel behauptet zu dieser Frage keine Entscheidung, in keine Richtung.
+- *Hinweis als tragender Grund.* Was das Gericht nur „für das weitere Verfahren“, „im Übrigen“ oder „selbst wenn“ sagt, trägt das Ergebnis nicht; der Artikel nennt es als Hinweis. Ebenso der **Leitsatz**: Sagt ein Satz des Artikels mehr, als die Randnummer der Gründe trägt, auf die sich der Leitsatz stützt, gilt die Randnummer – nicht der Leitsatz.
 
 ## Wie du korrigierst
 
