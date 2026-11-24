@@ -1,0 +1,176 @@
+titel: Leitfaden Protokolle der Eigentümerversammlung
+untertitel: Auswerten vor dem Kauf einer Eigentumswohnung
+kurzform: protokolle-eigentuemerversammlung-auswerten
+typ: Checkliste
+stand: 2026-11-24
+dateien: [pdf]
+einleitung: >-
+  Die Protokolle der Eigentümerversammlungen zeigen, was am Haus schon
+  kaputt ist, was geplant wurde und was davon niemand bezahlen wollte.
+  Lesen Sie die Protokolle der letzten Jahre mit dieser Liste, bevor Sie den
+  Kaufvertrag unterschreiben. Bewerten Sie jedes Thema in der Spalte rechts,
+  tragen Sie Seite und Datum des Protokolls in die Notizzeilen ein und
+  werten Sie am Ende alles gemeinsam aus.
+kopffelder:
+  - Objekt und Anschrift
+  - Wohnungsnummer und Etage
+  - Baujahr des Gebäudes
+  - Verwaltung
+  - Geprüfte Protokolle (Zeitraum, Zahl)
+  - Datum der Auswertung
+bewertung:
+  stufen:
+    - {kurz: "unauffällig", lang: "unauffällig", beschreibung: "kommt nicht vor, oder die Sache ist erledigt und belegt"}
+    - {kurz: "Hinweis", lang: "Hinweis auf Handlungsbedarf", beschreibung: "kommt vor, Maßnahme ist beschlossen und bezahlt – beobachten"}
+    - {kurz: "kritisch", lang: "kritisch", beschreibung: "vertagt, ungeklärt, nicht finanziert oder wiederkehrend – Fachmann oder Anwalt fragen"}
+    - {kurz: "fehlt", lang: "nicht ersichtlich", beschreibung: "Protokoll fehlt oder ist lückenhaft – Unterlage nachfordern"}
+abschnitte:
+  - titel: Vollständigkeit der Unterlagen
+    bewertung: false
+    notizen: 2
+    punkte:
+      - text: Protokolle aller Versammlungen der letzten Jahre liegen vor, auch die außerordentlichen
+        ja_nein: true
+        hinweis: "Die Verwaltung muss mindestens einmal im Jahr zu einer Versammlung einladen. Fehlt ein Jahr, fragen Sie nach, ob die Versammlung ausgefallen ist oder das Protokoll fehlt."
+      - text: Einladungen mit Tagesordnung gehören zu jedem Protokoll
+        ja_nein: true
+        hinweis: "Die Tagesordnung zeigt, welche Themen angekündigt waren. Beschlüsse über Themen, die dort nicht standen, sind ein Fall für den Rechtsanwalt."
+      - text: Jedes Protokoll ist unterschrieben
+        ja_nein: true
+        hinweis: "Nach dem Gesetz unterschreiben der Versammlungsleiter, ein Eigentümer und, wenn es einen Verwaltungsbeirat gibt, dessen Vorsitzender oder Vertreter."
+      - text: Die Beschluss-Sammlung wurde eingesehen und mit den Protokollen verglichen
+        ja_nein: true
+        hinweis: "Einsicht haben Eigentümer und von ihnen ermächtigte Personen. Lassen Sie sich deshalb vom Verkäufer schriftlich bevollmächtigen. Angefochtene Beschlüsse sind dort anzumerken."
+      - text: Wirtschaftsplan, Jahresabrechnung und Vermögensbericht dazu liegen vor
+        ja_nein: true
+        hinweis: "Beträge aus den Protokollen lassen sich nur mit diesen Unterlagen einordnen, etwa der Stand der Rücklage."
+  - titel: Form und Gültigkeit der Beschlüsse
+    notizen: 2
+    punkte:
+      - text: Einladung in Textform, Datum der Einladung und der Versammlung
+        hinweis: "Hinweis: Die Einladung soll in der Regel mindestens drei Wochen vor der Versammlung erfolgen. Kritisch: Beschlüsse zu großen Maßnahmen in einer kurzfristig einberufenen Versammlung ohne erkennbaren Grund."
+      - text: Beschlüsse zu Themen, die in der Tagesordnung nicht angekündigt waren
+        hinweis: "Zur Gültigkeit eines Beschlusses muss sein Gegenstand bei der Einberufung bezeichnet sein. Kritisch: Beschluss zu einer Sanierung unter „Sonstiges“. Die Folgen beurteilt ein Rechtsanwalt."
+      - text: Wortlaut der Beschlüsse mit Maßnahme, Betrag, ausführender Firma und Kostenverteilung
+        hinweis: "Hinweis: Ein klarer Beschluss nennt, was gemacht wird und wer wie viel zahlt. Kritisch: Beschluss „Dach wird saniert“ ohne Angebot, Betrag oder Finanzierung."
+      - text: Abstimmungsergebnis mit Ja, Nein und Enthaltungen je Beschluss
+        hinweis: "Knappe Ergebnisse bei großen Maßnahmen deuten auf Streit hin; solche Beschlüsse werden eher angefochten."
+      - text: Anfechtungen oder Klagen gegen Beschlüsse
+        hinweis: "Eine Anfechtungsklage ist innerhalb eines Monats nach der Beschlussfassung zu erheben. Kritisch: mehrere Anfechtungen in kurzer Zeit oder Maßnahmen, die wegen Klagen stehen. Rechtsanwalt fragen."
+  - titel: Geld – Rücklage, Wirtschaftsplan, Sonderumlage
+    notizen: 2
+    punkte:
+      - text: Stand der Erhaltungsrücklage und ihre Entwicklung über die Jahre
+        hinweis: "Hinweis: Die Rücklage zahlt Reparaturen am Gemeinschaftseigentum. Sie wird beim Kauf mit übernommen, nicht ausgezahlt. Kritisch: sehr niedrig oder durch beschlossene Maßnahmen schon verplant."
+      - text: Beschlossene oder angekündigte Sonderumlagen mit Betrag, Zweck und Fälligkeit
+        hinweis: "Beschlüsse aus der Zeit vor dem Kauf binden auch den Käufer. Rechnen Sie Ihren Anteil in den Kaufpreis ein. Kritisch: Umlage kündigt sich an, Betrag ist noch offen."
+      - text: Nachzahlungen aus den Jahresabrechnungen und Erhöhungen des Hausgelds
+        hinweis: "Kritisch: Nachzahlungen kehren Jahr für Jahr wieder, weil der Wirtschaftsplan zu knapp geplant ist."
+      - text: Hausgeldrückstände einzelner Eigentümer
+        hinweis: "Hohe Rückstände fehlen später bei beschlossenen Maßnahmen. Achten Sie auf Berichte der Verwaltung zu Mahnverfahren."
+      - text: Kredit der Gemeinschaft oder beantragte Fördermittel
+        hinweis: "Hinweis: Die Finanzierung ist gesichert, wenn Darlehen oder Förderung bewilligt sind. Kritisch: Maßnahme beschlossen, Förderung nur geplant."
+      - text: Abweichende Kostenverteilung für einzelne Maßnahmen oder Eigentümer
+        hinweis: "Prüfen Sie, ob Ihre Wohnung betroffen ist. Die Regeln stehen in der Gemeinschaftsordnung; Wirksamkeit beurteilt ein Rechtsanwalt."
+  - titel: Dach und Dachentwässerung
+    notizen: 2
+    punkte:
+      - text: Dachform
+        auswahl: [Steildach, Flachdach, gemischt, unbekannt]
+        hinweis: "Woran erkennen: Blick von der Straße, Baupläne, Angabe der Verwaltung. Flachdächer brauchen nach der Fachliteratur immer Wartung, am besten durch einen Wartungsauftrag mit einer Dachdeckerfirma."
+      - text: Undichtigkeiten, Wassereintritt oder Reparaturen am Dach
+        hinweis: "Hinweis: einmalige Reparatur, Ursache geklärt. Kritisch: wiederholte Flickarbeiten ohne Untersuchung der Ursache. Schadensanfällig sind nach der Fachliteratur Traufe, First, Anschlüsse und Kehlen."
+      - text: Dachentwässerung, also Rinnen, Fallrohre und Abläufe
+        hinweis: "Verstopfte Abläufe führen zu stehendem Wasser und Feuchte im Dach. Achten Sie auf Reinigung und Wartung in den Protokollen."
+      - text: Letzte Erneuerung oder Instandsetzung des Dachs und Wartungsnachweise
+        hinweis: "Die Fachliteratur gibt für Dachdeckungen nur Erwartungswerte an. Entscheidend ist der Zustand. Fehlt jede Angabe zum Alter, lassen Sie das Dach vor dem Kauf anschauen."
+      - text: Wassereintritt in einer Wohnung unter dem Dach
+        hinweis: "Woran erkennen: Beschwerden einzelner Eigentümer, Hinweise auf Flecken oder Schimmel. Mehrere Beschwerden über Jahre deuten auf ein ungelöstes Problem."
+  - titel: Fassade, Fenster und Treppenhaus
+    notizen: 2
+    punkte:
+      - text: Risse, Putzabplatzungen oder Schäden an der Fassade
+        hinweis: "Hinweis: feine Risse, beobachtet. Kritisch: breite Risse, losgelöster Putz, Absperrung des Gehwegs. Dach, Fassade und Fenster verursachen bei Schäden hohe Folgekosten an anderen Bauteilen."
+      - text: Aufbau der Außenwand
+        auswahl: [Putz ohne Dämmung, Wärmedämmverbundsystem, Sichtmauerwerk, vorgehängte Fassade, unbekannt]
+        hinweis: "Woran erkennen: Fensterlaibung, Angabe in Energieausweis oder Bauunterlagen. Die Bauart bestimmt Aufwand und Kosten einer späteren Sanierung."
+      - text: Fenster und Wohnungstüren – Beschlüsse zu Austausch oder Instandsetzung
+        hinweis: "Ob Fenster zum Sonder- oder Gemeinschaftseigentum gehören, regelt die Teilungserklärung. Prüfen Sie, wer in Ihrem Fall zahlt."
+      - text: Zustand von Treppenhaus, Hauseingang und Fluren
+        hinweis: "Wiederkehrende Beschwerden und Sanierungsdebatten zu Gemeinschaftsflächen zeigen, ob die Gemeinschaft Entscheidungen trifft oder vertagt."
+  - titel: Keller, Feuchte und Balkone
+    notizen: 2
+    punkte:
+      - text: Feuchte oder Schimmel im Keller oder im Sockelbereich
+        hinweis: "Woran erkennen: muffiger Geruch, Flecken und abplatzender Putz. Nach der Fachliteratur sind feuchte Altbaukeller eine Eigenschaft der damaligen Bauweise; entscheidend ist, wofür Sie den Keller nutzen wollen."
+      - text: Beschlossene Abdichtungs- oder Sanierungsmaßnahmen im Keller
+        hinweis: "Hinweis: Vor einer Abdichtung sollte ein unabhängiger Fachmann den Befund untersuchen. Kritisch: Maßnahme ohne Untersuchung oder ohne Erfolgskontrolle."
+      - text: Schimmel oder Feuchteflecken in Wohnungen und im Treppenhaus
+        hinweis: "Ursache ist stets Feuchte. Ob sie aus dem Bauwerk oder aus der Nutzung kommt, muss geklärt werden. Kritisch: wiederkehrende Meldungen an derselben Stelle."
+      - text: Balkone, Loggien und Dachterrassen – Abdichtung, Betonschäden, Wassereintritt
+        hinweis: "Woran erkennen: Wasserflecken an der Decke darunter, muffiger Geruch, aufquellender Boden. Die Abdichtung gehört nach der Fachliteratur zum Gemeinschaftseigentum; maßgeblich bleibt die Teilungserklärung."
+      - text: Tiefgarage, Außenanlagen und Zufahrt
+        hinweis: "Ältere Tiefgaragen und befahrene Flächen können hohe Instandsetzungskosten verursachen. Fragen Sie, ob Gutachten vorliegen."
+  - titel: Haustechnik
+    notizen: 2
+    punkte:
+      - text: Art der Heizung
+        auswahl: [Zentralheizung im Haus, Fernwärme, Gasetagenheizungen, Wärmepumpe, unbekannt]
+        hinweis: "Woran erkennen: Heizraum, Übergabestation oder Gerät in der Wohnung. Bei einer Zentralheizung zahlt die Gemeinschaft, bei Etagenheizungen meist jeder Eigentümer selbst."
+      - text: Alter und Zustand der Heizung, Beschlüsse zu Erneuerung oder Umstellung
+        hinweis: "Für Wärmeerzeuger nennt die Fachliteratur einen Erwartungswert von rund 20 Jahren, keine verbindliche Frist. Kritisch: Erneuerung absehbar, aber weder beschlossen noch finanziert. Das Recht dazu wurde mehrfach geändert."
+      - text: Rohrbrüche, Leitungswasserschäden und Erneuerung von Steig- und Fallleitungen
+        hinweis: "Hinweis: einzelner Schaden, repariert. Kritisch: mehrere Rohrbrüche in kurzer Folge. Fragen Sie nach dem Leitungsmaterial im Keller und nach Folgen für die Versicherung."
+      - text: Aufzug – Prüfung, Wartung, Modernisierung
+        hinweis: "Kritisch: Anlage aus der Bauzeit, Modernisierung angekündigt, aber nicht finanziert."
+      - text: Elektroanlage im Gemeinschaftseigentum, etwa Zählerschränke, Steigleitungen, Treppenhausbeleuchtung
+        hinweis: "Mängel an der Elektroanlage beurteilt nur eine Elektrofachkraft. Prüfen Sie nicht selbst. Fragen Sie nach Prüfberichten."
+  - titel: Schadstoffe, Brandschutz und Versicherung
+    notizen: 2
+    punkte:
+      - text: Baujahr und Schadstoffverdacht
+        auswahl: [vor 1993, 1993 oder später, unbekannt]
+        hinweis: "In Deutschland ist Asbest seit dem 31. Oktober 1993 verboten. Bei früheren Gebäuden besteht ein Verdacht, etwa bei Fassadenplatten, Spachtelmassen, Fliesenklebern und Bodenbelägen. Nie selbst bohren oder schleifen."
+      - text: Untersuchungen oder Funde von Asbest, Holzschutzmitteln oder PCB
+        hinweis: "Hinweis: Untersuchung liegt vor, Maßnahme beschlossen. Kritisch: Verdacht bei geplanter Sanierung ohne Untersuchung. Vor einer Sanierung untersuchen Fachgutachter die Schadstoffe."
+      - text: Auflagen der Bauaufsicht und Brandschutzmängel
+        hinweis: "Kritisch: offene Auflage, etwa zu Fluchtwegen oder Kellertüren, deren Umsetzung vertagt wurde."
+      - text: Versicherungsschäden, Selbstbehalt, Kündigung oder Auflagen des Versicherers
+        hinweis: "Mehrere Leitungswasser- oder Sturmschäden können Beitragserhöhung oder Kündigung nach sich ziehen. Prüfen Sie, wer den Selbstbehalt trägt."
+  - titel: Gutachten, Streit und Verwaltung
+    notizen: 3
+    punkte:
+      - text: Gutachter oder Sachverständige wurden beauftragt oder Gutachten erwähnt
+        hinweis: "Fordern Sie das Gutachten an. Ein Gutachten, dessen Ergebnis nicht umgesetzt wurde, ist ein Warnzeichen für Sanierungsstau."
+      - text: Angebote wurden eingeholt, aber vertagt oder abgelehnt
+        hinweis: "Kritisch: dieselbe Maßnahme steht in mehreren Jahren auf der Tagesordnung und wird immer wieder verschoben. Nach den Verbänden sollten Sie bei Streit über notwendige Sanierungen Vorsicht walten lassen."
+      - text: Dasselbe Thema taucht in mehreren Protokollen wieder auf
+        hinweis: "Wiederkehrende Tagesordnungspunkte, etwa Feuchte, Dach oder Balkone, zeigen ein ungelöstes Problem. Notieren Sie Jahr und Beschlussstand."
+      - text: Streit unter „Sonstiges“, Beschwerden über Mängel oder Nachbarn
+        hinweis: "Wird dort heftig gestritten oder werden viele Mängel am Gebäude gemeldet, ist Vorsicht geboten. Ein einzelner Streit sagt wenig, Häufung schon."
+      - text: Mängel am Gemeinschaftseigentum gegenüber dem Bauträger bei jungen Gebäuden
+        hinweis: "Bei Mängeln am Gemeinschaftseigentum muss die Gemeinschaft nach dem Bauherren-Schutzbund über das Vorgehen beschließen. Fristen und Rechte klärt ein Rechtsanwalt."
+      - text: Bauliche Veränderungen oder Sondernutzungsrechte, die beschlossen oder gestattet wurden
+        hinweis: "Wer Kosten einer baulichen Veränderung trägt, richtet sich nach dem Gesetz und dem Beschluss. Prüfen Sie, ob auch Ihre Wohnung zahlen soll."
+      - text: Verwalterwechsel, Streit mit der Verwaltung oder Bestellung nur für kurze Zeit
+        hinweis: "Die Bestellung ist gesetzlich auf höchstens fünf Jahre begrenzt. Häufige Wechsel oder Abwahlen zeigen Konflikte; fragen Sie nach den Gründen."
+      - text: Mehrheitsverhältnisse – Eigentümer oder Gruppen, die Beschlüsse allein bestimmen
+        hinweis: "Hinweis: Ein Großeigentümer kann Beschlüsse prägen. Achten Sie darauf, ob Sanierungen regelmäßig an seinem Votum scheitern."
+auswertung:
+  - "Mehrere Punkte „nicht ersichtlich“: Fordern Sie Protokolle, Tagesordnungen und Beschluss-Sammlung vollständig nach, bevor Sie einen Termin beim Notar vereinbaren."
+  - "Ein kritischer Befund bei Rücklage, Sonderumlage oder Hausgeld: Rechnen Sie Ihren Anteil in die Finanzierung ein und verhandeln Sie den Kaufpreis."
+  - "Ein kritischer Befund an Dach, Fassade, Keller, Balkonen oder Haustechnik: Lassen Sie das Gemeinschaftseigentum vor dem Kauf von einem Bausachverständigen ansehen."
+  - "Dasselbe Thema in mehreren Jahren vertagt: Rechnen Sie mit einem Sanierungsstau und fragen Sie die Verwaltung nach Gutachten und Kostenschätzungen."
+  - "Anfechtungen, Klagen oder unklare Gültigkeit von Beschlüssen: Lassen Sie Protokolle, Beschlüsse und Teilungserklärung von einem Rechtsanwalt prüfen."
+  - "Verdacht auf Schadstoffe: Verlangen Sie die Untersuchungsberichte und planen Sie Sanierungen nur mit Fachfirmen."
+hinweise:
+  - "Diese Liste ersetzt weder ein Gutachten noch eine Rechtsberatung. Ob ein Beschluss gültig ist und was er für Sie bedeutet, beurteilt ein Rechtsanwalt."
+  - "Die genannten Erwartungswerte zur Lebensdauer von Bauteilen sind Anhaltspunkte aus der Fachliteratur, keine verbindlichen Fristen."
+  - "Rechte und Pflichten ergeben sich aus dem Wohnungseigentumsgesetz, der Teilungserklärung und den Beschlüssen der Gemeinschaft. Lesen Sie diese Unterlagen zusammen mit den Protokollen."
+quellen:
+  - "§§ 19, 20, 21, 23, 24, 25, 26, 28 und 45 Wohnungseigentumsgesetz, Wortlaut laut amtlichem Text (zuletzt geändert durch Art. 1 G v. 10.10.2024 I Nr. 306)"
+  - "Schulz, Joachim: Architektur der Bauschäden, 4. Aufl. 2020, S. 72, 272, 520 und 586–589"
+  - "Bahr, C.; Lennerts, K.: Lebens- und Nutzungsdauer von Bauteilen, 2010, S. 75"
+  - "Stahr, M.; Hinz, D.: Sanierung und Ausbau von Dächern, 2011, S. 51"
+  - "Kaub, S.: Schadstoffe im Bauwesen, 4. Aufl. 2024, S. 47"
+  - "Umweltbundesamt: Asbest; Verband Privater Bauherren: Wohnungskauf; Wohnen im Eigentum e. V.: Beschluss-Sammlung und Folgekosten; Bauherren-Schutzbund: Wohnungsbau kontrollieren; Verbraucherzentrale: Ratgeber Eigentumswohnung"
