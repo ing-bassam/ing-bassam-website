@@ -65,7 +65,7 @@ Ein Vorbehalt der Vertragsstrafe gehört in das Schreiben und ins Abnahmeprotoko
 
 ## Zeitpunkt und Form: Wann der Vorbehalt noch wirkt
 
-Den Vorbehalt erklären Sie am Tag der Abnahme selbst. Nach der Fachliteratur kommt eine Erklärung davor oder danach grundsätzlich nicht in Betracht.[^4] Ein früher erklärter Vorbehalt lässt sich bei der Abnahme aufrechterhalten. Erst Tage später in ein Protokoll geschriebene Vorbehalte kommen zu spät.[^5] Nehmen Sie das Schreiben deshalb zum Termin mit, übergeben Sie es dort und lassen Sie die Vorbehalte ins Protokoll schreiben.
+Den Vorbehalt erklären Sie bei der Abnahme selbst. Nach der Fachliteratur kommt eine Erklärung davor oder danach grundsätzlich nicht in Betracht.[^4] Ein früher erklärter Vorbehalt lässt sich bei der Abnahme aufrechterhalten. Ein Vorbehalt der Vertragsstrafe, der erst Tage später in ein Protokoll geschrieben wird, kommt zu spät.[^5] Nehmen Sie das Schreiben deshalb zum Termin mit, übergeben Sie es dort und lassen Sie die Vorbehalte ins Protokoll schreiben.
 
 Bei der fiktiven Abnahme gelten andere Zeitpunkte. Fiktive Abnahme heißt, dass die Abnahme ohne Ihre Erklärung als erfolgt gilt. Im BGB-Vertrag tritt das ein, wenn der Unternehmer nach der Fertigstellung eine angemessene Frist setzt und Sie nicht innerhalb dieser Frist unter Angabe mindestens eines Mangels verweigern (§ 640 Abs. 2 BGB).[^1] Die Mängelrechte bleiben Ihnen dann nach der Fachliteratur erhalten. Für die Vertragsstrafe rät sie, den Vorbehalt innerhalb der gesetzten Frist zu erklären.[^4][^5]
 
@@ -87,7 +87,7 @@ Nein, die Fachliteratur verlangt das Wort nicht.[^4] Der Auftraggeber muss aber 
 
 **Kann ich den Vorbehalt nach der Abnahme nachreichen?**
 
-Nach der Fachliteratur ist der Vorbehalt bei der Abnahme zu erklären, nicht danach.[^4] Ein Vorbehalt, der erst einige Tage später in einem Protokoll steht, kam danach zu spät.[^5] Gibt es schon einen Streit über den Zeitpunkt, sollte ein Rechtsanwalt den Fall prüfen.
+Nach der Fachliteratur ist der Vorbehalt bei der Abnahme zu erklären, nicht danach.[^4] Ein Vorbehalt der Vertragsstrafe, der erst einige Tage später in einem Protokoll steht, kommt danach zu spät.[^5] Gibt es schon einen Streit über den Zeitpunkt, sollte ein Rechtsanwalt den Fall prüfen.
 
 **Verliere ich den Schadensersatz, wenn ich nichts vorbehalte?**
 
@@ -95,7 +95,7 @@ Nach dem Wortlaut nennt § 640 Abs. 3 BGB nur die Rechte aus § 634 Nr. 1 bis 3 
 
 **Gilt das Muster auch im VOB/B-Vertrag?**
 
-Ja, der Vorbehalt von Mängeln und Vertragsstrafe ist dort ebenfalls vorgesehen.[^3] Bei einer förmlichen Abnahme gehören die Vorbehalte zusätzlich in die Niederschrift. Lassen Sie sich eine Ausfertigung geben. Die Fristen bei fiktiver Abnahme sind kürzer als im BGB-Vertrag.
+Ja, der Vorbehalt von Mängeln und Vertragsstrafe ist dort ebenfalls vorgesehen.[^3] Bei einer förmlichen Abnahme gehören die Vorbehalte zusätzlich in die Niederschrift. Lassen Sie sich eine Ausfertigung geben.
 
 ## Hinweis
 
