@@ -1,0 +1,52 @@
+titel: Vorbehalt bei der Abnahme
+untertitel: Musterschreiben für Bauherren und Auftraggeber – bekannte Mängel und Vertragsstrafe
+kurzform: abnahme-vorbehalt-musterschreiben
+typ: Musterschreiben
+stand: 2026-11-24
+dateien: [docx, pdf]
+einleitung: "Mit diesem Musterschreiben erklären Sie als Auftraggeber die Abnahme und behalten sich dabei Rechte wegen der Mängel vor, die Sie bei der Abnahme schon kennen, und die Vertragsstrafe, falls eine vereinbart ist. Ersetzen Sie die Platzhalter in eckigen Klammern, streichen Sie Absätze, die nicht passen, und übergeben Sie das Schreiben am Abnahmetermin."
+
+brief:
+  betreff: "Abnahme unter Vorbehalt – Bauvorhaben [Bezeichnung], [Leistung]"
+  anrede: Sehr geehrte Damen und Herren,
+  absaetze:
+    - "zwischen uns als Auftraggeber und Ihnen als Auftragnehmer besteht der Vertrag vom [Datum] über [Leistung, z. B. die Rohbauarbeiten am Wohnhaus]. Die Abnahme dieser Leistung findet am [Datum] in [Ort, z. B. Musterstraße 1, Berlin] statt."
+    - "Wir erklären die Abnahme unter Vorbehalt. Mit diesem Schreiben halten wir die Vorbehalte fest, die wir Ihnen bei der Abnahme mitteilen."
+    - "[Bei Mängeln:] Uns sind bei der Abnahme die in der Anlage 1 aufgeführten Mängel bekannt. Jeder Mangel ist dort mit Ort, Bauteil und Erscheinungsbild beschrieben. Wegen dieser Mängel behalten wir uns alle Rechte vor. Das sind insbesondere die Nacherfüllung, die Beseitigung auf Ihre Kosten, der Rücktritt, die Minderung der Vergütung und der Schadensersatz."
+    - "[Bei Mängeln:] Mängel, die uns heute noch nicht bekannt sind, werden von diesem Schreiben nicht berührt. Wir zeigen sie Ihnen an, sobald wir sie entdecken."
+    - "[Optional:] Bitte beseitigen Sie die in Anlage 1 genannten Mängel bis zum [Datum; die Frist muss angemessen sein]."
+    - "[Nur wenn eine Vertragsstrafe vereinbart ist:] In § [Nummer der Vertragsklausel] unseres Vertrags ist für [z. B. die Überschreitung des Fertigstellungstermins] eine Vertragsstrafe vereinbart. Wir behalten uns die Geltendmachung dieser Vertragsstrafe ausdrücklich vor. Als vertraglicher Fertigstellungstermin galt der [Datum]. Fertiggestellt wurde die Leistung nach unserer Kenntnis am [Datum]."
+    - "[Optional:] Wir behalten uns außerdem vor, bis zur Beseitigung der Mängel einen angemessenen Teil der Vergütung zurückzubehalten."
+    - "[Nur bei einer förmlichen Abnahme nach VOB/B:] Wir bitten Sie, diese Vorbehalte in die Niederschrift über die Abnahme aufzunehmen."
+    - "[Nur verwenden, wenn Sie vom Auftragnehmer vorher ein Schreiben mit einer Fertigstellungsmitteilung oder einer Frist zur Abnahme erhalten haben:] Auf Ihr Schreiben vom [Datum] erklären wir die genannten Vorbehalte vorsorglich schon jetzt und damit innerhalb der von Ihnen genannten Frist."
+    - "Bitte bestätigen Sie uns den Erhalt dieses Schreibens durch Ihre Unterschrift auf der beigefügten Kopie. Für Rückfragen erreichen Sie [Name] unter [Telefon] oder [E-Mail]."
+  gruss: Mit freundlichen Grüßen
+  anlagen:
+    - "Anlage 1: Liste der bekannten Mängel (siehe Tabelle)"
+    - Fotos der Mängel mit Datum
+    - Kopie dieses Schreibens zur Empfangsbestätigung
+
+tabelle:
+  titel: Anlage 1 – Mängel, die bei der Abnahme bekannt sind
+  spalten: ["Nr.", "Ort und Bauteil", "Beschreibung des Mangels", "Foto-Nr."]
+  breiten: [1, 4, 8, 2]
+  zeilen:
+    - ["Bsp.", "Wohnzimmer, Fensterbank an der Ostseite", "Beispiel: Kratzer in der Oberfläche, vom Fenster aus gut sichtbar", "Bsp."]
+  leerzeilen: 10
+
+hinweise:
+  - "Platzhalter in eckigen Klammern durch eigene Angaben ersetzen. Absätze, die nicht zutreffen, ersatzlos streichen."
+  - "Der Vorbehalt muss bei der Abnahme erklärt werden. Ein Vorbehalt, den Sie erst Tage später in ein Protokoll oder Schreiben aufnehmen, kommt nach der Fachliteratur zu spät. Nehmen Sie das Schreiben deshalb zum Abnahmetermin mit, übergeben Sie es dort und lassen Sie die Vorbehalte auch ins Abnahmeprotokoll schreiben."
+  - "Der Vorbehalt bedarf keiner besonderen Form, und das Wort „Vorbehalt“ muss nicht fallen. Sie müssen aber im Streitfall beweisen, dass Sie ihn erklärt haben. Wählen Sie deshalb die schriftliche Form, lassen Sie sich den Empfang bestätigen und bewahren Sie eine Kopie auf. Bei einer förmlichen Abnahme nach VOB/B gehören die Vorbehalte in die Niederschrift."
+  - "Der Vorbehalt für Mängel betrifft nur Mängel, die Sie bei der Abnahme kennen. Beschreiben Sie jeden einzelnen Mangel so genau, dass ihn ein Dritter wiederfindet, am besten mit einem datierten Foto. Mängel, die Sie später entdecken, bleiben davon nach dem Gesetzeswortlaut unberührt."
+  - "Eine Vertragsstrafe können Sie nur vorbehalten, wenn sie im Vertrag vereinbart ist. Die bloße Vereinbarung der VOB/B reicht dafür nicht aus. Prüfen Sie den Vertrag auch darauf, ob er erlaubt, die Vertragsstrafe noch bis zur Schlusszahlung vorzubehalten."
+  - "Bei einer Abnahme, die ohne Termin eintritt, gelten eigene Zeitpunkte. Im Vertrag mit VOB/B tritt sie in der Regel 12 Werktage nach einer schriftlichen Fertigstellungsmitteilung ein, nach Beginn der Nutzung 6 Werktage später. Bis dahin müssen Sie die Vorbehalte erklärt haben. Ziehen Sie ohne Erklärung ein, kann eine Abnahme durch schlüssiges Verhalten vorliegen. Erklären Sie die Vorbehalte dann vor dem Einzug."
+  - "Dieses Schreiben ist keine Verweigerung der Abnahme. Wer die Abnahme wegen wesentlicher Mängel verweigern will, braucht ein anderes Schreiben. Es bereitet auch keine Kündigung, keinen Rücktritt und keine Klage vor. Dafür sollten Sie einen Rechtsanwalt hinzuziehen."
+  - "Dieses Muster ist keine Rechtsberatung. Bei hohen Beträgen, Streit über Mängel oder einer Vertragsstrafe lassen Sie das Schreiben vor der Abnahme von einem Rechtsanwalt prüfen. Ein Sachverständiger kann Mängel am Abnahmetag technisch bewerten."
+
+quellen:
+  - "§§ 339, 341, 634, 640, 641 BGB, amtlicher Text nach gesetze-im-internet.de, Stand 26.09.2026"
+  - "§ 11 Abs. 4, § 12 Abs. 4 und 5 VOB/B (DIN 1961:2016-09); VOB-Gesamtausgabe 2019, S. 150 f."
+  - "Wirth/Pfisterer/Schellenberg: Privates Baurecht praxisnah, 3. Aufl. 2021, S. 90 f."
+  - "Heiermann u. a.: VOB/B-Musterbriefe für Auftraggeber, 9. Aufl. 2021, S. 188 f."
+  - "Zanner: VOB/B nach Ansprüchen, 7. Aufl. 2021, S. 81, 135"
