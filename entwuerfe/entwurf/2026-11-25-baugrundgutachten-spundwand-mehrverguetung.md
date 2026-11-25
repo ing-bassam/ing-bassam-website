@@ -1,0 +1,169 @@
+---
+titel: Baugrundgutachten und Mehrvergütung bei Spundwandarbeiten
+kategorie: Baubetrieb
+format: Rechtsprechung
+zielgruppe: Gewerblich
+leistung: Claim Management
+kernfrage: Kann ein Tiefbauunternehmen Mehrvergütung verlangen, wenn das gewählte Einbringverfahren am Baugrund scheitert?
+gericht: Oberlandesgericht des Landes Sachsen-Anhalt 2. Zivilsenat
+aktenzeichen: 2 U 90/22
+ecli: ECLI:DE:OLGNAUM:2023:1221.2U90.22.00
+entscheidungsdatum: 2023-12-21
+fundstelle: https://www.landesrecht.sachsen-anhalt.de/perma?d=NJRE001619157
+meta_beschreibung: "OLG Sachsen-Anhalt, 21.12.2023 (2 U 90/22): Baugrundgutachten, Verfahrenswahl und Mehrvergütung nach § 2 Abs. 5 VOB/B bei Spundwandarbeiten."
+schlagwoerter: Baugrundrisiko, Mehrvergütung, VOB/B, Spundwand, Baugrundgutachten, Nachtrag, Leistungsbeschreibung, Einheitspreisvertrag
+definition: Das Baugrundmodell ist die vom Auftraggeber mitgeteilte Beschreibung der Bodenschichten und ihrer bautechnischen Eigenschaften.
+autor: M. Sc. Karim Abu Elkheir
+qualifikation:
+kurzform: baugrundgutachten-spundwand-mehrverguetung
+erstellt: 2026-11-25
+aktualisiert:
+status: Entwurf
+quelle: rechtsprechung
+notion_id:
+notion_url:
+fachlich_geprueft_von:
+fachlich_geprueft_am:
+wortzahl: 3790
+lesezeit: 19 Minuten
+fussnoten: 7
+quellen_geprueft: 3
+zahlenwerte_norm: 0
+todos: 0
+regelwerke_bestaetigt: "OLG Sachsen-Anhalt 2 U 90/22, Art. 229 § 39 EGBGB, §§ 650b und 650c BGB"
+---
+
+# Baugrundgutachten und Mehrvergütung bei Spundwandarbeiten
+
+Das Oberlandesgericht des Landes Sachsen-Anhalt hat mit Urteil des 2. Zivilsenats vom 21. Dezember 2023 (Aktenzeichen 2 U 90/22) die Klage eines Spezialtiefbauunternehmens auf Mehrvergütung für Spundwandarbeiten vollständig abgewiesen.[^1] Das Unternehmen hatte ein Einbringverfahren gewählt, das sich im Geschiebelehm als ungeeignet erwies, und die Mehrkosten als Nachträge nach § 2 Abs. 5 VOB/B abgerechnet. Der Senat sah keine Leistungsänderung des Auftraggebers: Der vorgefundene Baugrund entsprach dem mitgeteilten Baugrundmodell, ein Verfahren war nicht vorgegeben, und konkrete Abweichungen hatte das Unternehmen nicht vorgetragen (Rn. 107, 113, 122). Für die Baupraxis folgt daraus, dass die Wahl des Verfahrens, die Kalkulation und die Dokumentation von Abweichungen im Baugrund in diesem Fall über den Anspruch entschieden haben. Ob ein anderer Fall anders zu beurteilen ist, hängt vom Vertrag und vom Einzelfall ab.
+
+## Worum gestritten wurde: Spundbohlen im Geschiebelehm
+
+Das Oberlandesgericht beschreibt den Streit als Auseinandersetzung um Restwerklohn und Schadensersatz aus einem VOB-Bauvertrag über Spundwandarbeiten bei der Erneuerung einer Tiefendrainage (Rn. 1, 4). Die Klägerin war ein auf Spezialtiefbau ausgerichtetes Bauunternehmen. Die Beklagte zu 1 war ein Bauunternehmen, das solche Leistungen nicht selbst ausführt; sie war von der Bauherrin mit der Erneuerung der Tiefendrainage beauftragt worden und hatte die Spundwandarbeiten an die Klägerin vergeben (Rn. 1, 6). Ein Baugrundgutachter, der für die Bauherrin ein Gutachten erstellt hatte, wurde als Beklagter zu 2 mitverklagt (Rn. 2, 5).
+
+Das Baugrundmodell ist die vom Auftraggeber mitgeteilte Beschreibung der Bodenschichten und ihrer bautechnischen Eigenschaften. Die Leitsätze des Senats verwenden diesen Begriff für die Daten, die der Besteller dem Unternehmer zum Baugrund mitgeteilt hat (Leitsatz 2 und 3). Im Fall bildete ein Baugrundgutachten vom 1. September 2014 dieses Modell ab. Es ordnete die angetroffenen Böden Bodenklassen zu und beschrieb drei Schichten: eine Auffüllung, darunter Geschiebelehm beziehungsweise Geschiebemergel mit lokal eingelagerten Geröllen, darunter Schmelzwassersande (Rn. 5, 109). Zur Bohr- und Rammbarkeit enthielt es für jede Schicht Angaben, und der Senat zitiert dazu den Zusatz, dass bei Steinlagen, Geröllen und Blöcken Auflockerungsbohrungen erforderlich seien (Rn. 110). Die Klägerin behauptete, das Gutachten sei Vertragsbestandteil geworden, weil die Beklagte zu 1 es ihr mit den Ausschreibungsunterlagen übergeben habe; der Senat ließ offen, ob das zutrifft, und unterstellte es zugunsten der Klägerin (Rn. 28, 108).
+
+Der VOB-Bauvertrag datiert vom 1. August 2016. Ihm lagen die VOB Teil B und Teil C in der bei Vertragsschluss geltenden Fassung sowie ein detailliertes Leistungsverzeichnis zugrunde; vereinbart war eine Abrechnung nach Einheitspreisen, der Nettoauftragswert betrug 443.186,10 Euro (Rn. 7, 18). Die Klägerin sollte unter anderem einen Spundwandverbau herstellen, die Spundbohlen im ersten Bauabschnitt später ziehen und im zweiten Bauabschnitt wiederverwenden (Rn. 7, 11–15). Zur Art des Einbringens nannte das Leistungsverzeichnis lediglich „Erschütterungsarm mit Vorbohren“ (Rn. 9, 124).
+
+Nach dem Vertragsschluss führte die Klägerin die Arbeiten durch Einvibrieren der Bohlen nach Lockerungsbohrungen aus. Die Bohlen ließen sich nur unter Schwierigkeiten einbringen und schwer ziehen, zahlreiche wurden beschädigt (Rn. 19). Die Klägerin zeigte zwischen dem 31. August 2016 und dem 5. Januar 2017 mehrfach Mehrkosten an, meldete eine Behinderung und äußerte Bedenken gegen die Art der Ausführung (Rn. 20). Die Beklagte zu 1 kündigte den Vertrag am 24. März 2017 außerordentlich nach § 8 Abs. 3 VOB/B, weil die Klägerin ihre zwischenzeitlich eingestellten Arbeiten trotz Aufforderung und Androhung des Auftragsentzugs nicht wieder aufgenommen hatte (Rn. 23). In ihrer Schlussrechnung vom 19. Dezember 2017 stellte die Klägerin 628.019,96 Euro netto in Rechnung, die Beklagte zu 1 hatte mindestens 257.920,04 Euro netto gezahlt (Rn. 22).
+
+Die Klägerin begründete ihre Forderung im Kern mit vier Nachträgen und einer verlängerten Vorhaltung der Spundwand. Sie meinte, die Beschreibung des Baugrunds sei unzutreffend gewesen, das Einvibrieren mit Lockerungsbohrungen sei ihr durch Leistungsverzeichnis und Gutachten faktisch vorgegeben gewesen, und die dadurch entstandenen Erschwernisse seien besondere Leistungen, die gesondert zu vergüten seien (Rn. 28–34). Gegenüber dem Baugrundgutachter machte sie Schadensersatz nach den Grundsätzen des Vertrags mit Schutzwirkung zugunsten Dritter geltend (Rn. 2, 45).
+
+## Was das Oberlandesgericht am Urteil des Landgerichts änderte
+
+Das Landgericht Halle (Saale) hatte mit Urteil vom 17. Juni 2022 der Klage nur in geringem Umfang stattgegeben, nämlich mit einem kleinen Restwerklohn für die erbrachten Hauptleistungen (Rn. 60). Mehrvergütung hatte es abgelehnt: Die Klägerin habe nicht dargelegt, dass die Beklagte zu 1 die Nachtragsangebote angenommen habe, und auch aus § 2 Abs. 5 und Abs. 6 VOB/B ergebe sich kein Anspruch (Rn. 60). Zwischen der Zustellung der Klage an die Beklagte zu 1 am 26. Oktober 2018 und dem erstinstanzlichen Urteil lagen drei Jahre und knapp acht Monate (Rn. 26, 60).
+
+Die Klägerin legte gegen das Urteil Berufung ein. Sie rügte Verfahrensfehler, insbesondere eine Verletzung ihres rechtlichen Gehörs, und beanstandete die Anwendung des materiellen Rechts. Sie hielt daran fest, dass das Baugrundgutachten Vertragsbestandteil sei und sie sich an die Vorgaben von Leistungsbeschreibung, Leistungsverzeichnis und Gutachten gehalten habe (Rn. 61–63). Die Beklagte zu 1 legte ihrerseits Anschlussberufung ein, mit der sie sich gegen die teilweise Verurteilung wandte, und verwies auf den vereinbarten Gesamtnachlass von sechs Prozent (Rn. 71–72, 75).
+
+Das Oberlandesgericht wies die Berufung der Klägerin zurück und gab der Anschlussberufung statt; es änderte das Urteil des Landgerichts ab und wies die Klage vollständig ab (Rn. 79, 154; Tenor). Die Änderung betrifft nur den kleinen Zuspruch des Landgerichts. Der Senat führte aus, dass die Klägerin für die erbrachten Hauptleistungen einen Nachlass von sechs Prozent gewährt und in ihrer Schlussrechnung auch angesetzt habe, und dass sie sich daran festhalten lassen müsse (Rn. 88, 156). Nach Abzug des Nachlasses sei der Anspruch durch die unstreitig geleisteten Zahlungen bereits erfüllt (Rn. 158).
+
+Die Revision ließ der Senat nicht zu, weil weder die Rechtssache grundsätzliche Bedeutung habe noch die Fortbildung des Rechts oder die Sicherung einer einheitlichen Rechtsprechung eine Entscheidung des Revisionsgerichts erfordere (Rn. 161). Der Senat hat in zweiter Instanz in der Sache selbst entschieden; zurückverwiesen wurde nicht. Zur Frage, ob und wie gegen die Nichtzulassung der Revision vorgegangen wurde, macht dieser Beitrag keine Aussage, weil der Volltext dazu schweigt.
+
+## Weshalb der Senat keine Mehrvergütung nach § 2 Abs. 5 VOB/B zusprach
+
+Der Senat prüfte die Nachträge zuerst als vertragliche Ansprüche und stellte dabei auf eine prozessuale Frage ab: Die Klägerin habe nicht schlüssig dargelegt, dass sie mit der Beklagten zu 1 die Bezahlung der Leistungen aus den vier Nachträgen vereinbart habe (Rn. 90). Eine in den Vertragsunterlagen enthaltene doppelte Schriftformklausel stehe einer mündlichen Vereinbarung nicht entgegen, weil der Vorrang der Individualvereinbarung nach § 305b BGB auch gegenüber einer solchen Klausel gelte (Rn. 91–96). Ob die Klausel wirksam ist, ließ der Senat ausdrücklich offen, weil die Klägerin gar keine ausdrückliche mündliche Vereinbarung behauptete (Rn. 97).
+
+Die Klägerin berief sich stattdessen auf eine stillschweigende Annahme ihrer Nachtragsangebote. Der Senat verneinte sie. Die bloße Aufforderung eines Auftraggebers, die Arbeiten fortzusetzen, obwohl der Auftragnehmer Nachtragsangebote vorgelegt hat, enthalte keine Zustimmung zu diesen Angeboten, weil sie ebenso gut bedeuten könne, dass der Auftragnehmer zu den bisherigen Bedingungen weiterarbeiten solle (Rn. 99). Die vorgelegten Schreiben und Besprechungsprotokolle ergaben nach Auffassung des Senats keine Zustimmung, teils sogar eine ausdrückliche Zurückweisung (Rn. 100–101). Auch dass die Beklagte zu 1 die Bedenken und Nachträge an die Bauherrin weiterreichte, wertete der Senat nicht als Annahme (Rn. 102).
+
+Zu § 2 Abs. 5 VOB/B beschreibt der Senat zunächst, wann ein neuer Preis zu vereinbaren ist: wenn der Auftraggeber den Bauentwurf ändert oder sonst etwas anordnet und sich dadurch die Preisgrundlagen einer vertraglich vorgesehenen Leistung verschieben (Rn. 104). Es komme darauf an, ob der Auftraggeber damit eine Änderung verlangt oder nur die Leistung einfordert, die der Vertrag ohnehin vorsieht (Rn. 105). Eine solche Leistungsänderung könne auch den Baugrund betreffen, etwa bei fehlender oder unzureichender geotechnischer Untersuchung oder fehlerhafter Umsetzung geotechnischer Daten in der Leistungsbeschreibung; liege die Ursache in Fehlern bei der Angebotsbearbeitung des Auftragnehmers, scheide der Anspruch aus (Rn. 106). Der Senat verweist dafür auf Kommentarliteratur. Zu einem Bieter, der trotz fehlender Angaben zur Bohrbarkeit von einfacher Bohrbarkeit ausgeht, schließt er sich einer Entscheidung des Oberlandesgerichts Düsseldorf an: Dieser Bieter übernehme das Ausführungsrisiko und habe keinen Anspruch aus § 2 Abs. 5 VOB/B, wenn sich später eine schwierigere Bohrbarkeit zeige (Rn. 106). Wie weit dieser Gedanke außerhalb des Falls trägt, beurteilt ein Rechtsanwalt.
+
+Auf dieser Grundlage verneinte der Senat eine Leistungsänderung, weil die vorgefundenen Bodenverhältnisse denjenigen entsprachen, die im Baugrundgutachten beschrieben waren (Rn. 107). Das Gutachten sei nicht fehlerhaft gewesen; die Schwierigkeiten beim Einbringen beruhten gerade auf dem dort beschriebenen Schichtenaufbau und der daraus folgenden Bohr- und Rammbarkeit (Rn. 108). Die Klägerin habe ihre Behauptung nicht im erforderlichen Umfang substantiiert und trotz umfangreicher Leistungen auf der Baustelle nichts Konkretes dazu vorgetragen, inwieweit die Böden vom Gutachten abwichen (Rn. 113). Der Leitsatz fasst das so: Der Bauunternehmer muss konkrete Abweichungen vortragen (Leitsatz 2, Rn. 108, 113).
+
+Der Senat stützt sich dabei auf mehrere Gutachten. Der im selbständigen Beweisverfahren bestellte Sachverständige hatte die Bodenanhaftungen an den Spundwänden untersucht und gefunden, dass sie der Beschreibung im Baugrundgutachten entsprechen; zugleich habe er das von der Klägerin gewählte Verfahren für den bindigen Boden als ungeeignet bezeichnet (Rn. 115). Die von der Klägerin vorgelegten Stellungnahmen prüften nach der Würdigung des Senats nur, ob Gerät und Bohle zu den Angaben im Baugrundgutachten passten, und enthielten keine eigenen Beobachtungen zu einer abweichenden Bodenbeschaffenheit (Rn. 116–117). Ein von der Beklagten zu 1 eingeholtes Privatgutachten bestätigte die Angaben des Baugrundgutachtens; seine Probenahmen erfolgten allerdings nach Ausführung der Arbeiten (Rn. 118–119).
+
+Die zweite Linie des Urteils betrifft die Frage, ob der Klägerin ein Einbringverfahren vorgegeben worden war. Der Senat konnte das nicht erkennen (Rn. 122). Aus dem Leistungsverzeichnis folge nur die Vorgabe „Erschütterungsarm mit Vorbohren“ (Rn. 124). Unstreitig kamen nach den anerkannten Regeln der Technik zwei Verfahren in Betracht, nämlich das Einrammen mit Hydraulikhämmern und das Einvibrieren; schon deshalb sei die Leistungspflicht nicht auf das von der Klägerin gewählte Einvibrieren konkretisiert (Rn. 127). Der Hinweis des Gutachters, das Einrütteln im Geschiebelehm werde nur eingeschränkt empfohlen und es sei von einer schweren Rammung auszugehen, war nach dem Senat eine Empfehlung und keine Vorgabe (Rn. 128–129).
+
+Aus dieser Würdigung leitet der Senat die Rollenverteilung ab, die der dritte Leitsatz festhält. Dem Fachunternehmen habe es oblegen, auf der Grundlage der beschriebenen Bodenverhältnisse ein geeignetes Verfahren anzubieten und die Aufwendungen angemessen zu kalkulieren (Rn. 129). Wegen der deutlichen Hinweise auf Steine und Blöcke hätte die Klägerin erkennen müssen, dass Lockerungsbohrungen in größeren Abständen diesen Hindernissen nicht angemessen begegnen (Rn. 130). Meinte sie, statt Lockerungsbohrungen hätten Austauschbohrungen ausgeschrieben werden müssen, so war das Leistungsverzeichnis mit der bloßen Angabe „Vorbohren“ zwar nicht eindeutig (Rn. 131). Darauf konnte sich die Klägerin als Fachunternehmen nach dem Senat aber nicht berufen, weil sie Zweifelsfragen vor Abgabe ihres Angebots hätte aufklären müssen (Rn. 132). Ein vermeintlich übereinstimmendes Verständnis „maßgeblicher Fachkreise“ half ihr nicht (Rn. 132).
+
+## Weitere Anspruchsgrundlagen scheitern am selben Punkt
+
+Neben § 2 Abs. 5 VOB/B prüfte der Senat weitere Grundlagen und verneinte sie alle. Zu § 2 Abs. 6 Nr. 1 VOB/B führt er aus, dieser Anspruch setze eine im Vertrag nicht vorgesehene, zusätzlich geforderte Leistung voraus; bloße Erschwernisse einer in der Leistungsbeschreibung vorgesehenen Leistung fielen nicht darunter (Rn. 135). Die Beklagte zu 1 habe keine im Vertrag nicht vorgesehene Leistung gefordert, sondern die Klägerin aufgefordert, die Positionen des Leistungsverzeichnisses zu erbringen, wobei es der Klägerin als Fachunternehmen oblegen habe, ein geeignetes Verfahren anzubieten (Rn. 136).
+
+Auch § 2 Abs. 8 Nr. 2 Satz 2 VOB/B trug den Anspruch nicht. Nach der Wiedergabe des Senats kann ein Auftragnehmer auch für Leistungen ohne Auftrag oder in eigenmächtiger Abweichung davon eine Vergütung erhalten, aber nur unter drei Bedingungen: Die Leistungen müssen für den Vertrag notwendig gewesen sein, dem mutmaßlichen Willen des Auftraggebers entsprochen haben und unverzüglich angezeigt worden sein (Rn. 138). Ein solcher Fall liege nicht vor, weil die geforderten Leistungen aufgrund des geschlossenen Bauvertrages ohnehin zu erbringen gewesen seien (Rn. 139).
+
+Zu den §§ 644 und 645 BGB legt der Senat zunächst den Wortlaut des § 645 Abs. 1 Satz 1 BGB dar und gibt das Argument der Klägerin wieder, der Baugrund sei ein vom Besteller gelieferter Stoff (Rn. 141–142). Der Senat beantwortet diese Frage nicht ausdrücklich, sondern stellt darauf ab, dass der Baugrund im Gutachten zutreffend beschrieben war und es deshalb der Klägerin oblegen hätte, ein geeignetes Einbringverfahren anzubieten und die Vergütung dafür angemessen zu kalkulieren (Rn. 143). Die verlängerte Vorhaltung der Spundbohlen beruhte nach dem Senat darauf, dass sich die Leistungszeit durch das gewählte Verfahren deutlich verlängerte; das lag im Risikobereich der Klägerin (Rn. 144–145). Der Anspruch auf Vergütung nicht erbrachter Leistungen nach einer freien Kündigung scheiterte, weil der Senat sich insoweit die Ausführungen des Landgerichts zur berechtigten Kündigung zu eigen machte; deren Inhalt steht im Volltext nicht (Rn. 146–147).
+
+Gegen den Baugrundgutachter bestand nach dem Senat keine Anspruchsgrundlage. Zwischen ihm und der Klägerin bestehe kein Schuldverhältnis, ihn hätten keine vertraglichen Pflichten gegenüber der Klägerin getroffen (Rn. 150). Ein Vertrag mit Schutzwirkung zugunsten Dritter helfe nicht, weil der Baugrund zutreffend beschrieben sei und der Gutachter keine Verfahrensvorgabe gemacht, sondern Empfehlungen ausgesprochen habe; ob das Gutachten Vertragsbestandteil geworden sei, könne offenbleiben (Rn. 152). Auch eine unerlaubte Handlung sei nicht erkennbar (Rn. 153). Wie sich diese Maßstäbe auf einen anderen Vertrag übertragen lassen, beurteilt ein Rechtsanwalt.
+
+## Einordnung: Beschreibung des Baugrunds, Leistungsbeschreibung und Verfahrenswahl
+
+Der Senat spricht in seinen Gründen nicht vom „Baugrundrisiko“ und stellt keine allgemeine Risikoverteilung auf. Er prüft, ob eine Leistungsänderung des Auftraggebers vorliegt, und verneint sie für den Fall, weil der Baugrund wie beschrieben angetroffen wurde und kein Verfahren vorgegeben war (Rn. 106–107, 122). Die Entscheidung bewegt sich damit innerhalb der Linie, die der Senat selbst mit Kommentarliteratur und einer Entscheidung des Oberlandesgerichts Düsseldorf umreißt (Rn. 105–106). Eine Abweichung von einer höchstrichterlichen Linie nennt das Urteil nicht. Die Revision ließ der Senat nicht zu, weil er keine grundsätzliche Bedeutung sah (Rn. 161).
+
+Für die bautechnische und baubetriebliche Einordnung hilft die Fachliteratur, die das Urteil nicht heranzieht. Ein Handbuch der Geotechnik beschreibt, dass bei Streitigkeiten über Tiefbauschäden nach seiner Darstellung nahezu immer die Auftraggeberseite einen Ausführungsfehler behauptet, während die Auftragnehmerseite einwendet, nur der Baugrund sei anders gewesen als beschrieben. Der Sachverständige gehe deshalb in zwei Schritten vor: Zuerst werde anhand der Baustellenunterlagen, etwa Tagesberichten und Prüfprotokollen, geprüft, ob dem Unternehmen Herstellungsfehler unterlaufen sind, danach, soweit möglich, durch neue Baugrunduntersuchungen, ob der tatsächliche Boden vom beschriebenen abweicht.[^2] Diese Vorgehensweise stammt aus dem Handbuch; das Oberlandesgericht nennt sie nicht.
+
+Nach demselben Handbuch liegt im Tiefbau die Gefahr unaufklärbarer oder abweichender Bodenverhältnisse im Grundsatz beim Auftraggeber.[^2] Ein Lehrbuch zur Kalkulation von Bauleistungen trennt zwei Fragen: Für den tatsächlichen Zustand des Bodens bleibe der Auftraggeber zuständig, die Auslegung der Bodenbeschreibung könne dagegen bei einer funktionalen Ausschreibung auf den Auftragnehmer übergehen.[^3] Diese Aussagen betreffen die allgemeine Verteilung. Das Oberlandesgericht sagt etwas anderes und Engeres: Wo der Baugrund so wie beschrieben angetroffen wird, entsteht der Mehraufwand aus der Verfahrenswahl nicht aus einer Änderung des Auftraggebers (Rn. 107–108, 129).
+
+Zur Rolle des Bieters beschreibt dasselbe Lehrbuch, dass ein Bieter die Leistungsbeschreibung bei der Angebotsbearbeitung auf Unstimmigkeiten prüfen und dem Auftraggeber Zweifel mitteilen soll und dass eine unklare Leistungsbeschreibung für den Bieter besonders risikoreich ist.[^4] Das Oberlandesgericht verlangt in einem Fall wie diesem vom Fachunternehmen ebenfalls, Zweifelsfragen vor Abgabe des Angebots zu klären (Rn. 132). Beide Aussagen liegen nah beieinander, sind aber verschiedener Herkunft: Das Lehrbuch gibt eine baubetriebliche Empfehlung, der Senat eine Würdigung des Falls. Der Senat führt das Lehrbuch nicht an.
+
+Zum Verhältnis der VOB/B zum neuen Bauvertragsrecht gibt es eine Fachbuchansicht, wonach § 2 Abs. 5 und Abs. 6 VOB/B im Lichte der §§ 650b ff. BGB weiter angewendet werden können; dort heißt es zugleich, die VOB/B sei darauf bisher nicht angepasst und es werde vielfältig diskutiert, ob und wo das erforderlich ist.[^5] Das Oberlandesgericht äußert sich dazu nicht. Es wendet § 2 Abs. 5, Abs. 6 und Abs. 8 VOB/B auf einen Vertrag vom 1. August 2016 an (Rn. 7, 103–139).
+
+## Was die Entscheidung für Kalkulation, Dokumentation und Gutachten bedeutet
+
+Für die Kalkulation zeigt der Fall, an welcher Stelle der Streit entschieden wurde. Das Oberlandesgericht sah die Wahl des Einbringverfahrens beim Fachunternehmen, das die Aufwendungen dafür angemessen kalkulieren sollte (Rn. 129). Aus technischer Sicht liegt es nahe, die Hinweise des Baugrundgutachtens zu Steinen, Blöcken und Rammbarkeit bei der Wahl von Verfahren und Gerät und im Preis abzubilden; das Urteil verlangt das nicht allgemein, sondern wertet es für den Fall. Wie weit entsprechende Pflichten in einem anderen Vertrag reichen, beurteilt ein Rechtsanwalt.
+
+Für den Nachtrag zeigt der Fall zwei Hürden, die voneinander unabhängig sind. Die erste ist die Vereinbarung: Eine Aufforderung, die Arbeiten fortzusetzen, ist nach dem Senat keine Zustimmung zu Nachtragsangeboten (Rn. 99), und das Weiterreichen von Nachträgen an die Bauherrin ist keine Annahme (Rn. 102). Die zweite ist der Anspruchsgrund: Selbst wenn die Anzeigen der Klägerin zahlreich waren (Rn. 20), kam es für § 2 Abs. 5 VOB/B darauf an, ob eine Änderung des Auftraggebers vorlag (Rn. 105–107). Für die Dokumentation von Nachträgen folgt daraus, dass die ausdrückliche Annahme ebenso zu belegen ist wie die Abweichung, auf die sich der Nachtrag stützt.
+
+Für die Beweissicherung kommt es nach dem Senat auf konkreten Vortrag zu Abweichungen im Boden an (Rn. 113). Die Klägerin hatte trotz umfangreicher Leistungen nichts Konkretes vorgetragen, und weder das Gutachten im selbständigen Beweisverfahren noch die Privatgutachten zeigten eine Abweichung (Rn. 113–119). Aus technischer Sicht kommen als Grundlage eines späteren Vergleichs mit dem Baugrundmodell etwa Bodenansprachen, Bohr- und Rammprotokolle sowie Proben mit Ort und Tiefe in Betracht. Der Senat nennt solche Unterlagen nicht; er stellt fest, dass es an konkretem Vortrag fehlte.
+
+Für die Auftraggeberseite zeigt der Fall, dass die Formulierung eines Baugrundgutachtens Folgen hat. Der Senat unterscheidet zwischen der Beschreibung der Bodenverhältnisse, die Aufgabe des Gutachters war (Rn. 129), und Verfahrensempfehlungen, die keine Vorgabe sind (Rn. 128–129). Er hielt das Leistungsverzeichnis bei der Frage Lockerungs- oder Austauschbohrungen für nicht eindeutig (Rn. 131). Ob eine eindeutigere Formulierung den Streit vermieden hätte, sagt das Urteil nicht.
+
+Für den Sachverständigen bedeutet die Entscheidung, dass die Ursache nicht allein aus dem Schaden abgeleitet werden kann. Im Fall wirkten mehrere Gutachten zusammen: Das Gutachten im selbständigen Beweisverfahren verglich Bodenanhaftungen mit der Beschreibung und beurteilte das Verfahren (Rn. 115), das Privatgutachten ordnete Bodenproben zu (Rn. 119), die von der Klägerin eingeholten Stellungnahmen prüften nur Gerät und Bohle (Rn. 116–117). Aus technischer Sicht legt der Fall nahe, die Fragestellung an den Sachverständigen so zu fassen, dass sie sowohl die Abweichung des Bodens als auch die Eignung des Verfahrens erfasst; eine Anweisung dazu enthält das Urteil nicht.
+
+## Was die Entscheidung nicht sagt, und der Stand heute
+
+Das Oberlandesgericht hat in zweiter Instanz entschieden, die Revision wurde nicht zugelassen (Rn. 161), der Rechtsstreit ist in dieser Instanz in der Sache abgeschlossen (Tenor). Es ist das Urteil eines einzelnen Oberlandesgerichts; ein anderes Gericht kann dieselbe Frage anders beurteilen. Dass die Frage höchstrichterlich geklärt wäre, folgt aus diesem Urteil nicht. Zu einer möglichen Beschwerde gegen die Nichtzulassung der Revision enthält der Volltext keine Aussage, und dieser Beitrag macht dazu keine.
+
+Offen gelassen hat der Senat, ob das Baugrundgutachten Vertragsbestandteil war (Rn. 108, 152) und ob die doppelte Schriftformklausel wirksam ist (Rn. 97). Er hat auch keine Aussage dazu getroffen, ob der Baugrund ein vom Besteller gelieferter Stoff im Sinne des § 645 BGB ist (Rn. 143). Zur Kündigung gibt der Volltext nur den Verweis auf das Urteil des Landgerichts wieder (Rn. 147). Die Entscheidung betrifft einen Einheitspreisvertrag zwischen Unternehmen, bei dem die VOB/B in einer nicht genannten Fassung galt (Rn. 7); sie sagt nichts zu Verbraucherverträgen.
+
+Vor allem sagt die Entscheidung nichts darüber, wie ein Fall zu beurteilen wäre, in dem der Baugrund tatsächlich vom Baugrundmodell abweicht oder ein Verfahren vorgeschrieben ist. Der Senat hält ausdrücklich fest, dass eine Leistungsänderung auch den Baugrund betreffen kann (Rn. 106), und verneint sie im Fall nur, weil die Voraussetzungen fehlten (Rn. 107–108). Wie über eine Mehrvergütung bei einer nachgewiesenen Abweichung zu entscheiden wäre, hatte der Senat nicht zu beantworten.
+
+Zum Stand heute: Der Senat hat am 21. Dezember 2023 über einen Vertrag vom 1. August 2016 entschieden (Rn. 7). Auf Schuldverhältnisse, die vor dem 1. Januar 2018 entstanden sind, finden die Vorschriften des Bürgerlichen Gesetzbuchs in der bis zu diesem Tag geltenden Fassung Anwendung.[^6] Für Bauverträge enthält das Gesetz heute in § 650b BGB ein Anordnungsrecht des Bestellers und in § 650c BGB Regeln zur Vergütungsanpassung.[^7] Wie das auf eine Vergütung nach § 2 Abs. 5 VOB/B wirkt, wird in der Fachliteratur diskutiert.[^5] Der heutige Wortlaut der VOB/B wurde für diesen Beitrag nicht mit der vom Senat angewandten Fassung verglichen.
+
+Eine technische oder baubetriebliche Beratung zu Nachträgen, Baugrund und Beweissicherung ist keine Rechtsberatung. Wer als Unternehmen oder Bauherr in einer vergleichbaren Lage fachliche Unterstützung bei der Dokumentation von Abweichungen und der Prüfung von Nachträgen braucht, findet sie im Bereich [Claim Management](https://ing-bassam.de/#kontakt) des Büros. Ob ein Anspruch besteht, entscheidet am Ende ein Rechtsanwalt oder ein Gericht.
+
+## Häufige Fragen
+
+**Kann ein Tiefbauunternehmen Mehrvergütung verlangen, wenn der Boden schwieriger ist als gedacht?**
+
+Das Oberlandesgericht Sachsen-Anhalt hat die Mehrvergütung in dem entschiedenen Fall abgelehnt, weil der Boden dem mitgeteilten Baugrundmodell entsprach und das Unternehmen keine konkrete Abweichung vortrug (Rn. 107, 113). Dass eine Leistungsänderung auch den Baugrund betreffen kann, hält der Senat ausdrücklich fest (Rn. 106). Ob ein anderer Fall anders ausgeht, hängt vom Vertrag ab, und das beurteilt ein Rechtsanwalt.
+
+**Was ist ein Baugrundmodell?**
+
+Gemeint ist die Beschreibung des Bodens, die der Auftraggeber dem Unternehmer mitteilt. Im entschiedenen Fall bildete ein Baugrundgutachten mit drei Schichten und Angaben zu Bohr- und Rammbarkeit dieses Modell ab (Rn. 109–110). Der Begriff stammt aus den Leitsätzen des Senats, der ihn nicht näher bestimmt.
+
+**Ist eine Empfehlung im Baugrundgutachten eine Vorgabe für das Verfahren?**
+
+Nach dem Senat war die Aussage des Gutachters, das Einrütteln im Geschiebelehm werde nur eingeschränkt empfohlen, eine Empfehlung und keine Vorgabe (Rn. 128–129). Dem Fachunternehmen oblag es, aufgrund der Bodenverhältnisse ein geeignetes Verfahren anzubieten (Rn. 129). Die Entscheidung gilt für diesen Vertrag und diesen Gutachtentext.
+
+**Reicht es, dass der Auftraggeber die Arbeiten trotz Nachtragsangebots fortsetzen lässt?**
+
+Der Senat sah in einer Aufforderung, die Arbeiten fortzusetzen, keine Zustimmung zu Nachtragsangeboten, weil sie auch bedeuten kann, dass zu den bisherigen Bedingungen weiterzuarbeiten ist (Rn. 99). Das Weiterreichen der Nachträge an die Bauherrin wertete er ebenfalls nicht als Annahme (Rn. 102). Wie das im Einzelfall zu bewerten ist, beurteilt ein Rechtsanwalt.
+
+**Welche Rolle spielten die Gutachten im Verfahren?**
+
+Der Senat stützte sich auf mehrere Gutachten: auf das im selbständigen Beweisverfahren eingeholte, auf ein Privatgutachten der Beklagten zu 1 und auf die von der Klägerin vorgelegten Stellungnahmen (Rn. 114–119). Keines davon zeigte nach seiner Würdigung eine Abweichung des Bodens vom Baugrundgutachten (Rn. 114, 116–119). Was die Gutachten feststellen, sind Ausführungen der Sachverständigen; der Senat zog sie für seine Würdigung heran (Rn. 114–119, 129).
+
+**Ist das Urteil noch aktuell?**
+
+Das Urteil stammt vom 21. Dezember 2023 und beurteilt einen Vertrag vom 1. August 2016 nach dem damals geltenden Bürgerlichen Gesetzbuch (Rn. 7).[^6] Für Verträge, die ab dem 1. Januar 2018 entstanden sind, enthält das Gesetz die §§ 650b und 650c BGB.[^7] Ob spätere Entscheidungen die Frage anders sehen, wurde für diesen Beitrag nicht festgestellt.
+
+## Hinweis
+
+Dieser Beitrag gibt den fachlichen Kenntnisstand zum Erstellungsdatum wieder. Er ist keine Rechtsberatung und ersetzt keine Begutachtung des Einzelfalls. Ob und wie Ansprüche bestehen und durchgesetzt werden können, beurteilt ein Rechtsanwalt. Genannte Normen und Regelwerke sind in der jeweils gültigen Fassung zu prüfen.
+
+---
+
+**Über den Autor**
+
+M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: info@ing-bassam.de. Stand: 2026-11-25.
+
+## Quellen und Fußnoten
+
+[^1]: Oberlandesgericht des Landes Sachsen-Anhalt, 2. Zivilsenat: Urteil vom 21.12.2023 – 2 U 90/22 (ECLI:DE:OLGNAUM:2023:1221.2U90.22.00), Leitsätze und Rn. 1–161. https://www.landesrecht.sachsen-anhalt.de/perma?d=NJRE001619157 (abgerufen am 2026-11-25).
+[^2]: Boley, Conrad (Hrsg.): Handbuch Geotechnik. Grundlagen – Anwendungen – Praxiserfahrungen. 2. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2019, S. 1082. ISBN 978-3-658-03055-1.
+[^3]: Vogt, Peter: Kalkulation von Baupreisen und Vergabe von Bauleistungen. Ausschreibung, Angebotsbearbeitung, Vergabe und Abrechnung. Wiesbaden: Springer Vieweg, 2025, S. 46. ISBN 978-3-658-46164-5.
+[^4]: Vogt, Peter: Kalkulation von Baupreisen und Vergabe von Bauleistungen. Ausschreibung, Angebotsbearbeitung, Vergabe und Abrechnung. Wiesbaden: Springer Vieweg, 2025, S. 41–42. ISBN 978-3-658-46164-5.
+[^5]: Heiermann, Wolfgang u. a.: VOB/B-Musterbriefe für Auftraggeber. Bauherren – Generalunternehmer – Architekten – Bauingenieure. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 116–117. ISBN 978-3-658-32253-3.
+[^6]: Bundesministerium der Justiz: Einführungsgesetz zum Bürgerlichen Gesetzbuche, Art. 229 § 39, Stand: zuletzt geändert durch Art. 2 G v. 16.7.2026 I Nr. 212. https://www.gesetze-im-internet.de/bgbeg/ (abgerufen am 2026-10-23 für die Textsammlung der Fachbibliothek, Datenstand gesetze-im-internet.de 2026-09-26; ein erneuter Abruf am 2026-11-25 war nicht möglich).
+[^7]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, §§ 650b und 650c, Stand: zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/ (abgerufen am 2026-10-23 für die Textsammlung der Fachbibliothek, Datenstand gesetze-im-internet.de 2026-09-26; ein erneuter Abruf am 2026-11-25 war nicht möglich).
+
