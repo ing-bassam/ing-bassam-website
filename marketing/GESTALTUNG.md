@@ -107,7 +107,7 @@ Einordnung: Die Website ist die eigene Darstellung des Büros und damit zulässi
 **Englisch, Kaufbegutachtung**
 
 - Vorher: „Know what you’re buying – before you sign at the notary.“
-- Nachher: „Pre-purchase inspection in Berlin.“ Einleitung: „Inspection, document review and a written condition report with a defect list and a cost outlook for the next 10 to 15 years – for flats and houses.“
+- Nachher: „Pre-purchase inspection of flats and houses in Berlin.“ Einleitung: „A civil engineer inspects the flat or house before you buy. The service covers the inspection, a document review and a written condition report with a defect list.“
 
 ### 4.4 Wortliste
 

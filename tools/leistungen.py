@@ -58,10 +58,11 @@ SEITEN: dict[str, Leistungsseite] = {s.schluessel: s for s in (
         "Rechnungsprüfung und Abnahme – für Bauherren, Eigentümer und Verwaltungen, die bauen oder sanieren lassen."),
     Leistungsseite(
         "kaufbegutachtung", "leistungen/kaufbegutachtung/", "Kaufbegutachtung",
-        "Kaufbegutachtung in Berlin: Zustandsbericht vor dem Kauf von Wohnung oder Haus",
-        "Eigentumswohnung oder Einfamilienhaus vor dem Kauf: Begehung, Auswertung der Unterlagen und "
-        "Zustandsbericht mit Mängelliste und Kostenrahmen für 10–15 Jahre; Preise und Leistungsübersicht "
-        "nach Ihrer Anfrage per E-Mail."),
+        "Kaufbegutachtung in Berlin: Gutachter beim Haus- und Wohnungskauf",
+        "Prüfung von Eigentumswohnung oder Einfamilienhaus vor dem Kauf, im Sprachgebrauch auch Kaufberatung "
+        "oder Kaufgutachten. Umfang: Begehung, Auswertung der Unterlagen und Zustandsbericht mit Mängelliste; "
+        "Kostenschätzung der Instandsetzung als Option. Preise und Leistungsübersicht nach Ihrer Anfrage "
+        "per E-Mail."),
     Leistungsseite(
         "due-diligence", "leistungen/technische-due-diligence/", "Technische Due Diligence",
         "Technische Due Diligence und Kaufberatung in Berlin",
@@ -193,9 +194,9 @@ ENGLISCH: list[EnglischeSeite] = [
                    "Overview of all services for international clients, a glossary of German building terms "
                    "and contact – reports in English or German; quote on request by email.", ""),
     EnglischeSeite("en/pre-purchase-inspection-berlin/", "Pre-purchase inspection of a flat or house",
-                   "Inspection, document review and a condition report with defect list and a 10–15-year cost "
-                   "outlook before you buy a flat or house in Berlin – report in German (English on request); "
-                   "prices and list of services after your enquiry by email.",
+                   "Building survey before buying a flat or house in Berlin: inspection, document review and "
+                   "a condition report with defect list. Repair cost estimate as an option. Report in German, "
+                   "in English on request. Prices and list of services after your enquiry by email.",
                    "leistungen/kaufbegutachtung/"),
     EnglischeSeite("en/technical-due-diligence-berlin/", "Technical due diligence and pre-purchase surveys",
                    "Inspection and document review before buying a house, flat or apartment building in Berlin: "

@@ -4,7 +4,7 @@ kurzform: buying-a-flat-in-germany-weg-documents
 original: wohnungskauf-sondereigentum-weg-unterlagen
 meta_beschreibung: "Buying a flat in Germany: which owners' association documents to request and how to check the common property and the flat – with a checklist for the viewing."
 schlagwoerter: [buying a flat in Germany, owners' association, WEG, declaration of division, common property, maintenance reserve, pre-purchase survey, Berlin]
-leistung: en/technical-due-diligence-berlin/
+leistung: en/pre-purchase-inspection-berlin/
 autor: M. Sc. Karim Abu Elkheir
 erstellt: 2026-10-05
 status: Veröffentlicht
@@ -106,7 +106,7 @@ For refurbishment projects, the specialist literature recommends that a competen
 
 A surveyor reads the documents of the owners' association, classifies the findings and estimates the maintenance backlog on the common property. They tell you which work on the building is due and what effort lies behind it. What a surveyor does not do: decide legal questions or give a guarantee against hidden damage.
 
-Get professional help if you see damp on basement walls or under balconies, if the maintenance reserve is low and the building is old, if the minutes report recurring damage, or if major works have been decided. A [pre-purchase survey](/en/technical-due-diligence-berlin/) by a civil engineer puts these points into context before the notary appointment.
+Get professional help if you see damp on basement walls or under balconies, if the maintenance reserve is low and the building is old, if the minutes report recurring damage, or if major works have been decided. A [pre-purchase survey](/en/pre-purchase-inspection-berlin/) by a civil engineer puts these points into context before the notary appointment.
 
 For the purchase contract itself, you need legal advice. Whether you have rights because of a finding, which deadlines run and how a promise by the seller is to be assessed is for a lawyer to judge. Technology and law interlock here, but they remain two different questions.
 

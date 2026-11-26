@@ -4,7 +4,7 @@ kurzform: buying-a-house-in-germany-viewing-documents
 original: hauskauf-besichtigung-unterlagen
 meta_beschreibung: "Buying a used house in Germany: which documents to request, what to check outside and inside, building services, asbestos – with a checklist for the viewing."
 schlagwoerter: [buying a house in Germany, house viewing checklist, land register, energy performance certificate, asbestos, pre-purchase survey, Berlin]
-leistung: en/technical-due-diligence-berlin/
+leistung: en/pre-purchase-inspection-berlin/
 autor: M. Sc. Karim Abu Elkheir
 erstellt: 2026-10-05
 status: Veröffentlicht
@@ -102,7 +102,7 @@ Three findings speak for bringing in a professional before you decide to buy. Fi
 
 A surveyor approaches the house differently from you. They see the building as a whole, place construction method and year in context and check the documents against the building as built. They can measure moisture, assess the build-up of building parts and arrange tests carried out by specialist laboratories or measurement service providers. The result is an assessment of which findings are urgent and which are not.
 
-A [pre-purchase survey](/en/technical-due-diligence-berlin/) during the viewing is the calmest route. You bring your completed checklist to the appointment, and the open points are assessed on site. The result is not a guarantee of a house without defects. It is an ordered basis for your decision. For legal questions about the purchase contract, a lawyer remains responsible.
+A [pre-purchase survey](/en/pre-purchase-inspection-berlin/) during the viewing is the calmest route. You bring your completed checklist to the appointment, and the open points are assessed on site. The result is not a guarantee of a house without defects. It is an ordered basis for your decision. For legal questions about the purchase contract, a lawyer remains responsible.
 
 ## Frequently asked questions
 
