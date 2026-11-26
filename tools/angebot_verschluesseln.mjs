@@ -57,8 +57,10 @@ export const PREIS_SCHALTER = {
   gross_efh: { name: "einlieger", objekt: "efh", de: "Mit Einliegerwohnung", en: "With a granny flat (Einliegerwohnung)" },
 };
 // Texte, die die Seite aus inhalte.json braucht.
-const TEXTE = ["objekt_etw", "objekt_efh", "objekt_etw_unter", "objekt_efh_unter", "pauschal", "ausserhalb", "ablauf",
+const TEXTE = ["objekt_etw", "objekt_efh", "objekt_etw_unter", "objekt_efh_unter", "pauschal_etw", "pauschal_efh", "ausserhalb", "ablauf",
   "grenzen", "beauftragen", "rechtsstand", "prio"];
+// Texte, die fehlen dürfen: Überschriften für Gruppen von Extras ("gruppe" an der Option).
+const TEXTE_WAHLWEISE = ["gruppen"];
 
 const kopie = (wert) => JSON.parse(JSON.stringify(wert));
 const zahl = (x) => typeof x === "number" && Number.isFinite(x);
@@ -80,7 +82,6 @@ export function paketBauen(inhalte) {
   const pruefe = (bedingung, text) => { if (!bedingung) fehler.push(text); };
 
   pruefe(zahl(d.mwst) && d.mwst > 0 && d.mwst < 1, "mwst muss eine Zahl zwischen 0 und 1 sein (z. B. 0.19)");
-  pruefe(zahl(d.stundensatz_netto) && d.stundensatz_netto > 0, "stundensatz_netto fehlt");
   pruefe(d.kontakt && /@/.test(d.kontakt.email || ""), "kontakt.email fehlt");
   for (const s of ["de", "en"]) pruefe(d.stand && d.stand[s], `stand.${s} fehlt`);
 
@@ -94,6 +95,13 @@ export function paketBauen(inhalte) {
     pruefe(o.kostenlos === undefined || typeof o.kostenlos === "boolean", `Option ${id}: kostenlos muss true oder false sein`);
     pruefe(o.kostenlos !== true || (!fest && !spanne), `Option ${id}: kostenlos, aber mit Preis`);
     for (const s of ["de", "en"]) pruefe(o[s] && o[s].name && o[s].text, `Option ${id}: Name/Text ${s} fehlt`);
+    // Gruppe (wahlweise): Die Seite zeigt die Extras einer Gruppe unter einer gemeinsamen Überschrift.
+    if (o.gruppe !== undefined) {
+      for (const s of ["de", "en"]) {
+        const titel = d.text && d.text[s] && d.text[s].gruppen;
+        pruefe(Boolean(titel && titel[o.gruppe]), `Option ${id}: Überschrift der Gruppe ${o.gruppe} fehlt (text.${s}.gruppen)`);
+      }
+    }
   }
 
   const eingaben = d.eingaben || {};
@@ -115,6 +123,10 @@ export function paketBauen(inhalte) {
     }
     p.zuschlaege = p.zuschlaege || [];
     for (const id of p.optionen || []) pruefe(Boolean(optionen[id]), `pakete.${objekt}: Option ${id} unbekannt`);
+    // Sonst stünde dieselbe Gruppenüberschrift zweimal auf der Seite.
+    const folge = (p.optionen || []).map((id) => (optionen[id] && optionen[id].gruppe) || "");
+    pruefe(folge.every((g, i) => i === 0 || g === folge[i - 1] || !folge.slice(0, i).includes(g)),
+      `pakete.${objekt}: Extras derselben Gruppe müssen hintereinander stehen`);
   }
   eingaben.schalter = schalter;
   for (const [name, x] of Object.entries(schalter)) {
@@ -160,12 +172,14 @@ export function paketBauen(inhalte) {
   if (fehler.length) throw new Error(`inhalte.json ist nicht vollständig:\n- ${fehler.join("\n- ")}`);
 
   const text = {};
-  for (const s of ["de", "en"]) text[s] = Object.fromEntries(TEXTE.map((k) => [k, d.text[s][k]]));
+  for (const s of ["de", "en"]) {
+    text[s] = Object.fromEntries(TEXTE.map((k) => [k, d.text[s][k]]));
+    for (const k of TEXTE_WAHLWEISE) if (d.text[s][k] !== undefined) text[s][k] = d.text[s][k];
+  }
   return {
     format: PAKET_VERSION,
     stand: d.stand,
     mwst: d.mwst,
-    stundensatz_netto: d.stundensatz_netto,
     kontakt: { email: d.kontakt.email, telefon: d.kontakt.telefon || "" },
     pakete: d.pakete,
     optionen,

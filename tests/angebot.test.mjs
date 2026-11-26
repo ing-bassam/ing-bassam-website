@@ -11,7 +11,7 @@ import { join } from "node:path";
 import { pathToFileURL } from "node:url";
 import {
   HOECHSTENS_HINWEISE, anfrage, aufzaehlung, bruttoCent, bytesZuBase64url, eingabeLesen, entschluesseln, euro, euroSpanne,
-  fragmentAktion, hinweise, kostenlos, kurzfassung, linkBauen, linkLesen, nettoCent, optionBrutto, preisBerechnen,
+  fragmentAktion, hinweise, kostenlos, kurzfassung, linkBauen, linkLesen, nettoCent, optionBrutto, optionenGruppen, preisBerechnen,
   schluesselErzeugen, schluesselForm, sprungZiel, unterlagen, verschluesseln, zuschlaegeFuer,
 } from "../angebot/kaufbegutachtung/angebot.js";
 import { UI } from "../angebot/kaufbegutachtung/oberflaeche.js";
@@ -37,7 +37,6 @@ const unterlage = (id, prio, extra = {}) => ({ id, prio, ...extra, de: `Unterlag
 const BEISPIEL = {
   stand: zweisprachig("Januar 2030", "January 2030"),
   mwst: 0.19,
-  stundensatz_netto: 55,
   kontakt: { email: "test@example.org", telefon: "+49 30 000000" },
   pakete: {
     etw: {
@@ -85,13 +84,13 @@ const BEISPIEL = {
   text: {
     de: {
       objekt_etw: "Eigentumswohnung", objekt_efh: "Einfamilienhaus", objekt_etw_unter: "mit WEG", objekt_efh_unter: "auch DHH",
-      pauschal: "Pauschal.", ausserhalb: "Außerhalb.", ablauf: [1, 2, 3, 4].map((n) => ({ t: `Schritt ${n}`, w: "bald", d: "Text." })),
+      pauschal_etw: "Pauschal Wohnung.", pauschal_efh: "Pauschal Haus.", ausserhalb: "Außerhalb.", ablauf: [1, 2, 3, 4].map((n) => ({ t: `Schritt ${n}`, w: "bald", d: "Text." })),
       grenzen: ["Keine Öffnung."], beauftragen: "Erst Angebot, dann Auftrag.", rechtsstand: "Stand 2030", prio: { 1: "Muss", 2: "Soll", 3: "Kann" },
       qr_titel: "nicht gebraucht",
     },
     en: {
       objekt_etw: "Flat", objekt_efh: "House", objekt_etw_unter: "with WEG", objekt_efh_unter: "also semi",
-      pauschal: "Fixed.", ausserhalb: "Outside.", ablauf: [1, 2, 3, 4].map((n) => ({ t: `Step ${n}`, w: "soon", d: "Text." })),
+      pauschal_etw: "Fixed flat.", pauschal_efh: "Fixed house.", ausserhalb: "Outside.", ablauf: [1, 2, 3, 4].map((n) => ({ t: `Step ${n}`, w: "soon", d: "Text." })),
       grenzen: ["No opening."], beauftragen: "Quote first.", rechtsstand: "As of 2030", prio: { 1: "Must", 2: "Should", 3: "Could" },
     },
   },
@@ -131,6 +130,46 @@ test("Paketbau meldet alle Lücken auf einmal", () => {
       "Option check: kostenlos muss true oder false sein"]) {
       assert.ok(fehler.message.includes(teil), teil);
     }
+    return true;
+  });
+});
+
+test("Paketbau: Festpreis-Zeile je Objektart ist Pflicht, ein Stundensatz gelangt nicht ins Paket", () => {
+  assert.equal(DATEN.text.de.pauschal_etw, "Pauschal Wohnung.");
+  assert.equal(DATEN.text.en.pauschal_efh, "Fixed house.");
+  const ohne = structuredClone(BEISPIEL);
+  delete ohne.text.de.pauschal_efh;
+  assert.throws(() => paketBauen(ohne), /text\.de\.pauschal_efh fehlt/);
+  // Steht in der Quelle noch ein Stundensatz, zeigt die Seite ihn trotzdem nicht.
+  const mitSatz = paketBauen({ ...structuredClone(BEISPIEL), stundensatz_netto: 55 });
+  assert.equal(mitSatz.stundensatz_netto, undefined);
+  assert.ok(!JSON.stringify(mitSatz).includes("stundensatz"));
+});
+
+test("Extras in Gruppen: Überschrift je Gruppe, Reihenfolge wie im Paket; ohne Gruppen eine Liste", () => {
+  const kurz = (gruppen) => gruppen.map((g) => [g.id, g.titel, g.optionen.map((o) => o.id)]);
+  assert.deepEqual(kurz(optionenGruppen(DATEN, "etw")), [["", "", ["foto", "akte", "check", "messung"]]]);
+  assert.equal(DATEN.text.de.gruppen, undefined, "ohne Gruppen keine Überschriften im Paket");
+
+  const quelle = structuredClone(BEISPIEL);
+  for (const id of ["foto", "foto_efh"]) quelle.optionen[id].gruppe = "bild";
+  for (const id of ["akte", "check", "messung"]) quelle.optionen[id].gruppe = "amt";
+  quelle.text.de.gruppen = { bild: "Bilder", amt: "Ämter" };
+  quelle.text.en.gruppen = { bild: "Pictures", amt: "Authorities" };
+  const daten = paketBauen(quelle);
+  assert.deepEqual(kurz(optionenGruppen(daten, "etw")), [["bild", "Bilder", ["foto"]], ["amt", "Ämter", ["akte", "check", "messung"]]]);
+  assert.deepEqual(kurz(optionenGruppen(daten, "efh", "en")), [["bild", "Pictures", ["foto_efh"]], ["amt", "Authorities", ["akte", "messung"]]]);
+
+  // Das Werkzeug meldet eine fehlende Überschrift und Gruppen, die nicht hintereinander stehen.
+  const kaputt = structuredClone(quelle);
+  delete kaputt.text.en.gruppen.amt;
+  kaputt.pakete.etw.optionen = ["akte", "foto", "check", "messung"];
+  assert.throws(() => paketBauen(kaputt), (fehler) => {
+    for (const teil of ["Option akte: Überschrift der Gruppe amt fehlt (text.en.gruppen)",
+      "pakete.etw: Extras derselben Gruppe müssen hintereinander stehen"]) {
+      assert.ok(fehler.message.includes(teil), teil);
+    }
+    assert.ok(!fehler.message.includes("pakete.efh: Extras derselben Gruppe"), "Haus ist in Ordnung");
     return true;
   });
 });
@@ -206,10 +245,10 @@ test("Sprungziel: nur einfache Abschnittsnamen nach #", () => {
   assert.equal(sprungZiel("#%E4%"), null, "kaputte Kodierung");
 });
 
-// Fehler (Oktober 2026, live): Ein Klick auf „Auswahl senden“ (href="#senden") ersetzte den Teil
+// Fehler (Oktober 2026, live): Ein Klick auf „Angebot anfordern“ (damals „Auswahl senden“, href="#senden") ersetzte den Teil
 // nach „#“ samt Schlüssel; der hashchange-Handler startete neu und zeigte „Dieser Link ist nicht
 // vollständig“. fragmentAktion entscheidet jetzt, was bei einer Änderung passiert.
-test("Fragment: „Auswahl senden“ und Skip-Link auf geöffneter Seite stellen den Link wieder her", () => {
+test("Fragment: „Angebot anfordern“ und Skip-Link auf geöffneter Seite stellen den Link wieder her", () => {
   const offen = { schluessel: TESTSCHLUESSEL, geoeffnet: true };
   assert.deepEqual(fragmentAktion("#senden", offen), { aktion: "wiederherstellen", ziel: "senden" });
   assert.deepEqual(fragmentAktion("#inhalt", offen), { aktion: "wiederherstellen", ziel: "inhalt" });
@@ -218,7 +257,7 @@ test("Fragment: „Auswahl senden“ und Skip-Link auf geöffneter Seite stellen
   assert.deepEqual(fragmentAktion("#o=haus&l=en", offen), { aktion: "wiederherstellen", ziel: null }, "o/l ohne k");
   assert.deepEqual(fragmentAktion("#k=abc&o=haus", offen), { aktion: "wiederherstellen", ziel: null }, "kaputter Schlüssel");
 
-  // Ablauf wie im Browser: Link geöffnet, Klick auf „Auswahl senden“ setzt „#senden“,
+  // Ablauf wie im Browser: Link geöffnet, Klick auf „Angebot anfordern“ setzt „#senden“,
   // die Seite schreibt den alten Teil nach „#“ zurück (history.replaceState).
   const vorher = linkBauen({ schluessel: TESTSCHLUESSEL, objekt: "efh", sprache: "de" });
   assert.equal(fragmentAktion(vorher, offen).aktion, "behalten");
@@ -426,7 +465,7 @@ test("Leistungsumfang als Aufzählung, Kommas in Klammern bleiben zusammen", () 
 
 // ---------------------------------------------------------------- E-Mail
 
-test("E-Mail „Auswahl senden“: Auswahl, Gesamtpreis brutto, Unterlagen, Bitte um verbindliches Angebot", () => {
+test("E-Mail „Angebot anfordern“: Auswahl, Gesamtpreis brutto, Unterlagen, Bitte um verbindliches Angebot", () => {
   const ein = e({ objekt: "etw", flaeche: "90", baujahr: "1960", nutzung: "vermieten" });
   const m = anfrage({
     daten: DATEN, t: UI.de.mail, eingabe: ein, gewaehlt: ["foto", "akte"], vorhanden: ["b"],
