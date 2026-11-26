@@ -18,7 +18,7 @@
 .hero-angebot h1{max-width:24ch;}
 .hero-angebot h1:focus{outline:none;}
 .hero-angebot .hero-lead{margin-top:14px;}
-/* Sprungziele („Zum Inhalt springen“, „Auswahl senden“) erhalten den Fokus für Tastatur und Screenreader, ohne Rahmen */
+/* Sprungziele („Zum Inhalt springen“, „Angebot anfordern“) erhalten den Fokus für Tastatur und Screenreader, ohne Rahmen */
 #inhalt:focus, .angebot-abschnitt:focus{outline:none;}
 .objektwahl{margin-top:28px; border:0; padding:0; min-width:0;}
 .objektwahl legend{margin-bottom:10px; font-family:var(--font-plan); font-size:.8125rem; letter-spacing:.04em; color:var(--on-ink-3);}
@@ -79,6 +79,15 @@
 .grundpaket .liste-haken li{padding:9px 0; border-bottom:1px solid var(--line); font-size:.9375rem; line-height:1.5; color:var(--text);}
 .grundpaket .liste-haken li::before{content:none;}
 
+/* Grenzen der Grundleistung: zugeklappt als letzte Zeile der Leistungsliste */
+.grenzen > summary{display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid var(--line); list-style:none; cursor:pointer; font-size:.9375rem; font-weight:600; line-height:1.5; color:var(--text);}
+.grenzen > summary::-webkit-details-marker{display:none;}
+.grenzen > summary::after{content:"+"; font-family:var(--font-plan); font-size:1.125rem; line-height:1; color:var(--text-3);}
+.grenzen[open] > summary::after{content:"–";}
+.grenzen > summary:hover{color:var(--accent-hover);}
+.grenzen > summary:focus-visible{outline:2px solid var(--accent-bright); outline-offset:2px;}
+.grenzen .liste-grenzen{padding:12px 0 4px;}
+
 .zuschlag-liste{list-style:none; margin:4px 0 0; padding:0;}
 .zuschlag{padding:14px 0; border-top:1px solid var(--line);}
 .zuschlag:last-child{border-bottom:1px solid var(--line);}
@@ -92,6 +101,9 @@
 
 /* Extras: Zeilen statt Karten */
 .extras h3{padding-bottom:12px; margin-bottom:0; border-bottom:1px solid var(--line-strong);}
+/* Gruppen der Extras: kleine Zwischenzeile in Planschrift, keine eigene Überschriftenstufe im Bild */
+.angebot-abschnitt .extras-gruppe{margin:0; padding:22px 0 8px; border-bottom:1px solid var(--line); font-family:var(--font-plan); font-size:.8125rem; font-weight:400; line-height:1.5; letter-spacing:.04em; color:var(--text-3);}
+.angebot-abschnitt .extras h3 + .extras-gruppe{padding-top:14px;}
 .extras-liste{list-style:none; margin:0; padding:0;}
 .extra{display:grid; grid-template-columns:18px minmax(0, 1fr); column-gap:14px; align-items:start; padding:13px 0; border-bottom:1px solid var(--line); cursor:pointer;}
 .extra input{width:18px; height:18px; margin:3px 0 0; accent-color:var(--accent);}
@@ -106,14 +118,15 @@
 .extra-empfohlen{justify-self:start; font-family:var(--font-plan); font-size:.75rem; color:var(--accent-hover);}
 
 /* Summe wie das Schriftfeld einer Zeichnung: Bruttopreis zuerst, netto und USt klein darunter */
-.preis-summe{display:grid; padding:22px; background:var(--ink-950); color:var(--on-ink); min-width:0;}
+.preis-summe{display:grid; grid-template-columns:minmax(0, 1fr); padding:22px; background:var(--ink-950); color:var(--on-ink); min-width:0;}
 .preis-summe .label{font-family:var(--font-plan); font-size:.8125rem; letter-spacing:.04em; color:var(--on-ink-3);}
 .summe-brutto{margin-top:6px; font-family:var(--font-display); font-weight:600; font-size:clamp(1.75rem, 5vw, 2.25rem); line-height:1.1; letter-spacing:-.02em; color:#fff; overflow-wrap:anywhere;}
 .summe-mwst{margin-top:4px; font-size:.8125rem; color:var(--on-ink-2);}
-.posten-liste{list-style:none; margin:16px 0 0; padding:12px 0 0; border-top:1px solid var(--ink-line-2); display:grid; gap:8px; font-size:.875rem; color:var(--on-ink-2);}
-.posten-liste li{display:flex; justify-content:space-between; align-items:baseline; gap:12px;}
-.posten-liste span{min-width:0; overflow-wrap:break-word;}
-.posten-liste b{flex-shrink:0; font-weight:500; color:#fff; white-space:nowrap;}
+.posten-liste{list-style:none; margin:16px 0 0; padding:12px 0 0; border-top:1px solid var(--ink-line-2); display:grid; grid-template-columns:minmax(0, 1fr); gap:8px; font-size:.875rem; color:var(--on-ink-2);}
+/* Passt das längste Wort des Namens nicht neben den Betrag (Preisspanne), rückt der Betrag in die Zeile darunter */
+.posten-liste li{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:2px 12px;}
+.posten-liste span{flex:1 1 auto; flex-basis:min-content; min-width:0; overflow-wrap:break-word;}
+.posten-liste b{flex:0 0 auto; margin-left:auto; font-weight:500; color:#fff; white-space:nowrap;}
 .summe-netto{margin-top:12px; padding-top:12px; border-top:1px solid var(--ink-line-2); font-size:.8125rem; color:var(--on-ink-2);}
 .summe-hinweis{margin-top:8px; font-size:.8125rem; line-height:1.5; color:var(--on-ink-3);}
 .preis-summe .btn{margin-top:18px; width:100%;}
@@ -148,13 +161,12 @@
 }
 
 /* ------------------------------------------------------ Ablauf: Tabelle */
-.schritte{list-style:none; margin:0 0 32px; padding:0; border-top:1px solid var(--line-strong);}
+.schritte{list-style:none; margin:0; padding:0; border-top:1px solid var(--line-strong);}
 .schritte li{display:grid; grid-template-columns:28px minmax(0, 1fr); column-gap:10px; row-gap:1px; padding:11px 0; border-bottom:1px solid var(--line);}
 .schritte .punkt{grid-row:1 / span 3; font-family:var(--font-plan); font-size:.8125rem; line-height:1.6; color:var(--text-3);}
 .s-titel{font-weight:600; font-size:.9375rem; line-height:1.4; color:var(--text);}
 .s-wann{font-family:var(--font-plan); font-size:.8125rem; line-height:1.5; color:var(--text-3);}
 .s-text{font-size:.9375rem; line-height:1.5; color:var(--text-2);}
-.schritte .erledigt .s-titel{font-weight:500; color:var(--text-3);}
 .schritte .aktuell .s-titel, .schritte .aktuell .punkt{color:var(--accent-hover);}
 @media (min-width:760px){
   .schritte li{grid-template-columns:28px 120px 210px minmax(0, 1fr); align-items:baseline;}
@@ -163,11 +175,10 @@
   .s-wann{grid-column:3;}
   .s-text{grid-column:4;}
 }
-#ablauf h3{margin-top:6px;}
 .liste-grenzen{gap:6px;}
 .liste-grenzen li{font-size:.875rem; line-height:1.5;}
 
-/* ------------------------------------------------------ Auswahl senden */
+/* ------------------------------------------------------ Angebot anfordern */
 .senden-felder{display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap:0 20px;}
 .senden-felder .block{margin-bottom:18px;}
 .beauftragen-hinweis{margin-top:20px; font-size:.875rem; line-height:1.6; color:var(--text-2); max-width:72ch;}

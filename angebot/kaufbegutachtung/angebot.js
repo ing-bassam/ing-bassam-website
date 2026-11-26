@@ -16,7 +16,7 @@
  *     alles in Cent; jede Position brutto aus ihrem Nettopreis auf Cent gerundet,
  *     der Gesamtpreis ist die Summe dieser Bruttobeträge (Umsatzsteuer aus dem Paket),
  *   - passende Hinweise und Unterlagen auswählen (Bedingungen UND-verknüpft),
- *   - den Text der E-Mail „Auswahl senden“ bauen.
+ *   - den Text der E-Mail mit der Auswahl bauen („Angebot anfordern“).
  *
  * Das Werkzeug tools/angebot_verschluesseln.mjs nutzt dieselben Funktionen zum
  * Verschlüsseln; tests/angebot.test.mjs prüft beides mit Beispieldaten.
@@ -219,7 +219,7 @@ export function euro(betragCent, sprache = "de") {
   return `${minus}${ganz.replace(/\B(?=(\d{3})+(?!\d))/g, ".")},${rest} €`;
 }
 
-/** Betrag oder Spanne (von – bis), wenn eine Leistung nach Aufwand abgerechnet wird. */
+/** Betrag oder Spanne (von – bis), wenn der Preis einer Leistung vom Umfang abhängt. */
 export function euroSpanne(von, bis, sprache = "de") {
   if (von === bis) return euro(von, sprache);
   if (sprachen(sprache) === "en") return `${euro(von, "en")} – ${euro(bis, "en")}`;
@@ -291,8 +291,25 @@ export function optionenFuer(daten, objekt) {
 }
 
 /**
+ * Extras der Objektart in Gruppen, in der Reihenfolge des Pakets: aufeinanderfolgende
+ * Extras mit derselben „gruppe“ bilden eine Gruppe, die Überschrift steht in
+ * text.<Sprache>.gruppen. Ohne Gruppenangabe entsteht eine Gruppe ohne Überschrift.
+ */
+export function optionenGruppen(daten, objekt, sprache = "de") {
+  const titel = (daten.text[sprachen(sprache)] || {}).gruppen || {};
+  const gruppen = [];
+  for (const option of optionenFuer(daten, objekt)) {
+    const id = option.gruppe || "";
+    const letzte = gruppen[gruppen.length - 1];
+    if (letzte && letzte.id === id) letzte.optionen.push(option);
+    else gruppen.push({ id, titel: titel[id] || "", optionen: [option] });
+  }
+  return gruppen;
+}
+
+/**
  * Bruttopreis einer Option in Cent als [von, bis] (fester Preis: von = bis,
- * Abrechnung nach Aufwand: Spanne, kostenlos: 0).
+ * Preis je nach Umfang: Spanne, kostenlos: 0).
  */
 export function optionBrutto(option, mwst) {
   if (kostenlos(option)) return [0, 0];
@@ -461,7 +478,7 @@ function kuerzen(text, laenge) {
 const einzeilig = (text, laenge) => kuerzen(String(text || "").replace(/\s+/g, " ").trim(), laenge);
 
 /**
- * Text und mailto-Adresse für „Auswahl senden“: Objekt, Eckdaten, gewählte
+ * Text und mailto-Adresse der E-Mail „Angebot anfordern“: Objekt, Eckdaten, gewählte
  * Leistungen mit Bruttopreisen (kostenlose als „kostenlos“), Gesamtpreis brutto, Termine, vorhandene und
  * fehlende unverzichtbare Unterlagen und die Bitte um das verbindliche Angebot.
  * t sind die Texte der Oberfläche (oberflaeche.js, Abschnitt mail).

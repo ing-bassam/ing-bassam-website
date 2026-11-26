@@ -4,19 +4,19 @@
  * Ablauf: Schlüssel aus dem Link lesen (Teil nach „#“), paket.js entschlüsseln,
  * Seite aufbauen. Ohne gültigen Schlüssel bleibt nur der Hinweis „Dieser Link ist
  * nicht vollständig“ stehen. Alles läuft im Browser; nichts wird gesendet oder
- * gespeichert. Die E-Mail „Auswahl senden“ öffnet das eigene E-Mail-Programm.
+ * gespeichert. Der Knopf „E-Mail mit Auswahl öffnen“ öffnet das eigene E-Mail-Programm.
  *
  * Wichtig: Der Schlüssel steht im Teil nach „#“. Sprünge innerhalb der Seite
- * („Auswahl senden“, „Zum Inhalt springen“) dürfen diesen Teil deshalb nie
+ * („Angebot anfordern“, „Zum Inhalt springen“) dürfen diesen Teil deshalb nie
  * ersetzen – sie werden abgefangen und scrollen nur zum Ziel.
  */
-import { PAKET } from "./paket.js?v=494b2225dd";
-import { UI } from "./oberflaeche.js?v=a6b1d0d831";
+import { PAKET } from "./paket.js?v=1e2d0c3d66";
+import { UI } from "./oberflaeche.js?v=ffc4ea860a";
 import {
-  OBJEKTE, anfrage, aufzaehlung, bruttoCent, cent, eingabeLesen, entschluesseln, ersetzen, euro, euroSpanne, fragmentAktion,
-  hinweise, kostenlos, linkBauen, linkLesen, optionBrutto, optionenFuer, preisBerechnen, schalterListe, sprungZiel, unterlagen,
-  zuschlaegeFuer,
-} from "./angebot.js?v=4f5ae81865";
+  OBJEKTE, anfrage, aufzaehlung, bruttoCent, eingabeLesen, entschluesseln, ersetzen, euro, euroSpanne, fragmentAktion,
+  hinweise, kostenlos, linkBauen, linkLesen, optionBrutto, optionenFuer, optionenGruppen, preisBerechnen, schalterListe, sprungZiel,
+  unterlagen, zuschlaegeFuer,
+} from "./angebot.js?v=c9a21c23d4";
 
 const wurzel = document.getElementById("angebot");
 const status = document.querySelector(".angebot-status");
@@ -156,7 +156,14 @@ function preisBauen() {
       el("h3", { class: "posten-name", id: "grund-name", text: g.name }),
       el("span", { class: "posten-preis", text: euro(grundBrutto, s()) })),
     g.kurz ? el("p", { class: "kurz", text: g.kurz }) : null,
-    el("ul", { class: "liste-haken" }, aufzaehlung(g.text).map((punkt) => el("li", { text: punkt }))));
+    el("ul", { class: "liste-haken" }, aufzaehlung(g.text).map((punkt) => el("li", { text: punkt }))),
+    // Grenzen der Leistung: zugeklappt direkt bei der Leistung, damit die Seite kurz bleibt.
+    el("details", {
+      class: "grenzen", open: zustand.offen.has("grenzen"),
+      ontoggle: (ereignis) => { if (ereignis.target.open) zustand.offen.add("grenzen"); else zustand.offen.delete("grenzen"); },
+    },
+      el("summary", { text: t().grenzen_titel }),
+      el("ul", { class: "liste-grenzen" }, txt().grenzen.map((punkt) => el("li", { text: punkt })))));
 
   // Zuschläge: Fläche und Merkmale, Status je Zuschlag (derzeit gibt es keine, dann entfällt der Block samt Flächenfeld)
   const flaeche = zahlFeld({ id: "flaeche", label: t().flaeche, hilfe: t().flaeche_hilfe, einheit: "m²", min: 10, max: 2000, step: "any", inputmode: "decimal" });
@@ -180,9 +187,9 @@ function preisBauen() {
     el("p", { class: "hilfe-text", text: t().zuschlaege_text }),
     flaeche, zuschlagListe) : null;
 
-  // Extras als Karten zum Ankreuzen
+  // Extras als Zeilen zum Ankreuzen, in Gruppen mit kleiner Überschrift
   r.extras = {};
-  const extrasListe = el("ul", { class: "extras-liste" }, optionenFuer(daten, zustand.objekt).map((o) => {
+  const extraZeile = (o) => {
     const [von, bis] = optionBrutto(o, daten.mwst);
     const frei = kostenlos(o);
     const input = el("input", { type: "checkbox", id: `extra-${o.id}` });
@@ -203,11 +210,18 @@ function preisBauen() {
             : el("span", { class: "extra-preis", text: euroSpanne(von, bis, s()) })),
         el("span", { class: "extra-text", text: o[s()].text }),
         empfohlen)));
-  }));
+  };
+  const extrasGruppen = optionenGruppen(daten, zustand.objekt, s()).map((gruppe) => {
+    const titelId = gruppe.titel ? `extras-gruppe-${gruppe.id}` : null;
+    return [
+      gruppe.titel ? el("h4", { class: "extras-gruppe", id: titelId, text: gruppe.titel }) : null,
+      el("ul", { class: "extras-liste", "aria-labelledby": titelId }, gruppe.optionen.map(extraZeile)),
+    ];
+  });
   const extras = el("section", { class: "extras", "aria-labelledby": "extras-titel" },
     el("h3", { id: "extras-titel", text: t().extras_titel }),
     t().extras_text ? el("p", { class: "hilfe-text", text: t().extras_text }) : null,
-    extrasListe);
+    extrasGruppen);
 
   // Summe (dunkler Kasten, auf breiten Bildschirmen mitlaufend)
   r.summeBrutto = el("p", { class: "summe-brutto" });
@@ -216,14 +230,13 @@ function preisBauen() {
   r.summeNetto = el("p", { class: "summe-netto" });
   r.summeSpanne = el("p", { class: "summe-hinweis", text: t().summe_spanne, hidden: true });
   r.ansage = el("p", { class: "sr-only", "aria-live": "polite" });
-  const stunde = { brutto: bruttoCent(daten.stundensatz_netto, daten.mwst), netto: cent(daten.stundensatz_netto) };
+  // Festpreis-Zeile passend zur Objektart (Wohnung oder Haus), dazu der Satz zur Anfahrt.
+  const festpreis = [txt()[`pauschal_${zustand.objekt}`], txt().ausserhalb].filter(Boolean).join(" ");
   const summe = el("aside", { class: "preis-summe", id: "summe", "aria-labelledby": "summe-titel" },
     el("p", { class: "label", id: "summe-titel", text: t().summe_titel }),
     r.summeBrutto, r.summeMwst,
     r.posten, r.summeNetto, r.summeSpanne,
-    el("p", { class: "summe-hinweis", text: txt().pauschal }),
-    el("p", { class: "summe-hinweis", text: txt().ausserhalb }),
-    el("p", { class: "summe-hinweis", text: ersetzen(t().stundensatz, { brutto: euro(stunde.brutto, s()), netto: euro(stunde.netto, s()) }) }),
+    el("p", { class: "summe-hinweis", text: festpreis }),
     el("a", { class: "btn btn-primary", href: "#senden", text: t().zur_auswahl }),
     r.ansage);
 
@@ -267,21 +280,18 @@ function unterlagenBauen() {
 
 function ablaufBauen() {
   const a = txt().ablauf;
-  const schritte = [
-    { ...a[0], zustand: "erledigt" },
-    { ...t().schritt_angebot, zustand: "aktuell" },
-    ...a.slice(1),
-    t().schritt_notar,
-  ];
-  const liste = el("ol", { class: "schritte" }, schritte.map((x, i) => el("li", { class: x.zustand || null },
-    el("span", { class: "punkt", "aria-hidden": "true" }, String(i + 1)),
-    el("span", { class: "s-titel" }, x.t, x.zustand ? el("span", { class: "sr-only", text: ` (${x.zustand === "erledigt" ? t().erledigt : t().naechstes})` }) : null),
-    x.w ? el("span", { class: "s-wann", text: x.w }) : null,
-    el("span", { class: "s-text", text: x.d }))));
-  return abschnitt("ablauf", "04", t().ablauf_titel, "",
-    liste,
-    el("h3", { text: t().grenzen_titel }),
-    el("ul", { class: "liste-grenzen" }, txt().grenzen.map((g) => el("li", { text: g }))));
+  // Der erste Schritt ist die Anfrage, die diese Seite vorbereitet; danach folgt unser Angebot.
+  const schritte = [{ ...a[0], jetzt: true }, t().schritt_angebot, ...a.slice(1), t().schritt_notar];
+  const liste = el("ol", { class: "schritte" }, schritte.map((x, i) => {
+    // Dauer passend zur Objektart („w_etw“/„w_efh“), sonst die allgemeine Angabe.
+    const wann = x[`w_${zustand.objekt}`] || x.w;
+    return el("li", { class: x.jetzt ? "aktuell" : null, "aria-current": x.jetzt ? "step" : null },
+      el("span", { class: "punkt", "aria-hidden": "true" }, String(i + 1)),
+      el("span", { class: "s-titel", text: x.t }),
+      wann ? el("span", { class: "s-wann", text: wann }) : null,
+      el("span", { class: "s-text", text: x.d }));
+  }));
+  return abschnitt("ablauf", "04", t().ablauf_titel, "", liste);
 }
 
 function sendenBauen() {
@@ -488,7 +498,6 @@ function aufbauen(fokusId) {
   const ui = t();
   document.documentElement.lang = s();
   document.title = ui.titel_seite;
-  document.getElementById("fuss-text").textContent = ui.fuss;
   document.getElementById("fuss-impressum").textContent = ui.impressum;
   document.getElementById("fuss-datenschutz").textContent = ui.datenschutz;
   const knopf = el("button", {
@@ -552,7 +561,7 @@ async function starten() {
   aufbauen();
 }
 
-// Seiteninterne Links (href="#…", z. B. „Auswahl senden“ und „Zum Inhalt springen“) würden
+// Seiteninterne Links (href="#…", z. B. „Angebot anfordern“ und „Zum Inhalt springen“) würden
 // den Teil nach „#“ und damit den Schlüssel ersetzen. Deshalb: Klick abfangen, Ziel ansteuern.
 document.addEventListener("click", (ereignis) => {
   if (ereignis.defaultPrevented || ereignis.button !== 0) return;
