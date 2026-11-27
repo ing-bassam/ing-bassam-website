@@ -408,6 +408,21 @@ def als_doppelung_markieren(seite_id: str, abdeckend: list[dict], senden=None, g
         "callout": {"rich_text": stuecke, "icon": {"type": "emoji", "emoji": "⚠️"}, "color": "red_background"}}]})
 
 
+def als_verworfen_markieren(seite_id: str, grund: str, senden=None) -> None:
+    """Status „Verworfen“ und ein Hinweis mit dem Grund des Agenten – für Vorlagen, die zu tief
+    in die Prüfmethodik des Büros gehen oder nicht allgemein genug sind (Regel des Inhabers)."""
+    from trend_notion import anfrage
+    senden = senden or anfrage
+    stuecke = [notion_text("Verworfen: ", None)]
+    stuecke[0]["annotations"] = {"bold": True}
+    stuecke.append(notion_text(f"{grund.rstrip('.')}. Kostenlose Vorlagen bleiben allgemein und zeigen nicht, "
+                               "wie das Büro selbst prüft. Die Agenten überspringen das Thema."))
+    senden("PATCH", f"/pages/{seite_id}", {"properties": {"Status": {"select": {"name": "Verworfen"}}}})
+    senden("PATCH", f"/blocks/{seite_id}/children", {"children": [{
+        "object": "block", "type": "callout",
+        "callout": {"rich_text": stuecke, "icon": {"type": "emoji", "emoji": "🚫"}, "color": "gray_background"}}]})
+
+
 # --------------------------------------------------------------------------
 # Auswahl
 # --------------------------------------------------------------------------
@@ -549,10 +564,17 @@ def main(argumente: list[str] | None = None) -> int:
     q4 = unter.add_parser("markieren", help="eine Notion-Seite als Doppelung markieren (Meldung des Agenten)")
     q4.add_argument("--seite", required=True, help="Notion-Seiten-ID")
     q4.add_argument("--grund", default="", help="Grund aus dem ERGEBNIS-Block des Agenten")
+    q5 = unter.add_parser("verwerfen", help="eine Notion-Seite als „Verworfen“ markieren (Vorlage zu speziell)")
+    q5.add_argument("--seite", required=True, help="Notion-Seiten-ID")
+    q5.add_argument("--grund", default="", help="Grund aus dem ERGEBNIS-Block des Agenten")
     a = p.parse_args(argumente)
 
     from trend_notion import NotionFehler
     try:
+        if a.befehl == "verwerfen":
+            als_verworfen_markieren(a.seite, " ".join(a.grund.split()) or "Zu tief in der Prüfmethodik des Büros")
+            print(f"Notion-Seite {a.seite[:8]}… als „Verworfen“ markiert.")
+            return 0
         if a.befehl == "markieren":
             als_doppelung_markieren(a.seite, [], grund=" ".join(a.grund.split()) or "Doppelung erkannt")
             print(f"Notion-Seite {a.seite[:8]}… als „Doppelung“ markiert.")

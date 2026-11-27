@@ -480,7 +480,7 @@ jobs:
             --max-turns 200
             --model claude-sonnet-5-5
             --add-dir ${{ steps.auftrag.outputs.auftrag_verzeichnis }}
-            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/vorlage_bauen.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*),Bash(python tools/wortgleich_pruefen.py:*),Bash(python tools/normstand_pruefen.py:*)"
+            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/vorlage_bauen.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/wortgleich_pruefen.py:*),Bash(python tools/normstand_pruefen.py:*)"
 
       # Fehlalarm des Sicherheitsfilters (02.10.2026, Fachartikel Runde 3): Die
       # API bricht mit „safeguards flagged this message“ ab und empfiehlt eine
@@ -531,7 +531,7 @@ jobs:
             --max-turns 200
             --model claude-opus-5
             --add-dir ${{ steps.auftrag.outputs.auftrag_verzeichnis }}
-            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/vorlage_bauen.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*),Bash(python tools/wortgleich_pruefen.py:*),Bash(python tools/normstand_pruefen.py:*)"
+            --allowedTools "Read,Write,Edit,Glob,Grep,Skill,TodoWrite,WebSearch,WebFetch,Bash(wc:*),Bash(ls:*),Bash(mkdir:*),Bash(git status:*),Bash(git diff:*),Bash(git log:*),Bash(git branch:*),Bash(git rev-parse:*),Bash(git checkout:*),Bash(git switch:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(gh pr create:*),Bash(gh pr list:*),Bash(gh pr view:*),Bash(python tools/artikel_generator.py:*),Bash(python tools/vorlage_bauen.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/wortgleich_pruefen.py:*),Bash(python tools/normstand_pruefen.py:*)"
 
       # Wochenlimit des Claude-Abos erreicht? Dann pausieren die geplanten Läufe
       # bis zum Neustart (Issue „Agenten pausieren bis …“, tools/kontingent.py).
@@ -624,6 +624,18 @@ jobs:
                 echo "::notice title=Vorlagen::Der Agent hat eine Doppelung erkannt – die Vorlage steht in Notion jetzt auf „Doppelung“, mit Hinweis."
               else
                 echo "::warning title=Vorlagen::Der Agent hat eine Doppelung erkannt, die Notion-Seite ließ sich aber nicht markieren – bitte von Hand auf „Doppelung“ setzen: ${NOTION_URL:-$NOTION_ID}"
+              fi
+              echo "bereit=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            # Vorlage zu speziell (Regel des Inhabers: allgemein bleiben, keine Prüfmethodik des
+            # Büros): Notion „Verworfen“ mit dem Grund, die übrigen Runden laufen weiter.
+            if [ "$AGENT" = "success" ] && [ "${AGENT_BLOCK:-}" = "ABGELEHNT" ]; then
+              if NOTION_TOKEN="$NOTION_TOKEN" python3 tools/doppelungen.py verwerfen --seite "$NOTION_ID" \
+                   --grund "${AGENT_GRUND:-zu tief in der Prüfmethodik des Büros}"; then
+                echo "::notice title=Vorlagen::Der Agent hat die Vorlage als zu speziell abgelehnt – sie steht in Notion jetzt auf „Verworfen“, mit Hinweis."
+              else
+                echo "::warning title=Vorlagen::Der Agent hat die Vorlage abgelehnt, die Notion-Seite ließ sich aber nicht markieren – bitte von Hand auf „Verworfen“ setzen: ${NOTION_URL:-$NOTION_ID}"
               fi
               echo "bereit=false" >> "$GITHUB_OUTPUT"
               exit 0
@@ -735,7 +747,7 @@ jobs:
             --max-turns 80
             --model claude-opus-5-5
             --add-dir ${{ steps.ziel.outputs.arbeit }}
-            --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,WebFetch,WebSearch,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/bibliothek_suchen.py:*),Bash(python tools/wortgleich_pruefen.py:*),Bash(python tools/normstand_pruefen.py:*),Bash(python tools/vorlage_bauen.py:*),Bash(wc:*)"
+            --allowedTools "Read,Grep,Glob,Edit,Write,TodoWrite,Skill,WebFetch,WebSearch,Bash(python tools/artikel_generator.py:*),Bash(python tools/fussnoten_ordnen.py:*),Bash(python tools/wortgleich_pruefen.py:*),Bash(python tools/normstand_pruefen.py:*),Bash(python tools/vorlage_bauen.py:*),Bash(wc:*)"
 
       - name: Ergebnis der Schlussprüfung übernehmen
         if: ${{ !cancelled() && steps.quellen.outputs.bereit == 'true' }}
@@ -986,6 +998,10 @@ jobs:
           # „Doppelung“, die nächste Runde wählt also eine andere.
           if [ "${AGENT_BLOCK:-}" = "DUPLIKAT" ]; then
             echo "::notice title=Vorlagen::Runde ${RUNDE} von ${ANZAHL}: Doppelung erkannt – weiter mit der nächsten Vorlage."
+            exit 0
+          fi
+          if [ "${AGENT_BLOCK:-}" = "ABGELEHNT" ]; then
+            echo "::notice title=Vorlagen::Runde ${RUNDE} von ${ANZAHL}: Vorlage zu speziell, in Notion verworfen – weiter mit der nächsten Vorlage."
             exit 0
           fi
           # Eigene Entwürfe dieser Runde, erkannt am Format im Dateikopf (nicht nur am Zweig):

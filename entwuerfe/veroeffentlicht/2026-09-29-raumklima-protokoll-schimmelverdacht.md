@@ -22,7 +22,7 @@ fachlich_geprueft_von:
 fachlich_geprueft_am:
 wortzahl: 1500
 lesezeit: 8 Minuten
-fussnoten: 12
+fussnoten: 6
 quellen_geprueft: 1
 zahlenwerte_norm: 2
 todos: 0
@@ -37,7 +37,7 @@ Der dunkle Fleck in der Zimmerecke war im November handtellergroß. Im Januar re
 
 Ein Raumklima-Protokoll wirkt erst, wenn Sie es über Wochen führen. Ein einzelner Messwert sagt fast nichts. Erst der Verlauf zeigt, ob die Luftfeuchte dauerhaft hoch liegt oder nur nach dem Duschen ansteigt. Tragen Sie deshalb möglichst zu festen Zeiten ein, etwa morgens und abends. Am besten decken Sie eine ganze Heizperiode ab.
 
-Sie brauchen dafür ein Thermo-Hygrometer. Das ist ein kleines Gerät, das Raumtemperatur und relative Luftfeuchte zugleich anzeigt.[^1] Die relative Luftfeuchte sagt, wie viel Wasserdampf die Luft im Verhältnis zu ihrem Höchstwert enthält. Stellen Sie das Gerät nicht an den Heizkörper und nicht ans Fenster. Am Heizkörper zeigt es zu warm und zu trocken an, an der kalten Außenwand zu feucht.
+Sie brauchen dafür ein Thermo-Hygrometer. Das ist ein kleines Gerät, das Raumtemperatur und relative Luftfeuchte zugleich anzeigt. Die relative Luftfeuchte sagt, wie viel Wasserdampf die Luft im Verhältnis zu ihrem Höchstwert enthält. Stellen Sie das Gerät nicht an den Heizkörper und nicht ans Fenster. Am Heizkörper zeigt es zu warm und zu trocken an, an der kalten Außenwand zu feucht.
 
 Die Vorlage arbeitet mit vier Bewertungsstufen. „Ohne Befund“ heißt, dass nichts Auffälliges zu sehen war. „Gering“ steht für vereinzelte, oberflächliche oder kurzzeitige Beobachtungen. „Deutlich“ steht für ausgedehnte, wiederkehrende oder zunehmende Befunde. Bei dieser Stufe sollten Fachleute einsteigen. „Nicht prüfbar“ tragen Sie ein, wenn eine Stelle verdeckt oder nicht zugänglich ist.
 
@@ -45,7 +45,7 @@ Die Stufe „nicht prüfbar“ ist kein Ausweichen. Sie hält fest, dass eine Fr
 
 ## Woran Sie einen geringen von einem deutlichen Befund unterscheiden
 
-Die wichtigste Grenze beim Schimmelbefund ist die Fläche. Bis etwa einem halben Quadratmeter und nur oberflächlich gilt ein Befall als klein.[^2] Ab einem halben Quadratmeter oder wenn der Belag tiefer sitzt, gilt er als groß. Bei einem großen Befall sollten Sie nicht selbst reinigen, sondern Fachleute beauftragen.[^2]
+Die wichtigste Grenze beim Schimmelbefund ist die Fläche. Bis etwa einem halben Quadratmeter und nur oberflächlich gilt ein Befall als klein.[^1] Ab einem halben Quadratmeter oder wenn der Belag tiefer sitzt, gilt er als groß. Bei einem großen Befall sollten Sie nicht selbst reinigen, sondern Fachleute beauftragen.[^1]
 
 Messen Sie die befallene Fläche grob aus und fotografieren Sie sie mit einem Zollstock im Bild. Tragen Sie die Foto-Nummer in die Tabelle ein. So lässt sich später vergleichen, ob die Fläche gewachsen ist. Diese Veränderung über die Zeit ist das aussagekräftigste Merkmal im ganzen Protokoll.
 
@@ -55,31 +55,31 @@ Nicht jeder dunkle Fleck ist Schimmel. Feuchte Ränder, weiße kristalline Belä
 
 ## Warum Ecken, Fensterlaibungen und Rollladenkästen zuerst betroffen sind
 
-Schimmel entsteht dort, wo die Bauteiloberfläche am kältesten ist. Feuchte Luft kondensiert nach Angaben des Bauherren-Schutzbundes zum Beispiel an kalten Außenwandecken, Fensterlaibungen und Rollladenkästen.[^3] Deshalb fragt die Vorlage diese Stellen eigens ab. Bleibt der übrige Raum trocken und ist nur die Ecke betroffen, liegt das selten am Lüften allein.
+Schimmel entsteht dort, wo die Bauteiloberfläche am kältesten ist. Feuchte Luft kondensiert nach Angaben des Bauherren-Schutzbundes zum Beispiel an kalten Außenwandecken, Fensterlaibungen und Rollladenkästen.[^2] Deshalb fragt die Vorlage diese Stellen eigens ab. Bleibt der übrige Raum trocken und ist nur die Ecke betroffen, liegt das selten am Lüften allein.
 
-Für Schimmelwachstum braucht es kein flüssiges Wasser. Es genügt, wenn die relative Luftfeuchte unmittelbar an der Oberfläche etwa 80 Prozent erreicht.[^4] Nach der Fachliteratur reicht das aus, wenn dieser Zustand an mindestens fünf aufeinanderfolgenden Tagen je zwölf Stunden anhält.[^4] Sichtbares Wasser an der Wand ist also kein notwendiges Zeichen.
+Für Schimmelwachstum braucht es kein flüssiges Wasser. Es genügt, wenn die relative Luftfeuchte unmittelbar an der Oberfläche etwa 80 Prozent erreicht. Nach der Fachliteratur reicht das aus, wenn dieser Zustand an mindestens fünf aufeinanderfolgenden Tagen je zwölf Stunden anhält. Sichtbares Wasser an der Wand ist also kein notwendiges Zeichen.
 
-Aus diesem Kriterium folgt eine Temperaturgrenze. Bei 20 Grad Celsius Raumluft und 50 Prozent relativer Feuchte nennt die Fachliteratur 12,6 Grad Celsius als Mindesttemperatur der Innenoberfläche.[^5] Unterhalb dieses Wertes wird Schimmelwachstum möglich. Der Bauherren-Schutzbund empfiehlt, dass Innenoberflächen von Außenwänden über 13 Grad Celsius liegen.[^3]
+Aus diesem Kriterium folgt eine Temperaturgrenze. Bei 20 Grad Celsius Raumluft und 50 Prozent relativer Feuchte nennt die Fachliteratur 12,6 Grad Celsius als Mindesttemperatur der Innenoberfläche. Unterhalb dieses Wertes wird Schimmelwachstum möglich. Der Bauherren-Schutzbund empfiehlt, dass Innenoberflächen von Außenwänden über 13 Grad Celsius liegen.[^2]
 
-Möbel verschärfen das Problem. Ein Schrank dicht an der Außenwand schirmt sie von der Raumwärme ab. Die durch Möblierung abgeschirmte Außenwandkante ist in der Fachliteratur ein bekanntes Schadensbild.[^6] Der Verband Privater Bauherren rät zu mindestens zehn Zentimetern Abstand zur Wand.[^7] Die Vorlage lässt Sie diesen Abstand deshalb ausdrücklich eintragen.
+Möbel verschärfen das Problem. Ein Schrank dicht an der Außenwand schirmt sie von der Raumwärme ab. Die durch Möblierung abgeschirmte Außenwandkante ist in der Fachliteratur ein bekanntes Schadensbild. Der Verband Privater Bauherren rät zu mindestens zehn Zentimetern Abstand zur Wand.[^3] Die Vorlage lässt Sie diesen Abstand deshalb ausdrücklich eintragen.
 
 ## Was die Spalten zu Heizen und Lüften wirklich zeigen
 
 Heizen und Lüften gehören zusammen. Je wärmer die Luft ist, desto mehr Wasserdampf kann sie tragen. Ein Raum, der kaum beheizt wird, lässt sich deshalb auch durch Lüften schwer trocken halten. Die Vorlage fragt beides getrennt ab, damit Sie später erkennen, woran es lag.
 
-Für die Lüftungsdauer gibt es belegte Anhaltswerte. Das Umweltbundesamt empfiehlt in der kalten Jahreszeit zwei- bis dreimal täglich etwa fünf Minuten je Raum.[^8] Im Schlafzimmer sollen es fünf bis zehn Minuten sein, in der warmen Jahreszeit zehn bis zwanzig Minuten.[^8] In Küche und Bad rät es, während und unmittelbar nach dem Kochen oder Duschen fünf bis zehn Minuten weit zu öffnen.[^8]
+Für die Lüftungsdauer gibt es belegte Anhaltswerte. Das Umweltbundesamt empfiehlt in der kalten Jahreszeit zwei- bis dreimal täglich etwa fünf Minuten je Raum.[^4] Im Schlafzimmer sollen es fünf bis zehn Minuten sein, in der warmen Jahreszeit zehn bis zwanzig Minuten.[^4] In Küche und Bad rät es, während und unmittelbar nach dem Kochen oder Duschen fünf bis zehn Minuten weit zu öffnen.[^4]
 
-Die Spalte „Art“ unterscheidet Stoß-, Quer- und Kipplüftung. Der Unterschied ist groß. Nach der Fachliteratur liegt der Luftwechsel bei gekipptem Fenster bei etwa 0,8 bis 4,0 je Stunde.[^9] Bei weit geöffnetem Fenster sind es 5,0 bis 15,0 je Stunde.[^9] Ein dauerhaft gekipptes Fenster tauscht also wenig Luft aus und kühlt zugleich die Laibung aus.
+Die Spalte „Art“ unterscheidet Stoß-, Quer- und Kipplüftung. Der Unterschied ist groß. Nach der Fachliteratur liegt der Luftwechsel bei gekipptem Fenster bei etwa 0,8 bis 4,0 je Stunde. Bei weit geöffnetem Fenster sind es 5,0 bis 15,0 je Stunde. Ein dauerhaft gekipptes Fenster tauscht also wenig Luft aus und kühlt zugleich die Laibung aus.
 
-Auch die Feuchtequellen gehören ins Protokoll. Nach einer Übersicht in der Fachliteratur gibt eine geschleuderte Maschinenfüllung Wäsche insgesamt 1.000 bis 2.000 Gramm Wasser ab.[^6] Baden und Duschen setzen zusammen etwa 800 Gramm am Tag frei, Kochen und Küchenarbeit 600 bis 800 Gramm.[^6] Deshalb fragt der Bogen nach Wäschetrocknen, Duschen und Kochen.
+Auch die Feuchtequellen gehören ins Protokoll. Nach einer Übersicht in der Fachliteratur gibt eine geschleuderte Maschinenfüllung Wäsche insgesamt 1.000 bis 2.000 Gramm Wasser ab. Baden und Duschen setzen zusammen etwa 800 Gramm am Tag frei, Kochen und Küchenarbeit 600 bis 800 Gramm. Deshalb fragt der Bogen nach Wäschetrocknen, Duschen und Kochen.
 
 ## Wie Sie die Aufzeichnung auswerten
 
-Nach einigen Wochen lesen Sie den Bogen im Zusammenhang. Der Verband Privater Bauherren nennt 45 bis 55 Prozent relative Luftfeuchte als guten Bereich für Wohnräume.[^7] Im Wohnbereich sollten 70 Prozent nicht überschritten werden.[^7] Die Verbraucherzentrale bezeichnet eine dauerhaft hohe Raumluftfeuchte von mehr als 60 Prozent als Risiko.[^10] Diese Werte sind Anhaltspunkte, keine Grenzwerte aus einer Norm. Regelwerkseitig behandelt DIN/TS 4108-8 die Vermeidung von Schimmelwachstum in Wohngebäuden.[^11]
+Nach einigen Wochen lesen Sie den Bogen im Zusammenhang. Der Verband Privater Bauherren nennt 45 bis 55 Prozent relative Luftfeuchte als guten Bereich für Wohnräume.[^3] Im Wohnbereich sollten 70 Prozent nicht überschritten werden.[^3] Die Verbraucherzentrale bezeichnet eine dauerhaft hohe Raumluftfeuchte von mehr als 60 Prozent als Risiko.[^5] Diese Werte sind Anhaltspunkte, keine Grenzwerte aus einer Norm. Regelwerkseitig behandelt DIN/TS 4108-8 die Vermeidung von Schimmelwachstum in Wohngebäuden.[^6]
 
 Vergleichen Sie die Feuchtewerte mit den Spalten zu Heizen und Lüften. Bleibt die Luftfeuchte über Wochen hoch, obwohl der Raum beheizt und mehrmals täglich gelüftet wird, spricht das dafür, bauliche Ursachen prüfen zu lassen. Kehrt der Schimmel nach dem Entfernen an derselben Stelle zurück, deutet das auf eine dauerhaft zu kalte oder zu feuchte Oberfläche hin.
 
-Prüfen Sie auch die Jahreszeit. Nach der Fachliteratur zeigt sich der erste Schimmel oft nicht im tiefsten Winter, sondern in den Übergangszeiten.[^12] Milde Außenluft enthält mehr Wasser. Deshalb ist dann mehr Lüftung nötig, um die Innenluft ausreichend trocken zu halten.[^12] Ein Protokoll, das nur den Januar erfasst, übersieht diesen Zusammenhang.
+Prüfen Sie auch die Jahreszeit. Nach der Fachliteratur zeigt sich der erste Schimmel oft nicht im tiefsten Winter, sondern in den Übergangszeiten. Milde Außenluft enthält mehr Wasser. Deshalb ist dann mehr Lüftung nötig, um die Innenluft ausreichend trocken zu halten. Ein Protokoll, das nur den Januar erfasst, übersieht diesen Zusammenhang.
 
 Ein Protokoll entscheidet die Ursachenfrage nicht. Es liefert die Tatsachengrundlage, auf der Fachleute den Feuchteschutz des Gebäudes und die Nutzung gemeinsam beurteilen. Genau darin liegt sein Wert. Deshalb ist der Bogen bewusst neutral gehalten und für beide Seiten verwendbar.
 
@@ -109,7 +109,7 @@ Nein. Ein Protokoll ist eine Aufzeichnung, kein Gutachten und kein Beweismittel 
 
 **Kann ich den Schimmel selbst entfernen?**
 
-Bei einem kleinen, nur oberflächlichen Befall bis etwa einem halben Quadratmeter ist das in der Regel möglich.[^2] Ab einem halben Quadratmeter gehört die Arbeit in fachkundige Hände.[^2] Verzichten Sie darauf, wenn Sie allergisch reagieren oder ein geschwächtes Immunsystem haben. Reinigungsmittel auf Essigbasis sind ungeeignet, weil Schimmelpilze ein saures Milieu bevorzugen.[^4]
+Bei einem kleinen, nur oberflächlichen Befall bis etwa einem halben Quadratmeter ist das in der Regel möglich.[^1] Ab einem halben Quadratmeter gehört die Arbeit in fachkundige Hände.[^1] Verzichten Sie darauf, wenn Sie allergisch reagieren oder ein geschwächtes Immunsystem haben. Reinigungsmittel auf Essigbasis sind ungeeignet, weil Schimmelpilze ein saures Milieu bevorzugen.
 
 ## Hinweis
 
@@ -123,26 +123,9 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 ## Quellen und Fußnoten
 
-[^1]: Schulz, Joachim: Architektur der Bauschäden. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 471. ISBN 978-3-658-27654-6.
-
-[^2]: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. Eine Einführung mit Berechnungsbeispielen. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 385. ISBN 978-3-658-42604-0. Inhaltlich bestätigt durch: Verbraucherzentrale: Schimmel an der Wand entfernen. https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/wohnen/schimmel-in-der-wohnung-das-koennen-sie-tun-6794 (abgerufen am 2026-09-29).
-
-[^3]: Bauherren-Schutzbund: Schimmelbefall durch richtiges Heizen und Lüften vermeiden. https://www.bsb-ev.de/politik-presse/presseservice/expertentipps/schimmelbefall-durch-richtiges-heizen-und-lueften-vermeiden (abgerufen am 2026-09-29).
-
-[^4]: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. Eine Einführung mit Berechnungsbeispielen. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 363. ISBN 978-3-658-42604-0.
-
-[^5]: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. Eine Einführung mit Berechnungsbeispielen. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 263. ISBN 978-3-658-42604-0. Inhaltlich bestätigt durch: Hestermann, Ulf; Rongen, Ludwig: Frick/Knöll Baukonstruktionslehre 1. 37. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 933. ISBN 978-3-658-42179-3.
-
-[^6]: Vogdt, Frank U. (Hrsg.): Bauphysik. Grundwissen für Architekten. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 119. ISBN 978-3-8348-2189-8.
-
-[^7]: Verband Privater Bauherren: Lüften. https://www.vpb.de/glossar/lueften (abgerufen am 2026-09-29).
-
-[^8]: Umweltbundesamt: Wie lüfte ich richtig? Tipps und Tricks zur Schimmelvermeidung. https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/schimmel/wie-luefte-ich-richtig-tipps-tricks-zur (abgerufen am 2026-09-29).
-
-[^9]: Willems, Wolfgang M. (Hrsg.): Lehrbuch der Bauphysik. Wärme – Feuchte – Klima – Schall – Licht – Brand. 9. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 481. ISBN 978-3-658-34093-3.
-
-[^10]: Verbraucherzentrale: Schimmel an der Wand entfernen. https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/wohnen/schimmel-in-der-wohnung-das-koennen-sie-tun-6794 (abgerufen am 2026-09-29).
-
-[^11]: DIN Media: DIN/TS 4108-8:2022-09, Wärmeschutz und Energie-Einsparung in Gebäuden – Teil 8: Vermeidung von Schimmelwachstum in Wohngebäuden. https://www.dinmedia.de/en/pre-standard/din-ts-4108-8/334887079 (abgerufen am 2026-09-29). Inhaltlich bestätigt durch: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. Eine Einführung mit Berechnungsbeispielen. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 360. ISBN 978-3-658-42604-0.
-
-[^12]: Hestermann, Ulf; Rongen, Ludwig: Frick/Knöll Baukonstruktionslehre 1. 37. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 933. ISBN 978-3-658-42179-3.
+[^1]: Verbraucherzentrale: Schimmel an der Wand entfernen. https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/wohnen/schimmel-in-der-wohnung-das-koennen-sie-tun-6794 (abgerufen am 2026-09-29).
+[^2]: Bauherren-Schutzbund: Schimmelbefall durch richtiges Heizen und Lüften vermeiden. https://www.bsb-ev.de/politik-presse/presseservice/expertentipps/schimmelbefall-durch-richtiges-heizen-und-lueften-vermeiden (abgerufen am 2026-09-29).
+[^3]: Verband Privater Bauherren: Lüften. https://www.vpb.de/glossar/lueften (abgerufen am 2026-09-29).
+[^4]: Umweltbundesamt: Wie lüfte ich richtig? Tipps und Tricks zur Schimmelvermeidung. https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/schimmel/wie-luefte-ich-richtig-tipps-tricks-zur (abgerufen am 2026-09-29).
+[^5]: Verbraucherzentrale: Schimmel an der Wand entfernen. https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/wohnen/schimmel-in-der-wohnung-das-koennen-sie-tun-6794 (abgerufen am 2026-09-29).
+[^6]: DIN Media: DIN/TS 4108-8:2022-09, Wärmeschutz und Energie-Einsparung in Gebäuden – Teil 8: Vermeidung von Schimmelwachstum in Wohngebäuden. https://www.dinmedia.de/en/pre-standard/din-ts-4108-8/334887079 (abgerufen am 2026-09-29).

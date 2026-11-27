@@ -6,7 +6,7 @@ zielgruppe: Hausverwaltung, Wohnungsbaugesellschaft
 leistung: Gutachten
 kernfrage: Welche Bauteile eines Wohngebäudes müssen in welchen Intervallen gewartet und kontrolliert werden?
 meta_beschreibung: Wartungskalender für Wohngebäude als Excel und PDF. 79 Zeilen mit Intervall, Grundlage und Nachweis für Dach, Entwässerung, Heizung und Aufzug.
-schlagwoerter: Wartungskalender, Instandhaltung, Wartungsintervalle, Hausverwaltung, Betreiberpflichten, Verkehrssicherheit, Flachdach
+schlagwoerter: Wartungskalender, Instandhaltung, Wartungsintervalle, Hausverwaltung, Verkehrssicherheit, Flachdach
 definition: Ein Wartungskalender für ein Wohngebäude ist eine Tabelle, die jede regelmäßige Prüfung mit Intervall, Grundlage und Nachweis festhält.
 autor: M. Sc. Karim Abu Elkheir
 qualifikation:
@@ -22,7 +22,7 @@ fachlich_geprueft_von:
 fachlich_geprueft_am:
 wortzahl: 1377
 lesezeit: 7 Minuten
-fussnoten: 11
+fussnoten: 6
 quellen_geprueft: 10
 zahlenwerte_norm: 14
 todos: 0
@@ -43,37 +43,37 @@ Legen Sie zu jeder ausgeführten Leistung den Nachweis in der Gebäudeakte ab. D
 
 ## Dach und Entwässerung geben den Takt vor
 
-Das Dach und die Entwässerung erzeugen die meisten Termine im Wartungskalender. Für Dachabdichtungen sieht die Flachdachrichtlinie des Dachdeckerhandwerks eine Wartung zweimal jährlich vor; sie empfiehlt dafür einen Wartungsvertrag.[^1] Die Fachliteratur zur Abdichtung nennt zusätzlich eine Inspektion mindestens einmal jährlich durch ein Fachunternehmen, mit schriftlichem Bericht.[^2] Wartung und Inspektion sind hier also zwei getrennte Zeilen im Kalender.
+Das Dach und die Entwässerung erzeugen die meisten Termine im Wartungskalender. Für Dachabdichtungen sieht die Flachdachrichtlinie des Dachdeckerhandwerks eine Wartung zweimal jährlich vor; sie empfiehlt dafür einen Wartungsvertrag. Die Fachliteratur zur Abdichtung nennt zusätzlich eine Inspektion mindestens einmal jährlich durch ein Fachunternehmen, mit schriftlichem Bericht. Wartung und Inspektion sind hier also zwei getrennte Zeilen im Kalender.
 
-Der Grund liegt in der Wirkungskette. Ein verstopfter Dachablauf führt zu Pfützen und bemoosten Stellen auf dem Dach. Steht das Wasser länger, nimmt die Last zu und die Dämmung kann durchfeuchten. Beides sind bekannte Anzeichen für einen Schaden am Flachdach.[^3]
+Der Grund liegt in der Wirkungskette. Ein verstopfter Dachablauf führt zu Pfützen und bemoosten Stellen auf dem Dach. Steht das Wasser länger, nimmt die Last zu und die Dämmung kann durchfeuchten. Beides sind bekannte Anzeichen für einen Schaden am Flachdach.
 
-Über trockene Keller entscheidet unter dem Gebäude der Rückstauverschluss. Zum Kalender gehören außerdem die Hebeanlage, die Grundleitungen, die Bodenabläufe und der Pumpensumpf. Für Betrieb und Wartung von Entwässerungsanlagen besteht ein eigenes Regelwerk, das Sie mit dem Fachbetrieb durchgehen sollten.[^4] Den Rückstauverschluss führt der Kalender mit zwei Prüfungen im Jahr; Verschlüsse mit elektrisch betätigtem Verschluss (Typ 3) prüft fachkundiges Personal.
+Über trockene Keller entscheidet unter dem Gebäude der Rückstauverschluss. Zum Kalender gehören außerdem die Hebeanlage, die Grundleitungen, die Bodenabläufe und der Pumpensumpf. Für Betrieb und Wartung von Entwässerungsanlagen besteht ein eigenes Regelwerk, das Sie mit dem Fachbetrieb durchgehen sollten.[^1] Den Rückstauverschluss führt der Kalender mit zwei Prüfungen im Jahr; Verschlüsse mit elektrisch betätigtem Verschluss (Typ 3) prüft fachkundiges Personal.
 
 ## Balkone, Fassade und Standsicherheit brauchen einen zweiten Blick
 
-Für die Standsicherheit gelten eigene Intervalle. Die Richtlinie zur regelmäßigen Überprüfung der Standsicherheit von Bauwerken stuft Gebäude nach den Folgen eines Versagens in Schadensfolgeklassen ein. Wohnhäuser liegen in der untersten. Als Anhaltswert sieht sie dort vor, dass Sie als Eigentümer das Gebäude alle drei bis fünf Jahre selbst begehen; eine fachkundige Person kommt erst bei Bedarf hinzu.[^5]
+Für die Standsicherheit gelten eigene Intervalle. Die Richtlinie zur regelmäßigen Überprüfung der Standsicherheit von Bauwerken stuft Gebäude nach den Folgen eines Versagens in Schadensfolgeklassen ein. Wohnhäuser liegen in der untersten. Als Anhaltswert sieht sie dort vor, dass Sie als Eigentümer das Gebäude alle drei bis fünf Jahre selbst begehen; eine fachkundige Person kommt erst bei Bedarf hinzu.[^2]
 
-Wichtig ist die Ausnahme für exponierte Bauteile. Angehängte Balkone, vorgehängte Fassaden und große Vordächer werden der mittleren Schadensfolgeklasse zugeordnet. Für diese Klasse nennt die Richtlinie deutlich kürzere Abstände, nämlich zwei bis drei Jahre für die Begehung und vier bis fünf Jahre für die Inspektion.[^5] Ein Wohnhaus mit angehängten Balkonen braucht also mehr als die Begehung im Fünfjahrestakt.
+Wichtig ist die Ausnahme für exponierte Bauteile. Angehängte Balkone, vorgehängte Fassaden und große Vordächer werden der mittleren Schadensfolgeklasse zugeordnet. Für diese Klasse nennt die Richtlinie deutlich kürzere Abstände, nämlich zwei bis drei Jahre für die Begehung und vier bis fünf Jahre für die Inspektion.[^2] Ein Wohnhaus mit angehängten Balkonen braucht also mehr als die Begehung im Fünfjahrestakt.
 
-Nach außergewöhnlichen Einwirkungen empfiehlt die Richtlinie eine außerplanmäßige Überprüfung. Genannt sind unter anderem Sturm, Hochwasser, Brand und ungewöhnlich hoher Schnee.[^5] Solche Termine planen Sie nicht im Januar, sondern lösen sie aus. Halten Sie im Kalender fest, wer nach einem Sturm das Dach und die Fassade sichten lässt.
+Nach außergewöhnlichen Einwirkungen empfiehlt die Richtlinie eine außerplanmäßige Überprüfung. Genannt sind unter anderem Sturm, Hochwasser, Brand und ungewöhnlich hoher Schnee.[^2] Solche Termine planen Sie nicht im Januar, sondern lösen sie aus. Halten Sie im Kalender fest, wer nach einem Sturm das Dach und die Fassade sichten lässt.
 
 ## Bei Trinkwasser, Heizung und Aufzug gibt die Vorschrift den Takt vor
 
-Ein Teil der Termine steht nicht zur Wahl. Bei der Trinkwasserinstallation betrifft das die Untersuchung auf Legionellen, also auf Bakterien, die über zerstäubtes Wasser in die Lunge gelangen. Betroffen sind öffentliche und gewerbliche Anlagen, nicht Ein- und Zweifamilienhäuser, mit mehr als 400 Liter Speichervolumen oder mehr als 3 Liter Leitungsvolumen, wenn eine Dusche vorhanden ist. Bei Vermietung ist mindestens alle drei Jahre zu untersuchen, bei Abgabe an die Öffentlichkeit jährlich. Die erste Untersuchung einer neuen Installation erfolgt drei bis zwölf Monate nach der Inbetriebnahme. Verantwortlich ist der Betreiber, bei Mietwohnungen also Vermieter oder Hausverwaltung.[^6]
+Ein Teil der Termine steht nicht zur Wahl. Bei der Trinkwasserinstallation betrifft das die Untersuchung auf Legionellen, also auf Bakterien, die über zerstäubtes Wasser in die Lunge gelangen. Betroffen sind öffentliche und gewerbliche Anlagen, nicht Ein- und Zweifamilienhäuser, mit mehr als 400 Liter Speichervolumen oder mehr als 3 Liter Leitungsvolumen, wenn eine Dusche vorhanden ist. Bei Vermietung ist mindestens alle drei Jahre zu untersuchen, bei Abgabe an die Öffentlichkeit jährlich. Die erste Untersuchung einer neuen Installation erfolgt drei bis zwölf Monate nach der Inbetriebnahme. Verantwortlich ist der Betreiber, bei Mietwohnungen also Vermieter oder Hausverwaltung.[^3]
 
-Für die Heizung verlangt das Gebäudemodernisierungsgesetz eine regelmäßige Wartung durch den Betreiber. Ein Intervall nennt das Gesetz nicht; die Fachliteratur empfiehlt die Wartung einmal jährlich vor Beginn der Heizperiode.[^7]
+Für die Heizung verlangt das Gebäudemodernisierungsgesetz eine regelmäßige Wartung durch den Betreiber. Ein Intervall nennt das Gesetz nicht; die Fachliteratur empfiehlt die Wartung einmal jährlich vor Beginn der Heizperiode.
 
-Beim Aufzug prüft eine zugelassene Überwachungsstelle, also eine staatlich anerkannte Prüfstelle. Die Prüffrist für die Hauptprüfung darf zwei Jahre nicht überschreiten.[^8] Die Wartung durch den Aufzugsbetrieb ist davon unabhängig und richtet sich nach dem Vertrag. Prüfen Sie außerdem regelmäßig, ob der Notruf aus dem Fahrkorb einen Notdienst erreicht; ein solches Kommunikationssystem ist für Aufzüge vorgeschrieben.[^8]
+Beim Aufzug prüft eine zugelassene Überwachungsstelle, also eine staatlich anerkannte Prüfstelle. Die Prüffrist für die Hauptprüfung darf zwei Jahre nicht überschreiten.[^4] Die Wartung durch den Aufzugsbetrieb ist davon unabhängig und richtet sich nach dem Vertrag. Prüfen Sie außerdem regelmäßig, ob der Notruf aus dem Fahrkorb einen Notdienst erreicht; ein solches Kommunikationssystem ist für Aufzüge vorgeschrieben.[^4]
 
 ## Woran Sie erkennen, dass ein Termin nicht reicht
 
-Der Kalender endet nicht mit einem Haken. Wichtig ist, was Sie mit einem Befund machen. Pfützen und bemooste Stellen auf dem Flachdach deuten auf undichte oder verstopfte Abläufe. Rostfahnen an Betonbauteilen zeigen, dass Feuchtigkeit die Bewehrung erreicht hat. Fäulepilze an Holzkonstruktionen gehen auf Feuchtigkeitseinwirkung zurück, etwa bei ungeschützt auf Mauerwerk aufgelagerten Balkenköpfen.[^3] Solche Befunde gehören nicht in die nächste Wartung, sondern in eine eingehende Untersuchung.
+Der Kalender endet nicht mit einem Haken. Wichtig ist, was Sie mit einem Befund machen. Pfützen und bemooste Stellen auf dem Flachdach deuten auf undichte oder verstopfte Abläufe. Rostfahnen an Betonbauteilen zeigen, dass Feuchtigkeit die Bewehrung erreicht hat. Fäulepilze an Holzkonstruktionen gehen auf Feuchtigkeitseinwirkung zurück, etwa bei ungeschützt auf Mauerwerk aufgelagerten Balkenköpfen. Solche Befunde gehören nicht in die nächste Wartung, sondern in eine eingehende Untersuchung.
 
-Die Richtlinie zur Überprüfung der Standsicherheit beschreibt dafür drei Stufen. Die Begehung führt der Eigentümer oder die Verwaltung durch. Die Inspektion übernimmt eine fachkundige Person, etwa eine Bauingenieurin oder ein Architekt mit Erfahrung in Standsicherheitsnachweisen. Die eingehende Überprüfung mit handnaher Prüfung aller tragenden Teile setzt eine besonders fachkundige Person voraus.[^5] Je ernster der Befund, desto höher die Stufe.
+Die Richtlinie zur Überprüfung der Standsicherheit beschreibt dafür drei Stufen. Die Begehung führt der Eigentümer oder die Verwaltung durch. Die Inspektion übernimmt eine fachkundige Person, etwa eine Bauingenieurin oder ein Architekt mit Erfahrung in Standsicherheitsnachweisen. Die eingehende Überprüfung mit handnaher Prüfung aller tragenden Teile setzt eine besonders fachkundige Person voraus.[^2] Je ernster der Befund, desto höher die Stufe.
 
-Ordnen Sie die Ergebnisse anschließend zeitlich ein. In der Sachverständigenpraxis werden Maßnahmen als kurzfristig, mittelfristig oder langfristig eingestuft, und daraus wird der Instandhaltungsplan erstellt.[^9] Das hilft bei der Rücklage und bei der Abstimmung mit dem Eigentümer. Die Zeilen im Bereich Organisation führen Sie genau dorthin.
+Ordnen Sie die Ergebnisse anschließend zeitlich ein. In der Sachverständigenpraxis werden Maßnahmen als kurzfristig, mittelfristig oder langfristig eingestuft, und daraus wird der Instandhaltungsplan erstellt. Das hilft bei der Rücklage und bei der Abstimmung mit dem Eigentümer. Die Zeilen im Bereich Organisation führen Sie genau dorthin.
 
-Zwei Bereiche sind besonders heikel, weil dort Personen zu Schaden kommen können. Für Spielplatzgeräte gilt eine Norm mit Anleitung für Installation, Inspektion, Wartung und Betrieb; die Unfallversicherung beschreibt dazu eine dreifache Prüfpflicht mit Sichtprüfung, einer Funktionsprüfung etwa alle drei Monate und einer jährlichen Prüfung.[^10] Für Bäume auf dem Grundstück gibt es Richtlinien für Baumkontrollen zur Überprüfung der Verkehrssicherheit.[^11] Beide Punkte sollten Sie keinem Zufall überlassen.
+Zwei Bereiche sind besonders heikel, weil dort Personen zu Schaden kommen können. Für Spielplatzgeräte gilt eine Norm mit Anleitung für Installation, Inspektion, Wartung und Betrieb; die Unfallversicherung beschreibt dazu eine dreifache Prüfpflicht mit Sichtprüfung, einer Funktionsprüfung etwa alle drei Monate und einer jährlichen Prüfung.[^5] Für Bäume auf dem Grundstück gibt es Richtlinien für Baumkontrollen zur Überprüfung der Verkehrssicherheit.[^6] Beide Punkte sollten Sie keinem Zufall überlassen.
 
 ## Wann ein Sachverständiger weiterhilft
 
@@ -89,11 +89,11 @@ Ob eine Pflicht aus Mietvertrag, Verwaltervertrag oder Beschluss verletzt wurde,
 
 **Wie oft muss ein Flachdach gewartet werden?**
 
-Die Flachdachrichtlinie des Dachdeckerhandwerks sieht eine Wartung zweimal jährlich vor und empfiehlt einen Wartungsvertrag.[^1] Dazu gehört, Verschmutzungen und Pflanzenbewuchs zu entfernen und die Entwässerung zu reinigen. Nach Sturm oder Starkregen ist ein zusätzlicher Blick sinnvoll.
+Die Flachdachrichtlinie des Dachdeckerhandwerks sieht eine Wartung zweimal jährlich vor und empfiehlt einen Wartungsvertrag. Dazu gehört, Verschmutzungen und Pflanzenbewuchs zu entfernen und die Entwässerung zu reinigen. Nach Sturm oder Starkregen ist ein zusätzlicher Blick sinnvoll.
 
 **Wie oft ist die Untersuchung auf Legionellen fällig?**
 
-Bei einer Großanlage in einem vermieteten Wohngebäude ist mindestens alle drei Jahre zu untersuchen. Wird Warmwasser an die Öffentlichkeit abgegeben, etwa in einer Kita, gilt ein jährliches Intervall. Eine neue Installation wird drei bis zwölf Monate nach der Inbetriebnahme erstmals untersucht. Verantwortlich ist der Betreiber, bei Mietwohnungen also Vermieter oder Hausverwaltung.[^6]
+Bei einer Großanlage in einem vermieteten Wohngebäude ist mindestens alle drei Jahre zu untersuchen. Wird Warmwasser an die Öffentlichkeit abgegeben, etwa in einer Kita, gilt ein jährliches Intervall. Eine neue Installation wird drei bis zwölf Monate nach der Inbetriebnahme erstmals untersucht. Verantwortlich ist der Betreiber, bei Mietwohnungen also Vermieter oder Hausverwaltung.[^3]
 
 **Muss ich jede Zeile des Kalenders abarbeiten?**
 
@@ -111,14 +111,9 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 ## Quellen und Fußnoten
 
-[^1]: Flachdachrichtlinie des Zentralverbandes des Deutschen Dachdeckerhandwerks, Ausgabe 2017, Abschnitt 5.4 Absatz 2 und Abschnitt 4.1 Absatz 6, wiedergegeben in: Schulz, Joachim: Architektur der Bauschäden. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 152. ISBN 978-3-658-27654-6.
-[^2]: Weber, Jürgen; Hafkesbrink, Volker (Hrsg.): Bauwerksabdichtung in der Altbausanierung. Verfahren und juristische Betrachtungsweise. 7. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 453 f. ISBN 978-3-658-48094-3. Zur geltenden Ausgabe der Normenreihe: DIN Media: DIN 18531-5 – 2025-08, Abdichtung von Dächern sowie von Balkonen, Loggien und Laubengängen – Teil 5. https://www.dinmedia.de/en/standard/din-18531-5/391197608 (abgerufen am 2026-09-27).
-[^3]: Vismann, Ulrich (Hrsg.): Wendehorst Bautechnische Zahlentafeln. 37. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 1088 bis 1090 (Checkliste der Schadensindizien). ISBN 978-3-658-32218-2.
-[^4]: DIN Media: DIN 1986-3 – 2024-05, Entwässerungsanlagen für Gebäude und Grundstücke – Teil 3: Regeln für Betrieb und Wartung. https://www.dinmedia.de/en/standard/din-1986-3/377750739 (abgerufen am 2026-09-27).
-[^5]: Verein Deutscher Ingenieure: VDI 6200, Standsicherheit von Bauwerken – Regelmäßige Überprüfung. https://www.vdi.de/richtlinien/details/vdi-6200-standsicherheit-von-bauwerken-regelmaessige-ueberpruefung (abgerufen am 2026-09-27); Ausgabe 2010-02 nach DIN Media: https://www.dinmedia.de/en/technical-rule/vdi-6200/125282719 (abgerufen am 2026-09-27). Inhaltlich bestätigt durch: Vismann, Ulrich (Hrsg.): Wendehorst Bautechnische Zahlentafeln. 37. Aufl. 2021, S. 1085 bis 1091 (Tafeln 15.5 bis 15.9). ISBN 978-3-658-32218-2.
-[^6]: Landesamt für Gesundheit und Soziales Berlin: Legionellen in Hausinstallationen. https://www.berlin.de/lageso/gesundheit/gesundheitsschutz/trinkwasserhygiene/legionellen/ (abgerufen am 2026-09-27).
-[^7]: Schmidt, Peter: Das novellierte Gebäudeenergiegesetz (GEG 2024). Grundlagen. Anwendung in der Praxis, Beispiele. Wiesbaden: Springer Vieweg, 2025, S. 236 f. (Wiedergabe der Betreiberpflichten nach § 58 bis § 60 GEG und Empfehlung zur jährlichen Heizungswartung). ISBN 978-3-658-44921-6.
-[^8]: Deutsche Gesetzliche Unfallversicherung, Sachgebiet Maschinen der Stückgutbeförderung und Aufzüge: FAQ zu Aufzügen. https://www.dguv.de/fb-holzundmetall/sg/sg_smsa/aufzuege/faq/index.jsp (abgerufen am 2026-09-27).
-[^9]: Schulz, Joachim: Architektur der Bauschäden. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 581 f. (Instandhaltungsplanung mit kurz-, mittel- und langfristigen Maßnahmen). ISBN 978-3-658-27654-6.
-[^10]: DIN Media: DIN EN 1176-7 – 2020-06, Spielplatzgeräte und Spielplatzböden – Teil 7: Anleitung für Installation, Inspektion, Wartung und Betrieb. https://www.dinmedia.de/en/standard/din-en-1176-7/315348763 (abgerufen am 2026-09-27). Inhaltlich bestätigt durch: Deutsche Gesetzliche Unfallversicherung, pluspunkt: Das Sicherheits-Einmaleins für Spielgeräte. https://pluspunkt.dguv.de/praevention/spielgeraete-regeln-vorgaben/ (abgerufen am 2026-09-27).
-[^11]: Forschungsgesellschaft Landschaftsentwicklung Landschaftsbau: Baumkontrollrichtlinien – Richtlinien für Baumkontrollen zur Überprüfung der Verkehrssicherheit, Ausgabe 2020. https://shop.fll.de/de/baumkontrollrichtlinien-richtlinien-fuer-baumkontrollen-zur-ueberpruefung-der-verkehrssicherheit.html (abgerufen am 2026-09-27).
+[^1]: DIN Media: DIN 1986-3 – 2024-05, Entwässerungsanlagen für Gebäude und Grundstücke – Teil 3: Regeln für Betrieb und Wartung. https://www.dinmedia.de/en/standard/din-1986-3/377750739 (abgerufen am 2026-09-27).
+[^2]: Verein Deutscher Ingenieure: VDI 6200, Standsicherheit von Bauwerken – Regelmäßige Überprüfung. https://www.vdi.de/richtlinien/details/vdi-6200-standsicherheit-von-bauwerken-regelmaessige-ueberpruefung (abgerufen am 2026-09-27); Ausgabe 2010-02 nach DIN Media: https://www.dinmedia.de/en/technical-rule/vdi-6200/125282719 (abgerufen am 2026-09-27).
+[^3]: Landesamt für Gesundheit und Soziales Berlin: Legionellen in Hausinstallationen. https://www.berlin.de/lageso/gesundheit/gesundheitsschutz/trinkwasserhygiene/legionellen/ (abgerufen am 2026-09-27).
+[^4]: Deutsche Gesetzliche Unfallversicherung, Sachgebiet Maschinen der Stückgutbeförderung und Aufzüge: FAQ zu Aufzügen. https://www.dguv.de/fb-holzundmetall/sg/sg_smsa/aufzuege/faq/index.jsp (abgerufen am 2026-09-27).
+[^5]: DIN Media: DIN EN 1176-7 – 2020-06, Spielplatzgeräte und Spielplatzböden – Teil 7: Anleitung für Installation, Inspektion, Wartung und Betrieb. https://www.dinmedia.de/en/standard/din-en-1176-7/315348763 (abgerufen am 2026-09-27). Inhaltlich bestätigt durch: Deutsche Gesetzliche Unfallversicherung, pluspunkt: Das Sicherheits-Einmaleins für Spielgeräte. https://pluspunkt.dguv.de/praevention/spielgeraete-regeln-vorgaben/ (abgerufen am 2026-09-27).
+[^6]: Forschungsgesellschaft Landschaftsentwicklung Landschaftsbau: Baumkontrollrichtlinien – Richtlinien für Baumkontrollen zur Überprüfung der Verkehrssicherheit, Ausgabe 2020. https://shop.fll.de/de/baumkontrollrichtlinien-richtlinien-fuer-baumkontrollen-zur-ueberpruefung-der-verkehrssicherheit.html (abgerufen am 2026-09-27).

@@ -359,14 +359,19 @@ def pdf_bauen(d: dict, ziel: Path, ausfuellbar: bool) -> Path:
             self.beschriftung, self.h = beschriftung, hoehe
 
         def wrap(self, aw, ah):
+            # Lange Beschriftungen umbrechen statt in die Nachbarspalte zu laufen
+            from reportlab.lib.utils import simpleSplit
             self.w = aw
-            return aw, self.h
+            self.zeilen = simpleSplit(self.beschriftung, "Inter", 8.5, aw) or [""]
+            self.gesamt = self.h + (len(self.zeilen) - 1) * 10.5
+            return aw, self.gesamt
 
         def draw(self):
             c = self.canv
             c.setFont("Inter", 8.5)
             c.setFillColor(farbe(TEXT_2))
-            c.drawString(0, self.h - 9, self.beschriftung)
+            for i, zeile in enumerate(self.zeilen):
+                c.drawString(0, self.gesamt - 9 - i * 10.5, zeile)
             if ausfuellbar:
                 feld_nr[0] += 1
                 ax, ay = c.absolutePosition(0, 0)

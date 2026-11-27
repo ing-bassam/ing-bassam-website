@@ -53,17 +53,17 @@ Drucken Sie die ausgefüllte Liste nach der Begehung aus und fügen Sie sie dem 
 
 In die Spalte für die Beschreibung schreiben Sie, was Sie sehen, nicht was Sie vermuten. Statt „Fliesenarbeiten mangelhaft“ schreiben Sie: „Fuge zwischen Duschwanne und Wand löst sich von der Wand ab“.
 
-In die Spalte für das Meldedatum tragen Sie ein, wann Sie den Mangel gemeldet haben. Ist die VOB/B vereinbart, muss der Auftraggeber die Beseitigung vor Ablauf der Verjährungsfrist schriftlich verlangen.[^1] Bewahren Sie deshalb einen Nachweis über den Zugang auf. Ob eine Meldung im Einzelfall rechtzeitig und ausreichend war, klärt ein Rechtsanwalt.
+In die Spalte für das Meldedatum tragen Sie ein, wann Sie den Mangel gemeldet haben. Ist die VOB/B vereinbart, muss der Auftraggeber die Beseitigung vor Ablauf der Verjährungsfrist schriftlich verlangen. Bewahren Sie deshalb einen Nachweis über den Zugang auf. Ob eine Meldung im Einzelfall rechtzeitig und ausreichend war, klärt ein Rechtsanwalt.
 
 In die Spalte für die Frist tragen Sie ein festes Datum ein. Eine Silikonfuge verlangt eine kürzere Frist als eine neue Abdichtung im Bad.
 
-Die Spalten für den Stand und das Erledigungsdatum machen aus der Liste ein Verfolgungswerkzeug. Sie brauchen es länger, als viele erwarten. Mängelansprüche verjähren bei einem Bauwerk nach dem Bürgerlichen Gesetzbuch in fünf Jahren, gerechnet ab der Abnahme.[^2][^3] Ist die VOB/B vereinbart und im Vertrag nichts anderes geregelt, sind es vier Jahre ab der Abnahme der gesamten Leistung.[^1]
+Die Spalten für den Stand und das Erledigungsdatum machen aus der Liste ein Verfolgungswerkzeug. Sie brauchen es länger, als viele erwarten. Mängelansprüche verjähren bei einem Bauwerk nach dem Bürgerlichen Gesetzbuch in fünf Jahren, gerechnet ab der Abnahme. Ist die VOB/B vereinbart und im Vertrag nichts anderes geregelt, sind es vier Jahre ab der Abnahme der gesamten Leistung.
 
 ## Typische Fehler bei einer Mängelliste
 
 Der häufigste Fehler ist die Sammelzeile. „Diverse Mängel im Bad“ hilft später niemandem, weil unklar bleibt, welche Stelle gemeint war. Tragen Sie jeden Mangel in eine eigene Zeile ein, auch wenn dasselbe Bild an fünf Fenstern auftritt. Jede Zeile braucht eine Ortsangabe, die auch ein Fremder findet.
 
-Der zweite Fehler ist der fehlende Vorbehalt. Bei einer förmlichen Abnahme nach VOB/B ist der Befund gemeinsam schriftlich niederzulegen, und Vorbehalte wegen bekannter Mängel gehören in diese Niederschrift.[^4] Eine ausgefüllte Mängelliste als Anlage ist mehr als Ordnungsliebe. Welche Erklärung Ihr Vertrag verlangt, prüft ein Rechtsanwalt.
+Der zweite Fehler ist der fehlende Vorbehalt. Bei einer förmlichen Abnahme nach VOB/B ist der Befund gemeinsam schriftlich niederzulegen, und Vorbehalte wegen bekannter Mängel gehören in diese Niederschrift. Eine ausgefüllte Mängelliste als Anlage ist mehr als Ordnungsliebe. Welche Erklärung Ihr Vertrag verlangt, prüft ein Rechtsanwalt.
 
 Der dritte Fehler ist das Aufhören. Viele Listen enden mit der Abnahme, obwohl die Verjährungsfrist für Mängelansprüche erst mit der Abnahme beginnt. Tragen Sie auch mündliche Zusagen der Firma mit Datum ein und halten Sie fest, wer sie gegeben hat.
 
@@ -79,7 +79,7 @@ Auch vor der Abnahme kann fachliche Begleitung sinnvoll sein, etwa wenn viele Ge
 
 **Wie lange soll ich die Mängelliste führen?**
 
-Führen Sie sie über die gesamte Gewährleistungszeit. Bei einem Bauwerk verjähren die Mängelansprüche nach dem Bürgerlichen Gesetzbuch in fünf Jahren ab der Abnahme.[^2][^3] Bei einem Vertrag mit VOB/B sind es vier Jahre ab der Abnahme der gesamten Leistung, wenn nichts anderes vereinbart ist.[^1] Abweichende Vereinbarungen im Vertrag sind möglich, deshalb lohnt der Blick in die Unterlagen.
+Führen Sie sie über die gesamte Gewährleistungszeit. Bei einem Bauwerk verjähren die Mängelansprüche nach dem Bürgerlichen Gesetzbuch in fünf Jahren ab der Abnahme. Bei einem Vertrag mit VOB/B sind es vier Jahre ab der Abnahme der gesamten Leistung, wenn nichts anderes vereinbart ist. Abweichende Vereinbarungen im Vertrag sind möglich, deshalb lohnt der Blick in die Unterlagen.
 
 **Was mache ich, wenn die Firma den Mangel bestreitet?**
 
@@ -97,7 +97,3 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 ## Quellen und Fußnoten
 
-[^1]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 152 f. ISBN 978-3-410-61299-5. Wortlaut § 13 Abs. 4 und Abs. 5 VOB/B, Ausgabe 2019.
-[^2]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 162 f. ISBN 978-3-658-32822-1. Wortlaut § 634a Abs. 1 BGB und Beginn der Verjährung.
-[^3]: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. Entscheidungshilfen für Auftraggeber und Auftragnehmer. 2. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 101. ISBN 978-3-658-44068-8.
-[^4]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 151. ISBN 978-3-410-61299-5. Wortlaut § 12 Abs. 4 Nr. 1 VOB/B, Ausgabe 2019.

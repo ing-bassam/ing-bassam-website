@@ -6,7 +6,7 @@ zielgruppe: Hausverwaltung, Wohnungsbaugesellschaft, Gewerblich
 leistung: Gutachten
 kernfrage: Worauf muss eine Hausverwaltung bei der regelmäßigen Begehung eines Wohngebäudes achten?
 meta_beschreibung: Kostenlose Checkliste für die Objektbegehung eines Wohngebäudes mit Mängelliste, als PDF und Excel, mit Anleitung für Hausverwaltungen.
-schlagwoerter: Objektbegehung, Hausverwaltung, Instandhaltung, Verkehrssicherheit, Mängelliste, Wohngebäude, Bestand
+schlagwoerter: Objektbegehung, Hausverwaltung, Instandhaltung, Verkehrssicherheit, Mängelliste, Wohngebäude
 definition: Eine Checkliste für die Objektbegehung ist eine geordnete Liste von Sichtprüfpunkten für ein Wohngebäude und seine Außenanlagen.
 autor: M. Sc. Karim Abu Elkheir
 qualifikation:
@@ -105,4 +105,4 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 ## Quellen und Fußnoten
 
-[^1]: DIN Media: DIN 31051:2019-06 „Grundlagen der Instandhaltung“, Status aktuell. https://www.dinmedia.de/en/standard/din-31051/303020440 (abgerufen am 2026-09-26). Inhaltlich bestätigt durch: Schulz, Joachim: Bauschäden in Bädern und Nassräumen. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 2. Aufl. Wiesbaden: Springer Vieweg, 2026, S. 220. ISBN 978-3-658-49195-6.
+[^1]: DIN Media: DIN 31051:2019-06 „Grundlagen der Instandhaltung“, Status aktuell. https://www.dinmedia.de/en/standard/din-31051/303020440 (abgerufen am 2026-09-26).

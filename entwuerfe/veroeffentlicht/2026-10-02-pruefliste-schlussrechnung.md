@@ -22,7 +22,7 @@ fachlich_geprueft_von:
 fachlich_geprueft_am:
 wortzahl: 1030
 lesezeit: 6 Minuten
-fussnoten: 2
+fussnoten: 1
 quellen_geprueft: 5
 zahlenwerte_norm: 13
 todos: 0
@@ -43,11 +43,11 @@ Die Unterscheidung zwischen „Rückfrage offen“ und „nicht prüfbar“ ist 
 
 ## Prüffähig oder nicht: woran Sie das erkennen
 
-Prüffähigkeit ist kein Geschmacksurteil, sondern eine Eigenschaft der Rechnung. Die VOB/B, also die allgemeinen Vertragsbedingungen für Bauleistungen, schreibt eine prüfbare Abrechnung vor.[^1]
+Prüffähigkeit ist kein Geschmacksurteil, sondern eine Eigenschaft der Rechnung. Die VOB/B, also die allgemeinen Vertragsbedingungen für Bauleistungen, schreibt eine prüfbare Abrechnung vor.
 
 In der Praxis entscheiden die Anlagen. Fehlen die Rechenwege und stehen nur Endmengen in der Rechnung, ist sie insoweit nicht prüffähig. Verlangen Sie dann die Berechnungen, statt die Mengen selbst zu schätzen.
 
-Für Bauverträge nach dem Bürgerlichen Gesetzbuch gilt ein eigener Maßstab. Eine Schlussrechnung ist dort prüffähig, wenn sie eine übersichtliche Aufstellung der erbrachten Leistungen enthält und für den Besteller nachvollziehbar ist.[^2] Sie gilt als prüffähig, wenn der Besteller nicht innerhalb von 30 Tagen nach Zugang begründete Einwendungen gegen die Prüffähigkeit erhebt (§ 650g Abs. 4 BGB).[^3] Ob eine Rüge im Einzelfall rechtzeitig und ausreichend begründet war, beurteilt ein Rechtsanwalt.
+Für Bauverträge nach dem Bürgerlichen Gesetzbuch gilt ein eigener Maßstab. Eine Schlussrechnung ist dort prüffähig, wenn sie eine übersichtliche Aufstellung der erbrachten Leistungen enthält und für den Besteller nachvollziehbar ist. Sie gilt als prüffähig, wenn der Besteller nicht innerhalb von 30 Tagen nach Zugang begründete Einwendungen gegen die Prüffähigkeit erhebt (§ 650g Abs. 4 BGB).[^1] Ob eine Rüge im Einzelfall rechtzeitig und ausreichend begründet war, beurteilt ein Rechtsanwalt.
 
 ## Mengen und Aufmaß: wo die großen Beträge liegen
 
@@ -105,6 +105,4 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 ## Quellen und Fußnoten
 
-[^1]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 154. ISBN 978-3-410-61299-5. Zur Ausgabe inhaltlich bestätigt durch: DIN Media: VOB 2019 – All changes at a glance. https://www.dinmedia.de/en/topics/vob-2019 (abgerufen am 2026-10-02).
-[^2]: Saalbach, Birthe; Viering, Markus G.; Zanner, Christian: Vergütung, Nachträge und Abrechnung nach Ansprüchen. Entscheidungshilfen für Auftraggeber, Planer und Bauunternehmer. Wiesbaden: Springer Fachmedien Wiesbaden, 2023, S. 139. ISBN 978-3-658-21667-2.
-[^3]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 650g Zustandsfeststellung bei Verweigerung der Abnahme; Schlussrechnung. https://www.gesetze-im-internet.de/bgb/__650g.html (abgerufen am 2026-11-14).
+[^1]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 650g Zustandsfeststellung bei Verweigerung der Abnahme; Schlussrechnung. https://www.gesetze-im-internet.de/bgb/__650g.html (abgerufen am 2026-11-14).
