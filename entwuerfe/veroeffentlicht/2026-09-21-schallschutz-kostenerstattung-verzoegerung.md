@@ -85,7 +85,7 @@ Technische Klärungen an einzelnen Bauteilen dürfen nicht den ganzen Auftrag an
 
 Abrechnung braucht Nachweis. Die Vorhabenträgerin bestritt, dass einzelne Positionen ausgeführt waren. Darüber hat der Senat zwar nicht entschieden (Rn. 35). Aufmaß und Zuordnung zu den Positionen sind trotzdem die Grundlage jeder Erstattung.
 
-Fenstertausch, Lüftereinbau und Innendämmung (Rn. 80) greifen in vorhandene Bauteile ein. Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand vorher fest. Eine [Baubegleitung](https://ing-bassam.de/#kontakt) prüft, ob das Leistungsverzeichnis am konkreten Bauteil ausführbar ist.
+Fenstertausch, Lüftereinbau und Innendämmung (Rn. 80) greifen in vorhandene Bauteile ein. Eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) hält den Zustand vorher fest. Eine [Baubegleitung](https://ing-bassam.de/#kontakt) prüft, ob das Leistungsverzeichnis am konkreten Bauteil ausführbar ist.
 
 ## Häufige Fragen
 

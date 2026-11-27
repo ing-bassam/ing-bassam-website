@@ -83,7 +83,7 @@ Steht ein selbständiges Beweisverfahren an, kommt es auf die Förmlichkeiten an
 
 Bei der Auswahl hilft die Frage, wer die Sachkunde geprüft hat. Öffentlich bestellte und vereidigte Sachverständige sind von einer öffentlich-rechtlichen Einrichtung auf gesetzlicher Grundlage bestellt und vereidigt; bestellen können Industrie- und Handelskammern, Handwerkskammern sowie Ingenieur- und Architektenkammern.[^17] Für Gerichtsaufträge gelten feste Sätze nach dem Justizvergütungs- und -entschädigungsgesetz.[^17] Für Privatgutachten gibt es dagegen keine Gebührenordnung; das Honorar wird frei vereinbart und hängt von Art des Gutachtens, Zahl der Ortstermine, Umfang der Dokumentation und Schwierigkeit ab.[^18]
 
-Am nützlichsten ist fachliche Hilfe, bevor etwas verändert wird. Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand fest, bevor saniert wird. Steht bei Ihnen eine Sanierung, eine Selbstvornahme oder ein Nachbarbauvorhaben an, ist das der Moment für einen Anruf. Was ein Gutachten fachlich feststellt, ersetzt jedoch keine rechtliche Bewertung; diese nimmt eine Rechtsanwältin oder ein Rechtsanwalt vor.
+Am nützlichsten ist fachliche Hilfe, bevor etwas verändert wird. Eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) hält den Zustand fest, bevor saniert wird. Steht bei Ihnen eine Sanierung, eine Selbstvornahme oder ein Nachbarbauvorhaben an, ist das der Moment für einen Anruf. Was ein Gutachten fachlich feststellt, ersetzt jedoch keine rechtliche Bewertung; diese nimmt eine Rechtsanwältin oder ein Rechtsanwalt vor.
 
 ## Häufige Fragen
 
