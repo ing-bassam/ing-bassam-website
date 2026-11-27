@@ -146,6 +146,9 @@ export function paketBauen(inhalte) {
     for (const feld of Object.keys(auswahl)) {
       for (const wert of r[feld] || []) pruefe(auswahl[feld].has(wert), `${ort}: ${feld} ${wert} unbekannt`);
     }
+    for (const wert of r.nicht_region || []) pruefe(auswahl.region.has(wert), `${ort}: nicht_region ${wert} unbekannt`);
+    pruefe(r.gilt_bis === undefined || (/^\d{4}-\d{2}-\d{2}$/.test(r.gilt_bis) && !Number.isNaN(Date.parse(r.gilt_bis))),
+      `${ort}: gilt_bis muss ein Datum JJJJ-MM-TT sein`);
     for (const id of r.empfiehlt || []) pruefe(Boolean(optionen[id]), `${ort}: empfiehlt unbekannte Option ${id}`);
     if (r.von !== undefined && r.bis !== undefined) pruefe(r.von <= r.bis, `${ort}: von > bis`);
     for (const s of ["de", "en"]) pruefe(r[s] && r[s].titel && r[s].text, `${ort}: Titel/Text ${s} fehlt`);
