@@ -156,6 +156,9 @@ export function paketBauen(inhalte) {
     pruefe(!r.quelle || !r.quelle.url || r.quelle.url.startsWith("https://"), `${ort}: Quelle muss mit https:// beginnen`);
   }
   pruefe(regelIds.size > 0, "regeln fehlen");
+  for (const r of d.regeln || []) {
+    if (r.vor !== undefined) pruefe(r.vor !== r.id && regelIds.has(r.vor), `Regel ${r.id}: vor unbekannte Regel ${r.vor}`);
+  }
   for (const objekt of OBJEKTE) {
     const liste = (d.unterlagen && d.unterlagen[objekt]) || [];
     pruefe(liste.length > 0, `unterlagen.${objekt} fehlt`);

@@ -432,6 +432,8 @@ function regelText(regel, sprache) {
  * Passende Hinweise: alle, nach Kategorie sortiert (Pflichten, Vermietung,
  * Prüfschwerpunkte, Gut zu wissen), dazu die ersten höchstens sechs für die
  * kompakte Ansicht und die Extras, die passende Regeln empfehlen.
+ * vor: Eine Regel mit vor: "<id>" steht direkt vor dieser Regel, wenn beide
+ * passen – in beiden Ansichten, damit die kompakte der Anfang der vollen bleibt.
  */
 export function hinweise(daten, e, sprache = "de") {
   const passend = daten.regeln
@@ -439,6 +441,11 @@ export function hinweise(daten, e, sprache = "de") {
     .filter(({ regel }) => bedingungErfuellt(regel, e))
     .sort((a, b) => KATEGORIEN.indexOf(a.regel.kategorie) - KATEGORIEN.indexOf(b.regel.kategorie) || a.reihenfolge - b.reihenfolge)
     .map(({ regel }) => regel);
+  for (const regel of passend.filter((r) => r.vor)) {
+    if (!passend.some((r) => r.id === regel.vor)) continue;
+    passend.splice(passend.indexOf(regel), 1);
+    passend.splice(passend.findIndex((r) => r.id === regel.vor), 0, regel);
+  }
   const alle = passend.map((r) => regelText(r, sprache));
   const empfohlen = new Set(passend.flatMap((r) => r.empfiehlt || []));
   return { alle, kompakt: alle.slice(0, HOECHSTENS_HINWEISE), anzahl: alle.length, empfohlen };

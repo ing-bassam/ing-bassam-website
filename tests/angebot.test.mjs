@@ -468,6 +468,34 @@ test("Hinweise: befristete entfallen nach dem letzten Geltungstag, Ausschluss na
   });
 });
 
+test("Hinweise: vor stellt eine Regel direkt vor eine andere, in kompakter und voller Ansicht", () => {
+  const sechs = ["p1", "p2", "p3", "p4", "p5", "p6"].map((id) => regel(id, "pflicht", "beide"));
+  const daten = paketBauen({
+    ...structuredClone(BEISPIEL),
+    regeln: [
+      ...sechs,
+      regel("x1", "pruefen", "efh"),
+      regel("r1", "pruefen", "beide", { vor: "p3" }),
+      regel("r2", "pruefen", "beide"),
+      regel("r3", "pruefen", "beide", { vor: "x1" }),
+    ],
+  });
+  const h = (objekt) => hinweise(daten, eingabeLesen({ objekt }, daten).eingabe);
+  assert.deepEqual(h("efh").alle.map((x) => x.id), ["p1", "p2", "r1", "p3", "p4", "p5", "p6", "r3", "x1", "r2"]);
+  assert.deepEqual(h("efh").kompakt.map((x) => x.id), ["p1", "p2", "r1", "p3", "p4", "p5"], "kompakt ist der Anfang der vollen Liste");
+  assert.equal(h("efh").anzahl, 10);
+  // Passt die Zielregel nicht, bleibt die Regel an ihrem üblichen Platz.
+  assert.deepEqual(h("etw").alle.map((x) => x.id), ["p1", "p2", "r1", "p3", "p4", "p5", "p6", "r2", "r3"]);
+  // Unbekannte oder eigene Zielregel fällt beim Paketbau auf.
+  const kaputt = structuredClone(BEISPIEL);
+  kaputt.regeln[0].vor = "gibtsnicht";
+  kaputt.regeln[1].vor = kaputt.regeln[1].id;
+  assert.throws(() => paketBauen(kaputt), (fehler) => {
+    for (const teil of ["vor unbekannte Regel gibtsnicht", `vor unbekannte Regel ${kaputt.regeln[1].id}`]) assert.ok(fehler.message.includes(teil), teil);
+    return true;
+  });
+});
+
 test("Kurzfassung: zwei Sätze, Abkürzungen beenden keinen Satz", () => {
   assert.equal(kurzfassung("Eins. Zwei. Drei."), "Eins. Zwei.");
   assert.equal(kurzfassung("Bis 01.02.2030 gilt es, z. B. für Öfen. Danach nicht. Rest."), "Bis 01.02.2030 gilt es, z. B. für Öfen. Danach nicht.");
