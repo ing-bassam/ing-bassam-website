@@ -1158,8 +1158,8 @@ def llms_bauen(oeffentlich: list["Artikel"], leitfaeden: list = ()) -> str:
         "# BIB Ingenieurbüro für Bauwesen",
         "",
         "> Bassam Ingenieurbüro für Bauwesen GmbH, Berlin: Versicherungsgutachten, Gerichtsgutachten, "
-        "technische Beweissicherung und Objektüberwachung (LP 8). Fachbeiträge zu Bauschäden, Bauphysik, "
-        "Baubetrieb und baurechtlichen Fragen.",
+        "technische Beweissicherung, Kaufbegutachtung vor dem Haus- oder Wohnungskauf und Objektüberwachung "
+        "(LP 8). Fachbeiträge zu Bauschäden, Bauphysik, Baubetrieb und baurechtlichen Fragen.",
         "",
         f"Kontakt und Impressum: {BASIS_URL}/#kontakt · {BASIS_URL}/#impressum",
         "",
