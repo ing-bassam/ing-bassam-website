@@ -64,7 +64,7 @@ Eine Tabelle mit Soll- und Ist-Terminen genügte dem Senat dafür nicht (Rn. 63,
 
 ## Was das für Sie als Bauherr bedeutet
 
-Wer wegen eines Bauverzugs Mehrkosten von einem Planer ersetzt haben will, braucht Unterlagen, die er später nicht mehr bekommt. Im entschiedenen Fall lagen der Bauherrin die ursprünglichen, beanstandeten Planfassungen gar nicht mehr vor; sie verfügte nur über die vom Prüfingenieur freigegebenen Pläne (Rn. 49). Wer als Bauherr merkt, dass Pläne zurückgewiesen werden, sollte sich jede beanstandete Fassung sofort geben lassen. Das Gericht sah die Bauherrin ausdrücklich in der Pflicht, früh Beweise zu sichern (Rn. 57). Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand von Planung und Bauwerk fest, solange er noch nachvollziehbar ist.
+Wer wegen eines Bauverzugs Mehrkosten von einem Planer ersetzt haben will, braucht Unterlagen, die er später nicht mehr bekommt. Im entschiedenen Fall lagen der Bauherrin die ursprünglichen, beanstandeten Planfassungen gar nicht mehr vor; sie verfügte nur über die vom Prüfingenieur freigegebenen Pläne (Rn. 49). Wer als Bauherr merkt, dass Pläne zurückgewiesen werden, sollte sich jede beanstandete Fassung sofort geben lassen. Das Gericht sah die Bauherrin ausdrücklich in der Pflicht, früh Beweise zu sichern (Rn. 57). Eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) hält den Zustand von Planung und Bauwerk fest, solange er noch nachvollziehbar ist.
 
 Ebenso wichtig ist die laufende Zuordnung. Halten Sie je Plan fest, wann er eingereicht wurde, was beanstandet wurde und wann die Nachbesserung kam (Rn. 61). Notieren Sie dazu, welcher Bauabschnitt in dieser Zeit nicht weitergebaut werden konnte (Rn. 61).
 

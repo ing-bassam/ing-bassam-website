@@ -119,7 +119,7 @@ Die Entscheidung sagt außerdem nichts über die technische Qualität der Leistu
 
 Zum Stand des Verfahrens sagt der Volltext nur eines, und daran hält sich diese Besprechung. Der Senat hat die Revision nicht zugelassen, weil Zulassungsgründe nicht vorliegen; die streitentscheidenden Rechtsfragen seien höchstrichterlich geklärt, im Übrigen seien die Umstände des Einzelfalls zu würdigen (Rn. 50). Weitere Angaben zum Verfahrensstand enthält der Volltext nicht.
 
-Für die eigene Vorsorge bleibt es bei einer technischen Empfehlung, die unabhängig vom Ausgang solcher Streitigkeiten trägt. Steht der Ausbau oder Umbau einer bereits eingebauten Anlage im Raum, hält eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) den Zustand fest, bevor Bauteile verändert werden. Sie dokumentiert Einbausituation, Anschlüsse und Funktionsnachweise und schafft damit eine Grundlage, auf die sich beide Seiten später beziehen können; die rechtliche Bewertung dieser Grundlage bleibt einem Rechtsanwalt vorbehalten.
+Für die eigene Vorsorge bleibt es bei einer technischen Empfehlung, die unabhängig vom Ausgang solcher Streitigkeiten trägt. Steht der Ausbau oder Umbau einer bereits eingebauten Anlage im Raum, hält eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) den Zustand fest, bevor Bauteile verändert werden. Sie dokumentiert Einbausituation, Anschlüsse und Funktionsnachweise und schafft damit eine Grundlage, auf die sich beide Seiten später beziehen können; die rechtliche Bewertung dieser Grundlage bleibt einem Rechtsanwalt vorbehalten.
 
 ## Häufige Fragen
 

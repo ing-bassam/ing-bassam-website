@@ -79,7 +79,7 @@ Drei Ergebnisse sprechen dafür, fachliche Hilfe zu holen. Erstens ein deutliche
 
 Ein Sachverständiger nimmt den Befund auf, ordnet ihn dem Bauteil und dem Gewerk zu und grenzt mögliche Ursachen ein. Er misst, wo Messen weiterhilft, und beschreibt, was er nicht feststellen kann. Er entscheidet keine Rechtsfragen und verspricht kein Ergebnis. Seine Dokumentation ist die Grundlage, mit der Sie und Ihr Anwalt arbeiten.
 
-Für Eigentümer, die selbst Partei sind, ist der übliche Weg ein Privatgutachten oder eine fachliche Begleitung der Begehung. Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand fest, solange die Frist noch läuft. Wichtig ist der Zeitpunkt: Nach Fristablauf nützt auch die beste Dokumentation nur noch selten etwas.
+Für Eigentümer, die selbst Partei sind, ist der übliche Weg ein Privatgutachten oder eine fachliche Begleitung der Begehung. Eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) hält den Zustand fest, solange die Frist noch läuft. Wichtig ist der Zeitpunkt: Nach Fristablauf nützt auch die beste Dokumentation nur noch selten etwas.
 
 ## Häufige Fragen
 

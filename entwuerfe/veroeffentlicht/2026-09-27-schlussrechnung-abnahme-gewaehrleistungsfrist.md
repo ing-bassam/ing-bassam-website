@@ -74,7 +74,7 @@ Daraus folgt eine einfache Reihenfolge. Verlangen Sie die vereinbarte förmliche
 
 Wer nicht selbst nutzt, sondern weiterverkauft oder verwaltet, hat zwei Ketten zu führen. Die Abnahme durch Käufer oder Eigentümer ist nicht ohne weiteres die Abnahme gegenüber den Firmen am Bau (Rn. 82, Rn. 83). Für jedes Gewerk läuft eine eigene Frist, für die Dachabdichtung ebenso wie für den Innenausbau. Halten Sie diese Fristen in einer Liste, und setzen Sie eine Erinnerung ein halbes Jahr vor dem Ende. Der Fall zeigt auch, wie schnell Gespräche einschlafen und die Zeit weiterläuft (Rn. 125).
 
-Vor der Schlusszahlung lohnt der nüchterne Blick auf das Werk. Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand fest, solange die Beweislast noch beim Unternehmen liegt. Sie ordnet Feuchtespuren, Anschlüsse und Abdichtungen fachlich ein, bevor der Vorbehalt formuliert wird. Für eine Wohnungseigentümergemeinschaft heißt das: erst begehen und dokumentieren, dann abnehmen, dann zahlen.
+Vor der Schlusszahlung lohnt der nüchterne Blick auf das Werk. Eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) hält den Zustand fest, solange die Beweislast noch beim Unternehmen liegt. Sie ordnet Feuchtespuren, Anschlüsse und Abdichtungen fachlich ein, bevor der Vorbehalt formuliert wird. Für eine Wohnungseigentümergemeinschaft heißt das: erst begehen und dokumentieren, dann abnehmen, dann zahlen.
 
 ## Was das Urteil nicht sagt
 

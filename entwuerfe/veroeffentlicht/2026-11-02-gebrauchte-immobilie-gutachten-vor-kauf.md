@@ -124,7 +124,7 @@ Der nächste Schritt vor dem Kauf ist ein kurzes Gespräch mit dem Sachverständ
 
 Bei der Begehung der Immobilie sollten Kaufinteressenten möglichst selbst dabei sein. Der Sachverständige erklärt vor Ort, was er sieht und wie er es einordnet. Fragen lassen sich direkt am Bauteil klären. Viele Befunde sind leichter zu verstehen, wenn man sie gezeigt bekommt, als wenn man sie nur liest. Nach der Begehung folgt der schriftliche Bericht mit Befunden, Einordnung und Prüfgrenzen. Mit diesem Bericht gehen Sie in die Preisverhandlung, zur Bank und zur Rechtsberatung über den Vertragsentwurf.
 
-Was ein Sachverständiger vor dem Kauf nicht tut, gehört ebenfalls zum Bild. Er bewertet keine Vertragsklauseln, er garantiert keine Schadensfreiheit, und er öffnet ohne Zustimmung des Eigentümers keine Bauteile. Er schreibt nicht, ein Kauf sei gut oder schlecht. Die Entscheidung bleibt beim Käufer. Der Sachverständige liefert die technische Grundlage dafür. Für eine solche Prüfung vor dem Kauf können Sie beim Büro ein [Gutachten zum Bauzustand](https://ing-bassam.de/#kontakt) anfragen; die Fragestellung und der Umfang werden vorab gemeinsam festgelegt.
+Was ein Sachverständiger vor dem Kauf nicht tut, gehört ebenfalls zum Bild. Er bewertet keine Vertragsklauseln, er garantiert keine Schadensfreiheit, und er öffnet ohne Zustimmung des Eigentümers keine Bauteile. Er schreibt nicht, ein Kauf sei gut oder schlecht. Die Entscheidung bleibt beim Käufer. Der Sachverständige liefert die technische Grundlage dafür. Für eine solche Prüfung vor dem Kauf können Sie beim Büro ein [Gutachten zum Bauzustand](https://ing-bassam.de/leistungen/kaufbegutachtung/) anfragen; die Fragestellung und der Umfang werden vorab gemeinsam festgelegt.
 
 ## Häufige Fragen
 
