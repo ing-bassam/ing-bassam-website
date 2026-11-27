@@ -75,7 +75,7 @@ Der fünfte Fehler ist die pauschale Rüge. Bei Unebenheiten zeigt erst eine Mes
 
 Viele Abnahmen bewältigen Bauherren gut allein. Wird die Mängelliste lang, bleiben Ursachen unklar oder wird über Toleranzen gestritten, stößt die eigene Beurteilung an ihre Grenze. Auch feuchte Stellen, Risse im frischen Putz und Auffälligkeiten an Abdichtungen gehören in fachkundige Hände.
 
-Ein Sachverständiger begeht das Haus mit Ihnen, ordnet Auffälligkeiten technisch ein und beschreibt sie so, dass ein Dritter sie wiederfindet. Wenn Sie diese Unterstützung wünschen, führt der Weg über die [Bauherrenvertretung und Abnahmebegleitung](https://ing-bassam.de/#kontakt).
+Ein Sachverständiger begeht das Haus mit Ihnen, ordnet Auffälligkeiten technisch ein und beschreibt sie so, dass ein Dritter sie wiederfindet. Wenn Sie diese Unterstützung wünschen, führt der Weg über die [Bauherrenvertretung und Abnahmebegleitung](https://ing-bassam.de/leistungen/baubegleitung-bauabnahme/).
 
 Nach der Abnahme beginnt die Nachverfolgung. Tragen Sie die Fristen aus der Mängelliste in Ihren Kalender ein. Prüfen Sie nach Ablauf jeder Frist, ob der Mangel wirklich beseitigt ist, und halten Sie das Ergebnis in der Spalte für die Erledigung fest.
 

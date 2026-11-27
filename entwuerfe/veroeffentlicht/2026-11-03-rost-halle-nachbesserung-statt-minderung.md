@@ -82,7 +82,7 @@ Ein typisiertes Beispiel: Wer als Bauherr einen vorbehaltenen Mangel hat, bekomm
 
 Auch für Unternehmen enthält das Urteil einen Hinweis. Nimmt der Bauherr eine angebotene Reparatur nicht an, ist sein Einbehalt auf die einfachen Kosten begrenzt (Rn. 28). Lässt der Bauherr die Reparatur nicht zu, kann das Unternehmen auf Feststellung des Annahmeverzugs klagen (Rn. 33). Annahmeverzug heißt, dass der Bauherr die angebotene Leistung nicht annimmt. Ist er rechtskräftig festgestellt, kann das Unternehmen den restlichen Werklohn ohne Reparatur vollstrecken (Rn. 33).
 
-Ein Sachverständiger kann bei der Abnahme festhalten, welche Mängel bestehen und was ihre Beseitigung erfordert. Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand fest, bevor repariert oder ein Bauteil verdeckt wird.
+Ein Sachverständiger kann bei der Abnahme festhalten, welche Mängel bestehen und was ihre Beseitigung erfordert. Eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) hält den Zustand fest, bevor repariert oder ein Bauteil verdeckt wird.
 
 ## Was das Urteil nicht entscheidet
 

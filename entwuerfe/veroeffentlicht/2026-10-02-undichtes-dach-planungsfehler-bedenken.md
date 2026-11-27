@@ -76,7 +76,7 @@ Für die Ausschreibung enthält die Entscheidung einen zweiten praktischen Punkt
 
 Technisch liegt das Problem bei der Luftdichtheit an den Übergängen. Für die Luftdichtheit von Gebäuden gibt es eine eigene Norm, DIN 4108-7, die Anforderungen festlegt und Planungs- und Ausführungsempfehlungen gibt[^2]. Wer die Luftdichtheit plant, braucht für jeden Anschluss eine Festlegung und nicht nur einen Verweis.
 
-Wenn ein Dach Luft oder Wasser durchlässt, entscheidet oft die Dokumentation über den Ausgang eines Streits. Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand fest, bevor saniert wird.
+Wenn ein Dach Luft oder Wasser durchlässt, entscheidet oft die Dokumentation über den Ausgang eines Streits. Eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) hält den Zustand fest, bevor saniert wird.
 
 ## Was das Urteil nicht sagt
 

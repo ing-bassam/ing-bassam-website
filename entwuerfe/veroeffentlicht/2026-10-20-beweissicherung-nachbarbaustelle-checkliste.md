@@ -71,7 +71,7 @@ Die Auswertung am Ende der Checkliste macht aus den Stufen eine Entscheidung. Ei
 
 ## Wann ein Sachverständiger die Beweissicherung übernehmen sollte
 
-Bei einer Baugrube direkt an der Grenze, einer angekündigten Unterfangung oder deutlichen Vorschäden reicht die Eigenaufnahme oft nicht aus. Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) durch einen Sachverständigen hält den Zustand Ihres Hauses vor Baubeginn nachvollziehbar fest, mit Plänen, Fotos und Rissbeschreibungen.
+Bei einer Baugrube direkt an der Grenze, einer angekündigten Unterfangung oder deutlichen Vorschäden reicht die Eigenaufnahme oft nicht aus. Eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) durch einen Sachverständigen hält den Zustand Ihres Hauses vor Baubeginn nachvollziehbar fest, mit Plänen, Fotos und Rissbeschreibungen.
 
 Daneben gibt es das gerichtliche selbständige Beweisverfahren. Ist noch kein Rechtsstreit anhängig, kann eine Partei nach § 485 der Zivilprozessordnung (ZPO) eine schriftliche Begutachtung beantragen.[^1] Voraussetzung ist ein rechtliches Interesse, etwa an der Feststellung des Zustands einer Sache oder der Ursache eines Sachschadens.[^1] Ob dieser Weg in Ihrer Lage sinnvoll ist, sollten Sie mit einem Rechtsanwalt besprechen.
 

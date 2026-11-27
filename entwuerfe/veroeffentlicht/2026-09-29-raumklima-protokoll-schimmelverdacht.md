@@ -89,7 +89,7 @@ Manche Fragen lassen sich mit einem Hygrometer nicht klären. Ob eine Außenwand
 
 Ein Sachverständiger nimmt den Raum auf und misst Temperatur und Feuchte an den kritischen Stellen. Er ordnet Ihre Aufzeichnung fachlich ein. Je nach Fragestellung kommen weitere Verfahren in Betracht, teils unter Hinzuziehung von Fachlaboren oder Messdienstleistern. Am Ende steht eine schriftliche Bewertung, die Bauteil und Nutzung auseinanderhält.
 
-Ein gut geführtes Protokoll verkürzt diese Arbeit erheblich. Es zeigt, wie der Raum über Wochen tatsächlich genutzt wurde. Ohne diese Aufzeichnung bleibt oft nur eine Momentaufnahme des Ortstermins. Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand fest, bevor saniert wird; sie kommt als Privatgutachten oder fachliche Begleitung in Betracht.
+Ein gut geführtes Protokoll verkürzt diese Arbeit erheblich. Es zeigt, wie der Raum über Wochen tatsächlich genutzt wurde. Ohne diese Aufzeichnung bleibt oft nur eine Momentaufnahme des Ortstermins. Eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) hält den Zustand fest, bevor saniert wird; sie kommt als Privatgutachten oder fachliche Begleitung in Betracht.
 
 Ziehen Sie fachliche Hilfe hinzu, wenn der Befall wächst oder wenn er nach dem Entfernen wiederkehrt. Dasselbe gilt ab einer befallenen Fläche von einem halben Quadratmeter. Auch wenn Sie den Bogen nicht sinnvoll ausfüllen können, weil die betroffene Stelle verdeckt ist, lohnt der fachliche Blick.
 

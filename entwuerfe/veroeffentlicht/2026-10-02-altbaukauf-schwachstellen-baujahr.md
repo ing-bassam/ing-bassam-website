@@ -105,7 +105,7 @@ Ein Bausachverständiger macht in dieser Lage drei Dinge. Er ordnet den Befund e
 
 Was ein Sachverständiger nicht leistet, gehört zur Ehrlichkeit dazu. Er garantiert keine Mängelfreiheit, denn verdeckte Bauteile bleiben verdeckt. Ob und wie Ansprüche gegen den Verkäufer bestehen, beurteilt ein Rechtsanwalt.
 
-Wenn Sie nach der Besichtigung unsicher sind, ist eine [fachliche Kaufberatung vor dem Notartermin](https://ing-bassam.de/#kontakt) der nächste Schritt. Nehmen Sie Ihre ausgefüllte Checkliste und Ihre Fotos mit. Eine vorbereitete Liste verkürzt den Ortstermin und lenkt ihn auf die Punkte, die Ihr Geld kosten.
+Wenn Sie nach der Besichtigung unsicher sind, ist eine [fachliche Kaufberatung vor dem Notartermin](https://ing-bassam.de/leistungen/kaufbegutachtung/) der nächste Schritt. Nehmen Sie Ihre ausgefüllte Checkliste und Ihre Fotos mit. Eine vorbereitete Liste verkürzt den Ortstermin und lenkt ihn auf die Punkte, die Ihr Geld kosten.
 
 ## Häufige Fragen
 

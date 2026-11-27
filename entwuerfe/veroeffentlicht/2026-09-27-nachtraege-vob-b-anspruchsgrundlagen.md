@@ -49,7 +49,7 @@ Die VOB/B bestimmt selbst, woraus sich der Leistungsumfang ergibt. § 1 Abs. 1 V
 
 Bei Widersprüchen im Vertrag gibt § 1 Abs. 2 VOB/B eine Reihenfolge vor, die mit der Leistungsbeschreibung beginnt und mit den Allgemeinen Vertragsbedingungen endet.[^2] Für die Nachtragsbearbeitung ist diese Reihenfolge das erste Werkzeug, weil sie darüber entscheidet, welche Unterlage das Bausoll prägt.
 
-Die VOB/B enthält eine Regel zur Dokumentation des Vertragsstands: Werden Leistungsteile durch den weiteren Baufortschritt unzugänglich und lassen sie sich deshalb nicht mehr prüfen, kann jede Vertragspartei nach § 4 Abs. 10 VOB/B verlangen, dass beide den Zustand dieser Teile gemeinsam feststellen und das Ergebnis schriftlich festhalten.[^2] Wo solche Zustände strittig werden können, hält eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) den Befund unabhängig von der späteren Nachtragsdiskussion fest. Ob aus einem dokumentierten Zustand ein Anspruch folgt, ist eine Rechtsfrage, die anwaltlicher Prüfung bedarf.
+Die VOB/B enthält eine Regel zur Dokumentation des Vertragsstands: Werden Leistungsteile durch den weiteren Baufortschritt unzugänglich und lassen sie sich deshalb nicht mehr prüfen, kann jede Vertragspartei nach § 4 Abs. 10 VOB/B verlangen, dass beide den Zustand dieser Teile gemeinsam feststellen und das Ergebnis schriftlich festhalten.[^2] Wo solche Zustände strittig werden können, hält eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) den Befund unabhängig von der späteren Nachtragsdiskussion fest. Ob aus einem dokumentierten Zustand ein Anspruch folgt, ist eine Rechtsfrage, die anwaltlicher Prüfung bedarf.
 
 ## Mengenabweichung ohne Eingriff des Auftraggebers
 

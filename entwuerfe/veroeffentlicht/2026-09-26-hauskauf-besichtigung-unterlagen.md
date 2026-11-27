@@ -79,7 +79,7 @@ Drei Befunde sprechen dafür, vor der Kaufentscheidung eine Fachperson hinzuzuzi
 
 Ein Sachverständiger geht beim Hauskauf anders vor als Sie. Er sieht das Gebäude im Zusammenhang, ordnet Bauweise und Baujahr ein und prüft die Unterlagen gegen den gebauten Zustand. Er kann Feuchte messen, Bauteilaufbauten bewerten und Untersuchungen veranlassen, die Fachlabore oder Messdienstleister durchführen. Am Ende steht eine Einschätzung, welche Befunde dringend sind und welche nicht.
 
-Bei einer [Kaufberatung](https://ing-bassam.de/#kontakt) während der Besichtigung gehen Sie mit Ihrer ausgefüllten Checkliste in das Gespräch, und die offenen Punkte werden vor Ort eingeordnet. Was dabei herauskommt, ist keine Garantie für ein fehlerfreies Haus. Es ist eine geordnete Entscheidungsgrundlage. Für rechtliche Fragen zum Kaufvertrag bleibt der Rechtsanwalt zuständig.
+Bei einer [Kaufberatung](https://ing-bassam.de/leistungen/kaufbegutachtung/) während der Besichtigung gehen Sie mit Ihrer ausgefüllten Checkliste in das Gespräch, und die offenen Punkte werden vor Ort eingeordnet. Was dabei herauskommt, ist keine Garantie für ein fehlerfreies Haus. Es ist eine geordnete Entscheidungsgrundlage. Für rechtliche Fragen zum Kaufvertrag bleibt der Rechtsanwalt zuständig.
 
 ## Häufige Fragen
 
@@ -97,7 +97,7 @@ Am wichtigsten sind Grundbuchauszug, Baugenehmigung mit genehmigten Plänen, Ene
 
 **Was kostet eine Begutachtung beim Hauskauf?**
 
-Der Preis richtet sich nach Größe und Baujahr des Gebäudes, nach dem Aufwand vor Ort und danach, ob Sie eine Einschätzung im Gespräch oder einen schriftlichen Bericht brauchen. Messungen und Laboruntersuchungen kosten zusätzlich. Lassen Sie sich den Umfang vorher schriftlich bestätigen.
+Der Preis richtet sich nach Größe und Baujahr des Gebäudes, nach dem Aufwand vor Ort und danach, ob Sie eine Einschätzung im Gespräch oder einen schriftlichen Bericht brauchen. Messungen und Laboruntersuchungen kosten zusätzlich. Lassen Sie sich den Umfang vorher schriftlich bestätigen. Preise für die Begutachtung beim Hauskauf in Berlin schickt das Büro auf Anfrage per E-Mail; Umfang und Ablauf stehen auf der Seite zur [Kaufbegutachtung](https://ing-bassam.de/leistungen/kaufbegutachtung/).
 
 ## Hinweis
 

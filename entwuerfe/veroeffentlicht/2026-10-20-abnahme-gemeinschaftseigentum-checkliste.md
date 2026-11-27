@@ -75,7 +75,7 @@ Am Ende der Begehung zählen Sie die Stufen aus. Wer einen bekannten Mangel bei 
 
 Nur geringe Befunde rechtfertigen keine Verweigerung. Wegen unwesentlicher Mängel kann die Abnahme nicht verweigert werden.[^2] Ob ein deutlicher Befund die Verweigerung rechtfertigt, ist eine rechtliche Frage. Sie sollte auf Grundlage der technischen Feststellung anwaltlich geklärt werden.
 
-Wie Sie die Abnahme rechtlich einordnen, erklärt der Beitrag [Abnahme vom Bauträger: Sonder- und Gemeinschaftseigentum](https://ing-bassam.de/fachwissen/abnahme-bautraeger-sonder-gemeinschaftseigentum/). Für die Begehung selbst kann ein Privatgutachten oder fachliche Begleitung helfen: Eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) hält den Zustand des Gemeinschaftseigentums vor der Abnahme nachvollziehbar fest. Wer als Gemeinschaft die Abnahme insgesamt vorbereiten möchte, kann eine [Bauherrenvertretung](https://ing-bassam.de/#kontakt) anfragen.
+Wie Sie die Abnahme rechtlich einordnen, erklärt der Beitrag [Abnahme vom Bauträger: Sonder- und Gemeinschaftseigentum](https://ing-bassam.de/fachwissen/abnahme-bautraeger-sonder-gemeinschaftseigentum/). Für die Begehung selbst kann ein Privatgutachten oder fachliche Begleitung helfen: Eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) hält den Zustand des Gemeinschaftseigentums vor der Abnahme nachvollziehbar fest. Wer als Gemeinschaft die Abnahme insgesamt vorbereiten möchte, kann eine [Bauherrenvertretung](https://ing-bassam.de/#kontakt) anfragen.
 
 ## Häufige Fragen
 

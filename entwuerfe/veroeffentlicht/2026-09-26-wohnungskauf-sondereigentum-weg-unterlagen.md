@@ -71,7 +71,7 @@ Ein ausgefülltes Blatt ist eine Momentaufnahme. Ein Protokoll aus dem Vorjahr e
 
 Ein Sachverständiger liest die Unterlagen der Gemeinschaft, ordnet die Befunde ein und schätzt den Instandhaltungsstau am Gemeinschaftseigentum ein. Er sagt Ihnen, welche Arbeiten am Gebäude anstehen und welcher Aufwand dahintersteckt. Was er nicht tut: Er entscheidet keine Rechtsfragen und gibt keine Garantie für verdeckte Schäden.
 
-Holen Sie fachliche Hilfe, wenn Sie Feuchte an Kellerwänden oder unter Balkonen sehen, wenn die Erhaltungsrücklage niedrig und das Gebäude alt ist, wenn Protokolle über wiederkehrende Schäden berichten oder wenn große Maßnahmen beschlossen sind. Eine [Kaufberatung oder fachliche Begleitung](https://ing-bassam.de/#kontakt) durch einen Bauingenieur ordnet diese Punkte vor dem Notartermin ein.
+Holen Sie fachliche Hilfe, wenn Sie Feuchte an Kellerwänden oder unter Balkonen sehen, wenn die Erhaltungsrücklage niedrig und das Gebäude alt ist, wenn Protokolle über wiederkehrende Schäden berichten oder wenn große Maßnahmen beschlossen sind. Eine [Kaufberatung oder fachliche Begleitung](https://ing-bassam.de/leistungen/kaufbegutachtung/) durch einen Bauingenieur ordnet diese Punkte vor dem Notartermin ein.
 
 Für den Kaufvertrag selbst brauchen Sie juristischen Rat. Ob Sie wegen eines Befunds Rechte haben, welche Fristen laufen und wie eine Zusage des Verkäufers zu bewerten ist, beurteilt ein Rechtsanwalt. Technik und Recht greifen hier ineinander, bleiben aber zwei verschiedene Fragen.
 

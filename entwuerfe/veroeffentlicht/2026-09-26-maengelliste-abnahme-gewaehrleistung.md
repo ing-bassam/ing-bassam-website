@@ -71,7 +71,7 @@ Der dritte Fehler ist das Aufhören. Viele Listen enden mit der Abnahme, obwohl 
 
 Es gibt Befunde, die Sie nur notieren und nicht selbst beurteilen sollten. Dazu gehören Risse in tragenden Bauteilen, Feuchte an Wänden und Decken ohne erkennbare Quelle sowie Gerüche, die auf einen Schaden im Bauteil hindeuten. Öffnen Sie in diesen Fällen kein Bauteil und steigen Sie nicht aufs Dach. Bei Hinweisen auf eine Gefahr für die Standsicherheit sichern Sie den Bereich und rufen eine Fachfirma.
 
-Ein Sachverständiger nimmt den Zustand auf, beschreibt die Mängel technisch und ordnet sie den Bauteilen zu. Wird die Ursache streitig oder soll saniert werden, hält eine [technische Beweissicherung](https://ing-bassam.de/#leistung-beweissicherung) den Zustand vorher fest.
+Ein Sachverständiger nimmt den Zustand auf, beschreibt die Mängel technisch und ordnet sie den Bauteilen zu. Wird die Ursache streitig oder soll saniert werden, hält eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) den Zustand vorher fest.
 
 Auch vor der Abnahme kann fachliche Begleitung sinnvoll sein, etwa wenn viele Gewerke gleichzeitig fertig werden. Eine [Bauherrenvertretung](https://ing-bassam.de/#kontakt) begleitet die Begehung, formuliert die Einträge in der Liste und achtet darauf, dass die Vorbehalte an der richtigen Stelle stehen.
 
