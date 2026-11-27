@@ -21,7 +21,7 @@ fachlich_geprueft_von:
 fachlich_geprueft_am:
 wortzahl: 3411
 lesezeit: 18 Minuten
-fussnoten: 7
+fussnoten: 6
 quellen_geprueft: 6
 zahlenwerte_norm: 0
 todos: 0
@@ -48,7 +48,7 @@ Ein Haus entsteht in Schichten, und diese Reihenfolge bestimmt die Kosten jeder 
 
 Dazu kommt ein zweiter Mechanismus, der von außen schwer zu sehen ist: Entscheidungen greifen ineinander. Wer die Dämmstärke einer Außenwand ändert, ändert die Fensterlaibung, die Fensterbank, die Rollladenführung und den Anschluss der Dachkonstruktion. Wer den Fußbodenaufbau ändert, ändert Türhöhen, Schwellen und die Höhe von Abdichtungsanschlüssen an Terrassentüren. Eine einzelne Sparentscheidung bleibt deshalb selten einzeln. Sie wandert durch die Planung und taucht an Stellen wieder auf, an die beim Streichen niemand gedacht hat.
 
-Für Ihre Sparentscheidungen beim Hausbau folgt daraus eine unbequeme Rangfolge. Die Leistungen, die am leichtesten zu streichen sind, weil sie kein sichtbares Ergebnis liefern, sind oft genau die, die spätere Kosten verhindern: die genaue Planung des Details, die Prüfung der Ausführung, die Untersuchung des Baugrunds. Die Kostenplanungsnorm DIN 276, die Norm für die Gliederung der Kosten im Bauwesen, ordnet diese Leistungen der Kostengruppe 700 zu, den Baunebenkosten; die Untersuchungen einschließlich der Baugrundgutachten stehen dort in der Kostengruppe 721.[^2][^3] Diese Kostengruppe wirkt auf einer Kostenaufstellung wie Verwaltung. Tatsächlich enthält sie die Leistungen, die über die Qualität des restlichen Hauses entscheiden.
+Für Ihre Sparentscheidungen beim Hausbau folgt daraus eine unbequeme Rangfolge. Die Leistungen, die am leichtesten zu streichen sind, weil sie kein sichtbares Ergebnis liefern, sind oft genau die, die spätere Kosten verhindern: die genaue Planung des Details, die Prüfung der Ausführung, die Untersuchung des Baugrunds. Die Kostenplanungsnorm DIN 276, die Norm für die Gliederung der Kosten im Bauwesen, ordnet diese Leistungen der Kostengruppe 700 zu, den Baunebenkosten; die Untersuchungen einschließlich der Baugrundgutachten stehen dort in der Kostengruppe 721.[^2] Diese Kostengruppe wirkt auf einer Kostenaufstellung wie Verwaltung. Tatsächlich enthält sie die Leistungen, die über die Qualität des restlichen Hauses entscheiden.
 
 Es lohnt sich deshalb, die Frage beim Sparen umzudrehen. Statt zu fragen, welche Position am ehesten verzichtbar aussieht, fragen Sie, welche Position im Schadensfall am schwersten zu reparieren wäre. Diese Reihenfolge führt zu anderen Ergebnissen als der Blick auf die Angebotsliste, und sie führt fast immer zu einem Haus, das über die Jahre weniger kostet. Wo genau die Grenze verläuft, lässt sich für die meisten Positionen klar benennen.
 
@@ -70,9 +70,9 @@ Wichtig ist dabei ein Punkt, der Bauherren regelmäßig überrascht. Eigenleistu
 
 Am Baugrund zu sparen ist die Entscheidung mit dem schlechtesten Verhältnis von Ersparnis zu Risiko, die Sie beim Hausbau treffen können. Der Baugrund bestimmt die Gründung, die Bauwerksabdichtung und die Entwässerung – also drei Gewerke, die nach Fertigstellung nicht mehr zugänglich sind. Das Gutachten gehört deshalb an den Anfang der Planung. Es kostet in der Regel weit weniger als die Korrektur einer falsch gewählten Gründung oder Abdichtung.
 
-Die geotechnischen Untersuchungen sind in DIN 4020 geregelt, der Norm für geotechnische Untersuchungen für bautechnische Zwecke, die die europäischen Regelungen zur Baugrunderkundung auf nationaler Ebene ergänzt.[^4] Für Sie als Bauherr ist weniger der Normtext wichtig als der Gedanke dahinter: Untersucht wird, damit Aufbau, Zusammensetzung und Eigenschaften des Untergrunds schon bei der Planung und bei der Ausschreibung bekannt sind. Wer erst auf der Baustelle erfährt, dass Grundwasser höher steht als angenommen oder dass der Boden nicht tragfähig ist, ändert die Planung unter Zeitdruck. Änderungen unter Zeitdruck sind die teuerste Form von Änderungen.
+Die geotechnischen Untersuchungen sind in DIN 4020 geregelt, der Norm für geotechnische Untersuchungen für bautechnische Zwecke, die die europäischen Regelungen zur Baugrunderkundung auf nationaler Ebene ergänzt.[^3] Für Sie als Bauherr ist weniger der Normtext wichtig als der Gedanke dahinter: Untersucht wird, damit Aufbau, Zusammensetzung und Eigenschaften des Untergrunds schon bei der Planung und bei der Ausschreibung bekannt sind. Wer erst auf der Baustelle erfährt, dass Grundwasser höher steht als angenommen oder dass der Boden nicht tragfähig ist, ändert die Planung unter Zeitdruck. Änderungen unter Zeitdruck sind die teuerste Form von Änderungen.
 
-Die zweite Position, an der Sparen sich fast immer rächt, ist die Bauwerksabdichtung erdberührter Bauteile. Maßgebend ist DIN 18533, die Norm für die Abdichtung von erdberührten Bauteilen.[^5]
+Die zweite Position, an der Sparen sich fast immer rächt, ist die Bauwerksabdichtung erdberührter Bauteile. Maßgebend ist DIN 18533, die Norm für die Abdichtung von erdberührten Bauteilen.[^4]
 
 Die Abdichtung wird nicht nach Budget gewählt, sondern nach den Verhältnissen am Grundstück und nach der geplanten Nutzung der Räume. Ein Keller, der als Wohn- oder Arbeitsraum genutzt werden soll, stellt andere Anforderungen als ein reiner Lagerkeller. Wer hier eine einfachere Bauart wählt, spart nicht an Qualität, sondern baut etwas anderes als das, was die Verhältnisse verlangen. Die Folgekosten eines Abdichtungsschadens umfassen regelmäßig Aufgrabung, Freilegen der Wand, Trocknung und die Wiederherstellung von Außenanlagen.
 
@@ -82,9 +82,9 @@ Beim Dach gilt derselbe Grundsatz mit einem eigenen Akzent. Das Dach vereint Abd
 
 Die unauffälligsten Einsparungen beim Hausbau betreffen Eigenschaften, die man weder sieht noch anfassen kann, und gerade deshalb verursachen sie die hartnäckigsten Probleme. Die Luftdichtheit der Gebäudehülle ist dafür das beste Beispiel. Sie entsteht nicht durch ein Produkt, sondern durch sorgfältige Anschlüsse an sehr vielen Stellen. An jeder dieser Stellen kann sie verloren gehen, und keine davon ist nach dem Innenausbau noch erreichbar.
 
-Die Anforderungen an die Luftdichtheit und die Empfehlungen für Planung und Ausführung stehen in DIN 4108-7.[^6] Wer hier spart, spart an der Sorgfalt der Anschlüsse; Mängel der Luftdichtheit lassen sich nach dem Innenausbau nur mit erheblichem Aufwand beheben.
+Die Anforderungen an die Luftdichtheit und die Empfehlungen für Planung und Ausführung stehen in DIN 4108-7.[^5] Wer hier spart, spart an der Sorgfalt der Anschlüsse; Mängel der Luftdichtheit lassen sich nach dem Innenausbau nur mit erheblichem Aufwand beheben.
 
-Beim Schallschutz liegt die Sparfalle woanders, nämlich in einer stillschweigenden Annahme. DIN 4109-1 legt Mindestanforderungen fest.[^7] Sie sichern ein Grundniveau und keinen erhöhten Komfort. Ein höherer Schallschutz sollte deshalb vor Vertragsschluss ausdrücklich vereinbart werden, weil er sich nach der Fertigstellung kaum nachrüsten lässt; was der Vertrag im Einzelfall schuldet, beurteilt ein Rechtsanwalt.
+Beim Schallschutz liegt die Sparfalle woanders, nämlich in einer stillschweigenden Annahme. DIN 4109-1 legt Mindestanforderungen fest.[^6] Sie sichern ein Grundniveau und keinen erhöhten Komfort. Ein höherer Schallschutz sollte deshalb vor Vertragsschluss ausdrücklich vereinbart werden, weil er sich nach der Fertigstellung kaum nachrüsten lässt; was der Vertrag im Einzelfall schuldet, beurteilt ein Rechtsanwalt.
 
 Bei der Haustechnik entscheidet die Frage der Nachrüstbarkeit. Elektroinstallation, Datenverkabelung, Lüftung und Heizungsverteilung liegen in Wänden, Decken und im Fußbodenaufbau. Ein zusätzlicher Anschluss lässt sich nachrüsten, solange ein Leerrohr vorhanden ist; ohne Leerrohr bedeutet er Stemmarbeiten in einem bewohnten Haus. Leerrohre sind im Rohbau eine der günstigsten Positionen überhaupt. Sparen Sie deshalb eher an der Zahl der Steckdosen, die Sie heute bestücken, als an der Zahl der Trassen, die Sie vorbereiten. Dieselbe Überlegung gilt für einen späteren Stellplatz für eine Wallbox oder für die Vorbereitung einer Photovoltaikanlage.
 
@@ -156,8 +156,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 [^1]: Statistisches Bundesamt: Baupreise für Wohngebäude im Mai 2026 – 5,0 Prozent gegenüber Mai 2025. Pressemitteilung Nr. 241, Juli 2026. https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/07/PD26_241_61261.html (abgerufen am 2026-09-25).
 [^2]: DIN Media: DIN 276:2018-12, Kosten im Bauwesen. Status: aktuell; ersetzt DIN 276-1:2008-12, DIN 276-4:2009-08 und DIN 277-3:2005-04. https://www.dinmedia.de/en/standard/din-276/293154016 (abgerufen am 2026-09-25).
-[^3]: DIN 276:2018-12. Kosten im Bauwesen. Berlin: Beuth Verlag, 2018, S. 33.
-[^4]: DIN Media: DIN 4020:2010-12, Geotechnische Untersuchungen für bautechnische Zwecke – Ergänzende Regelungen zu DIN EN 1997-2. Status: aktuell. https://www.dinmedia.de/en/standard/din-4020/135119566 (abgerufen am 2026-09-25).
-[^5]: DIN Media: DIN 18533-1:2026-06, Abdichtung von erdberührten Bauteilen – Teil 1: Anforderungen, Planungs- und Ausführungsgrundsätze. Status: aktuell; ersetzt DIN 18533-1:2017-07 und DIN 18533-1/A1:2018-09. https://www.dinmedia.de/de/norm/din-18533-1/399850897 (abgerufen am 2026-09-25).
-[^6]: DIN Media: DIN 4108-7:2026-04, Wärmeschutz und Energie-Einsparung in Gebäuden – Teil 7: Luftdichtheit von Gebäuden – Anforderungen, Planungs- und Ausführungsempfehlungen sowie -beispiele. Status: aktuell; ersetzt DIN 4108-7:2011-01. https://www.dinmedia.de/de/norm/din-4108-7/398456216 (abgerufen am 2026-09-25).
-[^7]: DIN Media: DIN 4109-1:2018-01, Schallschutz im Hochbau – Teil 1: Mindestanforderungen. Status: aktuell; ersetzt DIN 4109-1:2016-07. https://www.dinmedia.de/en/standard/din-4109-1/280079001 (abgerufen am 2026-09-25).
+[^3]: DIN Media: DIN 4020:2010-12, Geotechnische Untersuchungen für bautechnische Zwecke – Ergänzende Regelungen zu DIN EN 1997-2. Status: aktuell. https://www.dinmedia.de/en/standard/din-4020/135119566 (abgerufen am 2026-09-25).
+[^4]: DIN Media: DIN 18533-1:2026-06, Abdichtung von erdberührten Bauteilen – Teil 1: Anforderungen, Planungs- und Ausführungsgrundsätze. Status: aktuell; ersetzt DIN 18533-1:2017-07 und DIN 18533-1/A1:2018-09. https://www.dinmedia.de/de/norm/din-18533-1/399850897 (abgerufen am 2026-09-25).
+[^5]: DIN Media: DIN 4108-7:2026-04, Wärmeschutz und Energie-Einsparung in Gebäuden – Teil 7: Luftdichtheit von Gebäuden – Anforderungen, Planungs- und Ausführungsempfehlungen sowie -beispiele. Status: aktuell; ersetzt DIN 4108-7:2011-01. https://www.dinmedia.de/de/norm/din-4108-7/398456216 (abgerufen am 2026-09-25).
+[^6]: DIN Media: DIN 4109-1:2018-01, Schallschutz im Hochbau – Teil 1: Mindestanforderungen. Status: aktuell; ersetzt DIN 4109-1:2016-07. https://www.dinmedia.de/en/standard/din-4109-1/280079001 (abgerufen am 2026-09-25).

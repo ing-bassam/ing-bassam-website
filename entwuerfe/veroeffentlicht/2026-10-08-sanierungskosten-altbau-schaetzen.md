@@ -21,7 +21,7 @@ fachlich_geprueft_von:
 fachlich_geprueft_am:
 wortzahl: 2035
 lesezeit: 11 Minuten
-fussnoten: 7
+fussnoten: 6
 quellen_geprueft: 4
 zahlenwerte_norm: 10
 todos: 0
@@ -38,7 +38,7 @@ Ein Quadratmeterpreis braucht einen Preisstand. Baupreise bewegen sich, und zwar
 
 ## Was Sie selbst dokumentieren können, und wo die Grenze liegt
 
-Vor jeder fachlichen Untersuchung steht eine Arbeit, die Eigentümer selbst erledigen können. Sie besteht darin, Unterlagen zusammenzutragen. Für die Sanierungskosten eines Altbaus sind alte Bauzeichnungen und Statikunterlagen wertvoll. Nützlich sind außerdem Baugenehmigungen, Rechnungen früherer Arbeiten, Wartungsnachweise und Energieausweise. Sie zeigen, was wann gebaut und was schon einmal erneuert wurde. Das Beschaffen solcher Unterlagen zählt zu den Besonderen Leistungen der Grundlagenermittlung.[^3] Es ist damit eine Aufgabe, die jemand bezahlt bekommen muss, wenn der Eigentümer sie nicht selbst übernimmt.
+Vor jeder fachlichen Untersuchung steht eine Arbeit, die Eigentümer selbst erledigen können. Sie besteht darin, Unterlagen zusammenzutragen. Für die Sanierungskosten eines Altbaus sind alte Bauzeichnungen und Statikunterlagen wertvoll. Nützlich sind außerdem Baugenehmigungen, Rechnungen früherer Arbeiten, Wartungsnachweise und Energieausweise. Sie zeigen, was wann gebaut und was schon einmal erneuert wurde. Das Beschaffen solcher Unterlagen zählt zu den Besonderen Leistungen der Grundlagenermittlung. Es ist damit eine Aufgabe, die jemand bezahlt bekommen muss, wenn der Eigentümer sie nicht selbst übernimmt.
 
 Der zweite Teil der Eigenleistung ist das Beobachten und Festhalten. Fotografieren Sie Risse, feuchte Stellen, abblätternde Putzflächen und Schimmelflecken. Legen Sie dabei einen Maßstab ins Bild, etwa ein Lineal oder einen Zollstock, und achten Sie auf ein nachvollziehbares Datum. Wiederholen Sie die Aufnahmen nach einigen Wochen von derselben Stelle aus. So entsteht eine Verlaufsdokumentation. Daraus kann ein Fachmann später ablesen, ob ein Schaden ruht oder fortschreitet. Notieren Sie außerdem, wann eine Erscheinung zuerst aufgetreten ist und bei welchem Wetter sie sich zeigt.
 
@@ -58,15 +58,15 @@ Die Mengen entstehen aus dem Bauteil, nicht aus der Wohnfläche. Gezählt und ge
 
 Die Kostenplanung im Bauwesen kennt keine einzige Zahl. Sie kennt eine Folge von Ermittlungen, die mit der Planung genauer werden. Die maßgebende Norm, DIN 276, unterscheidet sechs Stufen. Sie reichen vom Kostenrahmen zu Beginn der Planung bis zur Kostenfeststellung nach der Fertigstellung. Wer die Sanierungskosten eines Altbaus beurteilen will, sollte deshalb nach der Stufe fragen. Die Antwort sagt mehr über die Verlässlichkeit der Zahl als die Zahl selbst.
 
-Die Norm ordnet die Kostenermittlung nach dem Planungsstand. Am Anfang steht der Kostenrahmen. Er entsteht, bevor es überhaupt Pläne gibt, und verteilt das Budget nur grob auf die Hauptgruppen der Kostengliederung.[^4] Auf dieser Stufe finden die meisten Gespräche über einen Altbaukauf statt. Sie taugt für die Frage, ob ein Vorhaben in den finanziellen Rahmen passt. Als Grundlage eines Kreditvertrags oder eines Beschlusses über eine Sanierung taugt sie nicht.
+Die Norm ordnet die Kostenermittlung nach dem Planungsstand. Am Anfang steht der Kostenrahmen. Er entsteht, bevor es überhaupt Pläne gibt, und verteilt das Budget nur grob auf die Hauptgruppen der Kostengliederung.[^3] Auf dieser Stufe finden die meisten Gespräche über einen Altbaukauf statt. Sie taugt für die Frage, ob ein Vorhaben in den finanziellen Rahmen passt. Als Grundlage eines Kreditvertrags oder eines Beschlusses über eine Sanierung taugt sie nicht.
 
-Sobald eine Vorplanung mit ersten Zeichnungen vorliegt, lassen sich Flächen und Rauminhalte messen. Darauf baut die Kostenschätzung auf, die eine Gliederungsebene tiefer geht.[^4] Mit dem Entwurf folgt die Kostenberechnung. Sie betrachtet nicht mehr nur das Dach oder die Fassade im Ganzen, sondern deren einzelne Bauteile.[^5] Insgesamt hat die Kostengliederung drei Ebenen; jede Kostengruppe trägt eine dreistellige Nummer.[^6]
+Sobald eine Vorplanung mit ersten Zeichnungen vorliegt, lassen sich Flächen und Rauminhalte messen. Darauf baut die Kostenschätzung auf, die eine Gliederungsebene tiefer geht.[^3] Mit dem Entwurf folgt die Kostenberechnung. Sie betrachtet nicht mehr nur das Dach oder die Fassade im Ganzen, sondern deren einzelne Bauteile.[^4] Insgesamt hat die Kostengliederung drei Ebenen; jede Kostengruppe trägt eine dreistellige Nummer.[^5]
 
-Danach wird es konkret. Für den Kostenvoranschlag liegen Ausführungspläne und ein Leistungsverzeichnis vor, die Mengen werden Position für Position ermittelt, und die Zahl bereitet die Vergabe vor.[^5] Der Kostenanschlag ist dann keine Schätzung mehr: Er sammelt die Beträge aus Angeboten, Aufträgen und Abrechnungen und wird während der Ausführung fortgeschrieben.[^5] Erst hier stehen Preise, die jemand tatsächlich angeboten hat. Alles davor ist eine Prognose auf wachsender Grundlage.
+Danach wird es konkret. Für den Kostenvoranschlag liegen Ausführungspläne und ein Leistungsverzeichnis vor, die Mengen werden Position für Position ermittelt, und die Zahl bereitet die Vergabe vor.[^4] Der Kostenanschlag ist dann keine Schätzung mehr: Er sammelt die Beträge aus Angeboten, Aufträgen und Abrechnungen und wird während der Ausführung fortgeschrieben.[^4] Erst hier stehen Preise, die jemand tatsächlich angeboten hat. Alles davor ist eine Prognose auf wachsender Grundlage.
 
 ## Was die Sanierungskosten im Altbau treiben kann: energetische Auslöser
 
-Die Sanierungskosten hängen vom Recht ab, das die Maßnahme selbst auslöst. Wer an einem Altbau Bauteile anfasst, löst damit Anforderungen aus, die vorher nicht galten. Das Gebäudeenergierecht knüpft etwa an Arbeiten an bestehenden Außenwänden eigene Anforderungen. Nach dem Infoportal des Bundes zum Gebäudemodernisierungsgesetz lösen der Ersatz und der erstmalige Einbau einer Außenwand solche Anforderungen aus. Dasselbe gilt für Bekleidungen, Verschalungen, Vorsatzschalen und Dämmschichten auf der Außenseite. Auch das Entfernen und Neuaufbringen von Außenputz zählt dazu. Die Anforderungen greifen, wenn mehr als 10 Prozent der Außenwände des Gebäudes betroffen sind.[^7] Aus einer geplanten Putzerneuerung kann so eine Dämmmaßnahme werden.
+Die Sanierungskosten hängen vom Recht ab, das die Maßnahme selbst auslöst. Wer an einem Altbau Bauteile anfasst, löst damit Anforderungen aus, die vorher nicht galten. Das Gebäudeenergierecht knüpft etwa an Arbeiten an bestehenden Außenwänden eigene Anforderungen. Nach dem Infoportal des Bundes zum Gebäudemodernisierungsgesetz lösen der Ersatz und der erstmalige Einbau einer Außenwand solche Anforderungen aus. Dasselbe gilt für Bekleidungen, Verschalungen, Vorsatzschalen und Dämmschichten auf der Außenseite. Auch das Entfernen und Neuaufbringen von Außenputz zählt dazu. Die Anforderungen greifen, wenn mehr als 10 Prozent der Außenwände des Gebäudes betroffen sind.[^6] Aus einer geplanten Putzerneuerung kann so eine Dämmmaßnahme werden.
 
 Solche Auslöser verändern den Leistungsumfang und damit die Kostenermittlung. Eine Fassade, die gedämmt wird, braucht neue Fensteranschlüsse und verlängerte Dachüberstände. Hinzu kommen angepasste Fensterbänke und Lösungen für Balkonplatten und Sockel. Jedes dieser Details ist eine eigene Position. Wer nur den Quadratmeterpreis der Dämmung kennt, kennt den kleineren Teil der Kosten.
 
@@ -84,17 +84,17 @@ Was ein Gutachten dann leistet, ist begrenzt und gerade darin nützlich. Es besc
 
 Gutachten unterscheiden sich darin, wer den Sachverständigen auswählt und beauftragt. Ein Privatgutachten beauftragt der Eigentümer selbst. Es dient ihm als fachliche Grundlage seiner Entscheidungen. Ein Schiedsgutachten beruht auf einer Vereinbarung der Beteiligten. Versicherungsbedingungen können ein eigenes Sachverständigenverfahren vorsehen. Welches Gewicht ein Ergebnis in einer Auseinandersetzung haben kann, hängt von diesen Unterschieden ab. Die Einordnung dazu gehört in die Hände eines Rechtsanwalts.
 
-Der nächste Schritt ist in der Regel klein. Für ein Bestandsgebäude lässt sich zuerst eine Zustandserfassung mit Dringlichkeiten beauftragen. Daraus entsteht dann eine [Kalkulation und Kostenplanung](https://ing-bassam.de/#kontakt) für die geplanten Maßnahmen. In ihr sind Risiken gesondert ausgewiesen, und Preisstand und Grundlagen sind benannt. Die Honorarordnung behandelt die Bestandsaufnahme und die technische Substanzerkundung als Besondere Leistungen.[^3] Fragen Sie deshalb nach, was in einem Angebot für Planungsleistungen enthalten ist. Eine Erfassung, die niemand beauftragt hat, findet nicht statt. Ihr Fehlen zeigt sich erst in der Ausführung.
+Der nächste Schritt ist in der Regel klein. Für ein Bestandsgebäude lässt sich zuerst eine Zustandserfassung mit Dringlichkeiten beauftragen. Daraus entsteht dann eine [Kalkulation und Kostenplanung](https://ing-bassam.de/#kontakt) für die geplanten Maßnahmen. In ihr sind Risiken gesondert ausgewiesen, und Preisstand und Grundlagen sind benannt. Die Honorarordnung behandelt die Bestandsaufnahme und die technische Substanzerkundung als Besondere Leistungen. Fragen Sie deshalb nach, was in einem Angebot für Planungsleistungen enthalten ist. Eine Erfassung, die niemand beauftragt hat, findet nicht statt. Ihr Fehlen zeigt sich erst in der Ausführung.
 
 ## Häufige Fragen
 
 **Wie genau ist eine Kostenschätzung für einen Altbau?**
 
-Die Genauigkeit hängt an der Stufe der Kostenermittlung und an der Güte der Zustandserfassung. Eine Kostenschätzung nach der Norm baut auf der Vorplanung auf und reicht nur bis zur zweiten Gliederungsebene.[^4] Genauer werden die Kostenberechnung auf Grundlage des Entwurfs und der Kostenvoranschlag auf Grundlage des Leistungsverzeichnisses.[^5]
+Die Genauigkeit hängt an der Stufe der Kostenermittlung und an der Güte der Zustandserfassung. Eine Kostenschätzung nach der Norm baut auf der Vorplanung auf und reicht nur bis zur zweiten Gliederungsebene.[^3] Genauer werden die Kostenberechnung auf Grundlage des Entwurfs und der Kostenvoranschlag auf Grundlage des Leistungsverzeichnisses.[^4]
 
 **Was kostet eine Zustandserfassung im Altbau?**
 
-Für diese Leistung gibt es keinen festen Satz. Bestandsaufnahme und technische Substanzerkundung sind nach der Honorarordnung für Architekten und Ingenieure Besondere Leistungen.[^3] Das Honorar wird deshalb frei vereinbart. Es richtet sich nach Größe und Zugänglichkeit des Gebäudes und nach der Zahl der zu untersuchenden Bauteile. Auch der Umfang vorhandener Unterlagen wirkt sich aus. Entscheidend ist zudem, ob Bauteile geöffnet oder Proben untersucht werden müssen. Lassen Sie sich den Leistungsumfang vorher schriftlich beschreiben.
+Für diese Leistung gibt es keinen festen Satz. Bestandsaufnahme und technische Substanzerkundung sind nach der Honorarordnung für Architekten und Ingenieure Besondere Leistungen. Das Honorar wird deshalb frei vereinbart. Es richtet sich nach Größe und Zugänglichkeit des Gebäudes und nach der Zahl der zu untersuchenden Bauteile. Auch der Umfang vorhandener Unterlagen wirkt sich aus. Entscheidend ist zudem, ob Bauteile geöffnet oder Proben untersucht werden müssen. Lassen Sie sich den Leistungsumfang vorher schriftlich beschreiben.
 
 **Warum weichen Angebote für dieselbe Sanierung so stark voneinander ab?**
 
@@ -102,11 +102,11 @@ Häufig beschreiben sie nicht dasselbe. Unterschiede entstehen bei der Konstrukt
 
 **Muss ich bei einer Fassadensanierung am Altbau dämmen?**
 
-Arbeiten an bestehenden Außenwänden können energetische Anforderungen auslösen. Nach dem Infoportal des Bundes zum Gebäudemodernisierungsgesetz gilt das etwa für Dämmschichten und Bekleidungen auf der Außenseite. Es gilt auch, wenn Außenputz entfernt und neu aufgebracht wird. Voraussetzung ist, dass mehr als 10 Prozent der Außenwände des Gebäudes betroffen sind.[^7] Ob und in welchem Umfang die Anforderungen für Ihr Gebäude gelten, hängt vom geplanten Eingriff und von Ausnahmen des Gesetzes ab. Für die Kostenermittlung ist wichtig, dass mit der Dämmung weitere Positionen hinzukommen, etwa Fensteranschlüsse und Sockelausbildung.
+Arbeiten an bestehenden Außenwänden können energetische Anforderungen auslösen. Nach dem Infoportal des Bundes zum Gebäudemodernisierungsgesetz gilt das etwa für Dämmschichten und Bekleidungen auf der Außenseite. Es gilt auch, wenn Außenputz entfernt und neu aufgebracht wird. Voraussetzung ist, dass mehr als 10 Prozent der Außenwände des Gebäudes betroffen sind.[^6] Ob und in welchem Umfang die Anforderungen für Ihr Gebäude gelten, hängt vom geplanten Eingriff und von Ausnahmen des Gesetzes ab. Für die Kostenermittlung ist wichtig, dass mit der Dämmung weitere Positionen hinzukommen, etwa Fensteranschlüsse und Sockelausbildung.
 
 **Welche Unterlagen sollte ich vor einem Ortstermin zusammenstellen?**
 
-Nützlich sind alte Bauzeichnungen und Statikunterlagen sowie Baugenehmigungen. Dazu kommen Nachweise früherer Sanierungen mit Rechnungen, Wartungsunterlagen der technischen Anlagen und vorhandene Energieausweise. Hilfreich sind außerdem eigene Fotos von Rissen und feuchten Stellen mit Maßstab und Datum, am besten als Verlauf über mehrere Wochen. Auch Aufzeichnungen von Temperatur und Luftfeuchte sind nützlich. Das Beschaffen solcher Unterlagen zählt selbst zu den Besonderen Leistungen der Grundlagenermittlung.[^3] Je vollständiger die Unterlagen sind, desto gezielter kann untersucht und desto genauer kann geschätzt werden.
+Nützlich sind alte Bauzeichnungen und Statikunterlagen sowie Baugenehmigungen. Dazu kommen Nachweise früherer Sanierungen mit Rechnungen, Wartungsunterlagen der technischen Anlagen und vorhandene Energieausweise. Hilfreich sind außerdem eigene Fotos von Rissen und feuchten Stellen mit Maßstab und Datum, am besten als Verlauf über mehrere Wochen. Auch Aufzeichnungen von Temperatur und Luftfeuchte sind nützlich. Das Beschaffen solcher Unterlagen zählt selbst zu den Besonderen Leistungen der Grundlagenermittlung. Je vollständiger die Unterlagen sind, desto gezielter kann untersucht und desto genauer kann geschätzt werden.
 
 ## Hinweis
 
@@ -121,9 +121,8 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: Statistisches Bundesamt: KORREKTUR – Baupreise für Wohngebäude im Mai 2026: +5,0 % gegenüber Mai 2025. Pressemitteilung Nr. 241 vom 10. Juli 2026. https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/07/PD26_241_61261.html (abgerufen am 2026-10-08).
-[^2]: DIN 276:2018-12. Kosten im Bauwesen. Berlin: Beuth Verlag, 2018, S. 7. Nummer, Titel, Ausgabe und Status aktuell bestätigt durch: DIN Media: DIN 276 – 2018-12. https://www.dinmedia.de/en/standard/din-276/293154016 (abgerufen am 2026-10-08).
-[^3]: Siemon, Klaus D.; Averhaus, Ralf: HOAI 2021-Textausgabe. Honorarordnung für Architekten und Ingenieure in der Fassung von 2021. 7. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 353 (Anlage 10 zu § 34 Absatz 4, § 35 Absatz 7, Leistungsphase 1, Besondere Leistungen). ISBN 978-3-658-44116-6.
-[^4]: DIN 276:2018-12. Kosten im Bauwesen. Berlin: Beuth Verlag, 2018, S. 9. Status aktuell bestätigt durch: DIN Media: DIN 276 – 2018-12. https://www.dinmedia.de/en/standard/din-276/293154016 (abgerufen am 2026-10-08).
-[^5]: DIN 276:2018-12. Kosten im Bauwesen. Berlin: Beuth Verlag, 2018, S. 10. Status aktuell bestätigt durch: DIN Media: DIN 276 – 2018-12. https://www.dinmedia.de/en/standard/din-276/293154016 (abgerufen am 2026-10-08).
-[^6]: DIN 276:2018-12. Kosten im Bauwesen. Berlin: Beuth Verlag, 2018, S. 12. Status aktuell bestätigt durch: DIN Media: DIN 276 – 2018-12. https://www.dinmedia.de/en/standard/din-276/293154016 (abgerufen am 2026-10-08).
-[^7]: GModG-Infoportal des Bundes: Außenwände – Auslösetatbestände der Anlage 7 für Außenwände. https://www.gmodg.bund.de/GEGPortal/DE/GEGRegelungen/Gebaeudebestand/BedAnforderungen/EnergAnfAussenwand/EnergAnf_Aussenwand_node.html (abgerufen am 2026-10-08).
+[^2]: DIN Media: DIN 276 – 2018-12. https://www.dinmedia.de/en/standard/din-276/293154016 (abgerufen am 2026-10-08).
+[^3]: DIN Media: DIN 276 – 2018-12. https://www.dinmedia.de/en/standard/din-276/293154016 (abgerufen am 2026-10-08).
+[^4]: DIN Media: DIN 276 – 2018-12. https://www.dinmedia.de/en/standard/din-276/293154016 (abgerufen am 2026-10-08).
+[^5]: DIN Media: DIN 276 – 2018-12. https://www.dinmedia.de/en/standard/din-276/293154016 (abgerufen am 2026-10-08).
+[^6]: GModG-Infoportal des Bundes: Außenwände – Auslösetatbestände der Anlage 7 für Außenwände. https://www.gmodg.bund.de/GEGPortal/DE/GEGRegelungen/Gebaeudebestand/BedAnforderungen/EnergAnfAussenwand/EnergAnf_Aussenwand_node.html (abgerufen am 2026-10-08).

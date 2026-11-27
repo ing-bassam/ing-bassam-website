@@ -180,9 +180,9 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Contact: inf
 
 [^uba-lueften]: Umweltbundesamt: Wie lüfte ich richtig? Tipps und Tricks zur Schimmelvermeidung (how to air properly – tips for preventing mould). As of 13.12.2024. https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/schimmel/wie-luefte-ich-richtig-tipps-tricks-zur (accessed 2026-09-21).
 
-[^bgh-2018]: Bundesgerichtshof (Federal Court of Justice): judgments of 05.12.2018 – VIII ZR 271/17 and VIII ZR 67/18, press release 179/2018. https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2018/2018179.html and https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=05.12.2018&Aktenzeichen=VIII+ZR+271%2F17 (accessed 2026-09-20). Confirmed by: Haufe Online Redaktion: BGH: Schimmelgefahr allein rechtfertigt keine Mietminderung. 05.12.2018. https://www.haufe.de/immobilien/verwaltung/bgh-schimmelgefahr-allein-rechtfertigt-keine-mietminderung_258_479080.html (accessed 2026-09-20).
+[^bgh-2018]: Bundesgerichtshof (Federal Court of Justice): judgments of 05.12.2018 – VIII ZR 271/17 and VIII ZR 67/18, press release 179/2018. https://www.bundesgerichtshof.de/SharedDocs/Pressemitteilungen/DE/2018/2018179.html and https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=05.12.2018&Aktenzeichen=VIII+ZR+271%2F17 (accessed 2026-09-20).
 
-[^bgh-2000]: Bundesgerichtshof: judgment of 01.03.2000 – XII ZR 272/97, NJW 2000, 2344, under II 2 a. https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=01.03.2000&Aktenzeichen=XII+ZR+272/97 (accessed 2026-09-20). Confirmed by: Harald Büring: Feuchtigkeitsschäden (Miete), Darlegungs- und Beweislast. Haufe VerwalterPraxis. https://haufe.de/immobilien/verwalterpraxis/feuchtigkeitsschaeden-miete-2-darlegungs-und-beweislast_idesk_PI9865_HI8755278.html (accessed 2026-09-20).
+[^bgh-2000]: Bundesgerichtshof: judgment of 01.03.2000 – XII ZR 272/97, NJW 2000, 2344, under II 2 a. https://dejure.org/dienste/vernetzung/rechtsprechung?Gericht=BGH&Datum=01.03.2000&Aktenzeichen=XII+ZR+272/97 (accessed 2026-09-20).
 
 [^bgh-2006]: Bundesgerichtshof: order of 25.01.2006 – VIII ZR 223/04. https://www.haufe.de/id/entscheidung/bgh-beschluss-vom-25012006-viii-zr-22304-HI1481556.html (accessed 2026-09-21).
 

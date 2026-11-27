@@ -27,7 +27,7 @@ fachlich_geprueft_von:
 fachlich_geprueft_am:
 wortzahl: 1870
 lesezeit: 10 Minuten
-fussnoten: 6
+fussnoten: 4
 quellen_geprueft: 4
 zahlenwerte_norm: 0
 todos: 0
@@ -42,7 +42,7 @@ Ein Bauherr ließ eine Halle in Stahlbauweise errichten und nahm sie ab (Rn. 2).
 
 Der Bauherr beauftragte das Unternehmen am 12. Mai 2015 mit dem Neubau einer Halle in Stahlbauweise (Rn. 2). Vereinbart war ein Pauschalpreis, also ein fester Gesamtpreis, von 152.000 Euro (Rn. 2). Das Unternehmen stellt Stahlkonstruktionen und Hallenbausätze her und baut Hallen auch schlüsselfertig (Rn. 2). Dass die VOB/B gelten sollte, ein verbreitetes Vertragsmuster für Bauaufträge, hatte keine Seite vorgetragen (Rn. 21). Das Gericht wendete deshalb das Werkvertragsrecht des Bürgerlichen Gesetzbuchs an (Rn. 21).
 
-Schon vor der Abnahme rügte der Bauherr mehrfach Rostflecken (Rn. 3). Mit der Abnahme erklärt ein Bauherr, dass er das fertige Werk als im Kern vertragsgerecht annimmt.[^2] Ab dem 30. Juni 2016 besserte das Unternehmen nach (Rn. 3). An diesem Tag sollte ursprünglich auch die Abnahme stattfinden (Rn. 37). Sie fand nach mehreren Nachbesserungen erst am 15. November 2016 statt, also rund viereinhalb Monate später (Rn. 37).
+Schon vor der Abnahme rügte der Bauherr mehrfach Rostflecken (Rn. 3). Mit der Abnahme erklärt ein Bauherr, dass er das fertige Werk als im Kern vertragsgerecht annimmt. Ab dem 30. Juni 2016 besserte das Unternehmen nach (Rn. 3). An diesem Tag sollte ursprünglich auch die Abnahme stattfinden (Rn. 37). Sie fand nach mehreren Nachbesserungen erst am 15. November 2016 statt, also rund viereinhalb Monate später (Rn. 37).
 
 Im Abnahmeprotokoll blieben zwei Punkte unerledigt (Rn. 3). Einer lautete „Rostflecken an der Unterschale der Wandpaneelen“ (Rn. 3). Der andere hielt fest, dass sich Oberschalen der Wandpaneele lösen (Rn. 3). Eine Vereinbarung zu beiden Punkten trafen die Parteien nicht (Rn. 3). Die Halle wird seit der Abnahme ohne Einschränkung genutzt (Rn. 2).
 
@@ -54,13 +54,13 @@ Das Gericht holte ein Gutachten ein, das am 18. Dezember 2018 vorlag (Rn. 14). A
 
 ## Warum der Bauherr auf der Reparatur bestehen durfte
 
-Ob der Werklohn geschuldet war, musste das Landgericht Karlsruhe nicht mehr prüfen (Rn. 19). Der Bauherr hatte die Forderung anerkannt, allerdings nur gegen Beseitigung der Mängel (Rn. 19). Offen war allein, ob er wegen der Mängel zahlen musste oder zurückhalten durfte (Rn. 19). Das Gericht stützte sich auf die Einrede des nicht erfüllten Vertrages nach §§ 320, 641 Abs. 3 BGB; § 641 Abs. 3 BGB ist die Regel zum Einbehalt wegen eines Mangels nach der Abnahme (Rn. 20, Rn. 26).[^3]
+Ob der Werklohn geschuldet war, musste das Landgericht Karlsruhe nicht mehr prüfen (Rn. 19). Der Bauherr hatte die Forderung anerkannt, allerdings nur gegen Beseitigung der Mängel (Rn. 19). Offen war allein, ob er wegen der Mängel zahlen musste oder zurückhalten durfte (Rn. 19). Das Gericht stützte sich auf die Einrede des nicht erfüllten Vertrages nach §§ 320, 641 Abs. 3 BGB; § 641 Abs. 3 BGB ist die Regel zum Einbehalt wegen eines Mangels nach der Abnahme (Rn. 20, Rn. 26).[^2]
 
-Zuerst ging es um die Beweislast, also um die Frage, wer einen Umstand beweisen muss (Rn. 23). Mit der Abnahme kehrt sich die Beweislast für Mängel grundsätzlich zum Bauherrn um (Rn. 23).[^2] Beim Bauherrn der Halle blieb sie trotzdem beim Unternehmen (Rn. 23). Grund war sein Vorbehalt wegen der Rostflecken im Abnahmeprotokoll (Rn. 23). Das Unternehmen musste deshalb auch nach der Abnahme beweisen, dass die Paneele mangelfrei waren (Rn. 23).
+Zuerst ging es um die Beweislast, also um die Frage, wer einen Umstand beweisen muss (Rn. 23). Mit der Abnahme kehrt sich die Beweislast für Mängel grundsätzlich zum Bauherrn um (Rn. 23). Beim Bauherrn der Halle blieb sie trotzdem beim Unternehmen (Rn. 23). Grund war sein Vorbehalt wegen der Rostflecken im Abnahmeprotokoll (Rn. 23). Das Unternehmen musste deshalb auch nach der Abnahme beweisen, dass die Paneele mangelfrei waren (Rn. 23).
 
 Dann klärte das Gericht, ob überhaupt ein Mangel vorlag (Rn. 24). Es folgte dem Gutachten, das keine Seite angegriffen hatte (Rn. 24). Danach waren die Rostpunkte kein optischer Fehler (Rn. 24). Die zerstörte Zinkschicht und der Rost verringern die Nutzungsdauer der Paneele (Rn. 24). Mangelfrei ist ein Werk für das Gericht nur, wenn seine dauerhafte Nutzung gewährleistet ist (Rn. 22). Wie das Unternehmen den Rost beseitigt, bleibt ihm grundsätzlich überlassen (Rn. 25).
 
-Wegen des Rosts durfte der Bauherr 2.860 Euro zurückhalten, das Doppelte der Reparaturkosten (Rn. 26, Rn. 28). Dieses Doppelte sieht das Gesetz in der Regel vor (Rn. 28). Der Druckzuschlag ist der Teil des Einbehalts, der über die einfachen Reparaturkosten hinausgeht.[^4] Nimmt der Bauherr eine angebotene Reparatur nicht an, ist der Einbehalt nach dem Urteil auf die einfachen Kosten begrenzt (Rn. 28). Ein solches Angebot hatte das Unternehmen nach dem Urteil nicht vorgetragen (Rn. 28). Es hatte lediglich den Minderungsbetrag abgezogen (Rn. 28).
+Wegen des Rosts durfte der Bauherr 2.860 Euro zurückhalten, das Doppelte der Reparaturkosten (Rn. 26, Rn. 28). Dieses Doppelte sieht das Gesetz in der Regel vor (Rn. 28). Der Druckzuschlag ist der Teil des Einbehalts, der über die einfachen Reparaturkosten hinausgeht. Nimmt der Bauherr eine angebotene Reparatur nicht an, ist der Einbehalt nach dem Urteil auf die einfachen Kosten begrenzt (Rn. 28). Ein solches Angebot hatte das Unternehmen nach dem Urteil nicht vorgetragen (Rn. 28). Es hatte lediglich den Minderungsbetrag abgezogen (Rn. 28).
 
 Mehr als das Doppelte bekam der Bauherr der Halle aber nicht (Rn. 29). Er wollte auch Kosten für das Ausräumen der Halle berücksichtigt wissen (Rn. 13). Solche Räumkosten zählen nach dem Urteil grundsätzlich zu den Kosten der Mangelbeseitigung (Rn. 29). Einen Nutzungsausfall ordnet das Gericht dagegen als Mangelfolgeschaden ein, also als Schaden, der erst aus dem Mangel entsteht (Rn. 29). Den Aufwand hatte der Bauherr nur pauschal behauptet (Rn. 29). Deshalb fehlte dem Gericht eine Grundlage, um über das Doppelte hinauszugehen (Rn. 29).
 
@@ -72,7 +72,7 @@ Im Ergebnis muss der Bauherr 16.501,30 Euro sofort zahlen, mit Zinsen ab der Abn
 
 ## Was das Urteil für Bauherren bedeutet
 
-Der Fall zeigt, wie viel an einer Zeile im Abnahmeprotokoll hängen kann. Der Bauherr hatte die Rostflecken bei der Abnahme ausdrücklich als offen festgehalten (Rn. 3). Deshalb blieb die Beweislast beim Unternehmen (Rn. 23). Das Gesetz knüpft an den Vorbehalt bei der Abnahme noch eine weitere Folge. Wer einen bekannten Mangel nicht vorbehält, verliert nach § 640 Abs. 3 BGB wichtige Mängelrechte, darunter Nachbesserung und Minderung.[^5] Bekannte Mängel gehören deshalb einzeln und genau beschrieben ins Abnahmeprotokoll.
+Der Fall zeigt, wie viel an einer Zeile im Abnahmeprotokoll hängen kann. Der Bauherr hatte die Rostflecken bei der Abnahme ausdrücklich als offen festgehalten (Rn. 3). Deshalb blieb die Beweislast beim Unternehmen (Rn. 23). Das Gesetz knüpft an den Vorbehalt bei der Abnahme noch eine weitere Folge. Wer einen bekannten Mangel nicht vorbehält, verliert nach § 640 Abs. 3 BGB wichtige Mängelrechte, darunter Nachbesserung und Minderung.[^3] Bekannte Mängel gehören deshalb einzeln und genau beschrieben ins Abnahmeprotokoll.
 
 Die Rostpunkte an den Paneelen waren klein, bis etwa 5 mm (Rn. 24). Der Hersteller hielt sie für einen optischen Mangel (Rn. 3). Der Sachverständige stellte dagegen fest, dass sie die Nutzungsdauer der Paneele verringern (Rn. 24). Für Bauherren heißt das: Ein unscheinbarer Mangel kann technisch mehr bedeuten, als er auf den ersten Blick zeigt. Fotos mit Datum, das Abnahmeprotokoll und der Schriftverkehr helfen, den Zustand später nachzuweisen.
 
@@ -86,7 +86,7 @@ Ein Sachverständiger kann bei der Abnahme festhalten, welche Mängel bestehen u
 
 ## Was das Urteil nicht entscheidet
 
-Das Urteil betrifft einen Werkvertrag ohne vorgetragene VOB/B (Rn. 21). Eine Prüfung, ob die Reparatur unverhältnismäßig teuer wäre, enthält es nicht. Diese Möglichkeit, die Nachbesserung zu verweigern, sieht das Gesetz in § 635 Abs. 3 BGB vor.[^6] Entschieden hat ein Landgericht in erster Instanz; im Kopf der amtlichen Quelle ist das Urteil als rechtskräftig vermerkt. Das Urteil ist von 2019 und wendet das Bürgerliche Gesetzbuch in der bis Ende 2017 geltenden Fassung an (Rn. 21). Die Regel zum doppelten Einbehalt steht heute in § 641 Abs. 3 BGB: Angemessen ist danach in der Regel das Doppelte der Kosten für die Beseitigung des Mangels.[^3]
+Das Urteil betrifft einen Werkvertrag ohne vorgetragene VOB/B (Rn. 21). Eine Prüfung, ob die Reparatur unverhältnismäßig teuer wäre, enthält es nicht. Diese Möglichkeit, die Nachbesserung zu verweigern, sieht das Gesetz in § 635 Abs. 3 BGB vor.[^4] Entschieden hat ein Landgericht in erster Instanz; im Kopf der amtlichen Quelle ist das Urteil als rechtskräftig vermerkt. Das Urteil ist von 2019 und wendet das Bürgerliche Gesetzbuch in der bis Ende 2017 geltenden Fassung an (Rn. 21). Die Regel zum doppelten Einbehalt steht heute in § 641 Abs. 3 BGB: Angemessen ist danach in der Regel das Doppelte der Kosten für die Beseitigung des Mangels.[^2]
 
 ## Häufige Fragen
 
@@ -96,11 +96,11 @@ Im Fall des Landgerichts Karlsruhe musste der Bauherr das nicht (Rn. 30). Das Ge
 
 **Wie viel Werklohn darf ich wegen eines Mangels zurückhalten?**
 
-Nach § 641 Abs. 3 BGB ist in der Regel das Doppelte der Kosten für die Mangelbeseitigung angemessen.[^3] Im Karlsruher Fall waren das 2.860 Euro bei Reparaturkosten von 1.430 Euro (Rn. 24, Rn. 26). Die ganze Restforderung von 19.361,30 Euro durfte der Bauherr nicht zurückhalten (Rn. 18). Bietet das Unternehmen die Reparatur an und lehnt der Bauherr ab, sind nur die einfachen Kosten zulässig (Rn. 28).
+Nach § 641 Abs. 3 BGB ist in der Regel das Doppelte der Kosten für die Mangelbeseitigung angemessen.[^2] Im Karlsruher Fall waren das 2.860 Euro bei Reparaturkosten von 1.430 Euro (Rn. 24, Rn. 26). Die ganze Restforderung von 19.361,30 Euro durfte der Bauherr nicht zurückhalten (Rn. 18). Bietet das Unternehmen die Reparatur an und lehnt der Bauherr ab, sind nur die einfachen Kosten zulässig (Rn. 28).
 
 **Warum ist der Vorbehalt im Abnahmeprotokoll so wichtig?**
 
-Im Karlsruher Fall blieb wegen des Vorbehalts die Beweislast beim Unternehmen (Rn. 23). Es musste also beweisen, dass seine Arbeit mangelfrei war (Rn. 23). Außerdem verliert nach § 640 Abs. 3 BGB wichtige Mängelrechte, wer einen bekannten Mangel bei der Abnahme nicht vorbehält.[^5] In beiden Punkten hilft ein genau beschriebener Vorbehalt im Protokoll.
+Im Karlsruher Fall blieb wegen des Vorbehalts die Beweislast beim Unternehmen (Rn. 23). Es musste also beweisen, dass seine Arbeit mangelfrei war (Rn. 23). Außerdem verliert nach § 640 Abs. 3 BGB wichtige Mängelrechte, wer einen bekannten Mangel bei der Abnahme nicht vorbehält.[^3] In beiden Punkten hilft ein genau beschriebener Vorbehalt im Protokoll.
 
 **Gilt das Urteil auch für rein optische Mängel?**
 
@@ -119,8 +119,6 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: Landgericht Karlsruhe, 6. Zivilkammer: Urteil vom 17.04.2019 – 6 O 125/18, ECLI:DE:LGKARLS:2019:0417.6O125.18.00, Rn. 1–42. Landesrechtsportal Baden-Württemberg. https://www.landesrecht-bw.de/perma?d=NJRE001387583 (abgerufen am 2026-11-03).
-[^2]: Berner, Fritz u. a.: Grundlagen der Baubetriebslehre 3. Baubetriebsführung. 3. Aufl. Wiesbaden: Springer Vieweg, 2025, S. 338. ISBN 978-3-658-47553-6.
-[^3]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 641 Fälligkeit der Vergütung, Abs. 3, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/__641.html (abgerufen am 2026-11-03; Wortlaut geprüft an der amtlichen Textfassung mit Datenstand 2026-09-26).
-[^4]: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. Entscheidungshilfen für Auftraggeber und Auftragnehmer. 2. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 99. ISBN 978-3-658-44068-8.
-[^5]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 640 Abnahme, Abs. 3, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/__640.html (abgerufen am 2026-11-03; Wortlaut geprüft an der amtlichen Textfassung mit Datenstand 2026-09-26).
-[^6]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 635 Nacherfüllung, Abs. 3, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/__635.html (abgerufen am 2026-11-03; Wortlaut geprüft an der amtlichen Textfassung mit Datenstand 2026-09-26).
+[^2]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 641 Fälligkeit der Vergütung, Abs. 3, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/__641.html (abgerufen am 2026-11-03; Wortlaut geprüft an der amtlichen Textfassung mit Datenstand 2026-09-26).
+[^3]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 640 Abnahme, Abs. 3, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/__640.html (abgerufen am 2026-11-03; Wortlaut geprüft an der amtlichen Textfassung mit Datenstand 2026-09-26).
+[^4]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 635 Nacherfüllung, Abs. 3, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/__635.html (abgerufen am 2026-11-03; Wortlaut geprüft an der amtlichen Textfassung mit Datenstand 2026-09-26).

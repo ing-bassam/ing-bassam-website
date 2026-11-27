@@ -27,7 +27,7 @@ fachlich_geprueft_von:
 fachlich_geprueft_am:
 wortzahl: 1990
 lesezeit: 10 Minuten
-fussnoten: 4
+fussnoten: 3
 quellen_geprueft: 3
 zahlenwerte_norm: 0
 todos: 0
@@ -76,7 +76,7 @@ Die Gesamtforderung des Eigentümers betrug nach dem Urteil 37.500 Euro, davon 2
 
 ## Was das für Sie bedeutet
 
-Wer als Bauherr eine Terrasse sanieren lässt, sollte das Gefälle früh und ausdrücklich planen lassen. Bei Estrichen auf Dämm- oder Trennschichten muss das Gefälle nach der Fachliteratur schon im Untergrund vorhanden sein: Entweder liegt die Betonplatte geneigt, oder ein Ausgleichestrich stellt es her.[^2] Im entschiedenen Fall fehlte ein Gefälleplan, und die Aufbauhöhe reichte ersichtlich nicht für das nötige Gefälle (Gründe II. 2. a aa). Fragen Sie deshalb vor der Vergabe, wie viel Gefälle geplant ist. Fragen Sie auch, wie es bei der vorhandenen Höhe bis zur Türschwelle erreicht wird.
+Wer als Bauherr eine Terrasse sanieren lässt, sollte das Gefälle früh und ausdrücklich planen lassen. Bei Estrichen auf Dämm- oder Trennschichten muss das Gefälle nach der Fachliteratur schon im Untergrund vorhanden sein: Entweder liegt die Betonplatte geneigt, oder ein Ausgleichestrich stellt es her. Im entschiedenen Fall fehlte ein Gefälleplan, und die Aufbauhöhe reichte ersichtlich nicht für das nötige Gefälle (Gründe II. 2. a aa). Fragen Sie deshalb vor der Vergabe, wie viel Gefälle geplant ist. Fragen Sie auch, wie es bei der vorhandenen Höhe bis zur Türschwelle erreicht wird.
 
 Im entschiedenen Fall hatte die Baufirma den Eigentümer persönlich nicht gewarnt, sondern nur die Planerin (Gründe II. 2. a aa). Ob ein Hinweis nur an den Planer genügen kann, hat das Gericht ausdrücklich offengelassen (Gründe II. 2. a aa). Für Sie als Bauherr folgt daraus ein praktischer Schritt: Bitten Sie Planer und Firmen, Bedenken auch Ihnen schriftlich mitzuteilen. Eine Absprache über eine schlechtere Ausführung trägt nach dem Urteil nur, wenn der Bauherr das Risiko kennt (Gründe II. 2. a aa). Lassen Sie sich die konkreten Folgen erklären, bevor Sie einer abweichenden Ausführung zustimmen. Was eine solche Absprache in Ihrem Vertrag bewirkt, klärt ein Rechtsanwalt.
 
@@ -84,7 +84,7 @@ Der Streit um die Terrasse wurde mit Gutachten geführt: Privatgutachten, Gerich
 
 ## Was das Urteil nicht sagt
 
-Das Urteil betrifft einen Werkvertrag nach BGB ohne VOB/B über einen Terrassenestrich an einem bestehenden Gebäude (Gründe II. 2. a aa und bb). Die Quote von einem Drittel ist eine Abwägung nach den Umständen dieses Einzelfalls, keine feste Regel (Gründe II. 2. a bb). Ob ein Hinweis allein an den Planer die Hinweispflicht erfüllen kann, hat das Gericht offengelassen (Gründe II. 2. a aa). Das Oberlandesgericht hat die Revision nicht zugelassen (Gründe II. 5.). Das Urteil ist von 2024, der Vertrag stammt aus dem Jahr 2010 (Gründe I.). Die Regel zum Kostenvorschuss steht heute in § 637 Abs. 3 BGB.[^3] Die Regel zum Vorbehalt bei bekanntem Mangel steht heute in § 640 Abs. 3 BGB.[^4]
+Das Urteil betrifft einen Werkvertrag nach BGB ohne VOB/B über einen Terrassenestrich an einem bestehenden Gebäude (Gründe II. 2. a aa und bb). Die Quote von einem Drittel ist eine Abwägung nach den Umständen dieses Einzelfalls, keine feste Regel (Gründe II. 2. a bb). Ob ein Hinweis allein an den Planer die Hinweispflicht erfüllen kann, hat das Gericht offengelassen (Gründe II. 2. a aa). Das Oberlandesgericht hat die Revision nicht zugelassen (Gründe II. 5.). Das Urteil ist von 2024, der Vertrag stammt aus dem Jahr 2010 (Gründe I.). Die Regel zum Kostenvorschuss steht heute in § 637 Abs. 3 BGB.[^2] Die Regel zum Vorbehalt bei bekanntem Mangel steht heute in § 640 Abs. 3 BGB.[^3]
 
 ## Häufige Fragen
 
@@ -113,6 +113,5 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: OLG Brandenburg 10. Zivilsenat: Urteil vom 10.10.2024 – 10 U 80/23, ECLI:DE:OLGBB:2024:1010.10U80.23.00. https://gerichtsentscheidungen.brandenburg.de/gerichtsentscheidung/25310 (abgerufen am 2026-10-20). Der amtliche Volltext ist nicht mit Randnummern versehen; die Belegstellen im Text folgen deshalb der Gliederung der Entscheidungsgründe.
-[^2]: Timm, Harry; Allmendinger, Thomas; Strehle, Norbert: Estriche, Parkett und Bodenbeläge. Arbeitshilfen für die Planung, Ausführung und Beurteilung. 6. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2019, S. 167. ISBN 978-3-658-25847-4.
-[^3]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch (BGB), § 637 Abs. 3, heutige Fassung. https://www.gesetze-im-internet.de/bgb/__637.html (abgerufen am 2026-10-20).
-[^4]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch (BGB), § 640 Abs. 3, heutige Fassung. https://www.gesetze-im-internet.de/bgb/__640.html (abgerufen am 2026-10-20).
+[^2]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch (BGB), § 637 Abs. 3, heutige Fassung. https://www.gesetze-im-internet.de/bgb/__637.html (abgerufen am 2026-10-20).
+[^3]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch (BGB), § 640 Abs. 3, heutige Fassung. https://www.gesetze-im-internet.de/bgb/__640.html (abgerufen am 2026-10-20).

@@ -27,7 +27,7 @@ fachlich_geprueft_von:
 fachlich_geprueft_am:
 wortzahl: 1590
 lesezeit: 8 Minuten
-fussnoten: 3
+fussnoten: 1
 quellen_geprueft: 1
 zahlenwerte_norm: 0
 todos: 0
@@ -64,9 +64,9 @@ Ein dritter Punkt betraf die Umsatzsteuer. Die zusätzliche Vergütung für den 
 
 ## Was Sie aus dem Fall für Ihren eigenen Vertrag mitnehmen
 
-Ein Pauschalpreis wirkt sicher, und genau darin liegt die Schwierigkeit. Ein Detail-Pauschalvertrag ist ein Bauvertrag mit genauer Leistungsbeschreibung und pauschal vereinbarter Vergütung. Die Leistungsbeschreibung ist das Verzeichnis aller Arbeiten, die der Unternehmer schuldet. Welche Leistungen der Pauschalpreis nicht erfasst, hängt nach dem Senat vom Angebot insgesamt und damit insbesondere von der Leistungsbeschreibung ab (Rn. 40). Die Fachliteratur sagt es nüchtern: Der vereinbarte Pauschalpreis muss nicht der Abrechnungssumme entsprechen[^2]. Im Fall der Halle genügte eine einzige Zeile mit einem Kilopreis, um den Betonstahl aus der Pauschale herauszunehmen (Rn. 40).
+Ein Pauschalpreis wirkt sicher, und genau darin liegt die Schwierigkeit. Ein Detail-Pauschalvertrag ist ein Bauvertrag mit genauer Leistungsbeschreibung und pauschal vereinbarter Vergütung. Die Leistungsbeschreibung ist das Verzeichnis aller Arbeiten, die der Unternehmer schuldet. Welche Leistungen der Pauschalpreis nicht erfasst, hängt nach dem Senat vom Angebot insgesamt und damit insbesondere von der Leistungsbeschreibung ab (Rn. 40). Die Fachliteratur sagt es nüchtern: Der vereinbarte Pauschalpreis muss nicht der Abrechnungssumme entsprechen. Im Fall der Halle genügte eine einzige Zeile mit einem Kilopreis, um den Betonstahl aus der Pauschale herauszunehmen (Rn. 40).
 
-Lesen Sie deshalb jede Position Ihres Angebots darauf durch, ob dort Einzelpreise stehen. Ein Preis je Kilogramm, je Quadratmeter oder je Stück ist ein Signal: Diese Leistung wird womöglich gesondert abgerechnet. Grundsätzlich gilt ein Pauschalpreis zwar unabhängig von den tatsächlich anfallenden Mengen[^3]. Entscheidend bleibt aber, welche Leistung das Angebot mit seiner Leistungsbeschreibung überhaupt in die Pauschale hineinnimmt. Wer als Bauherr einen wirklich festen Preis will, braucht dafür eine vollständige Beschreibung des Bauwerks.
+Lesen Sie deshalb jede Position Ihres Angebots darauf durch, ob dort Einzelpreise stehen. Ein Preis je Kilogramm, je Quadratmeter oder je Stück ist ein Signal: Diese Leistung wird womöglich gesondert abgerechnet. Grundsätzlich gilt ein Pauschalpreis zwar unabhängig von den tatsächlich anfallenden Mengen. Entscheidend bleibt aber, welche Leistung das Angebot mit seiner Leistungsbeschreibung überhaupt in die Pauschale hineinnimmt. Wer als Bauherr einen wirklich festen Preis will, braucht dafür eine vollständige Beschreibung des Bauwerks.
 
 Fragen Sie vor der Unterschrift nach, welche Unterlagen dem Preis zugrunde liegen. Im entschiedenen Fall lagen der Baufirma bei Vertragsschluss nicht einmal die Pläne des Statikers vor (Rn. 3). Halten Sie außerdem jede spätere Änderung schriftlich fest, mit Datum, Leistung und neuem Preis. Wer eine nachträgliche Preisänderung behauptet, muss sie beweisen (Rn. 29). Im Fall scheiterte dieser Beweis an mehreren Punkten: Ein gesondert unterzeichnetes Dokument über die Änderung lag nicht vor, ein Zeuge konnte zum Hintergrund nichts sagen, und die Abschlagsrechnungen gingen von 350.000 Euro aus (Rn. 30, Rn. 31). Ob eine Nachforderung in Ihrem Fall berechtigt ist, beurteilt ein Rechtsanwalt.
 
@@ -109,5 +109,4 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: Oberlandesgericht Stuttgart, 10. Zivilsenat: Urteil vom 09.02.2021 – 10 U 308/20, ECLI:DE:OLGSTUT:2021:0309.10U308.20.00. https://www.landesrecht-bw.de/perma?d=NJRE001501291 (abgerufen am 2026-10-02). Die Nichtzulassungsbeschwerde zum Bundesgerichtshof (VII ZR 287/21) wurde zurückgenommen.
-[^2]: Berner, Fritz; Kochendörfer, Bernd; Schach, Rainer: Grundlagen der Baubetriebslehre 1. Baubetriebswirtschaft. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 332–333. ISBN 978-3-658-27856-4.
-[^3]: Linnemann, Matthias; Kaltenborn, Sonja; Bahner, Andreas: Kündigungsvergütung von Bauverträgen. Grundlagen und Empfehlungen zur korrekten Abrechnung. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 30. ISBN 978-3-658-42892-1.
+

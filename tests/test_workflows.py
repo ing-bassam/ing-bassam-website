@@ -354,7 +354,9 @@ class Urheberrecht(unittest.TestCase):
         pr_vorlage = skill("fachartikel")
         self.assertIn("### Wörtliche Übernahmen (automatische Prüfung)", pr_vorlage)
         self.assertIn("Fundstelle Stufe 3 (Abschnitt/Seite/Rn., kein Wortlaut)", pr_vorlage)
-        self.assertIn("Geprüfte Aussage (eigene Worte)", pr_vorlage)
+        # Fachbibliothek nutzen, aber nie zitieren (Regel des Inhabers).
+        self.assertIn("Nutzen, nie zitieren", pr_vorlage)
+        self.assertNotIn("ISBN <ISBN>", pr_vorlage)
         self.assertIn("VOB-Gesamtausgabe 2019", pr_vorlage)
 
 

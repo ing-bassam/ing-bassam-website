@@ -27,7 +27,7 @@ fachlich_geprueft_von:
 fachlich_geprueft_am:
 wortzahl: 1830
 lesezeit: 10 Minuten
-fussnoten: 3
+fussnoten: 1
 quellen_geprueft: 1
 zahlenwerte_norm: 0
 todos: 0
@@ -66,7 +66,7 @@ Eine Rolle spielte in diesem Fall die Dokumentation (Rn. 39, Rn. 40). Die Vermie
 
 Wer einem solchen Befund widersprechen will, muss konkret werden. Die Mieterin blieb bei der Behauptung, die Verschmutzung sei erheblich, ohne dem Gutachten eigene Zahlen entgegenzusetzen (Rn. 40). Die Kammer legte deshalb die Werte des Gutachtens zugrunde (Rn. 40). Wer als Hausverwaltung eine Mängelrüge erhält, also die schriftliche Anzeige eines Mangels, nimmt den gerügten Zustand besser sofort auf. Dazu gehören Fotos mit Datum, die Zahl der betroffenen Bauteile und der Vergleich mit dem übrigen Bestand. Welche Anforderungen an den Vortrag im Einzelfall gelten, klärt ein Rechtsanwalt.
 
-Aus dem zweiten Gedanken der Kammer folgt etwas für Planung und Instandhaltung. Große Glasflächen zeigen Schmutz, und das ist keine Überraschung, sondern eine Eigenschaft der Konstruktion (Rn. 40). Zu beurteilen hatte die Kammer allein die Optik (Rn. 34). Für die Bauunterhaltung hat eine Reinigung darüber hinaus technische Gründe. Eine Schmutzschicht nimmt Feuchtigkeit und Schadstoffe auf und kann den Untergrund angreifen.[^2] Auch der Kot von Tauben an Fassaden ist ein bekanntes Thema der Bauunterhaltung.[^3] Dagegen helfen bauliche Mittel wie taubensichere Einfluglöcher oder Kotbretter unter den Sitzplätzen.[^3] Wer ein Gebäude mit Glasfassade betreibt, plant die Reinigung deshalb als wiederkehrende Leistung ein. Dazu gehört die Anlage, mit der die Fassade befahren wird. Im entschiedenen Fall kündigte die Vermieterin die Instandsetzung dieser Anlage, deren Abnahme durch den TÜV und die Reinigung der Glasflächen bis Ende April 2025 an (Rn. 6).
+Aus dem zweiten Gedanken der Kammer folgt etwas für Planung und Instandhaltung. Große Glasflächen zeigen Schmutz, und das ist keine Überraschung, sondern eine Eigenschaft der Konstruktion (Rn. 40). Zu beurteilen hatte die Kammer allein die Optik (Rn. 34). Für die Bauunterhaltung hat eine Reinigung darüber hinaus technische Gründe. Eine Schmutzschicht nimmt Feuchtigkeit und Schadstoffe auf und kann den Untergrund angreifen. Auch der Kot von Tauben an Fassaden ist ein bekanntes Thema der Bauunterhaltung. Dagegen helfen bauliche Mittel wie taubensichere Einfluglöcher oder Kotbretter unter den Sitzplätzen. Wer ein Gebäude mit Glasfassade betreibt, plant die Reinigung deshalb als wiederkehrende Leistung ein. Dazu gehört die Anlage, mit der die Fassade befahren wird. Im entschiedenen Fall kündigte die Vermieterin die Instandsetzung dieser Anlage, deren Abnahme durch den TÜV und die Reinigung der Glasflächen bis Ende April 2025 an (Rn. 6).
 
 Im Vertrag sollte stehen, wer die Fassade reinigt und in welchem Abstand. Diese Frage hat das Gericht nicht entschieden, sie war zwischen den Parteien streitig (Rn. 14, Rn. 21). Je genauer ein Vertrag den geschuldeten Zustand beschreibt, desto weniger Streit entsteht über die Soll-Beschaffenheit. Droht Streit über den Zustand eines Gebäudes, hält eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) den Ist-Zustand fest. Sie kommt vor die Reinigung oder die Sanierung, nicht danach. Ob sich daraus Ansprüche ergeben, beurteilt ein Rechtsanwalt; der Sachverständige beschreibt den Zustand und entscheidet den Streit nicht.
 
@@ -107,5 +107,4 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: LG Berlin II, 100. Kammer für Handelssachen: Urteil vom 07.07.2026 – 100 O 51/25, ECLI:DE:LGBE2:2026:0707.100O51.25.00. https://gesetze.berlin.de/perma?d=NJRE001648962 (abgerufen am 2026-09-25).
-[^2]: Stahr, Michael (Hrsg.): Bausanierung. Erkennen und Beheben von Bauschäden. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 548. ISBN 978-3-658-28148-9.
-[^3]: Stahr, Michael (Hrsg.): Bausanierung. Erkennen und Beheben von Bauschäden. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, S. 1103. ISBN 978-3-658-28148-9.
+

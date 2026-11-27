@@ -83,7 +83,7 @@ Richtwert höchstens 100 Turns. Keine Verkettung von Bash-Befehlen, keine Pipes.
 
 **Tabellen.** Spalten, die der Leser wirklich ausfüllt, mit ein paar vorgegebenen Zeilen als Beispiel (nur belegte Inhalte, etwa Wartungsintervalle aus einer Quelle) und leeren Zeilen zum Weiterarbeiten.
 
-**Rechtliche Angaben.** Ein Paragraf, eine Frist, ein Betrag oder ein Normwert steht nur in der Vorlage, wenn er nach dem Fachartikel-Skill abgesichert ist. Der Abschnitt `quellen` der Beschreibung nennt die Grundlagen kurz als Fundstelle (Vorschrift mit Ausgabe, Buch mit Seite), ohne Wortlaut; die Begleitseite trägt die vollständigen Fußnoten. Was du nicht absichern kannst, formulierst du allgemein.
+**Rechtliche Angaben.** Ein Paragraf, eine Frist, ein Betrag oder ein Normwert steht nur in der Vorlage, wenn er nach dem Fachartikel-Skill abgesichert ist. Der Abschnitt `quellen` der Beschreibung nennt die Grundlagen kurz als Fundstelle (Vorschrift mit Ausgabe, öffentliche Quelle, nie ein Buch), ohne Wortlaut; die Begleitseite trägt die vollständigen Fußnoten. Was du nicht absichern kannst, formulierst du allgemein.
 
 **Was die Vorlage nicht ist:** kein Ersatz für ein Gutachten, keine Rechtsberatung, kein Formular des Büros für eigene Aufträge. Der Hinweis am Ende jeder Datei setzt das Skript selbst.
 

@@ -653,6 +653,13 @@ def entwurf_pruefen(a: "Artikel") -> list[str]:
         melden("Fußnoteneinträge ohne Marke im Text", sorted(eintraege - marken), "keine")
     if eintraege and sorted(int(x) for x in eintraege) != list(range(1, len(eintraege) + 1)):
         melden("Fußnoten nicht lückenlos nummeriert", sorted(int(x) for x in eintraege), "1..n")
+    # Regel des Inhabers: Die Fachbibliothek wird genutzt, aber nie zitiert.
+    # Fußnoten auf Fachbücher (ISBN, Verlag, Auflage) darf es nicht geben.
+    buch = [m.group(1) for m in re.finditer(r"^\[\^([\w-]+)\]:(.*)$", a.rohtext, flags=re.M)
+            if re.search(r"ISBN|\bAufl\.|Springer|Beuth Verlag|Werner Verlag|Fraunhofer IRB Verlag"
+                         r"|Fachbibliothek|\(Hrsg\.\)|\(eds?\.\)", m.group(2))]
+    if buch:
+        melden("Fußnoten auf Fachbücher oder die Fachbibliothek", buch, "keine (nur öffentliche Quellen)")
     # Webquellen tragen ein Abrufdatum, Buch- und Normquellen aus der
     # Fachbibliothek stattdessen eine Seitenangabe (Bücher zusätzlich die ISBN).
     ohne_datum = [m.group(1) for m in re.finditer(r"^\[\^(\d+)\]:(.*)$", a.rohtext, flags=re.M)
