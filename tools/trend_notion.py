@@ -52,7 +52,8 @@ KATEGORIEN = ("Bauphysik", "Bauschäden", "Gutachten & Recht", "Baubetrieb", "Ba
 FORMATE = ("Ratgeber", "Fachbeitrag", "Grundlagen", "Praxisfall", "Checkliste", "Rechtsprechung")
 ZIELGRUPPEN = ("Privat", "Gewerblich", "Hausverwaltung", "Wohnungsbaugesellschaft", "Mieter")
 LEISTUNGEN = ("Gutachten", "Bauherrenvertretung", "Baubegleitung", "Claim Management",
-              "Objektüberwachung LP 8", "Kalkulation", "Energieberatung")
+              "Objektüberwachung LP 8", "Kalkulation", "Energieberatung", "Kaufbegutachtung",
+              "Due Diligence")
 PRIORITAETEN = ("Hoch", "Mittel", "Später")
 
 TEXT_MAX = 1900          # Notion erlaubt 2.000 Zeichen je Textstück
