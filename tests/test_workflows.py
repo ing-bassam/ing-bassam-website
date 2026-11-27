@@ -342,7 +342,12 @@ class Urheberrecht(unittest.TestCase):
         for name in ("fachartikel", "vorlage", "urteilsbesprechung"):
             inhalt = skill(name)
             with self.subTest(skill=name):
-                self.assertIn("bibliothek_suchen.py --norm", inhalt)
+                if name == "vorlage":
+                    # Vorlagen nur aus öffentlichen Quellen, nie aus der Fachbibliothek.
+                    self.assertNotIn("bibliothek_suchen.py --norm", inhalt)
+                    self.assertIn("`tools/bibliothek_suchen.py` rufst du nicht auf", inhalt)
+                else:
+                    self.assertIn("bibliothek_suchen.py --norm", inhalt)
                 self.assertIn("normstand_pruefen.py", inhalt)
                 self.assertIn("wortgleich_pruefen.py", inhalt)
                 self.assertIn("Stand der Technik – Normausgaben", inhalt)
