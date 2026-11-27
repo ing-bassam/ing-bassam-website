@@ -268,9 +268,18 @@ export function eingabeLesen(roh = {}, daten) {
       nutzung: auswahl(roh.nutzung, daten.eingaben.nutzung),
       region: auswahl(roh.region, daten.eingaben.region),
       schalter,
+      heute: heuteLesen(roh.heute),
     },
     fehler,
   };
+}
+
+/** Heutiges Datum als JJJJ-MM-TT (Ortszeit); eine gültige Vorgabe geht vor (für Tests). */
+function heuteLesen(vorgabe) {
+  if (typeof vorgabe === "string" && /^\d{4}-\d{2}-\d{2}$/.test(vorgabe)) return vorgabe;
+  const d = new Date();
+  const zwei = (n) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${zwei(d.getMonth() + 1)}-${zwei(d.getDate())}`;
 }
 
 // ------------------------------------------------------------- Preis
@@ -366,9 +375,16 @@ export function preisBerechnen(daten, e, gewaehlt = []) {
 
 // --------------------------------------------- Hinweise und Unterlagen
 
-/** Sind alle Bedingungen eines Eintrags (Regel oder Unterlage) erfüllt? */
+/**
+ * Sind alle Bedingungen eines Eintrags (Regel oder Unterlage) erfüllt?
+ * gilt_bis (JJJJ-MM-TT): Nach diesem Tag entfällt der Eintrag von selbst, etwa
+ * wenn eine Frist abgelaufen ist. nicht_region: Bei diesen Lagen entfällt er;
+ * ohne Angabe zur Lage bleibt er sichtbar.
+ */
 export function bedingungErfuellt(eintrag, e) {
   if (eintrag.objekt && eintrag.objekt !== "beide" && eintrag.objekt !== e.objekt) return false;
+  if (eintrag.gilt_bis && e.heute && e.heute > eintrag.gilt_bis) return false;
+  if (eintrag.nicht_region && e.region && eintrag.nicht_region.includes(e.region)) return false;
   if (eintrag.von !== undefined || eintrag.bis !== undefined) {
     if (e.baujahr === null || e.baujahr === undefined) return false;
     if (eintrag.von !== undefined && e.baujahr < eintrag.von) return false;

@@ -441,6 +441,33 @@ test("Hinweise: höchstens sechs, Pflichten zuerst, dann Vermietung, dann Prüfs
   assert.equal(hinweise(DATEN, e({ objekt: "etw" }), "en").alle[0].titel, "Title f1");
 });
 
+test("Hinweise: befristete entfallen nach dem letzten Geltungstag, Ausschluss nach Lage nur bei passender Angabe", () => {
+  const daten = paketBauen({
+    ...structuredClone(BEISPIEL),
+    regeln: [
+      regel("b1", "pflicht", "beide", { gilt_bis: "2030-12-31" }),
+      regel("n1", "miete", "beide", { nicht_region: ["ost"] }),
+      regel("o1", "miete", "beide", { region: ["ost"] }),
+    ],
+  });
+  const ids = (roh) => hinweise(daten, eingabeLesen(roh, daten).eingabe).alle.map((x) => x.id);
+  assert.deepEqual(ids({ heute: "2030-12-31" }), ["b1", "n1"], "am letzten Tag noch sichtbar, ohne Lage kein Ausschluss");
+  assert.deepEqual(ids({ heute: "2031-01-01" }), ["n1"], "am Tag danach entfallen");
+  assert.deepEqual(ids({ heute: "2031-01-01", region: "west" }), ["n1"]);
+  assert.deepEqual(ids({ heute: "2031-01-01", region: "ost" }), ["o1"], "bei der ausgeschlossenen Lage nur die eigene Fassung");
+  // Ohne Vorgabe zählt das heutige Datum; eine unbrauchbare Vorgabe wird übergangen.
+  assert.match(eingabeLesen({}, daten).eingabe.heute, /^\d{4}-\d{2}-\d{2}$/);
+  assert.match(eingabeLesen({ heute: "morgen" }, daten).eingabe.heute, /^\d{4}-\d{2}-\d{2}$/);
+  // Tippfehler in der Quelle fallen beim Paketbau auf.
+  const kaputt = structuredClone(BEISPIEL);
+  kaputt.regeln[0].gilt_bis = "31.12.2030";
+  kaputt.regeln[1].nicht_region = ["mond"];
+  assert.throws(() => paketBauen(kaputt), (fehler) => {
+    for (const teil of ["gilt_bis muss ein Datum JJJJ-MM-TT sein", "nicht_region mond unbekannt"]) assert.ok(fehler.message.includes(teil), teil);
+    return true;
+  });
+});
+
 test("Kurzfassung: zwei Sätze, Abkürzungen beenden keinen Satz", () => {
   assert.equal(kurzfassung("Eins. Zwei. Drei."), "Eins. Zwei.");
   assert.equal(kurzfassung("Bis 01.02.2030 gilt es, z. B. für Öfen. Danach nicht. Rest."), "Bis 01.02.2030 gilt es, z. B. für Öfen. Danach nicht.");
