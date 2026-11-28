@@ -125,7 +125,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 [^1]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 650i. https://www.gesetze-im-internet.de/bgb/__650i.html (abgerufen am 2026-11-14).
 [^2]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 650k. https://www.gesetze-im-internet.de/bgb/__650k.html (abgerufen am 2026-11-14).
-[^3]: DIN Media: DIN 4109-1:2018-01, Schallschutz im Hochbau – Teil 1: Mindestanforderungen, Status gültig, ersetzt DIN 4109-1:2016-07. https://www.dinmedia.de/en/standard/din-4109-1/280079001 (abgerufen am 2026-09-27). Inhaltlich bestätigt durch: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. Eine Einführung mit Berechnungsbeispielen. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 480. ISBN 978-3-658-42604-0.
+[^3]: DIN Media: DIN 4109-1:2018-01, Schallschutz im Hochbau – Teil 1: Mindestanforderungen, Status gültig, ersetzt DIN 4109-1:2016-07. https://www.dinmedia.de/en/standard/din-4109-1/280079001 (abgerufen am 2026-09-27).
 [^4]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 650m. https://www.gesetze-im-internet.de/bgb/__650m.html (abgerufen am 2026-11-14).
 [^5]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 640 Abs. 2. https://www.gesetze-im-internet.de/bgb/__640.html (abgerufen am 2026-11-14).
 [^6]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 634a Abs. 1 Nr. 2 und Abs. 2. https://www.gesetze-im-internet.de/bgb/__634a.html (abgerufen am 2026-11-14).

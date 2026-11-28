@@ -31,7 +31,7 @@ regelwerke_bestaetigt: "§ 4 Abs. 3 VOB/B, § 13 Abs. 3 VOB/B, § 6 Abs. 1 VOB/B
 
 # Bedenkenanzeige nach § 4 Abs. 3 VOB/B: Musterschreiben
 
-Der Untergrund ist sichtbar zu feucht. Die Bauleitung drängt auf den Estrich, der Termin steht. Wer jetzt einfach ausführt, haftet in der Regel für den Mangel. Halten Sie als Auftragnehmer die geplante Ausführungsart, die vom Auftraggeber bereitgestellten Stoffe oder die Arbeiten vorleistender Unternehmen für bedenklich, müssen Sie das dem Auftraggeber schriftlich mitteilen. So will es § 4 Abs. 3 VOB/B: unverzüglich und nach Möglichkeit, bevor Sie mit den Arbeiten anfangen.[^1] Das Musterschreiben zum Herunterladen führt Sie durch Befund, drohende Folgen, Fristsetzung und Anlagen. Eine Prüfliste am Ende geht die Punkte durch, an denen Bedenkenanzeigen in der Praxis scheitern.
+Der Untergrund ist sichtbar zu feucht. Die Bauleitung drängt auf den Estrich, der Termin steht. Wer jetzt einfach ausführt, haftet in der Regel für den Mangel. Halten Sie als Auftragnehmer die geplante Ausführungsart, die vom Auftraggeber bereitgestellten Stoffe oder die Arbeiten vorleistender Unternehmen für bedenklich, müssen Sie das dem Auftraggeber schriftlich mitteilen. So will es § 4 Abs. 3 VOB/B: unverzüglich und nach Möglichkeit, bevor Sie mit den Arbeiten anfangen. Das Musterschreiben zum Herunterladen führt Sie durch Befund, drohende Folgen, Fristsetzung und Anlagen. Eine Prüfliste am Ende geht die Punkte durch, an denen Bedenkenanzeigen in der Praxis scheitern.
 
 ## Wofür das Musterschreiben zur Bedenkenanzeige gut ist
 
@@ -43,7 +43,7 @@ Der Anzeige geht eine Prüfung voraus. Sie prüfen die Vorgaben des Auftraggeber
 
 ## Die drei Fälle, in denen Sie Bedenken anmelden müssen
 
-Die Vorschrift nennt drei Gegenstände einer Bedenkenanzeige. Der erste ist die vorgesehene Art der Ausführung. Dazu zählt ausdrücklich auch die Sicherung gegen Unfallgefahren.[^1] Gemeint sind die Planung, das Leistungsverzeichnis und die Anordnungen des Auftraggebers.
+Die Vorschrift nennt drei Gegenstände einer Bedenkenanzeige. Der erste ist die vorgesehene Art der Ausführung. Dazu zählt ausdrücklich auch die Sicherung gegen Unfallgefahren. Gemeint sind die Planung, das Leistungsverzeichnis und die Anordnungen des Auftraggebers.
 
 Zweitens geht es um die Qualität der Stoffe und Bauteile, die der Auftraggeber selbst beistellt.
 
@@ -55,7 +55,7 @@ Das Musterschreiben trennt vier Schritte: den Befund mit Ort, Datum und Maßanga
 
 ## Zeitpunkt und Nachweis
 
-Möglichst liegt die Anzeige vor Beginn der Arbeiten.[^1]
+Möglichst liegt die Anzeige vor Beginn der Arbeiten.
 
 Denken Sie an den Nachweis. Das Musterschreiben enthält eine Fristsetzung. Die Prüfliste erinnert an Einwurfeinschreiben, Boten oder Empfangsbestätigung und an die Kopie für die Bauakte.
 
@@ -75,7 +75,7 @@ Bei streitigen Nachträgen und Bauzeitfragen begleitet unser Büro Auftragnehmer
 
 **Was unterscheidet die Bedenkenanzeige von der Behinderungsanzeige?**
 
-Die Bedenkenanzeige betrifft die Qualität: Sie warnt vor einem drohenden Mangel und kann Sie von der Mängelhaftung befreien.[^2] Die Behinderungsanzeige betrifft die Zeit: Sie meldet, dass Sie in der ordnungsgemäßen Ausführung behindert sind.[^3] Beide Schreiben haben unterschiedliche Voraussetzungen und Wirkungen. Wenn eine offene Entscheidung des Auftraggebers Ihren Ablauf stört, brauchen Sie beide.
+Die Bedenkenanzeige betrifft die Qualität: Sie warnt vor einem drohenden Mangel und kann Sie von der Mängelhaftung befreien. Die Behinderungsanzeige betrifft die Zeit: Sie meldet, dass Sie in der ordnungsgemäßen Ausführung behindert sind. Beide Schreiben haben unterschiedliche Voraussetzungen und Wirkungen. Wenn eine offene Entscheidung des Auftraggebers Ihren Ablauf stört, brauchen Sie beide.
 
 ## Hinweis
 
@@ -89,6 +89,3 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 ## Quellen und Fußnoten
 
-[^1]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 143. ISBN 978-3-410-61299-5. Ausgabe der VOB/B bestätigt durch: DIN Media: VOB/B 2016 – Bekanntmachung der Vergabe- und Vertragsordnung für Bauleistungen, Teil A (VOB/A) und Teil B (VOB/B), Ausgabe 2016. Ausgabedatum 2016-01-07. https://www.dinmedia.de/de/bekanntmachung/vob-b-2016/249355064 (abgerufen am 2026-09-27).
-[^2]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 152. ISBN 978-3-410-61299-5.
-[^3]: VOB. Vergabe- und Vertragsordnung für Bauleistungen. Berlin: Beuth Verlag GmbH, 2019, S. 145. ISBN 978-3-410-61299-5.

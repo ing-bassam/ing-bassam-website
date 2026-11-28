@@ -27,7 +27,7 @@ fachlich_geprueft_von:
 fachlich_geprueft_am:
 wortzahl: 1710
 lesezeit: 9 Minuten
-fussnoten: 4
+fussnoten: 1
 quellen_geprueft: 2
 zahlenwerte_norm: 0
 todos: 0
@@ -44,7 +44,7 @@ Den Streit trug ein Bauvertrag über die energetische Sanierung eines Mehrpartei
 
 Die maßgeblichen Erklärungen des Bauunternehmens stehen in zwei E-Mails. Am 16. Januar 2024 schrieb sein Geschäftsführer, jedes Zugeständnis erfolge nur auf der Grundlage einer vorher vertraglich vereinbarten Kompensation (Rn. 2). Die Auftraggeberin antwortete zwei Tage später, das Baurecht kenne keine Änderungskündigung (Rn. 2). Für die Verzögerungen sei sie nicht verantwortlich (Rn. 2). Am 1. Februar 2024 schrieb der Geschäftsführer, eine Fortführung der Leistungen komme auf eine vorherige spezifizierte Vereinbarung an (Rn. 2).
 
-Mit Schreiben vom 2. Februar 2024 kündigte die Auftraggeberin den Bauvertrag fristlos aus wichtigem Grund (Rn. 3). Eine Kündigung aus wichtigem Grund ist die fristlose Beendigung eines Bauvertrags wegen Unzumutbarkeit der weiteren Zusammenarbeit. Das Bürgerliche Gesetzbuch regelt sie in § 648a BGB; entscheidend ist, ob das Vertrauensverhältnis schwer gestört ist[^2]. Der Beschluss selbst nennt diese Vorschrift nicht. Die Auftraggeberin berief sich auf eine ernsthafte und endgültige Erfüllungsverweigerung des Unternehmens (Rn. 3). Sie hielt ihm also vor, die geschuldete Leistung endgültig nicht mehr erbringen zu wollen. Zwischen der ersten der beiden E-Mails und der Kündigung lagen 17 Tage (Rn. 2, 3).
+Mit Schreiben vom 2. Februar 2024 kündigte die Auftraggeberin den Bauvertrag fristlos aus wichtigem Grund (Rn. 3). Eine Kündigung aus wichtigem Grund ist die fristlose Beendigung eines Bauvertrags wegen Unzumutbarkeit der weiteren Zusammenarbeit. Das Bürgerliche Gesetzbuch regelt sie in § 648a BGB; entscheidend ist, ob das Vertrauensverhältnis schwer gestört ist. Der Beschluss selbst nennt diese Vorschrift nicht. Die Auftraggeberin berief sich auf eine ernsthafte und endgültige Erfüllungsverweigerung des Unternehmens (Rn. 3). Sie hielt ihm also vor, die geschuldete Leistung endgültig nicht mehr erbringen zu wollen. Zwischen der ersten der beiden E-Mails und der Kündigung lagen 17 Tage (Rn. 2, 3).
 
 Der Streit ging danach über zwei Instanzen. Das Landgericht Berlin II entschied am 4. August 2025 und hielt sein Versäumnisurteil vom 5. Mai 2025 teilweise aufrecht (Rn. 4). Es verurteilte das Bauunternehmen, gezahlte Vorschüsse von 60.606,08 Euro zurückzuzahlen (Rn. 4). Außerdem sollte es für die bis zur Kündigung ausgeführten Leistungen eine Schlussrechnung über 18.350,00 Euro netto legen (Rn. 4). Die Klage auf Ersatz bereits entstandener Mangelbeseitigungskosten und Verzugsschäden wies das Landgericht ab (Rn. 4). Es stellte aber fest, dass das Unternehmen für weitere Schäden aus Verzug, Kündigung und verspäteter Rechnungslegung haftet (Rn. 4).
 
@@ -68,11 +68,11 @@ Der einzige Leitsatz des Beschlusses betrifft nicht den Bau, sondern die Kosten.
 
 Der Fall zeigt, wie stark es auf den Wortlaut der eigenen Schreiben ankommt. Das Kammergericht hat nicht den Baustillstand bewertet, sondern zwei E-Mails (Rn. 20, 21). Maßgeblich war die Erklärung, nur gegen eine vorher vereinbarte höhere Vergütung weiterzuarbeiten (Rn. 21). Wer als Bauherr solche Schreiben erhält, sollte sie vollständig aufbewahren, mit Datum, Absender und Anhängen. Ob daraus im Einzelfall ein Kündigungsrecht folgt, beurteilt ein Rechtsanwalt. Das Kammergericht hat allein über diesen Vertrag und diese Erklärungen entschieden (Rn. 21, 22).
 
-Ein wichtiger Grund setzt allgemein mehr voraus als Ärger über Geld. Das Vertrauen zwischen den Parteien muss erheblich gestört sein[^3]. Ob ein solcher Grund besteht, entscheiden immer die Umstände des konkreten Falls[^2]. Aus dem Beschluss lässt sich deshalb keine allgemeine Regel ableiten. Seine Begründung enthält weder eine Schwelle noch einen Katalog von Kündigungsgründen (Rn. 21, 22).
+Ein wichtiger Grund setzt allgemein mehr voraus als Ärger über Geld. Das Vertrauen zwischen den Parteien muss erheblich gestört sein. Ob ein solcher Grund besteht, entscheiden immer die Umstände des konkreten Falls. Aus dem Beschluss lässt sich deshalb keine allgemeine Regel ableiten. Seine Begründung enthält weder eine Schwelle noch einen Katalog von Kündigungsgründen (Rn. 21, 22).
 
 Für die eigene Dokumentation folgt daraus eine einfache Linie. Halten Sie schriftlich fest, welche Leistung noch offen ist und wann sie vereinbart war. Im entschiedenen Fall stand die Verrohrung der Kollektoranlage im Vertrag unter den Ausführungsfristen (Rn. 21). Genau diese Vertragsklausel trug den ersten Teil der Begründung (Rn. 21). Ein Bauzeitenplan, ein Leistungsverzeichnis und klare Fristen sind deshalb kein Papierkram, sondern Ihr Nachweis.
 
-Nach einer Kündigung wird der erreichte Leistungsstand zur zentralen Frage. Jede Partei kann von der anderen fordern, gemeinsam mit ihr festzustellen, welcher Leistungsstand erreicht ist[^4]. Bleibt eine Seite einem gemeinsamen Termin ohne sachlichen Grund fern, trägt sie die Beweislast für den Leistungsstand zum Zeitpunkt der Kündigung[^4]. Wer die Beweislast trägt, muss den Zustand nachweisen; sonst unterliegt er in diesem Punkt. Bei der Fristsetzung für die Feststellung ist auf den Beginn der Arbeiten des Nachfolgeunternehmers zu achten[^4]. Eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) hält den Zustand fest, bevor eine andere Firma weiterbaut.
+Nach einer Kündigung wird der erreichte Leistungsstand zur zentralen Frage. Jede Partei kann von der anderen fordern, gemeinsam mit ihr festzustellen, welcher Leistungsstand erreicht ist. Bleibt eine Seite einem gemeinsamen Termin ohne sachlichen Grund fern, trägt sie die Beweislast für den Leistungsstand zum Zeitpunkt der Kündigung. Wer die Beweislast trägt, muss den Zustand nachweisen; sonst unterliegt er in diesem Punkt. Bei der Fristsetzung für die Feststellung ist auf den Beginn der Arbeiten des Nachfolgeunternehmers zu achten. Eine [technische Beweissicherung](https://ing-bassam.de/leistungen/technische-beweissicherung/) hält den Zustand fest, bevor eine andere Firma weiterbaut.
 
 Auch die Geldfolgen des Falls sind aufschlussreich. Das Bauunternehmen trug die Kosten des Berufungsverfahrens, einschließlich der Kosten der Anschlussberufung (Rn. 24). Vor dem Landgericht musste es Vorschüsse von 60.606,08 Euro zurückzahlen (Rn. 4). Für die bis zur Kündigung erbrachten Leistungen musste es eine Schlussrechnung über 18.350,00 Euro netto legen (Rn. 4). Wie Kosten und Vergütung in einem anderen Verfahren verteilt würden, lässt sich daraus nicht ableiten; solche Fragen gehören in anwaltliche Hände.
 
@@ -98,7 +98,7 @@ Im entschiedenen Fall musste das Bauunternehmen gezahlte Vorschüsse von 60.606,
 
 **Was sollte ich festhalten, wenn es auf der Baustelle eskaliert?**
 
-Sichern Sie zuerst den Schriftverkehr vollständig, mit Datum, Absender und Anhängen. Halten Sie fest, welche Leistung vereinbart war und welche fehlt. Fotografieren Sie den erreichten Zustand mit Maßstab und Datum, bevor jemand weiterarbeitet. Ist der Vertrag gekündigt, kann jede Partei von der anderen verlangen, gemeinsam festzuhalten, wie weit die Leistung gediehen ist[^4]. Das Kammergericht hat im besprochenen Fall die beiden E-Mails des Geschäftsführers und die vertragliche Regelung zu den Ausführungsfristen bewertet (Rn. 21).
+Sichern Sie zuerst den Schriftverkehr vollständig, mit Datum, Absender und Anhängen. Halten Sie fest, welche Leistung vereinbart war und welche fehlt. Fotografieren Sie den erreichten Zustand mit Maßstab und Datum, bevor jemand weiterarbeitet. Ist der Vertrag gekündigt, kann jede Partei von der anderen verlangen, gemeinsam festzuhalten, wie weit die Leistung gediehen ist. Das Kammergericht hat im besprochenen Fall die beiden E-Mails des Geschäftsführers und die vertragliche Regelung zu den Ausführungsfristen bewertet (Rn. 21).
 
 ## Hinweis
 
@@ -113,6 +113,4 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: KG Berlin, 7. Zivilsenat: Beschluss vom 21.04.2026 – 7 U 76/25, ECLI:DE:KG:2026:0421.7U76.25.00. https://gesetze.berlin.de/perma?d=NJRE001652211 (abgerufen am 2026-09-27).
-[^2]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 175. ISBN 978-3-658-32822-1.
-[^3]: Zanner, Christian; Glönkler, Iris: Baumangelhaftung nach Ansprüchen. Entscheidungshilfen für Auftraggeber und Auftragnehmer. 2. Aufl. Wiesbaden: Springer Vieweg, 2024, S. 158. ISBN 978-3-658-44068-8.
-[^4]: Linnemann, Matthias; Kaltenborn, Sonja; Bahner, Andreas: Kündigungsvergütung von Bauverträgen. Grundlagen und Empfehlungen zur korrekten Abrechnung. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 12–13. ISBN 978-3-658-42892-1.
+

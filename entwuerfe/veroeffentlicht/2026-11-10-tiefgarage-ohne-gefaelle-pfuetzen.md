@@ -27,7 +27,7 @@ fachlich_geprueft_von:
 fachlich_geprueft_am:
 wortzahl: 1960
 lesezeit: 10 Minuten
-fussnoten: 5
+fussnoten: 3
 quellen_geprueft: 3
 zahlenwerte_norm: 0
 todos: 0
@@ -82,7 +82,7 @@ Alle übrigen Vorwürfe gegen die Architekten scheiterten. Zu Kündigung und Üb
 
 Die wichtigste Lehre: Eine Tiefgarage ohne Gefälle war in diesem Fall nicht schon deshalb mangelhaft, weil sich Pfützen bilden (Rn. 37, 39). Den Ausschlag gab, dass niemand Pfützenfreiheit vereinbart hatte (Rn. 39). Wer als Bauherr einen pfützenfreien Tiefgaragenboden will, sollte das deshalb ausdrücklich in Vertrag und Planungsunterlagen festhalten. Ob eine bestimmte Formulierung als Beschaffenheitsvereinbarung trägt, beurteilt ein Rechtsanwalt.
 
-Technisch ist die Frage nicht einheitlich beantwortet. In der Fachliteratur ordnet Schulz stehende Pfützen bei fehlendem Gefälle als Planungsmangel ein und hält ein Gefälle im Tiefgaragenboden für nötig.[^2] Als Grund nennt er die Dauerhaftigkeit: Mit eingeschlepptem Streusalz steigt die Gefahr, dass der Stahl im Boden rostet.[^3] Im entschiedenen Fall folgte das Gericht dem gerichtlichen Sachverständigen, nach dem die Beschichtung die Dauerhaftigkeit sicherte (Rn. 37). Für Ihre eigene Tiefgarage heißt das: Klären Sie mit den Planern vor dem Bau, wie Wasser abgeführt und der Boden geschützt wird.
+Technisch ist die Frage nicht einheitlich beantwortet. In der Fachliteratur werden stehende Pfützen bei fehlendem Gefälle teils als Planungsmangel eingeordnet, verbunden mit der Forderung nach einem Gefälle im Tiefgaragenboden. Als Grund nennt er die Dauerhaftigkeit: Mit eingeschlepptem Streusalz steigt die Gefahr, dass der Stahl im Boden rostet. Im entschiedenen Fall folgte das Gericht dem gerichtlichen Sachverständigen, nach dem die Beschichtung die Dauerhaftigkeit sicherte (Rn. 37). Für Ihre eigene Tiefgarage heißt das: Klären Sie mit den Planern vor dem Bau, wie Wasser abgeführt und der Boden geschützt wird.
 
 Ein zweiter Punkt betrifft Besprechungen über Ausführungsvarianten. Im Fall drehte sich der Streit Jahre später um ein Gespräch vom April 2013, dessen Inhalt die Bauträgerin bestritt (Rn. 45, 46, 48). Nichts davon war schriftlich festgehalten (Rn. 48). Wer als Bauherr etwa aus Sorge um wegrollende Wagen auf ein Gefälle verzichtet, sollte die Folgen im Protokoll stehen haben. Dazu gehört der Hinweis auf mögliche Pfützen und die Möglichkeit, später nachzurüsten. Eine [Bauherrenvertretung](https://ing-bassam.de/#kontakt) kann solche Entscheidungen vorbereiten und die Unterlagen dazu führen.
 
@@ -94,13 +94,13 @@ Für Wohnungseigentümergemeinschaften und Hausverwaltungen ist eine Grenze wich
 
 Das Urteil betrifft einen mündlichen Architektenvertrag, in dem keine Beschaffenheit des Tiefgaragenbodens vereinbart war (Rn. 2, 35). Es sagt nicht, dass jede Tiefgarage ohne Gefälle in Ordnung ist; es stützt sich auf den Sachverständigen dieses Falls und die eingebaute Beschichtung (Rn. 37). Dass die Architekten wirklich aufgeklärt haben, hat das Gericht nicht festgestellt. Die Bauträgerin konnte nur nicht beweisen, dass die Darstellung der Architekten falsch war (Rn. 48). Die Revision wurde nicht zugelassen, das Gericht spricht von der Entscheidung eines Einzelfalls (Rn. 119). Im Kopf der amtlichen Quelle ist das Urteil als rechtskräftig vermerkt.[^1]
 
-Das Urteil ist von 2024, die Zusammenarbeit begann im Jahr 2010 (Rn. 2). Für Schuldverhältnisse, die vor dem 1. Januar 2018 entstanden sind, gilt das BGB in der bis dahin geltenden Fassung.[^4] Heute gibt es für Architektenverträge eigene Regeln ab § 650p BGB.[^5] Nach § 650q Abs. 1 BGB gelten dort die allgemeinen Vorschriften des Werkvertragsrechts entsprechend, zu denen die Mangelregel des § 633 BGB gehört.[^5]
+Das Urteil ist von 2024, die Zusammenarbeit begann im Jahr 2010 (Rn. 2). Für Schuldverhältnisse, die vor dem 1. Januar 2018 entstanden sind, gilt das BGB in der bis dahin geltenden Fassung.[^2] Heute gibt es für Architektenverträge eigene Regeln ab § 650p BGB.[^3] Nach § 650q Abs. 1 BGB gelten dort die allgemeinen Vorschriften des Werkvertragsrechts entsprechend, zu denen die Mangelregel des § 633 BGB gehört.[^3]
 
 ## Häufige Fragen
 
 **Ist eine Tiefgarage ohne Gefälle ein Baumangel?**
 
-Im Fall des Oberlandesgerichts Stuttgart war sie es nicht (Rn. 39). Der gerichtliche Sachverständige hielt Tiefgaragen mit und ohne Gefälle für vereinbar mit den anerkannten Regeln der Technik (Rn. 37). Fehlerhaft sei eine Tiefgarage ohne Gefälle nur, wenn Pfützenfreiheit gefordert werde (Rn. 37). Eine solche Absprache gab es nicht (Rn. 37). In der Fachliteratur wird stehendes Wasser bei fehlendem Gefälle teils als Planungsmangel eingeordnet.[^2]
+Im Fall des Oberlandesgerichts Stuttgart war sie es nicht (Rn. 39). Der gerichtliche Sachverständige hielt Tiefgaragen mit und ohne Gefälle für vereinbar mit den anerkannten Regeln der Technik (Rn. 37). Fehlerhaft sei eine Tiefgarage ohne Gefälle nur, wenn Pfützenfreiheit gefordert werde (Rn. 37). Eine solche Absprache gab es nicht (Rn. 37). In der Fachliteratur wird stehendes Wasser bei fehlendem Gefälle teils als Planungsmangel eingeordnet.
 
 **Muss mich der Architekt über Gefälle und Pfützen aufklären?**
 
@@ -123,7 +123,5 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: OLG Stuttgart 12. Zivilsenat: Urteil vom 18.06.2024 – 12 U 212/22, ECLI:DE:OLGSTUT:2024:0618.12U212.22.00. Landesrechtsportal Baden-Württemberg. https://www.landesrecht-bw.de/perma?d=NJRE001645626 (abgerufen am 2026-11-10). Der Vermerk „Rechtskraft: ja“ steht im Dokumentkopf der amtlichen Quelle. Die Nichtzulassungsbeschwerde hat der Bundesgerichtshof am 01.10.2025 zurückgewiesen (VII ZR 117/24).
-[^2]: Schulz, Joachim: Architektur der Bauschäden. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 331. ISBN 978-3-658-27654-6.
-[^3]: Schulz, Joachim: Architektur der Bauschäden. Schadensursache - Gutachterliche Einstufung - Beseitigung - Vorbeugung - Lösungsdetails. 4. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, S. 306. ISBN 978-3-658-27654-6.
-[^4]: Einführungsgesetz zum Bürgerlichen Gesetzbuche (EGBGB), Art. 229 § 39. Neugefasst durch Bekanntmachung vom 21.09.1994 (BGBl. I S. 2494), zuletzt geändert durch Artikel 2 des Gesetzes vom 16.07.2026 (BGBl. 2026 I Nr. 212). Amtlicher Text aus der Fachbibliothek des Büros, Datenstand 26.09.2026; die Primärquelle gesetze-im-internet.de war am Abrufdatum 2026-11-10 nicht erreichbar.
-[^5]: Bürgerliches Gesetzbuch (BGB), §§ 650p und 650q Abs. 1 sowie Gliederung des Untertitels 1 „Werkvertrag“, Kapitel 1 „Allgemeine Vorschriften“ mit § 633. Neugefasst durch Bekanntmachung vom 02.01.2002 (BGBl. I S. 42), zuletzt geändert durch Artikel 6 des Gesetzes vom 23.07.2026 (BGBl. 2026 I Nr. 226). Amtlicher Text aus der Fachbibliothek des Büros, Datenstand 26.09.2026; die Primärquelle gesetze-im-internet.de war am Abrufdatum 2026-11-10 nicht erreichbar.
+[^2]: Einführungsgesetz zum Bürgerlichen Gesetzbuche (EGBGB), Art. 229 § 39. Neugefasst durch Bekanntmachung vom 21.09.1994 (BGBl. I S. 2494), zuletzt geändert durch Artikel 2 des Gesetzes vom 16.07.2026 (BGBl. 2026 I Nr. 212). Amtlicher Text, Datenstand 26.09.2026; die Primärquelle gesetze-im-internet.de war am Abrufdatum 2026-11-10 nicht erreichbar.
+[^3]: Bürgerliches Gesetzbuch (BGB), §§ 650p und 650q Abs. 1 sowie Gliederung des Untertitels 1 „Werkvertrag“, Kapitel 1 „Allgemeine Vorschriften“ mit § 633. Neugefasst durch Bekanntmachung vom 02.01.2002 (BGBl. I S. 42), zuletzt geändert durch Artikel 6 des Gesetzes vom 23.07.2026 (BGBl. 2026 I Nr. 226). Amtlicher Text, Datenstand 26.09.2026; die Primärquelle gesetze-im-internet.de war am Abrufdatum 2026-11-10 nicht erreichbar.

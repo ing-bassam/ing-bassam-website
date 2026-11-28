@@ -117,6 +117,6 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 ## Quellen und Fußnoten
 
 [^1]: OLG Karlsruhe 19. Zivilsenat: Urteil vom 03.06.2025 – 19 U 144/24, ECLI:DE:OLGKARL:2025:0603.19U144.24.00. https://www.landesrecht-bw.de/perma?d=NJRE001613261 (abgerufen am 2026-11-10).
-[^2]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch (BGB), § 280 Abs. 2 und § 286, heutiger Wortlaut, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/ (abgerufen am 2026-11-10, Wortlaut geprüft am amtlichen Text der Fachbibliothek, Datenstand 2026-09-26).
+[^2]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch (BGB), § 280 Abs. 2 und § 286, heutiger Wortlaut, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/ (abgerufen am 2026-11-10, Wortlaut geprüft am amtlichen Text, Datenstand 2026-09-26).
 [^3]: Bundesministerium der Justiz: Zivilprozessordnung (ZPO), § 287 Abs. 1, zuletzt geändert durch Artikel 1 des Gesetzes vom 20. Mai 2026 (BGBl. 2026 I Nr. 152). https://www.gesetze-im-internet.de/zpo/__287.html (abgerufen am 2026-11-21).
-[^4]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch (BGB), § 640 Abs. 1, heutiger Wortlaut, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/ (abgerufen am 2026-11-10, Wortlaut geprüft am amtlichen Text der Fachbibliothek, Datenstand 2026-09-26).
+[^4]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch (BGB), § 640 Abs. 1, heutiger Wortlaut, zuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226. https://www.gesetze-im-internet.de/bgb/ (abgerufen am 2026-11-10, Wortlaut geprüft am amtlichen Text, Datenstand 2026-09-26).

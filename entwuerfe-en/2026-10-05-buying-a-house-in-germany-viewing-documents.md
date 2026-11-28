@@ -26,7 +26,7 @@ The checklist is deliberately not a survey. It does not value the purchase price
 
 The first part starts before the appointment. Request the land register extract (Grundbuchauszug) and read section II (Abteilung II). It records the encumbrances on the property – except mortgages, land charges and annuity charges – as well as restrictions on the owner's right to dispose of it.[^gbv] A neighbour's right of way appears there, not in the sales brochure. Also ask for the building permit (Baugenehmigung), the approved plans and records of modernisations with the year in which each was carried out.
 
-You do not have to ask for the energy performance certificate (Energieausweis). When a property is sold, the seller or the estate agent must present the certificate or a copy to the prospective buyer at the latest at the viewing.[^geg] Ask for it if it is not on the table. The complete house file (Hausakte) is also useful. It includes the structural calculations, the working drawings, the building permit, a soil report and a list of the contractors who built the house.[^schulz-596]
+You do not have to ask for the energy performance certificate (Energieausweis). When a property is sold, the seller or the estate agent must present the certificate or a copy to the prospective buyer at the latest at the viewing.[^geg] Ask for it if it is not on the table. The complete house file (Hausakte) is also useful. It includes the structural calculations, the working drawings, the building permit, a soil report and a list of the contractors who built the house.
 
 Ask, too, how the living area (Wohnfläche) was calculated. The German living area regulation (Wohnflächenverordnung) has to be applied when the living area is calculated under the act on the promotion of social housing.[^woflv] In a private sale, a different basis may therefore have been used. Sloping ceilings, balconies and basement rooms are counted differently depending on the basis.
 
@@ -38,13 +38,13 @@ Respect the limit of self-help. You look; you do not knock anything open, you do
 
 ## What to look at closely
 
-The basement is the most important part. Ask whether waterproofing was added later and by which method. If no waterproofing was ever installed, a damp basement is to be expected in an old building.[^schulz-596] That need not be a problem as long as you only store things there that do not mind moisture – but it is a problem for your plans if you want to set up a study downstairs. A musty smell, flaking plaster and white salt efflorescence are the signs to look for.
+The basement is the most important part. Ask whether waterproofing was added later and by which method. If no waterproofing was ever installed, a damp basement is to be expected in an old building. That need not be a problem as long as you only store things there that do not mind moisture – but it is a problem for your plans if you want to set up a study downstairs. A musty smell, flaking plaster and white salt efflorescence are the signs to look for.
 
-In the bathroom, look at the joints around the bath and the shower. An elastic joint between bath and wall is not waterproofing.[^schulz-baeder] If water runs behind it, this cannot be seen from the outside.[^schulz-baeder] That is why the checklist has a separate point for the rooms below the bathrooms. A stain on the basement ceiling under the bathroom tells you more than a freshly renewed silicone joint in the bathroom itself.
+In the bathroom, look at the joints around the bath and the shower. An elastic joint between bath and wall is not waterproofing. If water runs behind it, this cannot be seen from the outside. That is why the checklist has a separate point for the rooms below the bathrooms. A stain on the basement ceiling under the bathroom tells you more than a freshly renewed silicone joint in the bathroom itself.
 
-In the attic, the roof structure is exposed. Look for water marks, exit holes, bore dust and fungal strands. Timber beam floors infested by wood-destroying fungi are often no longer fully load-bearing, so that propping becomes necessary immediately.[^stahr] If you see anything like this, do not step any further onto that area. The finding belongs in professional hands, not in a cost estimate in the car park.
+In the attic, the roof structure is exposed. Look for water marks, exit holes, bore dust and fungal strands. Timber beam floors infested by wood-destroying fungi are often no longer fully load-bearing, so that propping becomes necessary immediately. If you see anything like this, do not step any further onto that area. The finding belongs in professional hands, not in a cost estimate in the car park.
 
-The year of construction decides the section on hazardous substances. Since 31 October 1993, the manufacture, placing on the market and use of asbestos and products containing asbestos have been banned in Germany; if construction began before that date, asbestos is presumed.[^uba-asbest] Candidates are fibre cement panels on roof and facade, floor coverings, adhesives and fillers. For older roof structures, ask about wood preservatives: organic agents such as PCP or lindane used to be applied, and they can pollute the indoor air.[^kaub]
+The year of construction decides the section on hazardous substances. Since 31 October 1993, the manufacture, placing on the market and use of asbestos and products containing asbestos have been banned in Germany; if construction began before that date, asbestos is presumed.[^uba-asbest] Candidates are fibre cement panels on roof and facade, floor coverings, adhesives and fillers. For older roof structures, ask about wood preservatives: organic agents such as PCP or lindane used to be applied, and they can pollute the indoor air.
 
 Heating, electrical installation, windows and roof are the items that make a used house expensive. Note the year and condition of each separately and sort the need for work into three levels: immediately, within the next five years, later. This shows you how much money you need to keep available on top of the purchase price.
 
@@ -116,11 +116,11 @@ The buyer's rights because of a defect are excluded if the buyer knows of the de
 
 **Which documents matter most before buying a house?**
 
-The most important are the land register extract, the building permit with the approved plans, the energy performance certificate and the records of modernisations with their years. Section II of the land register extract shows the encumbrances on the property and restrictions on the right of disposal.[^gbv] The plans show whether the building was built as approved. Structural calculations, a soil report and a list of the contractors are useful in addition.[^schulz-596]
+The most important are the land register extract, the building permit with the approved plans, the energy performance certificate and the records of modernisations with their years. Section II of the land register extract shows the encumbrances on the property and restrictions on the right of disposal.[^gbv] The plans show whether the building was built as approved. Structural calculations, a soil report and a list of the contractors are useful in addition.
 
 **Is a damp basement in an old house a defect?**
 
-If no waterproofing was ever installed, a damp basement is to be expected in an old building.[^schulz-596] For storing things that do not mind moisture, that may be acceptable; for a study or a guest room, it is not. Ask whether and how waterproofing was added later, and look for a musty smell, flaking plaster and salt efflorescence. Whether a damp basement counts as a defect in the legal sense in your purchase is a question for a lawyer.
+If no waterproofing was ever installed, a damp basement is to be expected in an old building. For storing things that do not mind moisture, that may be acceptable; for a study or a guest room, it is not. Ask whether and how waterproofing was added later, and look for a musty smell, flaking plaster and salt efflorescence. Whether a damp basement counts as a defect in the legal sense in your purchase is a question for a lawyer.
 
 **What does a survey before buying a house cost?**
 
@@ -142,17 +142,9 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Contact: inf
 
 [^geg]: Federal Ministry of Justice: Gesetz zur Einsparung von Energie und zur Modernisierung der Wärmeversorgung in Gebäuden (Gebäudemodernisierungsgesetz, German act on energy in buildings), § 80(3) and (4). https://www.gesetze-im-internet.de/geg/__80.html (accessed 2026-09-26).
 
-[^schulz-596]: Schulz, Joachim: Architektur der Bauschäden. Schadensursache – Gutachterliche Einstufung – Beseitigung – Vorbeugung – Lösungsdetails. 4th edition. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, pp. 596 f. ISBN 978-3-658-27654-6.
-
 [^woflv]: Federal Ministry of Justice: Verordnung zur Berechnung der Wohnfläche (living area regulation), § 1(1). https://www.gesetze-im-internet.de/woflv/__1.html (accessed 2026-09-26).
 
-[^schulz-baeder]: Schulz, Joachim: Bauschäden in Bädern und Nassräumen. Schadensursache – Gutachterliche Einstufung – Beseitigung – Vorbeugung – Lösungsdetails. 2nd edition. Wiesbaden: Springer Vieweg, 2026, p. 137. ISBN 978-3-658-49195-6.
-
-[^stahr]: Stahr, Michael (ed.): Bausanierung. Erkennen und Beheben von Bauschäden. 7th edition. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, p. 380. ISBN 978-3-658-28148-9.
-
 [^uba-asbest]: Umweltbundesamt (German Environment Agency): Asbest. https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/chemische-stoffe/asbest (accessed 2026-09-26). Confirmed by: Berufsgenossenschaft der Bauwirtschaft: Vom Wunderstoff zum Albtraum. Häufige Fragen zu Asbest. https://www.bgbau.de/themen/sicherheit-und-gesundheit/asbest/vom-wunderstoff-zum-albtraum-haeufige-fragen-zu-asbest (accessed 2026-09-26).
-
-[^kaub]: Kaub, Siegmund: Schadstoffe im Bauwesen. Basiswissen für Bau- und Immobilienfachleute. 4th edition. Wiesbaden: Springer Vieweg, 2024, p. 57. ISBN 978-3-658-45112-7.
 
 [^bgb-442]: Federal Ministry of Justice: Bürgerliches Gesetzbuch (German Civil Code), § 442(1). https://www.gesetze-im-internet.de/bgb/__442.html (accessed 2026-09-26).
 

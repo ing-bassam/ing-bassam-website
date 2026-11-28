@@ -117,6 +117,6 @@ Dieser Beitrag nennt keine Normen, Gesetze oder Urteile. Die Aussagen stützen s
 
 [^1]: Verbraucherzentrale: Wohngebäudeversicherung für Hausbesitzerinnen – ein absolutes Muss. https://www.verbraucherzentrale.de/wissen/geld-versicherungen/weitere-versicherungen/wohngebaeudeversicherung-fuer-hausbesitzerinnen-ein-absolutes-muss-40830 (abgerufen am 2026-10-02).
 [^2]: Gesamtverband der Deutschen Versicherungswirtschaft: So sind Schäden durch Naturgefahren versichert. https://www.gdv.de/gdv/themen/klima/so-sind-schaeden-durch-naturgefahren-versichert-11000 (abgerufen am 2026-10-02).
-[^3]: Umweltbundesamt: Häufige Fragen bei Schimmelbefall. https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/schimmel/haeufige-fragen-bei-schimmelbefall (abgerufen am 2026-10-02). Inhaltlich bestätigt durch: Schmidt, Peter; Windhausen, Saskia: Lohmeyer Praktische Bauphysik. 10. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2024, S. 385. ISBN 978-3-658-42604-0.
+[^3]: Umweltbundesamt: Häufige Fragen bei Schimmelbefall. https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/schimmel/haeufige-fragen-bei-schimmelbefall (abgerufen am 2026-10-02).
 [^4]: Umweltbundesamt: Asbest. https://www.umweltbundesamt.de/themen/gesundheit/umwelteinfluesse-auf-den-menschen/chemische-stoffe/asbest (abgerufen am 2026-10-02).
 [^5]: Verband Privater Bauherren: Gutachter Wasserschaden – Kosten und Ablauf im Überblick. https://www.vpb.de/beratung/allgemeine-themen/gutachter-wasserschaden (abgerufen am 2026-10-02).

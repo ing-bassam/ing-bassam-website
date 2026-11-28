@@ -20,9 +20,9 @@ The flat is bright, the bathroom is new, the price seems fair. Two years later, 
 
 The checklist is meant for private buyers of a flat, in existing buildings as well as in new ones. It does not replace a survey. It makes sure that you do not forget anything important when you are standing in the stairwell under time pressure, with other interested buyers around you.
 
-Anyone who buys a flat acquires two things at once: separate ownership of the flat (Sondereigentum) and a share in the common property (Gemeinschaftseigentum).[^wirth] Typical common property includes the roof, the facade, the stairwell, the basement or the outdoor areas.[^wirth] These parts cost money, even though they lie outside your front door.
+Anyone who buys a flat acquires two things at once: separate ownership of the flat (Sondereigentum) and a share in the common property (Gemeinschaftseigentum).[^weg-1] Typical common property includes the roof, the facade, the stairwell, the basement or the outdoor areas. These parts cost money, even though they lie outside your front door.
 
-Roughly speaking, whatever lies inside the flat is separate property, unless the building or the other flats depend on it.[^rode] Everything else is common property.[^rode] The exact allocation is set out in the declaration of division (Teilungserklärung) – the deed by which the building was divided into individual units. That is why the checklist starts with the documents and not with the bathroom.
+Roughly speaking, whatever lies inside the flat is separate property, unless the building or the other flats depend on it.[^weg-5] Everything else is common property. The exact allocation is set out in the declaration of division (Teilungserklärung) – the deed by which the building was divided into individual units. That is why the checklist starts with the documents and not with the bathroom.
 
 ## The documents to request
 
@@ -49,11 +49,11 @@ At the viewing, work from the outside in: first roof, facade, balconies and base
 
 How windows and balconies are allocated decides a lot of money. It is set out in the declaration of division, not in the purchase contract. Read the deed before the notary appointment and note who pays for windows, balcony floor coverings and railings.
 
-Look closely at balconies and roof terraces from below. The waterproofing of a building is a mandatory part of the common property.[^schulz-72] If it leaks, water gets into the floor slab underneath.[^schulz-72] Typical signs are water stains with dark edges, peeling ceiling paint and a musty smell in the rooms behind.[^schulz-72] Such traces on the neighbour's ceiling tell you more than a freshly painted balcony.
+Look closely at balconies and roof terraces from below. The waterproofing of a building is a mandatory part of the common property. If it leaks, water gets into the floor slab underneath. Typical signs are water stains with dark edges, peeling ceiling paint and a musty smell in the rooms behind. Such traces on the neighbour's ceiling tell you more than a freshly painted balcony.
 
-The energy performance certificate belongs in your documents. When a property is sold, the seller or the estate agent presents it to the prospective buyer at the latest at the viewing.[^willems] It refers to the whole building, even when a single flat is sold.[^willems] A consumption-based certificate (Verbrauchsausweis) shows measured values, and consumption depends heavily on the behaviour of the previous occupants.[^willems] So do not convert it into your own forecast of heating costs.
+The energy performance certificate belongs in your documents. When a property is sold, the seller or the estate agent presents it to the prospective buyer at the latest at the viewing.[^gmodg-80] It refers to the whole building, even when a single flat is sold. A consumption-based certificate (Verbrauchsausweis) shows measured values, and consumption depends heavily on the behaviour of the previous occupants. So do not convert it into your own forecast of heating costs.
 
-In the basement, it pays to look behind linings. Damp, musty basement rooms are a well-known sight in older buildings.[^schulz-278] Simply covering damp walls with plasterboard or tiles makes matters worse.[^schulz-278] A dry-looking wall lining is therefore no proof of a dry wall.
+In the basement, it pays to look behind linings. Damp, musty basement rooms are a well-known sight in older buildings. Simply covering damp walls with plasterboard or tiles makes matters worse. A dry-looking wall lining is therefore no proof of a dry wall.
 
 ## After the viewing: the evaluation
 
@@ -94,15 +94,15 @@ After the appointment comes the most important part. Sort your findings into urg
 
 The most common mistake is looking too narrowly. Anyone who only checks the flat overlooks the part of the building that causes the big bills. Roof, facade, pipes and lift are not in any brochure, but they are in the minutes of the owners' meetings.
 
-Cracks are often misjudged. As a rule, cracks are only the visible symptoms of a complex damage mechanism.[^froessel] The technical assessment of a crack can find that there is no technical defect, while the legal assessment of the same crack finds a defect.[^froessel] "Defect" (Mangel) is a legal term.[^froessel] Note location, length and course, and refrain from assessing it yourself.
+Cracks are often misjudged. As a rule, cracks are only the visible symptoms of a complex damage mechanism. The technical assessment of a crack can find that there is no technical defect, while the legal assessment of the same crack finds a defect. "Defect" (Mangel) is a legal term. Note location, length and course, and refrain from assessing it yourself.
 
-For a new flat bought from a developer (Bauträger), take a second look at the acceptance (Abnahme). For the acceptance of flats in an owners' association, a strict distinction must be made between separate property and common property.[^wuerfele] The buyer's acceptance of their own flat does not necessarily mean that they also accept the common property as essentially in accordance with the contract.[^wuerfele] What effect an acceptance clause in the purchase contract has is assessed by a lawyer (Rechtsanwalt); the checklist only records the technical condition. For the technical side, see our [new-build inspection and snagging](/en/new-build-inspection-berlin/) and the guide on [construction warranty periods](/en/guides/construction-warranty-periods-germany-bgb-vob/).
+For a new flat bought from a developer (Bauträger), take a second look at the acceptance (Abnahme). For the acceptance of flats in an owners' association, a strict distinction must be made between separate property and common property. The buyer's acceptance of their own flat does not necessarily mean that they also accept the common property as essentially in accordance with the contract. What effect an acceptance clause in the purchase contract has is assessed by a lawyer (Rechtsanwalt); the checklist only records the technical condition. For the technical side, see our [new-build inspection and snagging](/en/new-build-inspection-berlin/) and the guide on [construction warranty periods](/en/guides/construction-warranty-periods-germany-bgb-vob/).
 
-A completed sheet is a snapshot. An analysis of a building's condition is only valid for a limited time, and the individual building parts wear at different rates.[^stahr-31] A record from last year therefore does not replace your own walk through the building.
+A completed sheet is a snapshot. An analysis of a building's condition is only valid for a limited time, and the individual building parts wear at different rates. A record from last year therefore does not replace your own walk through the building.
 
 ## When a surveyor helps before the notary appointment
 
-For refurbishment projects, the specialist literature recommends that a competent specialist planner assesses the building after the owner's own visual survey.[^stahr-31] For buying a flat, the checklist is exactly this preliminary work. It records the condition far enough that an appointment with a surveyor stays short and affordable.
+For refurbishment projects, the specialist literature recommends that a competent specialist planner assesses the building after the owner's own visual survey. For buying a flat, the checklist is exactly this preliminary work. It records the condition far enough that an appointment with a surveyor stays short and affordable.
 
 A surveyor reads the documents of the owners' association, classifies the findings and estimates the maintenance backlog on the common property. They tell you which work on the building is due and what effort lies behind it. What a surveyor does not do: decide legal questions or give a guarantee against hidden damage.
 
@@ -118,11 +118,11 @@ The declaration of division with the community rules, the division plan, the min
 
 **Do windows and balconies belong to the flat or to the owners' association?**
 
-That depends on the declaration of division and cannot be answered in general. Roughly speaking, whatever lies inside the flat is separate property, unless the building or the other flats depend on it.[^rode] The waterproofing of a building is a mandatory part of the common property.[^schulz-72] On a balcony, the floor covering can therefore belong to the flat while the waterproofing membrane on the load-bearing slab underneath belongs to the common property.[^schulz-72]
+That depends on the declaration of division and cannot be answered in general. Roughly speaking, whatever lies inside the flat is separate property, unless the building or the other flats depend on it.[^weg-5] The waterproofing of a building is a mandatory part of the common property. On a balcony, the floor covering can therefore belong to the flat while the waterproofing membrane on the load-bearing slab underneath belongs to the common property.
 
 **Does the energy performance certificate tell me what heating will cost?**
 
-Not reliably. The certificate refers to the whole building, even when a single flat is sold.[^willems] A consumption-based certificate shows measured values, and consumption depends heavily on how the previous occupants heated and aired.[^willems] Use it to compare buildings, not as a forecast of your own heating costs.
+Not reliably. The certificate refers to the whole building, even when a single flat is sold. A consumption-based certificate shows measured values, and consumption depends heavily on how the previous occupants heated and aired. Use it to compare buildings, not as a forecast of your own heating costs.
 
 **Is the checklist enough without a surveyor?**
 
@@ -140,20 +140,9 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Contact: inf
 
 ## Sources and footnotes
 
-Like the German original, this guide cites no statutory provisions; all supported statements rely on the specialist literature.
+[^weg-1]: Bundesministerium der Justiz: Wohnungseigentumsgesetz (WEG), § 1 Begriffsbestimmungen, para. 2 and 5. https://www.gesetze-im-internet.de/woeigg/__1.html (accessed 2026-11-27).
 
-[^wirth]: Wirth, Axel; Pfisterer, Cornelius; Schellenberg, Barbara: Privates Baurecht praxisnah. Basiswissen mit Fallbeispielen. 3rd edition. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, p. 98. ISBN 978-3-658-32822-1.
+[^weg-5]: Bundesministerium der Justiz: Wohnungseigentumsgesetz (WEG), § 5 Gegenstand und Inhalt des Sondereigentums, para. 1 and 2. https://www.gesetze-im-internet.de/woeigg/__5.html (accessed 2026-11-27).
 
-[^rode]: Rode, Bernd; Weller, Wolfgang: AVA-Handbuch. Ausschreibung – Vergabe – Abrechnung – Haftung. 11th edition. Wiesbaden: Springer Vieweg, 2025, p. 169. ISBN 978-3-658-48052-3.
+[^gmodg-80]: Bundesministerium der Justiz: Gebäudemodernisierungsgesetz (GModG), § 80 para. 4. https://www.gesetze-im-internet.de/geg/__80.html (accessed 2026-11-27).
 
-[^schulz-72]: Schulz, Joachim: Architektur der Bauschäden. Schadensursache – Gutachterliche Einstufung – Beseitigung – Vorbeugung – Lösungsdetails. 4th edition. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, p. 72. ISBN 978-3-658-27654-6.
-
-[^willems]: Willems, Wolfgang M. (ed.): Lehrbuch der Bauphysik. Wärme – Feuchte – Klima – Schall – Licht – Brand. 9th edition. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, p. 187. ISBN 978-3-658-34093-3.
-
-[^schulz-278]: Schulz, Joachim: Architektur der Bauschäden. Schadensursache – Gutachterliche Einstufung – Beseitigung – Vorbeugung – Lösungsdetails. 4th edition. Wiesbaden: Springer Fachmedien Wiesbaden, 2020, p. 278. ISBN 978-3-658-27654-6.
-
-[^froessel]: Frössel, Frank: Risse in Gebäuden. Damit aus einer Fassade kein Ris(s)iko wird. 2nd edition. Wiesbaden: Springer Vieweg, 2025, p. 142. ISBN 978-3-658-47096-8.
-
-[^wuerfele]: Würfele, Falk; Bielefeld, Bert; Gralla, Mike: Bauobjektüberwachung. Kosten – Qualitäten – Termine – Organisation – Leistungsinhalt – Rechtsgrundlagen – Haftung – Vergütung. 3rd edition. Wiesbaden: Springer Fachmedien Wiesbaden, 2017, p. 113. ISBN 978-3-658-10039-1.
-
-[^stahr-31]: Stahr, Michael (ed.): Bausanierung. Erkennen und Beheben von Bauschäden. 7th edition. Wiesbaden: Springer Fachmedien Wiesbaden, 2022, p. 31. ISBN 978-3-658-28148-9.

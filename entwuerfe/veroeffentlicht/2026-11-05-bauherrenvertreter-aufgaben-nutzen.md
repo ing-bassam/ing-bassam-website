@@ -146,7 +146,7 @@ M. Sc. Karim Abu Elkheir, BIB Ingenieurbüro für Bauwesen, Berlin. Kontakt: inf
 
 ## Quellen und Fußnoten
 
-[^1]: DIN Media: DIN 276:2018-12 „Kosten im Bauwesen“, Status aktuell. https://www.dinmedia.de/en/standard/din-276/293154016 (abgerufen am 2026-11-05). Inhaltlich bestätigt durch: Siemon, Klaus D.; Speckhals, Raphael; Siemon, Anna: Baukostenplanung und -steuerung. bei Neu- und Umbauten. 7. Aufl. Wiesbaden: Springer Fachmedien Wiesbaden, 2021, S. 238. ISBN 978-3-658-28460-2.
+[^1]: DIN Media: DIN 276:2018-12 „Kosten im Bauwesen“, Status aktuell. https://www.dinmedia.de/en/standard/din-276/293154016 (abgerufen am 2026-11-05).
 [^2]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 164 Abs. 1. https://www.gesetze-im-internet.de/bgb/__164.html (abgerufen am 2026-11-14).
 [^3]: Bundesministerium der Justiz: Bürgerliches Gesetzbuch, § 167. https://www.gesetze-im-internet.de/bgb/__167.html (abgerufen am 2026-11-14).
 [^4]: Bundesministerium der Justiz: Baustellenverordnung (BaustellV), § 4 Beauftragung. https://www.gesetze-im-internet.de/baustellv/__4.html (abgerufen am 2026-11-14).
